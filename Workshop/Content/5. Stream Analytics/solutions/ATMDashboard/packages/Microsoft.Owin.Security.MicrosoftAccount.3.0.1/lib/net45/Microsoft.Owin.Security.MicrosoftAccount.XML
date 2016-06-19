@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Owin.Security.MicrosoftAccount</name>
+    </assembly>
+    <members>
+        <member name="T:Owin.MicrosoftAccountAuthenticationExtensions">
+            <summary>
+            Extension methods for using <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationMiddleware"/>
+            </summary>
+        </member>
+        <member name="M:Owin.MicrosoftAccountAuthenticationExtensions.UseMicrosoftAccountAuthentication(Owin.IAppBuilder,Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions)">
+            <summary>
+            Authenticate users using Microsoft Account
+            </summary>
+            <param name="app">The <see cref="T:Owin.IAppBuilder"/> passed to the configuration method</param>
+            <param name="options">Middleware configuration options</param>
+            <returns>The updated <see cref="T:Owin.IAppBuilder"/></returns>
+        </member>
+        <member name="M:Owin.MicrosoftAccountAuthenticationExtensions.UseMicrosoftAccountAuthentication(Owin.IAppBuilder,System.String,System.String)">
+            <summary>
+            Authenticate users using Microsoft Account
+            </summary>
+            <param name="app">The <see cref="T:Owin.IAppBuilder"/> passed to the configuration method</param>
+            <param name="clientId">The application client ID assigned by the Microsoft authentication service</param>
+            <param name="clientSecret">The application client secret assigned by the Microsoft authentication service</param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationMiddleware">
+            <summary>
+            OWIN middleware for authenticating users using the Microsoft Account service
+            </summary>
+        </member>
+        <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationMiddleware.#ctor(Microsoft.Owin.OwinMiddleware,Owin.IAppBuilder,Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions)">
+            <summary>
+            Initializes a <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationMiddleware"/>
+            </summary>
+            <param name="next">The next middleware in the OWIN pipeline to invoke</param>
+            <param name="app">The OWIN application</param>
+            <param name="options">Configuration options for the middleware</param>
+        </member>
+        <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationMiddleware.CreateHandler">
+            <summary>
+            Provides the <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler"/> object for processing authentication-related requests.
+            </summary>
+            <returns>An <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler"/> configured with the <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions"/> supplied to the constructor.</returns>
+        </member>
+        <member name="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions">
+            <summary>
+            Configuration options for <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationMiddleware"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.#ctor">
+            <summary>
+            Initializes a new <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.BackchannelCertificateValidator">
+            <summary>
+            Gets or sets the a pinned certificate validator to use to validate the endpoints used
+            in back channel communications belong to Microsoft Account.
+            </summary>
+            <value>
+            The pinned certificate validator.
+            </value>
+            <remarks>If this property is null then the default certificate checks are performed,
+            validating the subject name and if the signing chain is a trusted party.</remarks>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.Caption">
+            <summary>
+            Get or sets the text that the user can display on a sign in user interface.
+            </summary>
+            <remarks>
+            The default value is 'Microsoft'
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.ClientId">
+            <summary>
+            The application client ID assigned by the Microsoft authentication service.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.ClientSecret">
+            <summary>
+            The application client secret assigned by the Microsoft authentication service.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.BackchannelTimeout">
+            <summary>
+            Gets or sets timeout value in milliseconds for back channel communications with Microsoft.
+            </summary>
+            <value>
+            The back channel timeout.
+            </value>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.BackchannelHttpHandler">
+            <summary>
+            The HttpMessageHandler used to communicate with Microsoft.
+            This cannot be set at the same time as BackchannelCertificateValidator unless the value 
+            can be downcast to a WebRequestHandler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.Scope">
+            <summary>
+            A list of permissions to request.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.CallbackPath">
+            <summary>
+            The request path within the application's base path where the user-agent will be returned.
+            The middleware will process this request when it arrives.
+            Default value is "/signin-microsoft".
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.SignInAsAuthenticationType">
+            <summary>
+            Gets or sets the name of another authentication middleware which will be responsible for actually issuing a user <see cref="T:System.Security.Claims.ClaimsIdentity"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.Provider">
+            <summary>
+            Gets or sets the <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.IMicrosoftAccountAuthenticationProvider"/> used to handle authentication events.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.StateDataFormat">
+            <summary>
+            Gets or sets the type used to secure data handled by the middleware.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Owin.Security.MicrosoftAccount.IMicrosoftAccountAuthenticationProvider">
+            <summary>
+            Specifies callback methods which the <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationMiddleware"></see> invokes to enable developer control over the authentication process. /&gt;
+            </summary>
+        </member>
+        <member name="M:Microsoft.Owin.Security.MicrosoftAccount.IMicrosoftAccountAuthenticationProvider.Authenticated(Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext)">
+            <summary>
+            Invoked whenever Microsoft succesfully authenticates a user
+            </summary>
+            <param name="context">Contains information about the login session as well as the user <see cref="T:System.Security.Claims.ClaimsIdentity"/>.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the completed operation.</returns>
+        </member>
+        <member name="M:Microsoft.Owin.Security.MicrosoftAccount.IMicrosoftAccountAuthenticationProvider.ReturnEndpoint(Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountReturnEndpointContext)">
+            <summary>
+            Invoked prior to the <see cref="T:System.Security.Claims.ClaimsIdentity"/> being saved in a local cookie and the browser being redirected to the originally requested URL.
+            </summary>
+            <param name="context"></param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the completed operation.</returns>
+        </member>
+        <member name="M:Microsoft.Owin.Security.MicrosoftAccount.IMicrosoftAccountAuthenticationProvider.ApplyRedirect(Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountApplyRedirectContext)">
+            <summary>
+            Called when a Challenge causes a redirect to authorize endpoint in the Microsoft middleware
+            </summary>
+            <param name="context">Contains redirect URI and <see cref="T:Microsoft.Owin.Security.AuthenticationProperties"/> of the challenge </param>
+        </member>
+        <member name="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext">
+            <summary>
+            Contains information about the login session as well as the user <see cref="T:System.Security.Claims.ClaimsIdentity"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.#ctor(Microsoft.Owin.IOwinContext,Newtonsoft.Json.Linq.JObject,System.String,System.String,System.String)">
+            <summary>
+            Initializes a <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext"/>
+            </summary>
+            <param name="context">The OWIN environment</param>
+            <param name="user">The JSON-serialized user</param>
+            <param name="accessToken">The access token provided by the Microsoft authentication service</param>
+            <param name="refreshToken">The refresh token provided by Microsoft authentication service</param>
+            <param name="expires">Seconds until expiration</param>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.User">
+            <summary>
+            Gets the JSON-serialized user
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.AccessToken">
+            <summary>
+            Gets the access token provided by the Microsoft authenication service
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.RefreshToken">
+            <summary>
+            Gets the refresh token provided by Microsoft authentication service
+            </summary>
+            <remarks>
+            Refresh token is only available when wl.offline_access is request.
+            Otherwise, it is null.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.ExpiresIn">
+            <summary>
+            Gets the Microsoft access token expiration time
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.Id">
+            <summary>
+            Gets the Microsoft Account user ID
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.Name">
+            <summary>
+            Gets the user name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.FirstName">
+            <summary>
+            Gets the user first name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.LastName">
+            <summary>
+            Gets the user last name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.Email">
+            <summary>
+            Gets the user email address
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.Identity">
+            <summary>
+            Gets the <see cref="T:System.Security.Claims.ClaimsIdentity"/> representing the user
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.Properties">
+            <summary>
+            Gets or sets a property bag for common authentication properties
+            </summary>
+        </member>
+        <member name="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider">
+            <summary>
+            Default <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.IMicrosoftAccountAuthenticationProvider"/> implementation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider.#ctor">
+            <summary>
+            Initializes a new <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider.Authenticated(Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext)">
+            <summary>
+            Invoked whenever Microsoft succesfully authenticates a user
+            </summary>
+            <param name="context">Contains information about the login session as well as the user <see cref="T:System.Security.Claims.ClaimsIdentity"/>.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the completed operation.</returns>
+        </member>
+        <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider.ReturnEndpoint(Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountReturnEndpointContext)">
+            <summary>
+            Invoked prior to the <see cref="T:System.Security.Claims.ClaimsIdentity"/> being saved in a local cookie and the browser being redirected to the originally requested URL.
+            </summary>
+            <param name="context">Contains information about the login session as well as the user <see cref="T:System.Security.Claims.ClaimsIdentity"/></param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the completed operation.</returns>
+        </member>
+        <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider.ApplyRedirect(Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountApplyRedirectContext)">
+            <summary>
+            Called when a Challenge causes a redirect to authorize endpoint in the Microsoft account middleware
+            </summary>
+            <param name="context">Contains redirect URI and <see cref="T:Microsoft.Owin.Security.AuthenticationProperties"/> of the challenge </param>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider.OnAuthenticated">
+            <summary>
+            Gets or sets the function that is invoked when the Authenticated method is invoked.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider.OnReturnEndpoint">
+            <summary>
+            Gets or sets the function that is invoked when the ReturnEndpoint method is invoked.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider.OnApplyRedirect">
+            <summary>
+            Gets or sets the delegate that is invoked when the ApplyRedirect method is invoked.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountReturnEndpointContext">
+            <summary>
+            Provides context information to middleware providers.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountReturnEndpointContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.AuthenticationTicket)">
+            <summary>
+            Initializes a new <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountReturnEndpointContext"/>.
+            </summary>
+            <param name="context">OWIN environment</param>
+            <param name="ticket">The authentication ticket</param>
+        </member>
+        <member name="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountApplyRedirectContext">
+            <summary>
+            Context passed when a Challenge causes a redirect to authorize endpoint in the Microsoft account middleware
+            </summary>
+        </member>
+        <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountApplyRedirectContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions,Microsoft.Owin.Security.AuthenticationProperties,System.String)">
+            <summary>
+            Creates a new context object.
+            </summary>
+            <param name="context">The OWIN request context</param>
+            <param name="options">The Microsoft account middleware options</param>
+            <param name="properties">The authenticaiton properties of the challenge</param>
+            <param name="redirectUri">The initial redirect URI</param>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountApplyRedirectContext.RedirectUri">
+            <summary>
+            Gets the URI used for the redirect operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountApplyRedirectContext.Properties">
+            <summary>
+            Gets the authenticaiton properties of the challenge
+            </summary>
+        </member>
+        <member name="T:Microsoft.Owin.Security.MicrosoftAccount.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.Resources.Exception_MissingId">
+            <summary>
+              Looks up a localized string similar to The user does not have an id..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.Resources.Exception_OptionMustBeProvided">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; option must be provided..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.MicrosoftAccount.Resources.Exception_ValidatorHandlerMismatch">
+            <summary>
+              Looks up a localized string similar to An ICertificateValidator cannot be specified at the same time as an HttpMessageHandler unless it is a WebRequestHandler..
+            </summary>
+        </member>
+    </members>
+</doc>

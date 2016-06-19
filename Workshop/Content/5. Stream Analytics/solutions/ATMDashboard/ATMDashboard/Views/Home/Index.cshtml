@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ATM Dashboard</h1>
+    <p class="lead">The table below lists potentially fraudulent ATM transactions and is updated every 5 seconds.</p>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <table id="output" style="width: 100%">
+            <tr>
+                <td><b>Card Number</b></td>
+                <td><b>ATM 1</b></td>
+                <td><b>ATM 2</b></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+    $(function () {
+        // Check for new events every 5 seconds
+        window.setInterval(function () {
+            $.ajax({
+                url: "/api/events",
+                success: function (result) {
+                    for (i = 0; i < result.length; i++) {
+                        $("#output tr:last").after("<tr><td>" + result[i].CardNumber + "</td><td>" + result[i].ATM1 + "</td><td>" + result[i].ATM2 + "</td></tr>");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    if (status == "error") {
+                        console.log("Error: " + xhr.status);
+                    }
+                },
+                dataType: "json"
+            });
+        }, 5000);
+    });
+    </script>
+}

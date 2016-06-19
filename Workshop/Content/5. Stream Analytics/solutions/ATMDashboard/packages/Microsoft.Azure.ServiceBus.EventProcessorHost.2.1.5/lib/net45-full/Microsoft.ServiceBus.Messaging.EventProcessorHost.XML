@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.ServiceBus.Messaging.EventProcessorHost</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.ServiceBus.Messaging.EventProcessorHost">
+      <summary>Represents a host for processing Event Hubs event data.</summary>
+    </member>
+    <member name="M:Microsoft.ServiceBus.Messaging.EventProcessorHost.#ctor(System.String,System.String,System.String,System.String,System.String)">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorHost" /> class.</summary>
+      <param name="hostName">The name of the <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorHost" /> instance. This name must be unique for each instance of the host.</param>
+      <param name="eventHubPath">The path to the Event Hub from which to start receiving event data.</param>
+      <param name="consumerGroupName">The name of the Event Hubs consumer group from which to start receiving event data.</param>
+      <param name="eventHubConnectionString">The connection string for the Event Hub.</param>
+      <param name="storageConnectionString">The connection string for the Azure Blob storage account to use for partition distribution.</param>
+    </member>
+    <member name="M:Microsoft.ServiceBus.Messaging.EventProcessorHost.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorHost" /> class.</summary>
+      <param name="hostName">The name of the <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorHost" /> instance. This name must be unique for each instance of the host.</param>
+      <param name="eventHubPath">The path to the Event Hub from which to start receiving event data.</param>
+      <param name="consumerGroupName">The name of the Event Hubs consumer group from which to start receiving event data.</param>
+      <param name="eventHubConnectionString">The connection string for the Event Hub.</param>
+      <param name="storageConnectionString">The connection string for the Azure Blob storage account to use for partition distribution.</param>
+      <param name="leaseContainerName">The name of the Azure Blob container in which all lease blobs are created. If this parameter is not supplied, then the Event Hubs path is used as the name of the Azure Blob container.</param>
+    </member>
+    <member name="P:Microsoft.ServiceBus.Messaging.EventProcessorHost.HostName">
+      <summary>Gets the host name, which is a unique name for the <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorHost" /> instance.</summary>
+      <returns>The host name.</returns>
+    </member>
+    <member name="P:Microsoft.ServiceBus.Messaging.EventProcessorHost.PartitionManagerOptions">
+      <summary>Gets or sets the <see cref="T:Microsoft.ServiceBus.Messaging.PartitionManagerOptions" /> instance used by the <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorHost" /> object.</summary>
+      <returns>The <see cref="T:Microsoft.ServiceBus.Messaging.PartitionManagerOptions" /> instance.</returns>
+    </member>
+    <member name="M:Microsoft.ServiceBus.Messaging.EventProcessorHost.RegisterEventProcessorAsync``1">
+      <summary>Asynchronously registers the <see cref="T:Microsoft.ServiceBus.Messaging.IEventProcessor" /> interface implementation with the host using the <see cref="T:Microsoft.ServiceBus.Messaging.DefaultEventProcessorFactory`1" /> factory. This method also starts the host and enables it to start participating in the partition distribution process.</summary>
+      <returns>A task indicating that the <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorHost" /> instance has started.</returns>
+      <typeparam name="T">Implementation of your application-specific <see cref="T:Microsoft.ServiceBus.Messaging.IEventProcessor" />.</typeparam>
+    </member>
+    <member name="M:Microsoft.ServiceBus.Messaging.EventProcessorHost.RegisterEventProcessorAsync``1(Microsoft.ServiceBus.Messaging.EventProcessorOptions)">
+      <summary>Asynchronously registers the <see cref="T:Microsoft.ServiceBus.Messaging.IEventProcessor" /> interface implementation with the host using the <see cref="T:Microsoft.ServiceBus.Messaging.DefaultEventProcessorFactory`1" /> factory. This method also starts the host and enables it to start participating in the partition distribution process.</summary>
+      <returns>A task indicating that the <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorHost" /> instance has started.</returns>
+      <param name="processorOptions">An <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorOptions" /> object that controls various aspects of the event pump created when ownership is acquired for a given Event Hubs partition.</param>
+      <typeparam name="T">Implementation of your application-specific <see cref="T:Microsoft.ServiceBus.Messaging.IEventProcessor" />.</typeparam>
+    </member>
+    <member name="M:Microsoft.ServiceBus.Messaging.EventProcessorHost.RegisterEventProcessorFactoryAsync(Microsoft.ServiceBus.Messaging.IEventProcessorFactory)">
+      <summary>Asynchronously registers the event processor factory.</summary>
+      <returns>The task representing the asynchronous operation.</returns>
+      <param name="factory">The factory to register.</param>
+    </member>
+    <member name="M:Microsoft.ServiceBus.Messaging.EventProcessorHost.RegisterEventProcessorFactoryAsync(Microsoft.ServiceBus.Messaging.IEventProcessorFactory,Microsoft.ServiceBus.Messaging.EventProcessorOptions)">
+      <summary>Asynchronously registers the event processor factory.</summary>
+      <returns>Returns <see cref="T:System.Threading.Tasks.Task" />.</returns>
+      <param name="factory">The factory to register.</param>
+      <param name="processorOptions">An <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorOptions" /> object that controls various aspects of the event pump created when ownership is acquired for a given Event Hubs partition.</param>
+    </member>
+    <member name="M:Microsoft.ServiceBus.Messaging.EventProcessorHost.UnregisterEventProcessorAsync">
+      <summary>Asynchronously shuts down the <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorHost" /> instance. This method maintains the leases on all partitions currently held, and enables each <see cref="T:Microsoft.ServiceBus.Messaging.IEventProcessor" /> instance to shut down cleanly by invoking the <see cref="M:Microsoft.ServiceBus.Messaging.IEventProcessor.CloseAsync(Microsoft.ServiceBus.Messaging.PartitionContext,Microsoft.ServiceBus.Messaging.CloseReason)" /> method with a <see cref="F:Microsoft.ServiceBus.Messaging.CloseReason.Shutdown" /> object.</summary>
+      <returns>A task that indicates the <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorHost" /> instance has stopped.</returns>
+    </member>
+    <member name="T:Microsoft.ServiceBus.Messaging.PartitionManagerOptions">
+      <summary>Represents the options that control various aspects of partition distribution that occur within the <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorHost" /> instance.</summary>
+    </member>
+    <member name="M:Microsoft.ServiceBus.Messaging.PartitionManagerOptions.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.ServiceBus.Messaging.PartitionManagerOptions" /> class.</summary>
+    </member>
+    <member name="P:Microsoft.ServiceBus.Messaging.PartitionManagerOptions.AcquireInterval">
+      <summary>Gets or sets the interval at which the <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorHost" /> instance begins a task to determine whether partitions are distributed evenly among known host instances.</summary>
+      <returns>The acquire interval of the partition.</returns>
+    </member>
+    <member name="P:Microsoft.ServiceBus.Messaging.PartitionManagerOptions.DefaultOptions">
+      <summary>Creates an instance of <see cref="P:Microsoft.ServiceBus.Messaging.EventProcessorHost.PartitionManagerOptions" /> with the following default values:<see cref="P:Microsoft.ServiceBus.Messaging.PartitionManagerOptions.RenewInterval" />: 10 seconds.<see cref="P:Microsoft.ServiceBus.Messaging.PartitionManagerOptions.AcquireInterval" />: 10 seconds.<see cref="P:Microsoft.ServiceBus.Messaging.PartitionManagerOptions.LeaseInterval" />: 30 seconds. </summary>
+      <returns>The default partition manager options.</returns>
+    </member>
+    <member name="P:Microsoft.ServiceBus.Messaging.PartitionManagerOptions.LeaseInterval">
+      <summary>Gets or sets the interval at which the lease is created on an Azure Blob representing an Event Hubs partition. If the lease is not renewed within this interval, it expires, and ownership of the partition passes to another <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorHost" /> instance.</summary>
+      <returns>Returns <see cref="T:System.TimeSpan" />.</returns>
+    </member>
+    <member name="P:Microsoft.ServiceBus.Messaging.PartitionManagerOptions.MaxReceiveClients"></member>
+    <member name="P:Microsoft.ServiceBus.Messaging.PartitionManagerOptions.RenewInterval">
+      <summary>Gets or sets the renewal interval for all leases for partitions currently held by the <see cref="T:Microsoft.ServiceBus.Messaging.EventProcessorHost" /> instance.</summary>
+      <returns>The interval to renew the partition.</returns>
+    </member>
+  </members>
+</doc>

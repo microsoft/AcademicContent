@@ -1,0 +1,680 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.AI.DependencyCollector</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource">
+            <summary>
+            ETW EventSource tracing class.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource.Keywords">
+            <summary>
+            Keywords for the <see cref="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource.Keywords.UserActionable">
+            <summary>
+            Key word for user actionable events.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource.Keywords.RddEventKeywords">
+            <summary>
+            Key word for resource discovery module failures.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkHttpProcessing.OnBeginHttpCallback(System.Int64,System.String)">
+            <summary>
+            On begin callback from FX.
+            </summary>
+            <param name="id">This object.</param>
+            <param name="resourceName">URI of the web request.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkHttpProcessing.OnEndHttpCallback(System.Int64,System.Nullable{System.Boolean},System.Boolean)">
+            <summary>
+            On end callback from FX.
+            </summary>
+            <param name="id">The id.</param>
+            <param name="success">The success to indicate if the dependency call completed successfully or not.</param>
+            <param name="synchronous">The synchronous flag to indicate if the dependency call was synchronous or not.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkHttpProcessing.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing">
+            <summary>
+            Concrete class with all processing logic to generate RDD data from the calls backs
+            received from Profiler instrumentation for HTTP.   
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.#ctor(Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnBeginForGetResponse(System.Object)">
+            <summary>
+            On begin callback for GetResponse.
+            </summary>
+            <param name="thisObj">This object.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnEndForGetResponse(System.Object,System.Object,System.Object)">
+            <summary>
+            On end callback for GetResponse.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="returnValue">The return value.</param>
+            <param name="thisObj">This object.</param>
+            <returns>The resulting return value.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnExceptionForGetResponse(System.Object,System.Object,System.Object)">
+            <summary>
+            On exception callback for GetResponse callback.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="exception">The exception object.</param>
+            <param name="thisObj">This object.</param>        
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnBeginForGetRequestStream(System.Object,System.Object)">
+            <summary>
+            On begin callback for GetRequestStream callback.
+            </summary>
+            <param name="thisObj">This object.</param>
+            <param name="transportContext">The transport context parameter.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnExceptionForGetRequestStream(System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On exception for GetRequestStream callback.
+            Note: There is no call back required for GetRequestStream except on exception cases.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="exception">The exception.</param>
+            <param name="thisObj">This object.</param>
+            <param name="transportContext">The transport context parameter.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnBeginForBeginGetResponse(System.Object,System.Object,System.Object)">
+            <summary>
+            On begin for BeginGetResponse callback.
+            </summary>
+            <param name="thisObj">This object.</param>
+            <param name="callback">The callback parameter.</param>
+            <param name="state">The state parameter.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnEndForEndGetResponse(System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On end for EndGetResponse callbacks.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="returnValue">The return value.</param>
+            <param name="thisObj">This object.</param>
+            <param name="asyncResult">The asyncResult parameter.</param>
+            <returns>The return value passed.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnExceptionForEndGetResponse(System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On exception for EndGetResponse callbacks.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="exception">The exception.</param>
+            <param name="thisObj">This object.</param>
+            <param name="asyncResult">The asyncResult parameter.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnBeginForBeginGetRequestStream(System.Object,System.Object,System.Object)">
+            <summary>
+            On begin for BeginGetRequestStream callback.
+            </summary>
+            <param name="thisObj">This object.</param>
+            <param name="callback">The callback parameter.</param>
+            <param name="state">The state parameter.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnExceptionForEndGetRequestStream(System.Object,System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On exception for EndGetRequestStream callback.
+            Note: There is no call back required for EndGetRequestStream except on exception cases.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="exception">The exception.</param>
+            <param name="thisObj">This object.</param>
+            <param name="asyncResult">The asyncResult parameter.</param>
+            <param name="transportContext">The transportContext parameter.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.GetResourceName(System.Object)">
+            <summary>
+            Gets HTTP request resource name.
+            </summary>
+            <param name="thisObj">Represents web request.</param>
+            <returns>The resource name if possible otherwise empty string.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnBegin(System.Object,System.Boolean)">
+            <summary>
+            Common helper for all Begin Callbacks.
+            </summary>
+            <param name="thisObj">This object.</param>        
+            <param name="isAsyncCall">Indicates if the method used is async or not.</param>        
+            <returns>Null object as all context is maintained in this class via weak tables.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnEnd(System.Object,System.Object)">
+            <summary>
+            Common helper for all End Callbacks.
+            </summary>        
+            <param name="exception">The exception object if any.</param>
+            <param name="thisObj">This object.</param>                
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1">
+            <summary>
+            The implementation of cache provider for Windows Phone and Windows Store as MemoryCache is not available there.
+            </summary>
+            <typeparam name="TValue">Type of items to store in the cache.</typeparam>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.ICacheProvider`1">
+            <summary>
+            Represents an object cache and provides the base methods and properties for accessing the object cache.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.ICacheProvider`1.Contains(System.Int64)">
+            <summary>
+            Checks whether the cache entry already exists in the cache.
+            </summary>
+            <param name="key">A unique identifier for the cache entry.</param>
+            <returns>true if the cache contains a cache entry with the same key value as key; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.ICacheProvider`1.Get(System.Int64)">
+            <summary>
+            Gets the specified cache entry from the cache.
+            </summary>
+            <param name="key">A unique identifier for the cache entry.</param>
+            <returns>A reference to the cache entry identified by key if the entry exists; otherwise, null.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.ICacheProvider`1.Set(System.Int64,`0)">
+            <summary>
+            Inserts a cache entry into the cache.
+            </summary>
+            <param name="key">A unique identifier for the cache entry.</param>
+            <param name="value">The object to insert.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.ICacheProvider`1.Remove(System.Int64)">
+            <summary>
+            Removes the cache entry from the cache.
+            </summary>
+            <param name="key">A unique identifier for the cache entry.</param>
+            <returns>True if the element is successfully found and removed; otherwise, false. This method returns false if key is not found.</returns>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.readerWriterLock">
+            <summary>
+            Reader-Writer Lock for thread safety.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.dictionary">
+            <summary>
+            Dictionary of cache items for fast Get and Contains operations.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.sortedList">
+            <summary>
+            Cache items sorted by the time of adding to cache. Required for to clear fast cache items when items are expired.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.maxSize">
+            <summary>
+            The maximum number of elements in the cache to avoid out of memory crashes.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.timer">
+            <summary>
+            Timer for clearing expired cache items on recurring bases.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.expirationMilliseconds">
+            <summary>
+            The duration in milliseconds after which item in the cache is expired.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.#ctor(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+             Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1"/> class.
+            </summary>
+            <param name="expirationMilliseconds">Expiration timeout in milliseconds for an object to live in the cache.</param>
+            <param name="maxSize">Maximum number of entries to cache (adjustable at runtime with MaxSize property).</param>
+            <param name="synchronized">True to use a reader-writer lock to protect the data in the MemoryCacheList; false if the caller will handle synchronization.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.Contains(System.Int64)">
+            <summary>
+            Checks whether the cache entry already exists in the cache.
+            </summary>
+            <param name="key">A unique identifier for the cache entry.</param>
+            <returns>true if the cache contains a cache entry with the same key value as key; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.Get(System.Int64)">
+            <summary>
+            Gets the specified cache entry from the cache.
+            </summary>
+            <param name="key">A unique identifier for the cache entry.</param>
+            <returns>A reference to the cache entry identified by key if the entry exists; otherwise, null.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.Set(System.Int64,`0)">
+            <summary>
+            Inserts a cache entry into the cache.
+            </summary>
+            <param name="key">A unique identifier for the cache entry.</param>
+            <param name="value">The object to insert.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.Remove(System.Int64)">
+            <summary>
+            Removes a specific key from the cache.
+            </summary>
+            <param name="key">Key to remove.</param>
+            <returns>An object that represents the value of the removed cache entry that was specified by the key, or null if the specified entry was not found.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.ClearExpiredCacheItems(System.Object)">
+            <summary>
+            The timer callback that clears expired items in the cache.
+            </summary>
+            <param name="state">An object containing information to be used by the callback method, or null.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.Add(System.Int64,`0,System.Boolean)">
+            <summary>
+            Adds the specified key and value to the dictionary.
+            </summary>
+            <param name="key">Key to add.</param>
+            <param name="value">Value to associate with key.</param>
+            <param name="overwrite">If true, will overwrite an existing key.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.MemoryCacheEntry">
+            <summary>
+            An entry in the MemoryCacheList.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.MemoryCacheEntry.#ctor(System.Int64,`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.MemoryCacheEntry"/> class.
+            </summary>
+            <param name="key">The key of the element.</param>
+            <param name="value">The value of the element.</param>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.MemoryCacheEntry.Key">
+            <summary>
+            Gets the key of the element.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.MemoryCacheEntry.Value">
+            <summary>
+            Gets or sets the value of the element.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.MemoryCacheEntry.CreatedTicks">
+            <summary>
+            Gets number of ticks elapsed on the clock since the element was created.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.MemmoryCacheEntryTimeComparer">
+            <summary>
+            Exposes a method that compares two MemoryCacheEntry objects.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1.MemmoryCacheEntryTimeComparer.Compare(Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider{`0}.MemoryCacheEntry,Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider{`0}.MemoryCacheEntry)">
+            <summary>
+            Compares two objects and returns a value indicating whether one is less than, equal to, or greater than the other.
+            </summary>
+            <param name="x">The first object to compare.</param>
+            <param name="y">The second object to compare.</param>
+            <returns>A signed integer that indicates the relative values of x and y, as shown in the following table.</returns>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.OperationWatch">
+            <summary>
+            Single high precision clock used by operations.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.OperationWatch.Watch">
+            <summary>
+            High precision stopwatch.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.OperationWatch.HundredNanosecondsPerTick">
+            <summary>
+            Number of 100 nanoseconds per high-precision clock tick.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.OperationWatch.StartTime">
+            <summary>
+            The time clock started.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.OperationWatch.Duration(System.Int64,System.Int64)">
+            <summary>
+            Calculates time between two clock readings.
+            </summary>
+            <param name="fromTicks">Start time in ticks.</param>
+            <param name="toTicks">End time in ticks.</param>
+            <returns>Time between two clock readings.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.OperationWatch.Timestamp(System.Int64)">
+            <summary>
+            Converts time on the operation clock (in ticks) to date and time structure.
+            </summary>
+            <param name="elapsedTicks">Ticks elapsed according to operation watch.</param>
+            <returns>Date time structure representing the date and time that corresponds to the operation clock reading.</returns>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.OperationWatch.ElapsedTicks">
+            <summary>
+            Gets number of ticks elapsed on the clock since the start.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.SortedList`1">
+            <summary>
+            Represents a collection of sorted elements that are accessible by index.
+            </summary>
+            <typeparam name="T">The type of element.</typeparam>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.SortedList`1.list">
+            <summary>
+            Represents a collection of objects that can be individually accessed by index.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.SortedList`1.comparer">
+            <summary>
+            Exposes a method that compares two objects.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.SortedList`1.#ctor(System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Initializes a new instance of the SortedList class that is empty.
+            </summary>
+            <param name="comparer">The IComparer implementation to use when comparing elements.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.SortedList`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>An IEnumerator object that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.SortedList`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>An IEnumerator object that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.SortedList`1.Add(`0)">
+            <summary>
+            Adds an element with the specified value to a SortedList object.
+            </summary>
+            <param name="item">Item to add.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.SortedList`1.RemoveAt(System.Int32)">
+            <summary>
+            Removes the element at the specified index of a SortedList object.
+            </summary>
+            <param name="index">The zero-based index of the element to remove.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.SortedList`1.Remove(`0)">
+            <summary>
+            Removes the element with the specified value from a SortedList object.
+            </summary>
+            <param name="item">Item to remove.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.SortedList`1.TryIndexOf(`0,System.Boolean@)">
+            <summary>
+            Determines the index of a specific item in the IList.
+            </summary>
+            <param name="item">The object to locate in the IList.</param>
+            <param name="found">True if value is found in the list, otherwise false.</param>
+            <returns>The index of value if found in the list; otherwise, the index of value where it needs to be inserted.</returns>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.SortedList`1.Count">
+            <summary>
+            Gets the number of elements contained in a SortedList object.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.SortedList`1.Item(System.Int32)">
+            <summary>
+            Gets the element at a specified index in a sequence.
+            </summary>
+            <param name="index">The zero-based index of the element to get.</param>
+            <returns>The element at the specified position in the source sequence.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ApplicationInsightsUrlFilter.IsApplicationInsightsUrl(System.String)">
+            <summary>
+            Determines whether an URL is application insights URL.
+            </summary>
+            <param name="url">HTTP URL.</param>
+            <returns>True if URL is application insights url, otherwise false.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkSqlProcessing.#ctor(Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkSqlProcessing"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkSqlProcessing.OnBeginExecuteCallback(System.Int64,System.String,System.String,System.String)">
+            <summary>
+            On begin callback from FX.
+            </summary>
+            <param name="id">Identifier of SQL connection object.</param>
+            <param name="dataSource">Data source name.</param>
+            <param name="database">Database name.</param>
+            <param name="commandText">Command text.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkSqlProcessing.OnEndExecuteCallback(System.Int64,System.Boolean,System.Boolean)">
+            <summary>
+            On end callback from FX.
+            </summary>        
+            <param name="id">Identifier of SQL connection object.</param>
+            <param name="success">Indicate whether operation completed successfully.</param>
+            <param name="synchronous">Indicates whether operation was called synchronously or asynchronously.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkSqlProcessing.GetResourceName(System.String,System.String,System.String)">
+            <summary>
+            Gets SQL command resource name.
+            </summary>
+            <param name="dataSource">DataSource name.</param>
+            <param name="database">Database name.</param>
+            <param name="commandText">CommandText name.</param>        
+            <returns>The resource name if possible otherwise empty string.</returns>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing">
+            <summary>
+            Concrete class with all processing logic to generate RDD data from the calls backs
+            received from Profiler instrumentation for SQL.    
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.#ctor(Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.OnBeginForExecuteReader(System.Object,System.Object,System.Object)">
+            <summary>
+            On begin callback for ExecuteReader.
+            </summary>
+            <param name="thisObj">This object.</param>
+            <param name="behavior">The callback parameter.</param>
+            <param name="method">The state parameter.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.OnBeginForSync(System.Object)">
+            <summary>
+            On begin callback for sync methods except ExecuteReader.
+            </summary>
+            <param name="thisObj">This object.</param>        
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.OnEndForExecuteReader(System.Object,System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On end callback for ExecuteReader.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="returnValue">The return value.</param>
+            <param name="thisObj">This object.</param>
+            <param name="behavior">The callback parameter.</param>
+            <param name="method">The state parameter.</param>
+            <returns>The resulting return value.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.OnEndForSync(System.Object,System.Object,System.Object)">
+            <summary>
+            On end for sync methods except ExecuteReader callback.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="returnValue">The return value.</param>
+            <param name="thisObj">This object.</param>        
+            <returns>The resulting return value.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.OnExceptionForExecuteReader(System.Object,System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On exception callback for ExecuteReader.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="exception">The exception.</param>
+            <param name="thisObj">This object.</param>
+            <param name="behavior">The callback parameter.</param>
+            <param name="method">The state parameter.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.OnExceptionForSync(System.Object,System.Object,System.Object)">
+            <summary>
+            On end callback for sync methods except ExecuteReader.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="exception">The exception.</param>
+            <param name="thisObj">This object.</param>        
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.OnBeginForBeginExecuteNonQueryInternal(System.Object,System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On begin for BeginExecuteNonQueryInternal callback.
+            </summary>
+            <param name="thisObj">This object.</param>
+            <param name="callback">The callback parameter.</param>
+            <param name="stateObject">The stateObject parameter.</param>
+            <param name="timeout">The timeout parameter.</param>
+            <param name="asyncWrite">The asyncWrite parameter.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.OnBeginForBeginExecuteReaderInternal(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On begin for BeginExecuteReaderInternal callback.
+            </summary>
+            <param name="thisObj">This object.</param>
+            <param name="behavior">The behavior parameter.</param>
+            <param name="callback">The callback parameter.</param>
+            <param name="stateObject">The stateObject parameter.</param>
+            <param name="timeout">The timeout parameter.</param>
+            <param name="asyncWrite">The asyncWrite parameter.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.OnBeginForBeginExecuteXmlReaderInternal(System.Object,System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On begin for BeginExecuteXmlReaderInternal callback.
+            </summary>
+            <param name="thisObj">This object.</param>
+            <param name="callback">The callback parameter.</param>
+            <param name="stateObject">The stateObject parameter.</param>
+            <param name="timeout">The timeout parameter.</param>
+            <param name="asyncWrite">The asyncWrite parameter.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.OnEndForSqlAsync(System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On end for all SQL async callbacks.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="returnValue">The return value.</param>
+            <param name="thisObj">This object.</param>
+            <param name="asyncResult">The asyncResult parameter.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.OnExceptionForSqlAsync(System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On exception for all SQL async callback.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="exception">The exception.</param>
+            <param name="thisObj">This object.</param>
+            <param name="asyncResult">The asyncResult parameter.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.GetResourceName(System.Object)">
+            <summary>
+            Gets SQL command resource name.
+            </summary>
+            <param name="thisObj">The SQL command.</param>
+            <remarks>Before we have clarity with SQL team around EventSource instrumentation, providing name as a concatenation of parameters.</remarks>
+            <returns>The resource name if possible otherwise empty string.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.GetCommandName(System.Object)">
+            <summary>
+            Return CommandTest for SQL resource.
+            </summary>
+            <param name="thisObj">The SQL command.</param>
+            <returns>Returns the command text or empty.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.OnBegin(System.Object,System.Boolean)">
+            <summary>
+             Common helper for all Begin Callbacks.
+            </summary>
+            <param name="thisObj">This object.</param>
+            <param name="isAsyncCall">Is Async Invocation.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessing.OnEnd(System.Object,System.Object,System.Object,System.Boolean)">
+            <summary>
+             Common helper for all End Callbacks.
+            </summary>
+            <param name="context">The context.</param>        
+            <param name="exception">The exception object if any.</param>
+            <param name="thisObj">This object.</param>
+            <param name="isAsync">Whether the End is for an async invocation.</param>        
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule">
+            <summary>
+            Remote dependency monitoring.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.Initialize(Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration)">
+            <summary>
+            Initialize method is called after all configuration properties have been loaded from the configuration.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.InitializeForFrameworkEventSource">
+            <summary>
+            Initialize for framework event source (not supported for Net40).
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.InitializeForRuntimeInstrumentationOrFramework">
+            <summary>
+            Initialize for runtime instrumentation or framework event source.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.SamplingRatio">
+            <summary>
+            Gets or sets sampling ratio. This property is obsolete and will not have any effect of data collection.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.DisableRuntimeInstrumentation">
+            <summary>
+            Gets or sets a value indicating whether to disable runtime instrumentation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.PretendProfilerIsAttached">
+            <summary>
+            Gets or sets a value indicating whether pretending the profiler is attached or not.
+            </summary>
+        </member>
+    </members>
+</doc>

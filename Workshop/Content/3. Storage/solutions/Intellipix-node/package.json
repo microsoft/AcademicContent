@@ -1,0 +1,22 @@
+{
+  "name": "Intellipix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=4.0"
+  },
+  "keywords": [],
+  "author": "Jeff Prosise",
+  "license": "ISC",
+  "dependencies": {
+    "azure-storage": "^1.0.1",
+    "express": "^4.13.4",
+    "multer": "^1.1.0",
+    "request": "^2.72.0",
+    "streamifier": "^0.1.1"
+  }
+}

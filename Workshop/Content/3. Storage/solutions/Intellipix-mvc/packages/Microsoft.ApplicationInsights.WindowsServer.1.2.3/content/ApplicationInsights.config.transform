@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
+  <!-- 
+    Learn more about Application Insights configuration with ApplicationInsights.config here: 
+    http://go.microsoft.com/fwlink/?LinkID=513840
+    
+    Note: If not present, please add <InstrumentationKey>Your Key</InstrumentationKey> to the top of this file.
+  -->
+</ApplicationInsights>

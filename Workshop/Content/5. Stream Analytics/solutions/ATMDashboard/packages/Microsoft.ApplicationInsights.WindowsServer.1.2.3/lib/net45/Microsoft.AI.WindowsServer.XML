@@ -1,0 +1,435 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.AI.WindowsServer</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.AzureRoleEnvironmentTelemetryInitializer">
+            <summary>
+            A telemetry initializer that will gather Azure Role Environment context information.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.AzureRoleEnvironmentTelemetryInitializer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.WindowsServer.AzureRoleEnvironmentTelemetryInitializer"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.AzureRoleEnvironmentTelemetryInitializer.Initialize(Microsoft.ApplicationInsights.Channel.ITelemetry)">
+            <summary>
+            Initializes <see cref="T:Microsoft.ApplicationInsights.Channel.ITelemetry"/> device context.
+            </summary>
+            <param name="telemetry">The telemetry to initialize.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.BuildInfoConfigComponentVersionTelemetryInitializer">
+            <summary>
+            A telemetry context initializer that will set component context version on the base of BuildInfo.config information.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.WindowsServer.BuildInfoConfigComponentVersionTelemetryInitializer.UnknownComponentVersion">
+            <summary>
+            The default application version we will be returning if no application version is found.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.WindowsServer.BuildInfoConfigComponentVersionTelemetryInitializer.version">
+            <summary>
+            The version for this component.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.BuildInfoConfigComponentVersionTelemetryInitializer.Initialize(Microsoft.ApplicationInsights.Channel.ITelemetry)">
+            <summary>
+            Initializes version of the telemetry item with the version obtained from build info if it is available.
+            </summary>
+            <param name="telemetry">The telemetry context to initialize.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.BuildInfoConfigComponentVersionTelemetryInitializer.LoadBuildInfoConfig">
+            <summary>
+            Loads BuildInfo.config and returns XElement.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.BuildInfoConfigComponentVersionTelemetryInitializer.GetVersion">
+            <summary>
+            Gets the version for the current application. If the version cannot be found, we will return the passed in default.
+            </summary>
+            <returns>The extracted data.</returns>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.DeveloperModeWithDebuggerAttachedTelemetryModule">
+            <summary>
+            Telemetry module that sets developer mode to true when is not already set AND managed debugger is attached.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.WindowsServer.DeveloperModeWithDebuggerAttachedTelemetryModule.IsDebuggerAttached">
+            <summary>
+            Function that checks whether debugger is attached with implementation that can be replaced by unit test code.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.DeveloperModeWithDebuggerAttachedTelemetryModule.Initialize(Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration)">
+            <summary>
+            Gives the opportunity for this telemetry module to initialize configuration object that is passed to it.
+            </summary>
+            <param name="configuration">Configuration object.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.DeviceTelemetryInitializer">
+            <summary>
+            A telemetry context initializer that will gather device context information.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.DeviceTelemetryInitializer.Initialize(Microsoft.ApplicationInsights.Channel.ITelemetry)">
+            <summary>
+            Populates device properties on a telemetry item.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.DomainNameRoleInstanceTelemetryInitializer">
+            <summary>
+            A telemetry context initializer that populates device context role instance name.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.DomainNameRoleInstanceTelemetryInitializer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.WindowsServer.DomainNameRoleInstanceTelemetryInitializer"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.DomainNameRoleInstanceTelemetryInitializer.Initialize(Microsoft.ApplicationInsights.Channel.ITelemetry)">
+            <summary>
+            Initializes <see cref="T:Microsoft.ApplicationInsights.Channel.ITelemetry"/> device context.
+            </summary>
+            <param name="telemetry">The telemetry to initialize.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.IAzureRoleEnvironmentContextReader">
+            <summary>
+            The user context reader interface used while reading user related information in a platform specific way.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.IAzureRoleEnvironmentContextReader.Initialize">
+            <summary>
+            Initializes the current reader with respect to its environment.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.IAzureRoleEnvironmentContextReader.GetRoleName">
+            <summary>
+            Gets the Azure role name.
+            </summary>
+            <returns>The extracted data.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.IAzureRoleEnvironmentContextReader.GetRoleInstanceName">
+            <summary>
+            Gets the Azure role instance name.
+            </summary>
+            <returns>The extracted data.</returns>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.WindowsServer.Implementation.AzureRoleEnvironmentContextReader.instance">
+            <summary>
+            The singleton instance for our reader.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.WindowsServer.Implementation.AzureRoleEnvironmentContextReader.roleName">
+            <summary>
+            The Azure role name (if any).
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.WindowsServer.Implementation.AzureRoleEnvironmentContextReader.roleInstanceName">
+            <summary>
+            The Azure role instance name (if any).
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.AzureRoleEnvironmentContextReader.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.AzureRoleEnvironmentContextReader"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.AzureRoleEnvironmentContextReader.Initialize">
+            <summary>
+            Initializes the current reader with respect to its environment.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.AzureRoleEnvironmentContextReader.GetRoleName">
+            <summary>
+            Gets the Azure role name.
+            </summary>
+            <returns>The extracted data.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.AzureRoleEnvironmentContextReader.GetRoleInstanceName">
+            <summary>
+            Gets the Azure role instance name.
+            </summary>
+            <returns>The extracted data.</returns>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.AzureRoleEnvironmentContextReader.Instance">
+            <summary>
+            Gets or sets the singleton instance for our application context reader.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.AzureRoleEnvironmentContextReader.BaseDirectory">
+            <summary>
+            Gets or sets the base directly where hunting for application DLLs is to start.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.DeviceContextReader">
+            <summary>
+            The reader is platform specific and applies to .NET applications only.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.DeviceContextReader.GetHostSystemLocale">
+            <summary>
+            Gets the host system locale.
+            </summary>
+            <returns>The discovered locale.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.DeviceContextReader.GetDeviceType">
+            <summary>
+            Gets the type of the device.
+            </summary>
+            <returns>The type for this device as a hard-coded string.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.DeviceContextReader.GetDeviceUniqueId">
+            <summary>
+            Gets the device unique ID, or uses the fallback if none is available due to application configuration.
+            </summary>
+            <returns>
+            The discovered device identifier.
+            </returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.DeviceContextReader.GetOemName">
+            <summary>
+            Gets the device OEM.
+            </summary>
+            <returns>The discovered OEM.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.DeviceContextReader.GetDeviceModel">
+            <summary>
+            Gets the device model.
+            </summary>
+            <returns>The discovered device model.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.DeviceContextReader.GetNetworkType">
+            <summary>
+            Gets the network type.
+            </summary>
+            <returns>The discovered network type.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.DeviceContextReader.RunWmiQuery(System.String,System.String,System.String)">
+            <summary>
+            Runs a single WMI query for a property.
+            </summary>
+            <param name="table">The table.</param>
+            <param name="property">The property.</param>
+            <param name="defaultValue">The default value of the property if WMI fails.</param>
+            <returns>The value if found, Unknown otherwise.</returns>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.DeviceContextReader.Instance">
+            <summary>
+            Gets or sets the singleton instance for our application context reader.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.Role">
+            <summary>
+            Represents a role that is defined as part of a hosted service. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject">
+            <summary>
+            A runtime bound object for a given .NET type.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.targetType">
+            <summary>
+            The target type for our object.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.targetObject">
+            <summary>
+            The target object.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.#ctor(System.Type,System.Object[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject"/> class.
+            </summary>
+            <param name="targetType">Type of the target.</param>
+            <param name="activationArgs">The activation arguments.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.GetTargetObjectInstance(System.Type,System.Object[])">
+            <summary>
+            Gets the target object instance.
+            </summary>
+            <param name="targetType">Type of the target.</param>
+            <param name="activationArgs">The activation arguments.</param>
+            <returns>The activated instance is one is required.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.GetProperty(System.String,System.Object[])">
+            <summary>
+            Gets the property.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="args">The arguments.</param>
+            <returns>The value for our property.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.GetProperty(System.String,System.Type[],System.Object[])">
+            <summary>
+            Gets the property.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="parameterTypes">The parameter types.</param>
+            <param name="args">The arguments.</param>
+            <returns>The value for our property.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.GetProperty(System.String,System.Reflection.BindingFlags,System.Type[],System.Object[])">
+            <summary>
+            Gets the property.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="bindingFlags">The binding flags.</param>
+            <param name="parameterTypes">The parameter types.</param>
+            <param name="args">The arguments.</param>
+            <returns>The value for our property.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.InvokeHelper(System.String,System.Reflection.BindingFlags,System.Object[],System.Globalization.CultureInfo)">
+            <summary>
+            Invocation helper for calling any member on our target object.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="bindingFlags">The binding flags.</param>
+            <param name="args">The arguments.</param>
+            <param name="culture">The culture.</param>
+            <returns>The return value for our invocation.</returns>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.TargetType">
+            <summary>
+            Gets or sets the type of the target.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.TargetObject">
+            <summary>
+            Gets or sets the target object.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.Role.#ctor(System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.Role"/> class.
+            </summary>
+            <param name="targetObject">The target object.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.Role.GetTargetObjectInstance(System.Type,System.Object[])">
+            <summary>
+            Gets the target object instance.
+            </summary>
+            <param name="targetType">Type of the target.</param>
+            <param name="activationArgs">The activation arguments.</param>
+            <returns>
+            The activated instance is one is required.
+            </returns>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.Role.Name">
+            <summary>
+            Gets the name of the role as it is declared in the service definition file.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleEnvironment">
+            <summary>
+            Provides information about the configuration, endpoints, and status of running role instances. 
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleEnvironment.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleEnvironment"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleEnvironment.GetTargetObjectInstance(System.Type,System.Object[])">
+            <summary>
+            Gets the target object instance.
+            </summary>
+            <param name="targetType">Type of the target.</param>
+            <param name="activationArgs">The activation arguments.</param>
+            <returns>
+            The activated instance is one is required.
+            </returns>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleEnvironment.IsAvailable">
+            <summary>
+            Gets a value indicating whether the role instance is running in the Windows Azure environment. 
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleEnvironment.DeploymentId">
+            <summary>
+            Gets the unique identifier of the deployment in which the role instance is running. 
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleEnvironment.CurrentRoleInstance">
+            <summary>
+            Gets a RoleInstance object that represents the role instance in which the code is currently running. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleInstance">
+            <summary>
+            Represents an instance of a role. 
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleInstance.#ctor(System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleInstance"/> class.
+            </summary>
+            <param name="targetObject">The target object.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleInstance.GetTargetObjectInstance(System.Type,System.Object[])">
+            <summary>
+            Gets the target object instance.
+            </summary>
+            <param name="targetType">Type of the target.</param>
+            <param name="activationArgs">The activation arguments.</param>
+            <returns>
+            The activated instance is one is required.
+            </returns>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleInstance.Id">
+            <summary>
+            Gets the instance identifier (ID) of the role instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleInstance.Role">
+            <summary>
+            Gets the Role object that is associated with the role instance.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.ServiceRuntime">
+            <summary>
+            The wrapper for the Azure Service Runtime.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.ServiceRuntime.GetRoleEnvironment(System.String)">
+            <summary>
+            Gets the role environment.
+            </summary>
+            <param name="baseDirectory">The base directory.</param>
+            <returns>
+            The role environment object.
+            </returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.TypeHelpers.GetLoadedType(System.String,System.String)">
+            <summary>
+            Gets the type by type name from the assembly.
+            </summary>
+            <param name="typeName">The type name.</param>
+            <param name="assemblyName">The assembly name.</param>
+            <returns>Return type from assembly loaded in the process by assembly and type name.</returns>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.WindowsServerEventSource">
+            <summary>
+            ETW EventSource tracing class.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.WindowsServer.Implementation.WindowsServerEventSource.Log">
+            <summary>
+            Instance of the WindowsServerEventSource class.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.WindowsServerEventSource.Keywords">
+            <summary>
+            Keywords for the PlatformEventSource. Those keywords should match keywords in Core.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.WindowsServer.Implementation.WindowsServerEventSource.Keywords.UserActionable">
+            <summary>
+            Key word for user actionable events.
+            </summary>
+        </member>
+    </members>
+</doc>

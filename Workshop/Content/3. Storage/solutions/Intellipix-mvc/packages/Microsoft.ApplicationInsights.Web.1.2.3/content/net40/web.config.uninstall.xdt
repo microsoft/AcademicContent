@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.web xdt:Locator="XPath(//system.web[(count(parent::location) = 0) or (count(parent::location[@path != '.' and count(@path) != 0]) = 0)])">
+    <httpModules>
+      <add name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler" xdt:Transform="Remove" xdt:Locator="Match(type)"/>
+    </httpModules>
+  </system.web>
+  
+  <system.webServer xdt:Locator="XPath(//system.webServer[(count(parent::location) = 0) or (count(parent::location[@path != '.' and count(@path) != 0]) = 0)])">
+    <modules>
+      <remove name="ApplicationInsightsWebTracking" xdt:Transform="Remove" xdt:Locator="Match(name)"/>          
+      <add name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler" xdt:Transform="Remove" xdt:Locator="Match(type)"/>
+    </modules>
+  </system.webServer>
+</configuration>
