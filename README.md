@@ -12,8 +12,16 @@
             <h1>Academic Resources for Computer Science</h1>
             <p><b>June 2016 release.</b> <i>Note: This repo is a work-in-progress and intended for review and collaboration with Microsoft developer advocates and the academic community. Please do not use these resources in public forums at this time.</i> Source: <a href="https://github.com/MSFTImagine/computerscience">https://github.com/MSFTImagine/computerscience</a>.</p>
             <p>
-               This repo provides technical resources for faculty, students, and Microsoft developer advocates for use in computer science learning. The modules cover common cross-platform scenarios including mobile app dev, web dev, internet of things, data science, machine learning, and devops. Content delivery is divided into four groups: Instructor-led, Problem Sets, Tech Talks, and Workshops.
+               This repo provides technical resources for faculty, students, and Microsoft developer advocates for use in computer science learning. The modules cover common cross-platform scenarios including mobile app dev, web dev, internet of things, data science, machine learning, and devops. Content delivery is divided into four groups: Instructor-led, Problem Sets, Tech Talks, and Workshops.</p>
+               <p>Most hands-on learning focuses on cross-platform technology deployment on the Microsoft Azure although most concepts can be applied to any cloud platform solution. Academic users can get free Azure from various programs like 
+            <a href="https://azure.microsoft.com/en-us/free/">Free Azure Trial</a>, 
+            <a href="https://www.dreamspark.com/student/default.aspx">Microsoft Imagine</a>, 
+            <a href="http://www.microsoftazurepass.com/">Azure Pass</a>,
+            <a href="https://www.microsoftazurepass.com/azureu">AzureU</a>,
+            <a href="https://www.visualstudio.com/en-us/products/visual-studio-dev-essentials-vs.aspx">Visual Studio Dev Essentials</a>, or
+            <a href="http://research.microsoft.com/en-us/projects/azure/default.aspx">Azure for Research</a>.
             </p>
+               <p>Your feedback is appreciated - please fork this repo and contribute!</p> 
          </div>
          <div class="panel panel-default">
             <div class="panel-heading">
