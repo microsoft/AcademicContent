@@ -3,23 +3,22 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Azure Readiness: DevCamp</title>
+      <title>Academic Resources / Instructor-led Content</title>
 	  <link rel="stylesheet" href="style.css">
    </head>
    <body id="home">
       <div class="container">
          <div class="jumbotron">
-            <h1>Azure DevCamp</h1>
-            <p>February 2016 release. Source: <a href="http://aka.ms/azure-devcamp">http://aka.ms/azure-devcamp</a></p>
+            <h1>Instructor-led Content</h1>
+            <p><b>June 2016 release.</b> Source: <a href="https://github.com/MSFTImagine/computerscience/tree/master/Instructor-Led">https://github.com/MSFTImagine/computerscience/tree/master/Instructor-Led</a>.</p>
             <p>
-               <a href="http://aka.ms/CloudCamp-AzureTrial" class="btn btn-success">Sign up for Microsoft Azure</a>
+            This library of instructor-led content is intended for use in classroom settings. Modules are divided by scenario (Cloud Computing, Web Dev, Data Science, DevOps) and can function autonomously or can be taught progressively as a course. Most modules includes presentations, speaker notes, and labs that help student demonstrate knowledge of the subject. Your feedback is appreciated as we further improve this library.
             </p>
-            <div class="hidden">_We strongly recommend that presenters and camp attendees **run the [Installer](https://github.com/Azure-Readiness/DevCamp/releases/latest)** 
-            rather than clone this repository. The installer is optimized for end users - it includes all NuGet packages, HTML documentation, etc._</div>
+            </div>
          </div>
          <div class="panel panel-default">
             <div class="panel-heading">
-               <h3 class="panel-title">Suggested agenda for a one day Azure Camp with Hands On Labs (HOLs)</h3>
+               <h3 class="panel-title">Suggested agenda for a 1-day Azure Workshop with Hands-on-labs</h3>
             </div>
             <div class="panel-body">
                <table class="table table-bordered table-hover">
@@ -89,69 +88,6 @@
                </table>
             </div>
          </div>
-         <div class="panel panel-default">
-            <div class="panel-heading">
-               <h3 class="panel-title">Full presentation list</h3>
-            </div>
-            <div class="panel-body">
-               <table class="table table-bordered table-striped table-hover">
-					<tr>
-					   <td>Keynote</td>
-					   <td>[Presentation](Presentation/Keynote/Keynote.pptx) | [Demos](Presentation/Keynote/)</td>
-					   <td>This module introduces the Cloud and the Cadence of Azure.</td>
-					</tr>
-					<tr>
-					   <td>PaaS</td>
-					   <td>[Presentation](Presentation/PaaS/Building Cloud Solutions.pptx) | [Demos](Presentation/PaaS/)</td>
-					   <td>This module provides an overview of how to design and deploy cloud solutions on Azure.</td>
-					</tr>
-					<tr>
-					   <td>App Service</td>
-					   <td>[Presentation](Presentation/App-Service/App Service.pptx) | [Demos](Presentation/App-Service/)</td>
-					   <td>This module outlines the high-level features of Azure App Service</td>
-					</tr>
-					<tr>
-					   <td>Machine Learning</td>
-					   <td>[Presentation](/Presentation/Machine-Learning/Azure-Machine-Learning.pptx) | [Demos](Presentation/Machine-Learning/)</td>
-					   <td>This module outlines the high-level features of Azure Machine Learning</td>
-					</tr>
-					<tr>
-					   <td>Data Platform</td>
-					   <td>[Presentation](Presentation/Data-Platform/Data-Platform.pptx) | [Demos](Presentation/Data-Platform/)</td>
-					   <td>This module outlines the Data offerings on Microsoft Azure</td>
-					</tr>
-					<tr>
-					   <td>Data Storage</td>
-					   <td>[Presentation](Presentation/Data-Storage/Data-Storage.pptx) | [Demos](Presentation/Data-Storage/)</td>
-					   <td>This module gives an overview of HDInsight</td>
-					</tr>
-					<tr>
-					   <td>IaaS</td>
-					   <td>[Presentation](Presentation/IaaS/IaaS.pptx) | [Demos](Presentation/IaaS/)</td>
-					   <td>This module outlines the Virtual Machine and Virtual Network features of Microsoft Azure</td>
-					</tr>
-					<tr>
-					   <td>Media</td>
-					   <td>[Presentation](Presentation/Media/Media.pptx) | [Demos](Presentation/Media/)</td>
-					   <td>This Module outlines the Media Service on Microsoft Azure.</td>
-					</tr>
-					<tr>
-					   <td>Integration / Hybrid Workflows / API Management</td>
-					   <td>[Presentation](Presentation/Integration-Hybrid-Workflows/APIManagementIntro.pptx) | [Demos](Presentation/Integration-Hybrid-Workflows/)</td>
-					   <td>This module outlines the integration offerings on Microsoft Azure</td>
-					</tr>
-					<tr>
-					   <td>Identity / Access Management</td>
-					   <td>[Presentation](Presentation/Identity-Access-Management/Identity and o365.pptx) | [Demos](Presentation/Identity-Access-Management/)</td>
-					   <td>This module outlines the Identity and Access Management offerings on Microsoft Azure</td>
-					</tr>
-					<tr>
-					   <td>Conclusion</td>
-					   <td>[Presentation](Presentation/Conclusion/Conclusion.pptx)</td>
-					   <td>This short presentation includes calls to action and signup links for camp attendees</td>
-					</tr>
-				 </table>
-			</div>
       </div>
    </body>
 </html>
