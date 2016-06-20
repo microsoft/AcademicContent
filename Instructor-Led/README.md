@@ -12,7 +12,7 @@
             <h1>Instructor-led Content</h1>
             <p><b>June 2016 release.</b> Source: <a href="https://github.com/MSFTImagine/computerscience/tree/master/Instructor-Led">https://github.com/MSFTImagine/computerscience/tree/master/Instructor-Led</a>.</p>
             <p>
-            This library of instructor-led content is intended for use in classroom settings. Modules are divided by scenario (Cloud Computing, Web Dev, Data Science, DevOps) and can function autonomously or can be taught progressively as a course. Most modules includes presentations, speaker notes, and labs that help student demonstrate knowledge of the subject. Your feedback is appreciated as we further improve this library.
+            This library of instructor-led content is intended for use in classroom settings. Modules are divided by scenario (Cloud Computing, Web Dev, Data Science, DevOps) and can function autonomously or can be taught progressively as a course. Most modules includes presentations, speaker notes, and labs that help students demonstrate knowledge of the material. Your feedback is appreciated as we continue to improve this library.
             </p>
             </div>
          </div>
