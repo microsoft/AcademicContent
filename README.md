@@ -31,22 +31,22 @@
                <table class="table table-bordered table-striped table-hover">
 					<tr>
 					   <td>Instructor-led</td>
-					   <td>[Link](TBD)</td>
+					   <td>[Link](https://github.com/MSFTImagine/computerscience/tree/master/Instructor-Led)</td>
 					   <td>Learning modules to complement existing course instruction. Includes presentations, speaker notes, and hands-on labs.</td>
 					</tr>
 					<tr>
 					   <td>Problem Sets</td>
-					   <td>[Link](TBD)</td>
+					   <td>[Link](https://github.com/MSFTImagine/computerscience/tree/master/Problem%20Sets)</td>
 					   <td>Library of computer science problem sets using Microsoft Azure for use in courses.</td>
 					</tr>
 					<tr>
 					   <td>Tech Talks</td>
-					   <td>[Link](TBD)</td>
+					   <td>[Link](https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks)</td>
 					   <td>Presentations on emerging or innovative tech topics with speakers notes and demos. </td>
 					</tr>
 					<tr>
 					   <td>Workshop</td>
-					   <td>[Link](TBD)</td>
+					   <td>[Link](https://github.com/MSFTImagine/computerscience/tree/master/Workshop)</td>
 					   <td>1-day hands-on lab using cross-platform technologies with Microsoft Azure</td>
 					</tr>
 				 </table>
