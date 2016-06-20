@@ -3,14 +3,14 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Azure Readiness: DevCamp</title>
+      <title>Academic Resources for Computer Science</title>
 	  <link rel="stylesheet" href="style.css">
    </head>
    <body id="home">
       <div class="container">
          <div class="jumbotron">
-            <h1>Azure DevCamp</h1>
-            <p>February 2016 release. Source: <a href="http://aka.ms/azure-devcamp">http://aka.ms/azure-devcamp</a></p>
+            <h1>Academic Resources for Computer Science</h1>
+            <p><b>June 2016 release.</b> <i>Note: This repo is a work-in-progress and intended for review and collaboration with Microsoft developer advocates and the academic community. Please do not use these resources in public forums at this time.</i> Source: <a href="https://github.com/MSFTImagine/computerscience">https://github.com/MSFTImagine/computerscience</a>.</p>
             <p>
                <a href="http://aka.ms/CloudCamp-AzureTrial" class="btn btn-success">Sign up for Microsoft Azure</a>
             </p>
