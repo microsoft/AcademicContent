@@ -23,37 +23,37 @@
             <div class="panel-body">
                <table class="table table-bordered table-striped table-hover">
 					<tr>
-					   <td>Cybersecurity - an Ever Moving Target</td>
+					   <td><b>Cybersecurity - an Ever Moving Target</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Cybersecurity%20an%20Ever%20Moving%20Target.pptx)</td>
 					   <td>Abstract</td>
 					</tr>
 					<tr>
-					   <td>Setting-up the Perfect Online Resume for Student Devs</td>
+					   <td><b>Setting-up the Perfect Online Resume for Student Devs</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Setting%20up%20the%20Perfect%20Online%20Resume%20for%20Student%20Devs.pptx)</td>
 					   <td>Abstract</td>
 					</tr>
 					<tr>
-					   <td>Using Cortana Intelligence Suite in your Hacks or Student Projects</td>
+					   <td><b>Using Cortana Intelligence Suite in your Hacks or Student Projects</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Using%20Cortana%20Intelligence%20Suite%20in%20your%20Hacks%20or%20Student%20Projects.pptx) | [Demos](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Demos%20-%20Using%20Cortana%20Intelligence%20Suite%20in%20your%20Hacks%20or%20Student%20Projects.zip)</td>
 					   <td>Abstract </td>
 					</tr>
 										<tr>
-					   <td>A Career in Technical Evangelism: What we really do.</td>
+					   <td><b>A Career in Technical Evangelism: What we really do.</b></td>
 					   <td>[Presentation](TBD)</td>
 					   <td>Abstract </td>
 					</tr>
 										<tr>
-					   <td>How to Build an Intelligent <Dorm Room> Security Monitor</td>
+					   <td><b>How to Build an Intelligent <Dorm Room> Security Monitor</b></td>
 					   <td>[Presentation](TBD) </td>
 					   <td>Abstract </td>
 					</tr>
 										<tr>
-					   <td>Your First Startup: Moving your Investors to YES!</td>
-					   <td>[Presentation](TBDx)</td>
+					   <td><b>Your First Startup: Moving your Investors to YES!</b></td>
+					   <td>[Presentation](TBD)</td>
 					   <td>Abstract </td>
 					</tr>
 										<tr>
-					   <td>What's New in Virtual and Augmented Reality for devs?</td>
+					   <td><b>What's New in Virtual and Augmented Reality for devs?</b></td>
 					   <td>[Presentation](TBDx)</td>
 					   <td>Abstract </td>
 					</tr>
