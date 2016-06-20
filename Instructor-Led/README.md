@@ -18,7 +18,7 @@
          </div>
          <div class="panel panel-default">
             <div class="panel-heading">
-               <h3 class="panel-title">Suggested agenda for a 1-day Azure Workshop with Hands-on-labs</h3>
+               <h3 class="panel-title">Available Modules in Instructor-led Content</h3>
             </div>
             <div class="panel-body">
                <table class="table table-bordered table-hover">
