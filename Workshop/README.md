@@ -3,19 +3,18 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Azure Readiness: DevCamp</title>
+      <title>Academic Resources / Azure Workshop</title>
 	  <link rel="stylesheet" href="style.css">
    </head>
    <body id="home">
       <div class="container">
          <div class="jumbotron">
-            <h1>Azure DevCamp</h1>
-            <p>February 2016 release. Source: <a href="http://aka.ms/azure-devcamp">http://aka.ms/azure-devcamp</a></p>
+            <h1>Azure Workshop</h1>
+            <p><b>June 2016 release.</b> Source: <a href="https://github.com/MSFTImagine/computerscience/tree/master/Workshop">https://github.com/MSFTImagine/computerscience/tree/master/Workshop</a>.</p>
             <p>
-               <a href="http://aka.ms/CloudCamp-AzureTrial" class="btn btn-success">Sign up for Microsoft Azure</a>
+            The Azure Workshop is a series of hands-on coding labs to help computer science faculty and student quickly learn how to deploy solutions to the Azure cloud across common scenarios like Mobile Dev, App Dev, Data Science, IoT, Machine Learning using cross-platform technologies. Labs can be completed on a Windows device or through VMs on Mac or Linux. Format is typically 1-day instructor-led; however groups may opt to customize into 2-hour or 4-hour lenghts too. Your feedback is welcome in improving these labs.
             </p>
-            <div class="hidden">_We strongly recommend that presenters and camp attendees **run the [Installer](https://github.com/Azure-Readiness/DevCamp/releases/latest)** 
-            rather than clone this repository. The installer is optimized for end users - it includes all NuGet packages, HTML documentation, etc._</div>
+            </div>
          </div>
          <div class="panel panel-default">
             <div class="panel-heading">
