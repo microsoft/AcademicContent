@@ -3,16 +3,17 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Azure Readiness: DevCamp</title>
+      <title>Academic Resources for Computer Science</title>
 	  <link rel="stylesheet" href="style.css">
    </head>
    <body id="home">
       <div class="container">
          <div class="jumbotron">
             <h1>Academic Resources for Computer Science</h1>
-            <p><b>June 2016 release.</b> <i>Note: This repo is a work-in-progress and intended for review and collaboration with Microsoft developer advocates and the academic community. Please do not use these resources in public forums at this time.</i> Source: <a href="https://github.com/MSFTImagine/computerscience">https://github.com/MSFTImagine/computerscience</a></p>
-         
-            <div class="hidden">This repo provides technical resources for faculty, students, and Microsoft developer advocates for use in computer science learning. The modules cover common cross-platform scenarios including mobile app dev, web dev, internet of things, data science, machine learning, and devops. Content delivery is divided into four groups: Instructor-led, Problem Sets, Tech Talks, and Workshops. 
+            <p><b>June 2016 release.</b> <i>Note: This repo is a work-in-progress and intended for review and collaboration with Microsoft developer advocates and the academic community. Please do not use these resources in public forums at this time.</i> Source: <a href="https://github.com/MSFTImagine/computerscience">https://github.com/MSFTImagine/computerscience</a></p></p>
+            <p>
+
+            This repo provides technical resources for faculty, students, and Microsoft developer advocates for use in computer science learning. The modules cover common cross-platform scenarios including mobile app dev, web dev, internet of things, data science, machine learning, and devops. Content delivery is divided into four groups: Instructor-led, Problem Sets, Tech Talks, and Workshops. 
             <p>Most hands-on learning focuses on cross-platform technology deployment on the Microsoft Azure although most concepts can be applied to any cloud platform solution. Academic users can get free Azure from various programs like 
             <a href="https://azure.microsoft.com/en-us/free/">Free Azure Trial</a>, 
             <a href="https://www.dreamspark.com/student/default.aspx">Microsoft Imagine</a>, 
@@ -22,7 +23,8 @@
             <a href="http://research.microsoft.com/en-us/projects/azure/default.aspx">Azure for Research</a>.
             </p>
             <p> Your feedback is appreciated - please fork this repo and contribute!  
-         <div class="panel panel-default">
+
+          <div class="panel panel-default">
             <div class="panel-heading">
                <h3 class="panel-title">Available academic resources</h3>
             </div>
