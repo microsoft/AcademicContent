@@ -12,13 +12,13 @@
             <h1>Azure Workshop</h1>
             <p><b>June 2016 release.</b> Source: <a href="https://github.com/MSFTImagine/computerscience/tree/master/Workshop">https://github.com/MSFTImagine/computerscience/tree/master/Workshop</a>.</p>
             <p>
-            The Azure Workshop is a series of hands-on coding labs to help computer science faculty and student quickly learn how to deploy solutions to the Azure cloud across common scenarios like Mobile Dev, App Dev, Data Science, IoT, Machine Learning using cross-platform technologies. Labs can be completed on a Windows device or through VMs on Mac or Linux. Format is typically 1-day instructor-led; however groups may opt to customize into 2-hour or 4-hour lenghts too. Your feedback is welcome in improving these labs.
+            The Azure Workshop is a series of hands-on coding labs to help computer science faculty and student quickly learn how to deploy solutions to the Azure cloud across common scenarios like Mobile Dev, App Dev, Data Science, IoT, Machine Learning using cross-platform technologies. Labs can be completed on a Windows device or through VMs on Mac or Linux. Format is typically 1-day instructor-led; however groups may opt to customize into 2-hour or 4-hour lengths too. Your feedback is welcome in improving these labs.
             </p>
             </div>
          </div>
          <div class="panel panel-default">
             <div class="panel-heading">
-               <h3 class="panel-title">Suggested agenda for a one day Azure Camp with Hands On Labs (HOLs)</h3>
+               <h3 class="panel-title">Suggested agenda for a 1-day Azure Workshop with Hands-on-labs</h3>
             </div>
             <div class="panel-body">
                <table class="table table-bordered table-hover">
@@ -88,69 +88,6 @@
                </table>
             </div>
          </div>
-         <div class="panel panel-default">
-            <div class="panel-heading">
-               <h3 class="panel-title">Full presentation list</h3>
-            </div>
-            <div class="panel-body">
-               <table class="table table-bordered table-striped table-hover">
-					<tr>
-					   <td>Keynote</td>
-					   <td>[Presentation](Presentation/Keynote/Keynote.pptx) | [Demos](Presentation/Keynote/)</td>
-					   <td>This module introduces the Cloud and the Cadence of Azure.</td>
-					</tr>
-					<tr>
-					   <td>PaaS</td>
-					   <td>[Presentation](Presentation/PaaS/Building Cloud Solutions.pptx) | [Demos](Presentation/PaaS/)</td>
-					   <td>This module provides an overview of how to design and deploy cloud solutions on Azure.</td>
-					</tr>
-					<tr>
-					   <td>App Service</td>
-					   <td>[Presentation](Presentation/App-Service/App Service.pptx) | [Demos](Presentation/App-Service/)</td>
-					   <td>This module outlines the high-level features of Azure App Service</td>
-					</tr>
-					<tr>
-					   <td>Machine Learning</td>
-					   <td>[Presentation](/Presentation/Machine-Learning/Azure-Machine-Learning.pptx) | [Demos](Presentation/Machine-Learning/)</td>
-					   <td>This module outlines the high-level features of Azure Machine Learning</td>
-					</tr>
-					<tr>
-					   <td>Data Platform</td>
-					   <td>[Presentation](Presentation/Data-Platform/Data-Platform.pptx) | [Demos](Presentation/Data-Platform/)</td>
-					   <td>This module outlines the Data offerings on Microsoft Azure</td>
-					</tr>
-					<tr>
-					   <td>Data Storage</td>
-					   <td>[Presentation](Presentation/Data-Storage/Data-Storage.pptx) | [Demos](Presentation/Data-Storage/)</td>
-					   <td>This module gives an overview of HDInsight</td>
-					</tr>
-					<tr>
-					   <td>IaaS</td>
-					   <td>[Presentation](Presentation/IaaS/IaaS.pptx) | [Demos](Presentation/IaaS/)</td>
-					   <td>This module outlines the Virtual Machine and Virtual Network features of Microsoft Azure</td>
-					</tr>
-					<tr>
-					   <td>Media</td>
-					   <td>[Presentation](Presentation/Media/Media.pptx) | [Demos](Presentation/Media/)</td>
-					   <td>This Module outlines the Media Service on Microsoft Azure.</td>
-					</tr>
-					<tr>
-					   <td>Integration / Hybrid Workflows / API Management</td>
-					   <td>[Presentation](Presentation/Integration-Hybrid-Workflows/APIManagementIntro.pptx) | [Demos](Presentation/Integration-Hybrid-Workflows/)</td>
-					   <td>This module outlines the integration offerings on Microsoft Azure</td>
-					</tr>
-					<tr>
-					   <td>Identity / Access Management</td>
-					   <td>[Presentation](Presentation/Identity-Access-Management/Identity and o365.pptx) | [Demos](Presentation/Identity-Access-Management/)</td>
-					   <td>This module outlines the Identity and Access Management offerings on Microsoft Azure</td>
-					</tr>
-					<tr>
-					   <td>Conclusion</td>
-					   <td>[Presentation](Presentation/Conclusion/Conclusion.pptx)</td>
-					   <td>This short presentation includes calls to action and signup links for camp attendees</td>
-					</tr>
-				 </table>
-			</div>
       </div>
    </body>
 </html>
