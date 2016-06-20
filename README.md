@@ -47,7 +47,7 @@
 					<tr>
 					   <td><b>Workshop</b></td>
 					   <td>[Link](https://github.com/MSFTImagine/computerscience/tree/master/Workshop)</td>
-					   <td>1-day hands-on lab using cross-platform technologies with Microsoft Azure</td>
+					   <td>1-day hands-on lab using cross-platform technologies with Microsoft Azure.</td>
 					</tr>
 				 </table>
 			</div>
