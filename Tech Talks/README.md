@@ -37,6 +37,26 @@
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Using%20Cortana%20Intelligence%20Suite%20in%20your%20Hacks%20or%20Student%20Projects.pptx) | [Demos](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Demos%20-%20Using%20Cortana%20Intelligence%20Suite%20in%20your%20Hacks%20or%20Student%20Projects.zip)</td>
 					   <td>Abstract </td>
 					</tr>
+										<tr>
+					   <td>A Career in Technical Evangelism: What we really do.</td>
+					   <td>[Presentation](TBD)</td>
+					   <td>Abstract </td>
+					</tr>
+										<tr>
+					   <td>How to Build an Intelligent <Dorm Room> Security Monitor</td>
+					   <td>[Presentation](TBD) </td>
+					   <td>Abstract </td>
+					</tr>
+										<tr>
+					   <td>Your First Startup: Moving your Investors to YES!</td>
+					   <td>[Presentation](TBDx)</td>
+					   <td>Abstract </td>
+					</tr>
+										<tr>
+					   <td>What's New in Virtual and Augmented Reality for devs?</td>
+					   <td>[Presentation](TBDx)</td>
+					   <td>Abstract </td>
+					</tr>
 				 </table>
 			</div>
       </div>
