@@ -42,7 +42,7 @@
                   <tr>
                      <td rowspan=2>Azure Web Apps</td>
                      <td>15</td>
-                     <td>[Presentation](Content/2. Azure Web Apps/Azure Web Apps.pptx) | [Demos](Presentation/App-Service/)</td>
+                     <td>[Presentation](Content/2. Web Apps/Azure Web Apps.pptx) | [Demos](Presentation/App-Service/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
