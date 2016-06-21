@@ -43,9 +43,9 @@
 					   <td>Abstract </td>
 					</tr>
 										<tr>
-					   <td><b>Build an Intelligent <Dorm Room> Security Monitor</b></td>
+					   <td><b>Build an Intelligent <Dorm Room> Security System with Cognitive Services</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Build%20An%20Intelligent%20(Dorm%20Room)%20Security%20System.pptx) </td>
-					   <td>Abstract </td>
+					   <td>Abstract</td>
 					</tr>
 										<tr>
 					   <td><b>Your First Startup: Moving your Investors to YES!</b></td>
