@@ -86,7 +86,7 @@
                   </tr>
                   <tr>
                      <td rowspan=2>60</td>
-                     <td>[HOL - Deploy an HPC cluster and process data in parallel using a Python script](Content/6. HPC/Azure High-Performance Computing/SLURM Linux Cluster HOL.md)</td>
+                     <td>[HOL - Deploy an HPC cluster and process data in parallel using a Python script](Content/6. HPC/SLURM Linux Cluster HOL.md)</td>
                   </tr>
                </table>
             </div>
