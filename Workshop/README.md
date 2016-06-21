@@ -31,59 +31,62 @@
                      <th>Activity</th>
                   </tr>
                   <tr>
-                     <td rowspan=3>Intro to Azure</td>
+                     <td rowspan=2>Intro to Azure</td>
                      <td>30</td>
-                     <td>[Presentation](Presentation/Keynote/Keynote.pptx) | [Demos](Presentation/Keynote/)</td>
+                     <td>[Presentation](Content/1. Introduction/Azure Overview.pptx) | [Demos](Presentation/Keynote/)</td>
                   </tr>
                   <tr>
-                     <td>15</td>
-                     <td>[HOL - Signup](HOL/creating-azure-account-activating-msdn-benefits/)</td>
-                  </tr>
-                  <tr>
-                  <td>15</td>
-                  <td>[HOL - Working with the Management Portal](HOL/working-with-the-new-portal/)</td>
+                  <td>30</td>
+                  <td>[HOL - Activate your Azure subscription and the lab VM](Content/1. Introduction/Introduction HOL.md)</td>
                   </tr>		
                   <tr>
-                     <td rowspan=3>App Service</td>
-                     <td>30</td>
-                     <td>[Presentation](Presentation/App-Service/App Service.pptx) | [Demos](Presentation/App-Service/)</td>
-                  </tr>
-                  <tr>
-                     <td rowspan=2>30</td>
-                     <td>[HOL - Deploy a Web App to Azure *or*](HOL/get-started-with-websites-and-asp-net/)</td>
-                  </tr>
-                  <tr>
-                     <td>[HOL - Create an app with a mobile and web client in Azure App Service](HOL/build-mobile-app-with-web-client/)</td>
-                  </tr>
-                  <tr>
-                     <td rowspan=2>Machine Learning</td>
-                     <td>45</td>
-                     <td>[Presentation](/Presentation/Machine-Learning/Azure-Machine-Learning.pptx) | [Demos](Presentation/Machine-Learning/)</td>
+                     <td rowspan=2>Azure Web Apps</td>
+                     <td>15</td>
+                     <td>[Presentation](Content/2. Azure Web Apps/Azure Web Apps.pptx) | [Demos](Presentation/App-Service/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
-                     <td>[HOL - Deploy a SPA with AD to Azure](HOL/machine-learning/)</td>
+                     <td>[HOL - Deploy a PHP/MySQL Web App to Azure](Content/2. Web Apps/Azure Web Apps HOL.md)</td>
                   </tr>
                   <tr>
-                     <td rowspan=2>IaaS</td>
+                     <td rowspan=3>Azure Storage and Cognitive Services</td>
+                     <td>15</td>
+                     <td>[Presentation](Content/3. Storage/Azure Storage and Cognitive Services.pptx) | [Demos](Presentation/App-Service/)</td>
+                  </tr>
+                  <tr>
                      <td>45</td>
-                     <td>[Presentation](Presentation/IaaS/IaaS.pptx) | [Demos](Presentation/IaaS/)</td>
+                     <td>[HOL - Build an intelligent-pictures site with C# and ASP.NET MVC, *or*](Content/3. Storage/Azure Storage and Cognitive Services HOL (MVC).md)</td>
+                  </tr>
+				  <tr>
+					<td>45</td>
+					<td>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](Content/3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
+				  </tr>
+                  <tr>
+                     <td rowspan=2>Azure Machine Learning</td>
+                     <td>15</td>
+                     <td>[Presentation](Content/4. Machine Learning/Azure Machine Learning.pptx) | [Demos](Presentation/Machine-Learning/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
-                     <td>[HOL - IaaS](HOL/create-virtual-machine/)</td>
+                     <td>[HOL - Build a smart app that relies on machine learning](Content/4. Machine Learning/Azure Machine Learning HOL.md)</td>
                   </tr>
                   <tr>
-                     <td rowspan=3>Data overview</td>
-                     <td>45</td>
-                     <td>[Presentation](Presentation/Data-Platform/Data-Platform.pptx) | [Demos](Presentation/Data-Platform/)</td>
+                     <td rowspan=2>IoT and Azure Stream Analytics</td>
+                     <td>15</td>
+                     <td>[Presentation](Content/5. Stream Analytics/Azure Stream Analytics.pptx) | [Demos](Presentation/IaaS/)</td>
                   </tr>
                   <tr>
-                     <td rowspan=2>45</td>
-                     <td>[HOL - DocumentDB *or*](HOL/build-web-app-using-documentdb/)</td>
+                     <td>60</td>
+                     <td>[HOL - Build an app that analyzes data streaming from simulated ATM machines](Content/5. Stream Analytics/Azure Stream Analytics HOL.md)</td>
                   </tr>
                   <tr>
-                     <td>[HOL - Elastic Scale](HOL/sql-database/)</td>
+                     <td rowspan=2>High-Performance Computing (HPC)</td>
+                     <td>15</td>
+                     <td>[Presentation](Content/6. HPC/Azure High-Performance Computing.pptx) | [Demos](Presentation/Data-Platform/)</td>
+                  </tr>
+                  <tr>
+                     <td rowspan=2>60</td>
+                     <td>[HOL - Deploy an HPC cluster and process data in parallel using a Python script](Content/6. HPC/Azure High-Performance Computing/SLURM Linux Cluster HOL.md)</td>
                   </tr>
                </table>
             </div>
