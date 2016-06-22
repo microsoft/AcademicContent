@@ -25,12 +25,12 @@
 					<tr>
 					   <td><b>Cybersecurity - an Ever Moving Target</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Cybersecurity%20an%20Ever%20Moving%20Target.pptx)</td>
-					   <td>Abstract</td>
+					   <td>Black hats, White hats, the Dark Web, Bitcoin. What do they all have in-common? Cybersecurity is one of the fastest growing careers for developers. This talk is all about what hacking really means: motivations, scale, attack vectors, and countermeasures.</td>
 					</tr>
 					<tr>
 					   <td><b>Setting-up the Perfect Online Resume for Student Devs</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Setting%20up%20the%20Perfect%20Online%20Resume%20for%20Student%20Devs.pptx)</td>
-					   <td>Abstract</td>
+					   <td>Ready to showcase your developer talent to startups, agencies, and big tech companies? There's nothing better than <i>showing</i> them. Take the first step by creating your own online resume and portfolio of projects, hosted in the Azure Cloud. </td>
 					</tr>
 					<tr>
 					   <td><b>Using Cortana Intelligence Suite in your Hacks or Student Projects</b></td>
