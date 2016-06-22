@@ -30,17 +30,17 @@
 					<tr>
 					   <td><b>Setting-up the Perfect Online Resume for Student Devs</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Setting%20up%20the%20Perfect%20Online%20Resume%20for%20Student%20Devs.pptx)</td>
-					   <td>Ready to showcase your developer talent to startups, agencies, and big tech companies? There's nothing better than <i>showing</i> them. Take the first step by creating your own online resume and portfolio of projects, hosted in the Azure Cloud. </td>
+					   <td>Ready to share your talent with startups, agencies, and big tech companies? There's nothing better than <i>showing</i> them. Take the first step by creating your own online resume and portfolio of projects, hosted in the Azure Cloud. </td>
 					</tr>
 					<tr>
 					   <td><b>Using Cortana Intelligence Suite in your Hacks or Student Projects</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Using%20Cortana%20Intelligence%20Suite%20in%20your%20Hacks%20or%20Student%20Projects.pptx) | [Demos](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Demos%20-%20Using%20Cortana%20Intelligence%20Suite%20in%20your%20Hacks%20or%20Student%20Projects.zip)</td>
-					   <td>Abstract </td>
+					   <td>Want to make your apps more intelligent with minimal additional work? Today's cloud has the power to help you create something more <i>human</i>. Learn about the characteristics of an intelligent app and see some great demos of what's possible with contextual vision, speech, knowledge, language, and search.</td>
 					</tr>
 										<tr>
 					   <td><b>A Career in Technical Evangelism: What we really do.</b></td>
 					   <td>[Presentation](TBD)</td>
-					   <td>Abstract </td>
+					   <td>Coming soon</td>
 					</tr>
 										<tr>
 					   <td><b>Build an Intelligent <Dorm Room> Security System with Cognitive Services</b></td>
@@ -50,12 +50,12 @@
 										<tr>
 					   <td><b>Your First Startup: Moving your Investors to YES!</b></td>
 					   <td>[Presentation](TBD)</td>
-					   <td>Abstract </td>
+					   <td>Abstract</td>
 					</tr>
 										<tr>
 					   <td><b>What's New in Virtual and Augmented Reality for devs?</b></td>
 					   <td>[Presentation](TBDx)</td>
-					   <td>Abstract </td>
+					   <td>Coming soon</td>
 					</tr>
 				 </table>
 			</div>
