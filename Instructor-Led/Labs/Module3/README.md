@@ -1,3 +1,3 @@
-#Module 3 Lessons
+#Module 3 Labs
 
 >initialize directory

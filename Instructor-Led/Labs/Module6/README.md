@@ -1,3 +1,3 @@
-#Module 6 Lessons 
+#Module 6 Labs 
 
 >Initialize Directory.

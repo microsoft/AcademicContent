@@ -1,3 +1,3 @@
-#Module 7 Lessons
+#Module 7 Labs
 
 > Initialize Directory
