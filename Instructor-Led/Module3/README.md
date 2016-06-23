@@ -55,7 +55,7 @@
                   <tr>
                      <td align="center">7</td>
                      <td>[Developing Windows Phone Apps With Xamarin](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td></td>
                   </tr>
                   <tr>
                      <td align="center">8</td>
