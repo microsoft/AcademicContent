@@ -49,7 +49,7 @@
 					</tr>
 										<tr>
 					   <td><b>Your First Startup: Moving your Investors to YES!</b></td>
-					   <td>[Presentation](TBD)</td>
+					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20How%20to%20move%20investors%20to%20Yes.pptx)</td>
 					   <td>Thinking about building the next great thing? Deciding to bootstrap or raise some capital? This talk guides you through the realities, the process, and how to pitch investors towards the a career moment for you. </td>
 					</tr>
 										<tr>
