@@ -9,7 +9,6 @@
       <div class="container">
          <div class="jumbotron">
             <h1>Module 5 - Data Science and Machine Learning</h1>
-                        <--!Labs still in development!-->
             <p><b>June 2016 release, [R0](../Module5/)</b>
          </div>
       </div>
