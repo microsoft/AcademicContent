@@ -24,7 +24,7 @@
                   </tr>
                   <tr>
                      <td align="center">1</td>
-                     <td>[Datas Science and Machine Learning Overview](Lessons/)</td>
+                     <td>[Data Science and Machine Learning Overview](Lessons/)</td>
                      <td></td>
                   </tr>
                   <tr>
