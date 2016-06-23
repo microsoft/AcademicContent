@@ -42,5 +42,9 @@
                      <td>[How to Start Azure](Lessons/)</td>
                      <td>[Lab](Labs/)</td>
                   </tr>
+                </table>
+        </div>
+     </body>
+</html>
                   
                   
