@@ -9,7 +9,7 @@
       <div class="container">
          <div class="jumbotron">
             <h1>Module 5 - Data Science and Machine Learning</h1>
-            <p><b>June 2016 release, R0</b>
+            <p><b>June 2016 release, [R0](../Module5/)</b>
          </div>
       </div>
       <div class="panel-body">
