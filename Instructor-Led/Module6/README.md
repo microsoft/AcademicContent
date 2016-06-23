@@ -40,17 +40,17 @@
                   <tr>
                      <td align="center">4</td>
                      <td>[Introduction to IoT Hub](Lessons/)</td>
-                     <td></td>
+                     <td>[Lab](Labs/)</td>
                   </tr>
                   <tr>
                      <td align="center">5</td>
                      <td>[Event Data Collection](Lessons/)</td>
-                     <td></td>
+                     <td>[Lab](Labs/)</td>
                   </tr>
                   <tr>
                      <td align="center">6</td>
                      <td>[Azure Stream Analytics](Lessons/)</td>
-                     <td></td>
+                     <td>[Lab](Labs/)</td>
                   </tr>
                   <tr>
                      <td align="center">7</td>
