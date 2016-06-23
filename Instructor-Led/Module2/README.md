@@ -54,7 +54,7 @@
                   </tr>
                   <tr>
                      <td align="center">7</td>
-                     <td>[Deploying Node Applications to Azure](Lessons/)</td>
+                     <td>[Deploying Node.js Applications to Azure](Lessons/)</td>
                      <td>[Lab](Labs/)</td>
                   </tr>
             </table>
