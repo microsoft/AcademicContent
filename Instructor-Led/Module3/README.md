@@ -9,7 +9,7 @@
       <div class="container">
          <div class="jumbotron">
             <h1>Module 3 - Cross Platform Mobile Application Development with Xamarin</h1>
-            <p><b>June 2016 release, R1</b>
+            <p><b>June 2016 release, R0</b>
          </div>
       </div>
       <div class="panel-body">
