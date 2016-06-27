@@ -336,7 +336,7 @@ In this exercise, you will write a client app that targets the [Universal Window
 
 1. Start Visual Studio 2015 and use the **File -> New -> Project** command to create a new **Blank App (Universal Windows)** project named "MLClient."
 
-    ![Creating a new UWP project](images/new-universal-app.png)
+    ![Creating a new UWP project](Images/new-universal-app.png)
 
     _Creating a new UWP project_
 
@@ -348,7 +348,7 @@ In this exercise, you will write a client app that targets the [Universal Window
 
 1. In the Solution Explorer window, right-click the **MLClient** project and select **Manage NuGet Packages...**
 
-    ![Managing NuGet Packages for the project](images/manage-nuget-packages.png)
+    ![Managing NuGet Packages for the project](Images/manage-nuget-packages.png)
 
     _Managing NuGet Packages for the project_
 
