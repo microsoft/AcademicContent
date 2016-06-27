@@ -9,7 +9,8 @@
       <div class="container">
          <div class="jumbotron">
             <h1>Module 3 - Cross Platform Mobile Application Development with Xamarin</h1>
-            <p><b>June 2016 release, R0</b>
+            <p><b>June 2016 release, R0</b></p>
+            <p>This module introduces a survey of mobile development, the basics of Xamarin, and the foundations of C#. This module proceeds to cover Xamarin development basics for Android, iOS, and Windows apps; including the basics of using Xamarin.Forms and testing Xamarin apps. Finally, this module demonstrates deploying a Mobile app (using Azure app services) and getting your mobile app into an app store.</p>
          </div>
       </div>
       <div class="panel-body">
@@ -21,71 +22,131 @@
                      <th>Lesson</th>
                      <th align="center">Title</th>
                      <th>Lab</th>
+                     <th>Objectives</th>
                   </tr>
                   <tr>
                      <td align="center">1</td>
                      <td>[Mobile Development Survey](Lessons/)</td>
                      <td></td>
+                     <td>Native mobile app development <br>
+			 Cross-platform development<br>
+			 Pros/cons of native app development<br>
+			 Pros/cons of cross-platform development<br>
+			 Common approaches to cross-platform development
+		     </td>
                   </tr>
                   <tr>
                      <td align="center">2</td>
                      <td>[Understanding Xamarin](Lessons/)</td>
                      <td></td>
+                     <td>What Xamarin is<br>
+			 The Xamarin approach<br>
+			 Xamarin fundamentals
+		     </td>
                   </tr>
                   <tr>
                      <td align="center">3</td>
                      <td>[C# Fundamentals](Lessons/)</td>
                      <td></td>
+                     <td>What C# is<br>
+			 Where C# came from<br>
+			 The C# programming paradigm
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">4</td>
                      <td>[Developing Android Apps with Xamarin](Lessons/)</td>
                      <td></td>
+                     <td>Building an Android application using Xamarin.Android<br>
+			 Basic Android development concepts<br>
+			 User interfaces on the Android platform
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">5</td>
                      <td>[Developing Android Apps With Xamarin (Part 2)](Lessons/)</td>
                      <td>[Lab](Labs/)</td>
+                     <td>Develops the same objectives as Lesson 4
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">6</td>
                      <td>[Developing iOS Apps With Xamarin](Lessons/)</td>
                      <td>[Lab](Labs/)</td>
+                     <td>Building an iOS app using Xamarin.iOS<br>
+			 Basic iOS development concepts<br>
+			 User interfaces on the iOS platform
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">7</td>
                      <td>[Developing Windows Phone Apps With Xamarin](Lessons/)</td>
                      <td></td>
+                     <td>How Windows Phone apps work in a Xamarin solution<br>
+			 Basic Windows Phone concepts<br>
+			 User interfaces on the Windows Phone platform
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">8</td>
                      <td>[Maximizing Code Reuse with Xamarin](Lessons/)</td>
                      <td></td>
+                     <td>What makes reusability so important in Xamarin<br>
+			 The different options of code reuse in Xamarin<br>
+			 Proper design principles to consider while using Xamarin
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">9</td>
                      <td>[Cross-Platform User Interfaces with Xamarin.Forms](Lessons/)</td>
                      <td></td>
+                     <td>When to consider using Xamarin.Forms<br>
+			 The benefits and limitations of Xamarin.Forms<br>
+			 Development fundamentals of Xamarin.Forms:<br>
+			 <ul>
+			   <li>Page, Layout, and View<br>
+			   <li>Basic Views and Selection Controls
+			 </ul>
+		     </td>
                   </tr>
                   <tr>
                      <td align="center">10</td>
                      <td>[Cross-Platform User Interfaces with Xamarin.Forms (Part 2)](Lessons/)</td>
                      <td>[Lab](Labs/)</td>
+                     <td>Development fundamentals of Xamarin.Forms
+                       <ul>
+			<li>Navigation
+			<li>ListView
+			<li>State Management
+		       </ul>
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">11</td>
                      <td>[Debugging and Testing Xamarin Apps](Lessons/)</td>
                      <td></td>
+                     <td>The importance of testing and debugging code<br>
+			 Cross-platform application testing and debugging nuances<br>
+			 How to increase productivity while testing and debugging
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">12</td>
                      <td>[Mobile Apps with Microsoft Azure App Service](Lessons/)</td>
                      <td>[Lab](Labs/)</td>
+                     <td>The value of adding pre-configured common mobile functionality<br>
+The functionality that can be added to mobile apps via App Service<br>
+Interconnection between different kinds of apps in App Service
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">13</td>
                      <td>[Getting your Apps into the App Store](Lessons/)</td>
                      <td></td>
+                     <td>Why app stores are used for application distribution<br>
+			 How to submit an app to major app stores<br>
+			 Considerations to take regarding app store submission requirements
+                     </td>
                   </tr>
             </table>
         </div>
