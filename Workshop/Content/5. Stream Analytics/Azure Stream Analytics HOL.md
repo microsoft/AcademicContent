@@ -153,20 +153,20 @@ Applications, devices, and gateways can send events to Azure event hubs using th
 
 1. Open Program.cs and the following using statements to the using statements at the top of the file:
 
-	<pre>
+	```C#
 	using Microsoft.ServiceBus.Messaging;
 	using Newtonsoft.Json;
-	</pre>
+	```
 
 1. Replace the empty **Program** class with the following implementation:
 
-	<pre>
+	```C#
 	class Program
 	{
 	    static double _probability = 0.01;
 	    static int _transactions = 0;
 	    static int _cardNumber = -1;
-	    static string _connectionString = "<i>connection_string</i>";
+	    static string _connectionString = "connection_string";
 	
 	    static void Main(string[] args)
 	    {
@@ -206,15 +206,15 @@ Applications, devices, and gateways can send events to Azure event hubs using th
 	        }
 	    }
 	}
-	</pre>
+	```
 
 1. Replace *connection_string* in line 6 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 1, Step 10.
 
 1. Remove ";EntityPath=inputhub" from the end of the connection string. The _connectionString field should now look something like this:
 
-	<pre>
-	static string _connectionString = "Endpoint=sb://dxlabs.servicebus.windows.net/;SharedAccessKeyName=SendPolicy;SharedAccessKey=Zx/fjB8kHPnuWabnpUpXJ1S88FkMacJq9gYUu6cRD3Y=";
-	</pre>
+	```C#
+	static string _connectionString = "Endpoint=sb://dxlabs.servicebus.windows.net/;SharedAccessKeyName=SendPolicy;SharedAccessKey=Zx/fjB8kHPnuW789pUpXJ1S88FkMacJq9gYUu6cRD3Y=";
+	```
 
 1. Press Ctrl+F5 to run the program and confirm that you see output similar to the following. Each line represents one event sent to the event hub, and events will probably roll by at a rate of about 2 to 3 per second. (Rates will vary depending on your connection speed.) **Confirm that no exceptions are thrown**.
 
@@ -557,7 +557,7 @@ In this exercise, you will write a Web app that connects to the event hub and di
 
 1. Implement the ATMEvent class as follows:
 
-	<pre>
+	```C#
     public class ATMEvent
     {
         public string CardNumber { get; set; };
@@ -566,7 +566,7 @@ In this exercise, you will write a Web app that connects to the event hub and di
         public string TransactionTime1 { get; set; };
         public string TransactionTime2 { get; set; };
     }
-	</pre>
+	```
 
 1. Right-click the project in the Solution Explorer window and use the **Add -> Class** command to add a class named ATMEventAggregator to the project.
 
@@ -576,7 +576,7 @@ In this exercise, you will write a Web app that connects to the event hub and di
 
 1. Implement the ATMEventAggregator class as follows:
 
-	<pre>
+	```C#
     public static class ATMEventAggregator
     {
         private static List&lt;ATMEvent&gt; _events = new List&lt;ATMEvent&gt;();
@@ -596,7 +596,7 @@ In this exercise, you will write a Web app that connects to the event hub and di
             return events;
         }
     }
-	</pre>
+	```
 
 1. Right-click the project in the Solution Explorer window and use the **Add -> Class** command to add a class named SimpleEventProcessor to the project.
 
@@ -606,15 +606,15 @@ In this exercise, you will write a Web app that connects to the event hub and di
 
 1. Add the following using statements to the ones at the top of the file:
 
-	<pre>
+	```C#
 	using Microsoft.ServiceBus.Messaging;
 	using System.Diagnostics;
 	using Newtonsoft.Json;
-	</pre>
+	```
 
 1. Implement the SimpleEventProcessor class as follows:
 
-	<pre>
+	```C#
 	class SimpleEventProcessor : IEventProcessor
 	{
 	    Stopwatch checkpointStopWatch;
@@ -657,22 +657,22 @@ In this exercise, you will write a Web app that connects to the event hub and di
 	        }
 	    }
 	}
-	</pre>
+	```
 
 1. Open Global.asax.cs and add the following using statements:
 
-	<pre>
+	```C#
 	using Microsoft.ServiceBus.Messaging;
 	using System.Diagnostics;
-	</pre>
+	```
 
 1. In Global.asax.cs, add the following statements to the end of the Application_Start method:
 
-	<pre>
-    string eventHubConnectionString = "<i>connection_string</i>";
+	```C#
+    string eventHubConnectionString = "connection_string";
     string eventHubName = "outputhub";
-    string storageAccountName = "<i>storage_account_name</i>";
-    string storageAccountKey = "<i>storage_account_key</i>";
+    string storageAccountName = "storage_account_name";
+    string storageAccountKey = "storage_account_key";
     string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
 
     string eventProcessorHostName = Guid.NewGuid().ToString();
@@ -683,15 +683,15 @@ In this exercise, you will write a Web app that connects to the event hub and di
     eventProcessorHost.RegisterEventProcessorAsync&lt;SimpleEventProcessor&gt;(options).Wait();
 
     Debug.WriteLine("Receiving...");
-	</pre>
+	```
 
 1. Replace *connection_string* in line 1 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 5, Step 8.
 
 1. Remove ";EntityPath=outputhub" from the end of the connection string. The eventHubConnectionString variable declaration should now look something like this:
 
-	<pre>
+	```C#
 	string eventHubConnectionString = "Endpoint=sb://dxlabs.servicebus.windows.net/;SharedAccessKeyName=ReceivePolicy;SharedAccessKey=3XHaU3pm5t82WxAgfhUM/bWa7UKmqAsqzA1rVJq3Qv0=";
-	</pre>
+	```
 
 1. Replace *storage\_account\_name* in line 3 with the the name of an Azure storage account, and *storage\_account\_key* in line 4 with the storage account's primary key.
 
@@ -711,18 +711,18 @@ In this exercise, you will write a Web app that connects to the event hub and di
 
 1. Add the following method to the EventsController class:
 
-	<pre>
+	```C#
     public ATMEvent[] GetEvents()
     {
         return ATMEventAggregator.GetLoggedEvents();
     }
-	</pre>
+	```
 
 	> The controller you just added is a Web API controller. It exposes a REST method that can be called over HTTP to retrieve the latest events that ATMEventAggregator received from the event hub.
 
 1. Open Index.cshtml in the project's Views/Home folder and replace its contents with the following statements:
 
-	<pre>
+	```HTML
 	@{
 	    ViewBag.Title = "Home Page";
 	}
@@ -767,7 +767,7 @@ In this exercise, you will write a Web app that connects to the event hub and di
 	    });
 	&lt;/script&gt;
 	}
-	</pre>
+	```
 
 	> See what's happening here? In addition to modifying the view's UI to include an HTML table in which ATM events can be displayed, you added a script block that uses jQuery's $.ajax method to call back to the server every 5 seconds. The endpoint for the call is the method you implemented in the Web API controller in the previous step. When that method returns one or more events, rows are added to the table to display them.
 
