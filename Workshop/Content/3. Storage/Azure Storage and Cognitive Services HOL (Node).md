@@ -58,7 +58,7 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
  
 1. The first step in using Azure Storage is to create a storage account. To create a storage account, click **+ NEW** in the ribbon on the left. Then click **Data + Storage**, followed by **Storage account**.
 
-    ![Creating a storage account](images/new-storage-account.png)
+    ![Creating a storage account](Images/new-storage-account.png)
 
     _Creating a storage account_
 
@@ -78,31 +78,31 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
 	Finish up by selecting the location nearest you in the **Location** box. Then click the **Create** button at the bottom of the blade to create the new storage account.
     
-	![Specifying parameters for a new storage account](images/create-storage-account.png)
+	![Specifying parameters for a new storage account](Images/create-storage-account.png)
 
     _Specifying parameters for a new storage account_
 
 1. After a few moments (it generally takes just a few seconds, but can sometimes take a few minutes), the new storage account will be created. Click **Storage accounts** in the ribbon on the left to see a list of storage accounts associated with your subscription.
  
-    ![Viewing a list of storage accounts](images/view-storage-accounts.png)
+    ![Viewing a list of storage accounts](Images/view-storage-accounts.png)
 
     _Viewing a list of storage accounts_
 
 1. Click the storage account that you just created.
 
-    ![Viewing a storage account](images/view-storage-account.png)
+    ![Viewing a storage account](Images/view-storage-account.png)
 
     _Viewing a storage account_
 
 1. In the blade for the storage account, click **Blobs** to view a list of containers associated with this account.
 
-    ![Viewing blob containers](images/view-containers.png)
+    ![Viewing blob containers](Images/view-containers.png)
 
     _Viewing blob containers_
 
 1. The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click **+ Container** to create a new container.
 
-    ![Adding a container](images/add-container.png)
+    ![Adding a container](Images/add-container.png)
 
     _Adding a container_
 
@@ -110,19 +110,19 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
 	> By default, containers and their contents are private. Selecting **Blob** as the access type makes the blobs in the "photos" container publicly accessible, but doesn't make the container itself public. This is what you want since the images stored in the "photos" container will be linked to from a Web app. 
 
-    ![Creating a "photos" container](images/create-photos-container.png)
+    ![Creating a "photos" container](Images/create-photos-container.png)
 
     _Creating a "photos" container_
 
 1. Repeat this process to create a container named "thumbnails," once more ensuring that the container's **Access type** is set to **Blob**.
 
-    ![Creating a "thumbnails" container](images/create-thumbnails-container.png)
+    ![Creating a "thumbnails" container](Images/create-thumbnails-container.png)
 
     _Creating a "thumbnails" container_
 
 1. Confirm that both containers appear in the list of containers for this storage account, and that the names are spelled correctly.
 
-    ![The new containers](images/new-containers.png)
+    ![The new containers](Images/new-containers.png)
 
     _The new containers_
 
@@ -137,25 +137,25 @@ The [Microsoft Azure Storage Explorer](http://storageexplorer.com/) is a free to
 
 1. In the Storage Explorer window, click **Connect to Microsoft Azure**.
 
-    ![Connecting Storage Explorer to Azure](images/storage-explorer-connect-to-azure.png)
+    ![Connecting Storage Explorer to Azure](Images/storage-explorer-connect-to-azure.png)
 
     _Connecting Storage Explorer to Azure_
 
 1. Enter the e-mail address for your Microsoft account. Then click **Continue**.
 
-    ![Entering your e-mail address](images/storage-explorer-enter-email.png)
+    ![Entering your e-mail address](Images/storage-explorer-enter-email.png)
 
     _Entering your e-mail address_
 
 1. Enter the user name and password for your Microsoft account. Check the box labeled **Keep me signed in**. Then click the **Sign in** button.
 
-    ![Signing in to Storage Explorer](images/storage-explorer-enter-credentials.png)
+    ![Signing in to Storage Explorer](Images/storage-explorer-enter-credentials.png)
 
     _Signing in to Storage Explorer_
 
 1. Confirm that the storage account you created in Exercise 1 appears in the list of storage accounts shown in Storage Explorer. Click the small arrow next to the storage account to display its contents, and then click the arrow next to **Blob Containers**. Confirm that the containers you created in Exercise 1 appear in the list of containers.
 
-    ![The Microsoft Azure Storage Explorer](images/storage-explorer.png)
+    ![The Microsoft Azure Storage Explorer](Images/storage-explorer.png)
 
     _The Microsoft Azure Storage Explorer_
 
@@ -243,13 +243,13 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
 1. In Visual Studio Code, click the **Git** button in the ribbon on the left.
 
-    ![The Git button in Visual Studio Code](images/node-git-button.png)
+    ![The Git button in Visual Studio Code](Images/node-git-button.png)
 
     _The Git button in Visual Studio Code_
 
 1. Click **Initialize git repository** to initialize a Git repository in the working directory and place the directory under source control.
 
-    ![Initializing a Git repository](images/node-initialize-git-repository.png)
+    ![Initializing a Git repository](Images/node-initialize-git-repository.png)
 
     _Initializing a Git repository_
 
@@ -269,7 +269,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
 1. Return to Visual Studio Code and click the **Explorer** button in the upper-left corner. Then click **package.json** to open that file for editing.
 
-    ![Opening package.json for editing](images/node-edit-package-json.png)
+    ![Opening package.json for editing](Images/node-edit-package-json.png)
 
     _Opening package.json for editing_
 
@@ -283,7 +283,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
 1. Place the mouse cursor over "INTELLIPIX" in the Explorer window and click the **New File** button that appears. Name the new file ".gitignore" (without quotation marks). Be sure to include the leading period in the file name.
 
-    ![Adding a file](images/node-add-file.png)
+    ![Adding a file](Images/node-add-file.png)
 
     _Adding a file_
 
@@ -518,7 +518,7 @@ var express = require('express');
 
 1. Place the mouse cursor over "INTELLIPIX" in Visual Studio Code's Explorer window and click the **New Folder** button that appears. Name the new folder "src" (without quotation marks).
 
-    ![Adding a folder](images/node-add-folder.png)
+    ![Adding a folder](Images/node-add-folder.png)
 
     _Adding a folder_
 
