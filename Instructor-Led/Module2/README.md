@@ -9,7 +9,8 @@
       <div class="container">
          <div class="jumbotron">
             <h1>Module 2 - Web Development</h1>
-            <p><b>June 2016 release, R1</b>
+            <p><b>June 2016 release, R1</b></p>
+            <p>This module introduces the foundations of JavaScript — the language of the web. Additionally this module covers using Node.js to build a back-end, how to use JavaScript on a server to build RESTful APIs and how to deploy to a scalable and convenient cloud hosting platform (Azure Cloud Services/Websites) with persistent data using a NoSQL database (Azure Storage).</p>
          </div>
       </div>
       <div class="panel-body">
