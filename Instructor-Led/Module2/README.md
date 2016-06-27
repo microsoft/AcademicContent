@@ -21,41 +21,75 @@
                      <th>Lesson</th>
                      <th align="center">Title</th>
                      <th>Lab</th>
+                     <th>Objectives</th>
                   </tr>
                   <tr>
                      <td align="center">1</td>
                      <td>[JS Primer](Lessons/)</td>
                      <td></td>
+                     <td>
+                         Write a basic JavaScript program<br>
+                         Understand the basics of JavaScript including:<br>
+                        <ul>
+                           <li>Objects and Primitives<br>
+                           <li>Truthy and Falsy<br>
+                           <li>Functions
+                        </ul>
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">2</td>
                      <td>[Getting Started with Node.js](Lessons/)</td>
                      <td>[Lab](Labs/)</td>
+                     <td>Understand the basics of node.js<br>
+                         Interact with node.js on the command line<br>
+                         Understand and use npm
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">3</td>
                      <td>[Building a Web Application Server with Express](Lessons/)</td>
                      <td></td>
+                     <td>Understand the difference between static and dynamic content<br>
+                         Use Node’s middleware<br>
+                         Run Express
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">4</td>
                      <td>[Building REST Services with Express](Lessons/)</td>
                      <td>[Lab](Labs/)</td>
+                     <td>Understand the basics of REST<br>
+                         Use REST verbs for CRUD operations<br>
+                         Parse JSON, Buffer, and HTML
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">5</td>
                      <td>[Working with Node.js and Azure Table Storage](Lessons/)</td>
                      <td></td>
+                     <td>Understand the basics of Azure Storage<br>
+                         Interact with Azure Storage Tables using Node.js<br>
+                         Perform basic CRUD operations
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">6</td>
                      <td>[Building a Web Application Client with React](Lessons/)</td>
                      <td>[Lab](Labs/)</td>
+                     <td>Understand the basics of React, JSX, and Babel<br>
+                         Build a web application client using React, JSX, and Babel
+                     </td>
                   </tr>
                   <tr>
                      <td align="center">7</td>
                      <td>[Deploying Node.js Applications to Azure](Lessons/)</td>
                      <td>[Lab](Labs/)</td>
+                     <td>
+                        Create an Azure Site<br>
+                        Understand Azure Deployment using Git<br>
+                        Interact with the Azure CLI 
+                     </td>
                   </tr>
             </table>
         </div>
