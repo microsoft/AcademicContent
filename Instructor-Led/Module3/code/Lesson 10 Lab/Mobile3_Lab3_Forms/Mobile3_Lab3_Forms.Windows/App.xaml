@@ -1,7 +1,0 @@
-﻿<Application
-    x:Class="Mobile3_Lab3_Forms.Windows.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Mobile3_Lab3_Forms.Windows">
-
-</Application>
