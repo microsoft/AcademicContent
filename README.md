@@ -10,7 +10,7 @@
       <div class="container">
          <div class="jumbotron">
             <h1>Academic Resources for Computer Science</h1>
-            <p><b>June 2016 release.</b> <i>Note: This repo is a work-in-progress and intended for review and collaboration with Microsoft developer advocates and the academic community. Please do not use these resources for direct-to-student interactions at this time.</i> Source: <a href="https://github.com/MSFTImagine/computerscience">https://github.com/MSFTImagine/computerscience</a>.</p>
+            <p><b>June 2016 release.</b> <i>Note: This repo is a work-in-progress and intended for review and collaboration with Microsoft developer advocates and the academic community. Please do not use these resources for direct-to-student interactions at this time.</i> <b>Source:</b> <a href="https://github.com/MSFTImagine/computerscience">https://github.com/MSFTImagine/computerscience</a>.</p>
             <p>
                This repo provides technical resources for faculty, students, and Microsoft developer advocates for use in computer science learning. The modules cover common cross-platform scenarios including mobile app dev, web dev, internet of things, data science, machine learning, and devops. Content delivery is divided into four groups: Instructor-led, Problem Sets, Tech Talks, and Workshops.</p>
                <p>Most hands-on learning focuses on how to deploy cross-platform technologies on Microsoft Azure although most of the concepts can be applied across many cloud platform solutions. Academic users can get free Azure from various programs like 
@@ -30,14 +30,9 @@
             <div class="panel-body">
                <table class="table table-bordered table-striped table-hover">
 					<tr>
-					   <td><b>Instructor-led content</b></td>
-					   <td>[Link](https://github.com/MSFTImagine/computerscience/tree/master/Instructor-Led)</td>
+					   <td><b>Complimentary Course Content</b></td>
+					   <td>[Link](https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content)</td>
 					   <td>Learning modules to complement existing course instruction. Includes presentations, speaker notes, and hands-on labs.</td>
-					</tr>
-					<tr>
-					   <td><b>Problem Sets</b></td>
-					   <td>[Link](https://github.com/MSFTImagine/computerscience/tree/master/Problem%20Sets)</td>
-					   <td>Library of computer science problem sets using Microsoft Azure for use in courses.</td>
 					</tr>
 					<tr>
 					   <td><b>Tech Talks</b></td>
