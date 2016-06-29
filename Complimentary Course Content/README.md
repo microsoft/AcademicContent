@@ -3,22 +3,22 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Academic Resources / Instructor-Led</title>
+      <title>Academic Resources / Complimentary Course Content</title>
 	  <link rel="stylesheet" href="style.css">
    </head>
    <body id="home">
       <div class="container">
          <div class="jumbotron">
-            <h1>Complementary Course Content</h1>
-            <p><b>June 2016 release.</b> Source: <a href="https://github.com/MSFTImagine/computerscience/tree/master/Instructor-Led">https://github.com/MSFTImagine/computerscience/tree/master/Instructor-Led</a>.</p>
+            <h1>Complimentary Course Content</h1>
+            <p><b>June 2016 release.</b> Source: <a href="https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content">https://github.com/MSFTImagine/computerscience/tree/master/Complimentary Course Content</a>.</p>
             <p>
-            This library of complementary course content is intended for use in classroom settings. Modules are divided by scenario (Cloud Computing, Web Dev, Data Science, DevOps) and can function autonomously or can be taught progressively as a course. Most modules includes presentations, speaker notes, and labs that help students demonstrate knowledge of the material. Your feedback is appreciated as we continue to improve this library.
+            This library of complimentary course content is intended for use in classroom settings. Modules are divided by scenario (Cloud Computing, Web Dev, Data Science, DevOps) and can function autonomously or can be taught progressively as a course. Most modules includes presentations, speaker notes, and labs that help students demonstrate knowledge of the material. Your feedback is appreciated as we continue to improve this library.
             </p>
             </div>
          </div>
          <div class="panel panel-default">
             <div class="panel-heading">
-               <h3 class="panel-title">Available Modules in Complementary Course Content</h3>
+               <h3 class="panel-title">Available Modules in Complimentary Course Content</h3>
             </div>
             <div class="panel-body">
                <table class="table table-bordered table-hover">
