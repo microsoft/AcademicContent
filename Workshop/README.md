@@ -196,15 +196,6 @@
                   <td>[HOL - Activate your Azure subscription and the lab VM](1. Introduction/Introduction HOL.md)</td>
                   </tr>		
                   <tr>
-                     <td rowspan=2></td>
-                     <td></td>
-                     <td></td>
-                  </tr>
-                  <tr>
-                     <td></td>
-                     <td></td>
-                  </tr>
-                  <tr>
                      <td rowspan=3>Azure Storage and Cognitive Services</td>
                      <td>15</td>
                      <td>[Presentation](3. Storage/Azure Storage and Cognitive Services.pptx) | [Demos](Presentation/App-Service/)</td>
@@ -217,13 +208,6 @@
 					<td>45</td>
 					<td>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
 				  </tr>
-                  <tr>
-                  <tr>
-                  <tr>
-                  <tr>
-                  <tr>
-                  <tr>
-                  <tr>
                </table>
             </div>
          </div>
