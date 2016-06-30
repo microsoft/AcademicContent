@@ -140,7 +140,7 @@
 					<td>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
 				  </tr>
                   <tr>
-                     <td rowspan=2><p><p>CHOOSE EITHER</p></p>Azure Machine Learning</td>
+                     <td rowspan=2><p><p><b>CHOOSE EITHER</b></p></p>Azure Machine Learning</td>
                      <td>15</td>
                      <td>[Presentation](4. Machine Learning/Azure Machine Learning.pptx) | [Demos](Presentation/Machine-Learning/)</td>
                   </tr>
@@ -149,26 +149,13 @@
                      <td>[HOL - Build a smart app that relies on machine learning](4. Machine Learning/Azure Machine Learning HOL.md)</td>
                   </tr>
                   <tr>
-                     <td rowspan=2><p><p>OR</p></p>IoT and Azure Stream Analytics</td>
+                     <td rowspan=2><p><p><b>OR</b></p></p>IoT and Azure Stream Analytics</td>
                      <td>15</td>
                      <td>[Presentation](5. Stream Analytics/Azure Stream Analytics.pptx) | [Demos](Presentation/IaaS/)</td>
                   </tr>
                   <tr>
                      <td>60</td>
                      <td>[HOL - Build an app that analyzes data streaming from simulated ATM machines](5. Stream Analytics/Azure Stream Analytics HOL.md)</td>
-                  </tr>
-                  <tr>
-                     <td rowspan=3></td>
-                     <td></td>
-                     <td></td>
-                  </tr>
-                  <tr>
-                     <td></td>
-                     <td></td>
-                  </tr>
-                  <tr>
-                     <td></td>
-                     <td></td>
                   </tr>
                </table>
             </div>
