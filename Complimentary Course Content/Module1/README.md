@@ -27,8 +27,8 @@
                   </tr>
                   <tr>
                      <td align="center">1</td>
-                     <td>[Cloud Computing Overview](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Cloud Computing Overview](Lessons/Module1_Lesson1 Introduction to Cloud Computing.pptx)</td>
+                     <td>[Lab](Labs/Module 1 Lesson 1 Activating your Azure Pass and Using the Azure Portal Lab.docx)</td>
                      <td>Define cloud computing and review types of service offered and deployment models available <br>
 			 Explain cloud computing evolution and development of enabling technologies<br> 
 			 Understand how cloud computing is utilized and why it is gaining popularity and momentum<br>
@@ -37,7 +37,7 @@
                   </tr>
                   <tr>
                      <td align="center">2</td>
-                     <td>[Cloud Computing Services](Lessons/)</td>
+                     <td>[Cloud Computing Services](Lessons/Module1_Lesson2 Introduction to Cloud Services.pptx)</td>
                      <td></td>
                      <td>Explain cloud service models and the underlying division of responsibility that distinguishes them<br>
 			 Understand current SaaS, PaaS, and IaaS services<br>
@@ -46,7 +46,7 @@
                   </tr>
                   <tr>
                      <td align="center">3</td>
-                     <td>[Services In Azure](Lessons/)</td>
+                     <td>[Services In Azure](Lessons/Module1_Lesson3 Services in Azure.pptx)</td>
                      <td></td>
                      <td>Explain the types of services offered and deployment models available in Azure<br>
 			 Understand Azure portal services and key capabilities
@@ -54,8 +54,8 @@
                   </tr>
                   <tr>
                      <td align="center">4</td>
-                     <td>[How to Start Azure](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[How to Start Azure](Lessons/Module1_Lesson4 How to start Azure.pptx)</td>
+                     <td>[Lab](Labs/Module 1 Lesson 4 How to start Azure Lab.docx)</td>
                      <td>
                      Explain what a virtual machine is<br>
 		     Use Azure to create a Windows or Linux virtual machine<br>
