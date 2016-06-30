@@ -1,6 +1,0 @@
-﻿<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-  <TelemetryModules>
-    <Add xdt:Transform="Remove" xdt:Locator="Match(Type)" Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector" />
-  </TelemetryModules>
-  <TelemetryModules xdt:Transform="Remove" xdt:Locator="Condition(count(*)=0)"/>
-</ApplicationInsights>

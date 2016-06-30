@@ -1,1 +1,0 @@
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">  <TelemetryChannel xdt:Transform="Remove" xdt:Locator="Match(Type)" Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel, Microsoft.AI.ServerTelemetryChannel" /></ApplicationInsights>
