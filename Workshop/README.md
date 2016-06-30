@@ -218,36 +218,12 @@
 					<td>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
 				  </tr>
                   <tr>
-                     <td rowspan=2></td>
-                     <td></td>
-                     <td></td>
-                  </tr>
                   <tr>
-                     <td></td>
-                     <td></td>
-                  </tr>
                   <tr>
-                     <td rowspan=2></td>
-                     <td></td>
-                     <td></td>
-                  </tr>
                   <tr>
-                     <td></td>
-                     <td></td>
-                  </tr>
                   <tr>
-                     <td rowspan=3></td>
-                     <td></td>
-                     <td></td>
-                  </tr>
                   <tr>
-                     <td></td>
-                     <td></td>
-                  </tr>
                   <tr>
-                     <td></td>
-                     <td></td>
-                  </tr>
                </table>
             </div>
          </div>
