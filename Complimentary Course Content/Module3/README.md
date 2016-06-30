@@ -26,7 +26,7 @@
                   </tr>
                   <tr>
                      <td align="center">1</td>
-                     <td>[Mobile Development Survey](Lessons/)</td>
+                     <td>[Mobile Development Survey](Lessons/Module3_Lesson01 Mobile Development Survey.pptx)</td>
                      <td></td>
                      <td>Native mobile app development <br>
 			 Cross-platform development<br>
@@ -37,7 +37,7 @@
                   </tr>
                   <tr>
                      <td align="center">2</td>
-                     <td>[Understanding Xamarin](Lessons/)</td>
+                     <td>[Understanding Xamarin](Lessons/Module3_Lesson02 Understanding Xamarin.pptx)</td>
                      <td></td>
                      <td>What Xamarin is<br>
 			 The Xamarin approach<br>
@@ -46,7 +46,7 @@
                   </tr>
                   <tr>
                      <td align="center">3</td>
-                     <td>[C# Fundamentals](Lessons/)</td>
+                     <td>[C# Fundamentals](Lessons/Module3_Lesson03 C# Fundamentals.pptx)</td>
                      <td></td>
                      <td>What C# is<br>
 			 Where C# came from<br>
@@ -55,7 +55,7 @@
                   </tr>
                   <tr>
                      <td align="center">4</td>
-                     <td>[Developing Android Apps with Xamarin](Lessons/)</td>
+                     <td>[Developing Android Apps with Xamarin](Lessons/Module3_Lesson04 Developing Android Apps with Xamarin.pptx)</td>
                      <td></td>
                      <td>Building an Android application using Xamarin.Android<br>
 			 Basic Android development concepts<br>
@@ -64,15 +64,15 @@
                   </tr>
                   <tr>
                      <td align="center">5</td>
-                     <td>[Developing Android Apps With Xamarin (Part 2)](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Developing Android Apps With Xamarin (Part 2)](Lessons/Module3_Lesson05 Developing Android Apps with Xamarin (Part 2).pptx)</td>
+                     <td>[Lab](Labs/Module 3 Lesson 05 Xamarin.Android Lab.docx)</td>
                      <td>Develops the same objectives as Lesson 4
                      </td>
                   </tr>
                   <tr>
                      <td align="center">6</td>
-                     <td>[Developing iOS Apps With Xamarin](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Developing iOS Apps With Xamarin](Lessons/Module3_Lesson06 Developing iOS Apps with Xamarin.pptx)</td>
+                     <td>[Lab](Labs/Module 3 Lesson 06 Xamarin.iOS Lab.docx)</td>
                      <td>Building an iOS app using Xamarin.iOS<br>
 			 Basic iOS development concepts<br>
 			 User interfaces on the iOS platform
@@ -80,7 +80,7 @@
                   </tr>
                   <tr>
                      <td align="center">7</td>
-                     <td>[Developing Windows Phone Apps With Xamarin](Lessons/)</td>
+                     <td>[Developing Windows Phone Apps With Xamarin](Lessons/Module3_Lesson07 Developing Windows Phone Apps with Xamarin.pptx)</td>
                      <td></td>
                      <td>How Windows Phone apps work in a Xamarin solution<br>
 			 Basic Windows Phone concepts<br>
@@ -89,7 +89,7 @@
                   </tr>
                   <tr>
                      <td align="center">8</td>
-                     <td>[Maximizing Code Reuse with Xamarin](Lessons/)</td>
+                     <td>[Maximizing Code Reuse with Xamarin](Lessons/Module3_Lesson08 Maximizing Code Reuse with Xamarin.pptx)</td>
                      <td></td>
                      <td>What makes reusability so important in Xamarin<br>
 			 The different options of code reuse in Xamarin<br>
@@ -98,7 +98,7 @@
                   </tr>
                   <tr>
                      <td align="center">9</td>
-                     <td>[Cross-Platform User Interfaces with Xamarin.Forms](Lessons/)</td>
+                     <td>[Cross-Platform User Interfaces with Xamarin.Forms](Lessons/Module3_Lesson09 Cross-Platform User Interfaces with Xamarin.Forms.pptx)</td>
                      <td></td>
                      <td>When to consider using Xamarin.Forms<br>
 			 The benefits and limitations of Xamarin.Forms<br>
@@ -111,8 +111,8 @@
                   </tr>
                   <tr>
                      <td align="center">10</td>
-                     <td>[Cross-Platform User Interfaces with Xamarin.Forms (Part 2)](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Cross-Platform User Interfaces with Xamarin.Forms (Part 2)](Lessons/Module3_Lesson10 Cross-Platform User Interfaces with Xamarin.Forms (Part 2).pptx)</td>
+                     <td>[Lab](Labs/Module 3 Lesson 10 Xamarin.Forms Lab.docx)</td>
                      <td>Development fundamentals of Xamarin.Forms
                        <ul>
 			<li>Navigation
@@ -123,7 +123,7 @@
                   </tr>
                   <tr>
                      <td align="center">11</td>
-                     <td>[Debugging and Testing Xamarin Apps](Lessons/)</td>
+                     <td>[Debugging and Testing Xamarin Apps](Lessons/Module3_Lesson11 Debugging and Testing Xamarin Apps.pptx)</td>
                      <td></td>
                      <td>The importance of testing and debugging code<br>
 			 Cross-platform application testing and debugging nuances<br>
@@ -132,7 +132,7 @@
                   </tr>
                   <tr>
                      <td align="center">12</td>
-                     <td>[Mobile Apps with Microsoft Azure App Service](Lessons/)</td>
+                     <td>[Mobile Apps with Microsoft Azure App Service](Lessons/Module3_Lesson12 Mobile Apps with Microsoft Azure App Service.pptx)</td>
                      <td>[Lab](Labs/)</td>
                      <td>The value of adding pre-configured common mobile functionality<br>
 The functionality that can be added to mobile apps via App Service<br>
@@ -141,7 +141,7 @@ Interconnection between different kinds of apps in App Service
                   </tr>
                   <tr>
                      <td align="center">13</td>
-                     <td>[Getting your Apps into the App Store](Lessons/)</td>
+                     <td>[Getting your Apps into the App Store](Lessons/Module3_Lesson13 Getting Your Apps into the App Store.pptx)</td>
                      <td></td>
                      <td>Why app stores are used for application distribution<br>
 			 How to submit an app to major app stores<br>
