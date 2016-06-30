@@ -196,13 +196,13 @@
                   <td>[HOL - Activate your Azure subscription and the lab VM](1. Introduction/Introduction HOL.md)</td>
                   </tr>		
                   <tr>
-                     <td rowspan=2>Azure Web Apps</td>
-                     <td>15</td>
-                     <td>[Presentation](2. Web Apps/Azure Web Apps.pptx) | [Demos](Presentation/App-Service/)</td>
+                     <td rowspan=2></td>
+                     <td></td>
+                     <td></td>
                   </tr>
                   <tr>
-                     <td>45</td>
-                     <td>[HOL - Deploy a PHP/MySQL Web App to Azure](2. Web Apps/Azure Web Apps HOL.md)</td>
+                     <td></td>
+                     <td></td>
                   </tr>
                   <tr>
                      <td rowspan=3>Azure Storage and Cognitive Services</td>
@@ -218,35 +218,35 @@
 					<td>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
 				  </tr>
                   <tr>
-                     <td rowspan=2>Azure Machine Learning</td>
-                     <td>15</td>
-                     <td>[Presentation](4. Machine Learning/Azure Machine Learning.pptx) | [Demos](Presentation/Machine-Learning/)</td>
+                     <td rowspan=2></td>
+                     <td></td>
+                     <td></td>
                   </tr>
                   <tr>
-                     <td>45</td>
-                     <td>[HOL - Build a smart app that relies on machine learning](4. Machine Learning/Azure Machine Learning HOL.md)</td>
+                     <td></td>
+                     <td></td>
                   </tr>
                   <tr>
-                     <td rowspan=2>IoT and Azure Stream Analytics</td>
-                     <td>15</td>
-                     <td>[Presentation](5. Stream Analytics/Azure Stream Analytics.pptx) | [Demos](Presentation/IaaS/)</td>
+                     <td rowspan=2></td>
+                     <td></td>
+                     <td></td>
                   </tr>
                   <tr>
-                     <td>60</td>
-                     <td>[HOL - Build an app that analyzes data streaming from simulated ATM machines](5. Stream Analytics/Azure Stream Analytics HOL.md)</td>
+                     <td></td>
+                     <td></td>
                   </tr>
                   <tr>
-                     <td rowspan=3>High-Performance Computing (HPC)</td>
-                     <td>15</td>
-                     <td>[Presentation](6. HPC/Azure High-Performance Computing.pptx) | [Demos](Presentation/Data-Platform/)</td>
+                     <td rowspan=3></td>
+                     <td></td>
+                     <td></td>
                   </tr>
                   <tr>
-                     <td>60</td>
-                     <td>[HOL - Deploy an HPC cluster and process data in parallel using a Python script](6. HPC/SLURM Linux Cluster HOL.md)</td>
+                     <td></td>
+                     <td></td>
                   </tr>
                   <tr>
-                     <td>60</td>
-                     <td>[HOL - Deploy a Docker container swarm and process data in parallel using a Python script (coming soon)](6. HPC/SLURM Docker Cluster HOL.md)</td>
+                     <td></td>
+                     <td></td>
                   </tr>
                </table>
             </div>
