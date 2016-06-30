@@ -217,13 +217,6 @@
 					<td>45</td>
 					<td>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
 				  </tr>
-                  <tr>
-                  <tr>
-                  <tr>
-                  <tr>
-                  <tr>
-                  <tr>
-                  <tr>
                </table>
             </div>
          </div>
