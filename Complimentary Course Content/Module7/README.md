@@ -26,7 +26,7 @@
                   </tr>
                   <tr>
                      <td align="center">1</td>
-                     <td>[What is DevOps](Lessons/)</td>
+                     <td>[What is DevOps](Lessons/Module7_Lesson1 What is DevOps.pptx)</td>
                      <td></td>
                      <td>Explain the difference between traditional Development and Operations<br>
 Define DevOps <br>
@@ -36,7 +36,7 @@ Summarize the DevOps mindset
                   </tr>
                   <tr>
                      <td align="center">2</td>
-                     <td>[Configuration Management](Lessons/)</td>
+                     <td>[Configuration Management](Lessons/Module7_Lesson2 Configuration Management.pptx)</td>
                      <td></td>
                      <td>Define configuration management and infrastructure automation<br>
 			 Know the leading configuration management tools and platforms<br>
@@ -46,7 +46,7 @@ Summarize the DevOps mindset
                   </tr>
                   <tr>
                      <td align="center">3</td>
-                     <td>[Introduction to Chef](Lessons/)</td>
+                     <td>[Introduction to Chef](Lessons/Module7_Lesson3 Introduction to Chef.pptx)</td>
                      <td></td>
                      <td>Explain Chef terminology and architecture<br>
 			 Build basic cookbooks and recipes<br>
@@ -56,8 +56,8 @@ Summarize the DevOps mindset
                   </tr>
                   <tr>
                      <td align="center">4</td>
-                     <td>[Launching a Web Server with Chef](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Launching a Web Server with Chef](Lessons/Module7_Lesson4 Launching A Web server With Chef.pptx)</td>
+                     <td>[Lab](Labs/Module7_Lesson 4 Launching A Web Server With Chef LAB.docx)</td>
                      <td>Understand the purpose and functionality of a web server<br>
 			 Launch a virtual CentOS and Windows instance <br>
 			 Install the Chef Development Kit (ChefDK) onto the instances<br>
@@ -68,8 +68,8 @@ Summarize the DevOps mindset
                   </tr>
                   <tr>
                      <td align="center">5</td>
-                     <td>[Desired State Configuration with Chef](Lessons/)</td>
-                     <td></td>
+                     <td>[Desired State Configuration with Chef](Lessons/Module7_Lesson5 Desired State Configuration with Chef.pptx)</td>
+                     <td>[Lab](Labs/Module7_Lesson 5 Chef and DSC Lab.docx)</td>
                      <td>Explain what Desired State Configuration (DSC) does<br>
 			 Understand the benefits of managing DSC with Chef<br>
 			 Decide when to use Chef vs DSC resources<br>
@@ -78,8 +78,8 @@ Summarize the DevOps mindset
                   </tr>
                   <tr>
                      <td align="center">6</td>
-                     <td>[Testing the Web Server Deployment](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Testing the Web Server Deployment](Lessons/Module7_Lesson6 Testing The Web Server Deployment.pptx)</td>
+                     <td>[Lab](Labs/Module7_Lesson 6 Test Kitchen Lab.docx)</td>
                      <td>Understand why DevOps engineers test their code<br>
 			 Explain several different types of software testing<br>
 			 Implement an Integration Test using Test Kitchen
