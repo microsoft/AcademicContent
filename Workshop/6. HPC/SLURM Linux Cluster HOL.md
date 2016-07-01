@@ -166,7 +166,7 @@ In [Exercise 5](#Exercise5), you will run a Python script on the cluster to gene
 
     _Creating a new container_
 
-1. Type "input" (without quotation marks) and press Enter to create a container named "input."
+1. Type "input" (without quotation marks) and press **Enter** to create a container named "input."
 
 1. Repeat this procedure to create a blob container named "output."
 
@@ -226,11 +226,11 @@ You can use any text editor that you're comfortable with. There is no need to be
 
 1. Switch back to the Azure Portal. In the "Access keys" blade, click the button to the right of the **STORAGE ACCOUNT NAME** field to copy the storage account's name to the clipboard.
 
-1. In slurmdemo.py, replace *account_name* with the account name you just copied. Make sure the account name is enclosed in single quotes.
+1. In **slurmdemo.py**, replace *account_name* with the account name you just copied. Make sure the account name is enclosed in single quotes.
 
 1. In the "Access keys" blade, copy the storage account's primary access key (KEY1) to the clipboard.
 
-1. In slurmdemo.py, replace *account_key* with the key you just copied. Make sure it is enclosed in single quotes. The modified code will look something like this:
+1. In **slurmdemo.py**, replace *account_key* with the key you just copied. Make sure it is enclosed in single quotes. The modified code will look something like this:
 
 	<pre>
     #######################################################
@@ -241,11 +241,11 @@ You can use any text editor that you're comfortable with. There is no need to be
     #######################################################
     </pre>
 
-1. Save your changes to slurmdemo.py and close the text editor.
+1. Save your changes to **slurmdemo.py** and close the text editor.
 
 1. Still in the "hpc-resources" directory, open **slurmdemo.setup.sh** in your text editor. Search for all instances of *adminuser* and replace them with the ADMINUSERNAME property you specified in the template in [Exercise 2](#Exercise2). **There are six instances that need to be replaced**.
 
-1. Save your changes to slurmdemo.setup.sh and close the text editor.
+1. Save your changes to **slurmdemo.setup.sh** and close the text editor.
 
 You've updated the script files with the necessary information. Now you're ready for the next step: configuring the SLURM cluster and using it to process the images.
 
@@ -353,7 +353,7 @@ If the job ran successfully, the grayscale images generated from the color image
 
 1. Launch the Microsoft Azure Storage Explorer if it isn't already running.
 
-1. In the Storage Explorer, double-click the container named "output" to see its contents. Then double-click one of the blobs in the container.
+1. In Storage Explorer, double-click the container named "output" to see its contents. Then double-click one of the blobs in the container.
 
     ![Contents of the output container](Images/job-output.png)
 

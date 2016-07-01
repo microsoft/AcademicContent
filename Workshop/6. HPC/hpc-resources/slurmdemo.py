@@ -18,7 +18,7 @@ from azure.storage.sharedaccesssignature import (
 )
 from azure.storage.blob import BlobService
 
-########################################################
+#######################################################
 # Update these two variables to those for your account.
 #######################################################
 ACCOUNT_NAME = 'account_name'

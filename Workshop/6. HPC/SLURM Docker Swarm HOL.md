@@ -1,5 +1,5 @@
 <a name="HOLTitle"></a>
-# Deploying a SLURM Cluster using Docker and Azure Container Service #
+# Deploying a SLURM Cluster using Docker and the Azure Container Service #
 
 ---
 
@@ -12,17 +12,18 @@ SLURM clusters can be built from real machines or virtual machines. Today, they 
 
 To simplify the use of Docker containers, Azure offers the [Azure Container Service](https://azure.microsoft.com/en-us/services/container-service/) (ACS), which hosts Docker containers and includes an optimized configuration of popular open-source scheduling and orchestration tools, including [DC/OS](https://dcos.io/) and [Docker Swarm](https://www.docker.com/products/docker-swarm). The latter uses native clustering capabilities to turn a group of Docker engines into a single virtual Docker engine and is the perfect tool for the job of creating SLURM clusters from Docker containers. 
  
-In this lab, you will create a SLURM cluster from a swarm of Docker container instances and run a Python script in those container instances to convert a batch of color images to grayscale. You will get first-hand experience deploying Docker containers to the Azure Container Service and using Docker Swarm to manage the nodes in the cluster.
+In this lab, you will create a SLURM cluster from a swarm of Docker container instances hosted in ACS and run a Python script in those container instances to convert a batch of color images to grayscale.
 
 <a name="Objectives"></a>
 ### Objectives ###
 
 In this hands-on lab, you will learn how to:
 
-- Create a SLURM cluster on Docker Swarm using Azure Container Services
-- Remote swarm master and connect to the SLURM Nodes
-- Run jobs on a SLURM cluster
-- Use the Azure Resource Manager to delete a SLURM cluster
+- Create an Azure container service
+- Deploy Docker images to a container service
+- Run jobs in container instances created from Docker images
+- Stop container instances running in a container service
+- Delete a container service
 
 <a name="Prerequisites"></a>
 ### Prerequisites ###
@@ -40,32 +41,28 @@ The following are required to complete this hands-on lab:
 
 This hands-on lab includes the following exercises:
 
-- [Exercise 1: Create an Azure Container Service instance](#Exercise1)
-- [Exercise 2: Deploy a SLURM Cluster to ACS](#Exercise2)
+- [Exercise 1: Create an Azure container service](#Exercise1)
+- [Exercise 2: Deploy a SLURM cluster in the container service](#Exercise2)
 - [Exercise 3: Create a storage account and upload images](#Exercise3)
 - [Exercise 4: Prepare the Python script](#Exercise4)
-- [Exercise 5: Copy the job scripts, configure the nodes, and run the job](#Exercise5)
+- [Exercise 5: Copy the job scripts to the cluster and run the job](#Exercise5)
 - [Exercise 6: View the converted images](#Exercise6)
-- [Exercise 7: Suspend the ACS instance](#Exercise7)
-- [Exercise 8: Delete the ACS instance](#Exercise8)
+- [Exercise 7: Suspend the SLURM cluster](#Exercise7)
+- [Exercise 8: Delete the resource group](#Exercise8)
 
 Estimated time to complete this lab: **60** minutes.
 
 
 <a name="Exercise1"></a>
-## Exercise 1: Create an Azure Container Service instance
+## Exercise 1: Create an Azure container service
 
-The Azure Resource Manager allows you to provision applications using declarative templates. A template contains a complete description of everything that makes up the application, including virtual machines, databases, Web apps, IP addresses, and other resources. Templates can include parameters that users will be prompted to fill in each time an application is deployed. Templates can also invoke scripts to initialize resources to a known and consistent state.
+Before you can deploy Docker images to Azure, you must create an Azure container service. And in order to create an Azure container service, you need a public/private key pair for SSH tunneling into the container service. In this exercise, you will use the PuTTY Key Generator, also known as PuTTYGen, to create the SSH keys. Then you will use the Azure Portal to create an Azure container service.
 
-As an example, suppose you have built an ACS Instance that includes virtual machines and other Azure resources. With a template, you can script the creation of the entire application and optionally the data that goes with it. This makes it easy for others to spin up instances of the application. To learn more about Azure Resource Manager templates, you can read the [documentation](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/) online.
+1. Launch PuTTYGen and click the Generate button. For the next few seconds, move your cursor around in the empty space in the "Key" box to help randomize the keys that are generated.
 
-1. Before you can create an Azure Container Service instance, you need a public/private SSH key pair to authenticate with the virtual machines that ACS creates. On Windows, you can generate the key pair with the PuTTY Key Generator, also known as PuTTYGen.
+ 	![Generating a public/private key pair](Images/docker-puttygen1.png)
 
-	Launch PuTTYGen and click the Generate button. For the next few seconds, move your cursor around in the empty space under "Key" to help randomnize the keys that are generated.
-
- 	![Generating a public/private key pair with PuTTYGen](Images/docker-puttygen1.png)
-
-	_Generating a public/private key pair with PuTTYGen_
+	_Generating a public/private key pair_
 
 2. Once the keys are generated, click **Save public key** and save the public key to a text file. Then click **Save private key** and save the private key as well. When prompted to confirm that you want to save the private key without a passphrase, click **Yes**.
 
@@ -75,46 +72,52 @@ As an example, suppose you have built an ACS Instance that includes virtual mach
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. Select **+ New -> Containers -> Azure Container Service**. Then click the **Create** button at the bottom of the "Azure Container Service" blade.
 
-	![Creating an ACS instance](Images/docker-new-container.png)
+	![Creating a container service](Images/docker-new-container.png)
 
-	_Creating an ACS instance_
+	_Creating a container service_
 
-1. Click **Basics** in the "Azure Container Service" blade. In the "Basics" blade, enter the user name you will use to connect to ACS (be sure to remember the user name you enter!), the public key that you generated with PuTTYGen and saved to a text file, and the subscription you want to charge to. Select **Create new** under **Resource group** and enter the resource-group name "ACSLabResourceGroup" (without quotation marks). Select the location nearest you under **Location**, and then click the **OK** button.
+1. Click **Basics** in the "Azure Container Service" blade. In the "Basics" blade, enter a user name for connecting to the container service (be sure to remember the name you enter!), the public key that you generated with PuTTYGen and saved to a text file, and the subscription you want to charge to. Select **Create new** under **Resource group** and enter the resource-group name "ACSLabResourceGroup" (without quotation marks). Select the location nearest you under **Location**, and then click the **OK** button.
 
-	![ACS basic settings](Images/docker-acs-basics.png)
+	![Basic settings](Images/docker-acs-basics.png)
 
-	_ACS basic settings_
+	_Basic settings_
 
 1. In the "Framework configuration" blade, select **Swarm** as the orchestrator configuration. Then click OK.
 
-	![ACS framework configuration settings](Images/docker-acs-framework-configuration.png)
+	![Framework configuration settings](Images/docker-acs-framework-configuration.png)
 
-	_ACS framework configuration settings_
+	_Framework configuration settings_
 
-1. In the "Azure Container service settings" blade, set **Agent count** to **2**, **Master count** to **1**, and enter "dockerslurm" (without quotation marks) into the **DNS prefix** box. Then click **OK**.
+1. In the "Azure Container service settings" blade, set **Agent count** to **2**, **Master count** to **1**, and enter a unique DNS name into the **DNS prefix** box. Then click **OK**.
 
-	![ACS service settings](Images/docker-acs-service-settings.png)
+	> When you create an Azure container service, one or more master VMs are created to orchestrate the workload. In addition, an [Azure Virtual Machine Scale Set](https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/) is created to provide VMs for the "agents," or VMs that the master VMs delegate work to. Docker container instances are hosted in the agent VMs. By default, Azure uses a standard D2 virtual machine for each agent. These are dual-core machines with 7 GB of RAM. Agent VMs are created as needed to handle the workload. In this example, there will be one master VM and up to two agent VMs, regardless of the number of Docker container instances.
 
-	_ACS service settings_
+	![Service settings](Images/docker-acs-service-settings.png)
 
-	> By default, Azure Container Service uses a standard D2 virtual machine for each agent. These are dual-core machines with 7 GB of RAM.
+	_Service settings_
 
 1. In the "Summary" blade, review the settings you selected. Then click **OK**.
 
-	![Confirming ACS settings](Images/docker-acs-summary.png)
+	![Settings summary](Images/docker-acs-summary.png)
 
-	_Confirming ACS settings_
+	_Settings summary_
 
-1. In the ensuing "Purchase" blade, click the **Purchase** button to begin deploying a new ACS instance.
+1. In the ensuing "Purchase" blade, click the **Purchase** button to begin deploying a new container service.
 
-Deployment will take about 15 to 20 minutes. Take a short break and wait for the deployment to finish. Then proceed to Exercise 2.
+1. Deployment will take about 15 to 20 minutes. To monitor the deployment, click **Resource groups** on the left side of the portal to display a list of all the resource groups associated with your subscription. Then select the resource group created for the container service ("ACSLabResourceGroup") to open a resource-group blade. When "Succeeded" appears under "Last Deployment," the deployment has completed successfully.
+
+	![Successful deployment](Images/docker-success.png)
+
+	_Successful deployment_
+
+Take a short break and wait for the deployment to finish. Then proceed to Exercise 2.
 
 <a name="Exercise2"></a>
-## Exercise 2: Deploy a SLURM Cluster to ACS
+## Exercise 2: Deploy a SLURM cluster in the container service
 
-SLURM can be run in Docker containers, with each container instance acting as a node in the SLURM cluster. Optimally, the containers will take advantage of a container per CPU. Depending on how many agents you spun up, you can multiply the number of agents times the number of cores per agent (in the case of D2, 2 cores) and use that has a baseline for the number of containers you will want. For instance, 2 agents with 2 cores would be 4 containers for the HPC cluster with SLURM.
+SLURM can be run in Docker containers, with each container instance acting as a node in the SLURM cluster. In this exercise, you will deploy a SLURM cluster in the container service that you created in Exercise 1. The cluster will contain nine nodes: one master node and eight worker nodes.
 
-1. After the Azure Container Service instance you created in Exercise 1 finishes deploying, click **Resource groups** on the left side of the portal to display a list of all the resource groups associated with your subscription. Then select the resource group you created for the ACS instance, and click the resource named "smarm-master-lb-xxxxxxxx." This is the master load balancer for the swarm.
+1. After the container service finishes deploying, return to the blade for the resource group that contains the container service. Then click the resource named "swarm-master-lb-xxxxxxxx." This is the master load balancer for the swarm.
 
 	![Opening the master load balancer](Images/docker-open-master-lb.png)
 
@@ -122,9 +125,9 @@ SLURM can be run in Docker containers, with each container instance acting as a 
 
 1. Click the IP address under "Public IP Address."
 
-	![Opening the IP address](Images/docker-click-ip-address.png)
+	![The master load balancer's public IP](Images/docker-click-ip-address.png)
 
-	_Opening the IP address_
+	_The master load balancer's public IP_
 
 1. Hover over the DNS name under "DNS Name." Wait for a **Copy** button to appear, and then click it to copy the master load balancer's DNS name to the clipboard.
 
@@ -150,21 +153,21 @@ SLURM can be run in Docker containers, with each container instance acting as a 
 
 	_Configuring the SSH tunnel_
 
-1. Click **Session** at the top of the treeview. Click the **Save** button to save your configuration changes, and then click **Open** to create a secure SSH tunnel between the ACS instance and the local computer. If you are warned that the server's host key isn't cached in the registry and asked to confirm that you want to connect anyway, click **Yes**.
+1. Click **Session** at the top of the treeview. Click the **Save** button to save your configuration changes, and then click **Open** to create a secure SSH connection to the container service. If you are warned that the server's host key isn't cached in the registry and asked to confirm that you want to connect anyway, click **Yes**.
 
-	![Opening a connection to the ACS instance](Images/docker-putty4.png)
+	![Opening a connection to the container service](Images/docker-putty4.png)
 
-	_Opening a connection to the ACS instance_
+	_Opening a connection to the container service_
 
-1. An SSH window will open and prompt you to log in. Enter the user name that you specified when you created the ACS instance in Exercise 1. Then press the **Enter** key. If you successfully connected, you'll see a screen that looks like this:
+1. An SSH window will open and prompt you to log in. Enter the user name that you specified when you created the container service in Exercise 1. Then press the **Enter** key. If you successfully connected, you'll see a screen that looks like this:
 
 	![Successful connection](Images/docker-putty5.png)
 
 	_Successful connection_
 
-	> Observe that you didn't have to enter a password. That's because the connection was authenticated using the public/private key pair you generated in Exercise 1. Key pairs tend to be much more secure than passwords because they are virtually unbreakable.
+	> Observe that you didn't have to enter a password. That's because the connection was authenticated using the public/private key pair you generated in Exercise 1. Key pairs tend to be much more secure than passwords because they are cryptographically strong.
 
-1. Launch a Windows Command Prompt and use a CD command to navigate to this lab's "docker-resources" folder. Then execute the following command to show a list of Docker containers running in the ACS instance you are connected to. (There are currently no containers running, so the list will be empty.)
+1. Launch a Windows Command Prompt and use a CD command to navigate to this lab's "docker-resources" folder. Then execute the following command to show a list of Docker containers running in the container service you are connected to. (There are currently no containers running, so the list will be empty.)
 
 	<pre>
 	docker -H 127.0.0.1:22375 ps -a
@@ -176,7 +179,7 @@ SLURM can be run in Docker containers, with each container instance acting as a 
 	create-slurm
 	</pre>
 
-	This runs a batch file provided for you in the "docker-resources" folder. It will take 5 to 10 minutes to run. The batch file builds a Docker image with everything needed for the lab. Then it deploys the image to ACS nine times to create a SLURM master in one container and SLURM nodes in eight other containers.
+	This runs a batch file provided for you in the "docker-resources" folder. It will take 5 to 10 minutes to run. The batch file builds a Docker image with everything needed for the lab. Then it deploys the image to the container service nine times to create a SLURM master in one container and SLURM nodes in eight other containers.
 
 1. When the batch file finishes running, execute the following command:
 
@@ -190,12 +193,12 @@ SLURM can be run in Docker containers, with each container instance acting as a 
 
 	_Docker container instances_
 
-Congratulations! You just created a SLURM cluster in a series of Docker containers running in Azure Container Service.
+Congratulations! You just created a SLURM cluster in a swarm of Docker containers hosted in an Azure container service. Now it is time to put the cluster to work.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Create a storage account and upload images
 
-In [Exercise 5](#Exercise5), you will run a Python script on the cluster to generate grayscale images from color images. That script requires a set of color images as well as two blob storage containers: one for input and one for output. In this exercise, you will use the Azure Portal to create a storage account to hold the images. Then you will use the cross-platform [Microsoft Azure Storage Explorer](http://storageexplorer.com/) to create containers in that storage account and upload the images.
+In [Exercise 5](#Exercise5), you will run a Python script on the SLURM cluster to generate grayscale images from color images. That script requires a set of color images as well as two blob storage containers: one for input and one for output. In this exercise, you will use the Azure Portal to create a storage account to hold the images. Then you will use the cross-platform [Microsoft Azure Storage Explorer](http://storageexplorer.com/) to create containers in that storage account and upload the images.
 
 1. Return to the [Azure Portal](https://portal.azure.com) and click **Resource groups** in the ribbon on the left. Then click the resource group that holds the Azure Container Service instance you created in Exercise, and click **+ Add** in the resource group's blade.
 
@@ -209,7 +212,7 @@ In [Exercise 5](#Exercise5), you will run a Python script on the cluster to gene
 
 	_Adding a storage account_
 
-1. Fill in the "Create storage account" blade as shown below, substituting a unique storage account name for the one shown (remember that storage account names must be unique within Azure) and selecting the location nearest you. Then click the **Create** button.
+1. Fill in the "Create storage account" blade as shown below, substituting a unique storage-account name for the one shown (remember that storage account names must be unique within Azure) and selecting the same location you selected for the container service. Then click the **Create** button.
 
 	![Creating a new storage account](Images/docker-create-storage-account.png)
 
@@ -223,7 +226,7 @@ In [Exercise 5](#Exercise5), you will run a Python script on the cluster to gene
 
     _Creating a new container_
 
-1. Type "input" (without quotation marks) and press Enter to create a container named "input."
+1. Type "input" (without quotation marks) and press **Enter** to create a container named "input."
 
 1. Repeat this procedure to create a blob container named "output."
 
@@ -250,7 +253,7 @@ You now have containers to hold input and output and a collection of color image
 <a name="Exercise4"></a>
 ## Exercise 4: Prepare the Python script
 
-With the SLURM cluster up and running in Docker containers and the color images uploaded to blob storage, the next task is to modify the Python script that will process the images with information about the storage account you just created.
+With the SLURM cluster up and running in Docker containers and the color images uploaded to blob storage, the next task is to modify the Python script that will process the images with information about the storage account that holds the blobs.
 
 1. Return to the Azure Portal and open the blade for the storage account you created in [Exercise 3](#Exercise3). In the storage-account blade, click the key icon.
 
@@ -275,9 +278,9 @@ With the SLURM cluster up and running in Docker containers and the color images 
     #######################################################
     </pre>
 
-1. Replace *account_name* with the name of the storage account you created for the images. Make sure the account name is enclosed in single quotes.
+1. Replace *account_name* with the name of the storage account you created. Make sure the account name is enclosed in single quotes.
 
-1. Replace *account_key* with the access key you just copied. Make sure it is enclosed in single quotes. The modified code will look something like this:
+1. Replace *account_key* with the access key on the clipboard. Make sure it is enclosed in single quotes. The modified code will look something like this:
 
 	<pre>
 	#######################################################
@@ -288,20 +291,22 @@ With the SLURM cluster up and running in Docker containers and the color images 
 	#######################################################
     </pre>
 
-1. Save your changes to slurmdemo.py and close the text editor.
+1. Save your changes to **slurmdemo.py** and close the text editor.
 
 You've updated the Python script with the information it needs to access the storage account. Now comes the fun part: generating grayscale images from the color images in the "input" container.
 
 <a name="Exercise5"></a>
-## Exercise 5: Copy the job scripts, configure the nodes, and run the job
+## Exercise 5: Copy the job scripts to the cluster and run the job
 
-1. Return to the Command Prompt that's open to the lab's "docker-resources" directory and run the following command to copy scripts from the local computer to the SLURM nodes:
+**slurmdemo.py** is one of several scripts in the "docker-resources" folder that must be copied to the SLURM cluster. In this exercise, you will copy the scripts to the cluster, and then execute the Python script on the cluster.
+
+1. Return to the Command Prompt window that's open to the lab's "docker-resources" directory and run the following command to copy **slurmdemo.py** and other job scripts to the SLURM nodes:
 
 	<pre>
 	copy-scripts
 	</pre>
 
-1. Now use the following command to run slurmdemo.py on the cluster and do the image conversions:
+1. Now use the following command to run **slurmdemo.py** and do the image conversions:
 
 	<pre>
 	docker -H 127.0.0.1:22375 exec -it linux0 python /slurmdemo.py
@@ -316,7 +321,7 @@ If the job ran successfully, the grayscale images generated from the color image
 
 1. Launch the Microsoft Azure Storage Explorer if it isn't already running.
 
-1. In the Storage Explorer, double-click the container named "output" to see its contents.
+1. In Storage Explorer, double-click the container named "output" to see its contents.
  
     ![Contents of the output container](Images/docker-job-output.png)
 
@@ -324,12 +329,12 @@ If the job ran successfully, the grayscale images generated from the color image
 
 1. Double-click one of the blobs in the container. When the downloaded image opens, confirm that it's a grayscale image, not a color image. To be sure, download a few other images, too. If the images are grayscale, congratulations! You have a working SLURM cluster.
 
-You now know how to deploy and configure SLURM clusters and run jobs on them. But when those clusters aren't being used, you should shut them down to avoid incurring unnecessary charges. The next exercise explains how.
+You now know how to deploy SLURM clusters in Docker containers and run jobs on them. But when those clusters aren't being used, you should shut them down to avoid incurring unnecessary charges. The next exercise explains how.
 
 <a name="Exercise7"></a>
 ## Exercise 7: Suspend the SLURM cluster
 
-When virtual machines are running, you are being charged — even if the VMs are idle. Therefore, it's advisable to stop virtual machines when they are not in use. You will still be charged for storage, but that cost is typically insignificant compared to the cost of an active VM. Your ACS instance contains a master virtual machine that needs to be stopped when you're not using the cluster. The Azure Portal makes it easy to stop virtual machines. VMs that you stop are easily started again later so you can pick up right where you left off.
+When virtual machines are running, you are being charged — even if the VMs are idle. Therefore, it's advisable to stop virtual machines when they are not in use. You will still be charged for storage, but that cost is typically insignificant compared to the cost of an active VM. Your container service contains a master VM that needs to be stopped when you're not using the cluster. The Azure Portal makes it easy to stop virtual machines. VMs that you stop are easily started again later so you can pick up right where you left off.
 
 1. Return to the Command Prompt window and ensure that you are still in the lab's "docker-resources" directory. Then run the following command:
 
@@ -339,28 +344,28 @@ When virtual machines are running, you are being charged — even if the VMs are
 
 	This command is actually a batch file that shuts down all of the container instances, effectively shutting down the SLURM cluster. You can use the **start-slurm** command to restart the container instances at any time.
 
-1. In the Azure Portal, open the blade for the resource group you created in [Exercise 1](#Exercise1). Click the virtual machine whose name begins with "swarm-master-" to open a blade for the master virtual machine.
+1. In the Azure Portal, open the blade for the resource group that contains the container service. Click the virtual machine whose name begins with "swarm-master" to open a blade for the master VM.
 
-	![Opening a blade for the master virtual machine](Images/docker-open-vm.png)
+	![Opening a blade for the master VM](Images/docker-open-vm.png)
 	
-	 _Opening a blade for the master virtual machine_
+	 _Opening a blade for the master VM_
 
-1. Click the **Stop** button to stop the VM. Answer **Yes** when prompted to verify that you wish to stop it.
+1. Click the **Stop** button to stop the master VM. Answer **Yes** when prompted to verify that you wish to stop it.
 
 	![Stopping the master virtual machine](Images/docker-stop-vm.png)
 	
 	_Stopping the master virtual machine_
 
-There is no need to stop the "swarm-agent-" virtual machines. These aren't actually VMs; they are an Azure Virtual Machine Scale Set that spins VMs up and down on demand. Note that if you wish to start the cluster again, you will need to restart the master VM before executing a **start-slurm** command.
+There is no need to stop the agent VMs. They are part of an Azure Virtual Machine Scale Set and are automatically spun up and down as needed by the master VM. Note that if you wish to start the cluster again, you will need to restart the master VM before executing a **start-slurm** command.
 
 <a name="Exercise8"></a>
-## Exercise 8: Delete the ACS Resource Group
+## Exercise 8: Delete the resource group
 
-Resource groups are a useful feature of Azure because they let you manage groups of resources. One of the most practical reasons to use resource groups is that deleting a resource group deletes all the resources it contains. Rather than delete those resources one by one, you can delete them all at once.
+Resource groups are a useful feature of Azure because they simplify the task of managing related resources. One of the most practical reasons to use resource groups is that deleting a resource group deletes all the resources it contains. Rather than delete those resources one by one, you can delete them all at once.
 
-In this exercise, you'll delete the resource group you created in [Exercise 1](#Exercise1) when you created the Azure Container Services instance. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.
+In this exercise, you'll delete the resource group created in [Exercise 1](#Exercise1) when you created the container service. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.
 
-1. In the Azure Portal, open the blade for the resource group you created in [Exercise 1](#Exercise1). Then click the **Delete** button at the top of the blade.
+1. In the Azure Portal, open the blade for the resource group that holds the container service. Then click the **Delete** button at the top of the blade.
 
 	![Deleting a resource group](Images/docker-delete-resource-group.png)
 
@@ -372,15 +377,7 @@ In this exercise, you'll delete the resource group you created in [Exercise 1](#
 
 ### Summary ###
 
-In this hands-on lab, you learned how to:
-
-- Create an instance of Azure Container Services
-- Create a SLURM cluster on Azure Container Services
-- Run jobs on a SLURM cluster
-- Start and stop nodes in a SLURM cluster
-- Delete a SLURM cluster by deleting the resource group containing it
-
-It is **much** easier to deploy a SLURM cluster in Azure than to install and configure a physical SLURM cluster. This is one of the ways in which cloud computing benefits computer scientists: it allows you to quickly and easily deploy the resources you need, *when* you need them, pay only for the resources you use, and delete them when they are no longer necessary.
+The Azure Container Service makes it easy to run apps packaged in Docker containers in the cloud without having to manage servers or install a container stack yourself. Container images are smaller than VM images, they start faster, and they typically cost less since a single VM can host multiple container instances. More importantly, Docker containers can be hosted in other cloud platforms such as Amazon Web Services (AWS). If you want to avoid being tied to a single cloud platform, containers are a great to achieve that independence.
 
 ---
 
