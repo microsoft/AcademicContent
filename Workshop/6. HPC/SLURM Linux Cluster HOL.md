@@ -176,7 +176,7 @@ In [Exercise 5](#Exercise5), you will run a Python script on the cluster to gene
 
     _Uploading images to the "input" container_
 
-1. Click the **...** button to the right of the field labeled "Files." In the ensuing dialog, navigate to this lab's "resources\ColorImages" subdirectory and select all the files in that subdirectory. Then close the dialog and click  the **Upload** button.
+1. Click the **...** button to the right of the field labeled "Files." In the ensuing dialog, navigate to this lab's "ColorImages" subdirectory and select all the files in that subdirectory. Then close the dialog and click  the **Upload** button.
 
     ![Uploading files to blob storage](Images/upload-files-dialog.png)
 
@@ -213,10 +213,10 @@ You can use any text editor that you're comfortable with. There is no need to be
 
     _Storage-account keys_
 
-1. Navigate to this lab's "resources" subdirectory. Then open **slurmdemo.py** in a text editor and find the following section near the top of the file:
+1. Navigate to this lab's "hpc-resources" subdirectory. Then open **slurmdemo.py** in a text editor and find the following section near the top of the file:
 
 	<pre>
-    ########################################################
+    #######################################################
     # Update these two variables to those for your account.
     #######################################################
     ACCOUNT_NAME = 'account_name'
@@ -233,17 +233,17 @@ You can use any text editor that you're comfortable with. There is no need to be
 1. In slurmdemo.py, replace *account_key* with the key you just copied. Make sure it is enclosed in single quotes. The modified code will look something like this:
 
 	<pre>
-    ########################################################
+    #######################################################
     # Update these two variables to those for your account.
     #######################################################
     ACCOUNT_NAME = 'jrslurmlabstorage'
-    ACCOUNT_KEY = 'jWdpHOyfIdJ+VdTRgJvpWsf0bgrz+8+qrunWbGym/ULY....'
+    ACCOUNT_KEY = 'jWdpHOyfIdJ+VdrtgJrz+8+qrunWbGym/ULY...'
     #######################################################
     </pre>
 
 1. Save your changes to slurmdemo.py and close the text editor.
 
-1. Still in the "resources" directory, open **slurmdemo.setup.sh** in your text editor. Search for all instances of *adminuser* and replace them with the ADMINUSERNAME property you specified in the template in [Exercise 2](#Exercise2). **There are six instances that need to be replaced**.
+1. Still in the "hpc-resources" directory, open **slurmdemo.setup.sh** in your text editor. Search for all instances of *adminuser* and replace them with the ADMINUSERNAME property you specified in the template in [Exercise 2](#Exercise2). **There are six instances that need to be replaced**.
 
 1. Save your changes to slurmdemo.setup.sh and close the text editor.
 
