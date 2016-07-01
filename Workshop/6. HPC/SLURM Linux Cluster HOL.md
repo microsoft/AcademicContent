@@ -154,7 +154,7 @@ Congratulations! You just deployed a Linux cluster using an Azure Quickstart tem
 <a name="Exercise3"></a>
 ## Exercise 3: Create storage containers and upload images
 
-In [Exercise 5](#Exercise5), you will run a Python script on the cluster to generate grayscale images from color images. That script requires requires a set of color images as well as two blob storage containers: one for input and one for output. In this exercise, you'll use the cross-platform [Microsoft Azure Storage Explorer](http://storageexplorer.com/) to create the containers and upload the images.
+In [Exercise 5](#Exercise5), you will run a Python script on the cluster to generate grayscale images from color images. That script requires a set of color images as well as two blob storage containers: one for input and one for output. In this exercise, you'll use the cross-platform [Microsoft Azure Storage Explorer](http://storageexplorer.com/) to create the containers and upload the images.
 
 1. Start the Microsoft Azure Storage Explorer, which is already installed in the VM you're using. If you're prompted for credentials, sign in with the user name and password for your Microsoft account.
 
