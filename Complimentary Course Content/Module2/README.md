@@ -26,7 +26,7 @@
                   </tr>
                   <tr>
                      <td align="center">1</td>
-                     <td>[JS Primer](Lessons/)</td>
+                     <td>[JS Primer](Lessons/Module2_Lesson1 JS Primer.pptx)</td>
                      <td></td>
                      <td>
                          Write a basic JavaScript program<br>
@@ -40,8 +40,8 @@
                   </tr>
                   <tr>
                      <td align="center">2</td>
-                     <td>[Getting Started with Node.js](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Getting Started with Node.js](Lessons/Module2_Lesson2 Getting Started with Node.js.pptx)</td>
+                     <td>[Lab](Labs/Module 2 Lesson 2 Lab.docx)</td>
                      <td>Understand the basics of node.js<br>
                          Interact with node.js on the command line<br>
                          Understand and use npm
@@ -49,7 +49,7 @@
                   </tr>
                   <tr>
                      <td align="center">3</td>
-                     <td>[Building a Web Application Server with Express](Lessons/)</td>
+                     <td>[Building a Web Application Server with Express](Lessons/Module2_Lesson3 Building a Web Application Server with Express.pptx)</td>
                      <td></td>
                      <td>Understand the difference between static and dynamic content<br>
                          Use Node’s middleware<br>
@@ -58,8 +58,8 @@
                   </tr>
                   <tr>
                      <td align="center">4</td>
-                     <td>[Building REST Services with Express](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Building REST Services with Express](Lessons/Module2_Lesson4 Building REST Services with Express.pptx)</td>
+                     <td>[Lab](Labs/Module 2 Lesson 4 Lab.docx)</td>
                      <td>Understand the basics of REST<br>
                          Use REST verbs for CRUD operations<br>
                          Parse JSON, Buffer, and HTML
@@ -67,7 +67,7 @@
                   </tr>
                   <tr>
                      <td align="center">5</td>
-                     <td>[Working with Node.js and Azure Table Storage](Lessons/)</td>
+                     <td>[Working with Node.js and Azure Table Storage](Lessons/Module2_Lesson5 Working with Node.js and Azure Table Storage.pptx)</td>
                      <td></td>
                      <td>Understand the basics of Azure Storage<br>
                          Interact with Azure Storage Tables using Node.js<br>
@@ -76,16 +76,16 @@
                   </tr>
                   <tr>
                      <td align="center">6</td>
-                     <td>[Building a Web Application Client with React](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Building a Web Application Client with React](Lessons/Module2_Lesson6 Building a Web Application Client with React.pptx)</td>
+                     <td>[Lab](Labs/Module 2 Lesson 6 Lab.docx)</td>
                      <td>Understand the basics of React, JSX, and Babel<br>
                          Build a web application client using React, JSX, and Babel
                      </td>
                   </tr>
                   <tr>
                      <td align="center">7</td>
-                     <td>[Deploying Node.js Applications to Azure](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Deploying Node.js Applications to Azure](Lessons/Module2_Lesson7 Deploying Node.js Web Applications to Azure.pptx)</td>
+                     <td>[Lab](Labs/Module 2 Lesson 7 Lab.docx)</td>
                      <td>
                         Create an Azure Site<br>
                         Understand Azure Deployment using Git<br>
