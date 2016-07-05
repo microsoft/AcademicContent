@@ -88,7 +88,7 @@ Now that you have a Microsoft account, you can proceed to activate your Azure Pa
 <a name="Exercise2"></a>
 ## Exercise 2: Activate your Azure Pass ##
 
-In this exercise, you will use the code you were given at the start of the day to activate an Azure Pass that's good for one month and $500 USD (or the equivalent in your local currency) and associate it with your Microsoft account.
+In this exercise, you will use the code you were given at the start of the day to activate an Azure Pass and associate it with your Microsoft account. If you already have access to Azure through a different Academic offer, skip this and proceed directly to Exercise 3.
 
 1. Open your Web browser and navigate to [https://www.microsoftazurepass.com](https://www.microsoftazurepass.com). Select a country from the drop-down list labeled **Please Select Country**, and type the activation code you were given into the box underneath the drop-down list. Then click the **Submit** button.
 
