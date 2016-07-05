@@ -26,7 +26,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- A Microsoft Azure subscription - [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
+- An active Microsoft Azure subscription. Use what you created in Lab 1 or - [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
 - Visual Studio Code IDE (provided for you in the lab VM)
 
 ---
