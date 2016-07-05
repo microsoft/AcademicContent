@@ -143,7 +143,7 @@ Now let's confirm that your Azure Pass was activated and associated with your Mi
 <a name="Exercise3"></a>
 ## Exercise 3: Access the Azure Portal and view subscription information ##
 
-In this exercise, you will learn how to open the Azure Portal, how to list the subscriptions associated with your Microsoft account in the Azure Portal, and how to view usage data regarding those subscriptions so you can keep track of how much of your $500 credit is left.
+In this exercise, you will learn how to open the Azure Portal, how to list the subscriptions associated with your Microsoft account in the Azure Portal, and how to view usage data regarding those subscriptions so you can keep track of how much of your credit is left.
 
 1. Open your browser and navigate to the [Azure Portal](https://portal.azure.com) at [https://portal.azure.com](https://portal.azure.com). If you're prompted to log in, do so using the Microsoft account that you used to activate your Azure Pass in Exercise 2.
 
