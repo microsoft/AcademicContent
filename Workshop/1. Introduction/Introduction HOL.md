@@ -46,7 +46,7 @@ Estimated time to complete this lab: **30** minutes.
 
 When you log in to the Azure Portal, you do so using a Microsoft account. A given account can have multiple Azure subscriptions associated with it. When you consume Azure services through the portal — when, for example, you store data in a storage account or deploy a high-performance computing (HPC) cluster — those services are billed against one of the subscriptions associated with your account. 
  
-Your Azure Pass is a subscription that provides $500 worth of Azure credits. Currently, you can only use an Azure Pass with a given Microsoft account one time. If you already have a Microsoft account and are certain that it that has never been used with an Azure Pass, then you can **skip this exercise and proceed to [Exercise 2](#Exercise2)**. If you don't have a Microsoft account, or if you do but aren't sure whether it has ever been used with an Azure Pass, then follow the steps below to create a new Microsoft account.
+Your Azure Pass is a subscription that provides a fixed value of Azure credits. Currently, you can only use an Azure Pass with a given Microsoft account one time. If you already have a Microsoft account and are certain that it that has never been used with an Azure Pass, then you can **skip this exercise and proceed to [Exercise 2](#Exercise2)**. If you don't have a Microsoft account, or if you do but aren't sure whether it has ever been used with an Azure Pass, then follow the steps below to create a new Microsoft account.
 
 1. Start a **private or incognito session** in the browser of your choice. Here are instructions for doing so in major browsers.
     - Google Chrome on all operating systems
