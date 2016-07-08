@@ -33,7 +33,7 @@
                   <tr>
                      <td rowspan=2>Intro to Azure</td>
                      <td>30</td>
-                     <td>[Presentation](1. Introduction/Azure Overview.pptx) | [Demos](Presentation/Keynote/)</td>
+                     <td>[Presentation](1. Introduction/Azure Overview.pptx) | [Video (coming soon)](Presentation/Keynote/)</td>
                   </tr>
                   <tr>
                   <td>30</td>
@@ -42,7 +42,7 @@
                   <tr>
                      <td rowspan=2>Azure Web Apps</td>
                      <td>15</td>
-                     <td>[Presentation](2. Web Apps/Azure Web Apps.pptx) | [Demos](Presentation/App-Service/)</td>
+                     <td>[Presentation](2. Web Apps/Azure Web Apps.pptx) | [Video (coming soon)](Presentation/App-Service/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
@@ -51,7 +51,7 @@
                   <tr>
                      <td rowspan=3>Azure Storage and Cognitive Services</td>
                      <td>15</td>
-                     <td>[Presentation](3. Storage/Azure Storage and Cognitive Services.pptx) | [Demos](Presentation/App-Service/)</td>
+                     <td>[Presentation](3. Storage/Azure Storage and Cognitive Services.pptx) | [Video (coming soon)](Presentation/App-Service/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
@@ -64,7 +64,7 @@
                   <tr>
                      <td rowspan=2>Azure Machine Learning</td>
                      <td>15</td>
-                     <td>[Presentation](4. Machine Learning/Azure Machine Learning.pptx) | [Demos](Presentation/Machine-Learning/)</td>
+                     <td>[Presentation](4. Machine Learning/Azure Machine Learning.pptx) | [Video (coming soon)](Presentation/Machine-Learning/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
@@ -73,7 +73,7 @@
                   <tr>
                      <td rowspan=2>IoT and Azure Stream Analytics</td>
                      <td>15</td>
-                     <td>[Presentation](5. Stream Analytics/Azure Stream Analytics.pptx) | [Demos](Presentation/IaaS/)</td>
+                     <td>[Presentation](5. Stream Analytics/Azure Stream Analytics.pptx) | [Video (coming soon)](Presentation/IaaS/)</td>
                   </tr>
                   <tr>
                      <td>60</td>
@@ -82,7 +82,7 @@
                   <tr>
                      <td rowspan=3>High-Performance Computing (HPC)</td>
                      <td>15</td>
-                     <td>[Presentation](6. HPC/Azure High-Performance Computing.pptx) | [Demos](Presentation/Data-Platform/)</td>
+                     <td>[Presentation](6. HPC/Azure High-Performance Computing.pptx) | [Video (coming soon)](Presentation/Data-Platform/)</td>
                   </tr>
                   <tr>
                      <td>60</td>
@@ -111,7 +111,7 @@
                   <tr>
                      <td rowspan=2>Intro to Azure</td>
                      <td>30</td>
-                     <td>[Presentation](1. Introduction/Azure Overview.pptx) | [Demos](Presentation/Keynote/)</td>
+                     <td>[Presentation](1. Introduction/Azure Overview.pptx) | [Video (coming soon)](Presentation/Keynote/)</td>
                   </tr>
                   <tr>
                   <td>30</td>
@@ -120,7 +120,7 @@
                   <tr>
                      <td rowspan=2>Azure Web Apps</td>
                      <td>15</td>
-                     <td>[Presentation](2. Web Apps/Azure Web Apps.pptx) | [Demos](Presentation/App-Service/)</td>
+                     <td>[Presentation](2. Web Apps/Azure Web Apps.pptx) | [Video (coming soon)](Presentation/App-Service/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
@@ -129,7 +129,7 @@
                   <tr>
                      <td rowspan=3>Azure Storage and Cognitive Services</td>
                      <td>15</td>
-                     <td>[Presentation](3. Storage/Azure Storage and Cognitive Services.pptx) | [Demos](Presentation/App-Service/)</td>
+                     <td>[Presentation](3. Storage/Azure Storage and Cognitive Services.pptx) | [Video (coming soon)](Presentation/App-Service/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
@@ -142,7 +142,7 @@
                   <tr>
                      <td rowspan=2><p><p><b>CHOOSE EITHER</b></p></p>Azure Machine Learning</td>
                      <td>15</td>
-                     <td>[Presentation](4. Machine Learning/Azure Machine Learning.pptx) | [Demos](Presentation/Machine-Learning/)</td>
+                     <td>[Presentation](4. Machine Learning/Azure Machine Learning.pptx) | [Video (coming soon)](Presentation/Machine-Learning/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
@@ -151,7 +151,7 @@
                   <tr>
                      <td rowspan=2><p><p><b>OR</b></p></p>IoT and Azure Stream Analytics</td>
                      <td>15</td>
-                     <td>[Presentation](5. Stream Analytics/Azure Stream Analytics.pptx) | [Demos](Presentation/IaaS/)</td>
+                     <td>[Presentation](5. Stream Analytics/Azure Stream Analytics.pptx) | [Video (coming soon)](Presentation/IaaS/)</td>
                   </tr>
                   <tr>
                      <td>60</td>
@@ -176,7 +176,7 @@
                   <tr>
                      <td rowspan=2>Intro to Azure</td>
                      <td>30</td>
-                     <td>[Presentation](1. Introduction/Azure Overview.pptx) | [Demos](Presentation/Keynote/)</td>
+                     <td>[Presentation](1. Introduction/Azure Overview.pptx) | [Video (coming soon)](Presentation/Keynote/)</td>
                   </tr>
                   <tr>
                   <td>30</td>
@@ -185,7 +185,7 @@
                   <tr>
                      <td rowspan=3>Azure Storage and Cognitive Services</td>
                      <td>15</td>
-                     <td>[Presentation](3. Storage/Azure Storage and Cognitive Services.pptx) | [Demos](Presentation/App-Service/)</td>
+                     <td>[Presentation](3. Storage/Azure Storage and Cognitive Services.pptx) | [Video (coming soon)](Presentation/App-Service/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
