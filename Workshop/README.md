@@ -55,11 +55,11 @@
                   </tr>
                   <tr>
                      <td>45</td>
-                     <td>[HOL - Build an intelligent-pictures site with C# and ASP.NET MVC, *or*](3. Storage/Azure Storage and Cognitive Services HOL (MVC).md)</td>
+                     <td><b>CHOOSE EITHER</b><p><p>[HOL - Build an intelligent-pictures site with C# and ASP.NET MVC](3. Storage/Azure Storage and Cognitive Services HOL (MVC).md) </td>
                   </tr>
 				  <tr>
 					<td>45</td>
-					<td>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
+					<td><b>OR</b><p><p>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
 				  </tr>
                   <tr>
                      <td rowspan=2>Azure Machine Learning</td>
@@ -133,11 +133,11 @@
                   </tr>
                   <tr>
                      <td>45</td>
-                     <td>[HOL - Build an intelligent-pictures site with C# and ASP.NET MVC, *or*](3. Storage/Azure Storage and Cognitive Services HOL (MVC).md)</td>
+                     <td><b>CHOOSE EITHER</b><p><p>[HOL - Build an intelligent-pictures site with C# and ASP.NET MVC](3. Storage/Azure Storage and Cognitive Services HOL (MVC).md)</td>
                   </tr>
 				  <tr>
 					<td>45</td>
-					<td>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
+					<td><b>OR</b><p><p>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
 				  </tr>
                   <tr>
                      <td rowspan=2><p><p><b>CHOOSE EITHER</b></p></p>Azure Machine Learning</td>
@@ -189,11 +189,11 @@
                   </tr>
                   <tr>
                      <td>45</td>
-                     <td>[HOL - Build an intelligent-pictures site with C# and ASP.NET MVC, *or*](3. Storage/Azure Storage and Cognitive Services HOL (MVC).md)</td>
+                     <td><b>CHOOSE EITHER</b><p><p>[HOL - Build an intelligent-pictures site with C# and ASP.NET MVC](3. Storage/Azure Storage and Cognitive Services HOL (MVC).md)</td>
                   </tr>
 				  <tr>
 					<td>45</td>
-					<td>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
+					<td><b>OR</b><p><p>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
 				  </tr>
                </table>
             </div>
