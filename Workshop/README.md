@@ -10,9 +10,9 @@
       <div class="container">
          <div class="jumbotron">
             <h1>Azure Workshop</h1>
-            <p><b>June 2016 release.</b> Source: <a href="https://github.com/MSFTImagine/computerscience/tree/master/Workshop">https://github.com/MSFTImagine/computerscience/tree/master/Workshop</a>.</p>
+            <p><b>July 2016 release.</b> Source: <a href="https://github.com/MSFTImagine/computerscience/tree/master/Workshop">https://github.com/MSFTImagine/computerscience/tree/master/Workshop</a>.</p>
             <p>
-            The Azure Workshop is a series of hands-on coding labs to help computer science faculty and student quickly learn how to deploy solutions to the Azure cloud across common scenarios like Mobile Dev, App Dev, Data Science, IoT, Machine Learning using cross-platform technologies. Labs can be completed on a Windows device or through VMs on Mac or Linux. Format is typically 1-day instructor-led; however groups may opt to customize into 2-hour or 4-hour lengths too. Your feedback is welcome in improving these labs.
+            The Azure Workshop is a series of hands-on coding labs to help computer science faculty and student quickly learn how to deploy solutions to the Azure cloud across common scenarios like Web Dev, App Dev, Internet of Things, and Data Science with Machine Learning using cross-platform technologies. Labs can be completed on a Windows device or through VMs on Mac or Linux. Format is typically 1-day instructor-led; however groups may opt to customize into 2-hour or 4-hour lengths too. Your feedback is welcome in improving these labs.
             </p>
             </div>
          </div>
@@ -33,7 +33,7 @@
                   <tr>
                      <td rowspan=2>Intro to Azure</td>
                      <td>30</td>
-                     <td>[Presentation](1. Introduction/Azure Overview.pptx) | [Demos](Presentation/Keynote/)</td>
+                     <td>[Presentation](1. Introduction/Azure Overview.pptx) | [Video (coming soon)](Presentation/Keynote/)</td>
                   </tr>
                   <tr>
                   <td>30</td>
@@ -42,7 +42,7 @@
                   <tr>
                      <td rowspan=2>Azure Web Apps</td>
                      <td>15</td>
-                     <td>[Presentation](2. Web Apps/Azure Web Apps.pptx) | [Demos](Presentation/App-Service/)</td>
+                     <td>[Presentation](2. Web Apps/Azure Web Apps.pptx) | [Video (coming soon)](Presentation/App-Service/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
@@ -51,20 +51,20 @@
                   <tr>
                      <td rowspan=3>Azure Storage and Cognitive Services</td>
                      <td>15</td>
-                     <td>[Presentation](3. Storage/Azure Storage and Cognitive Services.pptx) | [Demos](Presentation/App-Service/)</td>
+                     <td>[Presentation](3. Storage/Azure Storage and Cognitive Services.pptx) | [Video (coming soon)](Presentation/App-Service/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
-                     <td>[HOL - Build an intelligent-pictures site with C# and ASP.NET MVC, *or*](3. Storage/Azure Storage and Cognitive Services HOL (MVC).md)</td>
+                     <td><b>CHOOSE EITHER</b><p><p>[HOL - Build an intelligent-pictures site with C# and ASP.NET MVC](3. Storage/Azure Storage and Cognitive Services HOL (MVC).md) </td>
                   </tr>
 				  <tr>
 					<td>45</td>
-					<td>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
+					<td><b>OR</b><p><p>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
 				  </tr>
                   <tr>
                      <td rowspan=2>Azure Machine Learning</td>
                      <td>15</td>
-                     <td>[Presentation](4. Machine Learning/Azure Machine Learning.pptx) | [Demos](Presentation/Machine-Learning/)</td>
+                     <td>[Presentation](4. Machine Learning/Azure Machine Learning.pptx) | [Video (coming soon)](Presentation/Machine-Learning/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
@@ -73,7 +73,7 @@
                   <tr>
                      <td rowspan=2>IoT and Azure Stream Analytics</td>
                      <td>15</td>
-                     <td>[Presentation](5. Stream Analytics/Azure Stream Analytics.pptx) | [Demos](Presentation/IaaS/)</td>
+                     <td>[Presentation](5. Stream Analytics/Azure Stream Analytics.pptx) | [Video (coming soon)](Presentation/IaaS/)</td>
                   </tr>
                   <tr>
                      <td>60</td>
@@ -82,15 +82,15 @@
                   <tr>
                      <td rowspan=3>High-Performance Computing (HPC)</td>
                      <td>15</td>
-                     <td>[Presentation](6. HPC/Azure High-Performance Computing.pptx) | [Demos](Presentation/Data-Platform/)</td>
+                     <td>[Presentation](6. HPC/Azure High-Performance Computing.pptx) | [Video (coming soon)](Presentation/Data-Platform/)</td>
                   </tr>
                   <tr>
                      <td>60</td>
-                     <td>[HOL - Deploy an HPC cluster and process data in parallel using a Python script](6. HPC/SLURM Linux Cluster HOL.md)</td>
+                     <td><b>CHOOSE EITHER</b><p><p>[HOL - Deploy an HPC cluster and process data in parallel using a Python script](6. HPC/SLURM Linux Cluster HOL.md)</td>
                   </tr>
                   <tr>
                      <td>60</td>
-                     <td>[HOL - Deploy a Docker container swarm and process data in parallel using a Python script (coming soon)](6. HPC/SLURM Docker Cluster HOL.md)</td>
+                     <td><b>OR</b><p><p>[HOL - Deploy a Docker container swarm and process data in parallel using a Python script](6. HPC/SLURM Docker Swarm HOL.md)</td>
                   </tr>
                </table>
             </div>
@@ -111,7 +111,7 @@
                   <tr>
                      <td rowspan=2>Intro to Azure</td>
                      <td>30</td>
-                     <td>[Presentation](1. Introduction/Azure Overview.pptx) | [Demos](Presentation/Keynote/)</td>
+                     <td>[Presentation](1. Introduction/Azure Overview.pptx) | [Video (coming soon)](Presentation/Keynote/)</td>
                   </tr>
                   <tr>
                   <td>30</td>
@@ -120,7 +120,7 @@
                   <tr>
                      <td rowspan=2>Azure Web Apps</td>
                      <td>15</td>
-                     <td>[Presentation](2. Web Apps/Azure Web Apps.pptx) | [Demos](Presentation/App-Service/)</td>
+                     <td>[Presentation](2. Web Apps/Azure Web Apps.pptx) | [Video (coming soon)](Presentation/App-Service/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
@@ -129,20 +129,20 @@
                   <tr>
                      <td rowspan=3>Azure Storage and Cognitive Services</td>
                      <td>15</td>
-                     <td>[Presentation](3. Storage/Azure Storage and Cognitive Services.pptx) | [Demos](Presentation/App-Service/)</td>
+                     <td>[Presentation](3. Storage/Azure Storage and Cognitive Services.pptx) | [Video (coming soon)](Presentation/App-Service/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
-                     <td>[HOL - Build an intelligent-pictures site with C# and ASP.NET MVC, *or*](3. Storage/Azure Storage and Cognitive Services HOL (MVC).md)</td>
+                     <td><b>CHOOSE EITHER</b><p><p>[HOL - Build an intelligent-pictures site with C# and ASP.NET MVC](3. Storage/Azure Storage and Cognitive Services HOL (MVC).md)</td>
                   </tr>
 				  <tr>
 					<td>45</td>
-					<td>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
+					<td><b>OR</b><p><p>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
 				  </tr>
                   <tr>
                      <td rowspan=2><p><p><b>CHOOSE EITHER</b></p></p>Azure Machine Learning</td>
                      <td>15</td>
-                     <td>[Presentation](4. Machine Learning/Azure Machine Learning.pptx) | [Demos](Presentation/Machine-Learning/)</td>
+                     <td>[Presentation](4. Machine Learning/Azure Machine Learning.pptx) | [Video (coming soon)](Presentation/Machine-Learning/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
@@ -151,7 +151,7 @@
                   <tr>
                      <td rowspan=2><p><p><b>OR</b></p></p>IoT and Azure Stream Analytics</td>
                      <td>15</td>
-                     <td>[Presentation](5. Stream Analytics/Azure Stream Analytics.pptx) | [Demos](Presentation/IaaS/)</td>
+                     <td>[Presentation](5. Stream Analytics/Azure Stream Analytics.pptx) | [Video (coming soon)](Presentation/IaaS/)</td>
                   </tr>
                   <tr>
                      <td>60</td>
@@ -176,7 +176,7 @@
                   <tr>
                      <td rowspan=2>Intro to Azure</td>
                      <td>30</td>
-                     <td>[Presentation](1. Introduction/Azure Overview.pptx) | [Demos](Presentation/Keynote/)</td>
+                     <td>[Presentation](1. Introduction/Azure Overview.pptx) | [Video (coming soon)](Presentation/Keynote/)</td>
                   </tr>
                   <tr>
                   <td>30</td>
@@ -185,15 +185,15 @@
                   <tr>
                      <td rowspan=3>Azure Storage and Cognitive Services</td>
                      <td>15</td>
-                     <td>[Presentation](3. Storage/Azure Storage and Cognitive Services.pptx) | [Demos](Presentation/App-Service/)</td>
+                     <td>[Presentation](3. Storage/Azure Storage and Cognitive Services.pptx) | [Video (coming soon)](Presentation/App-Service/)</td>
                   </tr>
                   <tr>
                      <td>45</td>
-                     <td>[HOL - Build an intelligent-pictures site with C# and ASP.NET MVC, *or*](3. Storage/Azure Storage and Cognitive Services HOL (MVC).md)</td>
+                     <td><b>CHOOSE EITHER</b><p><p>[HOL - Build an intelligent-pictures site with C# and ASP.NET MVC](3. Storage/Azure Storage and Cognitive Services HOL (MVC).md)</td>
                   </tr>
 				  <tr>
 					<td>45</td>
-					<td>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
+					<td><b>OR</b><p><p>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
 				  </tr>
                </table>
             </div>
