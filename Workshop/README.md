@@ -90,7 +90,7 @@
                   </tr>
                   <tr>
                      <td>60</td>
-                     <td>[HOL - Deploy a Docker container swarm and process data in parallel using a Python script (coming soon)](6. HPC/SLURM Docker Cluster HOL.md)</td>
+                     <td>[HOL - Deploy a Docker container swarm and process data in parallel using a Python script](6. HPC/SLURM Docker Cluster HOL.md)</td>
                   </tr>
                </table>
             </div>
