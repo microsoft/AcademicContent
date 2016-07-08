@@ -86,11 +86,11 @@
                   </tr>
                   <tr>
                      <td>60</td>
-                     <td>[HOL - Deploy an HPC cluster and process data in parallel using a Python script](6. HPC/SLURM Linux Cluster HOL.md)</td>
+                     <td><b>CHOOSE EITHER</b><p><p>[HOL - Deploy an HPC cluster and process data in parallel using a Python script](6. HPC/SLURM Linux Cluster HOL.md)</td>
                   </tr>
                   <tr>
                      <td>60</td>
-                     <td>[HOL - Deploy a Docker container swarm and process data in parallel using a Python script](6. HPC/SLURM Docker Swarm HOL.md)</td>
+                     <td><b>OR</b><p><p>[HOL - Deploy a Docker container swarm and process data in parallel using a Python script](6. HPC/SLURM Docker Swarm HOL.md)</td>
                   </tr>
                </table>
             </div>
