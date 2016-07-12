@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Azure Web Apps HOL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<p><a name="HOLTitle"></a></p>
+
+<h1>Azure Web Apps</h1>
+
+<hr>
+
+<p><a name="Overview"></a></p>
+
+<h2>Overview</h2>
+
+<p><a href="https://azure.microsoft.com/en-us/documentation/articles/app-service-value-prop-what-is/">Azure App Service</a> is a set of services provided by Microsoft Azure to enable developers to easily build and deploy Web apps and mobile apps for various platforms and devices. Included in the App Service family are <a href="https://azure.microsoft.com/en-us/documentation/articles/app-service-web-overview/">Azure Web Apps</a>, which allow you to quickly and easily deploy Web sites built with tools and languages you’re already familiar with; <a href="https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/">Azure Mobile Apps</a>, which provide data services, syncing services, notification services, and other back-end services for popular mobile operating systems; <a href="https://azure.microsoft.com/en-us/documentation/articles/app-service-api-apps-why-best-platform/">Azure API Apps</a>, which simplify the writing, publishing, and consuming of cloud APIs; and <a href="https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-what-are-logic-apps/">Azure Logic Apps</a>, which are great for automating business processes.</p>
+
+<p>Azure Web Apps makes deploying Web sites extraordinarily easy – and not just Web sites built using the Microsoft stack. You can deploy PHP apps that use MySQL just as easily as ASP.NET apps that use SQL Server. You can select from a wide variety of Web App templates or build templates of your own. You can configure Web Apps to auto-scale as traffic increases to ensure that your customers aren’t left waiting during periods of peak demand. You can publish apps to pre-production staging locations and test them in the cloud before taking them live, and then swap the staging deployments for the production deployments with the click of a button. You can even create WebJobs – programs or scripts that run continuously or on a schedule to handle billing and other time-critical tasks. In short, Azure Web Apps takes the pain out of publishing and maintaining Web apps and are just as suitable for a personal photo-sharing site as they are for enterprise-grade sites serving millions of customers.</p>
+
+<p>In this lab, you will use the cross-platform <a href="https://code.visualstudio.com/">Visual Studio Code</a> code editor to build a Web site that uses <a href="http://php.net/">PHP</a> server-side scripting. The site will allow you to upload, browse, and display photos, and it will store photos in a <a href="http://www.mysql.com/">MySQL</a> database. You will then provision a new Azure Web App to host the site. Finally, you will upload the site's content to the newly provisioned Web App and view it in your browser.</p>
+
+<p><a name="Objectives"></a></p>
+
+<h3>Objectives</h3>
+
+<p>In this hands-on lab, you will learn how to:</p>
+
+<ul>
+<li>Use Visual Studio Code to build a PHP and MySQL Web site</li>
+<li>Provision an Azure Web App to host the Web site</li>
+<li>Deploy the Web site using FTP</li>
+</ul>
+
+<p><a name="Prerequisites"></a></p>
+
+<h3>Prerequisites</h3>
+
+<p>The following are required to complete this hands-on lab:</p>
+
+<ul>
+<li>An active Microsoft Azure subscription. Use the one you created in Lab 1, or <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>
+</li>
+<li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
+<li><a href="http://windows.php.net/download/">PHP for Windows</a></li>
+</ul>
+
+<hr>
+
+<p><a name="Exercises"></a></p>
+
+<h2>Exercises</h2>
+
+<p>This hands-on lab includes the following exercises:</p>
+
+<ul>
+<li><a href="#Exercise1">Exercise 1: Build a Web site with Visual Studio Code</a></li>
+<li><a href="#Exercise2">Exercise 2: Provision a MySQL Web App</a></li>
+<li><a href="#Exercise3">Exercise 3: Deploy the Web site</a></li>
+</ul>
+
+<p>Estimated time to complete this lab: <strong>45</strong> minutes.</p>
+
+<p><a name="Exercise1"></a></p>
+
+<h2>Exercise 1: Build a Web site with Visual Studio Code</h2>
+
+<p>In this exercise, you will use <a href="https://code.visualstudio.com/">Visual Studio Code</a> to build a Web site. Visual Studio Code is a free, cross-platform code editor available for Windows, OS X, and Linux that supports a variety of programming languages, both natively and via extensions. It also features built-in Git support as well as syntax highlighting and code completion via <a href="https://code.visualstudio.com/#meet-intellisense">IntelliSense</a>.</p>
+
+<ol>
+<li>
+<p>Start Visual Studio Code.  Open the <strong>File</strong> menu and select <strong>Open Folder</strong>.</p>
+
+<p><a href="Images/build-codeopenfolder.png" target="_blank"><img src="Images/build-codeopenfolder.png" alt="Starting the project" style="max-width:100%;"></a></p>
+
+<p><em>Starting the project</em></p>
+</li>
+<li>
+<p>In the Select Folder dialog, choose a suitable folder for your Web site's code. Then click the <strong>Select Folder</strong> button.</p>
+
+<p><a href="Images/build-codeselectfolder.png" target="_blank"><img src="Images/build-codeselectfolder.png" alt="Selecting a project folder" style="max-width:100%;"></a></p>
+
+<p><em>Selecting a project folder</em></p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, select <strong>New File</strong>.</p>
+
+<p><a href="Images/build-codenewfile.png" target="_blank"><img src="Images/build-codenewfile.png" alt="Adding a file to the project" style="max-width:100%;"></a></p>
+
+<p><em>Adding a file to the project</em></p>
+</li>
+<li>
+<p>Add the following code and markup to the new file to serve as the main page for your Web site:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;!DOCTYPE html&gt;
+&lt;<span class="pl-ent">html</span>&gt;
+&lt;<span class="pl-ent">head</span>&gt;
+    &lt;<span class="pl-ent">title</span>&gt;My Images&lt;/<span class="pl-ent">title</span>&gt;
+    <span class="pl-c">&lt;!-- Latest compiled and minified CSS --&gt;</span>
+    &lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css<span class="pl-pds">"</span></span> 
+        <span class="pl-e">integrity</span>=<span class="pl-s"><span class="pl-pds">"</span>sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7<span class="pl-pds">"</span></span> 
+        <span class="pl-e">crossorigin</span>=<span class="pl-s"><span class="pl-pds">"</span>anonymous<span class="pl-pds">"</span></span>&gt;
+    <span class="pl-c">&lt;!-- Optional theme --&gt;</span>
+    &lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css<span class="pl-pds">"</span></span> 
+        <span class="pl-e">integrity</span>=<span class="pl-s"><span class="pl-pds">"</span>sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r<span class="pl-pds">"</span></span> 
+        <span class="pl-e">crossorigin</span>=<span class="pl-s"><span class="pl-pds">"</span>anonymous<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>content/styles.css<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">'</span>text/css<span class="pl-pds">'</span></span>&gt;
+
+    <span class="pl-c">&lt;!-- jQuery (necessary for Bootstrap's JavaScript plugins) --&gt;</span>
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+    <span class="pl-c">&lt;!-- Latest compiled and minified JavaScript --&gt;</span>
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js<span class="pl-pds">"</span></span> </span>
+<span class="pl-s1">        <span class="pl-e">integrity</span>=<span class="pl-s"><span class="pl-pds">"</span>sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS<span class="pl-pds">"</span></span> </span>
+<span class="pl-s1">        <span class="pl-e">crossorigin</span>=<span class="pl-s"><span class="pl-pds">"</span>anonymous<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+
+&lt;/<span class="pl-ent">head</span>&gt;
+&lt;<span class="pl-ent">body</span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>container-fluid bg-primary<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>row col-md-12<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">h3</span>&gt;My Images&lt;/<span class="pl-ent">h3</span>&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>navbar navbar-default<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">form</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>navbar-form navbar-left<span class="pl-pds">"</span></span> <span class="pl-e">enctype</span>=<span class="pl-s"><span class="pl-pds">"</span>multipart/form-data<span class="pl-pds">"</span></span> <span class="pl-e">action</span>=<span class="pl-s"><span class="pl-pds">"</span>&lt;?php echo $_SERVER['PHP_SELF']; ?&gt;<span class="pl-pds">"</span></span> <span class="pl-e">method</span>=<span class="pl-s"><span class="pl-pds">"</span>post<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>form-group<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">label</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>sr-only<span class="pl-pds">"</span></span> <span class="pl-e">for</span>=<span class="pl-s"><span class="pl-pds">"</span>imageToUpload<span class="pl-pds">"</span></span>&gt;Image to Upload&lt;/<span class="pl-ent">label</span>&gt;
+                &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>input-group<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>input-group-btn<span class="pl-pds">"</span></span>&gt;
+                        &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>btn btn-default btn-file<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>button<span class="pl-pds">"</span></span>&gt;
+                            Image File:&lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>imageToUpload<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>imageToUpload<span class="pl-pds">"</span></span>&gt;
+                        &lt;/<span class="pl-ent">span</span>&gt;
+                    &lt;/<span class="pl-ent">span</span>&gt;
+                    &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>form-control<span class="pl-pds">"</span></span> <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Select a file to upload...<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>selectedFileName<span class="pl-pds">"</span></span> <span class="pl-e">readonly</span>&gt;
+                &lt;/<span class="pl-ent">div</span>&gt;
+            &lt;/<span class="pl-ent">div</span>&gt;
+            &lt;<span class="pl-ent">button</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>submit<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>btn btn-default navbar-btn<span class="pl-pds">"</span></span>&gt;Upload&lt;/<span class="pl-ent">button</span>&gt;
+            &lt;?php
+                if (isset($_FILES['imageToUpload'])) {
+                    include "images.php";
+                    try {
+                        $msg = Images::Upload();  // this will upload the image
+                        echo "&lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">'</span>navbar-text navbar-right<span class="pl-pds">'</span></span>&gt;".$msg."&lt;/<span class="pl-ent">p</span>&gt;";  // Message showing success or failure.
+                        }
+                    catch (Exception $e) {
+                        echo "&lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">'</span>navbar-text navbar-right text-danger<span class="pl-pds">'</span></span>&gt;"."Sorry, could not upload file".$e-&gt;getMessage()."&lt;/<span class="pl-ent">p</span>&gt;";
+                    }
+                }
+            ?&gt;
+        &lt;/<span class="pl-ent">form</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>container-fluid<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>row<span class="pl-pds">"</span></span>&gt;
+            &lt;?php
+                include "images.php";
+                $images = Images::GetImages();
+                foreach ($images as $image) {
+            ?&gt;
+                &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">'</span>col-lg-2 col-md-4 col-sm-6 col-xs-12<span class="pl-pds">'</span></span>&gt;
+                    &lt;?php
+                        echo "&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">'</span>image_display.php?id=".$image-&gt;id."<span class="pl-pds">'</span></span> <span class="pl-e">target</span>=<span class="pl-s"><span class="pl-pds">'</span>_blank<span class="pl-pds">'</span></span>&gt;";
+                        echo "&lt;<span class="pl-ent">img</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">'</span>img-responsive<span class="pl-pds">'</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">'</span>image_display.php?id=".$image-&gt;id."<span class="pl-ii">&amp;</span>width=192<span class="pl-pds">'</span></span> <span class="pl-e">alt</span>=<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span> /&gt;";
+                        echo "&lt;/<span class="pl-ent">a</span>&gt;";
+                    ?&gt;
+                &lt;/<span class="pl-ent">div</span>&gt;
+            &lt;?php
+                }
+            ?&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span> <span class="pl-e">language</span>=<span class="pl-s"><span class="pl-pds">"</span>javascript<span class="pl-pds">"</span></span>&gt;</span>
+<span class="pl-s1">        <span class="pl-c">// Show name of selected image file in the text display in the custom UI element</span></span>
+<span class="pl-s1">        <span class="pl-en">$</span>(<span class="pl-c1">document</span>).<span class="pl-en">ready</span>(<span class="pl-k">function</span> () {</span>
+<span class="pl-s1">            <span class="pl-en">$</span>(<span class="pl-c1">document</span>).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>change<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>.btn-file :file<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> () {</span>
+<span class="pl-s1">                <span class="pl-k">var</span> input <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-v">this</span>),</span>
+<span class="pl-s1">                    numFiles <span class="pl-k">=</span> <span class="pl-smi">input</span>.<span class="pl-en">get</span>(<span class="pl-c1">0</span>).<span class="pl-smi">files</span> <span class="pl-k">?</span> <span class="pl-smi">input</span>.<span class="pl-en">get</span>(<span class="pl-c1">0</span>).<span class="pl-smi">files</span>.<span class="pl-c1">length</span> <span class="pl-k">:</span> <span class="pl-c1">1</span>,</span>
+<span class="pl-s1">                    label <span class="pl-k">=</span> <span class="pl-smi">input</span>.<span class="pl-en">val</span>().<span class="pl-c1">replace</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-cce">\\</span><span class="pl-pds">/</span>g</span>, <span class="pl-s"><span class="pl-pds">'</span>/<span class="pl-pds">'</span></span>).<span class="pl-c1">replace</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-c1">.</span><span class="pl-k">*</span><span class="pl-cce">\/</span><span class="pl-pds">/</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1">                <span class="pl-smi">input</span>.<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">'</span>fileselect<span class="pl-pds">'</span></span>, [numFiles, label]);</span>
+<span class="pl-s1">            })</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.btn-file :file<span class="pl-pds">'</span></span>).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>fileselect<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> (<span class="pl-c1">event</span>, <span class="pl-smi">numFiles</span>, <span class="pl-smi">label</span>) {</span>
+<span class="pl-s1">                <span class="pl-en">console</span>.<span class="pl-c1">log</span>(numFiles);</span>
+<span class="pl-s1">                <span class="pl-en">console</span>.<span class="pl-c1">log</span>(label);</span>
+<span class="pl-s1">                <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>#selectedFileName<span class="pl-pds">"</span></span>).<span class="pl-en">val</span>(label);</span>
+<span class="pl-s1">            });</span>
+<span class="pl-s1">        });</span>
+<span class="pl-s1">    &lt;/<span class="pl-ent">script</span>&gt;</span>
+&lt;/<span class="pl-ent">body</span>&gt;
+&lt;/<span class="pl-ent">html</span>&gt;</pre></div>
+</li>
+<li>
+<p>Use the <strong>File -&gt; Save</strong> command to save the file. Name it <strong>index.php</strong>.</p>
+
+<p><a href="Images/build-codesavefile.png" target="_blank"><img src="Images/build-codesavefile.png" alt="Saving the file" style="max-width:100%;"></a></p>
+
+<p><em>Saving the file</em></p>
+
+<p>Thanks to the .php file-name extension, Visual Studio Code knows that this is a PHP file and applies the appropriate syntax highlighting:  </p>
+
+<p><a href="Images/build-codesyntax.png" target="_blank"><img src="Images/build-codesyntax.png" alt="Syntax highlighting in Visual Studio Code" style="max-width:100%;"></a></p>
+
+<p><em>Syntax highlighting in Visual Studio Code</em></p>
+</li>
+<li>
+<p>Repeat Steps 3 and 4 to add a file named <strong>image_display.php</strong> containing the following code to the project. This is the code that returns images requested by the browser over HTTP.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">if</span> ((<span class="pl-c1">isset</span>(<span class="pl-smi">$_GET</span>[<span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>]) <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">is_numeric</span>(<span class="pl-smi">$_GET</span>[<span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>])) <span class="pl-k">===</span> <span class="pl-c1">FALSE</span>) <span class="pl-k">die</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">"</span>images.php<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1">    <span class="pl-smi">$imageId</span> <span class="pl-k">=</span> <span class="pl-smi">$_GET</span>[<span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>];</span>
+<span class="pl-s1">    <span class="pl-smi">$image</span> <span class="pl-k">=</span> <span class="pl-c1">Images</span><span class="pl-k">::</span>GetImage(<span class="pl-smi">$imageId</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// Get the source image attributes</span></span>
+<span class="pl-s1">    <span class="pl-smi">$srcImage</span> <span class="pl-k">=</span> <span class="pl-smi">$image</span><span class="pl-k">-&gt;</span><span class="pl-smi">image</span>;</span>
+<span class="pl-s1">    <span class="pl-smi">$srcSize</span> <span class="pl-k">=</span> <span class="pl-c1">getImageSizeFromString</span>(<span class="pl-smi">$srcImage</span>);</span>
+<span class="pl-s1">    <span class="pl-smi">$srcWidth</span> <span class="pl-k">=</span> <span class="pl-smi">$srcSize</span>[<span class="pl-c1">0</span>];</span>
+<span class="pl-s1">    <span class="pl-smi">$srcHeight</span> <span class="pl-k">=</span> <span class="pl-smi">$srcSize</span>[<span class="pl-c1">1</span>];</span>
+<span class="pl-s1">    <span class="pl-smi">$srcType</span> <span class="pl-k">=</span> <span class="pl-smi">$srcSize</span>[<span class="pl-c1">2</span>];</span>
+<span class="pl-s1">    <span class="pl-smi">$srcMime</span> <span class="pl-k">=</span> <span class="pl-smi">$srcSize</span>[<span class="pl-s"><span class="pl-pds">'</span>mime<span class="pl-pds">'</span></span>];</span>
+<span class="pl-s1">    <span class="pl-smi">$srcImageResource</span> <span class="pl-k">=</span> <span class="pl-c1">imageCreateFromString</span>(<span class="pl-smi">$srcImage</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// set the header for the image</span></span>
+<span class="pl-s1">    <span class="pl-c1">header</span>(<span class="pl-s"><span class="pl-pds">"</span>Content-type: <span class="pl-pds">"</span></span><span class="pl-k">.</span><span class="pl-smi">$srcMime</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">if</span> ((<span class="pl-c1">isset</span>(<span class="pl-smi">$_GET</span>[<span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>]) <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">is_numeric</span>(<span class="pl-smi">$_GET</span>[<span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>])) <span class="pl-k">===</span> <span class="pl-c1">FALSE</span>) {</span>
+<span class="pl-s1">        <span class="pl-c">// No width requested - just return the source</span></span>
+<span class="pl-s1">        <span class="pl-c1">echo</span> <span class="pl-smi">$srcImage</span>;</span>
+<span class="pl-s1">        <span class="pl-k">exit</span>;</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// Resize/resample the image to the requested size</span></span>
+<span class="pl-s1">    <span class="pl-smi">$destWidth</span> <span class="pl-k">=</span> <span class="pl-smi">$_GET</span>[<span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>];</span>
+<span class="pl-s1">    <span class="pl-smi">$destHeight</span> <span class="pl-k">=</span> <span class="pl-smi">$destWidth</span> <span class="pl-k">*</span> <span class="pl-smi">$srcSize</span>[<span class="pl-c1">1</span>] <span class="pl-k">/</span> <span class="pl-smi">$srcSize</span>[<span class="pl-c1">0</span>];</span>
+<span class="pl-s1">    <span class="pl-smi">$destWidth</span> <span class="pl-k">=</span> <span class="pl-smi">$srcWidth</span>;</span>
+<span class="pl-s1">    <span class="pl-smi">$destHeight</span> <span class="pl-k">=</span> <span class="pl-smi">$srcHeight</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// // echo "width = ".$destWidth." height = ".$destHeight;</span></span>
+<span class="pl-s1">    <span class="pl-smi">$destImageResource</span> <span class="pl-k">=</span> <span class="pl-c1">imageCreateTrueColor</span>(<span class="pl-smi">$destWidth</span>, <span class="pl-smi">$destHeight</span>);</span>
+<span class="pl-s1">    <span class="pl-c1">imagealphablending</span>(<span class="pl-smi">$destImageResource</span>, <span class="pl-c1">false</span>);</span>
+<span class="pl-s1">    <span class="pl-c1">imagesavealpha</span>(<span class="pl-smi">$destImageResource</span>, <span class="pl-c1">true</span>);</span>
+<span class="pl-s1">    <span class="pl-c1">imageCopyResampled</span>(<span class="pl-smi">$destImageResource</span>, <span class="pl-smi">$srcImageResource</span>, <span class="pl-c1">0</span>,<span class="pl-c1">0</span>,<span class="pl-c1">0</span>,<span class="pl-c1">0</span>, <span class="pl-smi">$destWidth</span>, <span class="pl-smi">$destHeight</span>, <span class="pl-smi">$srcWidth</span>, <span class="pl-smi">$srcHeight</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// export the image</span></span>
+<span class="pl-s1">    <span class="pl-k">switch</span> (<span class="pl-smi">$srcType</span>) {</span>
+<span class="pl-s1">        <span class="pl-k">case</span> <span class="pl-c1">IMAGETYPE_JPEG</span>:</span>
+<span class="pl-s1">            <span class="pl-c1">imageJPEG</span>(<span class="pl-smi">$destImageResource</span>);</span>
+<span class="pl-s1">            <span class="pl-k">break</span>;</span>
+<span class="pl-s1">        <span class="pl-k">case</span> <span class="pl-c1">IMAGETYPE_PNG</span>:</span>
+<span class="pl-s1">            <span class="pl-c1">imagePNG</span>(<span class="pl-smi">$destImageResource</span>);</span>
+<span class="pl-s1">            <span class="pl-k">break</span>;</span>
+<span class="pl-s1">        <span class="pl-k">default</span>:</span>
+<span class="pl-s1">            <span class="pl-c1">imageJPEG</span>(<span class="pl-smi">$destImageResource</span>);</span>
+<span class="pl-s1">            <span class="pl-k">break</span>;</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c1">imageDestroy</span>(<span class="pl-smi">$destImageResource</span>);</span>
+<span class="pl-s1"></span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span></pre></div>
+</li>
+<li>
+<p>Repeat Steps 3 and 4 to add a file named <strong>images.php</strong> containing the following code to the project. This is the code used to upload, store, and retrieve images.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">"</span>database.php<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">class</span> <span class="pl-en">Images</span> {</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">function</span> <span class="pl-en">Upload</span>() {</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            <span class="pl-smi">$maxsize</span> <span class="pl-k">=</span> <span class="pl-c1">10000000</span>; <span class="pl-c">// set to approx 10 MB</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            <span class="pl-c">// check associated error code</span></span>
+<span class="pl-s1">            <span class="pl-k">if</span> (<span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>] <span class="pl-k">==</span> <span class="pl-c1">UPLOAD_ERR_OK</span>) {</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">                <span class="pl-c">// check whether file is uploaded with HTTP POST</span></span>
+<span class="pl-s1">                <span class="pl-k">if</span> (<span class="pl-c1">is_uploaded_file</span>(<span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>tmp_name<span class="pl-pds">'</span></span>])) {    </span>
+<span class="pl-s1"></span>
+<span class="pl-s1">                    <span class="pl-c">//checks size of uploaded image on server side</span></span>
+<span class="pl-s1">                    <span class="pl-k">if</span> ( <span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>size<span class="pl-pds">'</span></span>] <span class="pl-k">&lt;</span> <span class="pl-smi">$maxsize</span>) {  </span>
+<span class="pl-s1"></span>
+<span class="pl-s1">                        <span class="pl-c">// checks whether uploaded file is of image type</span></span>
+<span class="pl-s1">                        <span class="pl-smi">$finfo</span> <span class="pl-k">=</span> <span class="pl-c1">finfo_open</span>(<span class="pl-c1">FILEINFO_MIME_TYPE</span>);</span>
+<span class="pl-s1">                        <span class="pl-k">if</span> (<span class="pl-c1">strpos</span>(<span class="pl-c1">finfo_file</span>(<span class="pl-smi">$finfo</span>, <span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>tmp_name<span class="pl-pds">'</span></span>]), <span class="pl-s"><span class="pl-pds">"</span>image<span class="pl-pds">"</span></span>) <span class="pl-k">===</span> <span class="pl-c1">0</span>) {    </span>
+<span class="pl-s1"></span>
+<span class="pl-s1">                            <span class="pl-c">// open the image file for insertion</span></span>
+<span class="pl-s1">                            <span class="pl-smi">$imagefp</span> <span class="pl-k">=</span> <span class="pl-c1">fopen</span>(<span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>tmp_name<span class="pl-pds">'</span></span>], <span class="pl-s"><span class="pl-pds">'</span>rb<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">                            <span class="pl-c">// put the image in the db...</span></span>
+<span class="pl-s1">                            <span class="pl-smi">$database</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Database</span>();</span>
+<span class="pl-s1">                            <span class="pl-smi">$id</span> <span class="pl-k">=</span> <span class="pl-smi">$database</span><span class="pl-k">-&gt;</span>UploadImage(<span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>], <span class="pl-smi">$imagefp</span>);</span>
+<span class="pl-s1">                            <span class="pl-smi">$msg</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Image successfully saved in database with id = <span class="pl-pds">'</span></span> <span class="pl-k">.</span> <span class="pl-smi">$id</span>;</span>
+<span class="pl-s1">                        }</span>
+<span class="pl-s1">                        <span class="pl-k">else</span> { </span>
+<span class="pl-s1">                            <span class="pl-smi">$msg</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Uploaded file is not an image.<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1">                        }</span>
+<span class="pl-s1">                    }</span>
+<span class="pl-s1">                    <span class="pl-k">else</span> {</span>
+<span class="pl-s1">                        <span class="pl-c">// if the file is not less than the maximum allowed, print an error</span></span>
+<span class="pl-s1">                        <span class="pl-smi">$msg</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;div&gt;File exceeds the Maximum File limit&lt;/div&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                            &lt;div&gt;Maximum File limit is <span class="pl-pds">'</span></span><span class="pl-k">.</span><span class="pl-smi">$maxsize</span><span class="pl-k">.</span><span class="pl-s"><span class="pl-pds">'</span> bytes&lt;/div&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                            &lt;div&gt;File <span class="pl-pds">'</span></span><span class="pl-k">.</span><span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>]<span class="pl-k">.</span><span class="pl-s"><span class="pl-pds">'</span> is <span class="pl-pds">'</span></span><span class="pl-k">.</span><span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>size<span class="pl-pds">'</span></span>]<span class="pl-k">.</span></span>
+<span class="pl-s1">                            <span class="pl-s"><span class="pl-pds">'</span> bytes&lt;/div&gt;&lt;hr /&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                    }</span>
+<span class="pl-s1">                }</span>
+<span class="pl-s1">                <span class="pl-k">else</span></span>
+<span class="pl-s1">                    <span class="pl-smi">$msg</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>File not uploaded successfully.<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            }</span>
+<span class="pl-s1">            <span class="pl-k">else</span> {</span>
+<span class="pl-s1">                <span class="pl-smi">$msg</span> <span class="pl-k">=</span> file_upload_error_message(<span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>]);</span>
+<span class="pl-s1">            }</span>
+<span class="pl-s1">            <span class="pl-k">return</span> <span class="pl-smi">$msg</span>;</span>
+<span class="pl-s1">        }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">function</span> <span class="pl-en">GetImages</span>() {</span>
+<span class="pl-s1">            <span class="pl-smi">$database</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Database</span>();</span>
+<span class="pl-s1">            <span class="pl-smi">$images</span> <span class="pl-k">=</span> <span class="pl-smi">$database</span><span class="pl-k">-&gt;</span>GetAllImages();</span>
+<span class="pl-s1">            <span class="pl-k">return</span> <span class="pl-smi">$images</span>;</span>
+<span class="pl-s1">        }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">function</span> <span class="pl-en">GetImage</span>(<span class="pl-smi">$id</span>) {</span>
+<span class="pl-s1">            <span class="pl-smi">$database</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Database</span>();</span>
+<span class="pl-s1">            <span class="pl-smi">$image</span> <span class="pl-k">=</span> <span class="pl-smi">$database</span><span class="pl-k">-&gt;</span>FindImage(<span class="pl-smi">$id</span>);</span>
+<span class="pl-s1">            <span class="pl-k">return</span> <span class="pl-smi">$image</span>;</span>
+<span class="pl-s1">        }</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1"></span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>  </pre></div>
+</li>
+<li>
+<p>Repeat Steps 3 and 4 to add a file named <strong>database.php</strong> containing the following code to the project. This is the code used to interact with the MySQL database. Observe that the database connection string isn't embedded in the code, but is instead retrieved from an environment variable named <em>MYSQLCONNSTR_defaultConnection</em>. The value of this approach will be explained in the next exercise.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">class</span> <span class="pl-en">Database</span> {</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-k">private</span> <span class="pl-smi">$link</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-c1">__construct</span>() {</span>
+<span class="pl-s1">            <span class="pl-c">// Notice that private connection information is *NOT* part of the source</span></span>
+<span class="pl-s1">            <span class="pl-c">// and therefore does not end up in public repos, etc.</span></span>
+<span class="pl-s1">            <span class="pl-smi">$connectionString</span> <span class="pl-k">=</span> <span class="pl-c1">getenv</span>(<span class="pl-s"><span class="pl-pds">"</span>MYSQLCONNSTR_defaultConnection<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1">            <span class="pl-smi">$varsString</span> <span class="pl-k">=</span> <span class="pl-c1">str_replace</span>(<span class="pl-s"><span class="pl-pds">"</span>;<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>&amp;<span class="pl-pds">"</span></span>, <span class="pl-smi">$connectionString</span>);</span>
+<span class="pl-s1">            <span class="pl-c1">parse_str</span>(<span class="pl-smi">$varsString</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            <span class="pl-smi">$host</span> <span class="pl-k">=</span> <span class="pl-smi">$Data_Source</span>;</span>
+<span class="pl-s1">            <span class="pl-smi">$user</span> <span class="pl-k">=</span> <span class="pl-smi">$User_Id</span>;</span>
+<span class="pl-s1">            <span class="pl-smi">$pass</span> <span class="pl-k">=</span> <span class="pl-smi">$Password</span>;</span>
+<span class="pl-s1">            <span class="pl-smi">$db</span> <span class="pl-k">=</span> <span class="pl-smi">$Database</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            <span class="pl-k">try</span>{</span>
+<span class="pl-s1">                <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">link</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">PDO</span>(<span class="pl-s"><span class="pl-pds">"</span>mysql:host=<span class="pl-pds">"</span></span><span class="pl-k">.</span><span class="pl-smi">$host</span><span class="pl-k">.</span><span class="pl-s"><span class="pl-pds">"</span>;dbname=<span class="pl-pds">"</span></span><span class="pl-k">.</span><span class="pl-smi">$db</span>, <span class="pl-smi">$user</span>, <span class="pl-smi">$pass</span>);</span>
+<span class="pl-s1">                <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">link</span><span class="pl-k">-&gt;</span>setAttribute(<span class="pl-c1">PDO</span><span class="pl-k">::</span><span class="pl-c1">ATTR_ERRMODE</span>, <span class="pl-c1">PDO</span><span class="pl-k">::</span><span class="pl-c1">ERRMODE_EXCEPTION</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            }</span>
+<span class="pl-s1">            <span class="pl-k">catch</span> (<span class="pl-c1">PDOException</span> <span class="pl-smi">$e</span>){</span>
+<span class="pl-s1">                <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>Error: Unable to connect to MySQL: <span class="pl-pds">"</span></span><span class="pl-k">.</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span>getMessage();</span>
+<span class="pl-s1">                <span class="pl-k">die</span>;</span>
+<span class="pl-s1">            }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span>InitializeImageTable();</span>
+<span class="pl-s1">        }   </span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-c1">__destruct</span>() {</span>
+<span class="pl-s1">            <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">link</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>;</span>
+<span class="pl-s1">        }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">UploadImage</span>(<span class="pl-smi">$imageName</span>, <span class="pl-smi">$imageFP</span>) {</span>
+<span class="pl-s1">            <span class="pl-smi">$sql</span> <span class="pl-k">=</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">link</span><span class="pl-k">-&gt;</span>prepare(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-s1"><span class="pl-k">INSERT INTO</span> images (name, image) <span class="pl-k">VALUES</span> (:name, :image);</span><span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1">            <span class="pl-smi">$sql</span><span class="pl-k">-&gt;</span>bindParam(<span class="pl-s"><span class="pl-pds">"</span>:name<span class="pl-pds">"</span></span>, <span class="pl-smi">$imageName</span>);</span>
+<span class="pl-s1">            <span class="pl-smi">$sql</span><span class="pl-k">-&gt;</span>bindParam(<span class="pl-s"><span class="pl-pds">"</span>:image<span class="pl-pds">"</span></span>, <span class="pl-smi">$imageFP</span>, <span class="pl-c1">PDO</span><span class="pl-k">::</span><span class="pl-c1">PARAM_LOB</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            <span class="pl-smi">$sql</span><span class="pl-k">-&gt;</span>execute();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            <span class="pl-k">return</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">link</span><span class="pl-k">-&gt;</span>lastInsertId();</span>
+<span class="pl-s1">        }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">GetAllImages</span>() {</span>
+<span class="pl-s1">            <span class="pl-smi">$sql</span> <span class="pl-k">=</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">link</span><span class="pl-k">-&gt;</span>prepare(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-s1"><span class="pl-k">SELECT</span> <span class="pl-k">*</span> <span class="pl-k">FROM</span> images;</span><span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1">            <span class="pl-smi">$sql</span><span class="pl-k">-&gt;</span>execute();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            <span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$sql</span><span class="pl-k">-&gt;</span>fetchAll(<span class="pl-c1">PDO</span><span class="pl-k">::</span><span class="pl-c1">FETCH_OBJ</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            <span class="pl-k">return</span> <span class="pl-smi">$results</span>;</span>
+<span class="pl-s1">        }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">FindImage</span>(<span class="pl-smi">$id</span>) {</span>
+<span class="pl-s1">            <span class="pl-smi">$sql</span> <span class="pl-k">=</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">link</span><span class="pl-k">-&gt;</span>prepare(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-s1"><span class="pl-k">SELECT</span> <span class="pl-k">*</span> <span class="pl-k">FROM</span> images <span class="pl-k">WHERE</span> id <span class="pl-k">=</span> :id;</span><span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1">            <span class="pl-smi">$sql</span><span class="pl-k">-&gt;</span>bindParam(<span class="pl-s"><span class="pl-pds">"</span>:id<span class="pl-pds">"</span></span>, <span class="pl-smi">$id</span>, <span class="pl-c1">PDO</span><span class="pl-k">::</span><span class="pl-c1">PARAM_INT</span>);</span>
+<span class="pl-s1">            <span class="pl-smi">$sql</span><span class="pl-k">-&gt;</span>execute();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            <span class="pl-smi">$result</span> <span class="pl-k">=</span> <span class="pl-smi">$sql</span><span class="pl-k">-&gt;</span>fetch(<span class="pl-c1">PDO</span><span class="pl-k">::</span><span class="pl-c1">FETCH_OBJ</span>);</span>
+<span class="pl-s1">            <span class="pl-k">return</span> <span class="pl-smi">$result</span>;</span>
+<span class="pl-s1">        }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-k">private</span> <span class="pl-k">function</span> <span class="pl-en">InitializeImageTable</span>() {</span>
+<span class="pl-s1">            <span class="pl-c">// Check to see if the table needs to be created</span></span>
+<span class="pl-s1">            <span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">link</span><span class="pl-k">-&gt;</span>query(<span class="pl-s"><span class="pl-pds">"</span>SHOW TABLES LIKE 'images';<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1">            <span class="pl-k">if</span> (<span class="pl-smi">$results</span> <span class="pl-k">==</span> <span class="pl-c1">TRUE</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">$results</span><span class="pl-k">-&gt;</span>rowCount() <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) {</span>
+<span class="pl-s1">                <span class="pl-k">return</span>;</span>
+<span class="pl-s1">            }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            <span class="pl-c">// create table </span></span>
+<span class="pl-s1">            <span class="pl-smi">$sql</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-s1">CREATE TABLE images (</span></span></span>
+<span class="pl-s1"><span class="pl-s"><span class="pl-s1">                id <span class="pl-k">INT</span>(<span class="pl-c1">10</span>) <span class="pl-k">NOT NULL</span> AUTO_INCREMENT <span class="pl-k">PRIMARY KEY</span>, </span></span></span>
+<span class="pl-s1"><span class="pl-s"><span class="pl-s1">                name <span class="pl-k">VARCHAR</span>(<span class="pl-c1">255</span>) <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-s">''</span>,</span></span></span>
+<span class="pl-s1"><span class="pl-s"><span class="pl-s1">                image LONGBLOB <span class="pl-k">NOT NULL</span></span></span></span>
+<span class="pl-s1"><span class="pl-s"><span class="pl-s1">                );</span><span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            <span class="pl-k">if</span> (<span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">link</span><span class="pl-k">-&gt;</span>query(<span class="pl-smi">$sql</span>) <span class="pl-k">!</span><span class="pl-k">=</span> <span class="pl-c1">TRUE</span>) {</span>
+<span class="pl-s1">                <span class="pl-k">die</span>(<span class="pl-s"><span class="pl-pds">"</span>Error creating image table: <span class="pl-pds">"</span></span> <span class="pl-k">.</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">link</span><span class="pl-k">-&gt;</span><span class="pl-smi">error</span>);</span>
+<span class="pl-s1">            }</span>
+<span class="pl-s1">        } </span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1"></span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span></pre></div>
+</li>
+<li>
+<p>Open the <strong>View</strong> menu and select <strong>Explore</strong>. In the panel that appears, hover the mouse over the project folder and click the <strong>New Folder</strong> icon to create a new folder in the project folder. Name the new folder <strong>Content</strong>.</p>
+
+<p><a href="Images/build-codenewfolder.png" target="_blank"><img src="Images/build-codenewfolder.png" alt="Adding a Content folder to the project" style="max-width:100%;"></a></p>
+
+<p><em>Adding a Content folder to the project</em></p>
+</li>
+<li>
+<p>Repeat Steps 3 and 4 to add a file named <strong>styles.css</strong> containing the following CSS to the <strong>Content</strong> folder that you just created:</p>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-c">/* Custom background color for the nav-bar element. */</span>
+<span class="pl-e">.navbar</span> {
+    <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-c1">#d9edf7</span>;    <span class="pl-c">/*matches bg-info*/</span>
+    <span class="pl-c1"><span class="pl-c1">background-image</span></span>: <span class="pl-c1">none</span>;
+    <span class="pl-c1"><span class="pl-c1">background-repeat</span></span>: <span class="pl-c1">no-repeat</span>;
+    <span class="pl-c1"><span class="pl-c1">filter</span></span>: <span class="pl-c1">none</span>;
+}
+
+<span class="pl-c">/* Support for custom-looking File Selection button. */</span>
+<span class="pl-e">.btn-file</span> {
+    <span class="pl-c1"><span class="pl-c1">position</span></span>: <span class="pl-c1">relative</span>;
+    <span class="pl-c1"><span class="pl-c1">overflow</span></span>: <span class="pl-c1">hidden</span>;
+}
+<span class="pl-e">.btn-file</span> <span class="pl-ent">input</span>[type=file] {
+    <span class="pl-c1"><span class="pl-c1">position</span></span>: <span class="pl-c1">absolute</span>;
+    <span class="pl-c1"><span class="pl-c1">top</span></span>: <span class="pl-c1">0</span>;
+    <span class="pl-c1"><span class="pl-c1">right</span></span>: <span class="pl-c1">0</span>;
+    <span class="pl-c1"><span class="pl-c1">min-width</span></span>: <span class="pl-c1">100<span class="pl-k">%</span></span>;
+    <span class="pl-c1"><span class="pl-c1">min-height</span></span>: <span class="pl-c1">100<span class="pl-k">%</span></span>;
+    <span class="pl-c1"><span class="pl-c1">font-size</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
+    <span class="pl-c1"><span class="pl-c1">text-align</span></span>: <span class="pl-c1">right</span>;
+    <span class="pl-c1"><span class="pl-c1">filter</span></span>: alpha(opacity=<span class="pl-c1">0</span>);
+    <span class="pl-c1"><span class="pl-c1">opacity</span></span>: <span class="pl-c1">0</span>;
+    <span class="pl-c1"><span class="pl-c1">outline</span></span>: <span class="pl-c1">none</span>;
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">white</span>;
+    <span class="pl-c1"><span class="pl-c1">cursor</span></span>: <span class="pl-c1">inherit</span>;
+    <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">block</span>;
+}
+
+<span class="pl-c">/* Styling/framing for the image elements. */</span>
+<span class="pl-ent">img</span> {
+    <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">192<span class="pl-k">px</span></span>;
+    <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-c1">white</span>;
+    <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span> <span class="pl-c1">5<span class="pl-k">px</span></span> <span class="pl-c1">30<span class="pl-k">px</span></span> <span class="pl-c1">5<span class="pl-k">px</span></span>;
+    <span class="pl-c1">-webkit-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">10<span class="pl-k">deg</span></span>);
+    <span class="pl-c1">-moz-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">10<span class="pl-k">deg</span></span>);
+    <span class="pl-c1">-o-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">10<span class="pl-k">deg</span></span>);
+    <span class="pl-c1">-ms-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">10<span class="pl-k">deg</span></span>);
+}
+
+<span class="pl-ent">img</span><span class="pl-e">:hover</span> {
+    <span class="pl-c1">-webkit-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">0<span class="pl-k">deg</span></span>);
+    <span class="pl-c1">-moz-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">0<span class="pl-k">deg</span></span>);
+    <span class="pl-c1">-o-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">0<span class="pl-k">deg</span></span>);
+    <span class="pl-c1">-ms-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">0<span class="pl-k">deg</span></span>);
+}
+
+<span class="pl-c">/* Custom queries for force line breaks depending on the resolution. */</span>
+<span class="pl-k">@media</span> (<span class="pl-c1">min-width</span>: <span class="pl-c1">1200<span class="pl-k">px</span></span>) {
+<span class="pl-e">.col-lg-2</span><span class="pl-e">:nth-child</span>(<span class="pl-c1">6n+1</span>) {
+        <span class="pl-c1"><span class="pl-c1">clear</span></span>: <span class="pl-c1">both</span>;
+    }
+}
+
+<span class="pl-k">@media</span> (<span class="pl-c1">min-width</span>: <span class="pl-c1">992</span>pxpx) <span class="pl-k">and</span> (<span class="pl-c1">max-width</span>: <span class="pl-c1">1200<span class="pl-k">px</span></span>) {
+    <span class="pl-e">.col-md-4</span><span class="pl-e">:nth-child</span>(<span class="pl-c1">3n+1</span>) {
+        <span class="pl-c1"><span class="pl-c1">clear</span></span>: <span class="pl-c1">both</span>;
+    }
+}
+
+<span class="pl-k">@media</span> (<span class="pl-c1">min-width</span>: <span class="pl-c1">768<span class="pl-k">px</span></span>) <span class="pl-k">and</span> (<span class="pl-c1">max-width</span>: <span class="pl-c1">992<span class="pl-k">px</span></span>) {
+    <span class="pl-e">.col-sm-6</span><span class="pl-e">:nth-child</span>(<span class="pl-c1">2n+1</span>) {
+        <span class="pl-c1"><span class="pl-c1">clear</span></span>: <span class="pl-c1">both</span>;
+    }
+}</pre></div>
+</li>
+</ol>
+
+<p>The files listed in the Explorer panel for your project should now look like this:</p>
+
+<p><a href="Images/build-codefinalfolder.png" target="_blank"><img src="Images/build-codefinalfolder.png" alt="Project content" style="max-width:100%;"></a></p>
+
+<p><em>Project content</em></p>
+
+<p>That's it! Your photo-sharing Web site is built. The next step is to provision an Azure Web App to host it.</p>
+
+<p><a name="Exercise2"></a></p>
+
+<h2>Exercise 2: Provision a MySQL Web App</h2>
+
+<p>There are several ways to provision an Azure Web App. In this exercise, you will use the Azure Portal to do it. Provisioning is quick and easy and involves little more than answering a few questions and clicking a few buttons. Once the Web App is provisioned, you can navigate to it in your browser just as you would any other Web site.</p>
+
+<ol>
+<li><p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p></li>
+<li>
+<p>Click <strong>+ New</strong>. In the "New" blade that opens, type the words "web app mysql" (without quotation marks) into the search box and press <strong>Enter</strong>.</p>
+
+<p><a href="Images/find-webappmysql.png" target="_blank"><img src="Images/find-webappmysql.png" alt='Finding the "Web App + MySQL" template' style="max-width:100%;"></a></p>
+
+<p><em>Finding the "Web App + MySQL" template</em></p>
+</li>
+<li>
+<p>Two new blades named "Marketplace" and "Everything" will open in the portal. The former represents the <a href="https://azure.microsoft.com/en-us/marketplace/">Microsoft Azure Marketplace</a>, which is an online store containing thousands of free templates for deploying apps, services, virtual machines, and more, preconfigured for Azure and provisioned with popular tools such as WordPress, CakePHP, and Django. In the "Everything" blade, click <strong>Web App + MySQL</strong>.</p>
+
+<p><a href="Images/select-webappmysql.png" target="_blank"><img src="Images/select-webappmysql.png" alt='Selecting the "Web App + MySQL" template' style="max-width:100%;"></a></p>
+
+<p><em>Selecting the "Web App + MySQL" template</em></p>
+</li>
+<li>
+<p>In the "Web App + MySQL" blade that opens, take a moment to review the text and learn what the template provisions. Then click the <strong>Create</strong> button at the bottom of the blade.</p>
+
+<p><a href="Images/create-web-app.png" target="_blank"><img src="Images/create-web-app.png" alt="Creating a Web App with MySQL" style="max-width:100%;"></a></p>
+
+<p><em>Creating a Web App with MySQL</em></p>
+</li>
+<li>
+<p>Complete the form displayed in the "Web App + MySQL" blade.</p>
+
+<ul>
+<li><p>In the <strong>App name</strong> field, enter a name for your Web App. This name, along with the domain <em>.azurewebsites.net</em>, becomes the URL for your Web site, so it must be unique.</p></li>
+<li><p>In the <strong>Subscription</strong> field, select the subscription (for example, <strong>Azure Pass</strong>) that you wish to charge to.</p></li>
+<li><p>Make sure <strong>Create new</strong> is selected under <strong>Resource Group</strong>, and type "dxwebappintro" (without quotation marks) into the box below to name the new resource group.</p></li>
+<li>
+<p>Click <strong>App Service plan/Location</strong>, and then click the <strong>Create New</strong> button in the blade that appears. An App Service plan determines the location and size of the virtual machine(s) that host your Web App. Multiple Azure App Service resources can share the same App Service so you can maximize your resource usage.</p>
+
+<ul>
+<li><p>Name the App Service plan "dxwebappintro" (without quotation marks).</p></li>
+<li><p>Set <strong>Location</strong> to the location nearest you.</p></li>
+<li>
+<p>Click <strong>Pricing tier</strong> to see a list of available pricing options. The list that is shown will initially be limited to a handful of recommended options. Click <strong>View all</strong> to see all pricing options.</p>
+
+<p><a href="Images/choose-pricing-tier.png" target="_blank"><img src="Images/choose-pricing-tier.png" alt="Viewing all pricing tiers" style="max-width:100%;"></a></p>
+
+<p><em>Viewing all pricing tiers</em></p>
+
+<blockquote>
+<p>Take a moment to review the different options. The tiers are differentiated by several factors, including the number of CPU cores, amount of RAM, amount of available storage, and frequency of backups. Each block also includes the estimated monthly charge for each tier.</p>
+</blockquote>
+</li>
+<li>
+<p>Scroll to the bottom of the blade, select the <strong>F1 Free</strong> block, and click the <strong>Select</strong> button. Then click <strong>OK</strong> at the bottom of the "App Service plan" blade.</p>
+
+<p><a href="Images/select-appservicepricingtier.png" target="_blank"><img src="Images/select-appservicepricingtier.png" alt="Selecting the F1 pricing tier" style="max-width:100%;"></a></p>
+
+<p><em>Selecting the F1 pricing tier</em></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Database</strong> to open the "New MySQL Database" blade. Then click <strong>Create New</strong> to open a "New MySQL Database" blade.</p>
+
+<ul>
+<li><p>Set <strong>Database Name</strong> to "dxwebappintro" (without quotation marks).</p></li>
+<li><p>Leave <strong>Database Type</strong> set to <strong>Shared</strong>.</p></li>
+<li><p>Set <strong>Location</strong> to the same location you chose for your App Service plan.</p></li>
+<li>
+<p>Click <strong>Pricing Tier</strong> and in the "Choose Your Pricing Tier" blade, select <strong>Mercury</strong>. Then click the <strong>Select</strong> button at the bottom of the blade.</p>
+
+<p><a href="Images/mercury-tier.png" target="_blank"><img src="Images/mercury-tier.png" alt="Selecting the Mercury pricing tier" style="max-width:100%;"></a></p>
+
+<p><em>Selecting the Mercury pricing tier</em></p>
+</li>
+<li>
+<p>Click <strong>Legal Terms</strong>, review the offer details and terms of use, and click <strong>Purchase</strong>.</p>
+
+<blockquote>
+<p>Nothing is actually being purchased since you selected the <em>Mercury</em> MySQL database tier, which is free. In order to provision the MySQL database for you, Azure requires that you acknowledge the terms of use.</p>
+</blockquote>
+</li>
+<li><p>Click <strong>OK</strong> at the bottom of the "New MySQL Database" blade.</p></li>
+</ul>
+</li>
+<li><p>Check the <strong>Pin to dashboard</strong> box at the bottom of the "Web App + MySQL" blade.</p></li>
+<li><p>The "Web App + MySQL" blade should match the one below, with your Web-site name in place of "dxwebapp." Click the <strong>Create</strong> button to begin provisioning your Web App and database.</p></li>
+</ul>
+
+<p><a href="Images/final-webappmysqlblade.png" target="_blank"><img src="Images/final-webappmysqlblade.png" alt='Completed "Web App + MySQL" blade' style="max-width:100%;"></a></p>
+
+<p><em>Completed "Web App + MySQL" blade</em></p>
+</li>
+<li>
+<p>Once the Web App and database have been provisioned, the Azure Portal automatically opens a blade for the Web App, along with a "Settings" blade. Take a moment to examine these blades' content. </p>
+
+<blockquote>
+<p>If your Web site's blade is not automatically opened in the Azure Portal, click the tile that was created for it on the dashboard.</p>
+</blockquote>
+</li>
+<li>
+<p>Click the Web site URL to browse to the placeholder page for your new Web site. </p>
+
+<p><a href="Images/open-websiteplaceholder.png" target="_blank"><img src="Images/open-websiteplaceholder.png" alt="The Web site URL" style="max-width:100%;"></a></p>
+
+<p><em>The Web site URL</em></p>
+</li>
+<li>
+<p>Confirm that the placeholder page appears. Then close the browser window or tab in which it opened and return to the Azure Portal.</p>
+
+<p><a href="Images/placeholder-page.png" target="_blank"><img src="Images/placeholder-page.png" alt="The Web site's temporary home page" style="max-width:100%;"></a></p>
+
+<p><em>The Web site's temporary home page</em></p>
+</li>
+<li>
+<p>Click <strong>Application settings</strong> in the "Settings" blade. (If the "Settings" blade isn't visible, you may have to scroll to the right to see it.)</p>
+
+<p><a href="Images/application-settings.png" target="_blank"><img src="Images/application-settings.png" alt="Viewing application settings" style="max-width:100%;"></a></p>
+
+<p><em>Viewing application settings</em></p>
+</li>
+<li>
+<p>In the "Application settings" blade, scroll down to the "App settings" and "Connection strings" sections. These sections allow you to define key-value pairs that the app can access at runtime. Specifying values such as these in the portal rather than embedding them in your code makes it easier to run the app in different environments and in different contexts, and also helps mitigate the risk of inadvertently uploading code containing database connection strings and other sensitive items to public source-code repositories.</p>
+
+<blockquote>
+<p>If you're curious about the <strong>Slot setting</strong> boxes, here's a quick explanation. In the Azure App Service, the <em>Basic</em>, <em>Standard</em>, and <em>Premium</em> pricing tiers tiers allow you to provision multiple <strong>deployment slots</strong> for a given Web App. You can use these slots in several ways, including setting up pre-production staging environments for testing code changes before putting them into production. The <strong>Slot setting</strong> boxes allow you to specify whether a setting or connection string applies to all deployment slots or only to a particular deployment slot.</p>
+</blockquote>
+</li>
+<li>
+<p>By default, connection strings are hidden for security reasons. Click <strong>Show connection string values</strong> to reveal them.</p>
+
+<p><a href="Images/provision-showconnectionstrings.png" target="_blank"><img src="Images/provision-showconnectionstrings.png" alt="Showing connection string values" style="max-width:100%;"></a></p>
+
+<p><em>Showing connection string values</em></p>
+</li>
+<li><p>Examine the <strong>defaultConnection</strong> value. It was automatically created when your Web App and MySQL database were provisioned. This is the value your application uses to connect to the MySQL database. It includes the server address (<em>Data Source</em>) for the database, the database name, and the user credentials for connecting to the database.</p></li>
+</ol>
+
+<p>Most platforms can access connection strings and app settings as environment variables. .NET applications can access them as if they were part of the application's web.config file. The PHP code that you added in <a href="#Exercise1">Exercise 1</a> retrieves the default connection string by calling <code>getenv("MYSQLCONNSTR_defaultConnection");</code> You can find additional information about the conventions used to access these variables <a href="https://azure.microsoft.com/en-us/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/">here</a>.</p>
+
+<p><a name="Exercise3"></a></p>
+
+<h2>Exercise 3: Deploy the Web site</h2>
+
+<p>Now it is time to copy the files that comprise your Web site to the Azure Web App. In this exercise, you will publish your Web site using FTP.</p>
+
+<ol>
+<li>
+<p>Return to the Azure Portal and open the blade for the Web App if it isn't already open. (An easy way to open the blade is to click the tile that represents the app on your dashboard.) Then click <strong>Settings</strong> at the top of the blade to open a "Settings" blade.</p>
+
+<p><a href="Images/web-app-settings.png" target="_blank"><img src="Images/web-app-settings.png" alt='Opening the "Settings" blade' style="max-width:100%;"></a></p>
+
+<p><em>Opening the "Settings" blade</em></p>
+</li>
+<li>
+<p>In the "Settings" blade, scroll down and click <strong>Deployment credentials</strong> to open the "Set deployment credentials" blade.</p>
+
+<p><a href="Images/deploy-deploymentcredentials.png" target="_blank"><img src="Images/deploy-deploymentcredentials.png" alt='Opening the "Set deployment credentials" blade' style="max-width:100%;"></a></p>
+
+<p><em>Opening the "Set deployment credentials" blade</em></p>
+</li>
+<li>
+<p>Enter a user name and password for connecting to your site via FTP. <strong>Be sure to remember the password</strong>. Click the <strong>Save</strong> button at the top of the blade to save these credentials, and then close the "Set deployment credentials" blade.</p>
+
+<p><a href="Images/deploy-enter-credentials.png" target="_blank"><img src="Images/deploy-enter-credentials.png" alt="Specifying FTP credentials" style="max-width:100%;"></a></p>
+
+<p><em>Specifying FTP credentials</em></p>
+</li>
+<li>
+<p>Return to the blade for the Web App. Locate the <strong>FTP/Deployment username</strong> and <strong>FTP hostname</strong> values. Hover the mouse cursor over the FTP hostname, and click the <strong>Copy</strong> button that appears on the right to copy the hostname to the clipboard.</p>
+
+<p><a href="Images/deploy-getftpstrings.png" target="_blank"><img src="Images/deploy-getftpstrings.png" alt="The FTP username and hostname" style="max-width:100%;"></a></p>
+
+<p><em>The FTP username and hostname</em></p>
+</li>
+<li>
+<p>Open a Windows File Explorer window and paste the FTP hostname value into the address box at the top of the window. Then press <strong>Enter</strong>.</p>
+
+<p><a href="Images/deploy-windowsenterftphostname.png" target="_blank"><img src="Images/deploy-windowsenterftphostname.png" alt="Entering the FTP hostname in File Explorer" style="max-width:100%;"></a></p>
+
+<p><em>Entering the FTP hostname in File Explorer</em></p>
+</li>
+<li>
+<p>When prompted to enter FTP credentials, enter the FTP username (the one labeled <strong>FTP Deployment/username</strong> in Step 4) and the password you specified in Step 3. Then click <strong>Log On</strong>.</p>
+
+<p><a href="Images/deploy-windowscredentials.png" target="_blank"><img src="Images/deploy-windowscredentials.png" alt="Entering your FTP credentials" style="max-width:100%;"></a></p>
+
+<p><em>Entering your FTP credentials</em></p>
+</li>
+<li>
+<p>Double-click the <strong>site</strong> folder in the File Explorer window.</p>
+
+<p><a href="Images/deploy-open-site-folder.png" target="_blank"><img src="Images/deploy-open-site-folder.png" alt="Opening the site folder" style="max-width:100%;"></a></p>
+
+<p><em>Opening the site folder</em></p>
+</li>
+<li>
+<p>Double-click the <strong>wwwroot</strong> folder in the File Explorer window. This is the root folder for your Web site.</p>
+
+<p><a href="Images/deploy-open-wwwroot-folder.png" target="_blank"><img src="Images/deploy-open-wwwroot-folder.png" alt="Opening the wwwroot folder" style="max-width:100%;"></a></p>
+
+<p><em>Opening the wwwroot folder</em></p>
+</li>
+<li><p>Delete the <strong>hostingstart.html</strong> file. This is the placeholder page you saw earlier when you connected to the site in your browser. When prompted to confirm the deletion, select <strong>Yes</strong>.</p></li>
+<li><p>Open another File Explorer window and navigate to the folder containing the Web site files you created in <a href="#Exercise1">Exercise 1</a>.</p></li>
+<li>
+<p>Copy all of the files and folders that comprise the Web site to your site's <strong>wwwroot</strong> folder.  </p>
+
+<p><a href="Images/deploy-windowsftpcopy.png" target="_blank"><img src="Images/deploy-windowsftpcopy.png" alt="Copying the Web site files" style="max-width:100%;"></a></p>
+
+<p><em>Copying the web site files</em></p>
+</li>
+<li>
+<p>Congratulations! You now have a working Web site. Open your browser and navigate to the Web site URL, which is shown in the Web App's blade in the portal. Or simply click the URL in the portal.</p>
+
+<p><a href="Images/deploy-go-to-web-site.png" target="_blank"><img src="Images/deploy-go-to-web-site.png" alt="Navigating to the finished Web site" style="max-width:100%;"></a></p>
+
+<p><em>Navigating to the finished Web site</em></p>
+</li>
+<li>
+<p>Upload a few images to the Web site. Click on any of the images to see enlarged views.</p>
+
+<blockquote>
+<p>By default, the PHP installation in your Azure Web App limits file uploads to 2 MB. You can increase the limit by adding a .user.ini file to your site as <a href="https://blogs.msdn.microsoft.com/kaushal/2014/01/01/windows-azure-web-sites-file-upload-limit-for-php-sites-hosted-on-waws/">described here</a>. For now, just upload images that are smaller than 2 MB.</p>
+</blockquote>
+
+<p><a href="Images/final-workingwebsite.png" target="_blank"><img src="Images/final-workingwebsite.png" alt="The working Web site" style="max-width:100%;"></a></p>
+
+<p><em>The working Web site</em></p>
+</li>
+</ol>
+
+<h2>Summary</h2>
+
+<p>In this hands-on lab, you learned how to:</p>
+
+<ul>
+<li>Use Visual Studio Code to build a Web site that uses PHP and MySQL</li>
+<li>Provision an Azure Web App</li>
+<li>Upload a Web site to Azure</li>
+</ul>
+
+<p>Azure Web Apps allows you to use the tools and languages you already know to build great Web sites and publish them to the Web. You can focus on what you know and what you want to accomplish rather than spend time maintaining physical infrastructure, installing security updates, and learning new languages. Moreover, Azure Web Apps can easily leverage other features of the Azure ecosystem such as Azure Storage, Azure Search, and Azure Cognitive Services to achieve unprecedented scale and richness. Which, as it happens, is the subject of the next lab.</p>
+
+<hr>
+
+<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
