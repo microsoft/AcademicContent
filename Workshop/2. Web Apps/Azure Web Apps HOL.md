@@ -10,7 +10,7 @@
 
 Azure Web Apps makes deploying Web sites extraordinarily easy – and not just Web sites built using the Microsoft stack. You can deploy PHP apps that use MySQL just as easily as ASP.NET apps that use SQL Server. You can select from a wide variety of Web App templates or build templates of your own. You can configure Web Apps to auto-scale as traffic increases to ensure that your customers aren’t left waiting during periods of peak demand. You can publish apps to pre-production staging locations and test them in the cloud before taking them live, and then swap the staging deployments for the production deployments with the click of a button. You can even create WebJobs – programs or scripts that run continuously or on a schedule to handle billing and other time-critical tasks. In short, Azure Web Apps takes the pain out of publishing and maintaining Web apps and are just as suitable for a personal photo-sharing site as they are for enterprise-grade sites serving millions of customers.
 
-In this lab, you will use the cross-platform [Visual Studio Code](https://code.visualstudio.com/) Integrated Development Environment (IDE) to build a Web site that uses [PHP](http://php.net/) server-side scripting. The site will allow you to upload, browse, and display photos, and it will store photos in a [MySQL](http://www.mysql.com/) database. You will then provision a new Azure Web App to host the site. Finally, you will upload the site's content to the newly provisioned Web App and view it in your browser.
+In this lab, you will use the cross-platform [Visual Studio Code](https://code.visualstudio.com/) code editor to build a Web site that uses [PHP](http://php.net/) server-side scripting. The site will allow you to upload, browse, and display photos, and it will store photos in a [MySQL](http://www.mysql.com/) database. You will then provision a new Azure Web App to host the site. Finally, you will upload the site's content to the newly provisioned Web App and view it in your browser.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -18,7 +18,7 @@ In this lab, you will use the cross-platform [Visual Studio Code](https://code.v
 In this hands-on lab, you will learn how to:
 
 - Use Visual Studio Code to build a PHP and MySQL Web site
-- Provision a Web App to host the Web site
+- Provision an Azure Web App to host the Web site
 - Deploy the Web site using FTP
 
 <a name="Prerequisites"></a>
@@ -26,8 +26,9 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. Use what you created in Lab 1 or - [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
-- Visual Studio Code IDE (provided for you in the lab VM)
+- An active Microsoft Azure subscription. Use the one you created in Lab 1, or [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- PHP for [Windows](http://windows.php.net/download/) or [Linux/OS X](http://php.net/downloads.php)
 
 ---
 <a name="Exercises"></a>
@@ -44,7 +45,7 @@ Estimated time to complete this lab: **45** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Build a Web site with Visual Studio Code
 
-In this exercise, you will use [Visual Studio Code](https://code.visualstudio.com/) to build a Web site. Visual Studio Code is a free, cross-platform code editor available for Windows, OS X, and Linux that supports a variety of programming languages, both natively and via extensions.
+In this exercise, you will use [Visual Studio Code](https://code.visualstudio.com/) to build a Web site. Visual Studio Code is a free, cross-platform code editor available for Windows, OS X, and Linux that supports a variety of programming languages, both natively and via extensions. It also features built-in Git support as well as syntax highlighting and code completion via [IntelliSense](https://code.visualstudio.com/#meet-intellisense).
 
 1. Start Visual Studio Code.  Open the **File** menu and select **Open Folder**.
 
@@ -178,7 +179,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
     
     _Syntax highlighting in Visual Studio Code_
     
-1. Repeat Steps 3 and 4 to add a file named **image_display.php** containing the following code to the project:
+1. Repeat Steps 3 and 4 to add a file named **image_display.php** containing the following code to the project. This is the code that returns images requested by the browser over HTTP.
 
     ```php
     <?php
@@ -305,7 +306,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
     ?>  
     ```
 
-1. Repeat Steps 3 and 4 to add a file named **database.php** containing the following code to the project. This is the code used to interact with the MySQL database. Observe that the connection string isn't embedded in the code, but is instead retrieved from the variable named _MYSQLCONNSTR_defaultConnection_. The value of this approach will be explained in the next exercise.
+1. Repeat Steps 3 and 4 to add a file named **database.php** containing the following code to the project. This is the code used to interact with the MySQL database. Observe that the database connection string isn't embedded in the code, but is instead retrieved from an environment variable named *MYSQLCONNSTR_defaultConnection*. The value of this approach will be explained in the next exercise.
 
     ```php
     <?php
@@ -468,7 +469,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
     }
     ```
 
-The content listed in the Explorer panel for your project should now look like this:
+The files listed in the Explorer panel for your project should now look like this:
 
 ![Project content](Images/build-codefinalfolder.png)
     
@@ -479,9 +480,9 @@ That's it! Your photo-sharing Web site is built. The next step is to provision a
 <a name="Exercise2"></a>
 ## Exercise 2: Provision a MySQL Web App
 
-There are several ways that a Web App can be provisioned in Azure.  In this exercise, you will use the Azure Portal to create a new Azure Web App. Provisioning is quick and easy and involves little more than answering a few questions and clicking a few buttons. Once the Web App is provisioned, you can navigate to it in your browser just as you would any other Web site.
+There are several ways to provision an Azure Web App. In this exercise, you will use the Azure Portal to do it. Provisioning is quick and easy and involves little more than answering a few questions and clicking a few buttons. Once the Web App is provisioned, you can navigate to it in your browser just as you would any other Web site.
 
-1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
+1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
 
 1. Click **+ New**. In the "New" blade that opens, type the words "web app mysql" (without quotation marks) into the search box and press **Enter**.
 
@@ -489,7 +490,7 @@ There are several ways that a Web App can be provisioned in Azure.  In this exer
 
     _Finding the "Web App + MySQL" template_
 
-1. This will open two new blades named "Marketplace" and "Everything." The former represents the [Microsoft Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/), which is an online store containing thousands of free templates for deploying apps, services, virtual machines, and more, preconfigured for Azure and provisioned with popular tools such as WordPress, CakePHP, and Django. In the "Everything" blade, click **Web App + MySQL**.
+1. Two new blades named "Marketplace" and "Everything" will open in the portal. The former represents the [Microsoft Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/), which is an online store containing thousands of free templates for deploying apps, services, virtual machines, and more, preconfigured for Azure and provisioned with popular tools such as WordPress, CakePHP, and Django. In the "Everything" blade, click **Web App + MySQL**.
 
     ![Selecting the "Web App + MySQL" template](Images/select-webappmysql.png)
 
@@ -505,9 +506,9 @@ There are several ways that a Web App can be provisioned in Azure.  In this exer
 
     - In the **App name** field, enter a name for your Web App. This name, along with the domain _.azurewebsites.net_, becomes the URL for your Web site, so it must be unique.
     
-	- In the **Subscription** field, select **Azure Pass** if it isn't already selected.
+	- In the **Subscription** field, select the subscription (for example, **Azure Pass**) that you wish to charge to.
 
-    - Make sure **+ New** is selected in the **Resource Group** drop-down, and type "dxwebappintro" (without quotation marks) into the **New resource group name** field.
+    - Make sure **Create new** is selected under **Resource Group**, and type "dxwebappintro" (without quotation marks) into the box below to name the new resource group.
     
     - Click **App Service plan/Location**, and then click the **Create New** button in the blade that appears. An App Service plan determines the location and size of the virtual machine(s) that host your Web App. Multiple Azure App Service resources can share the same App Service so you can maximize your resource usage.
     
@@ -515,27 +516,33 @@ There are several ways that a Web App can be provisioned in Azure.  In this exer
         
         - Set **Location** to the location nearest you.
         
-        - Click **Pricing tier** to see a list of available pricing options. The list that is shown will initially be limited to a handful of recommended options, but you can select **View all** to see all of the possible provisioning options. Click **View all**.
+        - Click **Pricing tier** to see a list of available pricing options. The list that is shown will initially be limited to a handful of recommended options. Click **View all** to see all pricing options.
+
+	        ![Viewing all pricing tiers](Images/choose-pricing-tier.png)
+	
+	        _Viewing all pricing tiers_
         
 			> Take a moment to review the different options. The tiers are differentiated by several factors, including the number of CPU cores, amount of RAM, amount of available storage, and frequency of backups. Each block also includes the estimated monthly charge for each tier.
  
-        - Scroll to the bottom of the blade, select the **F1 Free** block, and click the **Select** button. Then click **OK** at the bottom of the "App Service Plan" blade.
+        - Scroll to the bottom of the blade, select the **F1 Free** block, and click the **Select** button. Then click **OK** at the bottom of the "App Service plan" blade.
     
-        ![Selecting a pricing tier](Images/select-appservicepricingtier.png)
+	        ![Selecting the F1 pricing tier](Images/select-appservicepricingtier.png)
+	
+	        _Selecting the F1 pricing tier_
 
-        _Selecting a pricing tier_
-
-    - Click **Database** to open the "New MySQL Database" blade.
+    - Click **Database** to open the "New MySQL Database" blade. Then click **Create New** to open a "New MySQL Database" blade.
     
-        - Set **Database Name** to "dxwebappintrodb" (without quotation marks).
+        - Set **Database Name** to "dxwebappintro" (without quotation marks).
         
         - Leave **Database Type** set to **Shared**.
         
-        - Set **Location** to the same location you chose for your App Service Plan.
+        - Set **Location** to the same location you chose for your App Service plan.
         
-        - Click **Pricing Tier** and in the "Choose Your Pricing Tier" blade, select the **Mercury** block and click the **Select** button.
+        - Click **Pricing Tier** and in the "Choose Your Pricing Tier" blade, select **Mercury**. Then click the **Select** button at the bottom of the blade.
 
-	    	> Paid MySQL database tiers cannot be provisioned with an Azure Pass account.
+	        ![Selecting the Mercury pricing tier](Images/mercury-tier.png)
+	
+	        _Selecting the Mercury pricing tier_
 
         - Click **Legal Terms**, review the offer details and terms of use, and click **Purchase**.
 
@@ -567,13 +574,13 @@ There are several ways that a Web App can be provisioned in Azure.  In this exer
 
     _The Web site's temporary home page_
 
-1. Click **Application settings** in the "Settings" blade.
+1. Click **Application settings** in the "Settings" blade. (If the "Settings" blade isn't visible, you may have to scroll to the right to see it.)
 
     ![Viewing application settings](Images/application-settings.png)
 
     _Viewing application settings_
     
-1. In the "Application Settings" blade, scroll down to the "App settings" and "Connection strings" sections. These sections allow you to define key-value pairs that the app can access at runtime. Specifying values such as these in the portal rather than embedding them in your code makes it easier to run the app in different environments and in different contexts, and also helps mitigate the risk of inadvertently uploading code containing database connection strings and other sensitive items into public source-code repositories.
+1. In the "Application settings" blade, scroll down to the "App settings" and "Connection strings" sections. These sections allow you to define key-value pairs that the app can access at runtime. Specifying values such as these in the portal rather than embedding them in your code makes it easier to run the app in different environments and in different contexts, and also helps mitigate the risk of inadvertently uploading code containing database connection strings and other sensitive items to public source-code repositories.
 
     > If you're curious about the **Slot setting** boxes, here's a quick explanation. In the Azure App Service, the _Basic_, _Standard_, and _Premium_ pricing tiers tiers allow you to provision multiple **deployment slots** for a given Web App. You can use these slots in several ways, including setting up pre-production staging environments for testing code changes before putting them into production. The **Slot setting** boxes allow you to specify whether a setting or connection string applies to all deployment slots or only to a particular deployment slot.
 
@@ -593,7 +600,11 @@ Most platforms can access connection strings and app settings as environment var
 
 Now it is time to copy the files that comprise your Web site to the Azure Web App. In this exercise, you will publish your Web site using FTP.
 
-1. Return to the Azure Portal and open the blade for the Web App if it isn't already open. An easy way to open the blade is to click the tile that represents the app on your dashboard.
+1. Return to the Azure Portal and open the blade for the Web App if it isn't already open. (An easy way to open the blade is to click the tile that represents the app on your dashboard.) Then click **Settings** at the top of the blade to open a "Settings" blade.
+
+    ![Opening the "Settings" blade](Images/web-app-settings.png)
+
+    _Opening the "Settings" blade_
 
 1. In the "Settings" blade, scroll down and click **Deployment credentials** to open the "Set deployment credentials" blade.
  
@@ -607,21 +618,19 @@ Now it is time to copy the files that comprise your Web site to the Azure Web Ap
 
     _Specifying FTP credentials_
 
-1. Return to the blade for the Web App. Copy the **FTP/Deployment username** and **FTP hostname** values to the clipboard. Then paste them somewhere so you can easily retrieve them later.
-
-	> If you move the mouse into just the right position to the right of these values, a **Copy** button will appear. Clicking the button copies the corresponding value to the clipboard.
+1. Return to the blade for the Web App. Locate the **FTP/Deployment username** and **FTP hostname** values. Hover the mouse cursor over the FTP hostname, and click the **Copy** button that appears on the right to copy the hostname to the clipboard.
   
-    ![Copying the FTP username and hostname](Images/deploy-getftpstrings.png)
+    ![The FTP username and hostname](Images/deploy-getftpstrings.png)
 
-    _Copying the FTP username and hostname_
+    _The FTP username and hostname_
 
-1. Open a Windows File Explorer window and enter the FTP hostname value into the address box at the top of the window. Then press **Enter**.
+1. Open a Windows File Explorer window and paste the FTP hostname value into the address box at the top of the window. Then press **Enter**.
      
     ![Entering the FTP hostname in File Explorer](Images/deploy-windowsenterftphostname.png)
 
     _Entering the FTP hostname in File Explorer_
      
-1. When prompted to enter FTP credentials, enter the FTP username (the one you copied from the portal) and password you created earlier. Then click **Log On**.
+1. When prompted to enter FTP credentials, enter the FTP username (the one labeled **FTP Deployment/username** in Step 4) and the password you specified in Step 3. Then click **Log On**.
 
     ![Entering your FTP credentials](Images/deploy-windowscredentials.png)
     
@@ -656,6 +665,8 @@ Now it is time to copy the files that comprise your Web site to the Azure Web Ap
     _Navigating to the finished Web site_
 
 1. Upload a few images to the Web site. Click on any of the images to see enlarged views.
+
+	> By default, the PHP installation in your Azure Web App limits file uploads to 2 MB. You can increase the limit by adding a .user.ini file to your site as [described here](https://blogs.msdn.microsoft.com/kaushal/2014/01/01/windows-azure-web-sites-file-upload-limit-for-php-sites-hosted-on-waws/). For now, just upload images that are smaller than 2 MB.
     
     ![The working Web site](Images/final-workingwebsite.png)
 
@@ -673,4 +684,4 @@ Azure Web Apps allows you to use the tools and languages you already know to bui
 
 ----
 
-Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the Apache License, Version 2.0. You may use it according to the license as is most appropriate for your project on a case-by-case basis. The terms of this license can be found in http://www.apache.org/licenses/LICENSE-2.0.
+Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
