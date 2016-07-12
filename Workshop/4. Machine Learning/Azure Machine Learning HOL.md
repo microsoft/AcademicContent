@@ -8,7 +8,7 @@
 
 Machine learning, which facilitates predictive analytics using large volumes of data by employing algorithms that iteratively learn from that data, is one of the fastest growing areas of computer science. Its uses range from credit-card fraud detection and self-driving cars to optical character recognition (OCR) and online shopping recommendations. It makes us smarter by making computers smarter. And its usefulness will only increase as more and more data becomes available and the desire to perform predictive analysis from that data grows, too.
 
-Azure Machine Learning is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It's accompanied by the Azure Machine Learning Studio (ML Studio), which is a browser-based tool that allows you to build models using simple drag-and-drop gestures. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for [R](https://www.r-project.org/) and [Python](https://www.python.org/) means you can build custom scripts  to customize your model. Once you've built and trained your model in the ML Studio, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the [Cortana Analytics Gallery](https://gallery.cortanaanalytics.com/).
+Azure Machine Learning is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It's accompanied by the Azure Machine Learning Studio (ML Studio), which is a browser-based tool that provides an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for [R](https://www.r-project.org/) and [Python](https://www.python.org/) means you can build custom scripts  to customize your model. Once you've built and trained your model in the ML Studio, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
 
 In this lab, you will use Azure Machine Learning to build, train, and score a model that recognizes hand-written numeric digits. You will use a real OCR data set published for academic research. After deploying the model as a Web service, you will write a [Universal Windows Platform](https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp) (UWP) client for it that lets you sketch digits on the screen and then consult Azure Machine Learning to see if it can identify the digits you sketched. You'll learn how to build and train a model, as well as how to write code that leverages the model.
 
@@ -26,8 +26,8 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- A Microsoft Azure subscription - [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
-- Visual Studio 2015 (provided for you in the lab VM)
+- An active Microsoft Azure subscription. Use the one you created in Lab 1, or [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
+- [Visual Studio 2015 Community edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) or higher with the Windows 10 SDK installed
 
 ---
 <a name="Exercises"></a>
@@ -66,7 +66,7 @@ The first step in employing Azure Machine Learning is to create an ML workspace 
 
     _Creating an ML workspace_
 
-1. Once the new workspace appears in the portal, click it.
+1. It typically takes 30 seconds or so for the new ML workspace to be created. (Watch the green bars in the lower-right corner of the portal. When they stop moving, the workspace has been created.) Once the new workspace appears in the portal, click it.
 
     ![Opening the new workspace](Images/ml-workspaces.png)
 
@@ -78,7 +78,7 @@ The first step in employing Azure Machine Learning is to create an ML workspace 
 
     _Navigating to Azure ML Studio_
 
-1. In ML Studio, start a new experiment by clicking **Blank Experiment**.
+1. In ML Studio, click **+ NEW** in the lower-left corner. Then start a new experiment by clicking **Blank Experiment**.
 
     ![Creating a blank experiment](Images/create-blank-experiment.png)
 
@@ -90,7 +90,7 @@ The first step in employing Azure Machine Learning is to create an ML workspace 
 
     _Renaming the experiment_
 
-The next step is to import some data and build a model around it.
+Now that the experiment has been created, the next step is to import some data and build a model around it.
 
 <a name="Exercise2"></a>
 ## Exercise 2: Upload a dataset
@@ -144,9 +144,9 @@ Close the visualization window by clicking the "**x**" in the upper-right corner
 <a name="Exercise3"></a>
 ## Exercise 3: Train a classification model
 
-In this exercise, you'll use ML Studio's drag-and-drop user interface to train a Machine Learning model. *Training* involves picking a Machine Learning algorithm and feeding data into it. During training, the computer looks for patterns in the data that it can use to predict values from future inputs.
+In this exercise, you'll use ML Studio's drag-and-drop user interface to train an ML model. *Training* involves picking a machine-learning algorithm and feeding data into the model. During training, the computer looks for patterns in the data that it can use to predict values from future inputs.
 
-There are several types of Machine Learning models. One of the most common is the regression model, which uses one of a number of regression algorithms to predict a value from a continuous (non-discrete) result set — for example, a person's age or the probability that a credit-card transaction is fraudulent. You will be training a classification model, which seeks to resolve a set of inputs into one of a set of known outputs. A classic example of a classification model is one that examines e-mails and classifies them as "spam" or "not spam." Your model will examine a set of inputs representing pixel patterns and attempt to classify each as a digit from 0 to 9, inclusive.
+There are several types of machine-learning models. One of the most common is the regression model, which uses one of a number of regression algorithms to produce a numeric value — for example, a person's age or the probability that a credit-card transaction is fraudulent. You will be training a classification model, which seeks to resolve a set of inputs into one of a set of known outputs. A classic example of a classification model is one that examines e-mails and classifies them as "spam" or "not spam." Your model will examine a set of inputs representing pixel patterns and attempt to classify each as a digit from 0 to 9, inclusive.
 
 1. At the top of the modules palette, type "metadata" (without quotation marks) into the search box to find the [Edit Metadata](https://msdn.microsoft.com/en-us/library/azure/dn905986.aspx) module.
 
@@ -181,6 +181,10 @@ There are several types of Machine Learning models. One of the most common is th
     _Making the digit column categorical_
 
 1. Click the **SAVE** button at the bottom of the page to save the experiment.
+
+    ![Saving the experiment](Images/save-button.png)
+
+    _Saving the experiment_
 
 	> When working with the Azure Machine Learning Studio, get in the habit of saving your experiments often, particularly before you run a model. That way, if you encounter a problem, you will not have to redo your work. Also, be aware that you **may lose your work if you click the browser's Back button without saving your experiment first.**
 
@@ -265,7 +269,7 @@ In this exercise, you will score the model you trained in the previous exercise.
 
     _Adding the Evaluate Model module_
 
-1. Run the experiment again by clicking the **RUN** button.
+1. Click **Save** to save the experiment. Then run the experiment again by clicking the **RUN** button.
 
 1. Click the output port of the Evaluate Model module and select **Visualize** from the menu. From the **Overall accuracy** and **Average accuracy** numbers, you can see that the model performs very well. Given a digitized scan of a handwritten digit, it can correctly identify the digit more than 97% of the time.
 
@@ -282,7 +286,7 @@ Now that the model is built and tested, it's time to put it to work. The ultimat
 
 Once you have a trained and scored model, you can deploy it as a Web service and interact with it programmatically. Before deploying as a Web service, you need to streamline your experiment. This involves creating a new experiment from your trained model, removing unnecessary modules, and adding Web-service input and output modules. Fortunately, ML Studio can do all of this for you.
 
-1. Click the **RUN** button to run your model again. This sidesteps a bug in ML Studio that sometimes disables one of the Web-service menu items.
+1. Click the **RUN** button to run your model again.
 
 1. At the bottom of the screen, click the **SET UP WEB SERVICE** button and in the ensuing menu, select **Predictive Web Service [Recommended]**. If this option is grayed out, click the **RUN** button and try again.
 
@@ -298,7 +302,13 @@ Once you have a trained and scored model, you can deploy it as a Web service and
 
     _The predictive experiment_
 
-1. To create a Web service that you can call to perform predictive analytics, click **RUN** once more. After the run completes, click the **DEPLOY WEB SERVICE** button to deploy the Web service. This will take you to the dashboard for the new Web service. The dashboard includes a **Test** button that you can click to test the Web service (not very practical here, because you'd have to enter 64 values from 0 to 16 representing pixel patterns). It also includes an API key that apps can use to make authenticated calls to the service. You will use this API key in the next exercise.
+1. To create a Web service that you can call to perform predictive analytics, click **RUN** once more. After the run completes, click the **DEPLOY WEB SERVICE** button to deploy the Web service.
+
+    ![Deploying the Web service](Images/deploy-web-service.png)
+
+    _Deploying the Web service_
+ 
+1. In a moment, the dashboard for the new Web service will appear. The dashboard includes a **Test** button that you can click to test the Web service (not very practical here, because you'd have to enter 64 values from 0 to 16 representing pixel patterns). It also includes an API key that apps can use to make authenticated calls to the service. You will use this API key in the next exercise.
 
 	For convenience, click the button to the right of the API key to copy the key to the clipboard, and then paste it into a text editor so you can easily retrieve it later.
 
@@ -332,7 +342,13 @@ A common question regarding Azure ML Web services is: how much do they cost? You
 
 The whole reason for deploying an Azure ML model as a Web service is so you can build smart apps that utilize the model. There are a variety of ways to build such apps. You could call the service from a Web app using JavaScript and AJAX, for example, or you could use Visual Studio to write a [Xamarin](https://www.xamarin.com/) app that runs on iOS, Android, and Windows and places calls to the service using .NET's HttpClient class.
 
-In this exercise, you will write a client app that targets the [Universal Windows Platform](https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp), or UWP. The beauty of such apps is that they run on a variety of Windows devices, including PCs, tablets, phones, and even Xboxes. The app you will write enables you to draw digits into an onscreen grid. Then it calls your ML Web service and tells you what digit you drew.
+In this exercise, you will write a client app that targets the [Universal Windows Platform](https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp), or UWP. The beauty of such apps is that they run on a variety of Windows devices, including PCs, tablets, phones, and even on Xbox One. The app you will write enables you to draw digits into an onscreen grid. Then it calls your ML Web service and tells you what digit you drew.
+
+1. In order to build and run UWP apps on a Windows 10 PC, you must enable developer mode on the device. If you're using the VM provided with this lab, developer mode has already been enabled. If you're not using the VM, click the **Windows** button (also known as the Start button) in the lower-left corner of the desktop. Then select **Settings** from the menu and click **Update & security** in the Settings dialog. Now click **For developers** on the left and select **Developer mode** on the right, as shown below.
+
+    ![Enabling developer mode in Windows 10](Images/enable-developer-mode.png)
+
+    _Enabling developer mode in Windows 10_
 
 1. Start Visual Studio 2015 and use the **File -> New -> Project** command to create a new **Blank App (Universal Windows)** project named "MLClient."
 
@@ -352,13 +368,21 @@ In this exercise, you will write a client app that targets the [Universal Window
 
     _Managing NuGet Packages for the project_
 
+	> NuGet is a free and open-source package manager for Microsoft development platforms. It provides access to thousands of libraries, or *packages*, containing code to perform a variety of tasks. It is integrated into Visual Studio 2015, which makes it easy to add NuGet packages to your project and make a lot of things happen without writing a lot of code.
+
 1. Click **Browse**. Then type "webapi.client" (without quotation marks) into the search box. Click **Microsoft.AspNet.WebApi.Client** to select the Web API client package from NuGet. Finally, click **Install** to install the latest stable version of the package. This package contains helper APIs that your app will use to communicate with the Web service. Click **OK** if you're prompted to review changes, and **I Accept** when prompted to accept licenses for the downloaded packages.
 
     ![Installing the Web API Client](Images/install-webapi-client.png)
 
     _Installing the Web API Client_
 
-1. Right-click the project in the Solution Explorer window and use the **Add -> Class** command to add a class named StringTable to the project. Implement the StringTable class as follows:
+1. Right-click the **MLClient** project in the Solution Explorer window and select **Add -> Class** to add a class to the project. In the ensuing dialog, type "StringTable.cs" (without quotation marks) into the **Name** box and click **Add**.
+
+    ![Adding a StringTable class](Images/add-stringtable-class.png)
+
+    _Adding a StringTable class_
+
+1. Implement the StringTable class as follows:
 
 	```C#
 	class StringTable
@@ -368,7 +392,7 @@ In this exercise, you will write a client app that targets the [Universal Window
 	}
 	```
 
-1. Open MainPage.xaml and find the empty Grid element which is highlighted below.
+1. Open **MainPage.xaml** and find the empty Grid element highlighted below.
 
     ![The empty Grid element](Images/empty-grid-element.png)
 
@@ -389,7 +413,7 @@ In this exercise, you will write a client app that targets the [Universal Window
 
 	> The markup that you just inserted is [Extensible Application Markup Language](https://msdn.microsoft.com/en-us/library/cc189036(VS.95).aspx), or XAML. XAML is a language created by Microsoft for building user interfaces. It was originally created for WPF, but has since been repurposed for universal Windows apps. Combined with [Xamarin Forms](https://www.xamarin.com/forms), it can even be used to build user interfaces for iOS and Android. It is an extremely expressive language that enjoys designer support in Visual Studio and other popular tools.
 
-1. Now open MainPage.xaml.cs and add the following using statements to those already at the top of the page:
+1. Now open **MainPage.xaml.cs** and add the following using statements to those already at the top of the page:
 
 	```C#
 	using Windows.UI.Xaml.Shapes;
@@ -397,14 +421,19 @@ In this exercise, you will write a client app that targets the [Universal Window
 	using Windows.Devices.Input;
 	using System.Net.Http;
 	using System.Net.Http.Headers;
+	using System.Threading.Tasks;
 	using Windows.UI.Core;
 	using Windows.UI.Popups;
 	using Newtonsoft.Json;
 	```
 
-1. Still in MainPage.xaml.cs, replace the MainPage class with the following implementation:
+1. Still in **MainPage.xaml.cs**, replace everything inside the MainPage class with the following code:
 
 	```C#
+	private const double _margin = 2.0;  // Margin around each cell
+	private const double _opacity = 0.2; // Opacity of empty cells
+	private Rectangle _last;
+
 	public MainPage()
 	{
 	    this.InitializeComponent();
@@ -588,9 +617,9 @@ In this exercise, you will write a client app that targets the [Universal Window
 	- The OnSubmit method is called when you click the Submit button. It scans the 8x8 grid to determine which squares are "on," and then passes the data to MLSubmit.
 	- MLSubmitAsync is where the magic happens. It uses UWP's HttpClient class to place a REST call to the Web service. It is closely patterned after the C# sample code presented on the Web service's dashboard.
 
-1. In the source code you just inserted, replace **api_key** with the API key for your Web service obtained in Exercise 5, Step 4.
+1. In the source code you just inserted, replace **api_key** with the API key for your Web service obtained in Exercise 5, Step 5.
 
-1. Next, replace **web\_service\_url** with the URL of your Web service obtained in Exercise 5, Step 6.
+1. Next, replace **web\_service\_url** with the URL of your Web service obtained in Exercise 5, Step 7.
 
 1. Go to the **Build** menu at the top of the Visual Studio window and use the **Build Solution** command to build the solution. Correct any build errors that are reported, and then press Ctrl+F5 to launch the MLClient app. Confirm that it looks like this:
 
@@ -639,9 +668,9 @@ If you weren't already running in a VM, you could run the app in the Windows pho
 
 In this hands-on lab, you learned how to:
 
-- Create a Machine Learning experiment
+- Create an Azure Machine Learning experiment
 - Upload a dataset
-- Train and score a Machine Learning model
+- Train and score an Azure Machine Learning model
 - Deploy the model as a Web service
 - Call the Web service using REST
 
@@ -649,4 +678,4 @@ There's much more than you can do with Azure Machine Learning, but this is a sta
 
 ----
 
-Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the Apache License, Version 2.0. You may use it according to the license as is most appropriate for your project on a case-by-case basis. The terms of this license can be found in http://www.apache.org/licenses/LICENSE-2.0.
+Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
