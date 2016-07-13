@@ -999,7 +999,13 @@ vertical-align:1px;
 <ul>
 <li><p>In the <strong>App name</strong> field, enter a name for your Web App. This name, along with the domain <em>.azurewebsites.net</em>, becomes the URL for your Web site, so it must be unique.</p></li>
 <li><p>In the <strong>Subscription</strong> field, select the subscription (for example, <strong>Azure Pass</strong>) that you wish to charge to.</p></li>
-<li><p>Make sure <strong>Create new</strong> is selected under <strong>Resource Group</strong>, and type "dxwebappintro" (without quotation marks) into the box below to name the new resource group.</p></li>
+<li>
+<p>Make sure <strong>Create new</strong> is selected under <strong>Resource Group</strong>, and type "dxwebappintro" (without quotation marks) into the box below to name the new resource group.</p>
+
+<blockquote>
+<p>Resource groups are a relatively recent addition to Azure and are a powerful construct for grouping resources such as storage accounts, databases, and virtual machines together so they can be managed as a unit. Imagine that you created a complex application consisting of multiple storage accounts, a cluster of VMs, a SQL database, and perhaps a Stream Analytics solution and a pair of event hubs. Now you want to create a new instance of the application using a different account. By assembling all these resources into a resource group, you can take advantage of <a href="https://azure.microsoft.com/en-us/documentation/articles/arm-template-deployment/">Azure deployment templates</a> to script the creation of the entire application. In addition, you can use role-based security to restrict access to resources in a resource group, and you can delete the application — and all of the resources that comprise it — by deleting the resource group. You will learn more about resource groups and deployment templates in subsequent labs.</p>
+</blockquote>
+</li>
 <li>
 <p>Click <strong>App Service plan/Location</strong>, and then click the <strong>Create New</strong> button in the blade that appears. An App Service plan determines the location and size of the virtual machine(s) that host your Web App. Multiple Azure App Service resources can share the same App Service so you can maximize your resource usage.</p>
 
