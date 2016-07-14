@@ -1,5 +1,5 @@
 <a name="HOLTitle"></a>
-# Deploying a SLURM Cluster using Docker and the Azure Container Service #
+# Creating a SLURM Cluster using Docker and the Azure Container Service #
 
 ---
 
@@ -8,9 +8,9 @@
 
 The [Simple Linux Utility for Resource Management](https://computing.llnl.gov/linux/slurm/overview.html) (SLURM), also known as the *SLURM Workload Manager*, is a free and open-source job scheduler for Linux that excels at distributing heavy computing workloads across clusters of machines and processors. It is used on more than half of the world's largest supercomputers and High-Performance Computing (HPC) clusters, and it enjoys widespread use in the research community for jobs that require significant CPU resources.
 
-SLURM clusters can be built from real machines or virtual machines. Today, they can also be built from containers. A *container* is a self-contained package that includes everything needed to run a job, including code, run-time, system tools, and libraries. Containers are similar to VMs, but they feature lower overhead and faster startup times. The most popular container format in the world today is [Docker](https://www.docker.com/), which is an open-source containerization platform. Bundling your code in Docker containers provides portability between platforms such as Microsoft Azure and Amazon Web Services (AWS) and lets you avoid being tied to a specific cloud-platform vendor.
+SLURM clusters can be built from real machines or virtual machines. Today, they can also be built from containers. A *container* is a self-contained package that includes everything needed to run a job, including code, run-time, system tools, and libraries. Containers are similar to VMs, but they feature lower overhead and faster startup times. One of the most popular container formats is [Docker](https://www.docker.com/), which is an open-source containerization platform. Bundling your code in Docker containers provides portability between platforms such as Microsoft Azure and Amazon Web Services (AWS) and lets you avoid being tied to a specific cloud-platform vendor.
 
-To simplify the use of Docker containers, Azure offers the [Azure Container Service](https://azure.microsoft.com/en-us/services/container-service/) (ACS), which hosts Docker containers and includes an optimized configuration of popular open-source scheduling and orchestration tools, including [DC/OS](https://dcos.io/) and [Docker Swarm](https://www.docker.com/products/docker-swarm). The latter uses native clustering capabilities to turn a group of Docker engines into a single virtual Docker engine and is the perfect tool for the job of creating SLURM clusters from Docker containers. 
+To simplify the use of Docker containers, Azure offers the [Azure Container Service](https://azure.microsoft.com/en-us/services/container-service/) (ACS), which hosts Docker containers in the cloud and includes an optimized configuration of popular open-source scheduling and orchestration tools, including [DC/OS](https://dcos.io/) and [Docker Swarm](https://www.docker.com/products/docker-swarm). The latter uses native clustering capabilities to turn a group of Docker engines into a single virtual Docker engine and is the perfect tool for the job of creating SLURM clusters from Docker containers. 
  
 In this lab, you will create a SLURM cluster from a swarm of Docker container instances hosted in ACS and run a Python script in those container instances to convert a batch of color images to grayscale.
 
@@ -21,7 +21,7 @@ In this hands-on lab, you will learn how to:
 
 - Create an Azure container service
 - Deploy Docker images to a container service
-- Run jobs in container instances created from Docker images
+- Run jobs in containers created from Docker images
 - Stop container instances running in a container service
 - Delete a container service
 
@@ -30,10 +30,10 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- A Microsoft Azure subscription - [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
-- The Microsoft Azure Storage Explorer (provided for you in the lab VM)
-- PuTTY and PuTTYGen (provided for you in the lab VM)
-- Docker Toolbox (provided for you in the lab VM)
+- An active Microsoft Azure subscription. Use the one you created in Lab 1, or [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
+- [Microsoft Azure Storage Explorer](http://storageexplorer.com/)
+- [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+- [Docker client for Windows](https://get.docker.com/builds/Windows/x86_64/docker-latest.zip)
 
 ---
 <a name="Exercises"></a>
@@ -56,15 +56,17 @@ Estimated time to complete this lab: **60** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Create an Azure container service
 
-Before you can deploy Docker images to Azure, you must create an Azure container service. And in order to create an Azure container service, you need a public/private key pair for SSH tunneling into the container service. In this exercise, you will use the PuTTY Key Generator, also known as PuTTYGen, to create the SSH keys. Then you will use the Azure Portal to create an Azure container service.
+Before you can deploy Docker images to Azure, you must create an Azure container service. And in order to create an Azure container service, you need a public/private key pair for authenticating with the container service. In this exercise, you will use the PuTTY Key Generator, also known as PuTTYGen, to create the SSH keys. Then you will use the Azure Portal to create an Azure container service.
 
-1. Launch PuTTYGen and click the Generate button. For the next few seconds, move your cursor around in the empty space in the "Key" box to help randomize the keys that are generated.
+> Unlike OS X and Linux, Windows doesn't have an SSH key generator built in. PuTTYGen is a free key generator that is popular in the Windows community. It is part of an open-source toolset called [PuTTY](http://www.putty.org/), which provides the SSH support that Windows lacks.
+
+1. Launch PuTTYGen and click the **Generate** button. For the next few seconds, move your cursor around in the empty space in the "Key" box to help randomize the keys that are generated.
 
  	![Generating a public/private key pair](Images/docker-puttygen1.png)
 
 	_Generating a public/private key pair_
 
-2. Once the keys are generated, click **Save public key** and save the public key to a text file. Then click **Save private key** and save the private key as well. When prompted to confirm that you want to save the private key without a passphrase, click **Yes**.
+2. Once the keys are generated, click **Save public key** and save the public key to a text file named public.txt. Then click **Save private key** and save the private key to a file named private.ppk. When prompted to confirm that you want to save the private key without a passphrase, click **Yes**.
 
  	![Saving the public and private keys](Images/docker-puttygen2.png)
 
@@ -82,13 +84,15 @@ Before you can deploy Docker images to Azure, you must create an Azure container
 
 	_Basic settings_
 
-1. In the "Framework configuration" blade, select **Swarm** as the orchestrator configuration. Then click OK.
+1. In the "Framework configuration" blade, select **Swarm** as the orchestrator configuration. Then click **OK**.
+
+	> DC/OS and Swarm are popular open-source orchestration tools that enable you to deploy clusters containing thousands or even tens of thousands of containers. (Think of a compute cluster consisting of containers rather than physical servers, all sharing a load and running code in parallel.) DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. Swarm is Docker's own native clustering tool. Both are preinstalled in Azure Container Service, with the goal being that you can use the one you are most familiar with rather than have to learn a new tool.
 
 	![Framework configuration settings](Images/docker-acs-framework-configuration.png)
 
 	_Framework configuration settings_
 
-1. In the "Azure Container service settings" blade, set **Agent count** to **2**, **Master count** to **1**, and enter a unique DNS name into the **DNS prefix** box. Then click **OK**.
+1. In the "Azure Container service settings" blade, set **Agent count** to **2**, **Master count** to **1**, and enter a DNS name in the **DNS prefix** box. (The DNS name doesn't have to be unique across Azure, but it does have to be unique to a data center.) Then click **OK**.
 
 	> When you create an Azure container service, one or more master VMs are created to orchestrate the workload. In addition, an [Azure Virtual Machine Scale Set](https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/) is created to provide VMs for the "agents," or VMs that the master VMs delegate work to. Docker container instances are hosted in the agent VMs. By default, Azure uses a standard D2 virtual machine for each agent. These are dual-core machines with 7 GB of RAM. Agent VMs are created as needed to handle the workload. In this example, there will be one master VM and up to two agent VMs, regardless of the number of Docker container instances.
 
@@ -106,6 +110,8 @@ Before you can deploy Docker images to Azure, you must create an Azure container
 
 1. Deployment will take about 15 to 20 minutes. To monitor the deployment, click **Resource groups** on the left side of the portal to display a list of all the resource groups associated with your subscription. Then select the resource group created for the container service ("ACSLabResourceGroup") to open a resource-group blade. When "Succeeded" appears under "Last Deployment," the deployment has completed successfully.
 
+	> Click the browser's **Refresh** button every few minutes to update the deployment status. Clicking the **Refresh** button in the resource-group blade doesn't reliably update the status.
+
 	![Successful deployment](Images/docker-success.png)
 
 	_Successful deployment_
@@ -117,7 +123,7 @@ Take a short break and wait for the deployment to finish. Then proceed to Exerci
 
 SLURM can be run in Docker containers, with each container instance acting as a node in the SLURM cluster. In this exercise, you will deploy a SLURM cluster in the container service that you created in Exercise 1. The cluster will contain nine nodes: one master node and eight worker nodes.
 
-1. After the container service finishes deploying, return to the blade for the resource group that contains the container service. Then click the resource named "swarm-master-lb-xxxxxxxx." This is the master load balancer for the swarm.
+1. After the container service finishes deploying, return to the blade for the resource group that contains the container service. Then click the resource named **swarm-master-lb-xxxxxxxx**. This is the master load balancer for the swarm.
 
 	![Opening the master load balancer](Images/docker-open-master-lb.png)
 
@@ -137,17 +143,21 @@ SLURM can be run in Docker containers, with each container instance acting as a 
 
 1. Launch PuTTY and paste the DNS name on the clipboard into the **Host Name (or IP address)** box. Set the port number to **2200** and type "ACS" (without quotation marks) into the **Saved Sessions** box. Click the **Save** button to save these settings under that name.
 
+	> Why port 2200 instead of port 22, which is the default for SSH? Because the load balancer you're connecting to listens on port 2200 and forwards the SSH messages it receives to port 22 on the master VM.
+
 	![Configuring a PuTTY session](Images/docker-putty1.png)
 
 	_Configuring a PuTTY session_
 
-1. In the treeview on the left, click **SSH**, and then click **Auth**. Click the  **Browse** button and select the private-key file that you created in Exercise 1.
+1. In the treeview on the left, click the + sign next to **SSH**, and then click **Auth**. Click the  **Browse** button and select the private-key file that you created in Exercise 1.
 
 	![Entering the private key](Images/docker-putty2.png)
 
 	_Entering the private key_
 
 1. Select **Tunnels** in the treeview. Then set **Source port** to **22375** and **Destination** to **127.0.0.1:2375**, and click the **Add** button.
+
+	> The purpose of this is to forward traffic transmitted through port 22375 on the local machine (that's the port used by the **docker** command you will be using shortly) to port 2375 at the other end. Docker Swarm listens on port 2375.
 	
 	![Configuring the SSH tunnel](Images/docker-putty3.png)
 
@@ -159,7 +169,7 @@ SLURM can be run in Docker containers, with each container instance acting as a 
 
 	_Opening a connection to the container service_
 
-1. An SSH window will open and prompt you to log in. Enter the user name that you specified when you created the container service in Exercise 1. Then press the **Enter** key. If you successfully connected, you'll see a screen that looks like this:
+1. An SSH window will open and prompt you to log in. Enter the user name that you specified in Exercise 1, Step 4. Then press the **Enter** key. If you successfully connected, you'll see a screen that looks like this:
 
 	![Successful connection](Images/docker-putty5.png)
 
@@ -218,7 +228,7 @@ In [Exercise 5](#Exercise5), you will run a Python script on the SLURM cluster t
 
 	_Creating a new storage account_
 
-1. Start the Microsoft Azure Storage Explorer, which is already installed in the VM you're using. If you're prompted for credentials, sign in with the user name and password for your Microsoft account.
+1. Wait for the storage account to be created. Then start the Microsoft Azure Storage Explorer. If you're prompted for credentials, sign in with the user name and password for your Microsoft account.
 
 1. In the Storage Explorer window, find the storage account that you just created. Expand the list of items underneath that storage account. Then right-click **Blob Containers** and select **Create Blob Container** from the menu.
 
@@ -344,7 +354,7 @@ When virtual machines are running, you are being charged — even if the VMs are
 
 	This command is actually a batch file that shuts down all of the container instances, effectively shutting down the SLURM cluster. You can use the **start-slurm** command to restart the container instances at any time.
 
-1. In the Azure Portal, open the blade for the resource group that contains the container service. Click the virtual machine whose name begins with "swarm-master" to open a blade for the master VM.
+1. Wait for the **stop-slurm** command to finish. Then go to the Azure Portal and open the blade for the resource group that contains the container service. Click the virtual machine whose name begins with **swarm-master** to open a blade for the master VM.
 
 	![Opening a blade for the master VM](Images/docker-open-vm.png)
 	
@@ -381,4 +391,4 @@ The Azure Container Service makes it easy to run apps packaged in Docker contain
 
 ---
 
-Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the Apache License, Version 2.0. You may use it according to the license as is most appropriate for your project on a case-by-case basis. The terms of this license can be found in http://www.apache.org/licenses/LICENSE-2.0.
+Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
