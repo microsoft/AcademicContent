@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SLURM Docker Swarm HOL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<p><a name="HOLTitle"></a></p>
+
+<h1>Creating a SLURM Cluster using Docker and the Azure Container Service</h1>
+
+<hr>
+
+<p><a name="Overview"></a></p>
+
+<h2>Overview</h2>
+
+<p>The <a href="https://computing.llnl.gov/linux/slurm/overview.html">Simple Linux Utility for Resource Management</a> (SLURM), also known as the <em>SLURM Workload Manager</em>, is a free and open-source job scheduler for Linux that excels at distributing heavy computing workloads across clusters of machines and processors. It is used on more than half of the world's largest supercomputers and High-Performance Computing (HPC) clusters, and it enjoys widespread use in the research community for jobs that require significant CPU resources.</p>
+
+<p>SLURM clusters can be built from real machines or virtual machines. Today, they can also be built from containers. A <em>container</em> is a self-contained package that includes everything needed to run a job, including code, run-time, system tools, and libraries. Containers are similar to VMs, but they feature lower overhead and faster startup times. One of the most popular container formats is <a href="https://www.docker.com/">Docker</a>, which is an open-source containerization platform. Bundling your code in Docker containers provides portability between platforms such as Microsoft Azure and Amazon Web Services (AWS) and lets you avoid being tied to a specific cloud-platform vendor.</p>
+
+<p>To simplify the use of Docker containers, Azure offers the <a href="https://azure.microsoft.com/en-us/services/container-service/">Azure Container Service</a> (ACS), which hosts Docker containers in the cloud and includes an optimized configuration of popular open-source scheduling and orchestration tools, including <a href="https://dcos.io/">DC/OS</a> and <a href="https://www.docker.com/products/docker-swarm">Docker Swarm</a>. The latter uses native clustering capabilities to turn a group of Docker engines into a single virtual Docker engine and is the perfect tool for the job of creating SLURM clusters from Docker containers. </p>
+
+<p>In this lab, you will create a SLURM cluster from a swarm of Docker container instances hosted in ACS and run a Python script in those container instances to convert a batch of color images to grayscale.</p>
+
+<p><a name="Objectives"></a></p>
+
+<h3>Objectives</h3>
+
+<p>In this hands-on lab, you will learn how to:</p>
+
+<ul>
+<li>Create an Azure container service</li>
+<li>Deploy Docker images to a container service</li>
+<li>Run jobs in containers created from Docker images</li>
+<li>Stop container instances running in a container service</li>
+<li>Delete a container service</li>
+</ul>
+
+<p><a name="Prerequisites"></a></p>
+
+<h3>Prerequisites</h3>
+
+<p>The following are required to complete this hands-on lab:</p>
+
+<ul>
+<li>An active Microsoft Azure subscription. Use the one you created in Lab 1, or <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>
+</li>
+<li><a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a></li>
+<li><a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">PuTTY</a></li>
+<li><a href="https://get.docker.com/builds/Windows/x86_64/docker-latest.zip">Docker client for Windows</a></li>
+</ul>
+
+<hr>
+
+<p><a name="Exercises"></a></p>
+
+<h2>Exercises</h2>
+
+<p>This hands-on lab includes the following exercises:</p>
+
+<ul>
+<li><a href="#Exercise1">Exercise 1: Create an Azure container service</a></li>
+<li><a href="#Exercise2">Exercise 2: Deploy a SLURM cluster in the container service</a></li>
+<li><a href="#Exercise3">Exercise 3: Create a storage account and upload images</a></li>
+<li><a href="#Exercise4">Exercise 4: Prepare the Python script</a></li>
+<li><a href="#Exercise5">Exercise 5: Copy the job scripts to the cluster and run the job</a></li>
+<li><a href="#Exercise6">Exercise 6: View the converted images</a></li>
+<li><a href="#Exercise7">Exercise 7: Suspend the SLURM cluster</a></li>
+<li><a href="#Exercise8">Exercise 8: Delete the resource group</a></li>
+</ul>
+
+<p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
+
+<p><a name="Exercise1"></a></p>
+
+<h2>Exercise 1: Create an Azure container service</h2>
+
+<p>Before you can deploy Docker images to Azure, you must create an Azure container service. And in order to create an Azure container service, you need a public/private key pair for authenticating with the container service. In this exercise, you will use the PuTTY Key Generator, also known as PuTTYGen, to create the SSH keys. Then you will use the Azure Portal to create an Azure container service.</p>
+
+<blockquote>
+<p>Unlike OS X and Linux, Windows doesn't have an SSH key generator built in. PuTTYGen is a free key generator that is popular in the Windows community. It is part of an open-source toolset called <a href="http://www.putty.org/">PuTTY</a>, which provides the SSH support that Windows lacks.</p>
+</blockquote>
+
+<ol>
+<li>
+<p>Launch PuTTYGen and click the <strong>Generate</strong> button. For the next few seconds, move your cursor around in the empty space in the "Key" box to help randomize the keys that are generated.</p>
+
+<p><a href="Images/docker-puttygen1.png" target="_blank"><img src="Images/docker-puttygen1.png" alt="Generating a public/private key pair" style="max-width:100%;"></a></p>
+
+<p><em>Generating a public/private key pair</em></p>
+</li>
+<li>
+<p>Once the keys are generated, click <strong>Save public key</strong> and save the public key to a text file named public.txt. Then click <strong>Save private key</strong> and save the private key to a file named private.ppk. When prompted to confirm that you want to save the private key without a passphrase, click <strong>Yes</strong>.</p>
+
+<p><a href="Images/docker-puttygen2.png" target="_blank"><img src="Images/docker-puttygen2.png" alt="Saving the public and private keys" style="max-width:100%;"></a></p>
+
+<p><em>Saving the public and private keys</em></p>
+</li>
+<li>
+<p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. Select <strong>+ New -&gt; Containers -&gt; Azure Container Service</strong>. Then click the <strong>Create</strong> button at the bottom of the "Azure Container Service" blade.</p>
+
+<p><a href="Images/docker-new-container.png" target="_blank"><img src="Images/docker-new-container.png" alt="Creating a container service" style="max-width:100%;"></a></p>
+
+<p><em>Creating a container service</em></p>
+</li>
+<li>
+<p>Click <strong>Basics</strong> in the "Azure Container Service" blade. In the "Basics" blade, enter a user name for connecting to the container service (be sure to remember the name you enter!), the public key that you generated with PuTTYGen and saved to a text file, and the subscription you want to charge to. Select <strong>Create new</strong> under <strong>Resource group</strong> and enter the resource-group name "ACSLabResourceGroup" (without quotation marks). Select the location nearest you under <strong>Location</strong>, and then click the <strong>OK</strong> button.</p>
+
+<p><a href="Images/docker-acs-basics.png" target="_blank"><img src="Images/docker-acs-basics.png" alt="Basic settings" style="max-width:100%;"></a></p>
+
+<p><em>Basic settings</em></p>
+</li>
+<li>
+<p>In the "Framework configuration" blade, select <strong>Swarm</strong> as the orchestrator configuration. Then click <strong>OK</strong>.</p>
+
+<blockquote>
+<p>DC/OS and Swarm are popular open-source orchestration tools that enable you to deploy clusters containing thousands or even tens of thousands of containers. (Think of a compute cluster consisting of containers rather than physical servers, all sharing a load and running code in parallel.) DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. Swarm is Docker's own native clustering tool. Both are preinstalled in Azure Container Service, with the goal being that you can use the one you are most familiar with rather than have to learn a new tool.</p>
+</blockquote>
+
+<p><a href="Images/docker-acs-framework-configuration.png" target="_blank"><img src="Images/docker-acs-framework-configuration.png" alt="Framework configuration settings" style="max-width:100%;"></a></p>
+
+<p><em>Framework configuration settings</em></p>
+</li>
+<li>
+<p>In the "Azure Container service settings" blade, set <strong>Agent count</strong> to <strong>2</strong>, <strong>Master count</strong> to <strong>1</strong>, and enter a DNS name in the <strong>DNS prefix</strong> box. (The DNS name doesn't have to be unique across Azure, but it does have to be unique to a data center.) Then click <strong>OK</strong>.</p>
+
+<blockquote>
+<p>When you create an Azure container service, one or more master VMs are created to orchestrate the workload. In addition, an <a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/">Azure Virtual Machine Scale Set</a> is created to provide VMs for the "agents," or VMs that the master VMs delegate work to. Docker container instances are hosted in the agent VMs. By default, Azure uses a standard D2 virtual machine for each agent. These are dual-core machines with 7 GB of RAM. Agent VMs are created as needed to handle the workload. In this example, there will be one master VM and up to two agent VMs, regardless of the number of Docker container instances.</p>
+</blockquote>
+
+<p><a href="Images/docker-acs-service-settings.png" target="_blank"><img src="Images/docker-acs-service-settings.png" alt="Service settings" style="max-width:100%;"></a></p>
+
+<p><em>Service settings</em></p>
+</li>
+<li>
+<p>In the "Summary" blade, review the settings you selected. Then click <strong>OK</strong>.</p>
+
+<p><a href="Images/docker-acs-summary.png" target="_blank"><img src="Images/docker-acs-summary.png" alt="Settings summary" style="max-width:100%;"></a></p>
+
+<p><em>Settings summary</em></p>
+</li>
+<li><p>In the ensuing "Purchase" blade, click the <strong>Purchase</strong> button to begin deploying a new container service.</p></li>
+<li>
+<p>Deployment will take about 15 to 20 minutes. To monitor the deployment, click <strong>Resource groups</strong> on the left side of the portal to display a list of all the resource groups associated with your subscription. Then select the resource group created for the container service ("ACSLabResourceGroup") to open a resource-group blade. When "Succeeded" appears under "Last Deployment," the deployment has completed successfully.</p>
+
+<blockquote>
+<p>Click the browser's <strong>Refresh</strong> button every few minutes to update the deployment status. Clicking the <strong>Refresh</strong> button in the resource-group blade doesn't reliably update the status.</p>
+</blockquote>
+
+<p><a href="Images/docker-success.png" target="_blank"><img src="Images/docker-success.png" alt="Successful deployment" style="max-width:100%;"></a></p>
+
+<p><em>Successful deployment</em></p>
+</li>
+</ol>
+
+<p>Take a short break and wait for the deployment to finish. Then proceed to Exercise 2.</p>
+
+<p><a name="Exercise2"></a></p>
+
+<h2>Exercise 2: Deploy a SLURM cluster in the container service</h2>
+
+<p>SLURM can be run in Docker containers, with each container instance acting as a node in the SLURM cluster. In this exercise, you will deploy a SLURM cluster in the container service that you created in Exercise 1. The cluster will contain nine nodes: one master node and eight worker nodes.</p>
+
+<ol>
+<li>
+<p>After the container service finishes deploying, return to the blade for the resource group that contains the container service. Then click the resource named <strong>swarm-master-lb-xxxxxxxx</strong>. This is the master load balancer for the swarm.</p>
+
+<p><a href="Images/docker-open-master-lb.png" target="_blank"><img src="Images/docker-open-master-lb.png" alt="Opening the master load balancer" style="max-width:100%;"></a></p>
+
+<p><em>Opening the master load balancer</em></p>
+</li>
+<li>
+<p>Click the IP address under "Public IP Address."</p>
+
+<p><a href="Images/docker-click-ip-address.png" target="_blank"><img src="Images/docker-click-ip-address.png" alt="The master load balancer's public IP" style="max-width:100%;"></a></p>
+
+<p><em>The master load balancer's public IP</em></p>
+</li>
+<li>
+<p>Hover over the DNS name under "DNS Name." Wait for a <strong>Copy</strong> button to appear, and then click it to copy the master load balancer's DNS name to the clipboard.</p>
+
+<p><a href="Images/docker-copy-dns-name.png" target="_blank"><img src="Images/docker-copy-dns-name.png" alt="Copying the DNS name" style="max-width:100%;"></a></p>
+
+<p><em>Copying the DNS name</em></p>
+</li>
+<li>
+<p>Launch PuTTY and paste the DNS name on the clipboard into the <strong>Host Name (or IP address)</strong> box. Set the port number to <strong>2200</strong> and type "ACS" (without quotation marks) into the <strong>Saved Sessions</strong> box. Click the <strong>Save</strong> button to save these settings under that name.</p>
+
+<blockquote>
+<p>Why port 2200 instead of port 22, which is the default for SSH? Because the load balancer you're connecting to listens on port 2200 and forwards the SSH messages it receives to port 22 on the master VM.</p>
+</blockquote>
+
+<p><a href="Images/docker-putty1.png" target="_blank"><img src="Images/docker-putty1.png" alt="Configuring a PuTTY session" style="max-width:100%;"></a></p>
+
+<p><em>Configuring a PuTTY session</em></p>
+</li>
+<li>
+<p>In the treeview on the left, click the + sign next to <strong>SSH</strong>, and then click <strong>Auth</strong>. Click the  <strong>Browse</strong> button and select the private-key file that you created in Exercise 1.</p>
+
+<p><a href="Images/docker-putty2.png" target="_blank"><img src="Images/docker-putty2.png" alt="Entering the private key" style="max-width:100%;"></a></p>
+
+<p><em>Entering the private key</em></p>
+</li>
+<li>
+<p>Select <strong>Tunnels</strong> in the treeview. Then set <strong>Source port</strong> to <strong>22375</strong> and <strong>Destination</strong> to <strong>127.0.0.1:2375</strong>, and click the <strong>Add</strong> button.</p>
+
+<blockquote>
+<p>The purpose of this is to forward traffic transmitted through port 22375 on the local machine (that's the port used by the <strong>docker</strong> command you will be using shortly) to port 2375 at the other end. Docker Swarm listens on port 2375.</p>
+</blockquote>
+
+<p><a href="Images/docker-putty3.png" target="_blank"><img src="Images/docker-putty3.png" alt="Configuring the SSH tunnel" style="max-width:100%;"></a></p>
+
+<p><em>Configuring the SSH tunnel</em></p>
+</li>
+<li>
+<p>Click <strong>Session</strong> at the top of the treeview. Click the <strong>Save</strong> button to save your configuration changes, and then click <strong>Open</strong> to create a secure SSH connection to the container service. If you are warned that the server's host key isn't cached in the registry and asked to confirm that you want to connect anyway, click <strong>Yes</strong>.</p>
+
+<p><a href="Images/docker-putty4.png" target="_blank"><img src="Images/docker-putty4.png" alt="Opening a connection to the container service" style="max-width:100%;"></a></p>
+
+<p><em>Opening a connection to the container service</em></p>
+</li>
+<li>
+<p>An SSH window will open and prompt you to log in. Enter the user name that you specified in Exercise 1, Step 4. Then press the <strong>Enter</strong> key. If you successfully connected, you'll see a screen that looks like this:</p>
+
+<p><a href="Images/docker-putty5.png" target="_blank"><img src="Images/docker-putty5.png" alt="Successful connection" style="max-width:100%;"></a></p>
+
+<p><em>Successful connection</em></p>
+
+<blockquote>
+<p>Observe that you didn't have to enter a password. That's because the connection was authenticated using the public/private key pair you generated in Exercise 1. Key pairs tend to be much more secure than passwords because they are cryptographically strong.</p>
+</blockquote>
+</li>
+<li>
+<p>Launch a Windows Command Prompt and use a CD command to navigate to this lab's "docker-resources" folder. Then execute the following command to show a list of Docker containers running in the container service you are connected to. (There are currently no containers running, so the list will be empty.)</p>
+
+<pre>docker -H 127.0.0.1:22375 ps -a
+</pre>
+</li>
+<li>
+<p>At the command prompt, execute the following command:</p>
+
+<pre>create-slurm
+</pre>
+
+<p>This runs a batch file provided for you in the "docker-resources" folder. It will take 5 to 10 minutes to run. The batch file builds a Docker image with everything needed for the lab. Then it deploys the image to the container service nine times to create a SLURM master in one container and SLURM nodes in eight other containers.</p>
+</li>
+<li>
+<p>When the batch file finishes running, execute the following command:</p>
+
+<pre>docker -H 127.0.0.1:22375 ps -a
+</pre>
+
+<p>Confirm that there are now nine Docker container instances running:</p>
+
+<p><a href="Images/docker-container-instances.png" target="_blank"><img src="Images/docker-container-instances.png" alt="Docker container instances" style="max-width:100%;"></a></p>
+
+<p><em>Docker container instances</em></p>
+</li>
+</ol>
+
+<p>Congratulations! You just created a SLURM cluster in a swarm of Docker containers hosted in an Azure container service. Now it is time to put the cluster to work.</p>
+
+<p><a name="Exercise3"></a></p>
+
+<h2>Exercise 3: Create a storage account and upload images</h2>
+
+<p>In <a href="#Exercise5">Exercise 5</a>, you will run a Python script on the SLURM cluster to generate grayscale images from color images. That script requires a set of color images as well as two blob storage containers: one for input and one for output. In this exercise, you will use the Azure Portal to create a storage account to hold the images. Then you will use the cross-platform <a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a> to create containers in that storage account and upload the images.</p>
+
+<ol>
+<li>
+<p>Return to the <a href="https://portal.azure.com">Azure Portal</a> and click <strong>Resource groups</strong> in the ribbon on the left. Then click the resource group that holds the Azure Container Service instance you created in Exercise, and click <strong>+ Add</strong> in the resource group's blade.</p>
+
+<p><a href="Images/docker-add-storage-account-to-resource-group.png" target="_blank"><img src="Images/docker-add-storage-account-to-resource-group.png" alt="Adding a resource to ACSLabResourceGroup" style="max-width:100%;"></a></p>
+
+<p><em>Adding a resource to ACSLabResourceGroup</em></p>
+</li>
+<li>
+<p>Type "Storage account" (without quotation marks) into the search box to filter the list of resources. Select <strong>Storage account</strong> from the search results. (There will probably be two instances of "Storage account" in the search results. Select the one that says "Web + Mobile" on the far right.) Then click the <strong>Create</strong> button at the bottom of the "Storage account" blade.</p>
+
+<p><a href="Images/docker-add-storage-account.png" target="_blank"><img src="Images/docker-add-storage-account.png" alt="Adding a storage account" style="max-width:100%;"></a></p>
+
+<p><em>Adding a storage account</em></p>
+</li>
+<li>
+<p>Fill in the "Create storage account" blade as shown below, substituting a unique storage-account name for the one shown (remember that storage account names must be unique within Azure) and selecting the same location you selected for the container service. Then click the <strong>Create</strong> button.</p>
+
+<p><a href="Images/docker-create-storage-account.png" target="_blank"><img src="Images/docker-create-storage-account.png" alt="Creating a new storage account" style="max-width:100%;"></a></p>
+
+<p><em>Creating a new storage account</em></p>
+</li>
+<li><p>Wait for the storage account to be created. Then start the Microsoft Azure Storage Explorer. If you're prompted for credentials, sign in with the user name and password for your Microsoft account.</p></li>
+<li>
+<p>In the Storage Explorer window, find the storage account that you just created. Expand the list of items underneath that storage account. Then right-click <strong>Blob Containers</strong> and select <strong>Create Blob Container</strong> from the menu.</p>
+
+<p><a href="Images/docker-create-new-blob-container.png" target="_blank"><img src="Images/docker-create-new-blob-container.png" alt="Creating a new container" style="max-width:100%;"></a></p>
+
+<p><em>Creating a new container</em></p>
+</li>
+<li><p>Type "input" (without quotation marks) and press <strong>Enter</strong> to create a container named "input."</p></li>
+<li><p>Repeat this procedure to create a blob container named "output."</p></li>
+<li>
+<p>Double-click the "input" container to show its contents. Then click the <strong>Upload</strong> button and select <strong>Upload Files</strong> from the menu.</p>
+
+<p><a href="Images/docker-upload-images.png" target="_blank"><img src="Images/docker-upload-images.png" alt='Uploading images to the "input" container' style="max-width:100%;"></a></p>
+
+<p><em>Uploading images to the "input" container</em></p>
+</li>
+<li>
+<p>Click the <strong>...</strong> button to the right of the field labeled "Files." In the ensuing dialog, navigate to this lab's "ColorImages" subdirectory and select all the files in that subdirectory. Then close the dialog and click the <strong>Upload</strong> button.</p>
+
+<p><a href="Images/docker-upload-files-dialog.png" target="_blank"><img src="Images/docker-upload-files-dialog.png" alt="Uploading files to blob storage" style="max-width:100%;"></a></p>
+
+<p><em>Uploading files to blob storage</em></p>
+</li>
+<li>
+<p>Confirm that all 49 files were uploaded to the "input" container.</p>
+
+<p><a href="Images/docker-uploaded-images.png" target="_blank"><img src="Images/docker-uploaded-images.png" alt="Uploaded images" style="max-width:100%;"></a></p>
+
+<p><em>Uploaded images</em></p>
+</li>
+</ol>
+
+<p>You now have containers to hold input and output and a collection of color images in the input container. The next step is to prepare the scripts needed to configure the cluster and process the images.</p>
+
+<p><a name="Exercise4"></a></p>
+
+<h2>Exercise 4: Prepare the Python script</h2>
+
+<p>With the SLURM cluster up and running in Docker containers and the color images uploaded to blob storage, the next task is to modify the Python script that will process the images with information about the storage account that holds the blobs.</p>
+
+<ol>
+<li>
+<p>Return to the Azure Portal and open the blade for the storage account you created in <a href="#Exercise3">Exercise 3</a>. In the storage-account blade, click the key icon.</p>
+
+<p><a href="Images/docker-storage-account-blade.png" target="_blank"><img src="Images/docker-storage-account-blade.png" alt="Accessing the storage account's access keys" style="max-width:100%;"></a></p>
+
+<p><em>Accessing the storage account's access keys</em></p>
+</li>
+<li>
+<p>In the "Access keys" blade, click the <strong>Copy</strong> button to copy the storage account's primary access key to the clipboard.</p>
+
+<p><a href="Images/docker-access-keys-blade.png" target="_blank"><img src="Images/docker-access-keys-blade.png" alt="Copying the primary access key to the clipboard" style="max-width:100%;"></a></p>
+
+<p><em>Copying the primary access key to the clipboard</em></p>
+</li>
+<li>
+<p>Navigate to this lab's "docker-resources" directory. Open <strong>slurmdemo.py</strong> in a text editor and find the following section near the top of the file:</p>
+
+<pre>#######################################################
+# Update these two variables to those for your account.
+#######################################################
+ACCOUNT_NAME = 'account_name'
+ACCOUNT_KEY = 'account_key'
+#######################################################
+</pre>
+</li>
+<li><p>Replace <em>account_name</em> with the name of the storage account you created. Make sure the account name is enclosed in single quotes.</p></li>
+<li>
+<p>Replace <em>account_key</em> with the access key on the clipboard. Make sure it is enclosed in single quotes. The modified code will look something like this:</p>
+
+<pre>#######################################################
+# Update these two variables to those for your account.
+#######################################################
+ACCOUNT_NAME = 'acslabstorage'
+ACCOUNT_KEY = '4CUfFk2wTcE+...+mNCGCn9ln23F0PFzxwi8Q=='
+#######################################################
+</pre>
+</li>
+<li><p>Save your changes to <strong>slurmdemo.py</strong> and close the text editor.</p></li>
+</ol>
+
+<p>You've updated the Python script with the information it needs to access the storage account. Now comes the fun part: generating grayscale images from the color images in the "input" container.</p>
+
+<p><a name="Exercise5"></a></p>
+
+<h2>Exercise 5: Copy the job scripts to the cluster and run the job</h2>
+
+<p><strong>slurmdemo.py</strong> is one of several scripts in the "docker-resources" folder that must be copied to the SLURM cluster. In this exercise, you will copy the scripts to the cluster, and then execute the Python script on the cluster.</p>
+
+<ol>
+<li>
+<p>Return to the Command Prompt window that's open to the lab's "docker-resources" directory and run the following command to copy <strong>slurmdemo.py</strong> and other job scripts to the SLURM nodes:</p>
+
+<pre>copy-scripts
+</pre>
+</li>
+<li>
+<p>Now use the following command to run <strong>slurmdemo.py</strong> and do the image conversions:</p>
+
+<pre>docker -H 127.0.0.1:22375 exec -it linux0 python /slurmdemo.py
+</pre>
+</li>
+</ol>
+
+<p>After a second or two, the command should complete. Note that it might take 30 seconds or more for the Python script, which is running in the cloud in the various container instances, to convert all the images. </p>
+
+<p><a name="Exercise6"></a></p>
+
+<h2>Exercise 6: View the converted images</h2>
+
+<p>If the job ran successfully, the grayscale images generated from the color images in the input container will be in the output container you created in <a href="#Exercise3">Exercise 3</a>. In this exercise, you will check the contents of that container.</p>
+
+<ol>
+<li><p>Launch the Microsoft Azure Storage Explorer if it isn't already running.</p></li>
+<li>
+<p>In Storage Explorer, double-click the container named "output" to see its contents.</p>
+
+<p><a href="Images/docker-job-output.png" target="_blank"><img src="Images/docker-job-output.png" alt="Contents of the output container" style="max-width:100%;"></a></p>
+
+<p><em>Contents of the output container</em></p>
+</li>
+<li><p>Double-click one of the blobs in the container. When the downloaded image opens, confirm that it's a grayscale image, not a color image. To be sure, download a few other images, too. If the images are grayscale, congratulations! You have a working SLURM cluster.</p></li>
+</ol>
+
+<p>You now know how to deploy SLURM clusters in Docker containers and run jobs on them. But when those clusters aren't being used, you should shut them down to avoid incurring unnecessary charges. The next exercise explains how.</p>
+
+<p><a name="Exercise7"></a></p>
+
+<h2>Exercise 7: Suspend the SLURM cluster</h2>
+
+<p>When virtual machines are running, you are being charged — even if the VMs are idle. Therefore, it's advisable to stop virtual machines when they are not in use. You will still be charged for storage, but that cost is typically insignificant compared to the cost of an active VM. Your container service contains a master VM that needs to be stopped when you're not using the cluster. The Azure Portal makes it easy to stop virtual machines. VMs that you stop are easily started again later so you can pick up right where you left off.</p>
+
+<ol>
+<li>
+<p>Return to the Command Prompt window and ensure that you are still in the lab's "docker-resources" directory. Then run the following command:</p>
+
+<pre>stop-slurm
+</pre>
+
+<p>This command is actually a batch file that shuts down all of the container instances, effectively shutting down the SLURM cluster. You can use the <strong>start-slurm</strong> command to restart the container instances at any time.</p>
+</li>
+<li>
+<p>Wait for the <strong>stop-slurm</strong> command to finish. Then go to the Azure Portal and open the blade for the resource group that contains the container service. Click the virtual machine whose name begins with <strong>swarm-master</strong> to open a blade for the master VM.</p>
+
+<p><a href="Images/docker-open-vm.png" target="_blank"><img src="Images/docker-open-vm.png" alt="Opening a blade for the master VM" style="max-width:100%;"></a></p>
+
+<p><em>Opening a blade for the master VM</em></p>
+</li>
+<li>
+<p>Click the <strong>Stop</strong> button to stop the master VM. Answer <strong>Yes</strong> when prompted to verify that you wish to stop it.</p>
+
+<p><a href="Images/docker-stop-vm.png" target="_blank"><img src="Images/docker-stop-vm.png" alt="Stopping the master virtual machine" style="max-width:100%;"></a></p>
+
+<p><em>Stopping the master virtual machine</em></p>
+</li>
+</ol>
+
+<p>There is no need to stop the agent VMs. They are part of an Azure Virtual Machine Scale Set and are automatically spun up and down as needed by the master VM. Note that if you wish to start the cluster again, you will need to restart the master VM before executing a <strong>start-slurm</strong> command.</p>
+
+<p><a name="Exercise8"></a></p>
+
+<h2>Exercise 8: Delete the resource group</h2>
+
+<p>Resource groups are a useful feature of Azure because they simplify the task of managing related resources. One of the most practical reasons to use resource groups is that deleting a resource group deletes all the resources it contains. Rather than delete those resources one by one, you can delete them all at once.</p>
+
+<p>In this exercise, you'll delete the resource group created in <a href="#Exercise1">Exercise 1</a> when you created the container service. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.</p>
+
+<ol>
+<li>
+<p>In the Azure Portal, open the blade for the resource group that holds the container service. Then click the <strong>Delete</strong> button at the top of the blade.</p>
+
+<p><a href="Images/docker-delete-resource-group.png" target="_blank"><img src="Images/docker-delete-resource-group.png" alt="Deleting a resource group" style="max-width:100%;"></a></p>
+
+<p><em>Deleting a resource group</em></p>
+</li>
+<li><p>For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group.</p></li>
+<li><p>Click the <strong>Delete</strong> button to remove all traces of this lab from your account.</p></li>
+</ol>
+
+<h3>Summary</h3>
+
+<p>The Azure Container Service makes it easy to run apps packaged in Docker containers in the cloud without having to manage servers or install a container stack yourself. Container images are smaller than VM images, they start faster, and they typically cost less since a single VM can host multiple container instances. More importantly, Docker containers can be hosted in other cloud platforms such as Amazon Web Services (AWS). If you want to avoid being tied to a single cloud platform, containers are a great to achieve that independence.</p>
+
+<hr>
+
+<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
