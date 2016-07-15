@@ -532,7 +532,7 @@ There are several ways to provision an Azure Web App. In this exercise, you will
 	
 	        _Selecting the F1 pricing tier_
 
-    - Click **Database** to open the "New MySQL Database" blade. Then click **Create New** to open a "New MySQL Database" blade.
+    - Click **Database** to open the "New MySQL Database" blade.
     
         - Set **Database Name** to "dxwebappintro" (without quotation marks).
         
