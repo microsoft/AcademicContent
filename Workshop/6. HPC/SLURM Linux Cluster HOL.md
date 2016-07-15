@@ -27,9 +27,9 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- A Microsoft Azure subscription - [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
-- The Microsoft Azure Storage Explorer (provided for you in the lab VM)
-- PuTTY (provided for you in the lab VM)
+- An active Microsoft Azure subscription. Use the one you created in Lab 1, or [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
+- [Microsoft Azure Storage Explorer](http://storageexplorer.com/)
+- [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 ---
 <a name="Exercises"></a>
@@ -37,60 +37,24 @@ The following are required to complete this hands-on lab:
 
 This hands-on lab includes the following exercises:
 
-- [Exercise 1: Create a resource group to hold the SLURM cluster](#Exercise1)
-- [Exercise 2: Create a SLURM cluster using an Azure Quickstart template](#Exercise2)
-- [Exercise 3: Create storage containers and upload images](#Exercise3)
-- [Exercise 4: Prepare the job scripts](#Exercise4)
-- [Exercise 5: Copy the job scripts, configure the nodes, and run the job](#Exercise5)
-- [Exercise 6: View the converted images](#Exercise6)
-- [Exercise 7: Suspend the SLURM cluster](#Exercise7)
-- [Exercise 8: Delete the SLURM cluster](#Exercise8)
+- [Exercise 1: Create a SLURM cluster using an Azure Quickstart template](#Exercise1)
+- [Exercise 2: Create storage containers and upload images](#Exercise2)
+- [Exercise 3: Prepare the job scripts](#Exercise3)
+- [Exercise 4: Copy the job scripts, configure the nodes, and run the job](#Exercise4)
+- [Exercise 5: View the converted images](#Exercise5)
+- [Exercise 6: Suspend the SLURM cluster](#Exercise6)
+- [Exercise 7: Delete the SLURM cluster](#Exercise7)
 
 Estimated time to complete this lab: **60** minutes.
 
 <a name="Exercise1"></a>
-## Exercise 1: Create a resource group to hold the SLURM cluster
+## Exercise 1: Create a SLURM cluster using an Azure Quickstart template
 
-In this exercise, you will create a resource group to contain the SLURM cluster and the Azure resources used by the cluster, which include virtual Network Interface Cards, IP addresses, storage accounts, and more. Resource groups are a feature of Microsoft Azure that allow you to combine the resources that comprise an application into a unit so entire applications can be deployed, managed, and even deleted with a few simple steps. It is considered best practice to place applications that contain multiple resources in a resource group.
+The Azure Resource Manager allows you to provision applications using declarative templates. A template contains a complete description of everything that makes up the application, including virtual machines, databases, Web apps, IP addresses, and other resources. Templates can include parameters that users will be prompted to fill in each time an application is deployed. Templates can also invoke scripts to initialize resources to a known and consistent state. To learn more about Azure Resource Manager templates, refer to the [documentation](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/) online.
 
-1. Connect to the Visual Studio VM that you deployed in the first lab.
+In this exercise, you will use a deployment template built by the Azure team. This template creates a collection of virtual machines and all the resources required to form a SLURM HPC cluster from them. It is one of many useful templates on the [Azure Quickstart Templates](http://azure.microsoft.com/en-us/documentation/templates/) page and in the Quickstart templates [GitHub repository](https://github.com/Azure/azure-quickstart-templates).
 
-1. In the VM, open your browser and log in to the [Azure Portal](https://portal.azure.com).
-
-1. In the portal, click **+ NEW -> Management -> Resource Group** to display the "Resource group" blade.
-
-    ![Adding a new resource group](Images/create-resource-group-blade.png)
-
-    _Adding a new resource group_
-
-1. Enter a name for the resource group that you wish to create — for example, "SLURMLabResourceGroup" (without quotation marks). Resource-group names do not have to be globally unique as storage-account names do, but they must be unique to a subscription.
-
-	After entering the name, click **Resource group location** and choose the location nearest you. Leave **Pin to dashboard** checked so the resource group appears on your dashboard in the Azure Portal. Once you're finished, click the **Create** button at the bottom of the blade.
-
-	> If there are any input errors, such as spaces in the resource-group name, the fields containing the errors will be flagged with red excalamation points. Hover the mouse over an exclamation point for help resolving the error.
-
-    ![Creating a resource group](Images/create-resource-group.png)
-
-    _Creating a resource group_
-
-1. After a few moments, the new resource group will appear in a blade in the Azure Portal.
-
-    ![The new resource group](Images/empty-resource-group-blade.png)
-
-    _The new resource group_
-
-You created a resource group, but that group is currently empty. The next step is to create a cluster to go in it.
-
-<a name="Exercise2"></a>
-## Exercise 2: Create a SLURM cluster using an Azure Quickstart template
-
-The Azure Resource Manager allows you to provision applications using declarative templates. A template contains a complete description of everything that makes up the application, including virtual machines, databases, Web apps, IP addresses, and other resources. Templates can include parameters that users will be prompted to fill in each time an application is deployed. Templates can also invoke scripts to initialize resources to a known and consistent state.
-
-As an example, suppose you have built an HPC cluster that includes virtual machines and other Azure resources. With a template, you can script the creation of the entire application and optionally the data that goes with it. This makes it easy for others to spin up instances of the application. To learn more about Azure Resource Manager templates, you can read the [documentation](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/) online.
-
-For this lab, you will use a deployment template built by the Azure team. You will find many useful templates on the [Azure Quickstart Templates](http://azure.microsoft.com/en-us/documentation/templates/) page and in the Quickstart templates [GitHub repository](https://github.com/Azure/azure-quickstart-templates). Most people prefer the GitHub location because it is updated more often and offers an easy way to browse changes made to the templates.
-
-The template you are going to use, which you can [view here](https://github.com/Azure/azure-quickstart-templates/tree/master/slurm) on GitHub, is titled "Deploy a slurm cluster." It performs the following steps:
+The template you will use, which you can [view here](https://github.com/Azure/azure-quickstart-templates/tree/master/slurm) on GitHub, is titled "Deploy a slurm cluster." It performs the following steps:
 
 - Creates a storage account for the virtual machines
 - Deploys three Ubuntu servers named "master," "worker0," and "worker1"
@@ -107,27 +71,21 @@ Let's get started!
 
      _Deploying from GitHub_
 
-1. In the Azure Portal, you will be prompted to enter values for various parameters defined in the template:
+1. In the Azure Portal, you will be prompted to enter values for various template parameters. In the "Parameters" blade, enter a unique DNS name for **DNSNAME** and a unique storage-account name for **NEWSTORAGEACCOUNTNAME**. (Recall that storage-account names must be from 3 to 24 characters in length and can only contain numbers and lowercase characters.) Make both names as unique as possible, even factoring in your initials, birth date, etc. A name that is unique right now might not be unique several minutes from now while the deployment is in progress.
+
+	> The storage account that's being created will hold the virtual hard disks (VHDs) for the VMs in the cluster.
+
+	Accept the default **ADMINUSERNAME** value of "azureuser" and type the password "Azure\*Pass" (without quotation marks) into the **ADMINPASSWORD** field. You will need these credentials to log into the cluster later.
+
+	Accept the default values for **VMSIZE** and **SCALENUMBER**. The latter specifies the number of worker nodes in the cluster. The template automatically creates an additional VM to serve as the master node. For **LOCATION**, select the location nearest you. Once all these values are entered, click the **OK** button at the bottom of the blade.
 
     ![The "Parameters" blade](Images/template-parameters.png)
 
      _The "Parameters" blade_
 
-	For **DNSNAME** and **NEWSTORAGEACCOUNTNAME**, enter names that are unique to Azure. *Remember that storage account names can only contain numbers and lowercase letters*. Make both names as unique as possible, even factoring in your initials, birth date, etc. A name that is unique right now might not be unique several minutes from now while the deployment is in progress.
+1. In the "Custom deployment" blade, select **Create new** under under **Resource group** and enter the name "SLURMLabResourceGroup" (without quotation marks). Under **Resource group location**, select the same location that you selected in the previous step.
 
-	For **ADMINUSERNAME** and **ADMINPASSWORD**, enter a user name and password you can easily remember. You will need them to log into the cluster in subsequent exercises.
-
-	> Limited error checking is performed on the user name and password you enter. For example, if you include a space in the user name or password, or enter a password that is less than 8 characters in length, the deployment will fail with a cryptic error message. In addition, user names and passwords should be at 8 least characters in length, but no longer than 32 characters.
-
-	Accept the default values for **VMSIZE** and **SCALENUMBER**. The latter specifies the number of worker nodes in the cluster. The template automatically creates an additional VM to serve as the master node.
-
-	For **LOCATION**, enter the same location that you selected for the resource group in Exercise 1.
-
-	Once these values are entered, click the **OK** button at the bottom of the blade.
-
-1. In the "Custom deployment" blade, under **Resource group**, select the resource group you created in Exercise 1. Under **Location**, select the same location that you selected for the resource group.
-
-	Before you can create the cluster, you must accept the legal terms. Click **Review legal terms**, review the terms in the new blade that appears, and then click **Create** at the bottom of that blade to indicate that you accept the terms.
+	Before you can create the cluster, you must accept the legal terms. Click **Review legal terms**, review the terms in the new blade that appears, and then click **Purchase** at the bottom of that blade to indicate that you accept the terms.
 
 	Once that's done, click the **Create** button at the bottom of the "Custom deployment" blade to begin deploying your SLURM cluster.
 
@@ -135,28 +93,22 @@ Let's get started!
 
      _The "Custom deployment" blade_
 
-1. Deploying the SLURM cluster can take 10 minutes or more. You can monitor the status of the deployment by opening the resource group's blade. If you pinned the resource group you created in [Exercise 1](#Exercise1), click the tile on the dashboard to open the blade. If you did not pin the resource group, click **Resource group** in the ribbon on the left side of the portal, and then click the resource group name. Either way, you will see a blade like the one below. "Deploying" will change to "Succeeded" when the deployment has completed successfully.
+1. Deploying the SLURM cluster can take 10 minutes or more. You can monitor the status of the deployment by opening the resource group's blade. Click **Resource group** in the ribbon on the left side of the portal, and then click the resource group name ("SLURMLabResourceGroup") to open the blade. "Deploying" will change to "Succeeded" when the deployment has completed successfully.
+
+	> Click the browser's **Refresh** button every few minutes to update the deployment status. Clicking the **Refresh** button in the resource-group blade doesn't reliably update the status.
 
     ![Checking the deployment](Images/template-status-in-resource.png)
 
      _Monitoring the deployment_
 
-	> As a deployment occurs, you can get more information about what's happening by clicking the "Events" chart at the bottom of the blade.
+When the deployment completes successfully, you'll see all the resources that comprise the cluster in the resource group. The next step is to create a couple of storage containers to hold the images that the cluster will process.
 
-1. When the deployment completes successfully, you'll see all the resources that comprise the cluster in the resource group.
+<a name="Exercise2"></a>
+## Exercise 2: Create storage containers and upload images
 
-    ![Successful deployment](Images/completed-deployment.png)
+In [Exercise 4](#Exercise4), you will run a Python script on the cluster to generate grayscale images from color images. That script requires a set of color images as well as two blob storage containers: one for input and one for output. In this exercise, you'll use the cross-platform [Microsoft Azure Storage Explorer](http://storageexplorer.com/) to create the containers and upload the images.
 
-     _Successful deployment_
-
-Congratulations! You just deployed a Linux cluster using an Azure Quickstart template. Now let's create a couple of storage containers to hold the color images that the cluster will process and the grayscale images that the cluster will generate from the color images.
-
-<a name="Exercise3"></a>
-## Exercise 3: Create storage containers and upload images
-
-In [Exercise 5](#Exercise5), you will run a Python script on the cluster to generate grayscale images from color images. That script requires a set of color images as well as two blob storage containers: one for input and one for output. In this exercise, you'll use the cross-platform [Microsoft Azure Storage Explorer](http://storageexplorer.com/) to create the containers and upload the images.
-
-1. Start the Microsoft Azure Storage Explorer, which is already installed in the VM you're using. If you're prompted for credentials, sign in with the user name and password for your Microsoft account.
+1. Start the Microsoft Azure Storage Explorer. If you're prompted for credentials, sign in with the user name and password for your Microsoft account.
 
 1. In the Storage Explorer window, find the storage account that was created when you deployed the SLURM cluster. Expand the list of items underneath that storage account and click the small arrow next to **Blob Containers** to see a list of containers. There is already one blob container named "vhd." It was created when the cluster was deployed and holds the virtual hard disks (VHDs) for the nodes in the cluster.
 
@@ -178,7 +130,7 @@ In [Exercise 5](#Exercise5), you will run a Python script on the cluster to gene
 
 1. Click the **...** button to the right of the field labeled "Files." In the ensuing dialog, navigate to this lab's "ColorImages" subdirectory and select all the files in that subdirectory. Then close the dialog and click  the **Upload** button.
 
-    ![Uploading files to blob storage](Images/upload-files-dialog.png)
+    ![Uploading files to blob storage](Images/docker-upload-files-dialog.png)
 
     _Uploading files to blob storage_
 
@@ -190,8 +142,8 @@ In [Exercise 5](#Exercise5), you will run a Python script on the cluster to gene
 
 You now have containers to hold input and output and a collection of color images in the input container. The next step is to prepare the scripts needed to configure the cluster and process the images.
 
-<a name="Exercise4"></a>
-## Exercise 4: Prepare the job scripts
+<a name="Exercise3"></a>
+## Exercise 3: Prepare the job scripts
 
 With the SLURM cluster up and running and the images uploaded to blob storage, you are now ready to modify the job scripts with information about the cluster's storage account and admin user. Here is a list of those scripts and a description of what they do:
 
@@ -199,19 +151,25 @@ With the SLURM cluster up and running and the images uploaded to blob storage, y
 - slurmdemo.setup.sh - The script that configures the SLURM nodes with the dependencies and packages required by the Python script
 - slurmdemo.sh - The SLURM control script that runs on each of the nodes to perform a single unit of work
 
-You can use any text editor that you're comfortable with. There is no need to be concerned about how line breaks are encoded, because after uploading these scripts to the cluster's master node, you will run a utility to insert Linux-style line breaks into each script.
+You can use Notepad or any other text editor you're comfortable with. There is no need to be concerned about how line breaks are encoded, because after uploading these scripts to the cluster's master node, you will run a utility to insert Linux-style line breaks into each script.
 
-1. Return to the Azure Portal and open the resource group you created in [Exercise 1](#Exercise1). In the resource group's blade, click the storage account to open a blade for the storage account.
+1. Return to the Azure Portal and open the resource group named "SLURMLabResourceGroup." In the resource group's blade, click the storage account to open a blade for the storage account.
 
     ![Opening the storage account](Images/open-storage-account.png)
 
     _Opening the storage account_
 
-1. In the storage-account blade, click the key icon to open the "Access keys" button. Leave the "Access keys" blade open in your browser as you work on the script files.
+1. In the storage-account blade, click the key icon to open the "Access keys" blade.
 
     ![Storage-account keys](Images/access-keys-from-storage.png)
 
     _Storage-account keys_
+
+1. In the "Access keys" blade, click the **Copy** button to the right of **key1** to copy the storage account's primary access key to the clipboard.
+
+    ![Copying the storage account's primary access key](Images/copy-access-key.png)
+
+    _Copying the storage account's primary access key_
 
 1. Navigate to this lab's "hpc-resources" subdirectory. Then open **slurmdemo.py** in a text editor and find the following section near the top of the file:
 
@@ -224,13 +182,9 @@ You can use any text editor that you're comfortable with. There is no need to be
     #######################################################
     </pre>
 
-1. Switch back to the Azure Portal. In the "Access keys" blade, click the button to the right of the **STORAGE ACCOUNT NAME** field to copy the storage account's name to the clipboard.
+1. Replace *account_name* with the name of the storage account. Make sure the account name is enclosed in single quotes.
 
-1. In **slurmdemo.py**, replace *account_name* with the account name you just copied. Make sure the account name is enclosed in single quotes.
-
-1. In the "Access keys" blade, copy the storage account's primary access key (KEY1) to the clipboard.
-
-1. In **slurmdemo.py**, replace *account_key* with the key you just copied. Make sure it is enclosed in single quotes. The modified code will look something like this:
+1. Replace *account_key* with the access key that you copied to the clipboard. Make sure it is enclosed in single quotes. The modified code will look something like this:
 
 	<pre>
     #######################################################
@@ -243,24 +197,28 @@ You can use any text editor that you're comfortable with. There is no need to be
 
 1. Save your changes to **slurmdemo.py** and close the text editor.
 
-1. Still in the "hpc-resources" directory, open **slurmdemo.setup.sh** in your text editor. Search for all instances of *adminuser* and replace them with the ADMINUSERNAME property you specified in the template in [Exercise 2](#Exercise2). **There are six instances that need to be replaced**.
+1. Still in the "hpc-resources" directory, open **slurmdemo.setup.sh** in your text editor. Search for all instances of "adminuser" and replace them with the ADMINUSERNAME value ("azureuser") you specified in [Exercise 1](#Exercise1). **There are six instances that need to be replaced**.
 
 1. Save your changes to **slurmdemo.setup.sh** and close the text editor.
 
 You've updated the script files with the necessary information. Now you're ready for the next step: configuring the SLURM cluster and using it to process the images.
 
-<a name="Exercise5"></a>
-## Exercise 5: Copy the job scripts, configure the nodes, and run the job
+<a name="Exercise4"></a>
+## Exercise 4: Copy the job scripts, configure the nodes, and run the job
 
 In this exercise, you will upload the slurmdemo.* files to the master node of the SLURM cluster and use those files to configure the cluster and run the job. To remote into the cluster, you'll use a popular Windows SSH client named PuTTY, which is already installed in your VM.
 
-1. The deployment template that you used to create the SLURM cluster created an IP address and a publicly addressable Domain Name System (DNS) name for the master node. To find the node's DNS name, open the blade for the resource group you created in [Exercise 1](#Exercise1) in the Azure Portal. Then click **publicips**. Copy the DNS name from the "publicips" blade to the clipboard.
+1. The deployment template that you used to create the SLURM cluster created an IP address and a publicly addressable DNS name for the master node. To find the node's DNS name, open the blade for the resource group that holds the cluster. Then click **publicips**.
 
-	> If you move the mouse to the right of the DNS name, a button will magically appear that lets you copy the DNS name to the clipboard.
+    ![Opening the publicips resource](Images/open-publicips.png)
 
-    ![Finding the public DNS name for the master SLURM node](Images/copy-dns-name.png)
+    _Opening the publicips resource_
 
-    _Finding the public DNS name for the master SLURM node_
+1. Place the cursor over the DNS name in the "publicips" blade. When a **Copy** button appears, click it to copy the DNS name to the clipboard.
+
+    ![Copying the DNS name to the clipboard](Images/copy-dns-name.png)
+
+    _Copying the DNS name to the clipboard_
 
 1. Start PuTTY and paste the DNS name for the master node into the **Host Name (or IP address)** field. Then click the **Open** button to initiate a Secure Shell (SSH) connection.
 
@@ -270,11 +228,11 @@ In this exercise, you will upload the slurmdemo.* files to the master node of th
 
     _Connecting with PuTTY_
 
-1. A PuTTY terminal window will appear and you will be prompted to **login as**. Log in with the user name and password you entered into the ADMINUSERNAME and ADMINPASSWORD fields of the deployment template in [Exercise 2](#Exercise2). After logging in, you should see something similar to the following:
+1. A PuTTY terminal window will appear and you will be prompted to **login as**. Log in with the user name ("azureuser") and password ("Azure*Pass") you entered into the ADMINUSERNAME and ADMINPASSWORD fields of the deployment template. After logging in, you should see something similar to the following:
 
     <pre>
-    login as: XXXXXXXXXX
-    XXXXXXXXXX@jrslurmlab.westus.cloudapp.azuire.com's password:
+    login as: azureuser
+    azureuser@slurmlab.eastus.cloudapp.azure.com's password:
     Welcome to Ubuntu 15.04 (GNU/Linux 3.19.0-25-generic x86_64)
 
       Documentation:  https://help.ubuntu.com/
@@ -306,31 +264,30 @@ In this exercise, you will upload the slurmdemo.* files to the master node of th
     See "man sudo_root" for details.
     </pre>
 
-1. To copy files to the master node, you will use PuTTY's Secure Copy utility, pscp.exe. Open a Command Prompt window and navigate to the directory containing the scripts you modified in [Exercise 4](#Exercise4).
+1. To copy files to the master node, you will use PuTTY's Secure Copy utility, pscp.exe. Open a Command Prompt window and navigate to the directory containing the scripts you modified in [Exercise 3](#Exercise3).
  
-1. Execute the following command, replacing _adminuser_ (in two places) with the cluster's ADMINUSERNAME and _masterDNS_ with the DNS name on the clipboard. When prompted, enter your ADMINPASSWORD.
+1. Execute the following command, replacing *masterDNS* with the DNS name on the clipboard. When prompted, enter your admin password ("Azure*Pass").
 
     <pre>
-    "C:\Program Files (x86)\PuTTY\pscp" *.py sl*.sh <i>adminuser</i>@<i>masterDNS</i>:/home/<i>adminuser</i>
+    pscp *.py sl*.sh azureuser@<i>masterDNS</i>:/home/azureuser
     </pre>
 
 	If the copy is successful, you will see output similar to the following:
 
     <pre>
-    azureuser@jrslurmwin.westus.cloudapp.azure.com's password:
     slurmdemo.py              | 5 kB |   5.1 kB/s | ETA: 00:00:00 | 100%
     slurmdemo.setup.sh        | 1 kB |   1.9 kB/s | ETA: 00:00:00 | 100%
     slurmdemo.sh              | 0 kB |   0.5 kB/s | ETA: 00:00:00 | 100%
     </pre>
 
-1. To be certain that the script files contain Linux-style line endings ("/r" rather than "/r/n"), execute the following commands in the PuTTY terminal window to install and run the dos2unix conversion program:
+1. To be certain that the script files contain Linux-style line endings ("/r" rather than "/r/n"), return to the PuTTY terminal window and execute the following commands:
 
     <pre>
     sudo apt-get install dos2unix
     dos2unix -k -o slurm*
     </pre>
 
-1. Now execute the command below to configure the nodes in the cluster. It typically takes 5 to 10 minutes to run.
+1. Now execute the command below in the PuTTY terminal window to configure the nodes in the cluster. It typically takes 5 to 10 minutes to run.
 
     <pre>
     sh slurmdemo.setup.sh
@@ -342,14 +299,12 @@ In this exercise, you will upload the slurmdemo.* files to the master node of th
     python slurmdemo.py
     </pre>
 
-	> As the job is running, you can use the **sinfo** command to check the status of the job.
-
 Next, you'll check the output to verify that the job ran correctly.
 
-<a name="Exercise6"></a>
-## Exercise 6: View the converted images
+<a name="Exercise5"></a>
+## Exercise 5: View the converted images
 
-If the job ran successfully, the grayscale images generated from the color images in the input container will be in the output container you created in [Exercise 3](#Exercise3). In this exercise, you will check the contents of that container.
+If the job ran successfully, the grayscale images generated from the color images in the input container will be in the output container you created in [Exercise 2](#Exercise2). In this exercise, you will check the contents of that container.
 
 1. Launch the Microsoft Azure Storage Explorer if it isn't already running.
 
@@ -363,12 +318,18 @@ If the job ran successfully, the grayscale images generated from the color image
 
 You now know how to deploy and configure SLURM clusters and run jobs on them. But when those clusters aren't being used, you should shut them down to avoid incurring unnecessary charges. The next exercise explains how.
 
-<a name="Exercise7"></a>
-## Exercise 7: Suspend the SLURM cluster
+<a name="Exercise6"></a>
+## Exercise 6: Suspend the SLURM cluster
 
 When virtual machines are running, you are being charged — even if the VMs are idle. Therefore, it's advisable to stop virtual machines when they are not in use. You will still be charged for storage, but that cost is typically insignificant compared to the cost of an active VM. The Azure Portal makes it easy to stop virtual machines. VMs that you stop are easily started again later so you can pick up right where you left off.
 
-1. In the Azure Portal, open the blade for the resource group you created in [Exercise 1](#Exercise1). Click "worker1" to open a blade for the virtual machine named "worker1." Then click the **Stop** button to stop the virtual machine.
+1. In the Azure Portal, open the blade for the cluster's resource group. Click **worker1** to open a blade for the virtual machine named "worker1."
+
+    ![Opening a virtual machine](Images/open-worker.png)
+
+    _Opening a virtual machine_
+
+1. Click the **Stop** button to stop the virtual machine.
 
     ![Stopping a virtual machine](Images/virtual-machine-stop.png)
 
@@ -378,16 +339,16 @@ When virtual machines are running, you are being charged — even if the VMs are
 
 You can stop and start virtual machines in the Azure portal, but if you have a lot of VMs, that's not very efficient. In the real world, you might prefer to use an Azure CLI script to enumerate all the VMs in a resource group and start or stop them all. For more information on scripting the Azure CLI, see the section entitled "How to script the Azure CLI for Mac, Linux, and Windows" in [Install and Configure the Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli/). If you prefer visual tools to command-line tools, you can use [Azure Automation](https://azure.microsoft.com/en-us/services/automation/) to automate VM operations.
 
-<a name="Exercise8"></a>
-## Exercise 8: Delete the SLURM cluster
+<a name="Exercise7"></a>
+## Exercise 7: Delete the SLURM cluster
 
-In [Exercise 1](#Exercise1), you learned that resource groups are a useful feature of Azure because they let you manage groups of resources such as the virtual machines in a SLURM cluster. One of the most practical reasons to use resource groups is that deleting a resource group deletes all the resources it contains. Rather than delete those resources one by one, you can delete them all at once.
+Resource groups are a useful feature of Azure because they simplify the task of managing related resources. One of the most practical reasons to use resource groups is that deleting a resource group deletes all the resources it contains. Rather than delete those resources one by one, you can delete them all at once.
 
-In this exercise, you'll delete the resource group you created in [Exercise 1](#Exercise1). Deleting the resource group deletes the SLURM cluster and prevents any further charges from being incurred for it.
+In this exercise, you'll delete the resource group created in [Exercise 1](#Exercise1) when you created the SLURM cluster. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.
 
-1. In the Azure Portal, open the blade for the resource group you created in [Exercise 1](#Exercise1). Then click the **Delete** button at the top of the blade.
+1. In the Azure Portal, open the blade for the resource group that holds the cluster. Then click the **Delete** button at the top of the blade.
 
-	![Deleting a resource group](Images/delete-blade.png)
+	![Deleting a resource group](Images/delete-resource-group.png)
 
 	_Deleting a resource group_
 
@@ -411,4 +372,4 @@ It is **much** easier to deploy a SLURM cluster in Azure than to install and con
 
 ---
 
-Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the Apache License, Version 2.0. You may use it according to the license as is most appropriate for your project on a case-by-case basis. The terms of this license can be found in http://www.apache.org/licenses/LICENSE-2.0.
+Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
