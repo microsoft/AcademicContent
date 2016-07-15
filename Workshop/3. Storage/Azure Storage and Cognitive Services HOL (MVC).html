@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Azure Storage and Cognitive Services HOL (MVC)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<p><a name="HOLTitle"></a></p>
+
+<h1>Azure Storage and Cognitive Services</h1>
+
+<hr>
+
+<p><a name="Overview"></a></p>
+
+<h2>Overview</h2>
+
+<p>Microsoft Azure Storage is a set of services that allows you to store large volumes of data in a cost-effective manner and in a way that makes the data readily and reliably available to services and applications that consume it. Data committed to Azure Storage can be stored in blobs, tables, queues, or files. <a href="http://azure.microsoft.com/en-us/services/storage/blobs/">Azure blobs</a> are ideal for storing images, videos, and other types of data, and are frequently used to provide input to and capture output from other Azure services such as <a href="http://azure.microsoft.com/en-us/services/stream-analytics/">Azure Stream Analytics</a>. <a href="http://azure.microsoft.com/en-us/services/storage/tables/">Azure tables</a> provide NoSQL storage for semi-structured data. <a href="http://azure.microsoft.com/en-us/services/storage/queues/">Azure queues</a> support queued message transfers between applications (or parts of applications) and can be used to make applications more scalable and robust by loosely coupling them together. Finally, <a href="http://azure.microsoft.com/en-us/services/storage/files">Azure Files</a> use the Server Message Block (SMB) protocol to share files through the cloud and access storage as network drives.</p>
+
+<p>Data stored in Microsoft Azure Storage can be accessed over HTTP or HTTPS using straightforward REST APIs, or it can be accessed using rich client libraries available for many popular languages and platforms, including .NET, Java, Android, Node.js, PHP, Ruby, and Python. The <a href="https://portal.azure.com">Azure Portal</a> includes features for working with Azure Storage, but richer functionality is available from third-party tools, many of which are free and some of which work cross-platform.</p>
+
+<p>In this lab, you will write a Web app that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in C#, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using <a href="https://www.microsoft.com/cognitive-services/">Microsoft Cognitive Services</a>, a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a> to generate a caption for the image as well as searchable metadata describing the contents of the image. And you will discover how easy it is to deploy apps to the cloud using Visual Studio.</p>
+
+<p><a name="Objectives"></a></p>
+
+<h3>Objectives</h3>
+
+<p>In this hands-on lab, you will learn how to:</p>
+
+<ul>
+<li>Create a storage account and containers using the Azure Portal</li>
+<li>Create a Web app in Visual Studio and deploy it to Azure</li>
+<li>Read and write blobs and attach metadata to them</li>
+<li>Use the Computer Vision API to extract information from images</li>
+<li>Use the cross-platform <a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a> to work with Azure Storage</li>
+</ul>
+
+<p><a name="Prerequisites"></a></p>
+
+<h3>Prerequisites</h3>
+
+<p>The following are required to complete this hands-on lab:</p>
+
+<ul>
+<li>An active Microsoft Azure subscription. Use the one you created in Lab 1, or <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>
+</li>
+<li><a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a></li>
+<li>
+<a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio 2015 Community edition</a> or higher</li>
+</ul>
+
+<hr>
+
+<p><a name="Exercises"></a></p>
+
+<h2>Exercises</h2>
+
+<p>This hands-on lab includes the following exercises:</p>
+
+<ul>
+<li><a href="#Exercise1">Exercise 1: Create a storage account</a></li>
+<li><a href="#Exercise2">Exercise 2: Run the Microsoft Azure Storage Explorer</a></li>
+<li><a href="#Exercise3">Exercise 3: Create a new Web app in Visual Studio</a></li>
+<li><a href="#Exercise4">Exercise 4: Add a lightbox for viewing photos</a></li>
+<li><a href="#Exercise5">Exercise 5: Use Cognitive Services to generate metadata</a></li>
+<li><a href="#Exercise6">Exercise 6: Add search to the app</a></li>
+<li><a href="#Exercise7">Exercise 7: Deploy the app to Azure</a></li>
+</ul>
+
+<p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
+
+<p><a name="Exercise1"></a></p>
+
+<h2>Exercise1: Create a storage account</h2>
+
+<p>The <a href="https://portal.azure.com">Azure Portal</a> allows you to perform basic storage operations such as creating storage accounts, creating containers, and managing access keys. In this exercise, you will use the portal to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.</p>
+
+<ol>
+<li><p>Go to the <a href="https://portal.azure.com/">Azure Portal</a> and sign in using your Microsoft account.</p></li>
+<li>
+<p>The first step in using Azure Storage is to create a storage account. To create a storage account, click <strong>+ NEW</strong> in the ribbon on the left. Then click <strong>Data + Storage</strong>, followed by <strong>Storage account</strong>.</p>
+
+<p><a href="images/new-storage-account.png" target="_blank"><img src="images/new-storage-account.png" alt="Creating a storage account" style="max-width:100%;"></a></p>
+
+<p><em>Creating a storage account</em></p>
+</li>
+<li>
+<p>In the ensuing "Create storage account" blade, enter a name for the new storage account in <strong>Name</strong> field. The name is important, because it forms one part of the URL through which blobs created under this account are accessed.</p>
+
+<blockquote>
+<p>Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure. If someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the <strong>Name</strong> field.</p>
+</blockquote>
+
+<p>Once you have a name that Azure will accept (as indicated by the green check mark in the <strong>Name</strong> field), make sure <strong>Resource manager</strong> is selected as the deployment model and <strong>General purpose</strong> is selected as the account kind. Then select <strong>Locally-redundant storage (LRS)</strong> as the replication type.</p>
+
+<blockquote>
+<p>Locally redundant storage is the most cost-effective storage option. It prevents data stored under this storage account from being replicated in other data centers, but it ensures that the data will be replicated at least three times within the chosen data center.</p>
+</blockquote>
+
+<p>Select <strong>Create new</strong> under <strong>Resource group</strong> and type "Intellipix" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the <strong>Location</strong> box, and clicking the <strong>Create</strong> button at the bottom of the blade to create the new storage account.</p>
+
+<p><a href="images/create-storage-account.png" target="_blank"><img src="images/create-storage-account.png" alt="Specifying parameters for a new storage account" style="max-width:100%;"></a></p>
+
+<p><em>Specifying parameters for a new storage account</em></p>
+</li>
+<li>
+<p>Once the storage account has been created, click <strong>Resource groups</strong> in the ribbon on the left. Then click the "Intellipix" resource group, and in the blade that opens for the resource group, click the storage account you just created.</p>
+
+<p><a href="images/open-storage-account.png" target="_blank"><img src="images/open-storage-account.png" alt="Opening the new storage account" style="max-width:100%;"></a></p>
+
+<p><em>Opening the new storage account</em></p>
+</li>
+<li>
+<p>In the blade for the storage account, click <strong>Blobs</strong> to view a list of containers associated with this account.</p>
+
+<p><a href="images/view-containers.png" target="_blank"><img src="images/view-containers.png" alt="Viewing blob containers" style="max-width:100%;"></a></p>
+
+<p><em>Viewing blob containers</em></p>
+</li>
+<li>
+<p>The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click <strong>+ Container</strong> to create a new container.</p>
+
+<p><a href="images/add-container.png" target="_blank"><img src="images/add-container.png" alt="Adding a container" style="max-width:100%;"></a></p>
+
+<p><em>Adding a container</em></p>
+</li>
+<li>
+<p>Type "photos" (without quotation marks) into the <strong>Name</strong> field and select <strong>Blob</strong> as the <strong>Access type</strong>. Then click <strong>Create</strong> to create a container named "photos."</p>
+
+<blockquote>
+<p>By default, containers and their contents are private. Selecting <strong>Blob</strong> as the access type makes the blobs in the "photos" container publicly accessible, but doesn't make the container itself public. This is what you want since the images stored in the "photos" container will be linked to from a Web app. </p>
+</blockquote>
+
+<p><a href="images/create-photos-container.png" target="_blank"><img src="images/create-photos-container.png" alt='Creating a "photos" container' style="max-width:100%;"></a></p>
+
+<p><em>Creating a "photos" container</em></p>
+</li>
+<li>
+<p>Repeat this process to create a container named "thumbnails," once more ensuring that the container's <strong>Access type</strong> is set to <strong>Blob</strong>.</p>
+
+<p><a href="images/create-thumbnails-container.png" target="_blank"><img src="images/create-thumbnails-container.png" alt='Creating a "thumbnails" container' style="max-width:100%;"></a></p>
+
+<p><em>Creating a "thumbnails" container</em></p>
+</li>
+<li>
+<p>Confirm that both containers appear in the list of containers for this storage account, and that the names are spelled correctly.</p>
+
+<p><a href="images/new-containers.png" target="_blank"><img src="images/new-containers.png" alt="The new containers" style="max-width:100%;"></a></p>
+
+<p><em>The new containers</em></p>
+</li>
+</ol>
+
+<p>You have now created a storage account to hold images uploaded to the app you're going to build, and containers to store the images in. Note that you <em>could</em> create these containers from within the app. Whether to create them programmatically or create them as part of the provisioning process is a choice that's left up to app developers.</p>
+
+<p><a name="Exercise2"></a></p>
+
+<h2>Exercise 2: Run the Microsoft Azure Storage Explorer</h2>
+
+<p>The <a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a> is a free tool that provides a graphical interface for working with Azure Storage on PCs running Windows, OS X, and Linux. It provides most of the same functionality as the Azure Portal. It also offers features the portal does not, such as the ability to upload blobs to Azure Storage and view blob metadata. In this exercise, you will use the Microsoft Azure Storage Explorer to view the containers you created in Exercise 1.</p>
+
+<ol>
+<li><p>Start the Microsoft Azure Storage Explorer.</p></li>
+<li>
+<p>In the Storage Explorer window, click <strong>Connect to Microsoft Azure</strong>.</p>
+
+<p><a href="images/storage-explorer-connect-to-azure.png" target="_blank"><img src="images/storage-explorer-connect-to-azure.png" alt="Connecting Storage Explorer to Azure" style="max-width:100%;"></a></p>
+
+<p><em>Connecting Storage Explorer to Azure</em></p>
+</li>
+<li>
+<p>Enter the e-mail address for your Microsoft account. Then click <strong>Continue</strong>.</p>
+
+<p><a href="images/storage-explorer-enter-email.png" target="_blank"><img src="images/storage-explorer-enter-email.png" alt="Entering your e-mail address" style="max-width:100%;"></a></p>
+
+<p><em>Entering your e-mail address</em></p>
+</li>
+<li>
+<p>Enter the user name and password for your Microsoft account. Check the box labeled <strong>Keep me signed in</strong>. Then click the <strong>Sign in</strong> button.</p>
+
+<p><a href="images/storage-explorer-enter-credentials.png" target="_blank"><img src="images/storage-explorer-enter-credentials.png" alt="Signing in to Storage Explorer" style="max-width:100%;"></a></p>
+
+<p><em>Signing in to Storage Explorer</em></p>
+</li>
+<li>
+<p>Confirm that the storage account you created in Exercise 1 appears in the list of storage accounts shown in Storage Explorer. Click the small arrow next to the storage account to display its contents, and then click the arrow next to <strong>Blob Containers</strong>. Confirm that the containers you created in Exercise 1 appear in the list of containers.</p>
+
+<p><a href="images/storage-explorer.png" target="_blank"><img src="images/storage-explorer.png" alt="The Microsoft Azure Storage Explorer" style="max-width:100%;"></a></p>
+
+<p><em>The Microsoft Azure Storage Explorer</em></p>
+</li>
+</ol>
+
+<p>The containers are currently empty, but that will change once your app is deployed and you start uploading photos. Having Storage Explorer installed will make it easy for you to see what your app writes to blob storage.</p>
+
+<p><a name="Exercise3"></a></p>
+
+<h2>Exercise 3: Create a new Web app in Visual Studio</h2>
+
+<p>In this exercise, you will create a new Web app in Visual Studio and add code to implement the basic functionality required to upload images, write them to blob storage, and display them in a Web page.</p>
+
+<ol>
+<li>
+<p>Start Visual Studio 2015 and use the <strong>File -&gt; New -&gt; Project</strong> command to create a new Visual C# <strong>ASP.NET Web Application</strong> project named "Intellipix" (short for "Intelligent Pictures").</p>
+
+<p><a href="images/new-web-app.png" target="_blank"><img src="images/new-web-app.png" alt="Creating a new Web Application project" style="max-width:100%;"></a></p>
+
+<p><em>Creating a new Web Application project</em></p>
+</li>
+<li>
+<p>In the "New ASP.NET Project" dialog, select the <strong>MVC</strong> template. Then click the <strong>Change Authentication</strong> button and select <strong>No Authentication</strong>. (This simplifies the app by omitting authentication infrastructure.) Next, make sure the <strong>Host in the cloud</strong> box is checked and that <strong>App Service</strong> is selected in the drop-down list below the check box. Finally, click <strong>OK</strong>.</p>
+
+<blockquote>
+<p>Selecting <strong>Host in the cloud</strong> enables Visual Studio to create an Azure App Service for you and deploy the app to the cloud with a couple of button clicks. You will leverage this feature in <a href="#Exercise7">Exercise 7</a>.</p>
+</blockquote>
+
+<p><a href="Images/new-mvc-project.png" target="_blank"><img src="Images/new-mvc-project.png" alt="Creating a new ASP.NET MVC project" style="max-width:100%;"></a></p>
+
+<p><em>Creating a new ASP.NET MVC project</em></p>
+</li>
+<li>
+<p>In the "Create App Service" dialog that ensues, enter a name into the <strong>Web App Name</strong> box, or accept the default. (The default name will include a bunch of numbers. Since this name will form part of the DNS name through which the app is accessed once it's deployed to Azure, it must be unique within Azure. For this reason, you probably won't be able to use the name "Intellipix" pictured in the screen shot.)</p>
+
+<p>Type "Intellipix" (without quotation marks) into the <strong>Resource Group</strong> box to make the App Service that's being created part of the same resource group as the storage account you created in Exercise 1.</p>
+
+<p>Now click the <strong>New</strong> button to the right of <strong>App Service Plan</strong> to open the "Configure App Service Plan" dialog. In that dialog, set <strong>Location</strong> to the same location you specified for the storage account in Exercise 1, and make sure <strong>Free</strong> is selected in the <strong>Size</strong> drop-down. Click <strong>OK</strong> to close the dialog.</p>
+
+<p><a href="Images/app-service-plan.png" target="_blank"><img src="Images/app-service-plan.png" alt="Configuring an App Service plan" style="max-width:100%;"></a></p>
+
+<p><em>Configuring an App Service plan</em></p>
+
+<p>Finish up by clicking the <strong>Create</strong> button in the lower-right corner of the "Create App Service" dialog.</p>
+
+<p><a href="Images/create-app-service.png" target="_blank"><img src="Images/create-app-service.png" alt="Creating a new App Service" style="max-width:100%;"></a></p>
+
+<p><em>Creating a new App Service</em></p>
+</li>
+<li><p>Take a moment to review the project structure in the Solution Explorer window. Among other things, there's a folder named "Controllers" that holds the project's MVC controllers, and a folder named "View" that holds the project's views. You'll be working with assets in these folders and others as you implement the application.</p></li>
+<li>
+<p>Now use Visual Studio's <strong>Debug -&gt; Start Without Debugging</strong> command (or simply press <strong>Ctrl+F5</strong>) to launch the application in your browser. Here's how the application looks in its present state:</p>
+
+<p><a href="Images/initial-application.png" target="_blank"><img src="Images/initial-application.png" alt="The initial application" style="max-width:100%;"></a></p>
+
+<p><em>The initial application</em></p>
+</li>
+<li>
+<p>Close the browser and return to Visual Studio. In the Solution Explorer window, right-click the <strong>Intellipix</strong> project and select <strong>Manage NuGet Packages...</strong></p>
+
+<blockquote>
+<p>NuGet is a free and open-source package manager for Microsoft development platforms. It provides access to thousands of libraries, or <em>packages</em>, containing code to perform a variety of tasks. It is integrated into Visual Studio 2015, which makes it easy to add NuGet packages to your project and make a lot of things happen without writing a lot of code.</p>
+</blockquote>
+
+<p><a href="images/manage-nuget-packages.png" target="_blank"><img src="images/manage-nuget-packages.png" alt="Managing NuGet Packages for the project" style="max-width:100%;"></a></p>
+
+<p><em>Managing NuGet Packages for the project</em></p>
+</li>
+<li>
+<p>Click <strong>Browse</strong>. Then type "storage" (without quotation marks) into the search box. Click <strong>WindowsAzure.Storage</strong> to select the Azure Storage client library from NuGet. Finally, click <strong>Install</strong> to install the latest stable version of the package. This package contains APIs for accessing Azure Storage from .NET applications. Click <strong>OK</strong> if you're prompted to review changes, and <strong>I Accept</strong> if prompted to accept licenses for downloaded packages.</p>
+
+<p><a href="Images/install-storage-package.png" target="_blank"><img src="Images/install-storage-package.png" alt="Installing WindowsAzure.Storage" style="max-width:100%;"></a></p>
+
+<p><em>Installing WindowsAzure.Storage</em></p>
+</li>
+<li>
+<p>Repeat this process to add the NuGet package named <strong>Microsoft.WindowsAzure.ConfigurationManager</strong> to the project. This package contains APIs that you will use in your code to parse storage connection strings. Once more, OK any changes and accept any licenses presented to you.</p>
+
+<p><a href="Images/install-configuration-package.png" target="_blank"><img src="Images/install-configuration-package.png" alt="Installing Microsoft.WindowsAzure.ConfigurationManager" style="max-width:100%;"></a></p>
+
+<p><em>Installing Microsoft.WindowsAzure.ConfigurationManager</em></p>
+</li>
+<li>
+<p>Repeat this process to add the NuGet package named <strong>ImageResizer</strong> to the project. This package contains APIs that you will use to create image thumbnails from the images uploaded to the app. OK any changes and accept any licenses presented to you.</p>
+
+<p><a href="Images/install-image-resizer-package.png" target="_blank"><img src="Images/install-image-resizer-package.png" alt="Installing ImageResizer" style="max-width:100%;"></a></p>
+
+<p><em>Installing ImageResizer</em></p>
+</li>
+<li>
+<p>In the Solution Explorer window, double-click Web.config to open it for editing.</p>
+
+<p><a href="Images/open-web-config.png" target="_blank"><img src="Images/open-web-config.png" alt="Opening Web.config" style="max-width:100%;"></a></p>
+
+<p><em>Opening Web.config</em></p>
+</li>
+<li>
+<p>Return to the Azure Portal for a moment and open the blade for the storage account you created in Exercise 1. Then click the key icon near the top of the blade. </p>
+
+<p><a href="Images/view-access-keys.png" target="_blank"><img src="Images/view-access-keys.png" alt="Viewing the storage account's access keys" style="max-width:100%;"></a></p>
+
+<p><em>Viewing the storage account's access keys</em></p>
+</li>
+<li>
+<p>Click the <strong>Copy</strong> button to the right of <strong>key1</strong> to copy the access key to the clipboard.</p>
+
+<p><a href="Images/copy-access-key.png" target="_blank"><img src="Images/copy-access-key.png" alt="Copying the storage account's access key" style="max-width:100%;"></a></p>
+
+<p><em>Copying the storage account's access key</em></p>
+</li>
+<li>
+<p>Return to Visual Studio. In Web.config, add the following statement to the &lt;appSettings&gt; section, replacing <em>account_name</em> with the name of the storage account you created in Exercise 1, and <em>account_key</em> with the access key you copied to the clipboard in the previous step.</p>
+
+<div class="highlight highlight-source-cs"><pre>&lt;<span class="pl-k">add</span> key=<span class="pl-s"><span class="pl-pds">"</span>StorageConnectionString<span class="pl-pds">"</span></span> <span class="pl-k">value</span>=<span class="pl-s"><span class="pl-pds">"</span>DefaultEndpointsProtocol=https;AccountName=account_name;AccountKey=account_key<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<p>Now save your changes and close Web.config.</p>
+</li>
+<li>
+<p>In the Solution Explorer window, find the file named _Layout.cshtml in the Views/Shared folder. Double-click the file to open it.</p>
+
+<blockquote>
+<p>In an ASP.NET MVC project, _Layout.cshtml is a special view that serves as a template for other views. You typically define header and footer content that is common to all views in _Layout.cshtml.</p>
+</blockquote>
+
+<p><a href="Images/open-layout-cshtml.png" target="_blank"><img src="Images/open-layout-cshtml.png" alt="Opening _Layout.cshtml" style="max-width:100%;"></a></p>
+
+<p><em>Opening _Layout.cshtml</em></p>
+</li>
+<li>
+<p>On line 29, change "Application name" to "Intellipix." Here is the edited line of code:</p>
+
+<div class="highlight highlight-source-cs"><pre>@Html.ActionLink(<span class="pl-s"><span class="pl-pds">"</span>Intellipix<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Index<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Home<span class="pl-pds">"</span></span>, <span class="pl-k">new</span> { area = <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span> }, <span class="pl-k">new</span> { @<span class="pl-k">class</span> = <span class="pl-s"><span class="pl-pds">"</span>navbar-brand<span class="pl-pds">"</span></span> })</pre></div>
+
+<p>Save your changes and close _Layout.cshtml.</p>
+</li>
+<li>
+<p>In Solution Explorer, right-click the project's Models folder and select <strong>Add -&gt; Class</strong>:</p>
+
+<p><a href="Images/add-class-to-models-folder.png" target="_blank"><img src="Images/add-class-to-models-folder.png" alt="Adding a class to the Models folder" style="max-width:100%;"></a></p>
+
+<p><em>Adding a class to the Models folder</em></p>
+</li>
+<li>
+<p>Type "BlobInfo.cs" (without quotation marks) into the <strong>Name</strong> box, and then click <strong>OK</strong>.</p>
+
+<p><a href="Images/add-blobinfo-class.png" target="_blank"><img src="Images/add-blobinfo-class.png" alt="Naming the new class" style="max-width:100%;"></a></p>
+
+<p><em>Naming the new class</em></p>
+</li>
+<li>
+<p>Replace the empty BlobInfo class with the following class definition, and note that you are making the class public rather than private:</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">BlobInfo</span>
+{
+    <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">ImageUri</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">ThumbnailUri</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">Caption</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}</pre></div>
+
+<p>Now save your changes and close BlobInfo.cs.</p>
+</li>
+<li>
+<p>In Solution Explorer, find HomeController.cs in the Views/Home folder and double-click it to open it.</p>
+
+<p><a href="Images/open-home-controller.png" target="_blank"><img src="Images/open-home-controller.png" alt="Opening HomeController.cs" style="max-width:100%;"></a></p>
+
+<p><em>Opening HomeController.cs</em></p>
+</li>
+<li>
+<p>Add the following using statements to the top of the file:</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> ImageResizer<span class="pl-k">;</span>
+<span class="pl-k">using</span> Intellipix.Models<span class="pl-k">;</span>
+<span class="pl-k">using</span> Microsoft.Azure<span class="pl-k">;</span>  
+<span class="pl-k">using</span> Microsoft.WindowsAzure.Storage<span class="pl-k">;</span>
+<span class="pl-k">using</span> Microsoft.WindowsAzure.Storage.Blob<span class="pl-k">;</span>
+<span class="pl-k">using</span> System.Threading.Tasks<span class="pl-k">;</span>
+<span class="pl-k">using</span> System.IO<span class="pl-k">;</span></pre></div>
+</li>
+<li>
+<p>Replace the <em>Index</em> method in HomeController.cs with the following implementation:</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> ActionResult Index()
+{
+    <span class="pl-c">// Pass a list of blob URIs in ViewBag</span>
+    CloudStorageAccount account = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting(<span class="pl-s"><span class="pl-pds">"</span>StorageConnectionString<span class="pl-pds">"</span></span>));
+    CloudBlobClient client = account.CreateCloudBlobClient();
+    CloudBlobContainer container = client.GetContainerReference(<span class="pl-s"><span class="pl-pds">"</span>photos<span class="pl-pds">"</span></span>);
+    List&lt;BlobInfo&gt; blobs = <span class="pl-k">new</span> List&lt;BlobInfo&gt;();
+
+    <span class="pl-k">foreach</span> (IListBlobItem item <span class="pl-k">in</span> container.ListBlobs())
+    {
+        <span class="pl-k">var</span> blob = item <span class="pl-k">as</span> CloudBlockBlob;
+
+        <span class="pl-k">if</span> (blob != <span class="pl-c1">null</span>)
+        {
+            blobs.Add(<span class="pl-k">new</span> BlobInfo()
+            {
+                ImageUri = blob.Uri.ToString(),
+                ThumbnailUri = blob.Uri.ToString().Replace(<span class="pl-s"><span class="pl-pds">"</span>/photos/<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>/thumbnails/<span class="pl-pds">"</span></span>)
+            });
+        }
+    }
+
+    ViewBag.Blobs = blobs.ToArray();
+    <span class="pl-k">return</span> View();
+}</pre></div>
+
+<p>The modified <em>Index</em> method enumerates the blobs in the "photos" container and passes an array of BlobInfo objects representing those blobs to the view through ASP.NET MVC's ViewBag property. In a moment, you will modify the view to enumerate these objects and display a collection of photo thumbnails. The classes used to access your storage account and enumerate the blobs — CloudStorageAccount, CloudBlobClient, and CloudBlobContainer — come from the WindowsAzure.Storage package you installed from NuGet.</p>
+</li>
+<li>
+<p>Add the following method to the HomeController class in HomeController.cs:</p>
+
+<div class="highlight highlight-source-cs"><pre>[HttpPost]
+<span class="pl-k">public</span> <span class="pl-k">async</span> Task&lt;ActionResult&gt; Upload(HttpPostedFileBase file)
+{
+    <span class="pl-k">if</span> (file != <span class="pl-c1">null</span> &amp;&amp; file.ContentLength &gt; <span class="pl-c1">0</span>)
+    {
+        <span class="pl-c">// Make sure the user selected an image file</span>
+        <span class="pl-k">if</span> (!file.ContentType.StartsWith(<span class="pl-s"><span class="pl-pds">"</span>image<span class="pl-pds">"</span></span>))
+        {
+            TempData[<span class="pl-s"><span class="pl-pds">"</span>Message<span class="pl-pds">"</span></span>] = <span class="pl-s"><span class="pl-pds">"</span>Only image files may be uploaded<span class="pl-pds">"</span></span>;
+        }
+        <span class="pl-k">else</span>
+        {
+            <span class="pl-c">// Save the original image in the "photos" container</span>
+            CloudStorageAccount account = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting(<span class="pl-s"><span class="pl-pds">"</span>StorageConnectionString<span class="pl-pds">"</span></span>));
+            CloudBlobClient client = account.CreateCloudBlobClient();
+            CloudBlobContainer container = client.GetContainerReference(<span class="pl-s"><span class="pl-pds">"</span>photos<span class="pl-pds">"</span></span>);
+            CloudBlockBlob photo = container.GetBlockBlobReference(Path.GetFileName(file.FileName));
+            <span class="pl-k">await</span> photo.UploadFromStreamAsync(file.InputStream);
+            file.InputStream.Seek(<span class="pl-c1">0L</span>, SeekOrigin.Begin);
+
+            <span class="pl-c">// Generate a thumbnail and save it in the "thumbnails" container</span>
+            <span class="pl-k">using</span> (<span class="pl-k">var</span> outputStream = <span class="pl-k">new</span> MemoryStream())
+            {
+                <span class="pl-k">var</span> settings = <span class="pl-k">new</span> ResizeSettings { MaxWidth = <span class="pl-c1">192</span>, Format = <span class="pl-s"><span class="pl-pds">"</span>png<span class="pl-pds">"</span></span> };
+                ImageBuilder.Current.Build(file.InputStream, outputStream, settings);
+                outputStream.Seek(<span class="pl-c1">0L</span>, SeekOrigin.Begin);
+                container = client.GetContainerReference(<span class="pl-s"><span class="pl-pds">"</span>thumbnails<span class="pl-pds">"</span></span>);
+                CloudBlockBlob thumbnail = container.GetBlockBlobReference(Path.GetFileName(file.FileName));
+                <span class="pl-k">await</span> thumbnail.UploadFromStreamAsync(outputStream);
+            }
+        }
+    }
+
+    <span class="pl-c">// redirect back to the index action to show the form once again</span>
+    <span class="pl-k">return</span> RedirectToAction(<span class="pl-s"><span class="pl-pds">"</span>Index<span class="pl-pds">"</span></span>);
+}</pre></div>
+
+<p>This is the method that's called when you upload a photo. It stores each uploaded image as a blob in the "photos" container, creates a thumbnail image from the original image using the ImageResizer packager you installed from NuGet, and stores the thumbnail image as a blob in the "thumbnails" container.</p>
+</li>
+<li><p>In Solution Explorer, find Index.cshmtl in the Views/Home folder and double-click it to open it. This is the view that serves as the application's home page.</p></li>
+<li>
+<p>Replace the contents of Index.cshtml with the following code and markup:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>@{
+    ViewBag.Title = "Intellipix Home Page";
+}
+
+@using Intellipix.Models
+
+&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>container<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>padding-top: 24px<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>row<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-sm-8<span class="pl-pds">"</span></span>&gt;
+            @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>upload<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>display: none<span class="pl-pds">"</span></span> <span class="pl-e">onchange</span>=<span class="pl-s"><span class="pl-pds">"</span>$('#submit').click();<span class="pl-pds">"</span></span> /&gt;
+                &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>button<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>Upload a Photo<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>btn btn-primary btn-lg<span class="pl-pds">"</span></span> <span class="pl-e">onclick</span>=<span class="pl-s"><span class="pl-pds">"</span>$('#upload').click();<span class="pl-pds">"</span></span> /&gt;
+                &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>submit<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>submit<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>display: none<span class="pl-pds">"</span></span> /&gt;
+            }
+        &lt;/<span class="pl-ent">div</span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-sm-4 pull-right<span class="pl-pds">"</span></span>&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+
+    &lt;<span class="pl-ent">hr</span> /&gt;
+
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>row<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-sm-12<span class="pl-pds">"</span></span>&gt;
+            @foreach (BlobInfo blob in ViewBag.Blobs)
+            {
+                &lt;<span class="pl-ent">img</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>@blob.ThumbnailUri<span class="pl-pds">"</span></span> <span class="pl-e">title</span>=<span class="pl-s"><span class="pl-pds">"</span>@blob.Caption<span class="pl-pds">"</span></span> <span class="pl-e">width</span>=<span class="pl-s"><span class="pl-pds">"</span>192<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>padding-right: 16px; padding-bottom: 16px<span class="pl-pds">"</span></span> /&gt;
+            }
+        &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;
+
+@section scripts
+{
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span> <span class="pl-e">language</span>=<span class="pl-s"><span class="pl-pds">"</span>javascript<span class="pl-pds">"</span></span>&gt;</span>
+<span class="pl-s1">        <span class="pl-k">if</span> (<span class="pl-s"><span class="pl-pds">"</span>@TempData[<span class="pl-pds">"</span></span>Message<span class="pl-s"><span class="pl-pds">"</span>]<span class="pl-pds">"</span></span> <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>) {</span>
+<span class="pl-s1">            <span class="pl-en">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>@TempData[<span class="pl-pds">"</span></span>Message<span class="pl-s"><span class="pl-pds">"</span>]<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1">        }</span>
+<span class="pl-s1">    &lt;/<span class="pl-ent">script</span>&gt;</span>
+}</pre></div>
+
+<p>The language used here is <a href="http://www.asp.net/web-pages/overview/getting-started/introducing-razor-syntax-c">Razor</a>, which lets you embed executable code in HTML markup. The <a href="https://github.com/foreach" class="user-mention">@foreach</a> statement in the middle of the file enumerates the BlobInfo objects passed from the controller in ViewBag and creates HTML &lt;img&gt; elements from them. The src property of each element is initialized with the URI of the blob containing the image thumbnail.</p>
+</li>
+<li>
+<p>Use Visual Studio's <strong>Debug -&gt; Start Without Debugging</strong> command (or press <strong>Ctrl+F5</strong>) to launch the application in your browser. Then click the <strong>Upload a Photo</strong> button and upload one of the images found in the "resources/photos" folder of this lab. After a few seconds, a thumbnail version of the photo appears on the page:</p>
+
+<p><a href="Images/one-photo-uploaded.png" target="_blank"><img src="Images/one-photo-uploaded.png" alt="Intellipix with one photo uploaded" style="max-width:100%;"></a></p>
+
+<p><em>Intellipix with one photo uploaded</em></p>
+</li>
+<li>
+<p>Upload a few more images from this lab's "resources/photos" folder. Confirm that they appear on the page, too:</p>
+
+<p><a href="Images/three-photos-uploaded.png" target="_blank"><img src="Images/three-photos-uploaded.png" alt="Intellipix with three photos uploaded" style="max-width:100%;"></a></p>
+
+<p><em>Intellipix with three photos uploaded</em></p>
+</li>
+<li>
+<p>Return to the Microsoft Azure Storage Explorer (or restart if it you didn't leave it running) and double-click the "photos" container under the storage account you created in Exercise 1. The number of blobs in the container should equal the number of photos you uploaded. Double-click one of the blobs to download it and see the image stored in the blob.</p>
+
+<p><a href="Images/photos-container.png" target="_blank"><img src="Images/photos-container.png" alt='Contents of the "photos" container' style="max-width:100%;"></a></p>
+
+<p><em>Contents of the "photos" container</em></p>
+</li>
+<li><p>Open the "thumbnails" container in Storage Explorer. How many blobs do you see there? Open one of the blobs to see what's inside. These are the thumbnail images generated from the image uploads.</p></li>
+<li>
+<p>Do a <strong>View Source</strong> in your browser to view the source for the page. Find the &lt;img&gt; elements representing the image thumbnails. Observe that the URLs assigned to the images refer <strong>directly to blobs in blob storage</strong>. This is possible because you set the containers' <strong>Access type</strong> to <strong>Blob</strong>, which makes the blobs inside them publicly accessible.</p>
+
+<blockquote>
+<p>What would happen if the containers were private? If you're not sure, try it and see. Temporaily change the "thumbnails" container's <strong>Access type</strong> to <strong>Private</strong> in the Azure Portal. Then refresh the Intellipix page in your browser and see what happens.</p>
+</blockquote>
+</li>
+</ol>
+
+<p>The app doesn't yet offer a way to view the original images that you uploaded. Ideally, clicking an image thumbnail should display the original image. Let's implement that before proceeding further. </p>
+
+<p><a name="Exercise4"></a></p>
+
+<h2>Exercise 4: Add a lightbox for viewing photos</h2>
+
+<p>In this exercise, you will use a free, open-source JavaScript library to add a lightbox viewer enabling users to see the original images that they uploaded (rather than just the image thumbnails). The files are provided for you in subfolders of this lab's "resources" folder. All you have to do is integrate them into the project and make a minor modification to Index.cshtml.</p>
+
+<ol>
+<li><p>In Visual Studio's Solution Explorer window, right-click the Scripts folder and use the <strong>Add -&gt; Existing Item</strong> command to add lightbox.js, found in this lab's "resources/scripts" folder, to the project's Scripts folder.</p></li>
+<li><p>Right-click the Content folder and use the <strong>Add -&gt; Existing Item</strong> command to add lightbox.css, found in this lab's "resources/css" folder, to the project's Content folder.</p></li>
+<li><p>Right-click the Intellipix project in Solution Explorer and use the <strong>Add -&gt; New Folder</strong> command to add a folder named "Images" to the project.</p></li>
+<li><p>Right-click the Images folder and use the <strong>Add -&gt; Existing Item</strong> command to add the four images found in this lab's "resources/images" folder to the project's Images folder.</p></li>
+<li><p>Open the project's App_Start folder and double-click <strong>BundleConfig.cs</strong> to open the file for editing.</p></li>
+<li>
+<p>Add the following statement to the <em>RegisterBundles</em> method in BundleConfig.cs:</p>
+
+<div class="highlight highlight-source-cs"><pre>bundles.Add(<span class="pl-k">new</span> ScriptBundle(<span class="pl-s"><span class="pl-pds">"</span>~/bundles/lightbox<span class="pl-pds">"</span></span>).Include(
+            <span class="pl-s"><span class="pl-pds">"</span>~/Scripts/lightbox.js<span class="pl-pds">"</span></span>));</pre></div>
+</li>
+<li>
+<p>In the same method, find the statement that defines a StyleBundle named "~/Content/css" and add lightbox.css to the list of style sheets in the bundle. Here is the modified statement:</p>
+
+<div class="highlight highlight-source-cs"><pre>bundles.Add(<span class="pl-k">new</span> StyleBundle(<span class="pl-s"><span class="pl-pds">"</span>~/Content/css<span class="pl-pds">"</span></span>).Include(
+            <span class="pl-s"><span class="pl-pds">"</span>~/Content/bootstrap.css<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>~/Content/site.css<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>~/Content/lightbox.css<span class="pl-pds">"</span></span>));</pre></div>
+
+<p>Now save your changes and close BundleConfig.cs.</p>
+</li>
+<li>
+<p>Open _Layout.cshtml in the project's Views/Shared folder and add the following statement just before the @RenderSection statement near the bottom:</p>
+
+<div class="highlight highlight-source-cs"><pre>@Scripts.Render(<span class="pl-s"><span class="pl-pds">"</span>~/bundles/lightbox<span class="pl-pds">"</span></span>)</pre></div>
+
+<p>Save your changes and close _Layout.cshtml.</p>
+</li>
+<li>
+<p>You're almost there. The final task is to incorporate the lightbox viewer into the home page. To do that, open Index.cshtml (it's in the project's Views/Home folder) and replace the <a href="https://github.com/foreach" class="user-mention">@foreach</a> loop with the following code:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>@foreach (BlobInfo blob in ViewBag.Blobs)
+{
+    &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>@blob.ImageUri<span class="pl-pds">"</span></span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>lightbox<span class="pl-pds">"</span></span> <span class="pl-e">title</span>=<span class="pl-s"><span class="pl-pds">"</span>@blob.Caption<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">img</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>@blob.ThumbnailUri<span class="pl-pds">"</span></span> <span class="pl-e">width</span>=<span class="pl-s"><span class="pl-pds">"</span>192<span class="pl-pds">"</span></span> <span class="pl-e">title</span>=<span class="pl-s"><span class="pl-pds">"</span>@blob.Caption<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>padding-right: 16px; padding-bottom: 16px<span class="pl-pds">"</span></span> /&gt;
+    &lt;/<span class="pl-ent">a</span>&gt;
+}</pre></div>
+
+<p>Save your changes and close Index.cshtml.</p>
+</li>
+<li>
+<p>Use Visual Studio's <strong>Debug -&gt; Start Without Debugging</strong> command (or press <strong>Ctrl+F5</strong>) to launch the application in your browser. Then click one of the images you uploaded earlier. Confirm that a lightbox appears showing an enlarged view of the image.</p>
+
+<p><a href="Images/lightbox-image.png" target="_blank"><img src="Images/lightbox-image.png" alt="An enlarged image" style="max-width:100%;"></a></p>
+
+<p><em>An enlarged image</em></p>
+</li>
+<li><p>Click the <strong>X</strong> in the lower-right corner of the lightbox to dismiss it.</p></li>
+</ol>
+
+<p>Now you have a way to view the images you uploaded. The next step is to do more with those images.</p>
+
+<p><a name="Exercise5"></a></p>
+
+<h2>Exercise 5: Use Cognitive Services to generate metadata</h2>
+
+<p>Now comes the fun part: using <a href="https://www.microsoft.com/cognitive-services/">Microsoft Cognitive Services</a> to generate captions and search keywords for the photos you upload. Cognitive Services is a set of intelligence APIs that you can call from your apps. Among the more than 20 APIs it offers are the <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a> for distilling actionable information from images, the <a href="https://www.microsoft.com/cognitive-services/en-us/emotion-api">Emotion API</a> for recognizing emotion in images and video, and the <a href="https://www.microsoft.com/cognitive-services/en-us/text-analytics-api">Text Analytics API</a> for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available in preview form for you to begin using today.</p>
+
+<p>In this exercise, you will use the Computer Vision API to generate a caption for each image that is uploaded, as well as keywords describing the contents of the image. You will store this data in metadata attached to each blob in the "photos" container.</p>
+
+<ol>
+<li><p>Begin by using the Azure Storage Explorer to delete the blobs in the "photos" container and the "thumbnails" container. (Do not delete the containers themselves.) This will allow you to start fresh with a new batch of images to process with the Computer Vision API.</p></li>
+<li><p>In order to use the Computer Vision API, you need to sign up for a free account and acquire a subscription key. To do that, point your browser to <a href="https://www.microsoft.com/cognitive-services/en-us/subscriptions">https://www.microsoft.com/cognitive-services/en-us/subscriptions</a>.</p></li>
+<li><p>If you are asked to sign in, do so with your Microsoft account.</p></li>
+<li>
+<p>Click <strong>Yes</strong> when asked if this app can access your info.</p>
+
+<p><a href="Images/access-your-info.png" target="_blank"><img src="Images/access-your-info.png" alt="Approving access to personal info" style="max-width:100%;"></a></p>
+
+<p><em>Approving access to personal info</em></p>
+</li>
+<li>
+<p>Scroll down until you find <strong>Computer Vision</strong>. Then check the box next to it.</p>
+
+<p><a href="Images/check-computer-vision.png" target="_blank"><img src="Images/check-computer-vision.png" alt="Requesting access to the Computer Vision API" style="max-width:100%;"></a></p>
+
+<p><em>Requesting access to the Computer Vision API</em></p>
+</li>
+<li>
+<p>Scroll to the bottom of the page. Check the box to agree to the terms and privacy statement, and then click the <strong>Subscribe</strong> button.</p>
+
+<p><a href="Images/subscribe.png" target="_blank"><img src="Images/subscribe.png" alt="Subscribing to the Computer Vision API" style="max-width:100%;"></a></p>
+
+<p><em>Subscribing to the Computer Vision API</em></p>
+</li>
+<li>
+<p>Click <strong>Copy</strong> under <strong>Key 1</strong> to copy your Computer Vision subscription key to the clipboard.</p>
+
+<p><a href="Images/computer-vision-key.png" target="_blank"><img src="Images/computer-vision-key.png" alt="Copying the subscription key to the clipboard" style="max-width:100%;"></a></p>
+
+<p><em>Copying the subscription key to the clipboard</em></p>
+</li>
+<li>
+<p>Return to Visual Studio. Open the Web.config file at the root of the project and add the following statement to the &lt;appSettings&gt; section of the file, replacing <em>subscription_key</em> with the key you copied to the clipboard in the previous step:</p>
+
+<div class="highlight highlight-source-cs"><pre>&lt;<span class="pl-k">add</span> key=<span class="pl-s"><span class="pl-pds">"</span>SubscriptionKey<span class="pl-pds">"</span></span> <span class="pl-k">value</span>=<span class="pl-s"><span class="pl-pds">"</span>subscription_key<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<p>Save your changes and close Web.config.</p>
+</li>
+<li>
+<p>In Solution Explorer, right-click the project and use the <strong>Manage NuGet Packages...</strong> command to install a package named <strong>Microsoft.ProjectOxford.Vision</strong> from NuGet. This package contains types for calling the Computer Vision API. As usual, approve any changes and licenses that are presented to you.</p>
+
+<p><a href="Images/install-vision-package.png" target="_blank"><img src="Images/install-vision-package.png" alt="Installing Microsoft.ProjectOxford.Vision" style="max-width:100%;"></a></p>
+
+<p><em>Installing Microsoft.ProjectOxford.Vision</em></p>
+</li>
+<li>
+<p>Open HomeController.cs in the project's Controllers folder and add the following using statement at the top of the file:</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> Microsoft.ProjectOxford.Vision<span class="pl-k">;</span></pre></div>
+</li>
+<li>
+<p>Add the following statements to the <em>Upload</em> method, immediately after the block of code that begins with the comment "Generate a thumbnail and save it in the thumbnails container." This code passes the URL of the blob containing the image that was uploaded to the Computer Vision API, and requests that Computer Vision generate a description for the image. In addition to generating a description, the Computer Vision API also generates a list of keywords describing what it sees in the image. Your code stores the computer-generated description and the keywords in the blob's metadata so they can be retrieved later on.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-c">// Submit the image to Azure's Computer Vision API</span>
+VisionServiceClient vision = <span class="pl-k">new</span> VisionServiceClient(CloudConfigurationManager.GetSetting(<span class="pl-s"><span class="pl-pds">"</span>SubscriptionKey<span class="pl-pds">"</span></span>));
+VisualFeature[] features = <span class="pl-k">new</span> VisualFeature[] { VisualFeature.Description };
+<span class="pl-k">var</span> result = <span class="pl-k">await</span> vision.AnalyzeImageAsync(photo.Uri.ToString(), features);
+
+<span class="pl-c">// Record the image description and tags in blob metadata</span>
+photo.Metadata.Add(<span class="pl-s"><span class="pl-pds">"</span>Caption<span class="pl-pds">"</span></span>, result.Description.Captions[<span class="pl-c1">0</span>].Text);
+
+<span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; result.Description.Tags.Length; i++)
+{
+    <span class="pl-k">string</span> key = String.Format(<span class="pl-s"><span class="pl-pds">"</span>Tag{0}<span class="pl-pds">"</span></span>, i);
+    photo.Metadata.Add(key, result.Description.Tags[i]);
+}
+
+<span class="pl-k">await</span> photo.SetMetadataAsync();</pre></div>
+</li>
+<li>
+<p>Replace the <em>foreach</em> block in the <em>Index</em> method with the following statements:</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">foreach</span> (IListBlobItem item <span class="pl-k">in</span> container.ListBlobs())
+{
+    <span class="pl-k">var</span> blob = item <span class="pl-k">as</span> CloudBlockBlob;
+
+    <span class="pl-k">if</span> (blob != <span class="pl-c1">null</span>)
+    {
+        blob.FetchAttributes(); <span class="pl-c">// Get blob metadata</span>
+        <span class="pl-k">var</span> caption = blob.Metadata.ContainsKey(<span class="pl-s"><span class="pl-pds">"</span>Caption<span class="pl-pds">"</span></span>) ? blob.Metadata[<span class="pl-s"><span class="pl-pds">"</span>Caption<span class="pl-pds">"</span></span>] : blob.Name;
+
+        blobs.Add(<span class="pl-k">new</span> BlobInfo()
+        {
+            ImageUri = blob.Uri.ToString(),
+            ThumbnailUri = blob.Uri.ToString().Replace(<span class="pl-s"><span class="pl-pds">"</span>/photos/<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>/thumbnails/<span class="pl-pds">"</span></span>),
+            Caption = caption
+        });
+    }
+}</pre></div>
+
+<p>The modified <em>foreach</em> block calls <em>FetchAttributes</em> to fetch the metadata for the blob. Then it extracts the computer-generated description from the metadata and adds it to the BlobInfo object passed to the view.</p>
+
+<p>Now save your changes and close HomeController.cs.</p>
+</li>
+<li><p>Use Visual Studio's <strong>Debug -&gt; Start Without Debugging</strong> command (or press <strong>Ctrl+F5</strong>) to launch the application in your browser. Upload a few images from this lab's "resources/photos" folder as you did before.</p></li>
+<li>
+<p>Hover the cursor over one of the thumbnails. Confirm that a tooltip window appears containing the computer-generated caption for the image.</p>
+
+<p><a href="Images/thumbnail-with-tooltip.png" target="_blank"><img src="Images/thumbnail-with-tooltip.png" alt="The computer-generated caption" style="max-width:100%;"></a></p>
+
+<p><em>The computer-generated caption</em></p>
+</li>
+<li>
+<p>Click one of the thumbnails to display the original image in a lightbox. Confirm that the computer-generated caption appears at the bottom of the lightbox. Then dismiss the lightbox.</p>
+
+<p><a href="Images/lightbox-with-caption.png" target="_blank"><img src="Images/lightbox-with-caption.png" alt="Lightbox with computer-generated caption" style="max-width:100%;"></a></p>
+
+<p><em>Lightbox with computer-generated caption</em></p>
+</li>
+<li>
+<p>Want to see where the metadata generated by the Computer Vision API is being stored? Use the Azure Storage Explorer to open the "photos" container. Right-click any of the blobs in the container and select <strong>Properties</strong>. In the ensuing dialog, you'll see a list of the metadata attached to the blob. Each metadata item is a key-value pair. The computer-generated image description is stored in the item named "caption," while the metadata items named "tag0," "tag1," and so on hold the additional keywords created for the image.</p>
+
+<p><a href="Images/blob-metadata.png" target="_blank"><img src="Images/blob-metadata.png" alt="Blob metadata" style="max-width:100%;"></a></p>
+
+<p><em>Blob metadata</em></p>
+
+<p>When you're finished, click <strong>Cancel</strong> to close the Properties dialog.</p>
+</li>
+</ol>
+
+<p>In the next exercise, you'll put the extra keywords to work by adding a search feature to the app.</p>
+
+<p><a name="Exercise6"></a></p>
+
+<h2>Exercise 6: Add search to the app</h2>
+
+<p>In this exercise, you will add a search box to the home page enabling users to do keyword searches on the images that they have uploaded. The keywords are the ones generated by the Computer Vision API and stored in blob metadata.</p>
+
+<ol>
+<li>
+<p>Open Index.cshtml in the project's Views/Home folder and add the following statements to the empty &lt;div&gt; element with the class="col-sm-4 pull-right" attribute:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>@using (Html.BeginForm("Search", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "navbar-form" }))
+{
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>input-group<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>form-control<span class="pl-pds">"</span></span> <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Search photos<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>term<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>@ViewBag.Search<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>max-width: 800px<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>input-group-btn<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">button</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>btn btn-primary<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>submit<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">i</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>glyphicon glyphicon-search<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">i</span>&gt;
+            &lt;/<span class="pl-ent">button</span>&gt;
+        &lt;/<span class="pl-ent">span</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+}</pre></div>
+
+<p>This code and markup adds a search box and a <strong>Search</strong> button to the home page.</p>
+</li>
+<li>
+<p>Open HomeController.cs in the project's Controllers folder and add the following method to the HomeController class:</p>
+
+<div class="highlight highlight-source-cs"><pre>[HttpPost]
+<span class="pl-k">public</span> ActionResult Search(<span class="pl-k">string</span> term)
+{
+    <span class="pl-k">return</span> RedirectToAction(<span class="pl-s"><span class="pl-pds">"</span>Index<span class="pl-pds">"</span></span>, <span class="pl-k">new</span> { id = term });
+}</pre></div>
+
+<p>This is the method that's called when the user clicks the <strong>Search</strong> button added in the previous step. It refreshes the page and includes a search parameter in the URL.</p>
+</li>
+<li>
+<p>Replace the <em>Index</em> method with the following implementation:</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> ActionResult Index(<span class="pl-k">string</span> id)
+{
+    <span class="pl-c">// Pass a list of blob URIs and captions in ViewBag</span>
+    CloudStorageAccount account = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting(<span class="pl-s"><span class="pl-pds">"</span>StorageConnectionString<span class="pl-pds">"</span></span>));
+    CloudBlobClient client = account.CreateCloudBlobClient();
+    CloudBlobContainer container = client.GetContainerReference(<span class="pl-s"><span class="pl-pds">"</span>photos<span class="pl-pds">"</span></span>);
+    List&lt;BlobInfo&gt; blobs = <span class="pl-k">new</span> List&lt;BlobInfo&gt;();
+
+    <span class="pl-k">foreach</span> (IListBlobItem item <span class="pl-k">in</span> container.ListBlobs())
+    {
+        <span class="pl-k">var</span> blob = item <span class="pl-k">as</span> CloudBlockBlob;
+
+        <span class="pl-k">if</span> (blob != <span class="pl-c1">null</span>)
+        {
+            blob.FetchAttributes(); <span class="pl-c">// Get blob metadata</span>
+
+            <span class="pl-k">if</span> (String.IsNullOrEmpty(id) || HasMatchingMetadata(blob, id))
+            {
+                <span class="pl-k">var</span> caption = blob.Metadata.ContainsKey(<span class="pl-s"><span class="pl-pds">"</span>Caption<span class="pl-pds">"</span></span>) ? blob.Metadata[<span class="pl-s"><span class="pl-pds">"</span>Caption<span class="pl-pds">"</span></span>] : blob.Name;
+
+                blobs.Add(<span class="pl-k">new</span> BlobInfo()
+                {
+                    ImageUri = blob.Uri.ToString(),
+                    ThumbnailUri = blob.Uri.ToString().Replace(<span class="pl-s"><span class="pl-pds">"</span>/photos/<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>/thumbnails/<span class="pl-pds">"</span></span>),
+                    Caption = caption
+                });
+            }
+        }
+    }
+
+    ViewBag.Blobs = blobs.ToArray();
+    ViewBag.Search = id; <span class="pl-c">// Prevent search box from losing its content</span>
+    <span class="pl-k">return</span> View();
+}</pre></div>
+
+<p>Observe that the <em>Index</em> method now accepts a parameter ("id") that contains the value the user typed into the search box. An empty or missing "id" parameter indicates that all the photos should be displayed.</p>
+</li>
+<li>
+<p>Add the following helper method to the HomeController class:</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">private</span> <span class="pl-k">bool</span> HasMatchingMetadata(CloudBlockBlob blob, <span class="pl-k">string</span> term)
+{
+    <span class="pl-k">foreach</span> (<span class="pl-k">var</span> item <span class="pl-k">in</span> blob.Metadata)
+    {
+        <span class="pl-k">if</span> (item.Key.StartsWith(<span class="pl-s"><span class="pl-pds">"</span>Tag<span class="pl-pds">"</span></span>) &amp;&amp; item.Value.Equals(term, StringComparison.InvariantCultureIgnoreCase))
+            <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+    }
+
+    <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+}</pre></div>
+
+<p>This method is called by the <em>Index</em> method to determine whether the metadata keywords attached to a given image blob contain the search term that the user entered.</p>
+</li>
+<li><p>Launch the application again and upload several photos. <strong>Feel free to upload photos of your own</strong>, not just the ones provided with the lab.</p></li>
+<li>
+<p>Type a keyword such as "river" into the search box. Then click the <strong>Search</strong> button.</p>
+
+<p><a href="Images/enter-search-term.png" target="_blank"><img src="Images/enter-search-term.png" alt="Performing a search" style="max-width:100%;"></a></p>
+
+<p><em>Performing a search</em></p>
+</li>
+<li>
+<p>Search results will vary depending on what you typed and what images you uploaded. But the result should be a list of matching images:</p>
+
+<p><a href="Images/search-results.png" target="_blank"><img src="Images/search-results.png" alt="Search results" style="max-width:100%;"></a></p>
+
+<p><em>Search results</em></p>
+</li>
+<li><p>Click the browser's back button to display all of the images again.</p></li>
+</ol>
+
+<p>You're almost finished, but the final and most important step remains. It is time to deploy the app to the cloud.</p>
+
+<p><a name="Exercise7"></a></p>
+
+<h2>Exercise 7: Deploy the app to Azure</h2>
+
+<p>In this exercise, you will deploy the app to Azure using Visual Studio's Web Deploy feature. Up to now, you have been running the app locally. Web Deploy makes it incredibly easy to publish to the Web without having to FTP up a bunch of files. You will be deploying to the Azure App Service that was created when you created the project in Visual Studio. (Remember that <strong>Host in the cloud</strong> box you checked? If not, refer to Exercise 3, Step 2.)</p>
+
+<ol>
+<li>
+<p>Right-click the project in Solution Explorer and select <strong>Publish...</strong> from the context menu.</p>
+
+<p><a href="Images/publish-to-azure.png" target="_blank"><img src="Images/publish-to-azure.png" alt="Publishing the app" style="max-width:100%;"></a></p>
+
+<p><em>Publishing the app</em></p>
+</li>
+<li>
+<p>In the ensuing dialog, make sure <strong>Web Deploy</strong> is selected as the <strong>Publish method</strong>. Then click the <strong>Publish</strong> button.</p>
+
+<p><a href="Images/publish-dialog.png" target="_blank"><img src="Images/publish-dialog.png" alt="Deploying to the Web from Visual Studio" style="max-width:100%;"></a></p>
+
+<p><em>Deploying to the Web from Visual Studio</em></p>
+</li>
+<li>
+<p>After a few moments, the app will appear in a browser window. Note the URL in the address bar. The app is no longer running locally; it's on the Web, where it's reachable by everyone.</p>
+
+<p><a href="Images/intellipix.png" target="_blank"><img src="Images/intellipix.png" alt="The finished product!" style="max-width:100%;"></a></p>
+
+<p><em>The finished product!</em></p>
+</li>
+</ol>
+
+<p>If you make changes to the app and want to push the changes out to the Web, simply go through the Publish process again. Of course, you can still test your changes locally before publishing to the Web.</p>
+
+<h2>Summary</h2>
+
+<p>In this hands-on lab, you learned how to:</p>
+
+<ul>
+<li>Create an Azure storage account and use it as a backing store for an app</li>
+<li>Create a Web app in Visual Studio, test it locally, and deploy it to Azure</li>
+<li>Write code that uploads blobs to blob storage and attaches metadata to them</li>
+<li>Consume blob metadata to implement search</li>
+<li>Use Microsoft's Computer Vision API to generate metadata from images</li>
+</ul>
+
+<p>There is much more that you could do to develop Intellipix and to leverage Azure even further. For example, you could add support for authenticating users and deleting photos, and rather than force the user to wait for Cognitive Services to process a photo following an upload, you could use <a href="https://azure.microsoft.com/en-us/services/functions/">Azure Functions</a> to call the Computer Vision API asynchronously each time an image is added to blob storage. You could even use Cognitive Services to detect faces in the photos and analyze the emotions depicted by those faces. With the cloud as your platform, the sky is the limit (pun intended).</p>
+
+<hr>
+
+<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

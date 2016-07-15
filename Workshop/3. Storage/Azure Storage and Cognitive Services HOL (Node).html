@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Azure Storage and Cognitive Services HOL (Node)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<p><a name="HOLTitle"></a></p>
+
+<h1>Azure Storage and Cognitive Services</h1>
+
+<hr>
+
+<p><a name="Overview"></a></p>
+
+<h2>Overview</h2>
+
+<p>Microsoft Azure Storage is a set of services that allows you to store large volumes of data in a cost-effective manner and in a way that makes the data readily and reliably available to services and applications that consume it. Data committed to Azure Storage can be stored in blobs, tables, queues, or files. <a href="http://azure.microsoft.com/en-us/services/storage/blobs/">Azure blobs</a> are ideal for storing images, videos, and other types of data, and are frequently used to provide input to and capture output from other Azure services such as <a href="http://azure.microsoft.com/en-us/services/stream-analytics/">Azure Stream Analytics</a>. <a href="http://azure.microsoft.com/en-us/services/storage/tables/">Azure tables</a> provide NoSQL storage for semi-structured data. <a href="http://azure.microsoft.com/en-us/services/storage/queues/">Azure queues</a> support queued message transfers between applications (or parts of applications) and can be used to make applications more scalable and robust by loosely coupling them together. Finally, <a href="http://azure.microsoft.com/en-us/services/storage/files">Azure Files</a> use the Server Message Block (SMB) protocol to share files through the cloud and access storage as network drives.</p>
+
+<p>Data stored in Microsoft Azure Storage can be accessed over HTTP or HTTPS using straightforward REST APIs, or it can be accessed using rich client libraries available for many popular languages and platforms, including .NET, Java, Android, Node.js, PHP, Ruby, and Python. The <a href="https://portal.azure.com">Azure Portal</a> includes features for working with Azure Storage, but richer functionality is available from third-party tools, many of which are free and some of which work cross-platform.</p>
+
+<p>In this lab, you will use Visual Studio Code to write a Node.js app that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in Node.js, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using <a href="https://www.microsoft.com/cognitive-services/">Microsoft Cognitive Services</a>, a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a> to generate a caption for the image as well as searchable metadata describing the contents of the image and an image thumbnail. And you will discover how easy it is to deploy apps to the cloud using Git and Visual Studio Code.</p>
+
+<p><a name="Objectives"></a></p>
+
+<h3>Objectives</h3>
+
+<p>In this hands-on lab, you will learn how to:</p>
+
+<ul>
+<li>Create a storage account and containers using the Azure Portal</li>
+<li>Write a Node.js app in Visual Studio Code and deploy it to Azure using Git</li>
+<li>Read and write blobs and attach metadata to them</li>
+<li>Use the Computer Vision API to extract information from images and generate thumbnails</li>
+<li>Use the cross-platform <a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a> to work with Azure Storage</li>
+</ul>
+
+<p><a name="Prerequisites"></a></p>
+
+<h3>Prerequisites</h3>
+
+<p>The following are required to complete this hands-on lab:</p>
+
+<ul>
+<li>An active Microsoft Azure subscription. Use the one you created in Lab 1, or <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>
+</li>
+<li><a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a></li>
+<li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
+<li>
+<a href="https://git-scm.com/downloads">Git</a> version 2.0 or higher</li>
+<li>
+<a href="https://nodejs.org/en/download/">Node.js</a> version 4 or higher</li>
+</ul>
+
+<hr>
+
+<p><a name="Exercises"></a></p>
+
+<h2>Exercises</h2>
+
+<p>This hands-on lab includes the following exercises:</p>
+
+<ul>
+<li><a href="#Exercise1">Exercise 1: Create a storage account</a></li>
+<li><a href="#Exercise2">Exercise 2: Run the Microsoft Azure Storage Explorer</a></li>
+<li><a href="#Exercise3">Exercise 3: Get a subscription key for the Computer Vision API</a></li>
+<li><a href="#Exercise4">Exercise 4: Write the app in Visual Studio Code</a></li>
+<li><a href="#Exercise5">Exercise 5: Test the app in your browser</a></li>
+<li><a href="#Exercise8">Exercise 6: Deploy the app to Azure</a></li>
+</ul>
+
+<p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
+
+<hr>
+
+<p><a name="Exercise1"></a></p>
+
+<h2>Exercise1: Create a storage account</h2>
+
+<p>The <a href="https://portal.azure.com">Azure Portal</a> allows you to perform basic storage operations such as creating storage accounts, creating containers, and managing access keys. In this exercise, you will use the portal to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.</p>
+
+<ol>
+<li><p>Go to the <a href="https://portal.azure.com/">Azure Portal</a> and sign in using your Microsoft account.</p></li>
+<li>
+<p>The first step in using Azure Storage is to create a storage account. To create a storage account, click <strong>+ NEW</strong> in the ribbon on the left. Then click <strong>Data + Storage</strong>, followed by <strong>Storage account</strong>.</p>
+
+<p><a href="images/new-storage-account.png" target="_blank"><img src="images/new-storage-account.png" alt="Creating a storage account" style="max-width:100%;"></a></p>
+
+<p><em>Creating a storage account</em></p>
+</li>
+<li>
+<p>In the ensuing "Create storage account" blade, enter a name for the new storage account in <strong>Name</strong> field. The name is important, because it forms one part of the URL through which blobs created under this account are accessed.</p>
+
+<blockquote>
+<p>Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure. If someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the <strong>Name</strong> field.</p>
+</blockquote>
+
+<p>Once you have a name that Azure will accept (as indicated by the green check mark in the <strong>Name</strong> field), make sure <strong>Resource manager</strong> is selected as the deployment model and <strong>General purpose</strong> is selected as the account kind. Then select <strong>Locally-redundant storage (LRS)</strong> as the replication type.</p>
+
+<blockquote>
+<p>Locally redundant storage is the most cost-effective storage option. It prevents data stored under this storage account from being replicated in other data centers, but it ensures that the data will be replicated at least three times within the chosen data center.</p>
+</blockquote>
+
+<p>Select <strong>Create new</strong> under <strong>Resource group</strong> and type "Intellipix" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the <strong>Location</strong> box, and clicking the <strong>Create</strong> button at the bottom of the blade to create the new storage account.</p>
+
+<p><a href="images/create-storage-account.png" target="_blank"><img src="images/create-storage-account.png" alt="Specifying parameters for a new storage account" style="max-width:100%;"></a></p>
+
+<p><em>Specifying parameters for a new storage account</em></p>
+</li>
+<li>
+<p>Once the storage account has been created, click <strong>Resource groups</strong> in the ribbon on the left. Then click the "Intellipix" resource group, and in the blade that opens for the resource group, click the storage account you just created.</p>
+
+<p><a href="images/open-storage-account.png" target="_blank"><img src="images/open-storage-account.png" alt="Opening the new storage account" style="max-width:100%;"></a></p>
+
+<p><em>Opening the new storage account</em></p>
+</li>
+<li>
+<p>In the blade for the storage account, click <strong>Blobs</strong> to view a list of containers associated with this account.</p>
+
+<p><a href="images/view-containers.png" target="_blank"><img src="images/view-containers.png" alt="Viewing blob containers" style="max-width:100%;"></a></p>
+
+<p><em>Viewing blob containers</em></p>
+</li>
+<li>
+<p>The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click <strong>+ Container</strong> to create a new container.</p>
+
+<p><a href="images/add-container.png" target="_blank"><img src="images/add-container.png" alt="Adding a container" style="max-width:100%;"></a></p>
+
+<p><em>Adding a container</em></p>
+</li>
+<li>
+<p>Type "photos" (without quotation marks) into the <strong>Name</strong> field and select <strong>Blob</strong> as the <strong>Access type</strong>. Then click <strong>Create</strong> to create a container named "photos."</p>
+
+<blockquote>
+<p>By default, containers and their contents are private. Selecting <strong>Blob</strong> as the access type makes the blobs in the "photos" container publicly accessible, but doesn't make the container itself public. This is what you want since the images stored in the "photos" container will be linked to from a Web app. </p>
+</blockquote>
+
+<p><a href="images/create-photos-container.png" target="_blank"><img src="images/create-photos-container.png" alt='Creating a "photos" container' style="max-width:100%;"></a></p>
+
+<p><em>Creating a "photos" container</em></p>
+</li>
+<li>
+<p>Repeat this process to create a container named "thumbnails," once more ensuring that the container's <strong>Access type</strong> is set to <strong>Blob</strong>.</p>
+
+<p><a href="images/create-thumbnails-container.png" target="_blank"><img src="images/create-thumbnails-container.png" alt='Creating a "thumbnails" container' style="max-width:100%;"></a></p>
+
+<p><em>Creating a "thumbnails" container</em></p>
+</li>
+<li>
+<p>Confirm that both containers appear in the list of containers for this storage account, and that the names are spelled correctly.</p>
+
+<p><a href="images/new-containers.png" target="_blank"><img src="images/new-containers.png" alt="The new containers" style="max-width:100%;"></a></p>
+
+<p><em>The new containers</em></p>
+</li>
+</ol>
+
+<p>You have now created a storage account to hold images uploaded to the app you're going to build, and containers to store the images in. Note that you <em>could</em> create these containers from within the app. Whether to create them programmatically or create them as part of the provisioning process is a choice that's left up to app developers.</p>
+
+<p><a name="Exercise2"></a></p>
+
+<h2>Exercise 2: Run the Microsoft Azure Storage Explorer</h2>
+
+<p>The <a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a> is a free tool that provides a graphical interface for working with Azure Storage on PCs running Windows, OS X, and Linux. It provides most of the same functionality as the Azure Portal. It also offers features the portal does not, such as the ability to upload blobs to Azure Storage and view blob metadata. In this exercise, you will use the Microsoft Azure Storage Explorer to view the containers you created in Exercise 1.</p>
+
+<ol>
+<li><p>Start the Microsoft Azure Storage Explorer.</p></li>
+<li>
+<p>In the Storage Explorer window, click <strong>Connect to Microsoft Azure</strong>.</p>
+
+<p><a href="Images/storage-explorer-connect-to-azure.png" target="_blank"><img src="Images/storage-explorer-connect-to-azure.png" alt="Connecting Storage Explorer to Azure" style="max-width:100%;"></a></p>
+
+<p><em>Connecting Storage Explorer to Azure</em></p>
+</li>
+<li>
+<p>Enter the e-mail address for your Microsoft account. Then click <strong>Continue</strong>.</p>
+
+<p><a href="Images/storage-explorer-enter-email.png" target="_blank"><img src="Images/storage-explorer-enter-email.png" alt="Entering your e-mail address" style="max-width:100%;"></a></p>
+
+<p><em>Entering your e-mail address</em></p>
+</li>
+<li>
+<p>Enter the user name and password for your Microsoft account. Check the box labeled <strong>Keep me signed in</strong>. Then click the <strong>Sign in</strong> button.</p>
+
+<p><a href="Images/storage-explorer-enter-credentials.png" target="_blank"><img src="Images/storage-explorer-enter-credentials.png" alt="Signing in to Storage Explorer" style="max-width:100%;"></a></p>
+
+<p><em>Signing in to Storage Explorer</em></p>
+</li>
+<li>
+<p>Confirm that the storage account you created in Exercise 1 appears in the list of storage accounts shown in Storage Explorer. Click the small arrow next to the storage account to display its contents, and then click the arrow next to <strong>Blob Containers</strong>. Confirm that the containers you created in Exercise 1 appear in the list of containers.</p>
+
+<p><a href="Images/storage-explorer.png" target="_blank"><img src="Images/storage-explorer.png" alt="The Microsoft Azure Storage Explorer" style="max-width:100%;"></a></p>
+
+<p><em>The Microsoft Azure Storage Explorer</em></p>
+</li>
+</ol>
+
+<p>The containers are currently empty, but that will change once your app is deployed and you start uploading photos. Having Storage Explorer installed will make it easy for you to see what your app writes to blob storage.</p>
+
+<p><a name="Exercise3"></a></p>
+
+<h2>Exercise 3: Get a subscription key for the Computer Vision API</h2>
+
+<p><a href="https://www.microsoft.com/cognitive-services/">Microsoft Cognitive Services</a> is a set of intelligence APIs that you can call from your apps. Among the more than 20 APIs it offers are the <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a> for distilling actionable information from images, the <a href="https://www.microsoft.com/cognitive-services/en-us/emotion-api">Emotion API</a> for recognizing emotion in images and video, and the <a href="https://www.microsoft.com/cognitive-services/en-us/text-analytics-api">Text Analytics API</a> for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available in preview form for you to begin using today.</p>
+
+<p>In this exercise, you will acquire a subscription key allowing you to call the Computer Vision API from your code. You'll use this key in Exercise 4 to generate thumbnails from the images uploaded to the Web site, and to generate captions and search keywords for the images.</p>
+
+<ol>
+<li><p>In order to use the Computer Vision API, you need to sign up for a free account and acquire a subscription key. To do that, point your browser to <a href="https://www.microsoft.com/cognitive-services/en-us/subscriptions">https://www.microsoft.com/cognitive-services/en-us/subscriptions</a>.</p></li>
+<li><p>If you are asked to sign in, do so with your Microsoft account.</p></li>
+<li>
+<p>Click <strong>Yes</strong> when asked if this app can access your info.</p>
+
+<p><a href="Images/access-your-info.png" target="_blank"><img src="Images/access-your-info.png" alt="Approving access to personal info" style="max-width:100%;"></a></p>
+
+<p><em>Approving access to personal info</em></p>
+</li>
+<li>
+<p>Scroll down until you find <strong>Computer Vision</strong>. Then check the box next to it.</p>
+
+<p><a href="Images/check-computer-vision.png" target="_blank"><img src="Images/check-computer-vision.png" alt="Requesting access to the Computer Vision API" style="max-width:100%;"></a></p>
+
+<p><em>Requesting access to the Computer Vision API</em></p>
+</li>
+<li>
+<p>Scroll to the bottom of the page. Check the box to agree to the terms and privacy statement, and then click the <strong>Subscribe</strong> button.</p>
+
+<p><a href="Images/subscribe.png" target="_blank"><img src="Images/subscribe.png" alt="Subscribing to the Computer Vision API" style="max-width:100%;"></a></p>
+
+<p><em>Subscribing to the Computer Vision API</em></p>
+</li>
+<li>
+<p>Click <strong>Copy</strong> under <strong>Key 1</strong> to copy your Computer Vision subscription key to the clipboard.</p>
+
+<p><a href="Images/computer-vision-key.png" target="_blank"><img src="Images/computer-vision-key.png" alt="Copying the subscription key to the clipboard" style="max-width:100%;"></a></p>
+
+<p><em>Copying the subscription key to the clipboard</em></p>
+</li>
+</ol>
+
+<p><a name="Exercise4"></a></p>
+
+<h2>Exercise 4: Write the app in Visual Studio Code</h2>
+
+<p>In this exercise, you will create a new Web app in Visual Studio Code and add code to upload images, write them to blob storage, display them in a Web page, generate thumbnails, captions, and keywords using the Computer Vision API, and perform keyword searches on uploaded images. The app will be named Intellipix (for "Intelligent Pictures") and will be accessed through your browser. The server-side code will be written in JavaScript and Node.js. The code that runs in the browser will be written in JavaScript and will leverage two of the most popular class libraries on the planet: <a href="https://angularjs.org/">AngularJS</a> and <a href="http://getbootstrap.com/">Bootstrap</a>. </p>
+
+<ol>
+<li><p>Create a project directory named "Intellipix" in the location of your choice — for example, "C:\DXLabs\Intellipix."</p></li>
+<li><p>Click the <strong>Windows</strong> button (also known as the Start button) in the lower-left corner of the desktop and type "cmd" (without quotation marks). Then press <strong>Enter</strong> to open a Command Prompt window.</p></li>
+<li>
+<p>In the Command Prompt window, execute the following command, substituting the Computer Vision API key you copied to the clipboard in the previous exercise for <em>vision_api_key</em>:</p>
+
+<pre>set AZURE_VISION_API_KEY=<i>vision_api_key</i>
+</pre>
+
+<blockquote>
+<p>Storing sensitive values such as API keys in environment variables prevents you from having to embed them in your code, where a determined intruder could find them and use them. When you deploy the app to the cloud, these values will be stored in Azure and never exposed to the end user or transmitted over the wire.</p>
+</blockquote>
+</li>
+<li>
+<p>Next, execute the following command, substituting the name of the storage account you created in Exercise 1 for <em>storage_account_name</em>:</p>
+
+<pre>set AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i>
+</pre>
+</li>
+<li>
+<p>Return to the Azure Portal for a moment and open the blade for the storage account you created in Exercise 1. Then click the key icon near the top of the blade. </p>
+
+<p><a href="Images/view-access-keys.png" target="_blank"><img src="Images/view-access-keys.png" alt="Viewing the storage account's access keys" style="max-width:100%;"></a></p>
+
+<p><em>Viewing the storage account's access keys</em></p>
+</li>
+<li>
+<p>Click the <strong>Copy</strong> button to the right of <strong>key1</strong> to copy the access key to the clipboard.</p>
+
+<p><a href="Images/copy-access-key.png" target="_blank"><img src="Images/copy-access-key.png" alt="Copying the storage account's access key" style="max-width:100%;"></a></p>
+
+<p><em>Copying the storage account's access key</em></p>
+</li>
+<li>
+<p>Return to the Command Prompt window and type the following command, replacing <em>storage_account_key</em> with the access key on the clipboard:</p>
+
+<pre>set AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i>
+</pre>
+</li>
+<li>
+<p>In the Command Prompt window, use a <strong>cd</strong> command to <strong>navigate to the Intellipix directory you created in Step 1</strong> and execute the following command (note the space and the period at the end of the command) to start Visual Studio Code in that directory:</p>
+
+<pre>code .
+</pre>
+</li>
+<li>
+<p>In Visual Studio Code, click the <strong>Git</strong> button in the ribbon on the left.</p>
+
+<p><a href="Images/node-git-button.png" target="_blank"><img src="Images/node-git-button.png" alt="The Git button in Visual Studio Code" style="max-width:100%;"></a></p>
+
+<p><em>The Git button in Visual Studio Code</em></p>
+</li>
+<li>
+<p>Click <strong>Initialize git repository</strong> to initialize a Git repository in the working directory and place the directory under source control.</p>
+
+<p><a href="Images/node-initialize-git-repository.png" target="_blank"><img src="Images/node-initialize-git-repository.png" alt="Initializing a Git repository" style="max-width:100%;"></a></p>
+
+<p><em>Initializing a Git repository</em></p>
+</li>
+<li>
+<p>Return to the Command Prompt window and make sure you're still in the "Intellipix" directory that you created for the project (the directory that was just placed under source control). Then execute the following command to initialize the project. When prompted for an author name, enter your name.</p>
+
+<pre>npm init -y
+</pre> </li>
+<li>
+<p>Now execute the following command to install the NPM packages that the app will use:</p>
+
+<pre>npm install -save azure-storage express multer request streamifier
+</pre> 
+
+<blockquote>
+<p><a href="https://www.npmjs.com/package/azure-storage">azure-storage</a> is Microsoft's Azure Storage Client Library for Node.js. It provides convenient JavaScript APIs for accessing blob storage, table storage, and more.</p>
+</blockquote>
+</li>
+<li>
+<p>Return to Visual Studio Code and click the <strong>Explorer</strong> button in the upper-left corner. Then click <strong>package.json</strong> to open that file for editing.</p>
+
+<p><a href="Images/node-edit-package-json.png" target="_blank"><img src="Images/node-edit-package-json.png" alt="Opening package.json for editing" style="max-width:100%;"></a></p>
+
+<p><em>Opening package.json for editing</em></p>
+</li>
+<li>
+<p>Add the following statements to package.json just before the "keywords" definition. Then save your changes.</p>
+
+<div class="highlight highlight-source-json"><pre><span class="pl-s"><span class="pl-pds">"</span>engines<span class="pl-pds">"</span></span>: {
+  <span class="pl-s"><span class="pl-pds">"</span>node<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>&gt;=4.0<span class="pl-pds">"</span></span>
+},</pre></div>
+</li>
+<li>
+<p>Place the mouse cursor over "INTELLIPIX" in the Explorer window and click the <strong>New File</strong> button that appears. Name the new file ".gitignore" (without quotation marks). Be sure to include the leading period in the file name.</p>
+
+<p><a href="Images/node-add-file.png" target="_blank"><img src="Images/node-add-file.png" alt="Adding a file" style="max-width:100%;"></a></p>
+
+<p><em>Adding a file</em></p>
+</li>
+<li>
+<p>Add the following statements to .gitignore to exclude the specified directories from source control:</p>
+
+<pre>.vscode/
+node_modules/
+</pre>
+</li>
+<li>
+<p>Add a file named server.js to the project and insert the following statements:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> express <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>express<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> multer <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>multer<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> azureStorage <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>azure-storage<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> streamifier <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>streamifier<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> request <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>request<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> portNum <span class="pl-k">=</span> <span class="pl-c1">process</span>.<span class="pl-smi">env</span>.<span class="pl-c1">PORT</span> <span class="pl-k">||</span> <span class="pl-c1">9898</span>;
+
+<span class="pl-k">var</span> app <span class="pl-k">=</span> <span class="pl-en">express</span>();
+<span class="pl-k">var</span> storage <span class="pl-k">=</span> <span class="pl-smi">multer</span>.<span class="pl-en">memoryStorage</span>();
+<span class="pl-k">var</span> uploadImage <span class="pl-k">=</span> <span class="pl-en">multer</span>({ storage<span class="pl-k">:</span> storage }).<span class="pl-en">single</span>(<span class="pl-s"><span class="pl-pds">'</span>imageFile<span class="pl-pds">'</span></span>);
+
+<span class="pl-smi">app</span>.<span class="pl-en">post</span>(<span class="pl-s"><span class="pl-pds">'</span>/api/image-upload<span class="pl-pds">'</span></span>, configurationMiddleware, uploadImage, imageHandlerMiddleware);
+<span class="pl-smi">app</span>.<span class="pl-en">get</span>(<span class="pl-s"><span class="pl-pds">'</span>/api/images<span class="pl-pds">'</span></span>, configurationMiddleware, noCacheMiddleware, listBlobsMiddleware);
+<span class="pl-smi">app</span>.<span class="pl-en">use</span>(<span class="pl-s"><span class="pl-pds">'</span>/<span class="pl-pds">'</span></span>, <span class="pl-smi">express</span>.<span class="pl-en">static</span>(<span class="pl-s"><span class="pl-pds">'</span>src<span class="pl-pds">'</span></span>));
+<span class="pl-smi">app</span>.<span class="pl-en">use</span>(errorHandlerMiddleware);
+
+<span class="pl-smi">app</span>.<span class="pl-en">listen</span>(portNum, <span class="pl-k">function</span>() {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Web application listening on port <span class="pl-pds">"</span></span> <span class="pl-k">+</span> portNum);
+});
+
+<span class="pl-k">function</span> <span class="pl-en">configurationMiddleware</span>(<span class="pl-smi">req</span>, <span class="pl-smi">res</span>, <span class="pl-smi">next</span>) {
+
+    <span class="pl-k">var</span> <span class="pl-en">verifyConfigValue</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">keyName</span>) {
+        <span class="pl-k">var</span> configValue <span class="pl-k">=</span> <span class="pl-c1">process</span>.<span class="pl-smi">env</span>[keyName];
+        <span class="pl-k">if</span>(<span class="pl-k">!</span>configValue) {
+            <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-en">Error</span>(keyName <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> not defined.<span class="pl-pds">"</span></span>);
+        }
+        <span class="pl-k">return</span> configValue;
+    };
+
+    <span class="pl-smi">req</span>.<span class="pl-smi">appConfig</span> <span class="pl-k">=</span> {
+        storageAccount<span class="pl-k">:</span> <span class="pl-en">verifyConfigValue</span>(<span class="pl-s"><span class="pl-pds">"</span>AZURE_STORAGE_ACCOUNT<span class="pl-pds">"</span></span>),
+        storageAccountAccessKey<span class="pl-k">:</span> <span class="pl-en">verifyConfigValue</span>(<span class="pl-s"><span class="pl-pds">"</span>AZURE_STORAGE_ACCESS_KEY<span class="pl-pds">"</span></span>),
+        visionApiKey<span class="pl-k">:</span> <span class="pl-en">verifyConfigValue</span>(<span class="pl-s"><span class="pl-pds">"</span>AZURE_VISION_API_KEY<span class="pl-pds">"</span></span>)
+    };
+    <span class="pl-en">next</span>();
+}
+
+<span class="pl-k">function</span> <span class="pl-en">imageHandlerMiddleware</span>(<span class="pl-smi">req</span>, <span class="pl-smi">res</span>) {
+
+    <span class="pl-c">// Note, all of this work is done in memory!!</span>
+
+    <span class="pl-k">var</span> cfg <span class="pl-k">=</span> <span class="pl-smi">req</span>.<span class="pl-smi">appConfig</span>;
+    <span class="pl-k">var</span> uploadFile <span class="pl-k">=</span> <span class="pl-smi">req</span>.<span class="pl-smi">file</span>;
+    <span class="pl-k">var</span> blobService <span class="pl-k">=</span> <span class="pl-smi">azureStorage</span>.<span class="pl-en">createBlobService</span>(<span class="pl-smi">cfg</span>.<span class="pl-smi">storageAccount</span>, <span class="pl-smi">cfg</span>.<span class="pl-smi">storageAccountAccessKey</span>);
+    <span class="pl-k">var</span> publicUrl <span class="pl-k">=</span> [
+        <span class="pl-s"><span class="pl-pds">"</span>https://<span class="pl-pds">"</span></span>,
+        <span class="pl-smi">cfg</span>.<span class="pl-smi">storageAccount</span>,
+        <span class="pl-s"><span class="pl-pds">"</span>.blob.core.windows.net/photos/<span class="pl-pds">"</span></span>,
+        <span class="pl-smi">uploadFile</span>.<span class="pl-smi">originalname</span>
+    ].<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>);
+
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>([<span class="pl-s"><span class="pl-pds">"</span>Received <span class="pl-pds">"</span></span>, <span class="pl-smi">uploadFile</span>.<span class="pl-smi">originalname</span>, <span class="pl-s"><span class="pl-pds">"</span> (<span class="pl-pds">"</span></span>, <span class="pl-smi">uploadFile</span>.<span class="pl-c1">size</span>, <span class="pl-s"><span class="pl-pds">"</span> bytes)<span class="pl-pds">"</span></span>].<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>));
+    <span class="pl-en">saveImageToAzure</span>(uploadFile);
+
+    <span class="pl-k">function</span> <span class="pl-en">saveImageToAzure</span>() {
+        <span class="pl-smi">blobService</span>.<span class="pl-en">createBlockBlobFromStream</span>(
+            <span class="pl-s"><span class="pl-pds">'</span>photos<span class="pl-pds">'</span></span>,
+            <span class="pl-smi">uploadFile</span>.<span class="pl-smi">originalname</span>,
+            <span class="pl-smi">streamifier</span>.<span class="pl-en">createReadStream</span>(<span class="pl-smi">uploadFile</span>.<span class="pl-smi">buffer</span>),
+            <span class="pl-smi">uploadFile</span>.<span class="pl-c1">size</span>,
+            <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">result</span>, <span class="pl-smi">response</span>) {
+                <span class="pl-k">if</span>(err){
+                    <span class="pl-k">throw</span> err;
+                }
+                <span class="pl-en">console</span>.<span class="pl-c1">log</span>([<span class="pl-s"><span class="pl-pds">"</span>Uploaded <span class="pl-pds">"</span></span>, <span class="pl-smi">uploadFile</span>.<span class="pl-smi">originalname</span>, <span class="pl-s"><span class="pl-pds">"</span> image to 'photos' container on Azure.<span class="pl-pds">"</span></span>].<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>));
+                <span class="pl-en">console</span>.<span class="pl-c1">log</span>([<span class="pl-s"><span class="pl-pds">"</span>URL: <span class="pl-pds">"</span></span>, publicUrl].<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>));
+                <span class="pl-en">createThumbnailOfImage</span>();
+            });
+    }
+
+<span class="pl-k">function</span> <span class="pl-en">createThumbnailOfImage</span>(){
+    <span class="pl-k">var</span> options <span class="pl-k">=</span> {
+        url<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://api.projectoxford.ai/vision/v1.0/generateThumbnail<span class="pl-pds">"</span></span>,
+        qs<span class="pl-k">:</span> {
+            width<span class="pl-k">:</span> <span class="pl-c1">192</span>,
+            height<span class="pl-k">:</span> <span class="pl-c1">128</span>,
+            smartCropping<span class="pl-k">:</span> <span class="pl-c1">true</span>
+        },
+        method<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>POST<span class="pl-pds">'</span></span>,
+        headers<span class="pl-k">:</span> {
+            <span class="pl-s"><span class="pl-pds">'</span>Content-Type<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>,
+            <span class="pl-s"><span class="pl-pds">'</span>Ocp-Apim-Subscription-Key<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-smi">cfg</span>.<span class="pl-smi">visionApiKey</span>
+        },
+        json<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+        body<span class="pl-k">:</span> {
+            url<span class="pl-k">:</span> publicUrl
+        }
+    };
+    <span class="pl-en">request</span>(options)
+        .<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">err</span>) {
+            <span class="pl-k">throw</span> err;
+        })
+        .<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>end<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>() {
+            <span class="pl-en">console</span>.<span class="pl-c1">log</span>([<span class="pl-s"><span class="pl-pds">"</span>Created <span class="pl-pds">"</span></span>, <span class="pl-smi">uploadFile</span>.<span class="pl-smi">originalname</span>, <span class="pl-s"><span class="pl-pds">"</span> thumbnail.<span class="pl-pds">"</span></span>].<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>));
+        })
+        .<span class="pl-en">pipe</span>(<span class="pl-en">saveThumbnailToAzure</span>());
+    }
+
+    <span class="pl-k">function</span> <span class="pl-en">saveThumbnailToAzure</span>() {
+        <span class="pl-k">return</span> blobService
+            .<span class="pl-en">createWriteStreamToBlockBlob</span>(<span class="pl-s"><span class="pl-pds">'</span>thumbnails<span class="pl-pds">'</span></span>, <span class="pl-smi">uploadFile</span>.<span class="pl-smi">originalname</span>)
+            .<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">err</span>) {
+                <span class="pl-k">throw</span> err;
+            })
+            .<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>end<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>() {
+                <span class="pl-en">console</span>.<span class="pl-c1">log</span>([<span class="pl-s"><span class="pl-pds">"</span>Uploaded <span class="pl-pds">"</span></span>, <span class="pl-smi">uploadFile</span>.<span class="pl-smi">originalname</span>, <span class="pl-s"><span class="pl-pds">"</span> image to 'thumbnails' container on Azure.<span class="pl-pds">"</span></span>].<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>));
+                <span class="pl-en">analyzeImage</span>();
+            });
+    }
+
+    <span class="pl-k">function</span> <span class="pl-en">analyzeImage</span>() {
+        <span class="pl-k">var</span> options <span class="pl-k">=</span> {
+            url<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://api.projectoxford.ai/vision/v1.0/analyze<span class="pl-pds">"</span></span>,
+            qs<span class="pl-k">:</span> {
+                visualFeatures<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Description<span class="pl-pds">"</span></span>
+            },
+            method<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>POST<span class="pl-pds">'</span></span>,
+            headers<span class="pl-k">:</span> {
+                <span class="pl-s"><span class="pl-pds">'</span>Content-Type<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>,
+                <span class="pl-s"><span class="pl-pds">'</span>Ocp-Apim-Subscription-Key<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-smi">cfg</span>.<span class="pl-smi">visionApiKey</span>
+            },
+            json<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+            body<span class="pl-k">:</span> {
+                url<span class="pl-k">:</span> publicUrl
+            }
+        };
+        <span class="pl-en">request</span>(options, <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">response</span>, <span class="pl-smi">body</span>) {
+            <span class="pl-k">if</span>(err) {
+                <span class="pl-k">throw</span> err;
+            }
+            <span class="pl-en">console</span>.<span class="pl-c1">log</span>([<span class="pl-s"><span class="pl-pds">"</span>Analyzed <span class="pl-pds">"</span></span>, <span class="pl-smi">uploadFile</span>.<span class="pl-smi">originalname</span>].<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>));
+            <span class="pl-en">saveAnalysisResults</span>(body);
+        });
+    }
+
+    <span class="pl-k">function</span> <span class="pl-en">saveAnalysisResults</span>(<span class="pl-smi">result</span>) {
+        <span class="pl-k">var</span> metaData <span class="pl-k">=</span> {
+            caption<span class="pl-k">:</span> <span class="pl-smi">result</span>.<span class="pl-c1">description</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">result</span>.<span class="pl-c1">description</span>.<span class="pl-smi">captions</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">result</span>.<span class="pl-c1">description</span>.<span class="pl-smi">captions</span>.<span class="pl-c1">length</span> <span class="pl-k">?</span>
+                <span class="pl-smi">result</span>.<span class="pl-c1">description</span>.<span class="pl-smi">captions</span>[<span class="pl-c1">0</span>].<span class="pl-c1">text</span> <span class="pl-k">:</span>
+                <span class="pl-s"><span class="pl-pds">"</span>Unknown<span class="pl-pds">"</span></span>,
+            tags<span class="pl-k">:</span> <span class="pl-smi">result</span>.<span class="pl-c1">description</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">result</span>.<span class="pl-c1">description</span>.<span class="pl-c1">tags</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">result</span>.<span class="pl-c1">description</span>.<span class="pl-c1">tags</span>.<span class="pl-c1">length</span> <span class="pl-k">?</span>
+                <span class="pl-c1">JSON</span>.<span class="pl-en">stringify</span>(<span class="pl-smi">result</span>.<span class="pl-c1">description</span>.<span class="pl-c1">tags</span>) <span class="pl-k">:</span>
+                []
+        };
+
+        <span class="pl-smi">blobService</span>.<span class="pl-en">setBlobMetadata</span>(
+            <span class="pl-s"><span class="pl-pds">'</span>photos<span class="pl-pds">'</span></span>,
+            <span class="pl-smi">uploadFile</span>.<span class="pl-smi">originalname</span>,
+            metaData,
+            <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">result</span>, <span class="pl-smi">response</span>) {
+                <span class="pl-k">if</span>(err){
+                    <span class="pl-k">throw</span> err;
+                }
+                <span class="pl-en">console</span>.<span class="pl-c1">log</span>([<span class="pl-s"><span class="pl-pds">"</span>Stored <span class="pl-pds">"</span></span>, <span class="pl-smi">uploadFile</span>.<span class="pl-smi">originalname</span>, <span class="pl-s"><span class="pl-pds">"</span> analysis results to Azure.<span class="pl-pds">"</span></span>].<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>));
+                <span class="pl-smi">res</span>.<span class="pl-c1">status</span>(<span class="pl-c1">200</span>).<span class="pl-c1">send</span>({
+                    name<span class="pl-k">:</span> <span class="pl-smi">uploadFile</span>.<span class="pl-smi">originalname</span>,
+                    mimetype<span class="pl-k">:</span> <span class="pl-smi">uploadFile</span>.<span class="pl-smi">mimetype</span>,
+                    result<span class="pl-k">:</span> result
+                });
+            });
+    }
+}
+
+<span class="pl-k">function</span> <span class="pl-en">listBlobsMiddleware</span>(<span class="pl-smi">req</span>, <span class="pl-smi">res</span>) {
+    <span class="pl-k">var</span> cfg <span class="pl-k">=</span> <span class="pl-smi">req</span>.<span class="pl-smi">appConfig</span>;
+    <span class="pl-k">var</span> blobService <span class="pl-k">=</span> <span class="pl-smi">azureStorage</span>.<span class="pl-en">createBlobService</span>(<span class="pl-smi">cfg</span>.<span class="pl-smi">storageAccount</span>, <span class="pl-smi">cfg</span>.<span class="pl-smi">storageAccountAccessKey</span>);
+    <span class="pl-k">var</span> options <span class="pl-k">=</span> {
+        maxResults<span class="pl-k">:</span> <span class="pl-c1">5000</span>,
+        include<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>metadata<span class="pl-pds">"</span></span>,
+
+    };
+    <span class="pl-smi">blobService</span>.<span class="pl-en">listBlobsSegmented</span>(
+        <span class="pl-s"><span class="pl-pds">'</span>photos<span class="pl-pds">'</span></span>,
+        <span class="pl-c1">null</span>,
+        options,
+        <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">result</span>, <span class="pl-smi">response</span>) {
+            <span class="pl-k">if</span>(err) {
+                <span class="pl-k">throw</span> err;
+            }
+            (<span class="pl-smi">result</span>.<span class="pl-smi">entries</span> <span class="pl-k">||</span> []).<span class="pl-en">forEach</span>(<span class="pl-k">function</span>(<span class="pl-smi">entry</span>) {
+                <span class="pl-smi">entry</span>.<span class="pl-smi">url</span> <span class="pl-k">=</span> [
+                    <span class="pl-s"><span class="pl-pds">"</span>https://<span class="pl-pds">"</span></span>,
+                    <span class="pl-smi">cfg</span>.<span class="pl-smi">storageAccount</span>,
+                    <span class="pl-s"><span class="pl-pds">"</span>.blob.core.windows.net/thumbnails/<span class="pl-pds">"</span></span>,
+                    <span class="pl-smi">entry</span>.<span class="pl-c1">name</span>
+                ].<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>);
+                <span class="pl-smi">entry</span>.<span class="pl-smi">fullUrl</span> <span class="pl-k">=</span> [
+                    <span class="pl-s"><span class="pl-pds">"</span>https://<span class="pl-pds">"</span></span>,
+                    <span class="pl-smi">cfg</span>.<span class="pl-smi">storageAccount</span>,
+                    <span class="pl-s"><span class="pl-pds">"</span>.blob.core.windows.net/photos/<span class="pl-pds">"</span></span>,
+                    <span class="pl-smi">entry</span>.<span class="pl-c1">name</span>
+                ].<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>);
+                <span class="pl-smi">entry</span>.<span class="pl-smi">metadata</span> <span class="pl-k">=</span> <span class="pl-smi">entry</span>.<span class="pl-smi">metadata</span> <span class="pl-k">||</span> {};
+            });
+            <span class="pl-smi">res</span>.<span class="pl-c1">status</span>(<span class="pl-c1">200</span>).<span class="pl-en">json</span>(result);
+        }
+    )
+}
+
+<span class="pl-k">function</span> <span class="pl-en">noCacheMiddleware</span>(<span class="pl-smi">req</span>, <span class="pl-smi">res</span>, <span class="pl-smi">next</span>) {
+    <span class="pl-smi">res</span>.<span class="pl-en">header</span>(<span class="pl-s"><span class="pl-pds">'</span>Cache-Control<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>private, no-cache, no-store, must-revalidate<span class="pl-pds">'</span></span>);
+    <span class="pl-smi">res</span>.<span class="pl-en">header</span>(<span class="pl-s"><span class="pl-pds">'</span>Expires<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>-1<span class="pl-pds">'</span></span>);
+    <span class="pl-smi">res</span>.<span class="pl-en">header</span>(<span class="pl-s"><span class="pl-pds">'</span>Pragma<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>no-cache<span class="pl-pds">'</span></span>);
+    <span class="pl-en">next</span>();
+}
+
+<span class="pl-k">function</span> <span class="pl-en">errorHandlerMiddleware</span>(<span class="pl-smi">err</span>, <span class="pl-smi">req</span>, <span class="pl-smi">res</span>, <span class="pl-smi">next</span>) {
+    <span class="pl-en">console</span>.<span class="pl-c1">error</span>(err);
+    <span class="pl-smi">res</span>.<span class="pl-c1">status</span>(<span class="pl-c1">500</span>).<span class="pl-c1">send</span>({
+        error<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+        message<span class="pl-k">:</span> <span class="pl-smi">err</span>.<span class="pl-c1">toString</span>()
+    });
+}</pre></div>
+
+<blockquote>
+<p>This is the code that executes in Node.js on the server. Points of interest include the <em>saveImageToAzure</em> function, which saves an uploaded image in blob storage using APIs in the Azure Storage Client Library for Node.js, the <em>createThumbnailFromImage</em> function, which uses the Computer Vision API to generate an image thumbnail, and the <em>analyzeImage</em> function, which uses the Computer Vision API to generate a caption and a list of keywords describing the image. Another function you might care to inspect is <em>saveAnalysisResults</em>, which writes the caption and keywords to blob metadata. Finally, take a moment to examine the <em>listBlobsMiddleware</em> function, which enumerates the photos uploaded to the site by enumerating the blobs in the "photos" container. </p>
+</blockquote>
+</li>
+<li>
+<p>Place the mouse cursor over "INTELLIPIX" in Visual Studio Code's Explorer window and click the <strong>New Folder</strong> button that appears. Name the new folder "src" (without quotation marks).</p>
+
+<p><a href="Images/node-add-folder.png" target="_blank"><img src="Images/node-add-folder.png" alt="Adding a folder" style="max-width:100%;"></a></p>
+
+<p><em>Adding a folder</em></p>
+</li>
+<li>
+<p>Add a file named index.html to the "src" folder and insert the following statements:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;!DOCTYPE html&gt;
+&lt;<span class="pl-ent">html</span> <span class="pl-e">lang</span>=<span class="pl-s"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span> <span class="pl-e">ng-app</span>=<span class="pl-s"><span class="pl-pds">"</span>myApp<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">head</span>&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">charset</span>=<span class="pl-s"><span class="pl-pds">"</span>utf-8<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">http-equiv</span>=<span class="pl-s"><span class="pl-pds">"</span>X-UA-Compatible<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>IE=edge<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>viewport<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>width=device-width, initial-scale=1<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">title</span>&gt;Intellipix&lt;/<span class="pl-ent">title</span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css<span class="pl-pds">"</span></span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span>&gt;
+<span class="pl-s1">&lt;<span class="pl-ent">style</span>&gt;</span>
+<span class="pl-s1">    <span class="pl-e">.ng-cloak</span> { <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">none</span> <span class="pl-k">!important</span>; }</span>
+<span class="pl-s1">    <span class="pl-ent">a</span> <span class="pl-ent">img</span> {</span>
+<span class="pl-s1">        <span class="pl-c1"><span class="pl-c1">cursor</span></span>: <span class="pl-c1">pointer</span>;</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1">        <span class="pl-e">.image-modal</span> <span class="pl-ent">img</span> {</span>
+<span class="pl-s1">    <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">100<span class="pl-k">%</span></span>;</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1">&lt;/<span class="pl-ent">style</span>&gt;</span>
+&lt;/<span class="pl-ent">head</span>&gt;
+&lt;<span class="pl-ent">body</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>ng-cloak<span class="pl-pds">"</span></span>&gt;
+
+&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>container body-content<span class="pl-pds">"</span></span> <span class="pl-e">ng-controller</span>=<span class="pl-s"><span class="pl-pds">"</span>mainCtrl as ctrl<span class="pl-pds">"</span></span>&gt;
+
+    &lt;<span class="pl-ent">h1</span>&gt;Intellipix&lt;/<span class="pl-ent">h1</span>&gt;
+
+    <span class="pl-c">&lt;!-- Panel containing image-upload and search controls --&gt;</span>
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>well<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">form</span> <span class="pl-e">ng-if</span>=<span class="pl-s"><span class="pl-pds">"</span>!ctrl.analysis.inProgress<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>row<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-md-7<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>form-group<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">label</span> <span class="pl-e">for</span>=<span class="pl-s"><span class="pl-pds">"</span>imageFile<span class="pl-pds">"</span></span>&gt;Select Image to Analyze:&lt;/<span class="pl-ent">label</span>&gt;
+            &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>imageFile<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>imageFile<span class="pl-pds">"</span></span> <span class="pl-e">on-file-selected</span>=<span class="pl-s"><span class="pl-pds">"</span>ctrl.imageFileSelected(file)<span class="pl-pds">"</span></span>&gt;
+            &lt;/<span class="pl-ent">div</span>&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-md-5<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>form-group<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">label</span> <span class="pl-e">for</span>=<span class="pl-s"><span class="pl-pds">"</span>searchText<span class="pl-pds">"</span></span>&gt;Search:&lt;/<span class="pl-ent">label</span>&gt;
+            &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>input-group<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>searchText<span class="pl-pds">"</span></span> <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>ctrl.searchText<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>form-control<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>input-group-btn<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">button</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>btn btn-default<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>button<span class="pl-pds">"</span></span> <span class="pl-e">ng-click</span>=<span class="pl-s"><span class="pl-pds">"</span>ctrl.clearSearchText()<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>glyphicon glyphicon-remove<span class="pl-pds">"</span></span> <span class="pl-e">aria-hidden</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+                &lt;/<span class="pl-ent">button</span>&gt;
+                &lt;/<span class="pl-ent">span</span>&gt;
+            &lt;/<span class="pl-ent">div</span>&gt;
+            &lt;/<span class="pl-ent">div</span>&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">form</span>&gt;
+    &lt;<span class="pl-ent">p</span> <span class="pl-e">ng-if</span>=<span class="pl-s"><span class="pl-pds">"</span>ctrl.analysis.inProgress<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>glyphicon glyphicon-time<span class="pl-pds">"</span></span> <span class="pl-e">aria-hidden</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+        Analyzing Image ...
+    &lt;/<span class="pl-ent">p</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+
+    <span class="pl-c">&lt;!-- Panel showing error message if upload or image analysis fails --&gt;</span>
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>alert alert-danger alert-dismissible<span class="pl-pds">"</span></span> <span class="pl-e">role</span>=<span class="pl-s"><span class="pl-pds">"</span>alert<span class="pl-pds">"</span></span> <span class="pl-e">ng-if</span>=<span class="pl-s"><span class="pl-pds">"</span>ctrl.analysis.error<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">button</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>button<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>close<span class="pl-pds">"</span></span> <span class="pl-e">data-dismiss</span>=<span class="pl-s"><span class="pl-pds">"</span>alert<span class="pl-pds">"</span></span> <span class="pl-e">aria-label</span>=<span class="pl-s"><span class="pl-pds">"</span>Close<span class="pl-pds">"</span></span>&gt;&lt;<span class="pl-ent">span</span> <span class="pl-e">aria-hidden</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>&gt;<span class="pl-c1">&amp;times;</span>&lt;/<span class="pl-ent">span</span>&gt;&lt;/<span class="pl-ent">button</span>&gt;
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>glyphicon glyphicon-exclamation-sign<span class="pl-pds">"</span></span> <span class="pl-e">aria-hidden</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+    {{ctrl.analysis.error.message}}
+    &lt;/<span class="pl-ent">div</span>&gt;
+
+    <span class="pl-c">&lt;!-- Thumbnail images --&gt;</span>
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>row<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-sm-12<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">a</span> <span class="pl-e">ng-click</span>=<span class="pl-s"><span class="pl-pds">"</span>ctrl.showImageDetails(img)<span class="pl-pds">"</span></span> <span class="pl-e">ng-repeat</span>=<span class="pl-s"><span class="pl-pds">"</span>img in ctrl.images | filter:ctrl.imageFilter<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">img</span> <span class="pl-e">ng-src</span>=<span class="pl-s"><span class="pl-pds">"</span>{{img.url}}<span class="pl-pds">"</span></span> <span class="pl-e">width</span>=<span class="pl-s"><span class="pl-pds">"</span>192<span class="pl-pds">"</span></span> <span class="pl-e">ng-attr-title</span>=<span class="pl-s">{{img.metadata.caption}}</span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>padding-right: 16px; padding-bottom: 16px<span class="pl-pds">"</span></span>&gt;
+        &lt;/<span class="pl-ent">a</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+
+    <span class="pl-c">&lt;!-- Modal window used to show enlarged images --&gt;</span>
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>modal fade image-modal<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>imageModal<span class="pl-pds">"</span></span> <span class="pl-e">tabindex</span>=<span class="pl-s"><span class="pl-pds">"</span>-1<span class="pl-pds">"</span></span> <span class="pl-e">role</span>=<span class="pl-s"><span class="pl-pds">"</span>dialog<span class="pl-pds">"</span></span> <span class="pl-e">aria-labelledby</span>=<span class="pl-s"><span class="pl-pds">"</span>myModalLabel<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>modal-dialog modal-lg<span class="pl-pds">"</span></span> <span class="pl-e">role</span>=<span class="pl-s"><span class="pl-pds">"</span>document<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>modal-content<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>modal-header<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">button</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>button<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>close<span class="pl-pds">"</span></span> <span class="pl-e">data-dismiss</span>=<span class="pl-s"><span class="pl-pds">"</span>modal<span class="pl-pds">"</span></span> <span class="pl-e">aria-label</span>=<span class="pl-s"><span class="pl-pds">"</span>Close<span class="pl-pds">"</span></span>&gt;&lt;<span class="pl-ent">span</span> <span class="pl-e">aria-hidden</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>&gt;<span class="pl-c1">&amp;times;</span>&lt;/<span class="pl-ent">span</span>&gt;&lt;/<span class="pl-ent">button</span>&gt;
+            &lt;<span class="pl-ent">h4</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>modal-title<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>myModalLabel<span class="pl-pds">"</span></span>&gt;{{ctrl.current.metadata.caption}}&lt;/<span class="pl-ent">h4</span>&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>modal-body<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">img</span> <span class="pl-e">ng-src</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ctrl.current.fullUrl}}<span class="pl-pds">"</span></span>&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;
+
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>index.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+
+&lt;/<span class="pl-ent">body</span>&gt;
+&lt;/<span class="pl-ent">html</span>&gt;</pre></div>
+
+<blockquote>
+<p>This is the HTML file containing the site's one and only page. It uses Bootstrap's <a href="http://v4-alpha.getbootstrap.com/layout/grid/">grid layout system</a> to align elements on the page, and it uses AngularJS to make the page dynamic. Notice the ng- attributes such as ng-click and ng-src attached to some of the page's elements, as well as the "mustache" expressions in double curly braces (for example, {{ctrl.current.metadata.caption}}). These attributes and expressions are part of AngularJS and are frequently found in pages that use it.</p>
+</blockquote>
+</li>
+<li>
+<p>Add a file named index.js to the "src" folder and insert the following statements:</p>
+
+<div class="highlight highlight-source-js"><pre>(<span class="pl-k">function</span>() {
+
+    <span class="pl-k">function</span> <span class="pl-en">mainController</span>(<span class="pl-smi">$http</span>) {
+        <span class="pl-v">this</span>.<span class="pl-smi">$http</span> <span class="pl-k">=</span> $http;
+        <span class="pl-v">this</span>.<span class="pl-smi">analysis</span> <span class="pl-k">=</span> {
+            inProgress<span class="pl-k">:</span> <span class="pl-c1">false</span>
+        };
+        <span class="pl-v">this</span>.<span class="pl-c1">images</span> <span class="pl-k">=</span> [];
+        <span class="pl-v">this</span>.<span class="pl-c1">current</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>;
+        <span class="pl-v">this</span>.<span class="pl-smi">searchText</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>;
+        <span class="pl-v">this</span>.<span class="pl-smi">imageFilter</span> <span class="pl-k">=</span> <span class="pl-smi">imageFilter</span>.<span class="pl-en">bind</span>(<span class="pl-v">this</span>);
+        <span class="pl-v">this</span>.<span class="pl-en">loadImageList</span>();
+
+        <span class="pl-k">function</span> <span class="pl-en">imageFilter</span>(<span class="pl-smi">img</span>) {
+            <span class="pl-k">var</span> search <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">searchText</span>;
+            <span class="pl-k">var</span> tags <span class="pl-k">=</span> img <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">img</span>.<span class="pl-smi">metadata</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">img</span>.<span class="pl-smi">metadata</span>.<span class="pl-c1">tags</span>;
+
+            <span class="pl-k">if</span>(<span class="pl-k">!</span>search <span class="pl-k">||</span> <span class="pl-k">!</span>tags) {
+                <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+            }
+
+            <span class="pl-k">if</span>(<span class="pl-en">containsText</span>(tags, search)) {
+                <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+            }
+
+            <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+        }
+    }
+    <span class="pl-smi">mainController</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> {
+
+        <span class="pl-en">clearSearchText</span><span class="pl-k">:</span> <span class="pl-k">function</span>() {
+            <span class="pl-v">this</span>.<span class="pl-smi">searchText</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>;
+        },
+
+        <span class="pl-en">imageFileSelected</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">file</span>) {
+            <span class="pl-k">var</span> ctrl <span class="pl-k">=</span> <span class="pl-v">this</span>, formData;
+            <span class="pl-smi">ctrl</span>.<span class="pl-smi">analysis</span> <span class="pl-k">=</span> {
+                inProgress<span class="pl-k">:</span> <span class="pl-c1">true</span>
+            };
+            formData <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">FormData</span>();
+            <span class="pl-smi">formData</span>.<span class="pl-en">append</span>(<span class="pl-s"><span class="pl-pds">'</span>imageFile<span class="pl-pds">'</span></span>, file);
+            <span class="pl-smi">ctrl</span>.<span class="pl-smi">$http</span>
+                .<span class="pl-en">post</span>(<span class="pl-s"><span class="pl-pds">'</span>/api/image-upload<span class="pl-pds">'</span></span>, formData, {
+                    transformRequest<span class="pl-k">:</span> <span class="pl-smi">angular</span>.<span class="pl-smi">identity</span>,
+                    headers<span class="pl-k">:</span> {
+                        <span class="pl-s"><span class="pl-pds">'</span>Content-Type<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-c1">undefined</span>
+                    }
+                })
+                .<span class="pl-en">then</span>(<span class="pl-k">function</span>(<span class="pl-smi">result</span>) {
+                    <span class="pl-smi">ctrl</span>.<span class="pl-smi">analysis</span> <span class="pl-k">=</span> {
+                        inProgress<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+                        result<span class="pl-k">:</span> <span class="pl-smi">result</span>.<span class="pl-c1">data</span>
+                    };
+                    <span class="pl-smi">ctrl</span>.<span class="pl-en">loadImageList</span>();
+                })
+                .<span class="pl-en">catch</span>(<span class="pl-k">function</span>(<span class="pl-smi">err</span>) {
+                    <span class="pl-smi">ctrl</span>.<span class="pl-smi">analysis</span> <span class="pl-k">=</span> {
+                        inProgress<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+                        error<span class="pl-k">:</span> <span class="pl-smi">err</span>.<span class="pl-c1">data</span> <span class="pl-k">||</span> { message<span class="pl-k">:</span> <span class="pl-smi">err</span>.<span class="pl-c1">statusText</span> }
+                    };
+                });
+        },
+
+        <span class="pl-en">loadImageList</span><span class="pl-k">:</span> <span class="pl-k">function</span>() {
+            <span class="pl-k">var</span> ctrl <span class="pl-k">=</span> <span class="pl-v">this</span>;
+            <span class="pl-smi">ctrl</span>.<span class="pl-smi">$http</span>.<span class="pl-en">get</span>(<span class="pl-s"><span class="pl-pds">'</span>/api/images<span class="pl-pds">'</span></span>)
+                .<span class="pl-en">then</span>(<span class="pl-k">function</span>(<span class="pl-smi">result</span>) {
+                    <span class="pl-smi">ctrl</span>.<span class="pl-c1">images</span> <span class="pl-k">=</span> <span class="pl-smi">result</span>.<span class="pl-c1">data</span>.<span class="pl-smi">entries</span> <span class="pl-k">||</span> [];
+                })
+                .<span class="pl-en">catch</span>(<span class="pl-k">function</span>(<span class="pl-smi">err</span>) {
+                    <span class="pl-en">alert</span>((<span class="pl-smi">err</span>.<span class="pl-c1">data</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">err</span>.<span class="pl-c1">data</span>.<span class="pl-smi">message</span>) <span class="pl-k">||</span> <span class="pl-smi">err</span>.<span class="pl-c1">toString</span>());
+                });
+        },
+
+        <span class="pl-en">showImageDetails</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">img</span>) {
+            <span class="pl-v">this</span>.<span class="pl-c1">current</span> <span class="pl-k">=</span> img;
+            <span class="pl-smi">angular</span>.<span class="pl-en">element</span>(<span class="pl-s"><span class="pl-pds">"</span>#imageModal<span class="pl-pds">"</span></span>).<span class="pl-en">modal</span>();
+        }
+    };
+
+    <span class="pl-k">function</span> <span class="pl-en">fileContentBinderDirective</span>() {
+        <span class="pl-k">return</span> {
+            restrict<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>,
+            scope<span class="pl-k">:</span> {
+                onFileSelected<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&amp;<span class="pl-pds">'</span></span>
+            },
+            <span class="pl-en">link</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">scope</span>, <span class="pl-smi">element</span>) {
+                <span class="pl-smi">element</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>change<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>() {
+                    <span class="pl-smi">scope</span>.<span class="pl-en">$apply</span>(<span class="pl-k">function</span>() {
+                        <span class="pl-smi">scope</span>.<span class="pl-en">onFileSelected</span>({
+                            file<span class="pl-k">:</span> element[<span class="pl-c1">0</span>].<span class="pl-smi">files</span>[<span class="pl-c1">0</span>]
+                        });
+                    });
+                });
+            }
+        };
+    }
+
+    <span class="pl-k">function</span> <span class="pl-en">containsText</span>(<span class="pl-smi">text</span>, <span class="pl-smi">search</span>) {
+        <span class="pl-k">return</span> (text <span class="pl-k">&amp;&amp;</span> search) <span class="pl-k">?</span> (<span class="pl-smi">text</span>.<span class="pl-c1">toLowerCase</span>().<span class="pl-c1">indexOf</span>(<span class="pl-smi">search</span>.<span class="pl-c1">toLowerCase</span>()) <span class="pl-k">&gt;</span> <span class="pl-k">-</span><span class="pl-c1">1</span>) <span class="pl-k">:</span> <span class="pl-c1">false</span>;
+    }
+
+    angular
+        .<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">'</span>myApp<span class="pl-pds">'</span></span>, [])
+        .<span class="pl-en">controller</span>(<span class="pl-s"><span class="pl-pds">'</span>mainCtrl<span class="pl-pds">'</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>$http<span class="pl-pds">'</span></span>, mainController])
+        .<span class="pl-en">directive</span>(<span class="pl-s"><span class="pl-pds">'</span>onFileSelected<span class="pl-pds">'</span></span>, [fileContentBinderDirective]);
+
+}());</pre></div>
+
+<blockquote>
+<p>This file contains JavaScript code that runs on the client. Among other things, it provides support for uploading images from the browser, displaying an enlarged version of an image when the image thumbnail is clicked, and filtering the thumbnails shown on the page when the user types in the search box. Much of this is wrapped in an AngularJS controller, which manages the flow of data in an AngularJS application.</p>
+</blockquote>
+</li>
+<li><p>Use Visual Studio Code's <strong>File -&gt; Save All</strong> command to save all of your changes.</p></li>
+<li>
+<p>Click the <strong>Git</strong> button in the ribbon on the left. Type "First commit" (without quotation marks) into the message box, and then click the <strong>Commit All</strong> button (the check mark) to commit all changes to the local Git repository. </p>
+
+<p><a href="Images/node-commit-changes.png" target="_blank"><img src="Images/node-commit-changes.png" alt="Committing changes to the project" style="max-width:100%;"></a></p>
+
+<p><em>Committing changes to the project</em></p>
+</li>
+</ol>
+
+<p>With the code that comprises the app in place and key environment variables initialized with "secrets" such as your storage account key, the next task is to run the app and test it in your browser.</p>
+
+<p><a name="Exercise5"></a></p>
+
+<h2>Exercise 5: Test the app in your browser</h2>
+
+<p>In this exercise, you will run the app locally in order to test it and familiarize yourself with its features. Running it locally is a simple matter of firing up a Node.js server process to host your server components (in this case, server.js) and pointing your browser to http://localhost:<em>port</em>, where <em>port</em> is the port number on which the server process is listening for HTTP requests. Server.js listens on port 9898. You can modify that if you would like by changing line 7 in the code.</p>
+
+<ol>
+<li>
+<p>Return to the Command Prompt window and, once more, make sure you're in the "Intellipix" directory that you created for the project. Then execute the following command to start server.js:</p>
+
+<pre>node server.js
+</pre>
+</li>
+<li><p>Open your browser and navigate to <a href="http://localhost:9898/">http://localhost:9898/</a>.</p></li>
+<li>
+<p>Click the <strong>Browse</strong> button and upload one of the images found in the "resources/photos" directory of this lab. After a few seconds, a thumbnail version of the photo appears on the page:</p>
+
+<p><a href="Images/node-one-photo-uploaded.png" target="_blank"><img src="Images/node-one-photo-uploaded.png" alt="Intellipix with one photo uploaded" style="max-width:100%;"></a></p>
+
+<p><em>Intellipix with one photo uploaded</em></p>
+</li>
+<li>
+<p>Upload a few more images from this lab's "resources/photos" directory. Confirm that they appear on the page, too:</p>
+
+<p><a href="Images/node-three-photos-uploaded.png" target="_blank"><img src="Images/node-three-photos-uploaded.png" alt="Intellipix with three photos uploaded" style="max-width:100%;"></a></p>
+
+<p><em>Intellipix with three photos uploaded</em></p>
+</li>
+<li>
+<p>Hover the cursor over one of the image thumbnails. Confirm that a tooltip window appears containing a caption for the image. <em>This is the caption that was generated by the Computer Vision API and stored in blob metadata</em>.</p>
+
+<p><a href="Images/node-thumbnail-with-tooltip.png" target="_blank"><img src="Images/node-thumbnail-with-tooltip.png" alt="The computer-generated caption" style="max-width:100%;"></a></p>
+
+<p><em>The computer-generated caption</em></p>
+</li>
+<li>
+<p>Click the thumbnail to display an enlarged version of the image in a lightbox. Confirm that the computer-generated caption appears at the top of the lightbox. Then dismiss the lightbox.</p>
+
+<p><a href="Images/node-lightbox-with-caption.png" target="_blank"><img src="Images/node-lightbox-with-caption.png" alt="Lightbox with computer-generated caption" style="max-width:100%;"></a></p>
+
+<p><em>Lightbox with computer-generated caption</em></p>
+</li>
+<li>
+<p>Upload several more photos. <strong>Feel free to upload photos of your own</strong>, not just the ones provided with the lab.</p>
+
+<p><a href="Images/node-several-images-uploaded.png" target="_blank"><img src="Images/node-several-images-uploaded.png" alt="Intellipix after uploading several images" style="max-width:100%;"></a></p>
+
+<p><em>Intellipix after uploading several images</em></p>
+</li>
+<li>
+<p>Type a keyword describing something you see in the images — for example, "river" — into the search box. Search results will vary depending on what you typed and what images you uploaded. But the result should be a filtered list of images — images whose metadata keywords include all or part of the keyword that you typed.</p>
+
+<p><a href="Images/node-search-results.png" target="_blank"><img src="Images/node-search-results.png" alt="Performing a search" style="max-width:100%;"></a></p>
+
+<p><em>Performing a search</em></p>
+</li>
+<li>
+<p>Return to the Microsoft Azure Storage Explorer (or restart if it you didn't leave it running) and double-click the "photos" container under the storage account you created in Exercise 1. The number of blobs in the container should equal the number of photos you uploaded. Double-click one of the blobs to download it and see the image stored in the blob.</p>
+
+<p><a href="Images/node-photos-container.png" target="_blank"><img src="Images/node-photos-container.png" alt='Contents of the "photos" container' style="max-width:100%;"></a></p>
+
+<p><em>Contents of the "photos" container</em></p>
+</li>
+<li><p>Open the "thumbnails" container in Storage Explorer. How many blobs do you see there? Open one of the blobs to see what's inside. These are the thumbnail images generated from the image uploads.</p></li>
+<li>
+<p>Want to see where the metadata generated by the Computer Vision API is being stored? Open the "photos" container again. Right-click any of the blobs in the container and select <strong>Properties</strong>. In the ensuing dialog, you'll see a list of the metadata attached to the blob. Each metadata item is a key-value pair. The computer-generated caption is stored in the item named "caption," while the keywords generated from the image are stored in a JSON string array named "tags."</p>
+
+<p><a href="Images/node-blob-metadata.png" target="_blank"><img src="Images/node-blob-metadata.png" alt="Blob metadata" style="max-width:100%;"></a></p>
+
+<p><em>Blob metadata</em></p>
+
+<p>When you're finished, click <strong>Cancel</strong> to close the Properties dialog.</p>
+</li>
+<li>
+<p>Do a <strong>View Source</strong> in your browser to view the source for the page. Find the &lt;img&gt; elements representing the image thumbnails. Observe that the URLs assigned to the images refer <strong>directly to blobs in blob storage</strong>. This is possible because you set the containers' <strong>Access type</strong> to <strong>Blob</strong>, which makes the blobs inside them publicly accessible.</p>
+
+<blockquote>
+<p>What would happen if the containers were private? If you're not sure, try it and see. Temporaily change the "thumbnails" container's <strong>Access type</strong> to <strong>Private</strong> in the Azure Portal. Then refresh the Intellipix page in your browser and see what happens.</p>
+</blockquote>
+</li>
+</ol>
+
+<p>You're almost finished, but the final and most important step remains. It is time to deploy the app to the cloud.</p>
+
+<p><a name="Exercise6"></a></p>
+
+<h2>Exercise 6: Deploy the app to Azure</h2>
+
+<p>In this exercise, you will create an Azure Web App and deploy Intellipix to it using Git. Up to now, you have been running the app locally. Azure Web Apps support local Git repositories as deployment sources, which makes it incredibly easy to <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/">publish the contents of local Git repositories to Azure</a>. You already have the local repository; it was created in Exercise 4. Now it's just a matter of creating the Web App, providing a few key pieces of information to it, and executing a <strong>git push</strong> command.</p>
+
+<ol>
+<li><p>If you have made any changes to the app since committing it at the end of Exercise 4, use Visual Studio Code to commit those changes now.</p></li>
+<li><p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser.</p></li>
+<li>
+<p>Click <strong>+ New</strong>, followed by <strong>Web + Mobile</strong> and <strong>Web App</strong>..</p>
+
+<p><a href="Images/node-new-web-app.png" target="_blank"><img src="Images/node-new-web-app.png" alt="Creating a new Azure Web App" style="max-width:100%;"></a></p>
+
+<p><em>Creating a new Azure Web App</em></p>
+</li>
+<li>
+<p>In the "Web App" blade, enter a name for the Azure Web App. The name must be unique within Azure since it ultimately becomes part of a DNS name, so you will need to enter something other than "Intellipix." Select <strong>Use existing</strong> under <strong>Resource Group</strong> and select the "Intellipix" resource group that you created for the storage account in Exercise 1. Then click <strong>App service plan/Location</strong>.</p>
+
+<p><a href="Images/node-web-app-parameters.png" target="_blank"><img src="Images/node-web-app-parameters.png" alt="Naming the Azure Web App" style="max-width:100%;"></a></p>
+
+<p><em>Naming the Azure Web App</em></p>
+</li>
+<li>
+<p>In the "App Service plan" blade, click <strong>Create New</strong>.</p>
+
+<p><a href="Images/node-new-app-service-plan.png" target="_blank"><img src="Images/node-new-app-service-plan.png" alt="Creating an App Service plan" style="max-width:100%;"></a></p>
+
+<p><em>Creating an App Service plan</em></p>
+</li>
+<li>
+<p>Type "IntellipixServicePlan" (without quotation marks) into the <strong>App Service plan</strong> box and select the location nearest you under <strong>Location</strong>. Then click <strong>Pricing tier</strong> to select a pricing tier.</p>
+
+<p><a href="Images/node-configure-app-service-plan.png" target="_blank"><img src="Images/node-configure-app-service-plan.png" alt="Configuring an App Service plan" style="max-width:100%;"></a></p>
+
+<p><em>Configuring an App Service plan</em></p>
+</li>
+<li>
+<p>In the "Choose your pricing tier" blade, click <strong>View All</strong> to show all pricing tiers.</p>
+
+<p><a href="Images/node-view-all-pricing-tiers.png" target="_blank"><img src="Images/node-view-all-pricing-tiers.png" alt="Viewing all pricing tiers" style="max-width:100%;"></a></p>
+
+<p><em>Viewing all pricing tiers</em></p>
+</li>
+<li>
+<p>Scroll down and select the <strong>F1 Free</strong> pricing tier. Then click the <strong>Select</strong> button.</p>
+
+<p><a href="Images/node-select-free-tier.png" target="_blank"><img src="Images/node-select-free-tier.png" alt="Selecting the free pricing tier" style="max-width:100%;"></a></p>
+
+<p><em>Selecting the free pricing tier</em></p>
+</li>
+<li>
+<p>Click the <strong>OK</strong> button at the bottom of the "App Service plan" blade to OK the service plan.</p>
+
+<p><a href="Images/node-ok-app-service-plan.png" target="_blank"><img src="Images/node-ok-app-service-plan.png" alt="OKing the App Service plan" style="max-width:100%;"></a></p>
+
+<p><em>OKing the App Service plan</em></p>
+</li>
+<li>
+<p>Click the <strong>Create</strong> button at the bottom of the "Web App" blade to create the Azure Web App.</p>
+
+<p><a href="Images/node-create-web-app.png" target="_blank"><img src="Images/node-create-web-app.png" alt="Creating the Azure Web App" style="max-width:100%;"></a></p>
+
+<p><em>Creating the Azure Web App</em></p>
+</li>
+<li>
+<p>Once the app has deployed (it generally only takes a few seconds), click <strong>Resource groups</strong> in the ribbon on the left side of the portal, and click the "Intellipix" resource group. Then click the Azure Web App in that resource group (the Web App that you just created).</p>
+
+<p><a href="Images/node-select-azure-web-app.png" target="_blank"><img src="Images/node-select-azure-web-app.png" alt="Selecting the Azure Web App" style="max-width:100%;"></a></p>
+
+<p><em>Selecting the Azure Web App</em></p>
+</li>
+<li>
+<p>In the "Settings" blade, click <strong>Application settings</strong> to view the Web App's application settings.</p>
+
+<p><a href="Images/node-select-app-settings.png" target="_blank"><img src="Images/node-select-app-settings.png" alt="Viewing the Web App's application settings" style="max-width:100%;"></a></p>
+
+<p><em>Viewing the Web App's application settings</em></p>
+</li>
+<li>
+<p>Scroll down to the "App settings" section of the blade and add the following key-value pairs:</p>
+
+<ul>
+<li>AZURE_STORAGE_ACCOUNT – Name of the storage account you created in Exercise 1</li>
+<li>AZURE_STORAGE_ACCESS_KEY – Access key for the storage account</li>
+<li>AZURE_VISION_API_KEY – Subscription key for the Computer Vision API you obtained in Exercise 3</li>
+</ul>
+
+<p>Once the settings are entered, click the <strong>Save</strong> button at the top of the blade to save them.</p>
+
+<p><a href="Images/node-app-settings.png" target="_blank"><img src="Images/node-app-settings.png" alt="Specifying application settings" style="max-width:100%;"></a></p>
+
+<p><em>Specifying application settings</em></p>
+</li>
+<li>
+<p>Close the "Application settings" blade and scroll down to the "PUBLISHING" section of the "Settings" blade. Then click <strong>Deployment source</strong>.</p>
+
+<p><a href="Images/node-select-deployment-source.png" target="_blank"><img src="Images/node-select-deployment-source.png" alt="Selecting the deployment source" style="max-width:100%;"></a></p>
+
+<p><em>Selecting the deployment source</em></p>
+</li>
+<li>
+<p>In the "Deployment source" blade, click <strong>Choose Source</strong>.</p>
+
+<p><a href="Images/node-choose-source.png" target="_blank"><img src="Images/node-choose-source.png" alt="Choosing the deployment source" style="max-width:100%;"></a></p>
+
+<p><em>Choosing the deployment source</em></p>
+</li>
+<li>
+<p>In the "Choose source" blade, click <strong>Local Git Repository</strong>. Then click <strong>OK</strong> at the bottom of the "Deployment source" blade.</p>
+
+<p><a href="Images/node-select-local-git-repository.png" target="_blank"><img src="Images/node-select-local-git-repository.png" alt="Choosing a deployment source" style="max-width:100%;"></a></p>
+
+<p><em>Choosing a deployment source</em></p>
+</li>
+<li>
+<p>Go back to the "PUBLISHING" section of the "Settings" blade and click <strong>Deployment credentials</strong>.</p>
+
+<p><a href="Images/node-select-deployment-credentials.png" target="_blank"><img src="Images/node-select-deployment-credentials.png" alt="Selecting the deployment credentials" style="max-width:100%;"></a></p>
+
+<p><em>Selecting the deployment credentials</em></p>
+</li>
+<li>
+<p>Enter a user name and password for deploying to Azure. User names may contain letters, numbers, hyphens, and underscores and must start with a letter. Make your password at least 8 characters in length and include a mix of uppercase letters, lowercase letters, and numbers. <strong>Remember the user name and password you entered because you will need them when you deploy the app</strong>. When you're done, click the <strong>Save</strong> button at the top of the blade.</p>
+
+<p><a href="Images/node-set-deployment-credentials.png" target="_blank"><img src="Images/node-set-deployment-credentials.png" alt="Setting the deployment credentials" style="max-width:100%;"></a></p>
+
+<p><em>Setting the deployment credentials</em></p>
+</li>
+<li>
+<p>Scroll to the "GENERAL" section of the "Settings" blade and click <strong>Properties</strong>.</p>
+
+<p><a href="Images/node-select-properties.png" target="_blank"><img src="Images/node-select-properties.png" alt="Selecting properties" style="max-width:100%;"></a></p>
+
+<p><em>Selecting properties</em></p>
+</li>
+<li>
+<p>Scroll down in the "Properties" blade until you find "GIT URL." Then click the <strong>Copy</strong> button to copy the URL to the clipboard.</p>
+
+<p><a href="Images/node-copy-git-url.png" target="_blank"><img src="Images/node-copy-git-url.png" alt="Copying the Git URL" style="max-width:100%;"></a></p>
+
+<p><em>Copying the Git URL</em></p>
+</li>
+<li>
+<p>Return to the Command Prompt window (or open a new one if you closed the last one) and execute the following command to add "azure" as a remote name. Substitute the Git URL on the clipboard for <em>git_url</em>.</p>
+
+<pre>git remote add azure <i>git_url</i>
+</pre>
+</li>
+<li>
+<p>Now use the following command to deploy Intellipix from your local Git repository to Azure. When prompted to enter Git credentials, type the user name and password you specified in Step 18 of this exercise.</p>
+
+<pre>git push azure master
+</pre>
+</li>
+<li>
+<p>After a few moments, you should be greeted with a successful deployment.</p>
+
+<p><a href="Images/node-successful-deployment.png" target="_blank"><img src="Images/node-successful-deployment.png" alt="Success!" style="max-width:100%;"></a></p>
+
+<p><em>Success!</em></p>
+</li>
+<li>
+<p>Open your browser and navigate to <em>appname</em>.azurewebsites.net, substituting the name of your Azure Web App for <em>appname</em> (the name you entered in Step 4 of this exercise). Confirm that Intellipix appears in your browser, and that it shows the images you uploaded to it while testing locally. The app is no longer running locally; it's on the Web, where it's reachable by everyone. Congratulations on a successful deployment!</p>
+
+<p><a href="Images/node-intellipix.png" target="_blank"><img src="Images/node-intellipix.png" alt="The finished product!" style="max-width:100%;"></a></p>
+
+<p><em>The finished product!</em></p>
+</li>
+</ol>
+
+<p>If you make changes to the app and want to push the changes out to the Web, simply commit the changes in Visual Studio Code and execute a <strong>git push azure master</strong> command again. Of course, you can still test your changes locally before publishing to the Web.</p>
+
+<h2>Summary</h2>
+
+<p>In this hands-on lab, you learned how to:</p>
+
+<ul>
+<li>Create an Azure storage account and use it as a backing store for an app</li>
+<li>Write a Node.js app in Visual Studio Code and test it locally</li>
+<li>Write code that uploads blobs to blob storage and attaches metadata to them</li>
+<li>Consume blob metadata to implement search</li>
+<li>Use Microsoft's Computer Vision API to generate image metadata and thumbnails</li>
+<li>Use Git to deploy a Node.js app from a local repository to Azure</li>
+</ul>
+
+<p>There is much more that you could do to develop Intellipix and to leverage Azure even further. For example, you could add support for authenticating users and deleting photos, and rather than force the user to wait for Cognitive Services to process a photo following an upload, you could use <a href="https://azure.microsoft.com/en-us/services/functions/">Azure Functions</a> to call the Computer Vision API asynchronously each time an image is added to blob storage. You could even use Cognitive Services to detect faces in the photos and analyze the emotions depicted by those faces. With the cloud as your platform, the sky is the limit (pun intended).</p>
+
+<hr>
+
+<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

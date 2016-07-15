@@ -10,7 +10,7 @@ Microsoft Azure Storage is a set of services that allows you to store large volu
 
 Data stored in Microsoft Azure Storage can be accessed over HTTP or HTTPS using straightforward REST APIs, or it can be accessed using rich client libraries available for many popular languages and platforms, including .NET, Java, Android, Node.js, PHP, Ruby, and Python. The [Azure Portal](https://portal.azure.com) includes features for working with Azure Storage, but richer functionality is available from third-party tools, many of which are free and some of which work cross-platform.
 
-In this lab, you will use Visual Studio Code to write a Node.js app that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in Node.js, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/), a set of intelligent APIs for building equally intelligent applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) to generate a caption for the image as well as searchable metadata describing the contents of the image and an image thumbnail. And at the end, you'll discover how easy it is to deploy apps to the cloud using Git and Visual Studio Code.
+In this lab, you will use Visual Studio Code to write a Node.js app that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in Node.js, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/), a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) to generate a caption for the image as well as searchable metadata describing the contents of the image and an image thumbnail. And you will discover how easy it is to deploy apps to the cloud using Git and Visual Studio Code.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -28,11 +28,11 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- A Microsoft Azure subscription - [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
-- Visual Studio Code (provided for you in the lab VM)
-- Git version 2.0 or higher (provided for you in the lab VM)
-- Node.js version 4 or higher (provided for you in the lab VM)
-- The Microsoft Azure Storage Explorer (provided for you in the lab VM)
+- An active Microsoft Azure subscription. Use the one you created in Lab 1, or [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
+- [Microsoft Azure Storage Explorer](http://storageexplorer.com/)
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- [Git](https://git-scm.com/downloads) version 2.0 or higher
+- [Node.js](https://nodejs.org/en/download/) version 4 or higher
 
 ---
 <a name="Exercises"></a>
@@ -49,6 +49,8 @@ This hands-on lab includes the following exercises:
 
 Estimated time to complete this lab: **60** minutes.
 
+---
+
 <a name="Exercise1"></a>
 ## Exercise1: Create a storage account
 
@@ -58,51 +60,39 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
  
 1. The first step in using Azure Storage is to create a storage account. To create a storage account, click **+ NEW** in the ribbon on the left. Then click **Data + Storage**, followed by **Storage account**.
 
-    ![Creating a storage account](Images/new-storage-account.png)
+    ![Creating a storage account](images/new-storage-account.png)
 
     _Creating a storage account_
 
-1. In the ensuing "Create storage account" blade, enter a name for the new storage account in **Name** field. The name is important, because it forms one part of the URL through which blobs created under this account can be accessed.
+1. In the ensuing "Create storage account" blade, enter a name for the new storage account in **Name** field. The name is important, because it forms one part of the URL through which blobs created under this account are accessed.
 
-	> Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure; if someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the **Name** field.
+	> Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure. If someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the **Name** field.
 
-	Once you have a name that Azure will accept (as indicated by the green check mark in the **Name** field), make sure **Resource Manager** is selected as the deployment model and **+ New** is selected under **Resource group**. Then type "Intellipix" (without quotation marks) into the **New resource group name** box.
+	Once you have a name that Azure will accept (as indicated by the green check mark in the **Name** field), make sure **Resource manager** is selected as the deployment model and **General purpose** is selected as the account kind. Then select **Locally-redundant storage (LRS)** as the replication type.
 
-	> Resource groups are a relatively recent addition to Azure and are a powerful construct for grouping resources such as storage accounts, databases, and virtual machines together so they can be managed as a unit. Imagine that you created a complex application consisting of multiple storage accounts, a cluster of VMs, a SQL database, and perhaps a Stream Analytics solution and a pair of event hubs. Now you want to create a new instance of the application using a different account. By assembling all these resources into a resource group, you can take advantage of [Azure deployment templates](https://azure.microsoft.com/en-us/documentation/articles/arm-template-deployment/) to script the creation of the entire application. In addition, you can use role-based security to restrict access to resources in a resource group, and you can delete the application — and all of the resources that comprise it — by deleting the resource group. You will learn more about resource groups and deployment templates in subsequent labs.
+	> Locally redundant storage is the most cost-effective storage option. It prevents data stored under this storage account from being replicated in other data centers, but it ensures that the data will be replicated at least three times within the chosen data center.
 
-	> The other deployment model, **Classic**, creates a "classic" storage account that doesn't fall under the purview of the [Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/). Specifying **Resource Manager** as the deployment model provides you with more flexibility later on by ensuring that the account is explicitly added to a resource group, and it makes the storage account a first-class citizen in the Azure environment. For more information, see [Understanding Resource Manager deployment and classic deployment](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/).
-
-	Make sure **General purpose** is selected in the **Account Kind** box. Then select **Locally-redundant storage (LRS)** under **Replication**.
-
-	> Locally redundant storage is the most cost-effective storage option. It prevents data stored under this storage account from being replicated in other data centers, but it ensures that the data will be replicated at least three times within the chosen data center. A *general-purpose* storage account can contain tables and queues as well as blobs, while the other type of storage account — *blob storage* — hosts blobs only. The latter could be used for this lab, and it offers support for a new feature of Azure called [cool storage](https://azure.microsoft.com/en-us/blog/introducing-azure-cool-storage/). But since not all Azure data centers support blob-only storage accounts right now, selecting it would limit the places your storage account can be located.
-
-	Finish up by selecting the location nearest you in the **Location** box. Then click the **Create** button at the bottom of the blade to create the new storage account.
+	Select **Create new** under **Resource group** and type "Intellipix" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the **Location** box, and clicking the **Create** button at the bottom of the blade to create the new storage account.
     
-	![Specifying parameters for a new storage account](Images/create-storage-account.png)
+	![Specifying parameters for a new storage account](images/create-storage-account.png)
 
     _Specifying parameters for a new storage account_
 
-1. After a few moments (it generally takes just a few seconds, but can sometimes take a few minutes), the new storage account will be created. Click **Storage accounts** in the ribbon on the left to see a list of storage accounts associated with your subscription.
+1. Once the storage account has been created, click **Resource groups** in the ribbon on the left. Then click the "Intellipix" resource group, and in the blade that opens for the resource group, click the storage account you just created.
  
-    ![Viewing a list of storage accounts](Images/view-storage-accounts.png)
+    ![Opening the new storage account](images/open-storage-account.png)
 
-    _Viewing a list of storage accounts_
-
-1. Click the storage account that you just created.
-
-    ![Viewing a storage account](Images/view-storage-account.png)
-
-    _Viewing a storage account_
+    _Opening the new storage account_
 
 1. In the blade for the storage account, click **Blobs** to view a list of containers associated with this account.
 
-    ![Viewing blob containers](Images/view-containers.png)
+    ![Viewing blob containers](images/view-containers.png)
 
     _Viewing blob containers_
 
 1. The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click **+ Container** to create a new container.
 
-    ![Adding a container](Images/add-container.png)
+    ![Adding a container](images/add-container.png)
 
     _Adding a container_
 
@@ -110,19 +100,19 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
 	> By default, containers and their contents are private. Selecting **Blob** as the access type makes the blobs in the "photos" container publicly accessible, but doesn't make the container itself public. This is what you want since the images stored in the "photos" container will be linked to from a Web app. 
 
-    ![Creating a "photos" container](Images/create-photos-container.png)
+    ![Creating a "photos" container](images/create-photos-container.png)
 
     _Creating a "photos" container_
 
 1. Repeat this process to create a container named "thumbnails," once more ensuring that the container's **Access type** is set to **Blob**.
 
-    ![Creating a "thumbnails" container](Images/create-thumbnails-container.png)
+    ![Creating a "thumbnails" container](images/create-thumbnails-container.png)
 
     _Creating a "thumbnails" container_
 
 1. Confirm that both containers appear in the list of containers for this storage account, and that the names are spelled correctly.
 
-    ![The new containers](Images/new-containers.png)
+    ![The new containers](images/new-containers.png)
 
     _The new containers_
 
@@ -203,11 +193,15 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
 1. Create a project directory named "Intellipix" in the location of your choice — for example, "C:\DXLabs\Intellipix."
 
-1. Open a Command Prompt window and execute the following command, substituting the Computer Vision API key you copied to the clipboard in the previous exercise for *vision_api_key*:
+1. Click the **Windows** button (also known as the Start button) in the lower-left corner of the desktop and type "cmd" (without quotation marks). Then press **Enter** to open a Command Prompt window.
+ 
+1. In the Command Prompt window, execute the following command, substituting the Computer Vision API key you copied to the clipboard in the previous exercise for *vision_api_key*:
 
 	<pre>
 	set AZURE_VISION_API_KEY=<i>vision_api_key</i>
 	</pre>
+
+	> Storing sensitive values such as API keys in environment variables prevents you from having to embed them in your code, where a determined intruder could find them and use them. When you deploy the app to the cloud, these values will be stored in Azure and never exposed to the end user or transmitted over the wire.
 
 1. Next, execute the following command, substituting the name of the storage account you created in Exercise 1 for *storage_account_name*:
 
@@ -233,9 +227,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 	set AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i>
 	</pre>
 
-	> Storing these sensitive values in environment variables prevents you from having to embed them in your code, where a determined intruder could find them and use them. When you deploy the app to the cloud, these values will be stored in Azure and never exposed to the end user or transmitted over the wire.
-
-1. In the Command Prompt window, **navigate to the Intellipix directory you created in Step 1** and execute the following command (note the space and the period at the end of the command) to start Visual Studio Code in that directory:
+1. In the Command Prompt window, use a **cd** command to **navigate to the Intellipix directory you created in Step 1** and execute the following command (note the space and the period at the end of the command) to start Visual Studio Code in that directory:
 
 	<pre>
 	code .
@@ -297,7 +289,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 1. Add a file named server.js to the project and insert the following statements:
 
 	```javascript
-var express = require('express');
+	var express = require('express');
     var multer = require('multer');
     var azureStorage = require('azure-storage');
     var streamifier = require('streamifier');
@@ -525,7 +517,7 @@ var express = require('express');
 1. Add a file named index.html to the "src" folder and insert the following statements:
 
 	```html
-<!DOCTYPE html>
+	<!DOCTYPE html>
     <html lang="en" ng-app="myApp">
     <head>
     <meta charset="utf-8">
@@ -626,7 +618,7 @@ var express = require('express');
 1. Add a file named index.js to the "src" folder and insert the following statements:
 
 	```javascript
-(function() {
+	(function() {
 
         function mainController($http) {
             this.$http = $http;
@@ -834,7 +826,7 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
     _Creating a new Azure Web App_
 
-1. In the "Web App" blade, enter a name for the Azure Web App. The name must be unique within Azure since it ultimately becomes part of a DNS name, so you will need to enter something other than "Intellipix." Also make sure **Create new** is selected under **Resource Group** and enter a resource-group name such as "Intellipix." This name only has to be unique to a subscription. Then click **App service plan/Location**.
+1. In the "Web App" blade, enter a name for the Azure Web App. The name must be unique within Azure since it ultimately becomes part of a DNS name, so you will need to enter something other than "Intellipix." Select **Use existing** under **Resource Group** and select the "Intellipix" resource group that you created for the storage account in Exercise 1. Then click **App service plan/Location**.
 
     ![Naming the Azure Web App](Images/node-web-app-parameters.png)
 
@@ -876,7 +868,7 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
     _Creating the Azure Web App_
 
-1. Once the app has deployed (it generally only takes a few seconds), click **Resource groups** in the ribbon on the left side of the portal, and click the resource group whose name you specified when creating the Web App. Then click the Azure Web App in that resource group (the Web App that you just created).
+1. Once the app has deployed (it generally only takes a few seconds), click **Resource groups** in the ribbon on the left side of the portal, and click the "Intellipix" resource group. Then click the Azure Web App in that resource group (the Web App that you just created).
 
     ![Selecting the Azure Web App](Images/node-select-azure-web-app.png)
 
@@ -914,9 +906,9 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
 1. In the "Choose source" blade, click **Local Git Repository**. Then click **OK** at the bottom of the "Deployment source" blade.
 
-    ![tk](Images/node-select-local-git-repository.png)
+    ![Choosing a deployment source](Images/node-select-local-git-repository.png)
 
-    _tk_
+    _Choosing a deployment source_
 
 1. Go back to the "PUBLISHING" section of the "Settings" blade and click **Deployment credentials**.
 
@@ -942,7 +934,7 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
     _Copying the Git URL_
 
-1. Rteurn to the Command Prompt window (or open a new one if you closed the last one) and execute the following command to add "azure" as a remote name. Substitute the Git URL on the clipboard for *git_url*.
+1. Return to the Command Prompt window (or open a new one if you closed the last one) and execute the following command to add "azure" as a remote name. Substitute the Git URL on the clipboard for *git_url*.
 
 	<pre>
 	git remote add azure <i>git_url</i>
@@ -983,4 +975,4 @@ There is much more that you could do to develop Intellipix and to leverage Azure
 
 ----
 
-Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the Apache License, Version 2.0. You may use it according to the license as is most appropriate for your project on a case-by-case basis. The terms of this license can be found in http://www.apache.org/licenses/LICENSE-2.0.
+Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
