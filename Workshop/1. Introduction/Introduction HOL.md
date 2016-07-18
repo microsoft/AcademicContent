@@ -23,8 +23,9 @@ In this hands-on lab, you will:
 
 The following is required to complete this hands-on lab:
 
-- An Azure Pass activation code. If you do not have one, please see the instructor.
+- An Azure Pass activation code provided by the instructor
 - A Remote Desktop client that allows you to remote into a PC or VM running Windows. Windows comes with Remote Desktop Connection. Mac users can download the [Microsoft Remote Desktop](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) app for free from the Apple Store. Ubuntu users can use the open-source [Remmina Remote Desktop Client](http://www.remmina.org/wp/) or any tool that supports remote-desktop access from Linux.
+- Remote Desktop connection info provided by the instructor
 
 ---
 <a name="Exercises"></a>
@@ -73,7 +74,7 @@ An Azure Pass is a free subscription that provides $500 worth of credits for up 
 
 1. In the VM, double-click one of the browser shortcuts on the desktop to start the browser of your choice — for example, Google Chrome or Microsoft Edge.
 
-1. In the private browsing window, navigate to the Microsoft account sign-up page at [https://signup.live.com](https://signup.live.com/).
+1. In the browser window, navigate to the Microsoft account sign-up page at [https://signup.live.com](https://signup.live.com/).
 
     ![Creating a new Microsoft account](Images/new-microsoft-account.png)
 
