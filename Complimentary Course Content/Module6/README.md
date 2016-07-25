@@ -9,7 +9,7 @@
       <div class="container">
          <div class="jumbotron">
             <h1>Module 6 - Internet of Things</h1>
-            <p><b>June 2016 release, R0</b></p>
+            <p><b>June 2016 release</b></p>
             <p>This module covers the fundamental concepts of the Internet of Things. IoT can be considered a system of sensor devices and data sources that generate streaming data. Thus, at the end of the course, students should know how to collect streaming data from IoT devices and how to adopt and analyze the streaming data from these devices.</p>
          </div>
       </div>
