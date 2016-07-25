@@ -9,7 +9,7 @@
       <div class="container">
          <div class="jumbotron">
             <h1>Module 7 - DevOps</h1>
-            <p><b>June 2016 release, R0</b></p>
+            <p><b>June 2016 release</b></p>
             <p>This module covers the fundamental concepts of DevOps including configuration managment. This module introduces Chef. Additionally, module 7 teaches how to launch a web server, desired state configuartions, and how to test a web server (all using chef).</p>
          </div>
       </div>
