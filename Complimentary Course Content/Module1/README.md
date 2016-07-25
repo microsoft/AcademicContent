@@ -9,7 +9,7 @@
       <div class="container">
          <div class="jumbotron">
             <h1>Module 1 - Introduction to Cloud Computing</h1>
-            <p><b>June 2016 release, R1</b>
+            <p><b>June 2016 release</b>
             <p>This module introduces what cloud computing is, why it has become so popular, and the existing approaches to cloud computing. The module 1 labs cover real cloud computing examples. Upon completion of this module, the students should understand the fundamental concepts of cloud computing and how to apply them.</p>
          </div>
       </div>
