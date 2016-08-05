@@ -1,0 +1,83 @@
+﻿// Based on template from https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates/101-dtl-create-vm-username-pwd-customimage
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "existingLabName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of an existing Azure DevTest Lab instance lab where the new VMs will be created."
+      }
+    },
+    "existingCustomImageId": {
+      "type": "string",
+      "metadata": {
+        "description": "The id of an existing custom image which will be used to create the new VMs. The specified image must exist in the lab which was identified in the 'existingLabName' parameter."
+      }
+    },
+    "newVMSize": {
+      "type": "string",
+      "metadata": {
+        "description": "The size of the new VMs to be created."
+      }
+    },
+    "userName": {
+      "type": "string",
+      "metadata": {
+        "description": "The username for the local account that will be created on each VM."
+      }
+    },
+    "password": {
+      "type": "securestring",
+      "metadata": {
+        "description": "The password for the local account that will be created on each VM."
+      }
+    },
+    "labRootVmName": {
+      "type": "string",
+      "metadata": {
+        "description": "The root name to use for each of the VM's created in the lab."
+      }      
+    },
+    "numberOfCopies": {
+      "type": "int",
+      "metadata": {
+        "description": "The number of VM's to create for the lab."
+      }
+    },
+    "firstMachineIndex": {
+      "type": "int",
+      "metadata": {
+        "description": "The index to use for the first machine name in this group."
+      }
+    }
+  },
+  "variables": {
+    "labVirtualNetworkId": "[resourceId('Microsoft.DevTestLab/labs/virtualnetworks', parameters('existingLabName'), variables('labVirtualNetworkName'))]",
+    "labVirtualNetworkName": "[concat('Dtl', parameters('existingLabName'))]",
+    "resourceRootName": "[concat(parameters('existingLabName'), '/', concat(parameters('labRootVmName')))]",
+    "labSubnetName": "[concat(variables('labVirtualNetworkName'), 'Subnet')]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2016-05-15",
+      "type": "Microsoft.DevTestLab/labs/virtualMachines",
+      "name": "[concat(variables('resourceRootName'), padLeft(string(copyIndex(parameters('firstMachineIndex'))), 3, '0'))]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "customImageId": "[parameters('existingCustomImageId')]",
+        "size": "[parameters('newVMSize')]",
+        "isAuthenticationWithSshKey": false,
+        "userName": "[parameters('userName')]",
+        "sshKey": "",
+        "password": "[parameters('password')]",
+        "labVirtualNetworkId": "[variables('labVirtualNetworkId')]",
+        "labSubnetName": "[variables('labSubnetName')]"
+      },
+      "copy": {
+        "name": "vmcopies", 
+        "count": "[parameters('numberOfCopies')]"
+      }
+    }
+  ]
+}
