@@ -17,7 +17,6 @@
             <a href="https://azure.microsoft.com/en-us/free/">Free Azure Trial</a>, 
             <a href="https://www.dreamspark.com/student/default.aspx">Microsoft Imagine</a>, 
             <a href="http://www.microsoftazurepass.com/">Azure Pass</a>,
-            <a href="https://www.microsoftazurepass.com/azureu">AzureU</a>,
             <a href="https://www.visualstudio.com/en-us/products/visual-studio-dev-essentials-vs.aspx">Visual Studio Dev Essentials</a>, or
             <a href="http://research.microsoft.com/en-us/projects/azure/default.aspx">Azure for Research</a>.
             </p>

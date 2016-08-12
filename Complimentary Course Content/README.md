@@ -59,7 +59,7 @@
                   <tr>
                      <td align="center">[5](Module5/)</td>
                      <td>[Data Science and Machine Learning in Spark](Module5/Lessons)</td>
-                     <td>The module introduces the fundamental concepts of data science and machine learning using Spark and Spark Machine Learning library. Thus, at the end of the course, students should know the fundamental concepts of machine learning and be adapt Spark for machine learning and data science to predict the trend and patterns of massive data sets. | [Labs](Module5/Labs)
+                     <td>This module introduces the fundamental concepts of data science and machine learning using Spark and Spark Machine Learning library. Thus, at the end of the course, students should know the fundamental concepts of machine learning and be adapt Spark for machine learning and data science to predict the trend and patterns of massive data sets. | [Labs](Module5/Labs)
                      </td>
                   </tr>
                   <tr>

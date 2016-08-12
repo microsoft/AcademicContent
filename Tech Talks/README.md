@@ -45,7 +45,7 @@
 										<tr>
 					   <td><b>Build an Intelligent <Dorm Room> Security System with Cognitive Services</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Build%20An%20Intelligent%20(Dorm%20Room)%20Security%20System.pptx) </td>
-					   <td>Welcome your friends, know you foes with a fun and intelligent "internet of things" project using a Raspberry Pi, Windows 10, Microsoft Azure, and a few cheap components. The skills you build may very well be a bigger step towards your career in making.</td>
+					   <td>Welcome your friends, know your foes with a fun and intelligent "internet of things" project using a Raspberry Pi, Windows 10, Microsoft Azure, and a few cheap components. The skills you build may very well be a bigger step towards your career in making.</td>
 					</tr>
 										<tr>
 					   <td><b>Your First Startup: Moving your Investors to YES!</b></td>
