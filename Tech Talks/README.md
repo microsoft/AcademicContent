@@ -37,10 +37,10 @@
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Using%20Cortana%20Intelligence%20Suite%20in%20your%20Hacks%20or%20Student%20Projects.pptx) | [Demos](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Demos%20-%20Using%20Cortana%20Intelligence%20Suite%20in%20your%20Hacks%20or%20Student%20Projects.zip)</td>
 					   <td>Want to make your apps more intelligent with minimal additional work? Today's cloud has the power to help you create something more <i>human</i>. Learn about the characteristics of an intelligent app and see some great demos of what's possible with contextual vision, speech, knowledge, language, and search.</td>
 					</tr>
-										<tr>
+						<tr>
 					   <td><b>A Career in Technical Evangelism: What we really do.</b></td>
-					   <td>[Presentation](TBD)</td>
-					   <td>Coming soon</td>
+					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Developer%20Evangelism.pptx)</td>
+					   <td>An overview of all the tasks a Developer Evangelist does.</td>
 					</tr>
 										<tr>
 					   <td><b>Build an Intelligent <Dorm Room> Security System with Cognitive Services</b></td>
