@@ -39,8 +39,8 @@
 					</tr>
 										<tr>
 					   <td><b>A Career in Technical Evangelism: What we really do.</b></td>
-					   <td>[Presentation](TBD)</td>
-					   <td>Coming soon</td>
+					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20A%20career%20in%20developer%20evangelism.pptx)</td>
+					   <td>Do you love sharing technology with other people as much as you love building things yourself? Want to help others be successfully while building your commmunication and coding skills in parallel? Learn about this exciting career path from people who live it everyday. </td>
 					</tr>
 										<tr>
 					   <td><b>Build an Intelligent <Dorm Room> Security System with Cognitive Services</b></td>
