@@ -10,7 +10,7 @@
       <div class="container">
          <div class="jumbotron">
             <h1>Academic Resources for Computer Science</h1>
-            <p><b>July 2016 release.</b> <i>The content and code on this repo is in Preview. It's intended for review and collaboration with Microsoft developer advocates and the academic community under <a href="https://github.com/MSFTImagine/computerscience/blob/master/LICENSE.md">MIT license</a>. Please check back regularly for updated versions.</i> <b>Source:</b> <a href="https://github.com/MSFTImagine/computerscience">https://github.com/MSFTImagine/computerscience</a>.</p>
+            <p><b>August 2016 release.</b> <i>The content and code on this repo is in Preview. It's intended for review and collaboration with Microsoft developer advocates and the academic community under <a href="https://github.com/MSFTImagine/computerscience/blob/master/LICENSE.md">MIT license</a>. Please check back regularly for updated versions.</i> <b>Source:</b> <a href="https://github.com/MSFTImagine/computerscience">https://github.com/MSFTImagine/computerscience</a>.</p>
             <p>
                This repo provides technical resources for faculty, students, and Microsoft developer advocates for use in computer science learning. The modules cover common cross-platform scenarios including mobile app dev, web dev, internet of things, data science, machine learning, and devops. Content delivery is divided into three groups: Complimentary Course Content, Tech Talks, and Workshops.</p>
                <p>Most hands-on learning focuses on how to deploy cross-platform technologies on Microsoft Azure although most of the concepts can be applied across many cloud platform solutions. Academic users can get free Azure from various programs like 
