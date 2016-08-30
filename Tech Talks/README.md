@@ -10,7 +10,7 @@
       <div class="container">
          <div class="jumbotron">
             <h1>Tech Talks</h1>
-            <p><b>June 2016 release.</b> Source: <a href="https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks">https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks</a>.</p>
+            <p><b>August 2016 release.</b> Source: <a href="https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks">https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks</a>.</p>
             <p>
             Tech Talks seek to inspire and educate students on topics that are emerging in the tech industry or are developer career-focused. We want them to compliment a computer science education in a more informal forum like a pre-hackathon talk, within student groups, or other visiting campus speaking or meetups. Each contains a presentation as well as speaker notes and coding demos. They are generally designed to be about 1 hour with Q&A - feel free edit them down to fit desired length. New contributions are welcome.
             </p>
@@ -40,7 +40,7 @@
 										<tr>
 					   <td><b>A Career in Technical Evangelism: What we really do.</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20A%20career%20in%20developer%20evangelism.pptx)</td>
-					   <td>Do you love sharing technology with other people as much as you love building things yourself? Want to help others be successfully while building your commmunication and coding skills in parallel? Learn about this exciting career path from people who live it everyday. </td>
+					   <td>Do you love sharing technology with other people as much as you love building things yourself? Want to help others be successful while building your commmunication and coding skills in parallel? Learn about this exciting career path from people who live it everyday. </td>
 					</tr>
 										<tr>
 					   <td><b>Build an Intelligent <Dorm Room> Security System with Cognitive Services</b></td>
@@ -54,8 +54,8 @@
 					</tr>
 										<tr>
 					   <td><b>What's New in Virtual and Augmented Reality for devs?</b></td>
-					   <td>[Presentation](TBD)</td>
-					   <td>Coming soon</td>
+					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20The%20tech%20path%20towards%20Augmented%20and%20Virtual%20Reality.pptx)</td>
+					   <td>You can't have a conversation about emerging tech without virtual and augmented reality quickly coming up. But did you know that developers have been experimenting with it for decades? Learn about past experiences that paved the way and why now is the time for mixed reality experiences to explode in popularity and potential.  </td>
 					</tr>
 				 </table>
 			</div>
