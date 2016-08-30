@@ -10,10 +10,11 @@
       <div class="container">
          <div class="jumbotron">
             <h1>Azure Workshop</h1>
-            <p><b>July 2016 release.</b> Source: <a href="https://github.com/MSFTImagine/computerscience/tree/master/Workshop">https://github.com/MSFTImagine/computerscience/tree/master/Workshop</a>.</p>
+            <p><b>August 2016 release.</b> Source: <a href="https://github.com/MSFTImagine/computerscience/tree/master/Workshop">https://github.com/MSFTImagine/computerscience/tree/master/Workshop</a>.</p>
             <p>
             The Azure Workshop is a series of hands-on coding labs to help computer science faculty and student quickly learn how to deploy solutions to the Azure cloud across common scenarios like Web Dev, App Dev, Internet of Things, and Data Science with Machine Learning using cross-platform technologies. Labs can be completed on a Windows device or through VMs on Mac or Linux. Format is typically 1-day instructor-led; however groups may opt to customize into 2-hour or 4-hour lengths too. Your feedback is welcome in improving these labs.
             </p>
+            <p>Note: New VMs that accompany the Azure Workshop will be available in early-September.
             </div>
          </div>
          <div class="panel panel-default">
