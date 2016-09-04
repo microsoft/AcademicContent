@@ -13,6 +13,23 @@
             <p>This module introduces what cloud computing is, why it has become so popular, and the existing approaches to cloud computing. The module 1 labs cover real cloud computing examples. Upon completion of this module, the students should understand the fundamental concepts of cloud computing and how to apply them.</p>
          </div>
       </div>
+      <div class="row">
+      		<div class="col-lg-12 text-info">
+      		<p>To use Azure resources for free, students and lecturers have a range of options, including:</p>
+      		<dl>
+      			<dt>Azure For Research</dt>
+      			<dd>Submit a proposal for free Azure credits if you are working on a research project. Proposals are reviewed every two months. Faculty, research staff members, graduate students, and postdocs are qualified to submit proposals.</dd>
+      			<dt>Azure 30-day Free Trial</dt>
+      			<dd>Offers $200 in Azure credits for 30-days for anyone with just an e-mail address. You can use the $200 credits towards any of the several Azure Services such as Virtual Machines, SQL Databases, Storage and Machine Learning. A credit card and phone number are required for identity verification during sign up.</dd>
+      			<dt>Visual Studio Dev Essentials</dt>
+      			<dd>Microsoft’s most comprehensive free developer program includes developer tools such as Visual Studio Community and Code along with Azure Credit of $25/month for 12 months. A credit card and phone number are required for activation of the Azure Credits. The program also includes free world-class training and support for 3 months.</dd>
+      			<dt>Microsoft Imagine</dt>
+      			<dd><strong>Azure Student Developer Program Build cross-platform apps and connect them to the cloud with Microsoft Azure, at no cost and with no credit card required</strong><br />
+      			Azure, at no cost and with no credit card required.
+The following Azure Services are included for free with no limit:
+Mobile Apps, Notification Hubs, SQL Database, MySQL with ClearDB, Visual Studio App Insights, Web Apps and Visual Studio Team Services.</dd>
+</dl>
+</div>
       <div class="panel-body">
                <table class="table table-bordered table-hover">
                   <col>
