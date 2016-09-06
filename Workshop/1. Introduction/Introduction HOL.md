@@ -21,7 +21,7 @@ Although Azure services can be accessed from any operating system running on an 
 - [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 - [Docker client for Windows](https://get.docker.com/builds/Windows/x86_64/docker-latest.zip)
 
-> In each case, it is advised that you install the latest stable release of the tools to ensure compatibility with the lab exercises.
+> In each case, it is recommended that you install the latest stable release of the tools to ensure compatibility with the lab exercises.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -37,8 +37,10 @@ In this hands-on lab, you will:
 
 The following is required to complete this hands-on lab:
 
-- An HTML5 browser such as Chrome tk or higher, Internet Explorer 10 or higher, or Microsoft Edge
+- An HTML5 browser such as Chrome 16 or higher, Firefox 11 or higher, Internet Explorer 10 or higher, or Microsoft Edge
 - A URL provided by the instructor for accessing the lab VM
+
+For a complete of requirements for connecting to and using the lab VM, visit https://microsoftevents.learnondemand.net/Lab/HyperVSupport.
 
 ---
 <a name="Exercises"></a>
@@ -70,7 +72,7 @@ In this exercise, you will use your browser to connect to a Windows 10 virtual m
 
 1. In the "Content" tab on the right side of the screen are the credentials you will use to log in to the Azure portal and access the subscription that has been set up for you. Make note of these credentials, because you will need them in the next exercise and any time you go to the Azure Portal and are asked to log in.
 
-    ![Your Azure credentials](Images/tk.png)
+    ![Your Azure credentials](Images/credentials.png)
 
     _Your Azure credentials_
 
@@ -89,9 +91,9 @@ In this exercise, you will log in to the Azure Portal and learn how to view the 
 
 1. Type "portal.azure.com" (without quotation marks) into the browser's address bar to go to the Azure Portal.
 
-1. Log in with the user name and password displayed in the "Content" tab on the right side of the screen under "Azure Credentials."
+1. When asked to log in, enter the user name and password displayed in the "Content" tab on the right side of the screen under "Azure Credentials." Then click the **Sign In** button.
 
-    ![Logging in to the Azure Portal](Images/tk.png)
+    ![Logging in to the Azure Portal](Images/sign-in.png)
 
     _Logging in to the Azure Portal_
 
@@ -103,11 +105,9 @@ In this exercise, you will log in to the Azure Portal and learn how to view the 
 
 1. Confirm that **Azure Pass** appears among the list of subscriptions associated with your account, and that the subscription status is **Active**. Then click **Azure Pass**.
 
-    ![Your Azure Pass subscription](Images/azure-portal-active-subscriptions.png)
+    ![Your Azure Pass subscription](Images/subscriptions.png)
 
     _Your Azure Pass subscription_
-
-	> Don't be concerned if there are several Azure accounts associated with your subscription. What's important is that Azure Pass is one of them.
 
 1. A new *blade* — that is, a window within the browser window — opens in the portal showing usage data and billing information for your Azure Pass. Since you just activated the subscription, there will probably be no charges listed. However, you can check back here from time to time to keep track of the charges being billed to your subscription. 
 
