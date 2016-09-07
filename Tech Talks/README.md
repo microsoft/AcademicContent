@@ -53,7 +53,7 @@
 					   <td>Thinking about building the next great thing? Deciding to bootstrap or raise some capital? This talk guides you through the realities, the process, and how to pitch investors towards your big career breakthrough. </td>
 					</tr>
 										<tr>
-					   <td><b>What's New in Virtual and Augmented Reality for devs?</b></td>
+					   <td><b>Virtual Reality - The Past, Present, and the Future that Starts Right Now</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20The%20tech%20path%20towards%20Augmented%20and%20Virtual%20Reality.pptx)</td>
 					   <td>You can't have a conversation about emerging tech without virtual and augmented reality quickly coming up. But did you know that developers have been experimenting with it for decades? Learn about past experiences that paved the way and why now is the time for mixed reality experiences to explode in popularity and potential.  </td>
 					</tr>
