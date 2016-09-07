@@ -40,7 +40,7 @@ The following is required to complete this hands-on lab:
 - An HTML5 browser such as Chrome 16 or higher, Firefox 11 or higher, Internet Explorer 10 or higher, or Microsoft Edge
 - A URL provided by the instructor for accessing the lab VM
 
-For a complete of requirements for connecting to and using the lab VM, visit https://microsoftevents.learnondemand.net/Lab/HyperVSupport.
+For a complete list of requirements for connecting to and using the lab VM, visit https://microsoftevents.learnondemand.net/Lab/HyperVSupport.
 
 ---
 <a name="Exercises"></a>
@@ -62,13 +62,13 @@ In this exercise, you will use your browser to connect to a Windows 10 virtual m
 
 1. Open your browser and navigate to the lab URL provided to you by the instructor.
 
-1. After a few moments, the VM appears in your browser as a Windows 10 desktop. If you are asked whether you want "your PC" (the virtual machine) to be discoverable on the network, click **No**.
+1. After a few moments, the VM's Windows 10 desktop appears in your browser. If you are asked whether you want "your PC" (the virtual machine) to be discoverable on the network, click **No**.
 
     ![The virtual-machine desktop](Images/desktop.png)
 
     _The virtual-machine desktop_
 
-1. If you would like for the VM to go full-screen, click **Display** in the menu bar at the top of the page and select **Full Screen**. (You can exit full screen at any time by clicking **Display** again and selecting **Exit Full Screen**.)
+1. If you would like for the VM to occupy the entire screen, click **Display** in the menu bar at the top of the page and select **Full Screen**. (You can exit full-screen mode at any time by clicking **Display** again and selecting **Exit Full Screen**.)
 
 1. In the "Content" tab on the right side of the screen are the credentials you will use to log in to the Azure portal and access the subscription that has been set up for you. Make note of these credentials, because you will need them in the next exercise and any time you go to the Azure Portal and are asked to log in.
 
@@ -81,7 +81,7 @@ Now that you are connected to the lab VM, the next task is to log in to the Azur
 <a name="Exercise2"></a>
 ## Exercise 2: Access the Azure Portal and view subscription information ##
 
-In this exercise, you will log in to the Azure Portal and learn how to view the subscriptions associated with your account as well as how to view usage data regarding those subscriptions.
+In this exercise, you will log in to the Azure Portal and learn how to view the subscriptions associated with your account.
 
 1. In the VM, click the Edge icon in the task bar at the bottom of the desktop to open Microsoft Edge.
 
@@ -99,23 +99,17 @@ In this exercise, you will log in to the Azure Portal and learn how to view the 
 
 1. Click **Subscriptions** in the ribbon on the left side of the page.
 
-    ![Viewing Azure subscriptions](Images/azure-portal-view-subscriptions.png)
+    ![Viewing Azure subscriptions](Images/azure-portal.png)
 
     _Viewing Azure subscriptions_
 
-1. Confirm that **Azure Pass** appears among the list of subscriptions associated with your account, and that the subscription status is **Active**. Then click **Azure Pass**.
+1. Confirm that **Azure Pass** appears among the list of subscriptions associated with your account, and that the subscription status is **Active**.
 
     ![Your Azure Pass subscription](Images/subscriptions.png)
 
     _Your Azure Pass subscription_
 
-1. A new *blade* — that is, a window within the browser window — opens in the portal showing usage data and billing information for your Azure Pass. Since you just activated the subscription, there will probably be no charges listed. However, you can check back here from time to time to keep track of the charges being billed to your subscription. 
-
-    ![Usage data for your Azure Pass](Images/usage-data.png)
-
-    _Usage data for your Azure Pass_
-
-You will learn more about the Azure Portal as you work through the day's labs. More importantly, you will get first-hand experience with some of the services that Azure offers and learn how to use them to build cloud-based applications that are scalable and robust.
+Normally, you can click a subscription to get billing and usage information about it. However, since your Azure Pass subscription is brand new, no data is available. Make a note to return to the "Subscriptions" blade later today and see if there is billing and usage information available for your Azure Pass. 
 
 ### Summary ###
 
@@ -123,7 +117,6 @@ In this hands-on lab, you learned how to:
 
 - Log in to the Azure Portal
 - View the Azure subscriptions associated with your account
-- View billing information in the Azure Portal
 
 The portal will be your home for everything Azure and your gateway for using the cloud.
 
