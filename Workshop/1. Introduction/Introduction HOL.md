@@ -109,7 +109,7 @@ In this exercise, you will log in to the Azure Portal and learn how to view the 
 
     _Your Azure Pass subscription_
 
-Normally, you can click a subscription to get billing and usage information about it. However, since your Azure Pass subscription is brand new, no data is available. Make a note to return to the "Subscriptions" blade later today and see if there is billing and usage information available for your Azure Pass. 
+You can click a subscription to retrieve billing and usage information for it. However, since your Azure Pass subscription is brand new, no data is presently available. Make a note to return to the "Subscriptions" blade later today and see if there is billing and usage information available for your Azure Pass.
 
 ### Summary ###
 
