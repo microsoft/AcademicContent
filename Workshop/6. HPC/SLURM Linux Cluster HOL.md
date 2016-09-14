@@ -71,7 +71,13 @@ Let's get started!
 
      _Deploying from GitHub_
 
-1. In the Azure Portal, you will be prompted to enter values for various template parameters. In the "Parameters" blade, enter a unique DNS name for **DNSNAME** and a unique storage-account name for **NEWSTORAGEACCOUNTNAME**. (Recall that storage-account names must be from 3 to 24 characters in length and can only contain numbers and lowercase characters.) Make both names as unique as possible, even factoring in your initials, birth date, etc. A name that is unique right now might not be unique several minutes from now while the deployment is in progress.
+1. In the Azure Portal, click **Edit template** in the "Custom deployment" blade. When the "Edit template" blade opens, find the variable named "ubuntuOSVersion." If the variable's value is anything other than "16.04.0-LTS," change it to "16.04.0-LTS" and then click the **Save** button. (If the variable value doesn't have to be changed, click the **Discard** button instead.)
+
+    ![Editing the deployment template](Images/edit-template.png)
+
+     _Editing the deployment template_
+
+1. Click **Edit parameters** in the "Custom deployment" blade. In the ensuing "Parameters" blade, enter a unique DNS name for **DNSNAME** and a unique storage-account name for **NEWSTORAGEACCOUNTNAME**. (Recall that storage-account names must be from 3 to 24 characters in length and can only contain numbers and lowercase characters.) Make both names as unique as possible, even factoring in your initials, birth date, etc. A name that is unique right now might not be unique several minutes from now while the deployment is in progress.
 
 	> The storage account that's being created will hold the virtual hard disks (VHDs) for the VMs in the cluster.
 
@@ -95,7 +101,7 @@ Let's get started!
 
 1. Deploying the SLURM cluster can take 10 minutes or more. You can monitor the status of the deployment by opening the resource group's blade. Click **Resource group** in the ribbon on the left side of the portal, and then click the resource group name ("SLURMLabResourceGroup") to open the blade. "Deploying" will change to "Succeeded" when the deployment has completed successfully.
 
-	> Click the browser's **Refresh** button every few minutes to update the deployment status. Clicking the **Refresh** button in the resource-group blade doesn't reliably update the status.
+	> Click the browser's **Refresh** button every few minutes to update the deployment status. Clicking the **Refresh** button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.
 
     ![Checking the deployment](Images/template-status-in-resource.png)
 
