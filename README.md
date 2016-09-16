@@ -23,7 +23,7 @@
                <p>Your feedback is appreciated - please fork this repo and contribute!</p> 
                <p>If you want to report any issues we need to fix. Please log an <a href="https://github.com/MSFTImagine/computerscience/issues">issue</a>. Include 
                the content section (Tech Talk, Workshop, Course Content), module number and title, along with any error messages and screenshots.</p> 
-               
+             </div>  
          </div>
          <div class="panel panel-default">
             <div class="panel-heading">
