@@ -16,8 +16,6 @@
             <p>
             This library of complimentary course content is intended for use in classroom settings. Modules are divided by scenario (Cloud Computing, Web Dev, Data Science, DevOps) and can function autonomously or can be taught progressively as a course. Most modules includes presentations, speaker notes, and labs that help students demonstrate knowledge of the material. Your feedback is appreciated as we continue to improve this library.
             </p>
-                   <p>If you want to report any issues we need to fix. Please log an <a href="https://github.com/MSFTImagine/computerscience/issues">issue</a>. Include 
-               the content section (Tech Talk, Workshop, Course Content), module number and title, along with any error messages and screenshots.</p> 
             </div>
          </div>
          <div class="panel panel-default">
