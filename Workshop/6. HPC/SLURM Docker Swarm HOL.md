@@ -58,7 +58,7 @@ Estimated time to complete this lab: **60** minutes.
 
 Before you can deploy Docker images to Azure, you must create an Azure container service. And in order to create an Azure container service, you need a public/private key pair for authenticating with the container service. In this exercise, you will use the PuTTY Key Generator, also known as PuTTYGen, to create the SSH keys. Then you will use the Azure Portal to create an Azure container service.
 
-> Unlike OS X and Linux, Windows doesn't have an SSH key generator built in. PuTTYGen is a free key generator that is popular in the Windows community. It is part of an open-source toolset called [PuTTY](http://www.putty.org/), which provides the SSH support that Windows lacks.
+> Unlike OS X and Linux, Windows doesn't have an SSH key generator built in. PuTTYGen is a free key generator that is popular in the Windows community. It is part of an open-source toolset called [PuTTY](http://www.putty.org/), which provides the SSH support that Windows lacks.  On OS X or Linux, you may already have a key pair with the public key at `~/.ssh/id_rsa.pub` which may be used as the public key when creating the container service below; if not, one may be created with `ssh-keygen`.
 
 1. Launch PuTTYGen and click the **Generate** button. For the next few seconds, move your cursor around in the empty space in the "Key" box to help randomize the keys that are generated.
 
@@ -188,6 +188,8 @@ SLURM can be run in Docker containers, with each container instance acting as a 
 	<pre>
 	create-slurm
 	</pre>
+	
+	> On Linux or OS X you can use `./create-slurm.sh`.
 
 	This runs a batch file provided for you in the "docker-resources" folder. It will take 5 to 10 minutes to run. The batch file builds a Docker image with everything needed for the lab. Then it deploys the image to the container service nine times to create a SLURM master in one container and SLURM nodes in eight other containers.
 
@@ -315,6 +317,8 @@ You've updated the Python script with the information it needs to access the sto
 	<pre>
 	copy-scripts
 	</pre>
+	
+	> On Linux or OS X you can use `./copy-scripts.sh`.
 
 1. Now use the following command to run **slurmdemo.py** and do the image conversions:
 
@@ -351,8 +355,10 @@ When virtual machines are running, you are being charged — even if the VMs are
 	<pre>
 	stop-slurm
 	</pre>
+	
+	> On Linux or OS X you can use `./stop-slurm.sh`.
 
-	This command is actually a batch file that shuts down all of the container instances, effectively shutting down the SLURM cluster. You can use the **start-slurm** command to restart the container instances at any time.
+	This command is actually a batch file that shuts down all of the container instances, effectively shutting down the SLURM cluster. You can use the **start-slurm** (**./start-slurm.sh** on Linux or OS X) command to restart the container instances at any time.
 
 1. Wait for the **stop-slurm** command to finish. Then go to the Azure Portal and open the blade for the resource group that contains the container service. Click the virtual machine whose name begins with **swarm-master** to open a blade for the master VM.
 
