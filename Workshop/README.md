@@ -20,6 +20,7 @@
                
 
             <p>Note: New VMs that accompany the Azure Workshop will be available in early-September.
+            </p>
 
             </div>
          </div>
