@@ -58,7 +58,7 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
  
 1. The first step in using Azure Storage is to create a storage account. To create a storage account, click **+ NEW** in the ribbon on the left. Then click **Data + Storage**, followed by **Storage account**.
 
-    ![Creating a storage account](images/new-storage-account.png)
+    ![Creating a storage account](Images/new-storage-account.png)
 
     _Creating a storage account_
 
@@ -72,25 +72,25 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
 	Select **Create new** under **Resource group** and type "Intellipix" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the **Location** box, and clicking the **Create** button at the bottom of the blade to create the new storage account.
     
-	![Specifying parameters for a new storage account](images/create-storage-account.png)
+	![Specifying parameters for a new storage account](Images/create-storage-account.png)
 
     _Specifying parameters for a new storage account_
 
 1. Once the storage account has been created, click **Resource groups** in the ribbon on the left. Then click the "Intellipix" resource group, and in the blade that opens for the resource group, click the storage account you just created.
  
-    ![Opening the new storage account](images/open-storage-account.png)
+    ![Opening the new storage account](Images/open-storage-account.png)
 
     _Opening the new storage account_
 
 1. In the blade for the storage account, click **Blobs** to view a list of containers associated with this account.
 
-    ![Viewing blob containers](images/view-containers.png)
+    ![Viewing blob containers](Images/view-containers.png)
 
     _Viewing blob containers_
 
 1. The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click **+ Container** to create a new container.
 
-    ![Adding a container](images/add-container.png)
+    ![Adding a container](Images/add-container.png)
 
     _Adding a container_
 
@@ -98,19 +98,19 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
 	> By default, containers and their contents are private. Selecting **Blob** as the access type makes the blobs in the "photos" container publicly accessible, but doesn't make the container itself public. This is what you want since the images stored in the "photos" container will be linked to from a Web app. 
 
-    ![Creating a "photos" container](images/create-photos-container.png)
+    ![Creating a "photos" container](Images/create-photos-container.png)
 
     _Creating a "photos" container_
 
 1. Repeat this process to create a container named "thumbnails," once more ensuring that the container's **Access type** is set to **Blob**.
 
-    ![Creating a "thumbnails" container](images/create-thumbnails-container.png)
+    ![Creating a "thumbnails" container](Images/create-thumbnails-container.png)
 
     _Creating a "thumbnails" container_
 
 1. Confirm that both containers appear in the list of containers for this storage account, and that the names are spelled correctly.
 
-    ![The new containers](images/new-containers.png)
+    ![The new containers](Images/new-containers.png)
 
     _The new containers_
 
@@ -125,25 +125,25 @@ The [Microsoft Azure Storage Explorer](http://storageexplorer.com/) is a free to
 
 1. In the Storage Explorer window, click **Connect to Microsoft Azure**.
 
-    ![Connecting Storage Explorer to Azure](images/storage-explorer-connect-to-azure.png)
+    ![Connecting Storage Explorer to Azure](Images/storage-explorer-connect-to-azure.png)
 
     _Connecting Storage Explorer to Azure_
 
 1. Enter the e-mail address for your Microsoft account. Then click **Continue**.
 
-    ![Entering your e-mail address](images/storage-explorer-enter-email.png)
+    ![Entering your e-mail address](Images/storage-explorer-enter-email.png)
 
     _Entering your e-mail address_
 
 1. Enter the user name and password for your Microsoft account. Check the box labeled **Keep me signed in**. Then click the **Sign in** button.
 
-    ![Signing in to Storage Explorer](images/storage-explorer-enter-credentials.png)
+    ![Signing in to Storage Explorer](Images/storage-explorer-enter-credentials.png)
 
     _Signing in to Storage Explorer_
 
 1. Confirm that the storage account you created in Exercise 1 appears in the list of storage accounts shown in Storage Explorer. Click the small arrow next to the storage account to display its contents, and then click the arrow next to **Blob Containers**. Confirm that the containers you created in Exercise 1 appear in the list of containers.
 
-    ![The Microsoft Azure Storage Explorer](images/storage-explorer.png)
+    ![The Microsoft Azure Storage Explorer](Images/storage-explorer.png)
 
     _The Microsoft Azure Storage Explorer_
 
@@ -156,7 +156,7 @@ In this exercise, you will create a new Web app in Visual Studio and add code to
 
 1. Start Visual Studio 2015 and use the **File -> New -> Project** command to create a new Visual C# **ASP.NET Web Application** project named "Intellipix" (short for "Intelligent Pictures").
 
-    ![Creating a new Web Application project](images/new-web-app.png)
+    ![Creating a new Web Application project](Images/new-web-app.png)
 
     _Creating a new Web Application project_
 
@@ -196,7 +196,7 @@ In this exercise, you will create a new Web app in Visual Studio and add code to
 
 	> NuGet is a free and open-source package manager for Microsoft development platforms. It provides access to thousands of libraries, or *packages*, containing code to perform a variety of tasks. It is integrated into Visual Studio 2015, which makes it easy to add NuGet packages to your project and make a lot of things happen without writing a lot of code.
 
-    ![Managing NuGet Packages for the project](images/manage-nuget-packages.png)
+    ![Managing NuGet Packages for the project](Images/manage-nuget-packages.png)
 
     _Managing NuGet Packages for the project_
 

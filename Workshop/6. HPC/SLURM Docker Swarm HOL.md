@@ -240,15 +240,15 @@ In [Exercise 5](#Exercise5), you will run a Python script on the SLURM cluster t
 
 1. Repeat this procedure to create a blob container named "output."
 
-1. Double-click the "input" container to show its contents. Then click the **Upload** button and select **Upload Files** from the menu.
+1. Click the "input" container to show its contents. Then click the **Upload** button and select **Upload Files** from the menu.
 
-    ![Uploading images to the "input" container](Images/docker-upload-images.png)
+    ![Uploading images to the "input" container](Images/upload-files.png)
 
     _Uploading images to the "input" container_
 
 1. Click the **...** button to the right of the field labeled "Files." In the ensuing dialog, navigate to this lab's "ColorImages" subdirectory and select all the files in that subdirectory. Then close the dialog and click the **Upload** button.
 
-    ![Uploading files to blob storage](Images/docker-upload-files-dialog.png)
+    ![Uploading files to blob storage](Images/upload-files-dialog.png)
 
     _Uploading files to blob storage_
 

@@ -547,7 +547,7 @@ vertical-align:1px;
 <li>
 <p>The first step in using Azure Storage is to create a storage account. To create a storage account, click <strong>+ NEW</strong> in the ribbon on the left. Then click <strong>Data + Storage</strong>, followed by <strong>Storage account</strong>.</p>
 
-<p><a href="images/new-storage-account.png" target="_blank"><img src="images/new-storage-account.png" alt="Creating a storage account" style="max-width:100%;"></a></p>
+<p><a href="Images/new-storage-account.png" target="_blank"><img src="Images/new-storage-account.png" alt="Creating a storage account" style="max-width:100%;"></a></p>
 
 <p><em>Creating a storage account</em></p>
 </li>
@@ -566,28 +566,28 @@ vertical-align:1px;
 
 <p>Select <strong>Create new</strong> under <strong>Resource group</strong> and type "Intellipix" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the <strong>Location</strong> box, and clicking the <strong>Create</strong> button at the bottom of the blade to create the new storage account.</p>
 
-<p><a href="images/create-storage-account.png" target="_blank"><img src="images/create-storage-account.png" alt="Specifying parameters for a new storage account" style="max-width:100%;"></a></p>
+<p><a href="Images/create-storage-account.png" target="_blank"><img src="Images/create-storage-account.png" alt="Specifying parameters for a new storage account" style="max-width:100%;"></a></p>
 
 <p><em>Specifying parameters for a new storage account</em></p>
 </li>
 <li>
 <p>Once the storage account has been created, click <strong>Resource groups</strong> in the ribbon on the left. Then click the "Intellipix" resource group, and in the blade that opens for the resource group, click the storage account you just created.</p>
 
-<p><a href="images/open-storage-account.png" target="_blank"><img src="images/open-storage-account.png" alt="Opening the new storage account" style="max-width:100%;"></a></p>
+<p><a href="Images/open-storage-account.png" target="_blank"><img src="Images/open-storage-account.png" alt="Opening the new storage account" style="max-width:100%;"></a></p>
 
 <p><em>Opening the new storage account</em></p>
 </li>
 <li>
 <p>In the blade for the storage account, click <strong>Blobs</strong> to view a list of containers associated with this account.</p>
 
-<p><a href="images/view-containers.png" target="_blank"><img src="images/view-containers.png" alt="Viewing blob containers" style="max-width:100%;"></a></p>
+<p><a href="Images/view-containers.png" target="_blank"><img src="Images/view-containers.png" alt="Viewing blob containers" style="max-width:100%;"></a></p>
 
 <p><em>Viewing blob containers</em></p>
 </li>
 <li>
 <p>The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click <strong>+ Container</strong> to create a new container.</p>
 
-<p><a href="images/add-container.png" target="_blank"><img src="images/add-container.png" alt="Adding a container" style="max-width:100%;"></a></p>
+<p><a href="Images/add-container.png" target="_blank"><img src="Images/add-container.png" alt="Adding a container" style="max-width:100%;"></a></p>
 
 <p><em>Adding a container</em></p>
 </li>
@@ -598,21 +598,21 @@ vertical-align:1px;
 <p>By default, containers and their contents are private. Selecting <strong>Blob</strong> as the access type makes the blobs in the "photos" container publicly accessible, but doesn't make the container itself public. This is what you want since the images stored in the "photos" container will be linked to from a Web app. </p>
 </blockquote>
 
-<p><a href="images/create-photos-container.png" target="_blank"><img src="images/create-photos-container.png" alt='Creating a "photos" container' style="max-width:100%;"></a></p>
+<p><a href="Images/create-photos-container.png" target="_blank"><img src="Images/create-photos-container.png" alt='Creating a "photos" container' style="max-width:100%;"></a></p>
 
 <p><em>Creating a "photos" container</em></p>
 </li>
 <li>
 <p>Repeat this process to create a container named "thumbnails," once more ensuring that the container's <strong>Access type</strong> is set to <strong>Blob</strong>.</p>
 
-<p><a href="images/create-thumbnails-container.png" target="_blank"><img src="images/create-thumbnails-container.png" alt='Creating a "thumbnails" container' style="max-width:100%;"></a></p>
+<p><a href="Images/create-thumbnails-container.png" target="_blank"><img src="Images/create-thumbnails-container.png" alt='Creating a "thumbnails" container' style="max-width:100%;"></a></p>
 
 <p><em>Creating a "thumbnails" container</em></p>
 </li>
 <li>
 <p>Confirm that both containers appear in the list of containers for this storage account, and that the names are spelled correctly.</p>
 
-<p><a href="images/new-containers.png" target="_blank"><img src="images/new-containers.png" alt="The new containers" style="max-width:100%;"></a></p>
+<p><a href="Images/new-containers.png" target="_blank"><img src="Images/new-containers.png" alt="The new containers" style="max-width:100%;"></a></p>
 
 <p><em>The new containers</em></p>
 </li>
@@ -825,7 +825,7 @@ node_modules/
 <span class="pl-k">var</span> uploadImage <span class="pl-k">=</span> <span class="pl-en">multer</span>({ storage<span class="pl-k">:</span> storage }).<span class="pl-en">single</span>(<span class="pl-s"><span class="pl-pds">'</span>imageFile<span class="pl-pds">'</span></span>);
 
 <span class="pl-smi">app</span>.<span class="pl-en">post</span>(<span class="pl-s"><span class="pl-pds">'</span>/api/image-upload<span class="pl-pds">'</span></span>, configurationMiddleware, uploadImage, imageHandlerMiddleware);
-<span class="pl-smi">app</span>.<span class="pl-en">get</span>(<span class="pl-s"><span class="pl-pds">'</span>/api/images<span class="pl-pds">'</span></span>, configurationMiddleware, noCacheMiddleware, listBlobsMiddleware);
+<span class="pl-smi">app</span>.<span class="pl-c1">get</span>(<span class="pl-s"><span class="pl-pds">'</span>/api/images<span class="pl-pds">'</span></span>, configurationMiddleware, noCacheMiddleware, listBlobsMiddleware);
 <span class="pl-smi">app</span>.<span class="pl-en">use</span>(<span class="pl-s"><span class="pl-pds">'</span>/<span class="pl-pds">'</span></span>, <span class="pl-smi">express</span>.<span class="pl-en">static</span>(<span class="pl-s"><span class="pl-pds">'</span>src<span class="pl-pds">'</span></span>));
 <span class="pl-smi">app</span>.<span class="pl-en">use</span>(errorHandlerMiddleware);
 
@@ -993,7 +993,7 @@ node_modules/
             <span class="pl-k">if</span>(err) {
                 <span class="pl-k">throw</span> err;
             }
-            (<span class="pl-smi">result</span>.<span class="pl-smi">entries</span> <span class="pl-k">||</span> []).<span class="pl-en">forEach</span>(<span class="pl-k">function</span>(<span class="pl-smi">entry</span>) {
+            (<span class="pl-smi">result</span>.<span class="pl-smi">entries</span> <span class="pl-k">||</span> []).<span class="pl-c1">forEach</span>(<span class="pl-k">function</span>(<span class="pl-smi">entry</span>) {
                 <span class="pl-smi">entry</span>.<span class="pl-smi">url</span> <span class="pl-k">=</span> [
                     <span class="pl-s"><span class="pl-pds">"</span>https://<span class="pl-pds">"</span></span>,
                     <span class="pl-smi">cfg</span>.<span class="pl-smi">storageAccount</span>,
@@ -1184,7 +1184,7 @@ node_modules/
                 inProgress<span class="pl-k">:</span> <span class="pl-c1">true</span>
             };
             formData <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">FormData</span>();
-            <span class="pl-smi">formData</span>.<span class="pl-en">append</span>(<span class="pl-s"><span class="pl-pds">'</span>imageFile<span class="pl-pds">'</span></span>, file);
+            <span class="pl-smi">formData</span>.<span class="pl-c1">append</span>(<span class="pl-s"><span class="pl-pds">'</span>imageFile<span class="pl-pds">'</span></span>, file);
             <span class="pl-smi">ctrl</span>.<span class="pl-smi">$http</span>
                 .<span class="pl-en">post</span>(<span class="pl-s"><span class="pl-pds">'</span>/api/image-upload<span class="pl-pds">'</span></span>, formData, {
                     transformRequest<span class="pl-k">:</span> <span class="pl-smi">angular</span>.<span class="pl-smi">identity</span>,
@@ -1209,7 +1209,7 @@ node_modules/
 
         <span class="pl-en">loadImageList</span><span class="pl-k">:</span> <span class="pl-k">function</span>() {
             <span class="pl-k">var</span> ctrl <span class="pl-k">=</span> <span class="pl-v">this</span>;
-            <span class="pl-smi">ctrl</span>.<span class="pl-smi">$http</span>.<span class="pl-en">get</span>(<span class="pl-s"><span class="pl-pds">'</span>/api/images<span class="pl-pds">'</span></span>)
+            <span class="pl-smi">ctrl</span>.<span class="pl-smi">$http</span>.<span class="pl-c1">get</span>(<span class="pl-s"><span class="pl-pds">'</span>/api/images<span class="pl-pds">'</span></span>)
                 .<span class="pl-en">then</span>(<span class="pl-k">function</span>(<span class="pl-smi">result</span>) {
                     <span class="pl-smi">ctrl</span>.<span class="pl-c1">images</span> <span class="pl-k">=</span> <span class="pl-smi">result</span>.<span class="pl-c1">data</span>.<span class="pl-smi">entries</span> <span class="pl-k">||</span> [];
                 })

@@ -478,7 +478,29 @@ vertical-align:1px;
 
 <h2>Overview</h2>
 
-<p>The entry point to Azure is the <a href="https://portal.azure.com">Azure Portal</a>, which you will become familiar with as you work through the labs. Before you can use the portal, you need to activate an Azure subscription. The purpose of this lab is to get you set up with an Azure subscription. Before you do that, you will use a remote-desktop client to connect to a Windows 10 virtual machine (VM) that has been prepared for you and is already running in the cloud. Azure doesn't require Windows, and in fact you can access the Azure Portal and Azure services from any browser running on any operating system. But for the purposes of today's labs, you will use a Windows VM so you can run certain tools such as Visual Studio 2015 that are only available on Windows.</p>
+<p>The entry point to Azure is the <a href="https://portal.azure.com">Azure Portal</a>, which you will become familiar with as you work through the labs. In order to use the portal, you must have an Azure subscription. When you consume Azure services through the portal — when, for example, you store data in a storage account or deploy a high-performance computing (HPC) cluster — those services are billed against your subscription. A free subscription has been provided for you, along with unique credentials for logging into the portal and using that subscription. These credentials and the subscription associated with them have been provided specifically for the purpose of working these labs. To work with Azure outside the scope of these labs, you will need to associate an Azure subscription with your personal Microsoft account or with a work/school account (also known as an <em>Office 365 account</em>) provided by your school or organization.</p>
+
+<p>Although Azure services can be accessed from any operating system running on an any device, some of the tools you will use for today's labs require Microsoft Windows. Therefore, a virtual machine (VM) running Windows 10 and preconfigured with all the tools you will need has been provided for you. The purpose of this lab is to connect to the lab VM, log in to the Azure Portal, and confirm that you have a working subscription. In subsequent labs, you will use this subscription to create storage accounts, deploy Web apps, create machine-learning models, run Docker containers in Azure, and much more. </p>
+
+<blockquote>
+<p>You can work the labs in this course without a VM if you have an active Azure subscription and are running Windows 10 with the proper tools installed. Each lab lists the tools required as well as links for downloading them. Moreover, all of the required tools are free. Here's a complete list in case you would like to configure a Windows 10 PC or laptop with everything needed for the labs:</p>
+
+<ul>
+<li>
+<a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio 2015 Community edition</a> or higher</li>
+<li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
+<li><a href="http://windows.php.net/download/">PHP for Windows</a></li>
+<li><a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a></li>
+<li>
+<a href="https://git-scm.com/downloads">Git</a> version 2.0 or higher</li>
+<li>
+<a href="https://nodejs.org/en/download/">Node.js</a> version 4 or higher</li>
+<li><a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">PuTTY</a></li>
+<li><a href="https://get.docker.com/builds/Windows/x86_64/docker-latest.zip">Docker client for Windows</a></li>
+</ul>
+
+<p>In each case, it is recommended that you install the latest stable release of the tools to ensure compatibility with the lab exercises.</p>
+</blockquote>
 
 <p><a name="Objectives"></a></p>
 
@@ -488,9 +510,8 @@ vertical-align:1px;
 
 <ul>
 <li>Connect to the lab VM</li>
-<li>Activate your Azure Pass</li>
-<li>Log in to the Azure Portal with a Microsoft account</li>
-<li>View the Azure subscriptions associated with your account</li>
+<li>Log in to the Azure Portal</li>
+<li>View the Azure subscription associated with your account</li>
 </ul>
 
 <p><a name="Prerequisites"></a></p>
@@ -500,9 +521,11 @@ vertical-align:1px;
 <p>The following is required to complete this hands-on lab:</p>
 
 <ul>
-<li>An Azure Pass activation code. If you do not have one, please see the instructor.</li>
-<li>A Remote Desktop client that allows you to remote into a PC or VM running Windows. Windows comes with Remote Desktop Connection. Mac users can download the <a href="https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12">Microsoft Remote Desktop</a> app for free from the Apple Store. Ubuntu users can use the open-source <a href="http://www.remmina.org/wp/">Remmina Remote Desktop Client</a> or any tool that supports remote-desktop access from Linux.</li>
+<li>An HTML5 browser such as Chrome 16 or higher, Firefox 11 or higher, Internet Explorer 10 or higher, or Microsoft Edge</li>
+<li>A URL provided by the instructor for accessing the lab VM</li>
 </ul>
+
+<p>For a complete list of requirements for connecting to and using the lab VM, visit <a href="https://microsoftevents.learnondemand.net/Lab/HyperVSupport">https://microsoftevents.learnondemand.net/Lab/HyperVSupport</a>.</p>
 
 <hr>
 
@@ -514,12 +537,10 @@ vertical-align:1px;
 
 <ul>
 <li><a href="#Exercise1">Exercise 1: Connect to the lab VM</a></li>
-<li><a href="#Exercise2">Exercise 2: Get a Microsoft account</a></li>
-<li><a href="#Exercise3">Exercise 3: Activate your Azure Pass</a></li>
-<li><a href="#Exercise4">Exercise 4: Access the Azure Portal and view subscription information</a></li>
+<li><a href="#Exercise2">Exercise 2: Access the Azure Portal and view subscription information</a></li>
 </ul>
 
-<p>Estimated time to complete this lab: <strong>30</strong> minutes.</p>
+<p>Estimated time to complete this lab: <strong>15</strong> minutes.</p>
 
 <hr>
 
@@ -527,172 +548,76 @@ vertical-align:1px;
 
 <h2>Exercise 1: Connect to the lab VM</h2>
 
-<p>In this exercise, you will remote into a Windows 10 virtual machine (VM) that has been prepared for you. The VM contains all the tools you need to work the labs in this course, including Visual Studio 2015, Visual Studio Code, Node.js, and many others.</p>
+<p>In this exercise, you will use your browser to connect to a Windows 10 virtual machine (VM) that has been prepared for you. The VM contains all the tools you need to work the labs in this course, including Visual Studio 2015, Visual Studio Code, Node.js, and others.</p>
 
 <ol>
-<li><p>Start the remote-desktop client installed on your laptop.</p></li>
+<li><p>Open your browser and navigate to the lab URL provided to you by the instructor.</p></li>
 <li>
-<p>Connect to the VM whose address was provided to you by the instructor. When prompted for credentials, use the user name <strong>azureuser</strong> and the password <strong>Azure4cs!</strong> (including the exclamation mark).</p>
+<p>After a few moments, the VM's Windows 10 desktop appears in your browser. If you are asked whether you want "your PC" (the virtual machine) to be discoverable on the network, click <strong>No</strong>.</p>
 
-<p><a href="Images/remote-desktop.png" target="_blank"><img src="Images/remote-desktop.png" alt="Connecting to the lab VM" style="max-width:100%;"></a></p>
+<p><a href="Images/desktop.png" target="_blank"><img src="Images/desktop.png" alt="The virtual-machine desktop" style="max-width:100%;"></a></p>
 
-<p><em>Connecting to the lab VM</em></p>
-
-<blockquote>
-<p>You will probably be warned that the publisher of the remote-desktop connection can't be verified. If so, ignore the warning.</p>
-</blockquote>
+<p><em>The virtual-machine desktop</em></p>
 </li>
+<li><p>If you would like for the VM to occupy the entire screen, click <strong>Display</strong> in the menu bar at the top of the page and select <strong>Full Screen</strong>. (You can exit full-screen mode at any time by clicking <strong>Display</strong> again and selecting <strong>Exit Full Screen</strong>.)</p></li>
 <li>
-<p>The first time you connect to the VM, there will be a momentary delay as the Windows desktop is prepared for you. When it's ready, you will see the desktop with a list of shortcuts to Visual Studio 2015 and other tools on the left.</p>
+<p>In the "Content" tab on the right side of the screen are the credentials you will use to log in to the Azure portal and access the subscription that has been set up for you. Make note of these credentials, because you will need them in the next exercise and any time you go to the Azure Portal and are asked to log in.</p>
 
-<p><a href="Images/windows-desktop.png" target="_blank"><img src="Images/windows-desktop.png" alt="The Windows desktop in the VM" style="max-width:100%;"></a></p>
+<p><a href="Images/credentials.png" target="_blank"><img src="Images/credentials.png" alt="Your Azure credentials" style="max-width:100%;"></a></p>
 
-<p><em>The Windows desktop in the VM</em></p>
+<p><em>Your Azure credentials</em></p>
 </li>
 </ol>
 
-<p>Now that you are connected to the lab VM, the next task is to activate an Azure subscription.</p>
+<p>Now that you are connected to the lab VM, the next task is to log in to the Azure Portal and confirm that a subscription has been created for you.</p>
 
 <p><a name="Exercise2"></a></p>
 
-<h2>Exercise 2: Get a Microsoft account</h2>
+<h2>Exercise 2: Access the Azure Portal and view subscription information</h2>
 
-<p>When you log in to the Azure Portal, you do so using a Microsoft account. A given account can have multiple Azure subscriptions associated with it. When you consume Azure services through the portal — when, for example, you store data in a storage account or deploy a high-performance computing (HPC) cluster — those services are billed against one of the subscriptions associated with your account. </p>
-
-<p>An Azure Pass is a free subscription that provides $500 worth of credits for up to 30 days. Currently, you can only use an Azure Pass with a given Microsoft account one time. If you already have a Microsoft account and are certain that it that has never been used with an Azure Pass, then you can <strong>skip this exercise and proceed to <a href="#Exercise3">Exercise 3</a></strong>. If you don't have a Microsoft account, or if you do but aren't sure whether it has ever been used with an Azure Pass, follow the steps below to create a new Microsoft account.</p>
-
-<ol>
-<li><p>In the VM, double-click one of the browser shortcuts on the desktop to start the browser of your choice — for example, Google Chrome or Microsoft Edge.</p></li>
-<li>
-<p>In the private browsing window, navigate to the Microsoft account sign-up page at <a href="https://signup.live.com/">https://signup.live.com</a>.</p>
-
-<p><a href="Images/new-microsoft-account.png" target="_blank"><img src="Images/new-microsoft-account.png" alt="Creating a new Microsoft account" style="max-width:100%;"></a></p>
-
-<p><em>Creating a new Microsoft account</em></p>
-</li>
-<li>
-<p>Type in the information requested and at the bottom of the page, click the <strong>Create account</strong> button. <strong>Remember the user name and password you entered</strong> because you will need them to log in to the Azure Portal.</p>
-
-<blockquote>
-<p>You can use any e-mail address you'd like as the user name for your new Microsoft account, but you can't use an e-mail address that has <em>already</em> been used to create a Microsoft account. If you need a new e-mail address, click <strong>Get a new email address</strong> under the <strong>User name</strong> box near the top of the form.</p>
-</blockquote>
-</li>
-<li><p>If you're prompted to provide further information or perform additional actions, follow the instructions on-screen to finish creating the Microsoft account.</p></li>
-</ol>
-
-<p>Now that you have a Microsoft account, you can activate your Azure Pass.</p>
-
-<p><a name="Exercise3"></a></p>
-
-<h2>Exercise 3: Activate your Azure Pass</h2>
-
-<p>In this exercise, you will use the Azure Pass code you were given to activate an Azure Pass subscription and associate it with your Microsoft account.</p>
+<p>In this exercise, you will log in to the Azure Portal and learn how to view the subscriptions associated with your account.</p>
 
 <ol>
 <li>
-<p>In your browser, navigate to <a href="https://www.microsoftazurepass.com">https://www.microsoftazurepass.com</a>. Select a country from the drop-down list labeled <strong>Please Select Country</strong>, and type the activation code you were given into the box underneath the drop-down list. Then click the <strong>Submit</strong> button.</p>
+<p>In the VM, click the Edge icon in the task bar at the bottom of the desktop to open Microsoft Edge.</p>
 
-<p><a href="Images/activate-azure-pass-1.png" target="_blank"><img src="Images/activate-azure-pass-1.png" alt="Entering the activation code" style="max-width:100%;"></a></p>
+<p><a href="Images/edge-icon.png" target="_blank"><img src="Images/edge-icon.png" alt="Opening Microsoft Edge" style="max-width:100%;"></a></p>
 
-<p><em>Entering the activation code</em></p>
+<p><em>Opening Microsoft Edge</em></p>
 </li>
+<li><p>Type "portal.azure.com" (without quotation marks) into the browser's address bar to go to the Azure Portal.</p></li>
 <li>
-<p>If your activation code is accepted, you will be asked to sign in using your Microsoft account. Click the <strong>Sign in</strong> button.</p>
+<p>When asked to log in, enter the user name and password displayed in the "Content" tab on the right side of the screen under "Azure Credentials." Then click the <strong>Sign In</strong> button.</p>
 
-<p><a href="Images/ex1-click-sign-in.png" target="_blank"><img src="Images/ex1-click-sign-in.png" alt="Signing in" style="max-width:100%;"></a></p>
+<p><a href="Images/sign-in.png" target="_blank"><img src="Images/sign-in.png" alt="Logging in to the Azure Portal" style="max-width:100%;"></a></p>
 
-<p><em>Signing in</em></p>
+<p><em>Logging in to the Azure Portal</em></p>
 </li>
-<li>
-<p>What happens next will vary depending on how many and what types of Microsoft accounts you have. The goal is to sign in using the credentials for the new Microsoft account you created in Exercise 2, or for your existing Microsoft account if you skipped Exercise 2. Ultimately, you will probably be asked to enter the user name and password for that account. Type them in and click the <strong>Sign in</strong> button.</p>
-
-<p><a href="Images/activate-azure-pass-3.png" target="_blank"><img src="Images/activate-azure-pass-3.png" alt="Signing in with your Microsoft account" style="max-width:100%;"></a></p>
-
-<p><em>Signing in with your Microsoft account</em></p>
-</li>
-<li>
-<p>You will now be returned to the Azure Pass site and asked to verify your first and last names. Confirm that they are correct and click the <strong>Submit</strong> button.</p>
-
-<p><a href="Images/ex1-verify-account-info.png" target="_blank"><img src="Images/ex1-verify-account-info.png" alt="Verifying your Microsoft account information" style="max-width:100%;"></a></p>
-
-<p><em>Verifying your Microsoft account information</em></p>
-</li>
-<li>
-<p>Click the <strong>Activate</strong> button to activate your Azure Pass.</p>
-
-<p><a href="Images/ex1-activate-subscription.png" target="_blank"><img src="Images/ex1-activate-subscription.png" alt="Activating your Azure Pass" style="max-width:100%;"></a></p>
-
-<p><em>Activating your Azure Pass</em></p>
-</li>
-<li>
-<p>After a few moments, you will be asked to provide additional information, including a contact phone number. Enter your phone number and check the <strong>I agree to the subscription agreement, offer details, and privacy statement</strong> box. Then click the <strong>Sign up</strong> button and <em>do not close the browser</em> as it can take several minutes to activate the Azure Pass.</p>
-
-<p><a href="Images/activate-azure-pass-5.png" target="_blank"><img src="Images/activate-azure-pass-5.png" alt="Completing the activation process" style="max-width:100%;"></a></p>
-
-<p><em>Completing the activation process</em></p>
-</li>
-<li>
-<p>After several minutes, you'll be told "Your subscription is ready for you!" <em>Do not</em> click the <strong>Start managing my service</strong> button. Instead, close the browser window.</p>
-
-<p><a href="Images/subscription-is-ready.png" target="_blank"><img src="Images/subscription-is-ready.png" alt="Your subscription is ready!" style="max-width:100%;"></a></p>
-
-<p><em>Your subscription is ready!</em></p>
-</li>
-<li>
-<p>Open a new browser window and navigate to the Azure Portal at <a href="https://portal.azure.com">https://portal.azure.com</a>. If you're asked to choose which Microsoft account to log in with, select the one that you used to activate your Azure Pass. If you're asked to enter a user name and password for that account, do so. Once you're logged in, the portal will appear in your browser.</p>
-
-<p><a href="Images/azure-portal.png" target="_blank"><img src="Images/azure-portal.png" alt="The Azure Portal" style="max-width:100%;"></a></p>
-
-<p><em>The Azure Portal</em></p>
-</li>
-</ol>
-
-<p>Now let's confirm that your Azure Pass was activated and associated with your Microsoft account.</p>
-
-<p><a name="Exercise4"></a></p>
-
-<h2>Exercise 4: Access the Azure Portal and view subscription information</h2>
-
-<p>In this exercise, you will learn how to view the subscriptions associated with your Microsoft account, and how to view usage data regarding those subscriptions.</p>
-
-<ol>
 <li>
 <p>Click <strong>Subscriptions</strong> in the ribbon on the left side of the page.</p>
 
-<p><a href="Images/azure-portal-view-subscriptions.png" target="_blank"><img src="Images/azure-portal-view-subscriptions.png" alt="Viewing Azure subscriptions" style="max-width:100%;"></a></p>
+<p><a href="Images/azure-portal.png" target="_blank"><img src="Images/azure-portal.png" alt="Viewing Azure subscriptions" style="max-width:100%;"></a></p>
 
 <p><em>Viewing Azure subscriptions</em></p>
 </li>
 <li>
-<p>Confirm that <strong>Azure Pass</strong> appears among the list of subscriptions associated with your account, and that the subscription status is <strong>Active</strong>. Then click <strong>Azure Pass</strong>.</p>
+<p>Confirm that <strong>Azure Pass</strong> appears among the list of subscriptions associated with your account, and that the subscription status is <strong>Active</strong>.</p>
 
-<p><a href="Images/azure-portal-active-subscriptions.png" target="_blank"><img src="Images/azure-portal-active-subscriptions.png" alt="Your Azure Pass subscription" style="max-width:100%;"></a></p>
+<p><a href="Images/subscriptions.png" target="_blank"><img src="Images/subscriptions.png" alt="Your Azure Pass subscription" style="max-width:100%;"></a></p>
 
 <p><em>Your Azure Pass subscription</em></p>
-
-<blockquote>
-<p>Don't be concerned if there are several Azure accounts associated with your subscription. What's important is that Azure Pass is one of them.</p>
-</blockquote>
-</li>
-<li>
-<p>A new <em>blade</em> — that is, a window within the browser window — opens in the portal showing usage data and billing information for your Azure Pass. Since you just activated the subscription, there will probably be no charges listed. However, you can check back here from time to time to keep track of the charges being billed to your subscription. </p>
-
-<p><a href="Images/usage-data.png" target="_blank"><img src="Images/usage-data.png" alt="Usage data for your Azure Pass" style="max-width:100%;"></a></p>
-
-<p><em>Usage data for your Azure Pass</em></p>
 </li>
 </ol>
 
-<p>You will learn more about the Azure Portal as you work through the day's labs. More importantly, you will get first-hand experience with some of the services that Azure offers and learn how to use them to build cloud-based applications that are scalable and robust.</p>
+<p>You can click a subscription to retrieve billing and usage information for it. However, since your Azure Pass subscription is brand new, no data is presently available. Make a note to return to the "Subscriptions" blade later today and see if there is billing and usage information available for your Azure Pass.</p>
 
 <h3>Summary</h3>
 
 <p>In this hands-on lab, you learned how to:</p>
 
 <ul>
-<li>Log in to the Azure Portal with your Microsoft account</li>
+<li>Log in to the Azure Portal</li>
 <li>View the Azure subscriptions associated with your account</li>
-<li>View billing information in the Azure Portal</li>
 </ul>
 
 <p>The portal will be your home for everything Azure and your gateway for using the cloud.</p>
