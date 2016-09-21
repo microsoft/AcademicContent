@@ -639,7 +639,7 @@ vertical-align:1px;
 <span class="pl-s1">        <span class="pl-en">$</span>(<span class="pl-c1">document</span>).<span class="pl-en">ready</span>(<span class="pl-k">function</span> () {</span>
 <span class="pl-s1">            <span class="pl-en">$</span>(<span class="pl-c1">document</span>).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>change<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>.btn-file :file<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> () {</span>
 <span class="pl-s1">                <span class="pl-k">var</span> input <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-v">this</span>),</span>
-<span class="pl-s1">                    numFiles <span class="pl-k">=</span> <span class="pl-smi">input</span>.<span class="pl-en">get</span>(<span class="pl-c1">0</span>).<span class="pl-smi">files</span> <span class="pl-k">?</span> <span class="pl-smi">input</span>.<span class="pl-en">get</span>(<span class="pl-c1">0</span>).<span class="pl-smi">files</span>.<span class="pl-c1">length</span> <span class="pl-k">:</span> <span class="pl-c1">1</span>,</span>
+<span class="pl-s1">                    numFiles <span class="pl-k">=</span> <span class="pl-smi">input</span>.<span class="pl-c1">get</span>(<span class="pl-c1">0</span>).<span class="pl-smi">files</span> <span class="pl-k">?</span> <span class="pl-smi">input</span>.<span class="pl-c1">get</span>(<span class="pl-c1">0</span>).<span class="pl-smi">files</span>.<span class="pl-c1">length</span> <span class="pl-k">:</span> <span class="pl-c1">1</span>,</span>
 <span class="pl-s1">                    label <span class="pl-k">=</span> <span class="pl-smi">input</span>.<span class="pl-en">val</span>().<span class="pl-c1">replace</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-cce">\\</span><span class="pl-pds">/</span>g</span>, <span class="pl-s"><span class="pl-pds">'</span>/<span class="pl-pds">'</span></span>).<span class="pl-c1">replace</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-c1">.</span><span class="pl-k">*</span><span class="pl-cce">\/</span><span class="pl-pds">/</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>);</span>
 <span class="pl-s1">                <span class="pl-smi">input</span>.<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">'</span>fileselect<span class="pl-pds">'</span></span>, [numFiles, label]);</span>
 <span class="pl-s1">            })</span>
@@ -698,10 +698,7 @@ vertical-align:1px;
 <span class="pl-s1">    <span class="pl-c">// Resize/resample the image to the requested size</span></span>
 <span class="pl-s1">    <span class="pl-smi">$destWidth</span> <span class="pl-k">=</span> <span class="pl-smi">$_GET</span>[<span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>];</span>
 <span class="pl-s1">    <span class="pl-smi">$destHeight</span> <span class="pl-k">=</span> <span class="pl-smi">$destWidth</span> <span class="pl-k">*</span> <span class="pl-smi">$srcSize</span>[<span class="pl-c1">1</span>] <span class="pl-k">/</span> <span class="pl-smi">$srcSize</span>[<span class="pl-c1">0</span>];</span>
-<span class="pl-s1">    <span class="pl-smi">$destWidth</span> <span class="pl-k">=</span> <span class="pl-smi">$srcWidth</span>;</span>
-<span class="pl-s1">    <span class="pl-smi">$destHeight</span> <span class="pl-k">=</span> <span class="pl-smi">$srcHeight</span>;</span>
 <span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-c">// // echo "width = ".$destWidth." height = ".$destHeight;</span></span>
 <span class="pl-s1">    <span class="pl-smi">$destImageResource</span> <span class="pl-k">=</span> <span class="pl-c1">imageCreateTrueColor</span>(<span class="pl-smi">$destWidth</span>, <span class="pl-smi">$destHeight</span>);</span>
 <span class="pl-s1">    <span class="pl-c1">imagealphablending</span>(<span class="pl-smi">$destImageResource</span>, <span class="pl-c1">false</span>);</span>
 <span class="pl-s1">    <span class="pl-c1">imagesavealpha</span>(<span class="pl-smi">$destImageResource</span>, <span class="pl-c1">true</span>);</span>
@@ -879,7 +876,7 @@ vertical-align:1px;
 <span class="pl-s1"></span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span></pre></div>
 </li>
 <li>
-<p>Open the <strong>View</strong> menu and select <strong>Explore</strong>. In the panel that appears, hover the mouse over the project folder and click the <strong>New Folder</strong> icon to create a new folder in the project folder. Name the new folder <strong>Content</strong>.</p>
+<p>Open the <strong>View</strong> menu and select <strong>Explorer</strong>. In the panel that appears, hover the mouse over the project folder and click the <strong>New Folder</strong> icon to create a new folder in the project folder. Name the new folder <strong>Content</strong>.</p>
 
 <p><a href="Images/build-codenewfolder.png" target="_blank"><img src="Images/build-codenewfolder.png" alt="Adding a Content folder to the project" style="max-width:100%;"></a></p>
 
@@ -922,17 +919,7 @@ vertical-align:1px;
     <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">192<span class="pl-k">px</span></span>;
     <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-c1">white</span>;
     <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span> <span class="pl-c1">5<span class="pl-k">px</span></span> <span class="pl-c1">30<span class="pl-k">px</span></span> <span class="pl-c1">5<span class="pl-k">px</span></span>;
-    <span class="pl-c1">-webkit-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">10<span class="pl-k">deg</span></span>);
-    <span class="pl-c1">-moz-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">10<span class="pl-k">deg</span></span>);
-    <span class="pl-c1">-o-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">10<span class="pl-k">deg</span></span>);
-    <span class="pl-c1">-ms-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">10<span class="pl-k">deg</span></span>);
-}
-
-<span class="pl-ent">img</span><span class="pl-e">:hover</span> {
-    <span class="pl-c1">-webkit-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">0<span class="pl-k">deg</span></span>);
-    <span class="pl-c1">-moz-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">0<span class="pl-k">deg</span></span>);
-    <span class="pl-c1">-o-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">0<span class="pl-k">deg</span></span>);
-    <span class="pl-c1">-ms-<span class="pl-c1">transform</span></span>: rotate(<span class="pl-c1">0<span class="pl-k">deg</span></span>);
+    <span class="pl-c1"><span class="pl-c1">cursor</span></span>: <span class="pl-c1">pointer</span>;
 }
 
 <span class="pl-c">/* Custom queries for force line breaks depending on the resolution. */</span>
@@ -1184,17 +1171,17 @@ vertical-align:1px;
 <p><em>Copying the web site files</em></p>
 </li>
 <li>
-<p>Congratulations! You now have a working Web site. Open your browser and navigate to the Web site URL, which is shown in the Web App's blade in the portal. Or simply click the URL in the portal.</p>
+<p>Congratulations! You now have a working Web site. Open your browser and navigate to the Web site URL, which is shown in the portal. Or simply click the site URL.</p>
 
 <p><a href="Images/deploy-go-to-web-site.png" target="_blank"><img src="Images/deploy-go-to-web-site.png" alt="Navigating to the finished Web site" style="max-width:100%;"></a></p>
 
 <p><em>Navigating to the finished Web site</em></p>
 </li>
 <li>
-<p>Upload a few images to the Web site. Click on any of the images to see enlarged views.</p>
+<p>Upload a few images to the Web site. Click any of the image thumbnails to see an enlarged view.</p>
 
 <blockquote>
-<p>By default, the PHP installation in your Azure Web App limits file uploads to 2 MB. You can increase the limit by adding a .user.ini file to your site as <a href="https://blogs.msdn.microsoft.com/kaushal/2014/01/01/windows-azure-web-sites-file-upload-limit-for-php-sites-hosted-on-waws/">described here</a>. For now, just upload images that are smaller than 2 MB.</p>
+<p>By default, the PHP installation in your Azure Web App limits file uploads to 8 MB. You can increase the limit by adding a .user.ini file to your site as <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-php-configure/">described here</a>. For now, just upload images that are smaller than 8 MB because you would have to adjust other PHP settings such as MEMORY_LIMIT to handle very large images.</p>
 </blockquote>
 
 <p><a href="Images/final-workingwebsite.png" target="_blank"><img src="Images/final-workingwebsite.png" alt="The working Web site" style="max-width:100%;"></a></p>

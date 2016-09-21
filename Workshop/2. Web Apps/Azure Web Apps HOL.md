@@ -210,10 +210,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
         // Resize/resample the image to the requested size
         $destWidth = $_GET['width'];
         $destHeight = $destWidth * $srcSize[1] / $srcSize[0];
-        $destWidth = $srcWidth;
-        $destHeight = $srcHeight;
     
-        // // echo "width = ".$destWidth." height = ".$destHeight;
         $destImageResource = imageCreateTrueColor($destWidth, $destHeight);
         imagealphablending($destImageResource, false);
         imagesavealpha($destImageResource, true);
@@ -393,7 +390,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
     ?>
     ```
 
-1. Open the **View** menu and select **Explore**. In the panel that appears, hover the mouse over the project folder and click the **New Folder** icon to create a new folder in the project folder. Name the new folder **Content**.
+1. Open the **View** menu and select **Explorer**. In the panel that appears, hover the mouse over the project folder and click the **New Folder** icon to create a new folder in the project folder. Name the new folder **Content**.
 
     ![Adding a Content folder to the project](Images/build-codenewfolder.png)
 
@@ -436,17 +433,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
         width: 192px;
         background-color: white;
         padding: 5px 5px 30px 5px;
-        -webkit-transform: rotate(10deg);
-        -moz-transform: rotate(10deg);
-        -o-transform: rotate(10deg);
-        -ms-transform: rotate(10deg);
-    }
-    
-    img:hover {
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
+		cursor: pointer;
     }
     
     /* Custom queries for force line breaks depending on the resolution. */
@@ -660,15 +647,15 @@ Now it is time to copy the files that comprise your Web site to the Azure Web Ap
 
     _Copying the web site files_
 
-1. Congratulations! You now have a working Web site. Open your browser and navigate to the Web site URL, which is shown in the Web App's blade in the portal. Or simply click the URL in the portal.
+1. Congratulations! You now have a working Web site. Open your browser and navigate to the Web site URL, which is shown in the portal. Or simply click the site URL.
 
     ![Navigating to the finished Web site](Images/deploy-go-to-web-site.png)
 
     _Navigating to the finished Web site_
 
-1. Upload a few images to the Web site. Click on any of the images to see enlarged views.
+1. Upload a few images to the Web site. Click any of the image thumbnails to see an enlarged view.
 
-	> By default, the PHP installation in your Azure Web App limits file uploads to 2 MB. You can increase the limit by adding a .user.ini file to your site as [described here](https://blogs.msdn.microsoft.com/kaushal/2014/01/01/windows-azure-web-sites-file-upload-limit-for-php-sites-hosted-on-waws/). For now, just upload images that are smaller than 2 MB.
+	> By default, the PHP installation in your Azure Web App limits file uploads to 8 MB. You can increase the limit by adding a .user.ini file to your site as [described here](https://azure.microsoft.com/en-us/documentation/articles/web-sites-php-configure/). For now, just upload images that are smaller than 8 MB because you would have to adjust other PHP settings such as MEMORY_LIMIT to handle very large images.
     
     ![The working Web site](Images/final-workingwebsite.png)
 
