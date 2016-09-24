@@ -73,7 +73,7 @@
                   <tr>
                      <td align="center">[7](Module7/)</td>
                      <td>[DevOps](Module7/Lessons)</td>
-                     <td>This module covers the fundamental concepts of DevOps including configuration managment. This module introduces Chef. Additionally, module 7 teaches how to launch a web server, desired state configuartions, and how to test a web server (all using chef). | [Labs](Module7/Labs)
+                     <td>This module covers the fundamental concepts of DevOps including configuration management. This module introduces Chef. Additionally, module 7 teaches how to launch a web server, desired state configurations, and how to test a web server (all using Chef). | [Labs](Module7/Labs)
                      </td>
                   </tr>
                </table>
