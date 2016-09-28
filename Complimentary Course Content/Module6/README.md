@@ -26,7 +26,7 @@
                   </tr>
                   <tr>
                      <td align="center">1</td>
-                     <td>[What is IoT](Lessons/)</td>
+                     <td>[What is IoT](Lessons/Module6_Lesson1 What is Iot Lecture.pptx)</td>
                      <td></td>
                      <td>Understand Internet of Things<br>
 			 Understand IoT concept and Infrastructure
@@ -34,7 +34,7 @@
                   </tr>
                   <tr>
                      <td align="center">2</td>
-                     <td>[IoT in Azure](Lessons/)</td>
+                     <td>[IoT in Azure](Lessons/Module6_Lesson2 IoT in Azure.pptx)</td>
                      <td></td>
                      <td>Understand key components of IoT<br>
 			 Understand IoT Application <br>
@@ -43,7 +43,7 @@
                   </tr>
                   <tr>
                      <td align="center">3</td>
-                     <td>[Connecting IoT Devices to Azure](Lessons/)</td>
+                     <td>[Connecting IoT Devices to Azure](Lessons/Module6_Lesson3 Connecting IoT device to Azure.pptx)</td>
                      <td></td>
                      <td>Understand device connectivity in Azure IoT<br>
 			 Understand  device provisioning and identity, registry, and state stores in Azure<br>
@@ -52,24 +52,24 @@
                   </tr>
                   <tr>
                      <td align="center">4</td>
-                     <td>[Introduction to IoT Hub](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Introduction to IoT Hub](Lessons/Module6_Lesson4 Introduction to IoT Hub.pptx)</td>
+                     <td>[Lab](Labs/Module 6 Lesson 4 Getting start with Azure IoT Hub Lab.docx)</td>
                      <td>Understand IoT solution and Azure IoT Suite.<br>
 			 Understand IoT Hub in Azure
                      </td>
                   </tr>
                   <tr>
                      <td align="center">5</td>
-                     <td>[Event Data Collection](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Event Data Collection](Lessons/Module6_Lesson5 Event data collection.pptx)</td>
+                     <td>[Lab](Labs/Module 6 Lesson 5 Event Data collection Lab.docx)</td>
                      <td>Understand event data collection<br>
 			 Understand Event Hubs API
                      </td>
                   </tr>
                   <tr>
                      <td align="center">6</td>
-                     <td>[Azure Stream Analytics](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Azure Stream Analytics](Lessons/Module6_Lesson6 Azure Stream Analytics.pptx)</td>
+                     <td>[Lab](Labs/Module 6 Lesson 6 ASA Lab.docx)</td>
                      <td>Define Streaming Analytics<br>
 			 Understand the basic architecture of Azure Stream Analytics<br>
 			 Create basic queries with Stream Analytics Query Language
@@ -77,7 +77,7 @@
                   </tr>
                   <tr>
                      <td align="center">7</td>
-                     <td>[Azure Notification Hub](Lessons/)</td>
+                     <td>[Azure Notification Hub](Lessons/Module6_Lesson7 Azure Notification Hub.pptx)</td>
                      <td></td>
                      <td>Understand what a push notification is<br>
 			 Know the basic mechanism of Push Notification Systems<br>

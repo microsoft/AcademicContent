@@ -26,7 +26,7 @@
                   </tr>
                   <tr>
                      <td align="center">1</td>
-                     <td>[Data Science and Machine Learning Overview](Lessons/)</td>
+                     <td>[Data Science and Machine Learning Overview](Lessons/Module5_Lesson1 Data Science and Machine Learning Overview.pptx)</td>
                      <td></td>
                      <td>The basics of data science<br>
 			 Machine learning basics<br>
@@ -35,8 +35,8 @@
                   </tr>
                   <tr>
                      <td align="center">2</td>
-                     <td>[Spark MLlib and Data Types](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Spark MLlib and Data Types](Lessons/Module5_Lesson2 Spark MLlib and Data Types.pptx)</td>
+                     <td></td>
                      <td>The fundamentals of Spark<br>
 			 Major components of Spark programming<br>
 			 How Spark Machine learning library (MLlib) works<br>
@@ -45,8 +45,8 @@
                   </tr>
                   <tr>
                      <td align="center">3</td>
-                     <td>[Spark ML Overview and Spark on Azure](Lessons/)</td>
-                     <td></td>
+                     <td>[Spark ML Overview and Spark on Azure](Lessons/Module5_Lesson3 Spark ML Overview and Spark on Azure.pptx)</td>
+                     <td>[Labs](Labs/Module 5 Lesson 3 Creating Spark Cluster Lab.docx)</td>
                      <td>Recognize the Spark ML API<br>
 			 Demonstrate how a Spark Cluster is configured on top of HDInsight Cluster<br>
 			 Explain some features available in Azure HDInsight Spark Clusters
@@ -54,8 +54,8 @@
                   </tr>
                   <tr>
                      <td align="center">4</td>
-                     <td>[Spark MLlib Basic Statistics](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Spark MLlib Basic Statistics](Lessons/Module5_Lesson4 Spark MLlib Basic Statistics.pptx)</td>
+                     <td>[Lab](Labs/Module 5 Lesson 4 Pipeline ML Lab.docx)</td>
                      <td>How to use basic statistics functions provided by MLlib<br>
 			 The input data types for these functions<br>
 			 How data types affect the functionality of the statistical methods
@@ -63,8 +63,8 @@
                   </tr>
                   <tr>
                      <td align="center">5</td>
-                     <td>[Clustering](Lessons/)</td>
-                     <td></td>
+                     <td>[Clustering](Lessons/Module5_Lesson5 Clustering.pptx)</td>
+                     <td>[Lab](Labs/Module 5 Lesson 5 Clustering Lab.docx)</td>
                      <td>Understand what a clustering algorithm does<br>
 			 Understand supervised and unsupervised learning<br>
 			 Recognize the K-Means algorithm<br>
@@ -73,8 +73,8 @@
                   </tr>
                   <tr>
                      <td align="center">6</td>
-                     <td>[Regression](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Regression](Lessons/Module5_Lesson6 Regression.pptx)</td>
+                     <td></td>
                      <td>Formally define the regression model<br>
 			 Define how to model using simple linear regression<br>
 			 Understand how to model using linear regression<br>
@@ -84,8 +84,8 @@
                   </tr>
                   <tr>
                      <td align="center">7</td>
-                     <td>[Regression and Classification](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Regression and Classification](Lessons/Module5_Lesson7 Regression and Classification.pptx)</td>
+                     <td>[Lab](Labs/Module 5 Lesson 7 Binary Classification Lab.docx)</td>
                      <td>Explain what regularizers accomplish<br>
 			 Understand cross-validation procedures<br>
 			 Understand nested cross-validation procedures<br>

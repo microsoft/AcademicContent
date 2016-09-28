@@ -26,7 +26,7 @@
                   </tr>
                   <tr>
                      <td align="center">1</td>
-                     <td>[Big Data and Hadoop](Lessons/)</td>
+                     <td>[Big Data and Hadoop](Lessons/Module4_Lesson01 Big Data and Hadoop.pptx)</td>
                      <td>[Lab](Labs/Module 4 Lesson 01 Getting started with HDP Lab.docx)</td>
                      <td>Explain Big Data<br>
 			 Understand why Hadoop is used<br>
@@ -36,7 +36,7 @@
                   </tr>
                   <tr>
                      <td align="center">2</td>
-                     <td>[Getting Started with Hadoop Cluster on Azure](Lessons/)</td>
+                     <td>[Getting Started with Hadoop Cluster on Azure](Lessons/Module4_Lesson02 Getting started with Hadoop cluster on Azure.pptx)</td>
                      <td></td>
                      <td>Explain the purpose of a Hadoop cluster<br>
 			 Describe YARN Architecture and HDFS<br>
@@ -46,7 +46,7 @@
                   </tr>
                   <tr>
                      <td align="center">3</td>
-                     <td>[Getting Started with HDInsight](Lessons/)</td>
+                     <td>[Getting Started with HDInsight](Lessons/Module4_Lesson03 Getting started with HDInsight.pptx)</td>
                      <td>[Lab](Labs/Module 4 Lesson 03 Getting started with HDInsight Lab.docx)</td>
                      <td>Understand features of HDFS<br>
 			 Understand processing Big Data with HDInsight
@@ -54,7 +54,7 @@
                   </tr>
                   <tr>
                      <td align="center">4</td>
-                     <td>[Hive Overview](Lessons/)</td>
+                     <td>[Hive Overview](Lessons/Module4_Lesson04 Hive Overview.pptx)</td>
                      <td></td>
                      <td>Understand what Hive is<br>
 			 Describe Hive architecture and components<br>
@@ -63,7 +63,7 @@
                   </tr>
                   <tr>
                      <td align="center">5</td>
-                     <td>[Hive Data Types and File Formats](Lessons/)</td>
+                     <td>[Hive Data Types and File Formats](Lessons/Module4_Lesson05 Hive Data Types and File Formats.pptx)</td>
                      <td></td>
                      <td>Describe Hive data types and how they are used<br>
 			 Explain supported Hive file formats
@@ -71,7 +71,7 @@
                   </tr>
                   <tr>
                      <td align="center">6</td>
-                     <td>[Hive Databases and Tables](Lessons/)</td>
+                     <td>[Hive Databases and Tables](Lessons/Module4_Lesson06 Hive Databases and Tables.pptx)</td>
                      <td>[Lab](Labs/Module 4 Lesson 06 Hive CLI and HIve View Lab.docx)</td>
                      <td>How Hive stores and manages databases<br>
 			 Basic commands to create and manipulate databases
@@ -79,7 +79,7 @@
                   </tr>
                   <tr>
                      <td align="center">7</td>
-                     <td>[Working with Hive Tables](Lessons/)</td>
+                     <td>[Working with Hive Tables](Lessons/Module4_Lesson07 Working with Hive Tables.pptx)</td>
                      <td>[Lab](Labs/Module 4 Lesson 07 Hive DLL Lab.docx)</td>
                      <td>Create and add data to managed tables<br>
 			 Create external tables and point data to them<br>
@@ -89,7 +89,7 @@
                   </tr>
                   <tr>
                      <td align="center">8</td>
-                     <td>[Hive CLI and Hive Query Language Basics](Lessons/)</td>
+                     <td>[Hive CLI and Hive Query Language Basics](Lessons/Module4_Lesson08 Hive CLI and Hive Query Language Basics.pptx)</td>
                      <td></td>
                      <td>Use the Hive CLI and Hive shell<br>
 			 Work with the SELECT statement
@@ -97,7 +97,7 @@
                   </tr>
                   <tr>
                      <td align="center">9</td>
-                     <td>[Hive Query Language In-Depth](Lessons/)</td>
+                     <td>[Hive Query Language In-Depth](Lessons/Module4_Lesson09 Hive Query Language In-Depth.pptx)</td>
                      <td>[Lab](Labs/Module 4 Lesson 09 HiveQL Lab.docx)</td>
                      <td>Use the SELECT with WHERE statement<br>
 			 Understand different data types used in HiveQL<br>
@@ -107,7 +107,7 @@
                   </tr>
                   <tr>
                      <td align="center">10</td>
-                     <td>[Hive Extensions](Lessons/)</td>
+                     <td>[Hive Extensions](Lessons/Module4_Lesson10 Hive Extensions.pptx)</td>
                      <td></td>
                      <td>Use Hive set variables to pass parameters to a Hive query<br>
 			 Create external scripts/programs using TRANSFORM….USING<br>
@@ -117,7 +117,7 @@
                   </tr>
                   <tr>
                      <td align="center">11</td>
-                     <td>[Hive Text Processing](Lessons/)</td>
+                     <td>[Hive Text Processing](Lessons/Module4_Lesson11 Hive Text Processing.pptx)</td>
                      <td></td>
                      <td>Use String functions for: 
                        <ul>
