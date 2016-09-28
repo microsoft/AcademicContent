@@ -27,7 +27,7 @@
                   <tr>
                      <td align="center">1</td>
                      <td>[Big Data and Hadoop](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Lab](Labs/Module 4 Lesson 01 Getting started with HDP Lab.docx)</td>
                      <td>Explain Big Data<br>
 			 Understand why Hadoop is used<br>
 			 Describe the core concepts of Hadoop<br>
@@ -47,7 +47,7 @@
                   <tr>
                      <td align="center">3</td>
                      <td>[Getting Started with HDInsight](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Lab](Labs/Module 4 Lesson 03 Getting started with HDInsight Lab.docx)</td>
                      <td>Understand features of HDFS<br>
 			 Understand processing Big Data with HDInsight
                      </td>
@@ -72,7 +72,7 @@
                   <tr>
                      <td align="center">6</td>
                      <td>[Hive Databases and Tables](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Lab](Labs/Module 4 Lesson 06 Hive CLI and HIve View Lab.docx)</td>
                      <td>How Hive stores and manages databases<br>
 			 Basic commands to create and manipulate databases
                      </td>
@@ -80,7 +80,7 @@
                   <tr>
                      <td align="center">7</td>
                      <td>[Working with Hive Tables](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Lab](Labs/Module 4 Lesson 07 Hive DLL Lab.docx)</td>
                      <td>Create and add data to managed tables<br>
 			 Create external tables and point data to them<br>
 			 Create and work with partitioned tables<br>
@@ -98,7 +98,7 @@
                   <tr>
                      <td align="center">9</td>
                      <td>[Hive Query Language In-Depth](Lessons/)</td>
-                     <td>[Lab](Labs/)</td>
+                     <td>[Lab](Labs/Module 4 Lesson 09 HiveQL Lab.docx)</td>
                      <td>Use the SELECT with WHERE statement<br>
 			 Understand different data types used in HiveQL<br>
 			 Recognize floating point comparisons<br>
