@@ -538,36 +538,43 @@ vertical-align:1px;
 <ol>
 <li><p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If asked to log in, do so using your Microsoft account.</p></li>
 <li>
-<p>Click <strong>+ New</strong>, followed by <strong>Data + Analytics</strong> and <strong>Machine Learning</strong>.</p>
+<p>Click <strong>+ New</strong>, followed by <strong>Intelligence + Analytics</strong> and <strong>Machine Learning Workspace</strong>.</p>
 
-<p><a href="Images/new-ml-solution.png" target="_blank"><img src="Images/new-ml-solution.png" alt="Creating an ML solution" style="max-width:100%;"></a></p>
+<p><a href="Images/new-ml-solution.png" target="_blank"><img src="Images/new-ml-solution.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
 
-<p><em>Creating an ML solution</em></p>
+<p><em>Creating an ML workspace</em></p>
 </li>
 <li>
-<p>Because the Azure Portal doesn't (yet) support Machine Learning, the Classic Portal will open and display a form for creating an ML workspace. Enter a workspace name such as "DXLabs" (without the quotation marks), select the location nearest you, and select <strong>Create a new storage account</strong>. (This is the storage account where your ML experiments will be stored.) Then enter a storage-account name and click <strong>CREATE AN ML WORKSPACE</strong>.</p>
+<p>In the "Machine Learning Workspace" blade, enter a workspace name such as "DXLabs" and make sure a green check mark appears next to it. Select <strong>Create new</strong> under <strong>Resource group</strong> and and enter a resource-group name such as "DXLabsResourceGroup" (without quotation marks). Select the location nearest you under <strong>Location</strong>. Then enter a storage-account name and make sure a green check mark appears next to it, too.</p>
 
 <blockquote>
 <p>Recall that storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.</p>
 </blockquote>
 
-<p><a href="Images/new-ml-workspace.png" target="_blank"><img src="Images/new-ml-workspace.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
+<p><a href="Images/workspace-parameters.png" target="_blank"><img src="Images/workspace-parameters.png" alt="Configuring an ML workspace" style="max-width:100%;"></a></p>
 
-<p><em>Creating an ML workspace</em></p>
+<p><em>Configuring an ML workspace</em></p>
 </li>
 <li>
-<p>It typically takes 30 seconds or so for the new ML workspace to be created. (Watch the green bars in the lower-right corner of the portal. When they stop moving, the workspace has been created.) Once the new workspace appears in the portal, click it.</p>
+<p>Click <strong>Web service plan pricing tier</strong> and select <strong>DEVTEST Standard</strong>. Then click the <strong>Select</strong> button at the bottom of the "Choose your pricing tier" blade. Check <strong>Pin to dashboard</strong> at the bottom of the "Machine Learning Workspace" blade, and finish up by clicking the <strong>Create</strong> button.</p>
 
-<p><a href="Images/ml-workspaces.png" target="_blank"><img src="Images/ml-workspaces.png" alt="Opening the new workspace" style="max-width:100%;"></a></p>
+<p><a href="Images/pricing-tier.png" target="_blank"><img src="Images/pricing-tier.png" alt="Choosing a pricing tier" style="max-width:100%;"></a></p>
 
-<p><em>Opening the new workspace</em></p>
+<p><em>Choosing a pricing tier</em></p>
 </li>
 <li>
-<p>Click <strong>Sign-in to ML Studio</strong> to open Azure ML Studio.</p>
+<p>It typically takes 30 seconds or so for the new ML workspace to be created. Once deployment has completed, click <strong>Launch Machine Learning Studio</strong>. (If the screen below doesn't display automatically, click the tile that was created for the ML workspace on the dashboard to display it.)</p>
 
-<p><a href="Images/dx-labs-workspace.png" target="_blank"><img src="Images/dx-labs-workspace.png" alt="Navigating to Azure ML Studio" style="max-width:100%;"></a></p>
+<p><a href="Images/launch-ml-studio.png" target="_blank"><img src="Images/launch-ml-studio.png" alt="Launching ML Studio" style="max-width:100%;"></a></p>
 
-<p><em>Navigating to Azure ML Studio</em></p>
+<p><em>Launching ML Studio</em></p>
+</li>
+<li>
+<p>Click <strong>Sign in here</strong> to sign in to ML Studio with your Microsoft account.</p>
+
+<p><a href="Images/sign-in.png" target="_blank"><img src="Images/sign-in.png" alt="Signing in to ML Studio" style="max-width:100%;"></a></p>
+
+<p><em>Signing in to ML Studio</em></p>
 </li>
 <li>
 <p>In ML Studio, click <strong>+ NEW</strong> in the lower-left corner. Then start a new experiment by clicking <strong>Blank Experiment</strong>.</p>

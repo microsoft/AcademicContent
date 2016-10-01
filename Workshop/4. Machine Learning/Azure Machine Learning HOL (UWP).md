@@ -52,31 +52,37 @@ The first step in employing Azure Machine Learning is to create an ML workspace 
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
-1. Click **+ New**, followed by **Data + Analytics** and **Machine Learning**.
+1. Click **+ New**, followed by **Intelligence + Analytics** and **Machine Learning Workspace**.
 
-    ![Creating an ML solution](Images/new-ml-solution.png)
-
-    _Creating an ML solution_
-
-1. Because the Azure Portal doesn't (yet) support Machine Learning, the Classic Portal will open and display a form for creating an ML workspace. Enter a workspace name such as "DXLabs" (without the quotation marks), select the location nearest you, and select **Create a new storage account**. (This is the storage account where your ML experiments will be stored.) Then enter a storage-account name and click **CREATE AN ML WORKSPACE**.
-
-	> Recall that storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.
-
-    ![Creating an ML workspace](Images/new-ml-workspace.png)
+    ![Creating an ML workspace](Images/new-ml-solution.png)
 
     _Creating an ML workspace_
 
-1. It typically takes 30 seconds or so for the new ML workspace to be created. (Watch the green bars in the lower-right corner of the portal. When they stop moving, the workspace has been created.) Once the new workspace appears in the portal, click it.
+1. In the "Machine Learning Workspace" blade, enter a workspace name such as "DXLabs" and make sure a green check mark appears next to it. Select **Create new** under **Resource group** and and enter a resource-group name such as "DXLabsResourceGroup" (without quotation marks). Select the location nearest you under **Location**. Then enter a storage-account name and make sure a green check mark appears next to it, too.
 
-    ![Opening the new workspace](Images/ml-workspaces.png)
+	> Recall that storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.
 
-    _Opening the new workspace_
+    ![Configuring an ML workspace](Images/workspace-parameters.png)
 
-1. Click **Sign-in to ML Studio** to open Azure ML Studio.
+    _Configuring an ML workspace_
 
-    ![Navigating to Azure ML Studio](Images/dx-labs-workspace.png)
+1. Click **Web service plan pricing tier** and select **DEVTEST Standard**. Then click the **Select** button at the bottom of the "Choose your pricing tier" blade. Check **Pin to dashboard** at the bottom of the "Machine Learning Workspace" blade, and finish up by clicking the **Create** button.
 
-    _Navigating to Azure ML Studio_
+    ![Choosing a pricing tier](Images/pricing-tier.png)
+
+    _Choosing a pricing tier_
+
+1. It typically takes 30 seconds or so for the new ML workspace to be created. Once deployment has completed, click **Launch Machine Learning Studio**. (If the screen below doesn't display automatically, click the tile that was created for the ML workspace on the dashboard to display it.)
+
+    ![Launching ML Studio](Images/launch-ml-studio.png)
+
+    _Launching ML Studio_
+
+1. Click **Sign in here** to sign in to ML Studio with your Microsoft account.
+
+    ![Signing in to ML Studio](Images/sign-in.png)
+
+    _Signing in to ML Studio_
 
 1. In ML Studio, click **+ NEW** in the lower-left corner. Then start a new experiment by clicking **Blank Experiment**.
 
