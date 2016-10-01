@@ -53,7 +53,7 @@ The first step in employing Azure Machine Learning is to create an ML workspace 
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
-1. Click **+ New**, followed by **Intelligence + Analytics** and **Machine Learning Workspace**.
+1. Click **+ New**, followed by **Intelligence + analytics** and **Machine Learning Workspace**.
 
     ![Creating an ML workspace](Images/new-ml-solution.png)
 
