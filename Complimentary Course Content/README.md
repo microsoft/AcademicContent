@@ -49,7 +49,7 @@
                   <tr>
                      <td align="center">[3](Module3/)</td>
                      <td>[Cross-Platform Mobile Application Development using Xamarin](Module3/Lessons)</td>
-                     <td>This module introduces a survey of mobile development, the basics of Xamarin, and the foundations of C#. This module proceeds to cover Xamarin development basics for Android, iOS, and Windows apps; including the basics of using Xamarin.Forms and testing Xamarin apps. Finally, this module demonstrates deploying a Mobile app (using Azure app services) and getting your mobile app into an app store. | [Labs](Module3/Labs)
+                     <td>This module introduces a survey of mobile development, the basics of Xamarin, and the foundations of C#. This module proceeds to cover Xamarin development basics for Android, iOS, and Windows apps; including the basics of using Xamarin.Forms and testing Xamarin apps. Finally, this module demonstrates deploying a Cross-Platform Mobile app (using Azure app services) and getting the app into an app store. | [Labs](Module3/Labs)
                      </td>
                   </tr>		
                   <tr>
