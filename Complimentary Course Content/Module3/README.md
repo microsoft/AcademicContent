@@ -10,7 +10,7 @@
          <div class="jumbotron">
             <h1>Module 3 - Cross Platform Mobile Application Development with Xamarin</h1>
             <p><b>June 2016 release</b></p>
-            <p>This module introduces a survey of mobile development, the basics of Xamarin, and the foundations of C#. This module proceeds to cover Xamarin development basics for Android, iOS, and Windows apps; including the basics of using Xamarin.Forms and testing Xamarin apps. Finally, this module demonstrates deploying a Mobile app (using Azure app services) and getting your mobile app into an app store.</p>
+            <p>This module introduces a survey of cross platform mobile development, the basics of Xamarin, and the foundations of C#. This module proceeds to cover Xamarin development basics for Android, iOS, and Windows apps; including the basics of using Xamarin.Forms and testing Xamarin apps. Finally, this module demonstrates deploying an app (using Azure app services) and getting the app into an app store.</p>
          </div>
       </div>
       <div class="panel-body">
