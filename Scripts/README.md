@@ -40,12 +40,12 @@ the Azure portal vs the Azure classic portal in this <a href="https://azure.micr
 <td> Listing all your Azure Subscription via Powershell</td>
 <td> ListAzureSubs.ps1 </td>
 <td> This powershell script will list of the Azure Subscriptions and then list a table format of the Azure SubscriptionName and Azure SubscriptionID. 
-<td>Simply run the command Navigate to the directory where the script lives 
-<td> PS> cd C:\my_path\yada_yada\ (enter) 
-<td> Execute the script: PS> .\ListAzureSubs.ps1 (enter)
-<td>Or: you can run the PowerShell script from cmd.exe like this:
-<td>powershell -noexit C:\my_path\yada_yada\ListAzureSubs.ps1 (enter)
-<td>Simply then copy and paste your Subscription IDs into the Excel for assigning users
+Simply run the command Navigate to the directory where the script lives 
+PS> cd C:\my_path\yada_yada\ (enter) 
+Execute the script: PS> .\ListAzureSubs.ps1 (enter)
+Or: you can run the PowerShell script from cmd.exe like this:
+powershell -noexit C:\my_path\yada_yada\ListAzureSubs.ps1 (enter)
+Simply then copy and paste your Subscription IDs into the Excel for assigning users
 </tr>
 
 </table>
