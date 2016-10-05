@@ -5,7 +5,7 @@ This folder contains scripts that complement the functionality of the Azure Educ
 </tr>
 <tr>
 <td>Create bulk accounts </td>
-<td>createstudents.sh </td>
+<td>createstudents.sh and Students.csv</td>
 <td>This bash script will read a list of accounts to create from a csv to bulk create email adresses for students taking a course. It will assign an Azure subscription to each of the students.
 Full instructions can be found in the file createstudentsInstructions.md  
 IMPORTANT NOTE:   
@@ -26,7 +26,7 @@ view usage and billing for each registered user. Full documentation on how to in
 </td>
 <tr>
 <td> Bulk Adding AAD Existing users via Powershell</td>
-<td> BulkAddAAD.ps1 </td>
+<td> BulkAddAAD.ps1 and Data.txt</td>
 <td> This powershell script will read a list of accounts to a .txt file It will assign an Azure subscription to each of the students.
 Full instructions can be found in the file BulkAddAADInstructions.md  
 IMPORTANT NOTE:   
