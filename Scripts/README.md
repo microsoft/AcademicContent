@@ -23,4 +23,15 @@ Portal subscriptions or through Azure passes. You set up the solution for the fa
 view usage and billing for each registered user. Full documentation on how to install and use the tool is available on Github <a href="https://github.com/Microsoft/AzureUsageAndBillingPortal">Azure Billing Portal GitHub</a>
 </tr>
 
+</td>
+<tr>
+<td> Bulk Adding AAD Existing users via Powershell</td>
+<td> BulkAddAAD.ps1 </td>
+<td> This powershell script will read a list of accounts to a .txt file It will assign an Azure subscription to each of the students.
+Full instructions can be found in the file BulkAddAADInstructions.md  
+IMPORTANT NOTE:   
+**Accounts created with this script will NOT be able to access the [Azure classic portal](https://manage.windowsazure.com)**   
+This script creates accounts based on Role Based Access Control (RBAC) and puts limitations on the accounts created to a contributor. You can see a complete list of features available in 
+the Azure portal vs the Azure classic portal in this <a href="https://azure.microsoft.com/en-us/features/azure-portal/availability/">Azure portal availability chart</a></tr>
+
 </table>
