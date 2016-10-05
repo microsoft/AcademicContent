@@ -48,4 +48,12 @@ powershell -noexit C:\my_path\yada_yada\ListAzureSubs.ps1 (enter)
 Simply then copy and paste your Subscription IDs into the Excel for assigning users
 </tr>
 
+</td>
+<tr>
+<td> Useful Comamds Azure Subscription via Powershell</td>
+<td> AzureSubsCommands.md </td>
+<td> This is a set of powershell script which will help you perform tasks on your azure subscriptions. 
+Simply run the command within poweshell 
+</tr>
+
 </table>
