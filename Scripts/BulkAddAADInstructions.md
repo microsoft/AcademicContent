@@ -8,12 +8,12 @@ the Azure portal vs the Azure classic portal in this [Azure portal availability 
 #Powershell 
 PowerShell is now open source, and available for Linux and Mac. You can download official packages from Microsoft for the 64-bit versions of Ubuntu 16.04, Ubuntu 14.04, CentOS 7, Red Hat Enterprise Linux 7, and Mac OS X 10.11.
 
-#Powershell for Linux
+#Powershell Getting startedx
 Getting Started using Powershell on Linux https://msdn.microsoft.com/en-us/powershell/dsc/LnxGettingStarted 
 Powershell on Windows https://msdn.microsoft.com/en-us/powershell/scripting/getting-started/getting-started-with-windows-powershell 
 
 ##User Account Permissions
-User running the script simply needs to be overall Subscription Owners and Member of the AAD of the users so all users with a o365 have Azure Active Directory
+User running the script simply needs to be overall Azure Subscription Owner and a Member of the AAD which is the same as the users. 
 
 ##Create your data text file data.txt
 Each line of the csv file should include the following fields in order:
