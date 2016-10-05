@@ -27,7 +27,6 @@ Save the location of the file and ensure you check $FilePath  and change the pat
 
 * RoleName specifies the [role] (https://azure.microsoft.com/en-us/documentation/articles/role-based-access-built-in-roles/) you want to assign to the user, usually this will be *Contributor* 
 
-
 ##Execute the script
 Navigate to the directory where the script lives
 PS> cd C:\my_path\yada_yada\ (enter)
