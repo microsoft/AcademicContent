@@ -56,9 +56,9 @@ Estimated time to complete this lab: **60** minutes.
 
 The [Azure Portal](https://portal.azure.com) allows you to perform basic storage operations such as creating storage accounts, creating containers, and managing access keys. In this exercise, you will use the portal to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.
 
-1. Go to the [Azure Portal](https://portal.azure.com/) and sign in using your Microsoft account.
+1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
  
-1. The first step in using Azure Storage is to create a storage account. To create a storage account, click **+ NEW** in the ribbon on the left. Then click **Data + Storage**, followed by **Storage account**.
+1. The first step in using Azure Storage is to create a storage account. To create a storage account, click **+ New** in the ribbon on the left. Then click **Storage**, followed by **Storage account**.
 
     ![Creating a storage account](Images/new-storage-account.png)
 
@@ -68,17 +68,13 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
 	> Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure. If someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the **Name** field.
 
-	Once you have a name that Azure will accept (as indicated by the green check mark in the **Name** field), make sure **Resource manager** is selected as the deployment model and **General purpose** is selected as the account kind. Then select **Locally-redundant storage (LRS)** as the replication type.
-
-	> Locally redundant storage is the most cost-effective storage option. It prevents data stored under this storage account from being replicated in other data centers, but it ensures that the data will be replicated at least three times within the chosen data center.
-
-	Select **Create new** under **Resource group** and type "Intellipix" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the **Location** box, and clicking the **Create** button at the bottom of the blade to create the new storage account.
+	Once you have a name that Azure will accept (as indicated by the green check mark in the **Name** field), make sure **Resource manager** is selected as the deployment model and **General purpose** is selected as the account kind. Then select **Create new** under **Resource group** and type "IntellipixResourceGroup" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the **Location** box, and clicking the **Create** button at the bottom of the blade to create the new storage account.
     
 	![Specifying parameters for a new storage account](Images/create-storage-account.png)
 
     _Specifying parameters for a new storage account_
 
-1. Once the storage account has been created, click **Resource groups** in the ribbon on the left. Then click the "Intellipix" resource group, and in the blade that opens for the resource group, click the storage account you just created.
+1. Once the storage account has been created, click **Resource groups** in the ribbon on the left. Then click the "IntellipixResourceGroup" resource group, and in the blade that opens for the resource group, click the storage account you just created.
  
     ![Opening the new storage account](Images/open-storage-account.png)
 
@@ -106,10 +102,6 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
 1. Repeat this process to create a container named "thumbnails," once more ensuring that the container's **Access type** is set to **Blob**.
 
-    ![Creating a "thumbnails" container](Images/create-thumbnails-container.png)
-
-    _Creating a "thumbnails" container_
-
 1. Confirm that both containers appear in the list of containers for this storage account, and that the names are spelled correctly.
 
     ![The new containers](Images/new-containers.png)
@@ -125,29 +117,17 @@ The [Microsoft Azure Storage Explorer](http://storageexplorer.com/) is a free to
 
 1. Start the Microsoft Azure Storage Explorer.
 
-1. In the Storage Explorer window, click **Connect to Microsoft Azure**.
+1. Start Storage Explorer. If you are asked to log in, do so using your Microsoft account — the same one that you used to log in to the Azure Portal. If you are *not* asked to log in and don't see the storage account you created in the previous exercise in Storage Explorer's left pane, click the **Azure Accounts settings** button highlighted below, click **Add an account**, and log in with your Microsoft account.
 
-    ![Connecting Storage Explorer to Azure](Images/storage-explorer-connect-to-azure.png)
+    ![Adding an account to Storage Explorer](Images/add-account.png)
 
-    _Connecting Storage Explorer to Azure_
-
-1. Enter the e-mail address for your Microsoft account. Then click **Continue**.
-
-    ![Entering your e-mail address](Images/storage-explorer-enter-email.png)
-
-    _Entering your e-mail address_
-
-1. Enter the user name and password for your Microsoft account. Check the box labeled **Keep me signed in**. Then click the **Sign in** button.
-
-    ![Signing in to Storage Explorer](Images/storage-explorer-enter-credentials.png)
-
-    _Signing in to Storage Explorer_
+    _Adding an account to Storage Explorer_
 
 1. Confirm that the storage account you created in Exercise 1 appears in the list of storage accounts shown in Storage Explorer. Click the small arrow next to the storage account to display its contents, and then click the arrow next to **Blob Containers**. Confirm that the containers you created in Exercise 1 appear in the list of containers.
 
-    ![The Microsoft Azure Storage Explorer](Images/storage-explorer.png)
+    ![Blob containers in the Microsoft Azure Storage Explorer](Images/storage-explorer.png)
 
-    _The Microsoft Azure Storage Explorer_
+    _Blob containers in the Microsoft Azure Storage Explorer_
 
 The containers are currently empty, but that will change once your app is deployed and you start uploading photos. Having Storage Explorer installed will make it easy for you to see what your app writes to blob storage.
 
