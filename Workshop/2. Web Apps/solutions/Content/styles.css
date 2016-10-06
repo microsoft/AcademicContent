@@ -32,17 +32,6 @@
      width: 192px;
      background-color: white;
      padding: 5px 5px 30px 5px;
-     -webkit-transform: rotate(10deg);
-     -moz-transform: rotate(10deg);
-     -o-transform: rotate(10deg);
-     -ms-transform: rotate(10deg);
- }
-
- img:hover {
-     -webkit-transform: rotate(0deg);
-     -moz-transform: rotate(0deg);
-     -o-transform: rotate(0deg);
-     -ms-transform: rotate(0deg);
  }
 
  /* Custom queries for force line breaks depending on the resolution. */

@@ -478,6 +478,8 @@ vertical-align:1px;
 
 <h2>Overview</h2>
 
+<p><a href="https://azure.microsoft.com">Microsoft Azure</a> is Microsoft's cloud computing platform. It offers dozens of services to help developers write cloud-based applications and researchers process and analyze big data. And it is supported by more than 20 data centers around the world, producing unprecedented scale, availability, and reliability, all while offering massive economy of scale to consumers.</p>
+
 <p>The entry point to Azure is the <a href="https://portal.azure.com">Azure Portal</a>, which you will become familiar with as you work through the labs. In order to use the portal, you must have an Azure subscription. When you consume Azure services through the portal — when, for example, you store data in a storage account or deploy a high-performance computing (HPC) cluster — those services are billed against your subscription. A free subscription has been provided for you, along with unique credentials for logging into the portal and using that subscription. These credentials and the subscription associated with them have been provided specifically for the purpose of working these labs. To work with Azure outside the scope of these labs, you will need to associate an Azure subscription with your personal Microsoft account or with a work/school account (also known as an <em>Office 365 account</em>) provided by your school or organization.</p>
 
 <p>Although Azure services can be accessed from any operating system running on an any device, some of the tools you will use for today's labs require Microsoft Windows. Therefore, a virtual machine (VM) running Windows 10 and preconfigured with all the tools you will need has been provided for you. The purpose of this lab is to connect to the lab VM, log in to the Azure Portal, and confirm that you have a working subscription. In subsequent labs, you will use this subscription to create storage accounts, deploy Web apps, create machine-learning models, run Docker containers in Azure, and much more. </p>
@@ -518,10 +520,10 @@ vertical-align:1px;
 
 <h3>Prerequisites</h3>
 
-<p>The following is required to complete this hands-on lab:</p>
+<p>The following are required to complete this hands-on lab:</p>
 
 <ul>
-<li>An HTML5 browser such as Chrome 16 or higher, Firefox 11 or higher, Internet Explorer 10 or higher, or Microsoft Edge</li>
+<li>An HTML5 browser such as Chrome 16+, Firefox 11+, Internet Explorer 10+, or Microsoft Edge</li>
 <li>A URL provided by the instructor for accessing the lab VM</li>
 </ul>
 
@@ -551,7 +553,7 @@ vertical-align:1px;
 <p>In this exercise, you will use your browser to connect to a Windows 10 virtual machine (VM) that has been prepared for you. The VM contains all the tools you need to work the labs in this course, including Visual Studio 2015, Visual Studio Code, Node.js, and others.</p>
 
 <ol>
-<li><p>Open your browser and navigate to the lab URL provided to you by the instructor.</p></li>
+<li><p>Open your browser and navigate to the lab URL provided by the instructor.</p></li>
 <li>
 <p>After a few moments, the VM's Windows 10 desktop appears in your browser. If you are asked whether you want "your PC" (the virtual machine) to be discoverable on the network, click <strong>No</strong>.</p>
 
@@ -559,9 +561,15 @@ vertical-align:1px;
 
 <p><em>The virtual-machine desktop</em></p>
 </li>
-<li><p>If you would like for the VM to occupy the entire screen, click <strong>Display</strong> in the menu bar at the top of the page and select <strong>Full Screen</strong>. (You can exit full-screen mode at any time by clicking <strong>Display</strong> again and selecting <strong>Exit Full Screen</strong>.)</p></li>
 <li>
-<p>In the "Content" tab on the right side of the screen are the credentials you will use to log in to the Azure portal and access the subscription that has been set up for you. Make note of these credentials, because you will need them in the next exercise and any time you go to the Azure Portal and are asked to log in.</p>
+<p>If you would like for the VM to occupy the entire screen, click <strong>Display</strong> in the menu bar at the top of the page and select <strong>Full Screen</strong>. (You can exit full-screen mode at any time by clicking <strong>Display</strong> again and selecting <strong>Exit Full Screen</strong>.)</p>
+
+<p><a href="Images/full-screen.png" target="_blank"><img src="Images/full-screen.png" alt="Switching to full-screen" style="max-width:100%;"></a></p>
+
+<p><em>Switching to full-screen</em></p>
+</li>
+<li>
+<p>In the "Content" tab on the right side of the screen are the credentials you will use to log in to the Azure Portal and access the subscription that has been set up for you. Make note of these credentials, because you will need them in the next exercise and throughout the rest of the day.</p>
 
 <p><a href="Images/credentials.png" target="_blank"><img src="Images/credentials.png" alt="Your Azure credentials" style="max-width:100%;"></a></p>
 
@@ -609,7 +617,7 @@ vertical-align:1px;
 </li>
 </ol>
 
-<p>You can click a subscription to retrieve billing and usage information for it. However, since your Azure Pass subscription is brand new, no data is presently available. Make a note to return to the "Subscriptions" blade later today and see if there is billing and usage information available for your Azure Pass.</p>
+<p>You can click a subscription to retrieve billing and usage information for it. However, since your Azure Pass subscription is brand new, no data is presently available. Make a note to return here later today and see if there is billing and usage information available for your Azure Pass.</p>
 
 <h3>Summary</h3>
 

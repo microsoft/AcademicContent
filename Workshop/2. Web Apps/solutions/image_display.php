@@ -26,10 +26,8 @@
      // Resize/resample the image to the requested size
      $destWidth = $_GET['width'];
      $destHeight = $destWidth * $srcSize[1] / $srcSize[0];
-     $destWidth = $srcWidth;
-     $destHeight = $srcHeight;
 
-     // // echo "width = ".$destWidth." height = ".$destHeight;
+     // echo "width = ".$destWidth." height = ".$destHeight;
      $destImageResource = imageCreateTrueColor($destWidth, $destHeight);
      imagealphablending($destImageResource, false);
      imagesavealpha($destImageResource, true);
