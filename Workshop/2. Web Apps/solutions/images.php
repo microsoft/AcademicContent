@@ -13,10 +13,10 @@
                 // check whether file is uploaded with HTTP POST
                 if (is_uploaded_file($_FILES['imageToUpload']['tmp_name'])) {    
 
-                    //checks size of uploaded image on server side
+                    // check size of uploaded image on server side
                     if ( $_FILES['imageToUpload']['size'] < $maxsize) {  
 
-                        // checks whether uploaded file is of image type
+                        // check whether uploaded file is of image type
                         $finfo = finfo_open(FILEINFO_MIME_TYPE);
                         if (strpos(finfo_file($finfo, $_FILES['imageToUpload']['tmp_name']), "image") === 0) {    
 
