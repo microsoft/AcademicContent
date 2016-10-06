@@ -61,17 +61,17 @@ If you want to report any issues we need to fix. Please log an <a href="https://
 					</tr>
 							<tr>
 					   <td><b>Bots are the New Apps - Introduction to Microsoft Bot Framework</b></td>
-					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Bots%20Are%20the%20New%20Apps.pptx)</td>
+					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Bots%20Are%20the%20New%20Apps.pptx)[Demos](https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks/busbot)</td>
 					   <td>Understand all about Microsoft Bot Framework and build your first bot</td>
 					</tr>
 						<tr>
-					   <td><b>Azure Compute Cloud - Introduction Service Fabric and Azure Compute</b></td>
+					   <td><b>Azure Compute Cloud - Introduction to Service Fabric and Azure Compute</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Azure%20compute%20cloud.pptx)</td>
 					   <td>Understand all about Compute Offerings from VMs to Container Services</td>
 					</tr>
 						<tr>
-					   <td><b>Microsoft and Container - SSo what are Containers</b></td>
-					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Microsoft%20and%20Containers.pptx)</td>
+					   <td><b>Microsoft and Container - So what are Containers learn all about the various option</b></td>
+					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Microsoft%20and%20Containers.pptx)| [Demos](https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks/ContainerDemo)</td>
 					   <td>Understand Containers we discuss the difference between Windows Server Containers, Hyper V Containers, Docker on Windows, Azure Container and share examples and demos for each with details on the docker release pipeline</td>
 					</tr>
 				 </table>
