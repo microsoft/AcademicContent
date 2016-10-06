@@ -27,7 +27,7 @@ In this hands-on lab, you will learn how to:
 
 The following is required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. Use the one you created in Lab 1, or [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - [Visual Studio 2015 Community edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) or higher 
 
 ---
@@ -431,9 +431,9 @@ To flag potentially fraudulent withdrawals from ATMs, you will query for transac
 	Enter the following query and click **Rerun** to execute it:
 
 	<pre>
-	SELECT W1.CardNumber as [Card Number],
-	    W1.DeviceID as [ATM 1], W2.DeviceID as [ATM 2],
-	    W1.TransactionTime as [Time 1], W2.TransactionTime as [Time 2]
+	SELECT W1.CardNumber as [CardNumber],
+	    W1.DeviceID as [ATM1], W2.DeviceID as [ATM2],
+	    W1.TransactionTime as [Time1], W2.TransactionTime as [Time2]
 	FROM Withdrawals W1 TIMESTAMP BY TransactionTime
 	JOIN Withdrawals W2 TIMESTAMP BY TransactionTime
 	ON W1.CardNumber = W2.CardNumber

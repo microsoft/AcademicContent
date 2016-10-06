@@ -504,8 +504,7 @@ vertical-align:1px;
 <p>The following is required to complete this hands-on lab:</p>
 
 <ul>
-<li>An active Microsoft Azure subscription. Use the one you created in Lab 1, or <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>
-</li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
 <li>
 <a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio 2015 Community edition</a> or higher </li>
 </ul>
@@ -662,8 +661,8 @@ vertical-align:1px;
 <li>
 <p>Open <strong>Program.cs</strong> and add the following using statements to the using statements at the top of the file:</p>
 
-<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> Microsoft.ServiceBus.Messaging<span class="pl-k">;</span>
-<span class="pl-k">using</span> Newtonsoft.Json<span class="pl-k">;</span></pre></div>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">Microsoft.ServiceBus.Messaging</span>;
+<span class="pl-k">using</span> <span class="pl-en">Newtonsoft.Json</span>;</pre></div>
 </li>
 <li>
 <p>Replace the empty Program class with the following implementation:</p>
@@ -972,9 +971,9 @@ GROUP BY TumblingWindow(n, 1)
 
 <p>Enter the following query and click <strong>Rerun</strong> to execute it:</p>
 
-<pre>SELECT W1.CardNumber as [Card Number],
-    W1.DeviceID as [ATM 1], W2.DeviceID as [ATM 2],
-    W1.TransactionTime as [Time 1], W2.TransactionTime as [Time 2]
+<pre>SELECT W1.CardNumber as [CardNumber],
+    W1.DeviceID as [ATM1], W2.DeviceID as [ATM2],
+    W1.TransactionTime as [Time1], W2.TransactionTime as [Time2]
 FROM Withdrawals W1 TIMESTAMP BY TransactionTime
 JOIN Withdrawals W2 TIMESTAMP BY TransactionTime
 ON W1.CardNumber = W2.CardNumber
@@ -1199,11 +1198,11 @@ WHERE W1.DeviceID != W2.DeviceID
 <li>
 <p>Add the following using statements to the ones at the top of the file:</p>
 
-<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> Microsoft.ServiceBus.Messaging<span class="pl-k">;</span>
-<span class="pl-k">using</span> System.Diagnostics<span class="pl-k">;</span>
-<span class="pl-k">using</span> System.Threading.Tasks<span class="pl-k">;</span>
-<span class="pl-k">using</span> Newtonsoft.Json<span class="pl-k">;</span>
-<span class="pl-k">using</span> System.Text<span class="pl-k">;</span></pre></div>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">Microsoft.ServiceBus.Messaging</span>;
+<span class="pl-k">using</span> <span class="pl-en">System.Diagnostics</span>;
+<span class="pl-k">using</span> <span class="pl-en">System.Threading.Tasks</span>;
+<span class="pl-k">using</span> <span class="pl-en">Newtonsoft.Json</span>;
+<span class="pl-k">using</span> <span class="pl-en">System.Text</span>;</pre></div>
 </li>
 <li>
 <p>Implement the SimpleEventProcessor class as follows:</p>
@@ -1254,8 +1253,8 @@ WHERE W1.DeviceID != W2.DeviceID
 <li>
 <p>Open Global.asax.cs and add the following using statements:</p>
 
-<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> Microsoft.ServiceBus.Messaging<span class="pl-k">;</span>
-<span class="pl-k">using</span> System.Diagnostics<span class="pl-k">;</span></pre></div>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">Microsoft.ServiceBus.Messaging</span>;
+<span class="pl-k">using</span> <span class="pl-en">System.Diagnostics</span>;</pre></div>
 </li>
 <li>
 <p>In Global.asax.cs, add the following statements to the end of the Application_Start method:</p>
@@ -1347,7 +1346,7 @@ Debug.WriteLine(<span class="pl-s"><span class="pl-pds">"</span>Receiving...<spa
 <span class="pl-s1">                url<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>/api/events<span class="pl-pds">"</span></span>,</span>
 <span class="pl-s1">                <span class="pl-en">success</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">result</span>) {</span>
 <span class="pl-s1">                    <span class="pl-k">for</span> (i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-smi">result</span>.<span class="pl-c1">length</span>; i<span class="pl-k">++</span>) {</span>
-<span class="pl-s1">                        <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>#output tr:last<span class="pl-pds">"</span></span>).<span class="pl-en">after</span>(<span class="pl-s"><span class="pl-pds">"</span>&lt;tr&gt;&lt;td&gt;<span class="pl-pds">"</span></span> <span class="pl-k">+</span> result[i].<span class="pl-smi">CardNumber</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>&lt;/td&gt;&lt;td&gt;<span class="pl-pds">"</span></span> <span class="pl-k">+</span> result[i].<span class="pl-c1">ATM1</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>&lt;/td&gt;&lt;td&gt;<span class="pl-pds">"</span></span> <span class="pl-k">+</span> result[i].<span class="pl-c1">ATM2</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>&lt;/td&gt;&lt;/tr&gt;<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1">                        <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>#output tr:last<span class="pl-pds">"</span></span>).<span class="pl-c1">after</span>(<span class="pl-s"><span class="pl-pds">"</span>&lt;tr&gt;&lt;td&gt;<span class="pl-pds">"</span></span> <span class="pl-k">+</span> result[i].<span class="pl-smi">CardNumber</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>&lt;/td&gt;&lt;td&gt;<span class="pl-pds">"</span></span> <span class="pl-k">+</span> result[i].<span class="pl-c1">ATM1</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>&lt;/td&gt;&lt;td&gt;<span class="pl-pds">"</span></span> <span class="pl-k">+</span> result[i].<span class="pl-c1">ATM2</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>&lt;/td&gt;&lt;/tr&gt;<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s1">                    }</span>
 <span class="pl-s1">                },</span>
 <span class="pl-s1">                <span class="pl-en">error</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">xhr</span>, <span class="pl-smi">status</span>, <span class="pl-smi">error</span>) {</span>

@@ -480,7 +480,7 @@ vertical-align:1px;
 
 <p><a href="https://azure.microsoft.com/en-us/documentation/articles/app-service-value-prop-what-is/">Azure App Service</a> is a set of services provided by Microsoft Azure to enable developers to easily build and deploy Web apps and mobile apps for various platforms and devices. Included in the App Service family are <a href="https://azure.microsoft.com/en-us/documentation/articles/app-service-web-overview/">Azure Web Apps</a>, which allow you to quickly and easily deploy Web sites built with tools and languages you’re already familiar with; <a href="https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/">Azure Mobile Apps</a>, which provide data services, syncing services, notification services, and other back-end services for popular mobile operating systems; <a href="https://azure.microsoft.com/en-us/documentation/articles/app-service-api-apps-why-best-platform/">Azure API Apps</a>, which simplify the writing, publishing, and consuming of cloud APIs; and <a href="https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-what-are-logic-apps/">Azure Logic Apps</a>, which are great for automating business processes.</p>
 
-<p>Azure Web Apps makes deploying Web sites extraordinarily easy – and not just Web sites built using the Microsoft stack. You can deploy PHP apps that use MySQL just as easily as ASP.NET apps that use SQL Server. You can select from a wide variety of Web App templates or build templates of your own. You can configure Web Apps to auto-scale as traffic increases to ensure that your customers aren’t left waiting during periods of peak demand. You can publish apps to pre-production staging locations and test them in the cloud before taking them live, and then swap staging deployments for production deployments with the click of a button. You can even create WebJobs – programs or scripts that run continuously or on a schedule to handle billing and other time-critical tasks. In short, Azure Web Apps takes the pain out of publishing and maintaining Web apps and are just as suitable for a personal photo-sharing site as they are for enterprise-grade sites serving millions of customers.</p>
+<p>Azure Web Apps makes deploying Web sites extraordinarily easy – and not just Web sites built using the Microsoft stack. You can deploy PHP apps that use MySQL just as easily as ASP.NET apps that use SQL Server. You can select from a wide variety of Web App templates or build templates of your own. You can configure Web Apps to auto-scale as traffic increases to ensure that your customers aren’t left waiting during periods of peak demand. You can publish apps to staging locations and test them in the cloud before taking them live, and then swap staging deployments for production deployments with the click of a button. You can even create WebJobs – programs or scripts that run continuously or on a schedule to handle billing and other time-critical tasks. In short, Azure Web Apps takes the pain out of publishing and maintaining Web apps and are just as suitable for a personal photo-sharing site as they are for enterprise-grade sites serving millions of customers.</p>
 
 <p>In this lab, you will use the cross-platform <a href="https://code.visualstudio.com/">Visual Studio Code</a>  editor to build a Web site that uses <a href="http://php.net/">PHP</a> server-side scripting. The site will allow you to upload, browse, and display photos, and it will store photos in a <a href="http://www.mysql.com/">MySQL</a> database. You will then provision a new Azure Web App to host the site. Finally, you will upload the site's content to the newly provisioned Web App and view it in your browser.</p>
 
@@ -529,7 +529,7 @@ vertical-align:1px;
 
 <h2>Exercise 1: Build a Web site with Visual Studio Code</h2>
 
-<p>In this exercise, you will use <a href="https://code.visualstudio.com/">Visual Studio Code</a> to build a Web site. Visual Studio Code is a free, cross-platform code editor available for Windows, macOS, and Linux that supports a variety of programming languages, both natively and via extensions. It also features built-in Git support as well as syntax highlighting and code completion via <a href="https://code.visualstudio.com/#meet-intellisense">IntelliSense</a>.</p>
+<p>In this exercise, you will use <a href="https://code.visualstudio.com/">Visual Studio Code</a> to build a Web site. Visual Studio Code is a free, cross-platform code editor available for Windows, macOS, and Linux that supports a variety of programming languages, both natively and via extensions. It features built-in Git support as well as syntax highlighting and code completion via <a href="https://code.visualstudio.com/#meet-intellisense">IntelliSense</a>.</p>
 
 <ol>
 <li>
@@ -540,7 +540,7 @@ vertical-align:1px;
 <p><em>Starting the project</em></p>
 </li>
 <li>
-<p>In the Select Folder dialog, choose a suitable folder for your Web site's code. Then click the <strong>Select Folder</strong> button.</p>
+<p>Choose a suitable folder for your Web site's code. Then click the <strong>Select Folder</strong> button.</p>
 
 <p><a href="Images/build-codeselectfolder.png" target="_blank"><img src="Images/build-codeselectfolder.png" alt="Selecting a project folder" style="max-width:100%;"></a></p>
 
@@ -671,7 +671,7 @@ vertical-align:1px;
 <span class="pl-s1">    <span class="pl-smi">$imageId</span> <span class="pl-k">=</span> <span class="pl-smi">$_GET</span>[<span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>];</span>
 <span class="pl-s1">    <span class="pl-smi">$image</span> <span class="pl-k">=</span> <span class="pl-c1">Images</span><span class="pl-k">::</span>GetImage(<span class="pl-smi">$imageId</span>);</span>
 <span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-c">// Get the source image attributes</span></span>
+<span class="pl-s1">    <span class="pl-c">// get the source image attributes</span></span>
 <span class="pl-s1">    <span class="pl-smi">$srcImage</span> <span class="pl-k">=</span> <span class="pl-smi">$image</span><span class="pl-k">-&gt;</span><span class="pl-smi">image</span>;</span>
 <span class="pl-s1">    <span class="pl-smi">$srcSize</span> <span class="pl-k">=</span> <span class="pl-c1">getImageSizeFromString</span>(<span class="pl-smi">$srcImage</span>);</span>
 <span class="pl-s1">    <span class="pl-smi">$srcWidth</span> <span class="pl-k">=</span> <span class="pl-smi">$srcSize</span>[<span class="pl-c1">0</span>];</span>
@@ -684,12 +684,12 @@ vertical-align:1px;
 <span class="pl-s1">    <span class="pl-c1">header</span>(<span class="pl-s"><span class="pl-pds">"</span>Content-type: <span class="pl-pds">"</span></span><span class="pl-k">.</span><span class="pl-smi">$srcMime</span>);</span>
 <span class="pl-s1"></span>
 <span class="pl-s1">    <span class="pl-k">if</span> ((<span class="pl-c1">isset</span>(<span class="pl-smi">$_GET</span>[<span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>]) <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">is_numeric</span>(<span class="pl-smi">$_GET</span>[<span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>])) <span class="pl-k">===</span> <span class="pl-c1">FALSE</span>) {</span>
-<span class="pl-s1">        <span class="pl-c">// No width requested - just return the source</span></span>
+<span class="pl-s1">        <span class="pl-c">// no width requested - just return the source</span></span>
 <span class="pl-s1">        <span class="pl-c1">echo</span> <span class="pl-smi">$srcImage</span>;</span>
 <span class="pl-s1">        <span class="pl-k">exit</span>;</span>
 <span class="pl-s1">    }</span>
 <span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-c">// Resize/resample the image to the requested size</span></span>
+<span class="pl-s1">    <span class="pl-c">// resize/resample the image to the requested size</span></span>
 <span class="pl-s1">    <span class="pl-smi">$destWidth</span> <span class="pl-k">=</span> <span class="pl-smi">$_GET</span>[<span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>];</span>
 <span class="pl-s1">    <span class="pl-smi">$destHeight</span> <span class="pl-k">=</span> <span class="pl-smi">$destWidth</span> <span class="pl-k">*</span> <span class="pl-smi">$srcSize</span>[<span class="pl-c1">1</span>] <span class="pl-k">/</span> <span class="pl-smi">$srcSize</span>[<span class="pl-c1">0</span>];</span>
 <span class="pl-s1"></span>
@@ -732,10 +732,10 @@ vertical-align:1px;
 <span class="pl-s1">                <span class="pl-c">// check whether file is uploaded with HTTP POST</span></span>
 <span class="pl-s1">                <span class="pl-k">if</span> (<span class="pl-c1">is_uploaded_file</span>(<span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>tmp_name<span class="pl-pds">'</span></span>])) {    </span>
 <span class="pl-s1"></span>
-<span class="pl-s1">                    <span class="pl-c">//checks size of uploaded image on server side</span></span>
+<span class="pl-s1">                    <span class="pl-c">// check size of uploaded image on server side</span></span>
 <span class="pl-s1">                    <span class="pl-k">if</span> ( <span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>size<span class="pl-pds">'</span></span>] <span class="pl-k">&lt;</span> <span class="pl-smi">$maxsize</span>) {  </span>
 <span class="pl-s1"></span>
-<span class="pl-s1">                        <span class="pl-c">// checks whether uploaded file is of image type</span></span>
+<span class="pl-s1">                        <span class="pl-c">// check whether uploaded file is of image type</span></span>
 <span class="pl-s1">                        <span class="pl-smi">$finfo</span> <span class="pl-k">=</span> <span class="pl-c1">finfo_open</span>(<span class="pl-c1">FILEINFO_MIME_TYPE</span>);</span>
 <span class="pl-s1">                        <span class="pl-k">if</span> (<span class="pl-c1">strpos</span>(<span class="pl-c1">finfo_file</span>(<span class="pl-smi">$finfo</span>, <span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>tmp_name<span class="pl-pds">'</span></span>]), <span class="pl-s"><span class="pl-pds">"</span>image<span class="pl-pds">"</span></span>) <span class="pl-k">===</span> <span class="pl-c1">0</span>) {    </span>
 <span class="pl-s1"></span>
@@ -949,12 +949,12 @@ vertical-align:1px;
 
 <h2>Exercise 2: Provision a MySQL Web App</h2>
 
-<p>There are several ways to provision an Azure Web App. In this exercise, you will use the Azure Portal to do it. Provisioning is quick and easy and involves little more than answering a few questions and clicking a few buttons. Once the Web App is provisioned, you can navigate to it in your browser just as you would any other Web site.</p>
+<p>There are several ways to provision an Azure Web App. In this exercise, you will use the Azure Portal to do it. Provisioning is quick and easy and involves little more than answering a few questions and clicking a few buttons. Once the Web App is provisioned, you can view it in your browser just as you would any other Web site.</p>
 
 <ol>
 <li><p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p></li>
 <li>
-<p>Click <strong>+ New</strong>. In the "New" blade that opens, type the words "web app mysql" (without quotation marks) into the search box and press <strong>Enter</strong>.</p>
+<p>Click <strong>+ New</strong>. In the "New" blade that opens, type "web app mysql" (without quotation marks) into the search box and press <strong>Enter</strong>.</p>
 
 <p><a href="Images/find-webappmysql.png" target="_blank"><img src="Images/find-webappmysql.png" alt='Finding the "Web App + MySQL" template' style="max-width:100%;"></a></p>
 
@@ -981,9 +981,9 @@ vertical-align:1px;
 <p>Resource groups are a powerful construct for grouping resources such as storage accounts, databases, and virtual machines together so they can be managed as a unit. Deleting a resource group deletes everything inside it and prevents you from having to delete those resources one by one.</p>
 </blockquote>
 
-<p><a href="Images/web-app-parameters-1.png" target="_blank"><img src="Images/web-app-parameters-1.png" alt="Naming the Web app and selecting a database provider" style="max-width:100%;"></a></p>
+<p><a href="Images/web-app-parameters-1.png" target="_blank"><img src="Images/web-app-parameters-1.png" alt="Configuring the Web App" style="max-width:100%;"></a></p>
 
-<p><em>Naming the Web app and selecting a database provider</em></p>
+<p><em>Configuring the Web App</em></p>
 </li>
 <li>
 <p>Click <strong>App Service plan/location</strong>, and then click <strong>Create New</strong> to create a new App Service plan for your Web app. In the "App Service plan" blade, enter "WebAppsLabServicePlan" (without quotation marks) as the service-plan name and select the location nearest you. Then click <strong>Pricing tier</strong> and select the <strong>F1 Free</strong> tier. (You will have to click <strong>View all</strong> in the "Choose your pricing tier" blade and scroll to the bottom to see the <strong>F1 Free</strong> tier.) Click <strong>Select</strong> to finalize your tier selection, and then click <strong>OK</strong> in the "App Service plan" blade to create the new service plan.</p>
@@ -1003,15 +1003,15 @@ vertical-align:1px;
 <p>Click <strong>Legal Terms</strong> in the "New MySQL Database" blade. Review the legal terms and click <strong>Purchase</strong> at the bottom of the "Purchase" blade. Finish up by clicking <strong>OK</strong> at the bottom of the "New MySQL Database" blade.</p>
 
 <blockquote>
-<p>Nothing is actually being purchased since you selected the <em>Mercury</em> database tier, which is free. In order to provision the MySQL database for you, Azure requires that you acknowledge the terms of use.</p>
+<p>Nothing is actually being purchased since you selected the Mercury database tier, which is free. In order to provision the MySQL database for you, Azure requires that you acknowledge the terms of use.</p>
 </blockquote>
 </li>
 <li>
 <p>Check <strong>Pin to Dashboard</strong> at the bottom of the "Web App + MySQL" blade, and then click the <strong>Create</strong> button to create your Web app.</p>
 
-<p><a href="Images/web-app-parameters-4.png" target="_blank"><img src="Images/web-app-parameters-4.png" alt="Creating the Web app" style="max-width:100%;"></a></p>
+<p><a href="Images/web-app-parameters-4.png" target="_blank"><img src="Images/web-app-parameters-4.png" alt="Creating the Web App" style="max-width:100%;"></a></p>
 
-<p><em>Creating the Web app</em></p>
+<p><em>Creating the Web App</em></p>
 </li>
 <li><p>Once the Web App has been created (it usually takes about one minute), click the tile that was created for it on the dashboard.</p></li>
 <li>
@@ -1039,7 +1039,7 @@ vertical-align:1px;
 <p>Scroll down to the "App settings" and "Connection strings" sections. These sections allow you to define key-value pairs that the app can access at runtime. Specifying values such as these in the portal rather than embedding them in your code makes it easier to run the app in different environments and in different contexts, and also helps mitigate the risk of inadvertently uploading code containing database connection strings and other sensitive items to public source-code repositories.</p>
 
 <blockquote>
-<p>If you're curious about the <strong>Slot setting</strong> boxes, here's a quick explanation. In the Azure App Service, the <em>Basic</em>, <em>Standard</em>, and <em>Premium</em> pricing tiers tiers allow you to provision multiple <strong>deployment slots</strong> for a given Web App. You can use these slots in several ways, including setting up pre-production staging environments for testing code changes before putting them into production. The <strong>Slot setting</strong> boxes allow you to specify whether a setting or connection string applies to all deployment slots or only to a particular deployment slot.</p>
+<p>If you're curious about the <strong>Slot setting</strong> boxes, here's a quick explanation. In the Azure App Service, the <em>Basic</em>, <em>Standard</em>, and <em>Premium</em> pricing tiers tiers allow you to provision multiple deployment slots for a given Web App. You can use these slots in several ways, including setting up pre-production staging environments for testing code changes before putting them into production. The <strong>Slot setting</strong> boxes allow you to specify whether a setting or connection string applies to all deployment slots or only to a particular deployment slot.</p>
 </blockquote>
 </li>
 <li>
@@ -1062,9 +1062,9 @@ vertical-align:1px;
 
 <ol>
 <li>
-<p>Click <strong>Deployment credentials</strong> in the blade for the Web app.</p>
+<p>Click <strong>Deployment credentials</strong> in the blade for the Web App.</p>
 
-<p><a href="Images/deploy-deploymentcredentials.png" target="_blank"><img src="Images/deploy-deploymentcredentials.png" alt="Viewing deployment credntials" style="max-width:100%;"></a></p>
+<p><a href="Images/deploy-deploymentcredentials.png" target="_blank"><img src="Images/deploy-deploymentcredentials.png" alt="Viewing deployment credentials" style="max-width:100%;"></a></p>
 
 <p><em>Viewing deployment credentials</em></p>
 </li>
@@ -1083,14 +1083,14 @@ vertical-align:1px;
 <p><em>Specifying FTP credentials</em></p>
 </li>
 <li>
-<p>Locate the <strong>FTP/Deployment username</strong> and <strong>FTP hostname</strong> values. Hover the mouse cursor over the FTP hostname and click the <strong>Copy</strong> button that appears on the right to copy the hostname to the clipboard.</p>
+<p>Locate the <strong>FTP/deployment username</strong> and <strong>FTP hostname</strong> values. Hover the mouse cursor over the FTP hostname and click the <strong>Copy</strong> button that appears on the right to copy the hostname to the clipboard.</p>
 
 <p><a href="Images/deploy-getftpstrings.png" target="_blank"><img src="Images/deploy-getftpstrings.png" alt="The FTP username and hostname" style="max-width:100%;"></a></p>
 
 <p><em>The FTP username and hostname</em></p>
 </li>
 <li>
-<p>Open a Windows File Explorer window and paste the FTP hostname value into the address box at the top of the window. Then press <strong>Enter</strong>.</p>
+<p>Open a File Explorer window and paste the FTP hostname value into the address box at the top of the window. Then press <strong>Enter</strong>.</p>
 
 <p><a href="Images/deploy-windowsenterftphostname.png" target="_blank"><img src="Images/deploy-windowsenterftphostname.png" alt="Entering the FTP hostname in File Explorer" style="max-width:100%;"></a></p>
 
@@ -1124,7 +1124,7 @@ vertical-align:1px;
 
 <p><a href="Images/deploy-windowsftpcopy.png" target="_blank"><img src="Images/deploy-windowsftpcopy.png" alt="Copying the Web site files" style="max-width:100%;"></a></p>
 
-<p><em>Copying the web site files</em></p>
+<p><em>Copying the Web site files</em></p>
 </li>
 <li>
 <p>Congratulations! You now have a working Web site. Click the site URL in the Azure Portal to open the site in your browser.</p>

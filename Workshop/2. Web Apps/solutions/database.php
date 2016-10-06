@@ -14,11 +14,11 @@
             $user = $User_Id;
             $pass = $Password;
             $db = $Database;
-            
+
             try{
                 $this->link = new PDO("mysql:host=".$host.";dbname=".$db, $user, $pass);
                 $this->link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-              
+
             }
             catch (PDOException $e){
                 echo "Error: Unable to connect to MySQL: ". $e->getMessage();
@@ -34,20 +34,20 @@
 
         public function UploadImage($imageName, $imageFP) {
             $sql = $this->link->prepare("INSERT INTO images (name, image) VALUES (:name, :image);");
-	        $sql->bindParam(":name", $imageName);
+            $sql->bindParam(":name", $imageName);
             $sql->bindParam(":image", $imageFP, PDO::PARAM_LOB);
 
             $sql->execute();
-           
+
             return $this->link->lastInsertId();
         }
 
         public function GetAllImages() {
             $sql = $this->link->prepare("SELECT * FROM images;");
             $sql->execute();
-            
+
             $results = $sql->fetchAll(PDO::FETCH_OBJ);
-            
+
             return $results;
         }
 
@@ -55,7 +55,7 @@
             $sql = $this->link->prepare("SELECT * FROM images WHERE id = :id;");
             $sql->bindParam(":id", $id, PDO::PARAM_INT);
             $sql->execute();
-            
+
             $result = $sql->fetch(PDO::FETCH_OBJ);
             return $result;
         }

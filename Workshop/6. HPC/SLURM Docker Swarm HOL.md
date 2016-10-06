@@ -30,7 +30,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. Use the one you created in Lab 1, or [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - [Microsoft Azure Storage Explorer](http://storageexplorer.com/)
 - [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 - [Docker client for Windows](https://get.docker.com/builds/Windows/x86_64/docker-latest.zip)
