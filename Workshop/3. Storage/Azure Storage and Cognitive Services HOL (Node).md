@@ -56,9 +56,9 @@ Estimated time to complete this lab: **60** minutes.
 
 The [Azure Portal](https://portal.azure.com) allows you to perform basic storage operations such as creating storage accounts, creating containers, and managing access keys. In this exercise, you will use the portal to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.
 
-1. Go to the [Azure Portal](https://portal.azure.com/) and sign in using your Microsoft account.
+1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
  
-1. The first step in using Azure Storage is to create a storage account. To create a storage account, click **+ NEW** in the ribbon on the left. Then click **Data + Storage**, followed by **Storage account**.
+1. The first step in using Azure Storage is to create a storage account. To create a storage account, click **+ New** in the ribbon on the left. Then click **Storage**, followed by **Storage account**.
 
     ![Creating a storage account](Images/new-storage-account.png)
 
@@ -68,17 +68,13 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
 	> Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure. If someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the **Name** field.
 
-	Once you have a name that Azure will accept (as indicated by the green check mark in the **Name** field), make sure **Resource manager** is selected as the deployment model and **General purpose** is selected as the account kind. Then select **Locally-redundant storage (LRS)** as the replication type.
-
-	> Locally redundant storage is the most cost-effective storage option. It prevents data stored under this storage account from being replicated in other data centers, but it ensures that the data will be replicated at least three times within the chosen data center.
-
-	Select **Create new** under **Resource group** and type "Intellipix" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the **Location** box, and clicking the **Create** button at the bottom of the blade to create the new storage account.
+	Once you have a name that Azure will accept (as indicated by the green check mark in the **Name** field), make sure **Resource manager** is selected as the deployment model and **General purpose** is selected as the account kind. Then select **Create new** under **Resource group** and type "IntellipixResourceGroup" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the **Location** box, and clicking the **Create** button at the bottom of the blade to create the new storage account.
     
 	![Specifying parameters for a new storage account](Images/create-storage-account.png)
 
     _Specifying parameters for a new storage account_
 
-1. Once the storage account has been created, click **Resource groups** in the ribbon on the left. Then click the "Intellipix" resource group, and in the blade that opens for the resource group, click the storage account you just created.
+1. Once the storage account has been created, click **Resource groups** in the ribbon on the left. Then click the "IntellipixResourceGroup" resource group, and in the blade that opens for the resource group, click the storage account you just created.
  
     ![Opening the new storage account](Images/open-storage-account.png)
 
@@ -106,10 +102,6 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
 1. Repeat this process to create a container named "thumbnails," once more ensuring that the container's **Access type** is set to **Blob**.
 
-    ![Creating a "thumbnails" container](Images/create-thumbnails-container.png)
-
-    _Creating a "thumbnails" container_
-
 1. Confirm that both containers appear in the list of containers for this storage account, and that the names are spelled correctly.
 
     ![The new containers](Images/new-containers.png)
@@ -121,33 +113,19 @@ You have now created a storage account to hold images uploaded to the app you're
 <a name="Exercise2"></a>
 ## Exercise 2: Run the Microsoft Azure Storage Explorer
 
-The [Microsoft Azure Storage Explorer](http://storageexplorer.com/) is a free tool that provides a graphical interface for working with Azure Storage on PCs running Windows, OS X, and Linux. It provides most of the same functionality as the Azure Portal. It also offers features the portal does not, such as the ability to upload blobs to Azure Storage and view blob metadata. In this exercise, you will use the Microsoft Azure Storage Explorer to view the containers you created in Exercise 1.
+The [Microsoft Azure Storage Explorer](http://storageexplorer.com/) is a free tool that provides a graphical interface for working with Azure Storage on PCs running Windows, macOS, and Linux. It provides most of the same functionality as the Azure Portal. It also offers features the portal does not, such as the ability to upload blobs to Azure Storage and view blob metadata. In this exercise, you will use the Microsoft Azure Storage Explorer to view the containers you created in Exercise 1.
 
-1. Start the Microsoft Azure Storage Explorer.
+1. Start Storage Explorer. If you are asked to log in, do so using your Microsoft account — the same one that you used to log in to the Azure Portal. If you are *not* asked to log in and don't see the storage account you created in the previous exercise in Storage Explorer's left pane, click the **Azure Accounts settings** button highlighted below, click **Add an account**, and log in with your Microsoft account.
 
-1. In the Storage Explorer window, click **Connect to Microsoft Azure**.
+    ![Adding an account to Storage Explorer](Images/add-account.png)
 
-    ![Connecting Storage Explorer to Azure](Images/storage-explorer-connect-to-azure.png)
-
-    _Connecting Storage Explorer to Azure_
-
-1. Enter the e-mail address for your Microsoft account. Then click **Continue**.
-
-    ![Entering your e-mail address](Images/storage-explorer-enter-email.png)
-
-    _Entering your e-mail address_
-
-1. Enter the user name and password for your Microsoft account. Check the box labeled **Keep me signed in**. Then click the **Sign in** button.
-
-    ![Signing in to Storage Explorer](Images/storage-explorer-enter-credentials.png)
-
-    _Signing in to Storage Explorer_
+    _Adding an account to Storage Explorer_
 
 1. Confirm that the storage account you created in Exercise 1 appears in the list of storage accounts shown in Storage Explorer. Click the small arrow next to the storage account to display its contents, and then click the arrow next to **Blob Containers**. Confirm that the containers you created in Exercise 1 appear in the list of containers.
 
-    ![The Microsoft Azure Storage Explorer](Images/storage-explorer.png)
+    ![Blob containers in the Microsoft Azure Storage Explorer](Images/storage-explorer.png)
 
-    _The Microsoft Azure Storage Explorer_
+    _Blob containers in the Microsoft Azure Storage Explorer_
 
 The containers are currently empty, but that will change once your app is deployed and you start uploading photos. Having Storage Explorer installed will make it easy for you to see what your app writes to blob storage.
 
@@ -158,7 +136,7 @@ The containers are currently empty, but that will change once your app is deploy
 
 In this exercise, you will acquire a subscription key allowing you to call the Computer Vision API from your code. You'll use this key in Exercise 4 to generate thumbnails from the images uploaded to the Web site, and to generate captions and search keywords for the images.
 
-1. In order to use the Computer Vision API, you need to sign up for a free account and acquire a subscription key. To do that, point your browser to [https://www.microsoft.com/cognitive-services/en-us/subscriptions](https://www.microsoft.com/cognitive-services/en-us/subscriptions).
+1. In order to use the Computer Vision API, you need to sign up for a free account and acquire a subscription key. To do that, point your browser to https://www.microsoft.com/cognitive-services/en-us/subscriptions.
 
 1. If you are asked to sign in, do so with your Microsoft account.
 
@@ -209,7 +187,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 	set AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i>
 	</pre>
 
-1. Return to the Azure Portal for a moment and open the blade for the storage account you created in Exercise 1. Then click the key icon near the top of the blade. 
+1. Return to the Azure Portal for a moment and open the blade for the storage account you created in Exercise 1. Then click **Access keys** to view the storage account's access keys. 
 
     ![Viewing the storage account's access keys](Images/view-access-keys.png)
 
@@ -227,7 +205,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 	set AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i>
 	</pre>
 
-1. In the Command Prompt window, use a **cd** command to **navigate to the Intellipix directory you created in Step 1** and execute the following command (note the space and the period at the end of the command) to start Visual Studio Code in that directory:
+1. In the Command Prompt window, navigate to the Intellipix directory you created in Step 1 and execute the following command (note the space and the period at the end of the command) to start Visual Studio Code in that directory:
 
 	<pre>
 	code .
@@ -751,7 +729,7 @@ In this exercise, you will run the app locally in order to test it and familiari
 	node server.js
 	</pre>
 
-1. Open your browser and navigate to [http://localhost:9898/](http://localhost:9898/).
+1. Open your browser and navigate to [http://localhost:9898](http://localhost:9898).
 
 1. Click the **Browse** button and upload one of the images found in the "resources/photos" directory of this lab. After a few seconds, a thumbnail version of the photo appears on the page:
 
@@ -789,7 +767,11 @@ In this exercise, you will run the app locally in order to test it and familiari
 
     _Performing a search_
 
-1. Return to the Microsoft Azure Storage Explorer (or restart if it you didn't leave it running) and double-click the "photos" container under the storage account you created in Exercise 1. The number of blobs in the container should equal the number of photos you uploaded. Double-click one of the blobs to download it and see the image stored in the blob.
+1. Do a **View Source** in your browser to view the source for the page. Find the \<img\> elements representing the image thumbnails. Observe that the URLs assigned to the images refer **directly to blobs in blob storage**. This is possible because you set the containers' **Access type** to **Blob**, which makes the blobs inside them publicly accessible.
+
+	> What would happen if the containers were private? If you're not sure, try it and see. Temporaily change the "thumbnails" container's **Access type** to **Private** in the Azure Portal. Then refresh the Intellipix page in your browser and see what happens.
+
+1. Return to the Microsoft Azure Storage Explorer (or restart if it you didn't leave it running) and click the "photos" container under the storage account you created in Exercise 1. The number of blobs in the container should equal the number of photos you uploaded. Double-click one of the blobs to download it and see the image stored in the blob.
 
     ![Contents of the "photos" container](Images/node-photos-container.png)
 
@@ -805,10 +787,6 @@ In this exercise, you will run the app locally in order to test it and familiari
 
 	When you're finished, click **Cancel** to close the Properties dialog.
 
-1. Do a **View Source** in your browser to view the source for the page. Find the \<img\> elements representing the image thumbnails. Observe that the URLs assigned to the images refer **directly to blobs in blob storage**. This is possible because you set the containers' **Access type** to **Blob**, which makes the blobs inside them publicly accessible.
-
-	> What would happen if the containers were private? If you're not sure, try it and see. Temporaily change the "thumbnails" container's **Access type** to **Private** in the Azure Portal. Then refresh the Intellipix page in your browser and see what happens.
-
 You're almost finished, but the final and most important step remains. It is time to deploy the app to the cloud.
 
 <a name="Exercise6"></a>
@@ -818,15 +796,15 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
 1. If you have made any changes to the app since committing it at the end of Exercise 4, use Visual Studio Code to commit those changes now.
 
-1. Open the [Azure Portal](https://portal.azure.com) in your browser.
+1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
 
-1. Click **+ New**, followed by **Web + Mobile** and **Web App**..
+1. Click **+ New**, followed by **Web + mobile** and **Web App**.
 
     ![Creating a new Azure Web App](Images/node-new-web-app.png)
 
     _Creating a new Azure Web App_
 
-1. In the "Web App" blade, enter a name for the Azure Web App. The name must be unique within Azure since it ultimately becomes part of a DNS name, so you will need to enter something other than "Intellipix." Select **Use existing** under **Resource Group** and select the "Intellipix" resource group that you created for the storage account in Exercise 1. Then click **App service plan/Location**.
+1. In the "Web App" blade, enter a name for the Azure Web App. The name must be unique within Azure since it ultimately becomes part of a DNS name, so you will probably need to enter something other than "Intellipix." Select **Use existing** under **Resource Group** and select the "IntellipixResourceGroup" resource group that you created for the storage account in Exercise 1. Then click **App service plan/Location**.
 
     ![Naming the Azure Web App](Images/node-web-app-parameters.png)
 
@@ -834,23 +812,13 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
 1. In the "App Service plan" blade, click **Create New**.
 
-    ![Creating an App Service plan](Images/node-new-app-service-plan.png)
-
-    _Creating an App Service plan_
-
 1. Type "IntellipixServicePlan" (without quotation marks) into the **App Service plan** box and select the location nearest you under **Location**. Then click **Pricing tier** to select a pricing tier.
 
     ![Configuring an App Service plan](Images/node-configure-app-service-plan.png)
 
     _Configuring an App Service plan_
 
-1. In the "Choose your pricing tier" blade, click **View All** to show all pricing tiers.
-
-    ![Viewing all pricing tiers](Images/node-view-all-pricing-tiers.png)
-
-    _Viewing all pricing tiers_
-
-1. Scroll down and select the **F1 Free** pricing tier. Then click the **Select** button.
+1. In the "Choose your pricing tier" blade, click **View All** to show all pricing tiers. Scroll down and select the **F1 Free** pricing tier. Then click the **Select** button.
 
     ![Selecting the free pricing tier](Images/node-select-free-tier.png)
 
@@ -858,23 +826,19 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
 1. Click the **OK** button at the bottom of the "App Service plan" blade to OK the service plan.
 
-    ![OKing the App Service plan](Images/node-ok-app-service-plan.png)
-
-    _OKing the App Service plan_
-
 1. Click the **Create** button at the bottom of the "Web App" blade to create the Azure Web App.
 
     ![Creating the Azure Web App](Images/node-create-web-app.png)
 
     _Creating the Azure Web App_
 
-1. Once the app has deployed (it generally only takes a few seconds), click **Resource groups** in the ribbon on the left side of the portal, and click the "Intellipix" resource group. Then click the Azure Web App in that resource group (the Web App that you just created).
+1. Once the app has deployed (it generally only takes a few seconds), click **Resource groups** in the ribbon on the left side of the portal, and click the "IntellipixResourceGroup" resource group. Then click the Azure Web App in that resource group (the Web App that you just created).
 
     ![Selecting the Azure Web App](Images/node-select-azure-web-app.png)
 
     _Selecting the Azure Web App_
 
-1. In the "Settings" blade, click **Application settings** to view the Web App's application settings.
+1. Click **Application settings** to view the Web App's application settings.
 
     ![Viewing the Web App's application settings](Images/node-select-app-settings.png)
 
@@ -884,7 +848,7 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
 	- AZURE_STORAGE_ACCOUNT – Name of the storage account you created in Exercise 1
 	- AZURE_STORAGE_ACCESS_KEY – Access key for the storage account
-	- AZURE_VISION_API_KEY – Subscription key for the Computer Vision API you obtained in Exercise 3
+	- AZURE_VISION_API_KEY – Subscription key you obtained in Exercise 3 for the Computer Vision API
 
 	Once the settings are entered, click the **Save** button at the top of the blade to save them.
 
@@ -892,9 +856,9 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
     _Specifying application settings_
 
-1. Close the "Application settings" blade and scroll down to the "PUBLISHING" section of the "Settings" blade. Then click **Deployment source**.
+1. Click **Deployment options** to configure the deployment source.
 
-    ![Selecting the deployment source](Images/node-select-deployment-source.png)
+    ![Selecting the deployment source](Images/node-deployment-options.png)
 
     _Selecting the deployment source_
 
@@ -910,25 +874,25 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
     _Choosing a deployment source_
 
-1. Go back to the "PUBLISHING" section of the "Settings" blade and click **Deployment credentials**.
+1. Click **Deployment credentials**.
 
     ![Selecting the deployment credentials](Images/node-select-deployment-credentials.png)
 
     _Selecting the deployment credentials_
 
-1. Enter a user name and password for deploying to Azure. User names may contain letters, numbers, hyphens, and underscores and must start with a letter. Make your password at least 8 characters in length and include a mix of uppercase letters, lowercase letters, and numbers. **Remember the user name and password you entered because you will need them when you deploy the app**. When you're done, click the **Save** button at the top of the blade.
+1. Enter a user name and password for deploying to Azure. User names may contain letters, numbers, hyphens, and underscores and must start with a letter. Make your password at least 8 characters in length and include a mix of uppercase letters, lowercase letters, and numbers. **Remember the user name and password you entered because you will need them when you deploy the app**. When you're done, click **Save** at the top of the blade.
 
     ![Setting the deployment credentials](Images/node-set-deployment-credentials.png)
 
     _Setting the deployment credentials_
 
-1. Scroll to the "GENERAL" section of the "Settings" blade and click **Properties**.
+1. Click **Properties**.
 
     ![Selecting properties](Images/node-select-properties.png)
 
     _Selecting properties_
 
-1. Scroll down in the "Properties" blade until you find "GIT URL." Then click the **Copy** button to copy the URL to the clipboard.
+1. Scroll down until you find "GIT URL." Then click the **Copy** button to copy the URL to the clipboard.
 
     ![Copying the Git URL](Images/node-copy-git-url.png)
 
@@ -940,7 +904,7 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 	git remote add azure <i>git_url</i>
 	</pre>
 
-1. Now use the following command to deploy Intellipix from your local Git repository to Azure. When prompted to enter Git credentials, type the user name and password you specified in Step 18 of this exercise.
+1. Now use the following command to deploy Intellipix from your local Git repository to Azure. When prompted to enter Git credentials, type the user name and password you specified in Step 17 of this exercise.
 
 	<pre>
 	git push azure master
