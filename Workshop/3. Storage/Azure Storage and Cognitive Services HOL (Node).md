@@ -243,7 +243,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
     _Opening package.json for editing_
 
-1. Add the following statements to package.json just before the "keywords" definition. Then save your changes.
+1. Add the following statements to **package.json** just before the "keywords" definition. Then save your changes.
 
 	```json
 	"engines": {
@@ -257,14 +257,14 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
     _Adding a file_
 
-1. Add the following statements to .gitignore to exclude the specified directories from source control:
+1. Add the following statements to **.gitignore** to exclude the specified directories from source control:
 
     <pre>
 	.vscode/
 	node_modules/
 	</pre>
 
-1. Add a file named server.js to the project and insert the following statements:
+1. Add a file named **server.js** to the project and insert the following statements:
 
 	```javascript
 	var express = require('express');
@@ -492,7 +492,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
     _Adding a folder_
 
-1. Add a file named index.html to the "src" folder and insert the following statements:
+1. Add a file named **index.html** to the "src" folder and insert the following statements:
 
 	```html
 	<!DOCTYPE html>
@@ -593,7 +593,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
 	> This is the HTML file containing the site's one and only page. It uses Bootstrap's [grid layout system](http://v4-alpha.getbootstrap.com/layout/grid/) to align elements on the page, and it uses AngularJS to make the page dynamic. Notice the ng- attributes such as ng-click and ng-src attached to some of the page's elements, as well as the "mustache" expressions in double curly braces (for example, {{ctrl.current.metadata.caption}}). These attributes and expressions are part of AngularJS and are frequently found in pages that use it.
 
-1. Add a file named index.js to the "src" folder and insert the following statements:
+1. Add a file named **index.js** to the "src" folder and insert the following statements:
 
 	```javascript
 	(function() {
@@ -721,9 +721,9 @@ With the code that comprises the app in place and key environment variables init
 <a name="Exercise5"></a>
 ## Exercise 5: Test the app in your browser
 
-In this exercise, you will run the app locally in order to test it and familiarize yourself with its features. Running it locally is a simple matter of firing up a Node.js server process to host your server components (in this case, server.js) and pointing your browser to http://localhost:*port*, where *port* is the port number on which the server process is listening for HTTP requests. Server.js listens on port 9898. You can modify that if you would like by changing line 7 in the code.
+In this exercise, you will run the app locally in order to test it and familiarize yourself with its features. Running it locally is a simple matter of firing up a Node.js server process to host your server components (in this case, **server.js**) and pointing your browser to http://localhost:*port*, where *port* is the port number on which the server process is listening for HTTP requests. **server.js** listens on port 9898. You can modify that if you would like by changing line 7 in the code.
 
-1. Return to the Command Prompt window and, once more, make sure you're in the "Intellipix" directory that you created for the project. Then execute the following command to start server.js:
+1. Return to the Command Prompt window and, once more, make sure you're in the "Intellipix" directory that you created for the project. Then execute the following command to start **server.js**:
 
 	<pre>
 	node server.js
