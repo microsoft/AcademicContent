@@ -47,13 +47,15 @@ Estimated time to complete this lab: **45** minutes.
 
 In this exercise, you will use [Visual Studio Code](https://code.visualstudio.com/) to build a Web site. Visual Studio Code is a free, cross-platform code editor available for Windows, macOS, and Linux that supports a variety of programming languages, both natively and via extensions. It features built-in Git support as well as syntax highlighting and code completion via [IntelliSense](https://code.visualstudio.com/#meet-intellisense).
 
-1. Start Visual Studio Code.  Open the **File** menu and select **Open Folder**.
+1. Create a project directory named "WebAppIntro" in the location of your choice — for example, "C:\DXLabs\WebAppIntro."
+
+1. Start Visual Studio Code. Open the **File** menu and select **Open Folder**.
 
     ![Starting the project](Images/build-codeopenfolder.png)
 
     _Starting the project_
     
-1. Choose a suitable folder for your Web site's code. Then click the **Select Folder** button.
+1. Select the project folder that you created in Step 1. Then click the **Select Folder** button.
 
     ![Selecting a project folder](Images/build-codeselectfolder.png)
 
