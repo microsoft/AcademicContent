@@ -25,6 +25,15 @@ view usage and billing for each registered user. Full documentation on how to in
 
 </td>
 <tr>
+<td> Powershell Function for creating Azure Resource Groups and signing user access perfect solution for Group projects</td>
+<td> EduPortalAzureBulkCreate.psm1 NewUsers.csv and NewResourceGroups.csv</td>
+<td> This is a set of powershell script which will help you perform tasks on your azure subscriptions. 
+Simply run the command functions within poweshell  -  Functions - function New-Users - Creates new users based on content of the CSV - function New-ResourceGroups - Creates new resource group and add users based on 
+CSV content Function - function Set-RBACPermissions - creates role based access control permission based on CSV
+</tr>
+
+</td>
+<tr>
 <td> Bulk Adding AAD Existing users via Powershell</td>
 <td> BulkAddAAD.ps1 and Data.txt</td>
 <td> This powershell script will read a list of accounts to a .txt file It will assign an Azure subscription to each of the students.
