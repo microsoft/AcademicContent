@@ -25,7 +25,7 @@ In this hands-on lab, you will learn how to:
 <a name="Prerequisites"></a>
 ### Prerequisites ###
 
-The following is required to complete this hands-on lab:
+The following are required to complete this hands-on lab:
 
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - [Visual Studio 2015 Community edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) or higher 
@@ -53,7 +53,7 @@ Azure Stream Analytics supports several types of input, including input from Azu
 
 In this exercise, you'll create an Azure event hub to provide input to Azure Stream Analytics and configure it to so that it can be accessed safely and securely by IoT devices and gateways. 
 
-1. You can't (yet) create an event hub using the Azure Portal, so you'll create it instead using the Classic Portal. Go to [https://manage.windowsazure.com](https://manage.windowsazure.com) to open the Classic Portal, and click **Service Bus** in the ribbon on the left. Then click **CREATE A NEW NAMESPACE** to create a new service-bus namespace. (If you have already created one or more namespaces, click **+ NEW** in the lower-left corner of the page to create another one.)
+1. Because the Azure Portal lacks full support for event hubs and Stream Analytics at the moment, you will work this lab using the Classic Portal. Go to https://manage.windowsazure.com to open the Classic Portal, and click **Service Bus** in the ribbon on the left. Then click **CREATE A NEW NAMESPACE** to create a new service-bus namespace. (If you have already created one or more namespaces, click **+ NEW** in the lower-left corner of the page to create another one.)
 
     ![Azure Service Bus](Images/service-bus-screen.png)
 
@@ -73,17 +73,17 @@ In this exercise, you'll create an Azure event hub to provide input to Azure Str
 
 1. Wait for the event hub to be created. Then click the event hub name to display the event hub's dashboard.
 
-    ![Input event hub](Images/iot-event-hub.png)
+    ![Opening the event hub](Images/iot-event-hub.png)
 
-    _Input event hub_
+    _Opening the event hub_
 
 1. Click **CONFIGURE**.
 
-    ![Event hub dashboard](Images/iot-event-hub-dashboard.png)
+    ![Configuring the event hub](Images/iot-event-hub-dashboard.png)
 
-    _Event hub dashboard_
+    _Configuring the event hub_
 
-1. In order to transmit events to the event hub from an application or device, you need to create a shared-access policy that includes Send permission. In the **shared access policies** section of the event-hub configuration page, create a new policy by typing "SendPolicy" (without quotation marks) into the first text box and checking the **Send** box in the drop-down list under **PERMISSIONS**. Then click the **Save** button at the bottom of the page to save the new policy.
+1. In order to transmit events to the event hub from an application or device, you need to create a shared-access policy that includes Send permission. In the **shared access policies** section of the page, create a new policy by typing "SendPolicy" (without quotation marks) into the first text box and checking the **Send** box in the drop-down list under **PERMISSIONS**. Then click the **Save** button at the bottom of the page to save the new policy.
 
     ![Creating a send policy](Images/new-shared-access-policy.png)
 
@@ -91,7 +91,7 @@ In this exercise, you'll create an Azure event hub to provide input to Azure Str
 
 1. Click **DASHBOARD** near the top of the page to return to the event hub's dashboard.
 
-    ![Return to dashboard](Images/return-to-dashboard.png)
+    ![Returning to dashboard](Images/return-to-dashboard.png)
 
     _Returning to the dashboard_
 
@@ -107,11 +107,11 @@ In this exercise, you'll create an Azure event hub to provide input to Azure Str
 
     _Copying the connection string_
 
-You have created an event hub that can ingest events and be used as the source of input to a Stream Analytics job. You have also created a policy that allows events to be sent to the event hub, and a connection string that encapsulates that policy. The next step is to use that connection string to transmit events to the event hub.
+You have created an event hub that can ingest events and be used as the source of input to a Stream Analytics job. You have also created a policy that allows holders of that policy to send events to the event hub, and a connection string that encapsulates that policy. The next step is to use that connection string to transmit events to the event hub.
 
 <a name="Exercise2"></a>
 ## Exercise 2: Send events to the event hub ##
-Applications, devices, and gateways can send events to Azure event hubs using the [Azure Event Hubs REST API](https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx) or the [Advanced Message Queuing Protocol](https://www.amqp.org/), or AMQP for short. In this exercise, you will write a Windows console app that uses AQMP to send events to the event hub you created in [Exercise 1](#Exercise1). Each event will represent a withdrawal from an ATM machine, and will contain relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.
+Applications, devices, and gateways can send events to Azure event hubs using the [Azure Event Hubs REST API](https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx) or the [Advanced Message Queuing Protocol](https://www.amqp.org/), or AMQP for short. In this exercise, you will write a Windows console app that uses AMQP to send events to the event hub you created in [Exercise 1](#Exercise1). Each event will represent a withdrawal from an ATM machine, and will contain relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.
 
 1. Start Visual Studio 2015 and use the **File -> New -> Project** command to create a new Windows Console Application named "ATMEventGenerator."
 
@@ -208,12 +208,12 @@ Applications, devices, and gateways can send events to Azure event hubs using th
 	}
 	```
 
-1. Replace **connection_string** in line 6 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 1, Step 9.
+1. Replace *connection_string* in line 6 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 1, Step 9.
 
 1. Remove ";EntityPath=inputhub" from the end of the connection string. The _connectionString field should now look something like this:
 
 	```C#
-	static string _connectionString = "Endpoint=sb://dxlabs.servicebus.windows.net/;SharedAccessKeyName=SendPolicy;SharedAccessKey=Zx/fjB8kH3nuW789pUpXJ1S45FkMacJq9gYUu6cRD3Y=";
+	static string _connectionString = "Endpoint=sb://dxlabs.servicebus.windows.net/;SharedAccessKeyName=SendPolicy;SharedAccessKey=Zx/fjB8kH3nuW789pUpXJ1S45FkMacJq9gYku6cRD3Y=";
 	```
 
 1. Press **Ctrl+F5** to run the program and confirm that you see output similar to the following. Each line represents one event sent to the event hub, and events will probably roll by at a rate of about 2 to 3 per second. (Rates will vary depending on your connection speed.) **Confirm that no exceptions are thrown**.
@@ -229,43 +229,20 @@ In real life, there would be real ATM machines sending events to the event hub. 
 <a name="Exercise3"></a>
 ## Exercise 3: Create a Stream Analytics job ##
 
-You now have software that sends events to an Azure event hub, and an event hub that ingests the data. In this exercise, you'll use the Microsoft Azure [Classic Portal](https://manage.windowsazure.com) to create a Stream Analytics job and connect it to the event hub. You'll also capture the raw data being presented to Stream Analytics by the event hub and examine its structure. But first, you will create a storage account for the Stream Analytics job to use.
+You now have software that sends events to an Azure event hub, and an event hub that ingests the data. In this exercise, you'll use the Microsoft Azure [Classic Portal](https://manage.windowsazure.com) to create a Stream Analytics job and connect it to the event hub. You'll also capture the raw data being presented to Stream Analytics by the event hub and examine its structure.
 
-1. Open the [Classic Portal](https://manage.windowsazure.com) in your browser if it isn't already open, and click **+ NEW** in the lower-left corner of the portal.
+1. Open the [Classic Portal](https://manage.windowsazure.com) in your browser if it isn't already open. Click **STREAM ANALYTICS** in the ribbon on the left, and then click **CREATE A NEW STREAM ANALYTICS JOB**.
 
-1. Click **DATA SERVICES -> STORAGE -> QUICK CREATE**. Enter a name for the new storage account in the **URL** box, and then select the region nearest you under **LOCATION** and **Locally Redundant** under **REPLICATION**. Then click **CREATE STORAGE ACCOUNT**.
-
-	> Recall that storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.
-
-    ![Creating a new storage account](Images/new-storage-account.png)
-
-    _Creating a new storage account_
-
-1. Once the storage account is created (it generally takes 30 to 60 seconds) and appears in the list of storage accounts associated with your subscription, click it.
-
-    ![Selecting the new storage account](Images/select-storage-account.png)
-
-    _Selecting the new storage account_
-
-1. Click **MANAGE ACCESS KEYS** in the ribbon at the bottom of the portal.
-
-    ![Viewing the storage account's access keys](Images/manage-access-keys.png)
-
-    _Viewing the storage account's access keys_
-
-1. In the ensuing dialog, click the **Copy** button to the right of the storage account's primary access key to copy the key to the clipboard. Paste the key into your favorite text editor so you can retrieve it later. Then dismiss the dialog by clicking the check mark in the lower-right corner.
-
-    ![Copying the primary access key to the clipboard](Images/copy-access-key.png)
-
-    _Copying the primary access key to the clipboard_
-
-1. Now it's time to create a Stream Analytics job. Begin by clicking **STREAM ANALYTICS** in the ribbon on the left side of the portal (you may have to scroll down to find it), and then clicking **CREATE A NEW STREAM ANALYTICS JOB**.
 
     ![Azure Stream Analytics](Images/stream-analytics-screen.png)
 
     _Azure Stream Analytics_
 
-1. Type "IoT-Analytics" (without quotation marks) into the **JOB NAME** box. Select the region nearest you in the **REGION** box. Under **REGIONAL MONITORING STORAGE ACCOUNT**, select the storage account that you created just a moment ago. (If the portal selects another storage account and won't let you change the selection, that's fine. Just accept it.) Then click **CREATE STREAM ANALYTICS JOB** in the lower-right corner.
+1. Type "IoT-Analytics" (without quotation marks) into the **JOB NAME** box. Select the region nearest you in the **REGION** box. (It is important to select the same region here that you selected for the event hub in Exercise 1, because you're not charged for data that moves within a data center, but you *are* charged for data that moves *between* data centers. In addition, locating services that talk to each other in the same data center reduces latency.) Under **REGIONAL MONITORING STORAGE ACCOUNT**, either specify the name of a new storage account, or select an existing storage account if the portal presents you with that option.
+
+	> If you choose to create a new storage account, recall that storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria. It is also advisable to locate the storage account in the same region as the Stream Analytics job to prevent the data from moving between data centers.
+
+1. When you're done, click **CREATE STREAM ANALYTICS JOB** in the lower-right corner.
 
     ![Creating a Stream Analytics job](Images/new-stream-analytics-job.png)
 
@@ -351,6 +328,8 @@ You now have software that sends events to an Azure event hub, and an event hub 
 
 1. Open the JSON file you downloaded in your favorite text editor and take a moment to examine its contents. How many rows (events) are represented in the sample data? What is the structure of each row — that is, what fields does each row contain?
 
+	> If you find the output hard to digest since there are no line breaks, try pasting it into an online JSON viewer such as the one at http://jsonviewer.stack.hu/ or https://jsonformatter.curiousconcept.com/. 
+
 You have connected a Stream Analytics job to an event hub and demonstrated that data is passed from one to the other. You have also examined the structure of that data. The next step is to do something with it — specifically, to bring the power of Azure Stream Analytics to bear on the data.  
 
 <a name="Exercise4"></a>
@@ -378,7 +357,7 @@ To flag potentially fraudulent withdrawals from ATMs, you will query for transac
 
     _Testing a query_
 
-1. In the ensuing dialog, click **BROWSE FOR FILE**. Select the file named Withdrawals.json provided in the "resources" directory of this lab. Then OK the selection by clicking the check mark in the dialog's lower-right corner.
+1. In the ensuing dialog, click **BROWSE FOR FILE**. Select the file named **Withdrawals.json** provided in the "resources" directory of this lab. Then OK the selection by clicking the check mark in the dialog's lower-right corner.
 
 	> The reason you're using a file provided for you (rather than the one you captured in the previous exercise) is to make sure everyone who is doing this exercise gets the same results.
 
@@ -472,15 +451,15 @@ In this exercise, you'll configure the Stream Analytics job to write output to a
 
 1. Click the new event hub to go to the event-hub dashboard.
 
-    ![Output event hub](Images/output-event-hub.png)
+    ![Opening the event hub](Images/output-event-hub.png)
 
-    _Output event hub_
+    _Opening the event hub_
 
 1. Click **CONFIGURE**.
 
-    ![Event hub dashboard](Images/output-event-hub-dashboard.png)
+    ![Configuring the event hub](Images/output-event-hub-dashboard.png)
 
-    _Event hub dashboard_
+    _Configuring the event hub_
 
 1. In order for an application to subscribe to events firing from an event hub, you need to create a shared-access policy that includes Listen permission. In the **shared access policies** section of the outputhub configuration page, create a new policy by typing "ReceivePolicy" (without quotation marks) into the first text box and checking the **Listen** box in the drop-down list under **PERMISSIONS**. Then click the **Save** button at the bottom of the page to save the new policy.
 
@@ -692,7 +671,7 @@ In this exercise, you will write a Web app that connects to the event hub and di
 	using System.Diagnostics;
 	```
 
-1. In Global.asax.cs, add the following statements to the end of the Application_Start method:
+1. In Global.asax.cs, add the following statements to the end of the *Application_Start* method:
 
 	```C#
     string eventHubConnectionString = "connection_string";
@@ -711,15 +690,15 @@ In this exercise, you will write a Web app that connects to the event hub and di
     Debug.WriteLine("Receiving...");
 	```
 
-1. Replace **connection_string** in line 1 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 5, Step 8.
+1. Replace *connection_string* in line 1 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 5, Step 8.
 
 1. Remove ";EntityPath=outputhub" from the end of the connection string. The eventHubConnectionString variable declaration should now look something like this:
 
 	```C#
-	string eventHubConnectionString = "Endpoint=sb://dxlabs.servicebus.windows.net/;SharedAccessKeyName=ReceivePolicy;SharedAccessKey=3XHaU3pm5t82WxA43hUM/bWa7kumqAsqzA1rVJq3Qv0=";
+	string eventHubConnectionString = "Endpoint=sb://dxlabs.servicebus.windows.net/;SharedAccessKeyName=ReceivePolicy;SharedAccessKey=3XHaU3pm5t82WxA43hUM/bWa7kumqAsqzJ1rVJq3Qv0=";
 	```
 
-1. Replace **storage\_account\_name** in line 3 with the the name of the storage account you created in Exercise 3, Step 2, and **storage\_account\_key** in line 4 with the storage account's primary key (which you pasted into a text editor for later retrieval in Exercise 3, Step 5).
+1. Replace *storage_account_name* in line 3 with the the name of the storage account you created in Exercise 3, Step 2, and *storage_account_key* in line 4 with the storage account's primary access key. You can copy the access key to the clipboard by opening the storage account in the portal, clicking **MANAGE ACCESS KEYS** at the bottom of the page, and clicking the **Copy** button next to **PRIMARY ACCESS KEY**.
 
 	> This storage account has nothing to do with the Stream Analytics job; it's used by the EventProcessorHost class. However, you are letting one storage account do double duty for Stream Analytics and EventProcessorHost.
 
@@ -746,7 +725,7 @@ In this exercise, you will write a Web app that connects to the event hub and di
 
 	> The controller you just added is a Web API controller. It exposes a REST method that can be called over HTTP to retrieve the latest events that ATMEventAggregator received from the event hub.
 
-1. Open Index.cshtml in the project's Views/Home folder and replace its contents with the following statements:
+1. Open **Index.cshtml** in the project's Views/Home folder and replace its contents with the following statements:
 
 	```HTML
 	@{
@@ -840,7 +819,7 @@ Almost there! Now it's time to run the Stream Analytics job and see the output i
 
 1. Return to the console window in which ATMEventGenerator is running and press **Ctrl+C** to terminate it.
 
-You now have a Web app that displays output from a Stream Analytics job in near real-time. There are other ways to build such dashboards, including [Microsoft Power BI](https://powerbi.microsoft.com/). With Power BI, you can create dashboards that render output from Stream Analytics jobs without writing any code. The connection between Azure and Power BI is currently offered only as a preview and is subject to certain limitations, but soon the two will be making beautiful music together.
+You now have a Web app that displays output from a Stream Analytics job in near real-time. There are other ways to build such dashboards, including [Microsoft Power BI](https://powerbi.microsoft.com/). With Power BI, you can create dashboards that render output from Stream Analytics jobs without writing any code. For more information, refer to [Stream Analytics & Power BI: A real-time analytics dashboard for streaming data](https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-power-bi-dashboard/).
 
 <a name="Summary"></a>
 ## Summary ##
