@@ -838,7 +838,7 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
     _Selecting the Azure Web App_
 
-1. In the "Settings" blade, click **Application settings** to view the Web App's application settings.
+1. Click **Application settings** to view the Web App's application settings.
 
     ![Viewing the Web App's application settings](Images/node-select-app-settings.png)
 
@@ -848,7 +848,7 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
 	- AZURE_STORAGE_ACCOUNT – Name of the storage account you created in Exercise 1
 	- AZURE_STORAGE_ACCESS_KEY – Access key for the storage account
-	- AZURE_VISION_API_KEY – Subscription key for the Computer Vision API you obtained in Exercise 3
+	- AZURE_VISION_API_KEY – Subscription key you obtained in Exercise 3 for the Computer Vision API
 
 	Once the settings are entered, click the **Save** button at the top of the blade to save them.
 
@@ -856,9 +856,9 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
     _Specifying application settings_
 
-1. Close the "Application settings" blade and scroll down to the "PUBLISHING" section of the "Settings" blade. Then click **Deployment source**.
+1. Click **Deployment options** to configure the deployment source.
 
-    ![Selecting the deployment source](Images/node-select-deployment-source.png)
+    ![Selecting the deployment source](Images/node-deployment-options.png)
 
     _Selecting the deployment source_
 
@@ -874,25 +874,25 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
     _Choosing a deployment source_
 
-1. Go back to the "PUBLISHING" section of the "Settings" blade and click **Deployment credentials**.
+1. Click **Deployment credentials**.
 
     ![Selecting the deployment credentials](Images/node-select-deployment-credentials.png)
 
     _Selecting the deployment credentials_
 
-1. Enter a user name and password for deploying to Azure. User names may contain letters, numbers, hyphens, and underscores and must start with a letter. Make your password at least 8 characters in length and include a mix of uppercase letters, lowercase letters, and numbers. **Remember the user name and password you entered because you will need them when you deploy the app**. When you're done, click the **Save** button at the top of the blade.
+1. Enter a user name and password for deploying to Azure. User names may contain letters, numbers, hyphens, and underscores and must start with a letter. Make your password at least 8 characters in length and include a mix of uppercase letters, lowercase letters, and numbers. **Remember the user name and password you entered because you will need them when you deploy the app**. When you're done, click **Save** at the top of the blade.
 
     ![Setting the deployment credentials](Images/node-set-deployment-credentials.png)
 
     _Setting the deployment credentials_
 
-1. Scroll to the "GENERAL" section of the "Settings" blade and click **Properties**.
+1. Click **Properties**.
 
     ![Selecting properties](Images/node-select-properties.png)
 
     _Selecting properties_
 
-1. Scroll down in the "Properties" blade until you find "GIT URL." Then click the **Copy** button to copy the URL to the clipboard.
+1. Scroll down until you find "GIT URL." Then click the **Copy** button to copy the URL to the clipboard.
 
     ![Copying the Git URL](Images/node-copy-git-url.png)
 
@@ -904,7 +904,7 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 	git remote add azure <i>git_url</i>
 	</pre>
 
-1. Now use the following command to deploy Intellipix from your local Git repository to Azure. When prompted to enter Git credentials, type the user name and password you specified in Step 18 of this exercise.
+1. Now use the following command to deploy Intellipix from your local Git repository to Azure. When prompted to enter Git credentials, type the user name and password you specified in Step 17 of this exercise.
 
 	<pre>
 	git push azure master

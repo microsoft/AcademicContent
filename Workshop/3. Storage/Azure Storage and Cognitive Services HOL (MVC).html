@@ -482,7 +482,7 @@ vertical-align:1px;
 
 <p>Data stored in Microsoft Azure Storage can be accessed over HTTP or HTTPS using straightforward REST APIs, or it can be accessed using rich client libraries available for many popular languages and platforms, including .NET, Java, Android, Node.js, PHP, Ruby, and Python. The <a href="https://portal.azure.com">Azure Portal</a> includes features for working with Azure Storage, but richer functionality is available from third-party tools, many of which are free and some of which work cross-platform.</p>
 
-<p>In this lab, you will write a Web app that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in C#, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using <a href="https://www.microsoft.com/cognitive-services/">Microsoft Cognitive Services</a>, a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a> to generate a caption for the image as well as searchable metadata describing the contents of the image. And you will discover how easy it is to deploy apps to the cloud using Visual Studio.</p>
+<p>In this lab, you will use Visual Studio to write an MVC Web app that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in C#, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using <a href="https://www.microsoft.com/cognitive-services/">Microsoft Cognitive Services</a>, a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a> to generate a caption for the image as well as search metadata describing the contents of the image. And you will discover how easy it is to deploy apps to the cloud using Visual Studio.</p>
 
 <p><a name="Objectives"></a></p>
 
@@ -491,7 +491,7 @@ vertical-align:1px;
 <p>In this hands-on lab, you will learn how to:</p>
 
 <ul>
-<li>Create a storage account and containers using the Azure Portal</li>
+<li>Create a storage account and storage containers using the Azure Portal</li>
 <li>Create a Web app in Visual Studio and deploy it to Azure</li>
 <li>Read and write blobs and attach metadata to them</li>
 <li>Use the Computer Vision API to extract information from images</li>
@@ -505,8 +505,7 @@ vertical-align:1px;
 <p>The following are required to complete this hands-on lab:</p>
 
 <ul>
-<li>An active Microsoft Azure subscription. Use the one you created in Lab 1, or <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>
-</li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
 <li><a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a></li>
 <li>
 <a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio 2015 Community edition</a> or higher</li>
@@ -539,9 +538,9 @@ vertical-align:1px;
 <p>The <a href="https://portal.azure.com">Azure Portal</a> allows you to perform basic storage operations such as creating storage accounts, creating containers, and managing access keys. In this exercise, you will use the portal to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.</p>
 
 <ol>
-<li><p>Go to the <a href="https://portal.azure.com/">Azure Portal</a> and sign in using your Microsoft account.</p></li>
+<li><p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p></li>
 <li>
-<p>The first step in using Azure Storage is to create a storage account. To create a storage account, click <strong>+ NEW</strong> in the ribbon on the left. Then click <strong>Data + Storage</strong>, followed by <strong>Storage account</strong>.</p>
+<p>The first step in using Azure Storage is to create a storage account. To create a storage account, click <strong>+ New</strong> in the ribbon on the left. Then click <strong>Storage</strong>, followed by <strong>Storage account</strong>.</p>
 
 <p><a href="Images/new-storage-account.png" target="_blank"><img src="Images/new-storage-account.png" alt="Creating a storage account" style="max-width:100%;"></a></p>
 
@@ -554,20 +553,14 @@ vertical-align:1px;
 <p>Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure. If someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the <strong>Name</strong> field.</p>
 </blockquote>
 
-<p>Once you have a name that Azure will accept (as indicated by the green check mark in the <strong>Name</strong> field), make sure <strong>Resource manager</strong> is selected as the deployment model and <strong>General purpose</strong> is selected as the account kind. Then select <strong>Locally-redundant storage (LRS)</strong> as the replication type.</p>
-
-<blockquote>
-<p>Locally redundant storage is the most cost-effective storage option. It prevents data stored under this storage account from being replicated in other data centers, but it ensures that the data will be replicated at least three times within the chosen data center.</p>
-</blockquote>
-
-<p>Select <strong>Create new</strong> under <strong>Resource group</strong> and type "Intellipix" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the <strong>Location</strong> box, and clicking the <strong>Create</strong> button at the bottom of the blade to create the new storage account.</p>
+<p>Once you have a name that Azure will accept (as indicated by the green check mark in the <strong>Name</strong> field), make sure <strong>Resource manager</strong> is selected as the deployment model and <strong>General purpose</strong> is selected as the account kind. Then select <strong>Create new</strong> under <strong>Resource group</strong> and type "IntellipixResourceGroup" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the <strong>Location</strong> box, and clicking the <strong>Create</strong> button at the bottom of the blade to create the new storage account.</p>
 
 <p><a href="Images/create-storage-account.png" target="_blank"><img src="Images/create-storage-account.png" alt="Specifying parameters for a new storage account" style="max-width:100%;"></a></p>
 
 <p><em>Specifying parameters for a new storage account</em></p>
 </li>
 <li>
-<p>Once the storage account has been created, click <strong>Resource groups</strong> in the ribbon on the left. Then click the "Intellipix" resource group, and in the blade that opens for the resource group, click the storage account you just created.</p>
+<p>Once the storage account has been created, click <strong>Resource groups</strong> in the ribbon on the left. Then click the "IntellipixResourceGroup" resource group, and in the blade that opens for the resource group, click the storage account you just created.</p>
 
 <p><a href="Images/open-storage-account.png" target="_blank"><img src="Images/open-storage-account.png" alt="Opening the new storage account" style="max-width:100%;"></a></p>
 
@@ -598,13 +591,7 @@ vertical-align:1px;
 
 <p><em>Creating a "photos" container</em></p>
 </li>
-<li>
-<p>Repeat this process to create a container named "thumbnails," once more ensuring that the container's <strong>Access type</strong> is set to <strong>Blob</strong>.</p>
-
-<p><a href="Images/create-thumbnails-container.png" target="_blank"><img src="Images/create-thumbnails-container.png" alt='Creating a "thumbnails" container' style="max-width:100%;"></a></p>
-
-<p><em>Creating a "thumbnails" container</em></p>
-</li>
+<li><p>Repeat this process to create a container named "thumbnails," once more ensuring that the container's <strong>Access type</strong> is set to <strong>Blob</strong>.</p></li>
 <li>
 <p>Confirm that both containers appear in the list of containers for this storage account, and that the names are spelled correctly.</p>
 
@@ -620,37 +607,22 @@ vertical-align:1px;
 
 <h2>Exercise 2: Run the Microsoft Azure Storage Explorer</h2>
 
-<p>The <a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a> is a free tool that provides a graphical interface for working with Azure Storage on PCs running Windows, OS X, and Linux. It provides most of the same functionality as the Azure Portal. It also offers features the portal does not, such as the ability to upload blobs to Azure Storage and view blob metadata. In this exercise, you will use the Microsoft Azure Storage Explorer to view the containers you created in Exercise 1.</p>
+<p>The <a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a> is a free tool that provides a graphical interface for working with Azure Storage on PCs running Windows, macOS, and Linux. It provides most of the same functionality as the Azure Portal. It also offers features the portal does not, such as the ability to upload blobs to Azure Storage and view blob metadata. In this exercise, you will use the Microsoft Azure Storage Explorer to view the containers you created in Exercise 1.</p>
 
 <ol>
-<li><p>Start the Microsoft Azure Storage Explorer.</p></li>
 <li>
-<p>In the Storage Explorer window, click <strong>Connect to Microsoft Azure</strong>.</p>
+<p>Start Storage Explorer. If you are asked to log in, do so using your Microsoft account — the same one that you used to log in to the Azure Portal. If you are <em>not</em> asked to log in and don't see the storage account you created in the previous exercise in Storage Explorer's left pane, click the <strong>Azure Accounts settings</strong> button highlighted below, click <strong>Add an account</strong>, and log in with your Microsoft account.</p>
 
-<p><a href="Images/storage-explorer-connect-to-azure.png" target="_blank"><img src="Images/storage-explorer-connect-to-azure.png" alt="Connecting Storage Explorer to Azure" style="max-width:100%;"></a></p>
+<p><a href="Images/add-account.png" target="_blank"><img src="Images/add-account.png" alt="Adding an account to Storage Explorer" style="max-width:100%;"></a></p>
 
-<p><em>Connecting Storage Explorer to Azure</em></p>
-</li>
-<li>
-<p>Enter the e-mail address for your Microsoft account. Then click <strong>Continue</strong>.</p>
-
-<p><a href="Images/storage-explorer-enter-email.png" target="_blank"><img src="Images/storage-explorer-enter-email.png" alt="Entering your e-mail address" style="max-width:100%;"></a></p>
-
-<p><em>Entering your e-mail address</em></p>
-</li>
-<li>
-<p>Enter the user name and password for your Microsoft account. Check the box labeled <strong>Keep me signed in</strong>. Then click the <strong>Sign in</strong> button.</p>
-
-<p><a href="Images/storage-explorer-enter-credentials.png" target="_blank"><img src="Images/storage-explorer-enter-credentials.png" alt="Signing in to Storage Explorer" style="max-width:100%;"></a></p>
-
-<p><em>Signing in to Storage Explorer</em></p>
+<p><em>Adding an account to Storage Explorer</em></p>
 </li>
 <li>
 <p>Confirm that the storage account you created in Exercise 1 appears in the list of storage accounts shown in Storage Explorer. Click the small arrow next to the storage account to display its contents, and then click the arrow next to <strong>Blob Containers</strong>. Confirm that the containers you created in Exercise 1 appear in the list of containers.</p>
 
-<p><a href="Images/storage-explorer.png" target="_blank"><img src="Images/storage-explorer.png" alt="The Microsoft Azure Storage Explorer" style="max-width:100%;"></a></p>
+<p><a href="Images/storage-explorer.png" target="_blank"><img src="Images/storage-explorer.png" alt="Blob containers in the Microsoft Azure Storage Explorer" style="max-width:100%;"></a></p>
 
-<p><em>The Microsoft Azure Storage Explorer</em></p>
+<p><em>Blob containers in the Microsoft Azure Storage Explorer</em></p>
 </li>
 </ol>
 
@@ -682,22 +654,26 @@ vertical-align:1px;
 <p><em>Creating a new ASP.NET MVC project</em></p>
 </li>
 <li>
-<p>In the "Create App Service" dialog that ensues, enter a name into the <strong>Web App Name</strong> box, or accept the default. (The default name will include a bunch of numbers. Since this name will form part of the DNS name through which the app is accessed once it's deployed to Azure, it must be unique within Azure. For this reason, you probably won't be able to use the name "Intellipix" pictured in the screen shot.)</p>
+<p>In the "Create App Service" dialog that ensues, enter a name into the <strong>Web App Name</strong> box, or accept the default.</p>
 
-<p>Type "Intellipix" (without quotation marks) into the <strong>Resource Group</strong> box to make the App Service that's being created part of the same resource group as the storage account you created in Exercise 1.</p>
+<blockquote>
+<p>The default name will include a bunch of numbers. Since this name will form part of the DNS name through which the app is accessed once it's deployed to Azure, it must be unique within Azure. For this reason, you probably won't be able to use the name "Intellipix" pictured in the screen shot.</p>
+</blockquote>
 
-<p>Now click the <strong>New</strong> button to the right of <strong>App Service Plan</strong> to open the "Configure App Service Plan" dialog. In that dialog, set <strong>Location</strong> to the same location you specified for the storage account in Exercise 1, and make sure <strong>Free</strong> is selected in the <strong>Size</strong> drop-down. Click <strong>OK</strong> to close the dialog.</p>
-
-<p><a href="Images/app-service-plan.png" target="_blank"><img src="Images/app-service-plan.png" alt="Configuring an App Service plan" style="max-width:100%;"></a></p>
-
-<p><em>Configuring an App Service plan</em></p>
-
-<p>Finish up by clicking the <strong>Create</strong> button in the lower-right corner of the "Create App Service" dialog.</p>
+<p>Type "IntellipixResourceGroup" (without quotation marks) into the <strong>Resource Group</strong> box to make the App Service that's being created part of the same resource group as the storage account you created in Exercise 1.</p>
 
 <p><a href="Images/create-app-service.png" target="_blank"><img src="Images/create-app-service.png" alt="Creating a new App Service" style="max-width:100%;"></a></p>
 
 <p><em>Creating a new App Service</em></p>
 </li>
+<li>
+<p>Click the <strong>New</strong> button to the right of <strong>App Service Plan</strong> to open the "Configure App Service Plan" dialog. In that dialog, set <strong>Location</strong> to the same location you specified for the storage account in Exercise 1, and make sure <strong>Free</strong> is selected in the <strong>Size</strong> drop-down. Click <strong>OK</strong> to close the dialog.</p>
+
+<p><a href="Images/app-service-plan.png" target="_blank"><img src="Images/app-service-plan.png" alt="Configuring an App Service plan" style="max-width:100%;"></a></p>
+
+<p><em>Configuring an App Service plan</em></p>
+</li>
+<li><p>Finish up by clicking the <strong>Create</strong> button in the lower-right corner of the "Create App Service" dialog.</p></li>
 <li><p>Take a moment to review the project structure in the Solution Explorer window. Among other things, there's a folder named "Controllers" that holds the project's MVC controllers, and a folder named "View" that holds the project's views. You'll be working with assets in these folders and others as you implement the application.</p></li>
 <li>
 <p>Now use Visual Studio's <strong>Debug -&gt; Start Without Debugging</strong> command (or simply press <strong>Ctrl+F5</strong>) to launch the application in your browser. Here's how the application looks in its present state:</p>
@@ -746,7 +722,7 @@ vertical-align:1px;
 <p><em>Opening Web.config</em></p>
 </li>
 <li>
-<p>Return to the Azure Portal for a moment and open the blade for the storage account you created in Exercise 1. Then click the key icon near the top of the blade. </p>
+<p>Return to the Azure Portal for a moment and open the blade for the storage account you created in Exercise 1. Then click <strong>Access keys</strong> to view the storage account's access keys. </p>
 
 <p><a href="Images/view-access-keys.png" target="_blank"><img src="Images/view-access-keys.png" alt="Viewing the storage account's access keys" style="max-width:100%;"></a></p>
 
@@ -778,7 +754,7 @@ vertical-align:1px;
 <p><em>Opening _Layout.cshtml</em></p>
 </li>
 <li>
-<p>On line 29, change "Application name" to "Intellipix." Here is the edited line of code:</p>
+<p>On line 19, change "Application name" to "Intellipix." Here is the edited line of code:</p>
 
 <div class="highlight highlight-source-cs"><pre>@Html.ActionLink(<span class="pl-s"><span class="pl-pds">"</span>Intellipix<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Index<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Home<span class="pl-pds">"</span></span>, <span class="pl-k">new</span> { area = <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span> }, <span class="pl-k">new</span> { @<span class="pl-k">class</span> = <span class="pl-s"><span class="pl-pds">"</span>navbar-brand<span class="pl-pds">"</span></span> })</pre></div>
 
@@ -811,7 +787,7 @@ vertical-align:1px;
 <p>Now save your changes and close BlobInfo.cs.</p>
 </li>
 <li>
-<p>In Solution Explorer, find HomeController.cs in the Views/Home folder and double-click it to open it.</p>
+<p>In Solution Explorer, find HomeController.cs in the Controllers folder and double-click it to open it.</p>
 
 <p><a href="Images/open-home-controller.png" target="_blank"><img src="Images/open-home-controller.png" alt="Opening HomeController.cs" style="max-width:100%;"></a></p>
 
@@ -820,13 +796,13 @@ vertical-align:1px;
 <li>
 <p>Add the following using statements to the top of the file:</p>
 
-<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> ImageResizer<span class="pl-k">;</span>
-<span class="pl-k">using</span> Intellipix.Models<span class="pl-k">;</span>
-<span class="pl-k">using</span> Microsoft.Azure<span class="pl-k">;</span>  
-<span class="pl-k">using</span> Microsoft.WindowsAzure.Storage<span class="pl-k">;</span>
-<span class="pl-k">using</span> Microsoft.WindowsAzure.Storage.Blob<span class="pl-k">;</span>
-<span class="pl-k">using</span> System.Threading.Tasks<span class="pl-k">;</span>
-<span class="pl-k">using</span> System.IO<span class="pl-k">;</span></pre></div>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">ImageResizer</span>;
+<span class="pl-k">using</span> <span class="pl-en">Intellipix.Models</span>;
+<span class="pl-k">using</span> <span class="pl-en">Microsoft.Azure</span>;  
+<span class="pl-k">using</span> <span class="pl-en">Microsoft.WindowsAzure.Storage</span>;
+<span class="pl-k">using</span> <span class="pl-en">Microsoft.WindowsAzure.Storage.Blob</span>;
+<span class="pl-k">using</span> <span class="pl-en">System.Threading.Tasks</span>;
+<span class="pl-k">using</span> <span class="pl-en">System.IO</span>;</pre></div>
 </li>
 <li>
 <p>Replace the <em>Index</em> method in HomeController.cs with the following implementation:</p>
@@ -963,20 +939,20 @@ vertical-align:1px;
 <p><em>Intellipix with three photos uploaded</em></p>
 </li>
 <li>
-<p>Return to the Microsoft Azure Storage Explorer (or restart if it you didn't leave it running) and double-click the "photos" container under the storage account you created in Exercise 1. The number of blobs in the container should equal the number of photos you uploaded. Double-click one of the blobs to download it and see the image stored in the blob.</p>
-
-<p><a href="Images/photos-container.png" target="_blank"><img src="Images/photos-container.png" alt='Contents of the "photos" container' style="max-width:100%;"></a></p>
-
-<p><em>Contents of the "photos" container</em></p>
-</li>
-<li><p>Open the "thumbnails" container in Storage Explorer. How many blobs do you see there? Open one of the blobs to see what's inside. These are the thumbnail images generated from the image uploads.</p></li>
-<li>
 <p>Do a <strong>View Source</strong> in your browser to view the source for the page. Find the &lt;img&gt; elements representing the image thumbnails. Observe that the URLs assigned to the images refer <strong>directly to blobs in blob storage</strong>. This is possible because you set the containers' <strong>Access type</strong> to <strong>Blob</strong>, which makes the blobs inside them publicly accessible.</p>
 
 <blockquote>
 <p>What would happen if the containers were private? If you're not sure, try it and see. Temporaily change the "thumbnails" container's <strong>Access type</strong> to <strong>Private</strong> in the Azure Portal. Then refresh the Intellipix page in your browser and see what happens.</p>
 </blockquote>
 </li>
+<li>
+<p>Return to the Microsoft Azure Storage Explorer (or restart if it you didn't leave it running) and click the "photos" container under the storage account you created in Exercise 1. The number of blobs in the container should equal the number of photos you uploaded. Double-click one of the blobs to download it and see the image stored in the blob.</p>
+
+<p><a href="Images/photos-container.png" target="_blank"><img src="Images/photos-container.png" alt='Contents of the "photos" container' style="max-width:100%;"></a></p>
+
+<p><em>Contents of the "photos" container</em></p>
+</li>
+<li><p>Open the "thumbnails" container in Storage Explorer. How many blobs do you see there? Open one of the blobs to see what's inside. These are the thumbnail images generated from the image uploads.</p></li>
 </ol>
 
 <p>The app doesn't yet offer a way to view the original images that you uploaded. Ideally, clicking an image thumbnail should display the original image. Let's implement that before proceeding further. </p>
@@ -1097,7 +1073,7 @@ vertical-align:1px;
 <li>
 <p>Open HomeController.cs in the project's Controllers folder and add the following using statement at the top of the file:</p>
 
-<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> Microsoft.ProjectOxford.Vision<span class="pl-k">;</span></pre></div>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">Microsoft.ProjectOxford.Vision</span>;</pre></div>
 </li>
 <li>
 <p>Add the following statements to the <em>Upload</em> method, immediately after the block of code that begins with the comment "Generate a thumbnail and save it in the thumbnails container." This code passes the URL of the blob containing the image that was uploaded to the Computer Vision API, and requests that Computer Vision generate a description for the image. In addition to generating a description, the Computer Vision API also generates a list of keywords describing what it sees in the image. Your code stores the computer-generated description and the keywords in the blob's metadata so they can be retrieved later on.</p>
