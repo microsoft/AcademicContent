@@ -657,7 +657,7 @@ vertical-align:1px;
 
 <h2>Exercise 3: Train a classification model</h2>
 
-<p>In this exercise, you'll use ML Studio's drag-and-drop user interface to train an ML model. <em>Training</em> involves picking a machine-learning algorithm and feeding data into the model. During training, the computer looks for patterns in the data that it can use to predict values from future inputs.</p>
+<p>In this exercise, you will use ML Studio's drag-and-drop user interface to train an ML model. <em>Training</em> involves picking a machine-learning algorithm and feeding data into the model. During training, the computer looks for patterns in the data that it can use to predict values from future inputs.</p>
 
 <p>There are several types of machine-learning models. One of the most common is the regression model, which uses one of a number of regression algorithms to produce a numeric value — for example, a person's age or the probability that a credit-card transaction is fraudulent. You will be training a classification model, which seeks to resolve a set of inputs into one of a set of known outputs. A classic example of a classification model is one that examines e-mails and classifies them as "spam" or "not spam." Your model will examine a set of inputs representing pixel patterns and attempt to classify each as a digit from 0 to 9, inclusive.</p>
 
@@ -892,7 +892,7 @@ vertical-align:1px;
 
 <ol>
 <li>
-<p>In order to build and run UWP apps on a Windows 10 PC, you must enable developer mode on the device. If you're using the VM provided with this lab, developer mode has already been enabled. If you're not using the VM, click the <strong>Windows</strong> button (also known as the Start button) in the lower-left corner of the desktop. Then select <strong>Settings</strong> from the menu and click <strong>Update &amp; security</strong> in the Settings dialog. Now click <strong>For developers</strong> on the left and select <strong>Developer mode</strong> on the right, as shown below.</p>
+<p>In order to build and run UWP apps on a Windows 10 PC, you must enable developer mode on the device. To ensure that developer mode is enabled, click the <strong>Windows</strong> button (also known as the Start button) in the lower-left corner of the desktop. Then select <strong>Settings</strong> from the menu and click <strong>Update &amp; security</strong> in the "Settings" dialog. Now click <strong>For developers</strong> on the left and select <strong>Developer mode</strong> on the right, as shown below.</p>
 
 <p><a href="Images/enable-developer-mode.png" target="_blank"><img src="Images/enable-developer-mode.png" alt="Enabling developer mode in Windows 10" style="max-width:100%;"></a></p>
 
@@ -1173,10 +1173,10 @@ vertical-align:1px;
 <li>MLSubmitAsync is where the magic happens. It uses UWP's HttpClient class to place a REST call to the Web service. It is closely patterned after the C# sample code presented on the Web service's dashboard.</li>
 </ul>
 </li>
-<li><p>In the source code you just inserted, replace <strong>api_key</strong> with the API key for your Web service obtained in Exercise 5, Step 5.</p></li>
-<li><p>Next, replace <strong>web_service_url</strong> with the URL of your Web service obtained in Exercise 5, Step 7.</p></li>
+<li><p>In the source code you just inserted, replace <em>api_key</em> with the API key for your Web service obtained in Exercise 5, Step 5.</p></li>
+<li><p>Next, replace <em>web_service_url</em> with the URL of your Web service obtained in Exercise 5, Step 7.</p></li>
 <li>
-<p>Go to the <strong>Build</strong> menu at the top of the Visual Studio window and use the <strong>Build Solution</strong> command to build the solution. Correct any build errors that are reported, and then press Ctrl+F5 to launch the MLClient app. Confirm that it looks like this:</p>
+<p>Go to the <strong>Build</strong> menu at the top of the Visual Studio window and use the <strong>Build Solution</strong> command to build the solution. Correct any build errors that are reported, and then press <strong>Ctrl+F5</strong> to launch the app. Confirm that it looks like this:</p>
 
 <p><a href="Images/mlclient-app-1.png" target="_blank"><img src="Images/mlclient-app-1.png" alt="The MLClient app" style="max-width:100%;"></a></p>
 
@@ -1222,7 +1222,7 @@ vertical-align:1px;
 <p><em>Switching from Local Machine to the Windows Simulator</em></p>
 </li>
 <li>
-<p>Now press Ctrl+F5 to launch the app in the simulator.</p>
+<p>Now press <strong>Ctrl+F5</strong> to launch the app in the simulator.</p>
 
 <p><a href="Images/simulator.png" target="_blank"><img src="Images/simulator.png" alt="MLClient on a tablet" style="max-width:100%;"></a></p>
 
@@ -1230,7 +1230,7 @@ vertical-align:1px;
 </li>
 </ol>
 
-<p>If you weren't already running in a VM, you could run the app in the Windows phone emulator, too. But the phone emulator runs in a VM, and you generally can't run a VM in a VM. Typically, a developer does a little extra work to get an app to optimize its display for different devices and form factors. It's truly a case in which a little bit of code goes a long, long way.</p>
+<p>Typically, a developer does a little extra work to optimize the way a UWP app is displayed on different devices. That's beyond the scope of this lab, but something to be aware of if you plan to use UWP apps in your work or business. <a href="https://channel9.msdn.com/Series/Windows-10-development-for-absolute-beginners/UWP-038-Working-with-Adaptive-Layout">Here's a video</a> with information about using adaptive layouts to make a UWP app look great on a wide range of devices.</p>
 
 <h2>Summary</h2>
 

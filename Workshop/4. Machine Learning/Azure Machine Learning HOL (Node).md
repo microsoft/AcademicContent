@@ -151,7 +151,7 @@ Close the visualization window by clicking the "**x**" in the upper-right corner
 <a name="Exercise3"></a>
 ## Exercise 3: Train a classification model
 
-In this exercise, you'll use ML Studio's drag-and-drop user interface to train an ML model. *Training* involves picking a machine-learning algorithm and feeding data into the model. During training, the computer looks for patterns in the data that it can use to predict values from future inputs.
+In this exercise, you will use ML Studio's drag-and-drop user interface to train an ML model. *Training* involves picking a machine-learning algorithm and feeding data into the model. During training, the computer looks for patterns in the data that it can use to predict values from future inputs.
 
 There are several types of machine-learning models. One of the most common is the regression model, which uses one of a number of regression algorithms to produce a numeric value — for example, a person's age or the probability that a credit-card transaction is fraudulent. You will be training a classification model, which seeks to resolve a set of inputs into one of a set of known outputs. A classic example of a classification model is one that examines e-mails and classifies them as "spam" or "not spam." Your model will examine a set of inputs representing pixel patterns and attempt to classify each as a digit from 0 to 9, inclusive.
 
@@ -349,35 +349,44 @@ A common question regarding Azure ML Web services is: how much do they cost? You
 
 The whole reason for deploying an Azure ML model as a Web service is so you can build smart apps that utilize the model. There are a variety of ways to build such apps. You could call the service from a Web app using JavaScript and AJAX, for example, or you could use [NativeScript](https://www.nativescript.org/) to write an app that runs on iOS or Android and places calls to the service using HTTP requests.
 
-In this exercise, you will write a cross-platform client app using [Electron](http://electron.atom.io/). The beauty of such apps is that they run on Windows, Mac, or Linux machines. The app you will write enables you to draw digits into an onscreen grid. Then it calls your ML Web service and tells you what digit you drew.
+In this exercise, you will write a cross-platform client app using [Node.js](https://nodejs.org) and [Electron](http://electron.atom.io/). The beauty of such apps is that they run on Windows, Mac, or Linux machines. The app you will write enables you to draw digits into an onscreen grid. Then it calls your ML Web service and tells you what digit you drew.
 
-Follow these steps.
-
-1. Create an empty directory to serve as your project directory.
+1. Create a new directory to serve as your project directory.
 
 1. Open a terminal or Command Prompt window and navigate to the directory you created in the previous step to make it the current directory.
 
-1. Execute the following command to verify that you have Node.js version 4 or higher installed. (If Node is installed, you will see the version number.) If Node is not installed or the version is less than 4, go to https://nodejs.org/en/ and install the latest version.
+1. Execute the following command to verify that you have Node.js version 4 or higher installed. (If Node is installed, you will see the version number.) If Node is not installed or the version is less than 4, go to https://nodejs.org and install the latest stable version.
  
-    ```
+    <pre>
     node --version
-    ```
+    </pre>
 
 1. Use the following command to create a new Node.js project.
  
-    ```
+    <pre>
     npm init -y
-    ```
+    </pre>
 
-    This will create an empty `package.json` file in the current directory.
-    
-1. Node.js uses a package manager, called `npm`, to add additional components to Node.js applications. These additional components are dependencies of your application and are defined in the `package.json` file. Some dependencies are just needed when building the application, but others are required to actually run it. You will use several dependencies in your Electron application.
+    This will create an empty **package.json** file in the current directory.
+
+	> Node.js uses a package manager, called **npm**, to add additional components to Node.js applications. These additional components are dependencies of your application and are defined in the **package.json** file. Some dependencies are just needed when building the application, but others are required to actually run it. You will use several dependencies in your Electron application.
        
-    Open `package.json` in Visual Studio Code or your favorite text editor and add the `dependencies` and `devDependencies` properties shown below.
+1. In the Command Prompt or terminal window, execute the following command (note the space and the period at the end of the command) to start Visual Studio Code in the current directory:
+
+	<pre>
+	code .
+	</pre>
+
+1. In Visual Studio Code, select the **Explorer** command from the **View** menu to make sure the Explorer panel is displayed. Then click **Package.json** to open the file for editing.
+
+    ![Opening package.json](Images/node-open-package-json.png)
+
+    _Opening package.json_
+    
+1. Add the *dependencies* and *devDependencies* sections shown below to **package.json**. You can insert these starting on line 2 if you would like.
                
     ```javascript
     {
-      ...
       "dependencies": {
         "@angular/common": "2.0.0",
         "@angular/compiler": "2.0.0",
@@ -399,15 +408,16 @@ Follow these steps.
         "electron": "^1.4.0",
         "npm-run-all": "^3.1.0",
         "typescript": "^2.0.3"
-      }
+      },
+      ...
     }
     ```
 
-    This brings a number of important dependencies into the application. Everything under the `dependencies` property is associated with the [Angular](https://angular.io/) framework and related TypeScript definitions. Angular is a client framework that simplifies JavaScript applications. It provides functionality for implementing user interfaces and also for calling Web services. The `devDependencies` property defines some components that will help us build our application.
+    This brings a number of important dependencies into the application. Everything under the *dependencies* property is associated with the [Angular](https://angular.io/) framework and related TypeScript definitions. Angular is a client framework that simplifies JavaScript applications. It provides functionality for implementing user interfaces and also for calling Web services. The *devDependencies* property defines other components used by the application.
      
-    You will be using [TypeScript](https://www.typescriptlang.org/) to code the application. TypeScript is a superset of JavaScript, so the code should look familiar to you. You will use some TypeScript-specific features, such as [decorators](https://www.typescriptlang.org/docs/handbook/decorators.html). (While this is not an absolute requirement, it does simplify the Angular code a bit.)
+    > You will be using [TypeScript](https://www.typescriptlang.org/) to code the application. TypeScript is a superset of JavaScript, so the code should look familiar to you. You will use some TypeScript-specific features, such as [decorators](https://www.typescriptlang.org/docs/handbook/decorators.html). (While this is not an absolute requirement, it does simplify the Angular code a bit.)
       
-1. Replace the `scripts` property in the `package.json` file with the following `scripts` property:
+1. Replace the *scripts* property in **package.json** with the following *scripts* property. Then save your changes to **package.json**.
        
     ```javascript
     {
@@ -422,7 +432,13 @@ Follow these steps.
     }
     ```
 
-1. To give TypeScript information about how to build the application, add the following `tsconfig.json` file to the project directory.
+1. Place the mouse cursor over the project directory in Visual Studio Code's Explorer panel and click the **New File** button to add a new file to the project. Name the file **tsconfig.json**.
+
+    ![Adding a file to the project](Images/node-new-file.png)
+
+    _Adding a file to the project_
+
+1. To give TypeScript information about how to build the application, paste the following statements into **tsconfig.json**. Then save your changes.
 
     ```javascript
     {
@@ -439,13 +455,13 @@ Follow these steps.
     }
     ```
 
-1. Execute the following command to install the dependencies that you defined:
+1. Return to the Command Prompt or terminal window and execute the following command to install the dependencies that you defined:
  
-    ```
+    <pre>
     npm install
-    ```
+    </pre>
 
-1. Now it is time to build the application itself. As a first step, create a file named `index.html` in the project directory and insert the following statements:
+1. Now it is time to write the application itself. As a first step, use Visual Studio Code to create a file named **index.html** in the project directory and insert the following statements:
 
     ```html
     <!DOCTYPE html>
@@ -470,7 +486,7 @@ Follow these steps.
     </html>
     ```
 
-1. Now create a file named `main.css` and add the following style definitions:
+1. Now create a file named **main.css** in the project directory and add the following style definitions:
  
     ```css
     .pixel-grid {
@@ -499,7 +515,7 @@ Follow these steps.
     }
     ```
 
-1. Your app will use [System.js](https://github.com/systemjs/systemjs), a universal dynamic module loader for JavaScript. System.js relies on a configuration file for loading JavaScript files. Add that configuration file to the project by creating a file named `system.config.js` in the project directory and adding the following code:
+1. Your app will use [System.js](https://github.com/systemjs/systemjs), a universal dynamic module loader for JavaScript, to load scripts. System.js relies on a configuration file for loading JavaScript files. Add that configuration file to the project by creating a file named **system.config.js** in the project directory and adding the following code:
    
     ```javascript
     (function (global) {
@@ -531,10 +547,9 @@ Follow these steps.
     })(this);
     ```
 
-1. Electron needs a main startup file. The startup file performs the initial configuration of the application, responds to application events (such as the user closing the application), and loads the initial user interface. Create a `main.ts` file (the .ts extension is for TypeScript) and add the following statements to it:
+1. Electron needs a main startup file. The startup file performs the initial configuration of the application, responds to application events (such as the user closing the application), and loads the initial user interface. Create a file named **main.ts** in the project directory (the .ts extension is for TypeScript) and add the following statements to it:
  
     ```typescript
-    
     const {app, BrowserWindow} = require('electron');
     
     let win = null;
@@ -567,17 +582,17 @@ Follow these steps.
     }
     ```
 
-    You can uncomment the `//win.webContents.openDevTools();` line above if you wish for the [Chrome Developer Tools](https://developer.chrome.com/devtools) to be opened automatically when you start the application.  This is helpful for debugging if things go wrong with your application.
+    > You can uncomment the call to *win.webContents.openDevTools()* if you want the [Chrome Developer Tools](https://developer.chrome.com/devtools) to be opened automatically when you start the application.  This is helpful for debugging if things go wrong with your application.
 
-1. Electron needs to know which file is the main startup file. This is specified in `package.json`. Change the `main` property in that file to the following:
+1. Electron needs to know which file is the main startup file. This is specified in **package.json**. Change the *main* property in that file to the following:
        
     ```javascript
     "main": "main.js",
     ```
 
-    `main.js` gets created when the TypeScript file `main.ts` gets compiled into JavaScript.     
+    **main.js** gets created when the TypeScript file **main.ts** gets compiled into JavaScript.     
      
-1. Now comes the Angular application that displays the grid, handles user mouse clicks, and calls the ML web service you set up. Create an `application.ts` file and add the following statements:
+1. Now comes the Angular application that displays the grid, handles mouse clicks, and calls the ML Web service you set up. Add an **application.ts** file to the project directory and add the following statements:
      
     ```typescript
     import { NgModule, Component, HostListener } from '@angular/core';
@@ -699,8 +714,8 @@ Follow these steps.
     
         postRequest(request: any) {
     
-            const url = '... add your URL here ...';
-            const apiKey = '... add your API Key here ...';
+            const url = 'web_service_url';
+            const apiKey = 'api_key';
     
             let body = JSON.stringify(request);
             let headers = new Headers({
@@ -751,34 +766,35 @@ Follow these steps.
     platform.bootstrapModule(AppModule);
     ```
      
-    The heart of the application is the `PixelGrid` component, which displays a two-dimensional grid in which the user draws digits and manages an array of Boolean values indicating the on/off state of each square in the grid. It also handles clicks of the `Submit` and `Clear` buttons. The `Submit` button submits the input data to the ML Web service.
+    The heart of the application is the PixelGrid component, which displays a two-dimensional grid in which the user draws digits and manages an array of Boolean values indicating the on/off state of each square in the grid. It also handles clicks of the **Submit** and **Clear** buttons. The **Submit** button submits the input data to the ML Web service.
     
-1. The Electron application needs the API Key and URL for your Web service. Modify `application.ts` by replacing "... add your URL here ..." with the Web service URL you saved in Exercise 5, Step 7, add replacing "... add your API Key here ..." with the API key you saved in Exercise 5, Step 5.
+1. The application needs the API Key and URL for your Web service. Modify **application.ts** by replacing *web_service_url* on line 120 with the Web service URL you saved in Exercise 5, Step 7, and replacing *api_key* on line 121 with the API key you saved in Exercise 5, Step 5.
 
     ```typescript
-    const url = '... add your URL here ...';
-    const apiKey = '... add your API Key here ...';
+    const url = 'web_service_url';
+    const apiKey = 'api_key';
     ```
 
-1. Compile the application by executing the following command:
+1. Use Visual Studio Code's **File -> Save All** command to save all of your changes. Then return to the Command Prompt or terminal window and compile the application by executing the following command:
          
-    ```
+    <pre>
     npm run tsc
-    ```
-Congratulations! You've finished building an Electron application that relies on Azure Machine Learning for intelligence. The final task is to try it out and see how intelligent the app really is.
+    </pre>
+
+Congratulations! You built an Electron application that relies on Azure Machine Learning for intelligence. The final task is to try it out and see how intelligent the app really is.
          
 <a name="Exercise7"></a>
 ## Exercise 7: Test the model
 
 The Electron application puts a graphical front end on Web-service calls. You draw a digit into the grid of squares by dragging a mouse over the squares. Clicking the **Submit** button creates an array of 64 values (one per square, and one for each of the 64 feature columns in the training dataset), serializes it into JSON, and passes it to the Web service. The app deserializes the JSON that comes back and displays the result. In essence, the Electron client provides a highly visual way to gauge the accuracy of your ML model.
 
-1. Run the application using the following command.
+1. Run the application by executing the following command in the Command Prompt or terminal window:
 
     ```
     npm run electron
     ```
 
-    > An alternative is to run the command `npm start`, which starts the application and also watches for changes in the TypeScript files, recompiling them when they change. This ensures that changes to your code will be reflected in the running application without requiring a manual restart.
+    > An alternative is to run the command **npm start**, which starts the application and also watches for changes in the TypeScript files, recompiling them when they change. This ensures that changes to your code will be reflected in the running application without requiring a manual restart.
 
 1. Use your mouse to sketch a "7" into the grid, similar to the one shown below. Then click the **Submit** button.
 
@@ -794,7 +810,7 @@ The Electron application puts a graphical front end on Web-service calls. You dr
 
 1. Click the **Clear** button to clear the grid and try a few other digits. You'll probably find that the model you built is better at identifying some digits than others, and that you get the best results when the digits you draw fill the expanse of the grid as much as possible.
 
-	> The incorrect answers are partly the result of the relatively small dataset you trained the model with (the dataset was roughly 0.5 MB, which is small by big-data standards), and partly due to the fact that the onscreen grid display uses only 1/16th the resolution of the scans that the model was trained with. Nonetheless, it's a pretty impressive feat for an app to perform basic OCR in this manner. And it's indicative of the kinds of apps you can build when you have Azure Machine Learning doing the heavy lifting.
+Any incorrect answers are partly the result of the relatively small dataset you trained the model with (the dataset was roughly 0.5 MB, which is small by big-data standards), and partly due to the fact that the onscreen grid display uses only 1/16th the resolution of the scans that the model was trained with. Nonetheless, it's a pretty impressive feat for an app to perform basic OCR in this manner. And it's indicative of the kinds of apps you can build when you have Azure Machine Learning doing the heavy lifting.
 
 ## Summary
 
