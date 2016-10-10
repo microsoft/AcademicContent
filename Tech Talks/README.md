@@ -74,6 +74,16 @@ If you want to report any issues we need to fix. Please log an <a href="https://
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Microsoft%20and%20Containers.pptx) | [Demos](https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks/ContainerDemo)</td>
 					   <td>Understand Containers we discuss the difference between Windows Server Containers, Hyper V Containers, Docker on Windows, Azure Container and share examples and demos for each with details on the docker release pipeline</td>
 					</tr>
+						<tr>
+					   <td><b>Microsoft Power BI - So what is PowerBI learn all about the various option for using PowerBI to visualise Data</b></td>
+					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20PowerBI_StudentPresentation.pptx)</td>
+					   <td>Understand PowerBI we discuss the difference the history of data visualisation and then the various way PowerBI can visualise data</td>
+					</tr>
+						<tr>
+					   <td><b>Microsoft Power BI and REST Services - Samples of how to use REST APIS to build amazing data visualisations</b></td>
+					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20PowerBI_StudentPresentation.pptx)</td>
+					   <td>Understand PowerBI and its APIs samples and demos</td>
+					</tr>
 				 </table>
 			</div>
       </div>
