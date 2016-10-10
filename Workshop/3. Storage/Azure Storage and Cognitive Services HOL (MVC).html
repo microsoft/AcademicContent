@@ -715,7 +715,7 @@ vertical-align:1px;
 <p><em>Installing ImageResizer</em></p>
 </li>
 <li>
-<p>In the Solution Explorer window, double-click Web.config to open it for editing.</p>
+<p>In the Solution Explorer window, double-click <strong>Web.config</strong> to open it for editing.</p>
 
 <p><a href="Images/open-web-config.png" target="_blank"><img src="Images/open-web-config.png" alt="Opening Web.config" style="max-width:100%;"></a></p>
 
@@ -736,14 +736,14 @@ vertical-align:1px;
 <p><em>Copying the storage account's access key</em></p>
 </li>
 <li>
-<p>Return to Visual Studio. In Web.config, add the following statement to the &lt;appSettings&gt; section, replacing <em>account_name</em> with the name of the storage account you created in Exercise 1, and <em>account_key</em> with the access key you copied to the clipboard in the previous step.</p>
+<p>Return to Visual Studio. In <strong>Web.config</strong>, add the following statement to the &lt;appSettings&gt; section, replacing <em>account_name</em> with the name of the storage account you created in Exercise 1, and <em>account_key</em> with the access key you copied to the clipboard in the previous step.</p>
 
 <div class="highlight highlight-source-cs"><pre>&lt;<span class="pl-k">add</span> key=<span class="pl-s"><span class="pl-pds">"</span>StorageConnectionString<span class="pl-pds">"</span></span> <span class="pl-k">value</span>=<span class="pl-s"><span class="pl-pds">"</span>DefaultEndpointsProtocol=https;AccountName=account_name;AccountKey=account_key<span class="pl-pds">"</span></span> /&gt;</pre></div>
 
-<p>Now save your changes and close Web.config.</p>
+<p>Now save your changes and close <strong>Web.config</strong>.</p>
 </li>
 <li>
-<p>In the Solution Explorer window, find the file named _Layout.cshtml in the Views/Shared folder. Double-click the file to open it.</p>
+<p>In the Solution Explorer window, find the file named <strong>_Layout.cshtml</strong> in the Views/Shared folder. Double-click the file to open it.</p>
 
 <blockquote>
 <p>In an ASP.NET MVC project, _Layout.cshtml is a special view that serves as a template for other views. You typically define header and footer content that is common to all views in _Layout.cshtml.</p>
@@ -758,7 +758,7 @@ vertical-align:1px;
 
 <div class="highlight highlight-source-cs"><pre>@Html.ActionLink(<span class="pl-s"><span class="pl-pds">"</span>Intellipix<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Index<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Home<span class="pl-pds">"</span></span>, <span class="pl-k">new</span> { area = <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span> }, <span class="pl-k">new</span> { @<span class="pl-k">class</span> = <span class="pl-s"><span class="pl-pds">"</span>navbar-brand<span class="pl-pds">"</span></span> })</pre></div>
 
-<p>Save your changes and close _Layout.cshtml.</p>
+<p>Save your changes and close <strong>_Layout.cshtml</strong>.</p>
 </li>
 <li>
 <p>In Solution Explorer, right-click the project's Models folder and select <strong>Add -&gt; Class</strong>:</p>
@@ -787,7 +787,7 @@ vertical-align:1px;
 <p>Now save your changes and close BlobInfo.cs.</p>
 </li>
 <li>
-<p>In Solution Explorer, find HomeController.cs in the Controllers folder and double-click it to open it.</p>
+<p>In Solution Explorer, find <strong>HomeController.cs</strong> in the Controllers folder and double-click it to open it.</p>
 
 <p><a href="Images/open-home-controller.png" target="_blank"><img src="Images/open-home-controller.png" alt="Opening HomeController.cs" style="max-width:100%;"></a></p>
 
@@ -805,7 +805,7 @@ vertical-align:1px;
 <span class="pl-k">using</span> <span class="pl-en">System.IO</span>;</pre></div>
 </li>
 <li>
-<p>Replace the <em>Index</em> method in HomeController.cs with the following implementation:</p>
+<p>Replace the <em>Index</em> method in <strong>HomeController.cs</strong> with the following implementation:</p>
 
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> ActionResult Index()
 {
@@ -836,7 +836,7 @@ vertical-align:1px;
 <p>The modified <em>Index</em> method enumerates the blobs in the "photos" container and passes an array of BlobInfo objects representing those blobs to the view through ASP.NET MVC's ViewBag property. In a moment, you will modify the view to enumerate these objects and display a collection of photo thumbnails. The classes used to access your storage account and enumerate the blobs — CloudStorageAccount, CloudBlobClient, and CloudBlobContainer — come from the WindowsAzure.Storage package you installed from NuGet.</p>
 </li>
 <li>
-<p>Add the following method to the HomeController class in HomeController.cs:</p>
+<p>Add the following method to the HomeController class in <strong>HomeController.cs</strong>:</p>
 
 <div class="highlight highlight-source-cs"><pre>[HttpPost]
 <span class="pl-k">public</span> <span class="pl-k">async</span> Task&lt;ActionResult&gt; Upload(HttpPostedFileBase file)
@@ -877,9 +877,9 @@ vertical-align:1px;
 
 <p>This is the method that's called when you upload a photo. It stores each uploaded image as a blob in the "photos" container, creates a thumbnail image from the original image using the ImageResizer packager you installed from NuGet, and stores the thumbnail image as a blob in the "thumbnails" container.</p>
 </li>
-<li><p>In Solution Explorer, find Index.cshmtl in the Views/Home folder and double-click it to open it. This is the view that serves as the application's home page.</p></li>
+<li><p>In Solution Explorer, find <strong>Index.cshmtl</strong> in the Views/Home folder and double-click it to open it. This is the view that serves as the application's home page.</p></li>
 <li>
-<p>Replace the contents of Index.cshtml with the following code and markup:</p>
+<p>Replace the contents of <strong>Index.cshtml</strong> with the following code and markup:</p>
 
 <div class="highlight highlight-text-html-basic"><pre>@{
     ViewBag.Title = "Intellipix Home Page";
@@ -964,13 +964,13 @@ vertical-align:1px;
 <p>In this exercise, you will use a free, open-source JavaScript library to add a lightbox viewer enabling users to see the original images that they uploaded (rather than just the image thumbnails). The files are provided for you in subfolders of this lab's "resources" folder. All you have to do is integrate them into the project and make a minor modification to Index.cshtml.</p>
 
 <ol>
-<li><p>In Visual Studio's Solution Explorer window, right-click the Scripts folder and use the <strong>Add -&gt; Existing Item</strong> command to add lightbox.js, found in this lab's "resources/scripts" folder, to the project's Scripts folder.</p></li>
-<li><p>Right-click the Content folder and use the <strong>Add -&gt; Existing Item</strong> command to add lightbox.css, found in this lab's "resources/css" folder, to the project's Content folder.</p></li>
+<li><p>In Visual Studio's Solution Explorer window, right-click the Scripts folder and use the <strong>Add -&gt; Existing Item</strong> command to add <strong>lightbox.js</strong>, found in this lab's "resources/scripts" folder, to the project's Scripts folder.</p></li>
+<li><p>Right-click the Content folder and use the <strong>Add -&gt; Existing Item</strong> command to add <strong>lightbox.css</strong>, found in this lab's "resources/css" folder, to the project's Content folder.</p></li>
 <li><p>Right-click the Intellipix project in Solution Explorer and use the <strong>Add -&gt; New Folder</strong> command to add a folder named "Images" to the project.</p></li>
 <li><p>Right-click the Images folder and use the <strong>Add -&gt; Existing Item</strong> command to add the four images found in this lab's "resources/images" folder to the project's Images folder.</p></li>
 <li><p>Open the project's App_Start folder and double-click <strong>BundleConfig.cs</strong> to open the file for editing.</p></li>
 <li>
-<p>Add the following statement to the <em>RegisterBundles</em> method in BundleConfig.cs:</p>
+<p>Add the following statement to the <em>RegisterBundles</em> method in <strong>BundleConfig.cs</strong>:</p>
 
 <div class="highlight highlight-source-cs"><pre>bundles.Add(<span class="pl-k">new</span> ScriptBundle(<span class="pl-s"><span class="pl-pds">"</span>~/bundles/lightbox<span class="pl-pds">"</span></span>).Include(
             <span class="pl-s"><span class="pl-pds">"</span>~/Scripts/lightbox.js<span class="pl-pds">"</span></span>));</pre></div>
@@ -983,17 +983,17 @@ vertical-align:1px;
             <span class="pl-s"><span class="pl-pds">"</span>~/Content/site.css<span class="pl-pds">"</span></span>,
             <span class="pl-s"><span class="pl-pds">"</span>~/Content/lightbox.css<span class="pl-pds">"</span></span>));</pre></div>
 
-<p>Now save your changes and close BundleConfig.cs.</p>
+<p>Now save your changes and close <strong>BundleConfig.cs</strong>.</p>
 </li>
 <li>
-<p>Open _Layout.cshtml in the project's Views/Shared folder and add the following statement just before the @RenderSection statement near the bottom:</p>
+<p>Open <strong>_Layout.cshtml</strong> in the project's Views/Shared folder and add the following statement just before the @RenderSection statement near the bottom:</p>
 
 <div class="highlight highlight-source-cs"><pre>@Scripts.Render(<span class="pl-s"><span class="pl-pds">"</span>~/bundles/lightbox<span class="pl-pds">"</span></span>)</pre></div>
 
-<p>Save your changes and close _Layout.cshtml.</p>
+<p>Save your changes and close <strong>_Layout.cshtml</strong>.</p>
 </li>
 <li>
-<p>You're almost there. The final task is to incorporate the lightbox viewer into the home page. To do that, open Index.cshtml (it's in the project's Views/Home folder) and replace the <a href="https://github.com/foreach" class="user-mention">@foreach</a> loop with the following code:</p>
+<p>You're almost there. The final task is to incorporate the lightbox viewer into the home page. To do that, open <strong>Index.cshtml</strong> (it's in the project's Views/Home folder) and replace the <a href="https://github.com/foreach" class="user-mention">@foreach</a> loop with the following code:</p>
 
 <div class="highlight highlight-text-html-basic"><pre>@foreach (BlobInfo blob in ViewBag.Blobs)
 {
@@ -1057,7 +1057,7 @@ vertical-align:1px;
 <p><em>Copying the subscription key to the clipboard</em></p>
 </li>
 <li>
-<p>Return to Visual Studio. Open the Web.config file at the root of the project and add the following statement to the &lt;appSettings&gt; section of the file, replacing <em>subscription_key</em> with the key you copied to the clipboard in the previous step:</p>
+<p>Return to Visual Studio. Open the <strong>Web.config</strong> file at the root of the project and add the following statement to the &lt;appSettings&gt; section of the file, replacing <em>subscription_key</em> with the key you copied to the clipboard in the previous step:</p>
 
 <div class="highlight highlight-source-cs"><pre>&lt;<span class="pl-k">add</span> key=<span class="pl-s"><span class="pl-pds">"</span>SubscriptionKey<span class="pl-pds">"</span></span> <span class="pl-k">value</span>=<span class="pl-s"><span class="pl-pds">"</span>subscription_key<span class="pl-pds">"</span></span> /&gt;</pre></div>
 
@@ -1071,7 +1071,7 @@ vertical-align:1px;
 <p><em>Installing Microsoft.ProjectOxford.Vision</em></p>
 </li>
 <li>
-<p>Open HomeController.cs in the project's Controllers folder and add the following using statement at the top of the file:</p>
+<p>Open <strong>HomeController.cs</strong> in the project's Controllers folder and add the following using statement at the top of the file:</p>
 
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">Microsoft.ProjectOxford.Vision</span>;</pre></div>
 </li>
@@ -1095,7 +1095,7 @@ photo.Metadata.Add(<span class="pl-s"><span class="pl-pds">"</span>Caption<span 
 <span class="pl-k">await</span> photo.SetMetadataAsync();</pre></div>
 </li>
 <li>
-<p>Replace the <em>foreach</em> block in the <em>Index</em> method with the following statements:</p>
+<p>Replace the foreach block in the <em>Index</em> method with the following statements:</p>
 
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">foreach</span> (IListBlobItem item <span class="pl-k">in</span> container.ListBlobs())
 {
@@ -1115,9 +1115,9 @@ photo.Metadata.Add(<span class="pl-s"><span class="pl-pds">"</span>Caption<span 
     }
 }</pre></div>
 
-<p>The modified <em>foreach</em> block calls <em>FetchAttributes</em> to fetch the metadata for the blob. Then it extracts the computer-generated description from the metadata and adds it to the BlobInfo object passed to the view.</p>
+<p>The modified foreach block calls <em>FetchAttributes</em> to fetch the metadata for the blob. Then it extracts the computer-generated description from the metadata and adds it to the BlobInfo object passed to the view.</p>
 
-<p>Now save your changes and close HomeController.cs.</p>
+<p>Now save your changes and close <strong>HomeController.cs</strong>.</p>
 </li>
 <li><p>Use Visual Studio's <strong>Debug -&gt; Start Without Debugging</strong> command (or press <strong>Ctrl+F5</strong>) to launch the application in your browser. Upload a few images from this lab's "resources/photos" folder as you did before.</p></li>
 <li>
@@ -1155,7 +1155,7 @@ photo.Metadata.Add(<span class="pl-s"><span class="pl-pds">"</span>Caption<span 
 
 <ol>
 <li>
-<p>Open Index.cshtml in the project's Views/Home folder and add the following statements to the empty &lt;div&gt; element with the class="col-sm-4 pull-right" attribute:</p>
+<p>Open <strong>Index.cshtml</strong> in the project's Views/Home folder and add the following statements to the empty &lt;div&gt; element with the class="col-sm-4 pull-right" attribute:</p>
 
 <div class="highlight highlight-text-html-basic"><pre>@using (Html.BeginForm("Search", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "navbar-form" }))
 {
@@ -1172,7 +1172,7 @@ photo.Metadata.Add(<span class="pl-s"><span class="pl-pds">"</span>Caption<span 
 <p>This code and markup adds a search box and a <strong>Search</strong> button to the home page.</p>
 </li>
 <li>
-<p>Open HomeController.cs in the project's Controllers folder and add the following method to the HomeController class:</p>
+<p>Open <strong>HomeController.cs</strong> in the project's Controllers folder and add the following method to the HomeController class:</p>
 
 <div class="highlight highlight-source-cs"><pre>[HttpPost]
 <span class="pl-k">public</span> ActionResult Search(<span class="pl-k">string</span> term)

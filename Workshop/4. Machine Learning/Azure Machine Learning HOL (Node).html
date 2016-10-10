@@ -657,7 +657,7 @@ vertical-align:1px;
 
 <h2>Exercise 3: Train a classification model</h2>
 
-<p>In this exercise, you'll use ML Studio's drag-and-drop user interface to train an ML model. <em>Training</em> involves picking a machine-learning algorithm and feeding data into the model. During training, the computer looks for patterns in the data that it can use to predict values from future inputs.</p>
+<p>In this exercise, you will use ML Studio's drag-and-drop user interface to train an ML model. <em>Training</em> involves picking a machine-learning algorithm and feeding data into the model. During training, the computer looks for patterns in the data that it can use to predict values from future inputs.</p>
 
 <p>There are several types of machine-learning models. One of the most common is the regression model, which uses one of a number of regression algorithms to produce a numeric value — for example, a person's age or the probability that a credit-card transaction is fraudulent. You will be training a classification model, which seeks to resolve a set of inputs into one of a set of known outputs. A classic example of a classification model is one that examines e-mails and classifies them as "spam" or "not spam." Your model will examine a set of inputs representing pixel patterns and attempt to classify each as a digit from 0 to 9, inclusive.</p>
 
@@ -888,34 +888,46 @@ vertical-align:1px;
 
 <p>The whole reason for deploying an Azure ML model as a Web service is so you can build smart apps that utilize the model. There are a variety of ways to build such apps. You could call the service from a Web app using JavaScript and AJAX, for example, or you could use <a href="https://www.nativescript.org/">NativeScript</a> to write an app that runs on iOS or Android and places calls to the service using HTTP requests.</p>
 
-<p>In this exercise, you will write a cross-platform client app using <a href="http://electron.atom.io/">Electron</a>. The beauty of such apps is that they run on Windows, Mac, or Linux machines. The app you will write enables you to draw digits into an onscreen grid. Then it calls your ML Web service and tells you what digit you drew.</p>
-
-<p>Follow these steps.</p>
+<p>In this exercise, you will write a cross-platform client app using <a href="https://nodejs.org">Node.js</a> and <a href="http://electron.atom.io/">Electron</a>. The beauty of such apps is that they run on Windows, Mac, or Linux machines. The app you will write enables you to draw digits into an onscreen grid. Then it calls your ML Web service and tells you what digit you drew.</p>
 
 <ol>
-<li><p>Create an empty directory to serve as your project directory.</p></li>
+<li><p>Create a new directory to serve as your project directory.</p></li>
 <li><p>Open a terminal or Command Prompt window and navigate to the directory you created in the previous step to make it the current directory.</p></li>
 <li>
-<p>Execute the following command to verify that you have Node.js version 4 or higher installed. (If Node is installed, you will see the version number.) If Node is not installed or the version is less than 4, go to <a href="https://nodejs.org/en/">https://nodejs.org/en/</a> and install the latest version.</p>
+<p>Execute the following command to verify that you have Node.js version 4 or higher installed. (If Node is installed, you will see the version number.) If Node is not installed or the version is less than 4, go to <a href="https://nodejs.org">https://nodejs.org</a> and install the latest stable version.</p>
 
-<pre><code>node --version
-</code></pre>
+<pre>node --version
+</pre>
 </li>
 <li>
 <p>Use the following command to create a new Node.js project.</p>
 
-<pre><code>npm init -y
-</code></pre>
+<pre>npm init -y
+</pre>
 
-<p>This will create an empty <code>package.json</code> file in the current directory.</p>
+<p>This will create an empty <strong>package.json</strong> file in the current directory.</p>
+
+<blockquote>
+<p>Node.js uses a package manager, called <strong>npm</strong>, to add additional components to Node.js applications. These additional components are dependencies of your application and are defined in the <strong>package.json</strong> file. Some dependencies are just needed when building the application, but others are required to actually run it. You will use several dependencies in your Electron application.</p>
+</blockquote>
 </li>
 <li>
-<p>Node.js uses a package manager, called <code>npm</code>, to add additional components to Node.js applications. These additional components are dependencies of your application and are defined in the <code>package.json</code> file. Some dependencies are just needed when building the application, but others are required to actually run it. You will use several dependencies in your Electron application.</p>
+<p>In the Command Prompt or terminal window, execute the following command (note the space and the period at the end of the command) to start Visual Studio Code in the current directory:</p>
 
-<p>Open <code>package.json</code> in Visual Studio Code or your favorite text editor and add the <code>dependencies</code> and <code>devDependencies</code> properties shown below.</p>
+<pre>code .
+</pre>
+</li>
+<li>
+<p>In Visual Studio Code, select the <strong>Explorer</strong> command from the <strong>View</strong> menu to make sure the Explorer panel is displayed. Then click <strong>Package.json</strong> to open the file for editing.</p>
+
+<p><a href="Images/node-open-package-json.png" target="_blank"><img src="Images/node-open-package-json.png" alt="Opening package.json" style="max-width:100%;"></a></p>
+
+<p><em>Opening package.json</em></p>
+</li>
+<li>
+<p>Add the <em>dependencies</em> and <em>devDependencies</em> sections shown below to <strong>package.json</strong>. You can insert these starting on line 2 if you would like.</p>
 
 <div class="highlight highlight-source-js"><pre>{
-  <span class="pl-k">...</span>
   <span class="pl-s"><span class="pl-pds">"</span>dependencies<span class="pl-pds">"</span></span><span class="pl-k">:</span> {
     <span class="pl-s"><span class="pl-pds">"</span>@angular/common<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>2.0.0<span class="pl-pds">"</span></span>,
     <span class="pl-s"><span class="pl-pds">"</span>@angular/compiler<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>2.0.0<span class="pl-pds">"</span></span>,
@@ -937,15 +949,18 @@ vertical-align:1px;
     <span class="pl-s"><span class="pl-pds">"</span>electron<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^1.4.0<span class="pl-pds">"</span></span>,
     <span class="pl-s"><span class="pl-pds">"</span>npm-run-all<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^3.1.0<span class="pl-pds">"</span></span>,
     <span class="pl-s"><span class="pl-pds">"</span>typescript<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^2.0.3<span class="pl-pds">"</span></span>
-  }
+  },
+  <span class="pl-k">...</span>
 }</pre></div>
 
-<p>This brings a number of important dependencies into the application. Everything under the <code>dependencies</code> property is associated with the <a href="https://angular.io/">Angular</a> framework and related TypeScript definitions. Angular is a client framework that simplifies JavaScript applications. It provides functionality for implementing user interfaces and also for calling Web services. The <code>devDependencies</code> property defines some components that will help us build our application.</p>
+<p>This brings a number of important dependencies into the application. Everything under the <em>dependencies</em> property is associated with the <a href="https://angular.io/">Angular</a> framework and related TypeScript definitions. Angular is a client framework that simplifies JavaScript applications. It provides functionality for implementing user interfaces and also for calling Web services. The <em>devDependencies</em> property defines other components used by the application.</p>
 
+<blockquote>
 <p>You will be using <a href="https://www.typescriptlang.org/">TypeScript</a> to code the application. TypeScript is a superset of JavaScript, so the code should look familiar to you. You will use some TypeScript-specific features, such as <a href="https://www.typescriptlang.org/docs/handbook/decorators.html">decorators</a>. (While this is not an absolute requirement, it does simplify the Angular code a bit.)</p>
+</blockquote>
 </li>
 <li>
-<p>Replace the <code>scripts</code> property in the <code>package.json</code> file with the following <code>scripts</code> property:</p>
+<p>Replace the <em>scripts</em> property in <strong>package.json</strong> with the following <em>scripts</em> property. Then save your changes to <strong>package.json</strong>.</p>
 
 <div class="highlight highlight-source-js"><pre>{
   <span class="pl-k">...</span>
@@ -959,7 +974,14 @@ vertical-align:1px;
 }</pre></div>
 </li>
 <li>
-<p>To give TypeScript information about how to build the application, add the following <code>tsconfig.json</code> file to the project directory.</p>
+<p>Place the mouse cursor over the project directory in Visual Studio Code's Explorer panel and click the <strong>New File</strong> button to add a new file to the project. Name the file <strong>tsconfig.json</strong>.</p>
+
+<p><a href="Images/node-new-file.png" target="_blank"><img src="Images/node-new-file.png" alt="Adding a file to the project" style="max-width:100%;"></a></p>
+
+<p><em>Adding a file to the project</em></p>
+</li>
+<li>
+<p>To give TypeScript information about how to build the application, paste the following statements into <strong>tsconfig.json</strong>. Then save your changes.</p>
 
 <div class="highlight highlight-source-js"><pre>{
   <span class="pl-s"><span class="pl-pds">"</span>compilerOptions<span class="pl-pds">"</span></span><span class="pl-k">:</span> {
@@ -975,13 +997,13 @@ vertical-align:1px;
 }</pre></div>
 </li>
 <li>
-<p>Execute the following command to install the dependencies that you defined:</p>
+<p>Return to the Command Prompt or terminal window and execute the following command to install the dependencies that you defined:</p>
 
-<pre><code>npm install
-</code></pre>
+<pre>npm install
+</pre>
 </li>
 <li>
-<p>Now it is time to build the application itself. As a first step, create a file named <code>index.html</code> in the project directory and insert the following statements:</p>
+<p>Now it is time to write the application itself. As a first step, use Visual Studio Code to create a file named <strong>index.html</strong> in the project directory and insert the following statements:</p>
 
 <div class="highlight highlight-text-html-basic"><pre>&lt;!DOCTYPE html&gt;
 &lt;<span class="pl-ent">html</span> <span class="pl-e">lang</span>=<span class="pl-s"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span>&gt;
@@ -1005,7 +1027,7 @@ vertical-align:1px;
 &lt;/<span class="pl-ent">html</span>&gt;</pre></div>
 </li>
 <li>
-<p>Now create a file named <code>main.css</code> and add the following style definitions:</p>
+<p>Now create a file named <strong>main.css</strong> in the project directory and add the following style definitions:</p>
 
 <div class="highlight highlight-source-css"><pre><span class="pl-e">.pixel-grid</span> {
     <span class="pl-c1">-webkit-<span class="pl-c1">user-select</span></span>: <span class="pl-c1">none</span>;
@@ -1033,7 +1055,7 @@ vertical-align:1px;
 }</pre></div>
 </li>
 <li>
-<p>Your app will use <a href="https://github.com/systemjs/systemjs">System.js</a>, a universal dynamic module loader for JavaScript. System.js relies on a configuration file for loading JavaScript files. Add that configuration file to the project by creating a file named <code>system.config.js</code> in the project directory and adding the following code:</p>
+<p>Your app will use <a href="https://github.com/systemjs/systemjs">System.js</a>, a universal dynamic module loader for JavaScript, to load scripts. System.js relies on a configuration file for loading JavaScript files. Add that configuration file to the project by creating a file named <strong>system.config.js</strong> in the project directory and adding the following code:</p>
 
 <div class="highlight highlight-source-js"><pre>(<span class="pl-k">function</span> (<span class="pl-c1">global</span>) {
     <span class="pl-smi">System</span>.<span class="pl-en">config</span>({
@@ -1064,10 +1086,9 @@ vertical-align:1px;
 })(<span class="pl-v">this</span>);</pre></div>
 </li>
 <li>
-<p>Electron needs a main startup file. The startup file performs the initial configuration of the application, responds to application events (such as the user closing the application), and loads the initial user interface. Create a <code>main.ts</code> file (the .ts extension is for TypeScript) and add the following statements to it:</p>
+<p>Electron needs a main startup file. The startup file performs the initial configuration of the application, responds to application events (such as the user closing the application), and loads the initial user interface. Create a file named <strong>main.ts</strong> in the project directory (the .ts extension is for TypeScript) and add the following statements to it:</p>
 
-<div class="highlight highlight-source-ts"><pre>
-<span class="pl-k">const</span> {<span class="pl-v">app</span>, <span class="pl-v">BrowserWindow</span>} <span class="pl-k">=</span> require(<span class="pl-s">'electron'</span>);
+<div class="highlight highlight-source-ts"><pre><span class="pl-k">const</span> {<span class="pl-v">app</span>, <span class="pl-v">BrowserWindow</span>} <span class="pl-k">=</span> require(<span class="pl-s">'electron'</span>);
 
 <span class="pl-k">let</span> <span class="pl-v">win</span> = <span class="pl-c1">null</span>;
 
@@ -1098,17 +1119,19 @@ app.on(<span class="pl-s">'activate'</span>, () <span class="pl-k">=&gt;</span> 
     <span class="pl-c">//win.webContents.openDevTools();</span>
 }</pre></div>
 
-<p>You can uncomment the <code>//win.webContents.openDevTools();</code> line above if you wish for the <a href="https://developer.chrome.com/devtools">Chrome Developer Tools</a> to be opened automatically when you start the application.  This is helpful for debugging if things go wrong with your application.</p>
+<blockquote>
+<p>You can uncomment the call to <em>win.webContents.openDevTools()</em> if you want the <a href="https://developer.chrome.com/devtools">Chrome Developer Tools</a> to be opened automatically when you start the application.  This is helpful for debugging if things go wrong with your application.</p>
+</blockquote>
 </li>
 <li>
-<p>Electron needs to know which file is the main startup file. This is specified in <code>package.json</code>. Change the <code>main</code> property in that file to the following:</p>
+<p>Electron needs to know which file is the main startup file. This is specified in <strong>package.json</strong>. Change the <em>main</em> property in that file to the following:</p>
 
 <div class="highlight highlight-source-js"><pre><span class="pl-s"><span class="pl-pds">"</span>main<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>main.js<span class="pl-pds">"</span></span>,</pre></div>
 
-<p><code>main.js</code> gets created when the TypeScript file <code>main.ts</code> gets compiled into JavaScript.     </p>
+<p><strong>main.js</strong> gets created when the TypeScript file <strong>main.ts</strong> gets compiled into JavaScript.     </p>
 </li>
 <li>
-<p>Now comes the Angular application that displays the grid, handles user mouse clicks, and calls the ML web service you set up. Create an <code>application.ts</code> file and add the following statements:</p>
+<p>Now comes the Angular application that displays the grid, handles mouse clicks, and calls the ML Web service you set up. Add an <strong>application.ts</strong> file to the project directory and add the following statements:</p>
 
 <div class="highlight highlight-source-ts"><pre><span class="pl-k">import</span> { NgModule, Component, HostListener } <span class="pl-k">from</span> <span class="pl-s">'@angular/core'</span>;
 <span class="pl-k">import</span> { BrowserModule } <span class="pl-k">from</span> <span class="pl-s">'@angular/platform-browser'</span>;
@@ -1229,8 +1252,8 @@ app.on(<span class="pl-s">'activate'</span>, () <span class="pl-k">=&gt;</span> 
 
     <span class="pl-en">postRequest</span>(<span class="pl-v">request</span>: <span class="pl-c1">any</span>) {
 
-        <span class="pl-k">const</span> <span class="pl-v">url</span> = <span class="pl-s">'... add your URL here ...'</span>;
-        <span class="pl-k">const</span> <span class="pl-v">apiKey</span> = <span class="pl-s">'... add your API Key here ...'</span>;
+        <span class="pl-k">const</span> <span class="pl-v">url</span> = <span class="pl-s">'web_service_url'</span>;
+        <span class="pl-k">const</span> <span class="pl-v">apiKey</span> = <span class="pl-s">'api_key'</span>;
 
         <span class="pl-k">let</span> <span class="pl-v">body</span> = JSON.stringify(request);
         <span class="pl-k">let</span> <span class="pl-v">headers</span> = <span class="pl-k">new</span> Headers({
@@ -1280,23 +1303,23 @@ app.on(<span class="pl-s">'activate'</span>, () <span class="pl-k">=&gt;</span> 
 <span class="pl-k">const</span> <span class="pl-v">platform</span> = platformBrowserDynamic();
 platform.bootstrapModule(AppModule);</pre></div>
 
-<p>The heart of the application is the <code>PixelGrid</code> component, which displays a two-dimensional grid in which the user draws digits and manages an array of Boolean values indicating the on/off state of each square in the grid. It also handles clicks of the <code>Submit</code> and <code>Clear</code> buttons. The <code>Submit</code> button submits the input data to the ML Web service.</p>
+<p>The heart of the application is the PixelGrid component, which displays a two-dimensional grid in which the user draws digits and manages an array of Boolean values indicating the on/off state of each square in the grid. It also handles clicks of the <strong>Submit</strong> and <strong>Clear</strong> buttons. The <strong>Submit</strong> button submits the input data to the ML Web service.</p>
 </li>
 <li>
-<p>The Electron application needs the API Key and URL for your Web service. Modify <code>application.ts</code> by replacing "... add your URL here ..." with the Web service URL you saved in Exercise 5, Step 7, add replacing "... add your API Key here ..." with the API key you saved in Exercise 5, Step 5.</p>
+<p>The application needs the API Key and URL for your Web service. Modify <strong>application.ts</strong> by replacing <em>web_service_url</em> on line 120 with the Web service URL you saved in Exercise 5, Step 7, and replacing <em>api_key</em> on line 121 with the API key you saved in Exercise 5, Step 5.</p>
 
-<div class="highlight highlight-source-ts"><pre><span class="pl-k">const</span> <span class="pl-v">url</span> = <span class="pl-s">'... add your URL here ...'</span>;
-<span class="pl-k">const</span> <span class="pl-v">apiKey</span> = <span class="pl-s">'... add your API Key here ...'</span>;</pre></div>
+<div class="highlight highlight-source-ts"><pre><span class="pl-k">const</span> <span class="pl-v">url</span> = <span class="pl-s">'web_service_url'</span>;
+<span class="pl-k">const</span> <span class="pl-v">apiKey</span> = <span class="pl-s">'api_key'</span>;</pre></div>
 </li>
 <li>
-<p>Compile the application by executing the following command:</p>
+<p>Use Visual Studio Code's <strong>File -&gt; Save All</strong> command to save all of your changes. Then return to the Command Prompt or terminal window and compile the application by executing the following command:</p>
 
-<pre><code>npm run tsc
-</code></pre>
-
-<p>Congratulations! You've finished building an Electron application that relies on Azure Machine Learning for intelligence. The final task is to try it out and see how intelligent the app really is.</p>
+<pre>npm run tsc
+</pre>
 </li>
 </ol>
+
+<p>Congratulations! You built an Electron application that relies on Azure Machine Learning for intelligence. The final task is to try it out and see how intelligent the app really is.</p>
 
 <p><a name="Exercise7"></a></p>
 
@@ -1306,13 +1329,13 @@ platform.bootstrapModule(AppModule);</pre></div>
 
 <ol>
 <li>
-<p>Run the application using the following command.</p>
+<p>Run the application by executing the following command in the Command Prompt or terminal window:</p>
 
 <pre><code>npm run electron
 </code></pre>
 
 <blockquote>
-<p>An alternative is to run the command <code>npm start</code>, which starts the application and also watches for changes in the TypeScript files, recompiling them when they change. This ensures that changes to your code will be reflected in the running application without requiring a manual restart.</p>
+<p>An alternative is to run the command <strong>npm start</strong>, which starts the application and also watches for changes in the TypeScript files, recompiling them when they change. This ensures that changes to your code will be reflected in the running application without requiring a manual restart.</p>
 </blockquote>
 </li>
 <li>
@@ -1329,14 +1352,10 @@ platform.bootstrapModule(AppModule);</pre></div>
 
 <p><em>Azure ML's response</em></p>
 </li>
-<li>
-<p>Click the <strong>Clear</strong> button to clear the grid and try a few other digits. You'll probably find that the model you built is better at identifying some digits than others, and that you get the best results when the digits you draw fill the expanse of the grid as much as possible.</p>
-
-<blockquote>
-<p>The incorrect answers are partly the result of the relatively small dataset you trained the model with (the dataset was roughly 0.5 MB, which is small by big-data standards), and partly due to the fact that the onscreen grid display uses only 1/16th the resolution of the scans that the model was trained with. Nonetheless, it's a pretty impressive feat for an app to perform basic OCR in this manner. And it's indicative of the kinds of apps you can build when you have Azure Machine Learning doing the heavy lifting.</p>
-</blockquote>
-</li>
+<li><p>Click the <strong>Clear</strong> button to clear the grid and try a few other digits. You'll probably find that the model you built is better at identifying some digits than others, and that you get the best results when the digits you draw fill the expanse of the grid as much as possible.</p></li>
 </ol>
+
+<p>Any incorrect answers are partly the result of the relatively small dataset you trained the model with (the dataset was roughly 0.5 MB, which is small by big-data standards), and partly due to the fact that the onscreen grid display uses only 1/16th the resolution of the scans that the model was trained with. Nonetheless, it's a pretty impressive feat for an app to perform basic OCR in this manner. And it's indicative of the kinds of apps you can build when you have Azure Machine Learning doing the heavy lifting.</p>
 
 <h2>Summary</h2>
 

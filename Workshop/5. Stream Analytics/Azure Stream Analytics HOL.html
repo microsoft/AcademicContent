@@ -501,7 +501,7 @@ vertical-align:1px;
 
 <h3>Prerequisites</h3>
 
-<p>The following is required to complete this hands-on lab:</p>
+<p>The following are required to complete this hands-on lab:</p>
 
 <ul>
 <li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
@@ -539,7 +539,7 @@ vertical-align:1px;
 
 <ol>
 <li>
-<p>You can't (yet) create an event hub using the Azure Portal, so you'll create it instead using the Classic Portal. Go to <a href="https://manage.windowsazure.com">https://manage.windowsazure.com</a> to open the Classic Portal, and click <strong>Service Bus</strong> in the ribbon on the left. Then click <strong>CREATE A NEW NAMESPACE</strong> to create a new service-bus namespace. (If you have already created one or more namespaces, click <strong>+ NEW</strong> in the lower-left corner of the page to create another one.)</p>
+<p>Because the Azure Portal lacks full support for event hubs and Stream Analytics at the moment, you will work this lab using the Classic Portal. Go to <a href="https://manage.windowsazure.com">https://manage.windowsazure.com</a> to open the Classic Portal, and click <strong>Service Bus</strong> in the ribbon on the left. Then click <strong>CREATE A NEW NAMESPACE</strong> to create a new service-bus namespace. (If you have already created one or more namespaces, click <strong>+ NEW</strong> in the lower-left corner of the page to create another one.)</p>
 
 <p><a href="Images/service-bus-screen.png" target="_blank"><img src="Images/service-bus-screen.png" alt="Azure Service Bus" style="max-width:100%;"></a></p>
 
@@ -562,19 +562,19 @@ vertical-align:1px;
 <li>
 <p>Wait for the event hub to be created. Then click the event hub name to display the event hub's dashboard.</p>
 
-<p><a href="Images/iot-event-hub.png" target="_blank"><img src="Images/iot-event-hub.png" alt="Input event hub" style="max-width:100%;"></a></p>
+<p><a href="Images/iot-event-hub.png" target="_blank"><img src="Images/iot-event-hub.png" alt="Opening the event hub" style="max-width:100%;"></a></p>
 
-<p><em>Input event hub</em></p>
+<p><em>Opening the event hub</em></p>
 </li>
 <li>
 <p>Click <strong>CONFIGURE</strong>.</p>
 
-<p><a href="Images/iot-event-hub-dashboard.png" target="_blank"><img src="Images/iot-event-hub-dashboard.png" alt="Event hub dashboard" style="max-width:100%;"></a></p>
+<p><a href="Images/iot-event-hub-dashboard.png" target="_blank"><img src="Images/iot-event-hub-dashboard.png" alt="Configuring the event hub" style="max-width:100%;"></a></p>
 
-<p><em>Event hub dashboard</em></p>
+<p><em>Configuring the event hub</em></p>
 </li>
 <li>
-<p>In order to transmit events to the event hub from an application or device, you need to create a shared-access policy that includes Send permission. In the <strong>shared access policies</strong> section of the event-hub configuration page, create a new policy by typing "SendPolicy" (without quotation marks) into the first text box and checking the <strong>Send</strong> box in the drop-down list under <strong>PERMISSIONS</strong>. Then click the <strong>Save</strong> button at the bottom of the page to save the new policy.</p>
+<p>In order to transmit events to the event hub from an application or device, you need to create a shared-access policy that includes Send permission. In the <strong>shared access policies</strong> section of the page, create a new policy by typing "SendPolicy" (without quotation marks) into the first text box and checking the <strong>Send</strong> box in the drop-down list under <strong>PERMISSIONS</strong>. Then click the <strong>Save</strong> button at the bottom of the page to save the new policy.</p>
 
 <p><a href="Images/new-shared-access-policy.png" target="_blank"><img src="Images/new-shared-access-policy.png" alt="Creating a send policy" style="max-width:100%;"></a></p>
 
@@ -583,7 +583,7 @@ vertical-align:1px;
 <li>
 <p>Click <strong>DASHBOARD</strong> near the top of the page to return to the event hub's dashboard.</p>
 
-<p><a href="Images/return-to-dashboard.png" target="_blank"><img src="Images/return-to-dashboard.png" alt="Return to dashboard" style="max-width:100%;"></a></p>
+<p><a href="Images/return-to-dashboard.png" target="_blank"><img src="Images/return-to-dashboard.png" alt="Returning to dashboard" style="max-width:100%;"></a></p>
 
 <p><em>Returning to the dashboard</em></p>
 </li>
@@ -603,13 +603,13 @@ vertical-align:1px;
 </li>
 </ol>
 
-<p>You have created an event hub that can ingest events and be used as the source of input to a Stream Analytics job. You have also created a policy that allows events to be sent to the event hub, and a connection string that encapsulates that policy. The next step is to use that connection string to transmit events to the event hub.</p>
+<p>You have created an event hub that can ingest events and be used as the source of input to a Stream Analytics job. You have also created a policy that allows holders of that policy to send events to the event hub, and a connection string that encapsulates that policy. The next step is to use that connection string to transmit events to the event hub.</p>
 
 <p><a name="Exercise2"></a></p>
 
 <h2>Exercise 2: Send events to the event hub</h2>
 
-<p>Applications, devices, and gateways can send events to Azure event hubs using the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx">Azure Event Hubs REST API</a> or the <a href="https://www.amqp.org/">Advanced Message Queuing Protocol</a>, or AMQP for short. In this exercise, you will write a Windows console app that uses AQMP to send events to the event hub you created in <a href="#Exercise1">Exercise 1</a>. Each event will represent a withdrawal from an ATM machine, and will contain relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.</p>
+<p>Applications, devices, and gateways can send events to Azure event hubs using the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx">Azure Event Hubs REST API</a> or the <a href="https://www.amqp.org/">Advanced Message Queuing Protocol</a>, or AMQP for short. In this exercise, you will write a Windows console app that uses AMQP to send events to the event hub you created in <a href="#Exercise1">Exercise 1</a>. Each event will represent a withdrawal from an ATM machine, and will contain relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.</p>
 
 <ol>
 <li>
@@ -713,11 +713,11 @@ vertical-align:1px;
     }
 }</pre></div>
 </li>
-<li><p>Replace <strong>connection_string</strong> in line 6 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 1, Step 9.</p></li>
+<li><p>Replace <em>connection_string</em> in line 6 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 1, Step 9.</p></li>
 <li>
 <p>Remove ";EntityPath=inputhub" from the end of the connection string. The _connectionString field should now look something like this:</p>
 
-<div class="highlight highlight-source-cs"><pre><span class="pl-k">static</span> <span class="pl-k">string</span> _connectionString = <span class="pl-s"><span class="pl-pds">"</span>Endpoint=sb://dxlabs.servicebus.windows.net/;SharedAccessKeyName=SendPolicy;SharedAccessKey=Zx/fjB8kH3nuW789pUpXJ1S45FkMacJq9gYUu6cRD3Y=<span class="pl-pds">"</span></span>;</pre></div>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">static</span> <span class="pl-k">string</span> _connectionString = <span class="pl-s"><span class="pl-pds">"</span>Endpoint=sb://dxlabs.servicebus.windows.net/;SharedAccessKeyName=SendPolicy;SharedAccessKey=Zx/fjB8kH3nuW789pUpXJ1S45FkMacJq9gYku6cRD3Y=<span class="pl-pds">"</span></span>;</pre></div>
 </li>
 <li>
 <p>Press <strong>Ctrl+F5</strong> to run the program and confirm that you see output similar to the following. Each line represents one event sent to the event hub, and events will probably roll by at a rate of about 2 to 3 per second. (Rates will vary depending on your connection speed.) <strong>Confirm that no exceptions are thrown</strong>.</p>
@@ -735,51 +735,25 @@ vertical-align:1px;
 
 <h2>Exercise 3: Create a Stream Analytics job</h2>
 
-<p>You now have software that sends events to an Azure event hub, and an event hub that ingests the data. In this exercise, you'll use the Microsoft Azure <a href="https://manage.windowsazure.com">Classic Portal</a> to create a Stream Analytics job and connect it to the event hub. You'll also capture the raw data being presented to Stream Analytics by the event hub and examine its structure. But first, you will create a storage account for the Stream Analytics job to use.</p>
+<p>You now have software that sends events to an Azure event hub, and an event hub that ingests the data. In this exercise, you'll use the Microsoft Azure <a href="https://manage.windowsazure.com">Classic Portal</a> to create a Stream Analytics job and connect it to the event hub. You'll also capture the raw data being presented to Stream Analytics by the event hub and examine its structure.</p>
 
 <ol>
-<li><p>Open the <a href="https://manage.windowsazure.com">Classic Portal</a> in your browser if it isn't already open, and click <strong>+ NEW</strong> in the lower-left corner of the portal.</p></li>
 <li>
-<p>Click <strong>DATA SERVICES -&gt; STORAGE -&gt; QUICK CREATE</strong>. Enter a name for the new storage account in the <strong>URL</strong> box, and then select the region nearest you under <strong>LOCATION</strong> and <strong>Locally Redundant</strong> under <strong>REPLICATION</strong>. Then click <strong>CREATE STORAGE ACCOUNT</strong>.</p>
-
-<blockquote>
-<p>Recall that storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.</p>
-</blockquote>
-
-<p><a href="Images/new-storage-account.png" target="_blank"><img src="Images/new-storage-account.png" alt="Creating a new storage account" style="max-width:100%;"></a></p>
-
-<p><em>Creating a new storage account</em></p>
-</li>
-<li>
-<p>Once the storage account is created (it generally takes 30 to 60 seconds) and appears in the list of storage accounts associated with your subscription, click it.</p>
-
-<p><a href="Images/select-storage-account.png" target="_blank"><img src="Images/select-storage-account.png" alt="Selecting the new storage account" style="max-width:100%;"></a></p>
-
-<p><em>Selecting the new storage account</em></p>
-</li>
-<li>
-<p>Click <strong>MANAGE ACCESS KEYS</strong> in the ribbon at the bottom of the portal.</p>
-
-<p><a href="Images/manage-access-keys.png" target="_blank"><img src="Images/manage-access-keys.png" alt="Viewing the storage account's access keys" style="max-width:100%;"></a></p>
-
-<p><em>Viewing the storage account's access keys</em></p>
-</li>
-<li>
-<p>In the ensuing dialog, click the <strong>Copy</strong> button to the right of the storage account's primary access key to copy the key to the clipboard. Paste the key into your favorite text editor so you can retrieve it later. Then dismiss the dialog by clicking the check mark in the lower-right corner.</p>
-
-<p><a href="Images/copy-access-key.png" target="_blank"><img src="Images/copy-access-key.png" alt="Copying the primary access key to the clipboard" style="max-width:100%;"></a></p>
-
-<p><em>Copying the primary access key to the clipboard</em></p>
-</li>
-<li>
-<p>Now it's time to create a Stream Analytics job. Begin by clicking <strong>STREAM ANALYTICS</strong> in the ribbon on the left side of the portal (you may have to scroll down to find it), and then clicking <strong>CREATE A NEW STREAM ANALYTICS JOB</strong>.</p>
+<p>Open the <a href="https://manage.windowsazure.com">Classic Portal</a> in your browser if it isn't already open. Click <strong>STREAM ANALYTICS</strong> in the ribbon on the left, and then click <strong>CREATE A NEW STREAM ANALYTICS JOB</strong>.</p>
 
 <p><a href="Images/stream-analytics-screen.png" target="_blank"><img src="Images/stream-analytics-screen.png" alt="Azure Stream Analytics" style="max-width:100%;"></a></p>
 
 <p><em>Azure Stream Analytics</em></p>
 </li>
 <li>
-<p>Type "IoT-Analytics" (without quotation marks) into the <strong>JOB NAME</strong> box. Select the region nearest you in the <strong>REGION</strong> box. Under <strong>REGIONAL MONITORING STORAGE ACCOUNT</strong>, select the storage account that you created just a moment ago. (If the portal selects another storage account and won't let you change the selection, that's fine. Just accept it.) Then click <strong>CREATE STREAM ANALYTICS JOB</strong> in the lower-right corner.</p>
+<p>Type "IoT-Analytics" (without quotation marks) into the <strong>JOB NAME</strong> box. Select the region nearest you in the <strong>REGION</strong> box. (It is important to select the same region here that you selected for the event hub in Exercise 1, because you're not charged for data that moves within a data center, but you <em>are</em> charged for data that moves <em>between</em> data centers. In addition, locating services that talk to each other in the same data center reduces latency.) Under <strong>REGIONAL MONITORING STORAGE ACCOUNT</strong>, either specify the name of a new storage account, or select an existing storage account if the portal presents you with that option.</p>
+
+<blockquote>
+<p>If you choose to create a new storage account, recall that storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria. It is also advisable to locate the storage account in the same region as the Stream Analytics job to prevent the data from moving between data centers.</p>
+</blockquote>
+</li>
+<li>
+<p>When you're done, click <strong>CREATE STREAM ANALYTICS JOB</strong> in the lower-right corner.</p>
 
 <p><a href="Images/new-stream-analytics-job.png" target="_blank"><img src="Images/new-stream-analytics-job.png" alt="Creating a Stream Analytics job" style="max-width:100%;"></a></p>
 
@@ -875,7 +849,13 @@ vertical-align:1px;
 
 <p><em>Downloading sample data</em></p>
 </li>
-<li><p>Open the JSON file you downloaded in your favorite text editor and take a moment to examine its contents. How many rows (events) are represented in the sample data? What is the structure of each row — that is, what fields does each row contain?</p></li>
+<li>
+<p>Open the JSON file you downloaded in your favorite text editor and take a moment to examine its contents. How many rows (events) are represented in the sample data? What is the structure of each row — that is, what fields does each row contain?</p>
+
+<blockquote>
+<p>If you find the output hard to digest since there are no line breaks, try pasting it into an online JSON viewer such as the one at <a href="http://jsonviewer.stack.hu/">http://jsonviewer.stack.hu/</a> or <a href="https://jsonformatter.curiousconcept.com/">https://jsonformatter.curiousconcept.com/</a>. </p>
+</blockquote>
+</li>
 </ol>
 
 <p>You have connected a Stream Analytics job to an event hub and demonstrated that data is passed from one to the other. You have also examined the structure of that data. The next step is to do something with it — specifically, to bring the power of Azure Stream Analytics to bear on the data.  </p>
@@ -911,7 +891,7 @@ vertical-align:1px;
 <p><em>Testing a query</em></p>
 </li>
 <li>
-<p>In the ensuing dialog, click <strong>BROWSE FOR FILE</strong>. Select the file named Withdrawals.json provided in the "resources" directory of this lab. Then OK the selection by clicking the check mark in the dialog's lower-right corner.</p>
+<p>In the ensuing dialog, click <strong>BROWSE FOR FILE</strong>. Select the file named <strong>Withdrawals.json</strong> provided in the "resources" directory of this lab. Then OK the selection by clicking the check mark in the dialog's lower-right corner.</p>
 
 <blockquote>
 <p>The reason you're using a file provided for you (rather than the one you captured in the previous exercise) is to make sure everyone who is doing this exercise gets the same results.</p>
@@ -1019,16 +999,16 @@ WHERE W1.DeviceID != W2.DeviceID
 <li>
 <p>Click the new event hub to go to the event-hub dashboard.</p>
 
-<p><a href="Images/output-event-hub.png" target="_blank"><img src="Images/output-event-hub.png" alt="Output event hub" style="max-width:100%;"></a></p>
+<p><a href="Images/output-event-hub.png" target="_blank"><img src="Images/output-event-hub.png" alt="Opening the event hub" style="max-width:100%;"></a></p>
 
-<p><em>Output event hub</em></p>
+<p><em>Opening the event hub</em></p>
 </li>
 <li>
 <p>Click <strong>CONFIGURE</strong>.</p>
 
-<p><a href="Images/output-event-hub-dashboard.png" target="_blank"><img src="Images/output-event-hub-dashboard.png" alt="Event hub dashboard" style="max-width:100%;"></a></p>
+<p><a href="Images/output-event-hub-dashboard.png" target="_blank"><img src="Images/output-event-hub-dashboard.png" alt="Configuring the event hub" style="max-width:100%;"></a></p>
 
-<p><em>Event hub dashboard</em></p>
+<p><em>Configuring the event hub</em></p>
 </li>
 <li>
 <p>In order for an application to subscribe to events firing from an event hub, you need to create a shared-access policy that includes Listen permission. In the <strong>shared access policies</strong> section of the outputhub configuration page, create a new policy by typing "ReceivePolicy" (without quotation marks) into the first text box and checking the <strong>Listen</strong> box in the drop-down list under <strong>PERMISSIONS</strong>. Then click the <strong>Save</strong> button at the bottom of the page to save the new policy.</p>
@@ -1257,7 +1237,7 @@ WHERE W1.DeviceID != W2.DeviceID
 <span class="pl-k">using</span> <span class="pl-en">System.Diagnostics</span>;</pre></div>
 </li>
 <li>
-<p>In Global.asax.cs, add the following statements to the end of the Application_Start method:</p>
+<p>In Global.asax.cs, add the following statements to the end of the <em>Application_Start</em> method:</p>
 
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">string</span> eventHubConnectionString = <span class="pl-s"><span class="pl-pds">"</span>connection_string<span class="pl-pds">"</span></span>;
 <span class="pl-k">string</span> eventHubName = <span class="pl-s"><span class="pl-pds">"</span>outputhub<span class="pl-pds">"</span></span>;
@@ -1274,14 +1254,14 @@ eventProcessorHost.RegisterEventProcessorAsync&lt;SimpleEventProcessor&gt;(optio
 
 Debug.WriteLine(<span class="pl-s"><span class="pl-pds">"</span>Receiving...<span class="pl-pds">"</span></span>);</pre></div>
 </li>
-<li><p>Replace <strong>connection_string</strong> in line 1 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 5, Step 8.</p></li>
+<li><p>Replace <em>connection_string</em> in line 1 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 5, Step 8.</p></li>
 <li>
 <p>Remove ";EntityPath=outputhub" from the end of the connection string. The eventHubConnectionString variable declaration should now look something like this:</p>
 
-<div class="highlight highlight-source-cs"><pre><span class="pl-k">string</span> eventHubConnectionString = <span class="pl-s"><span class="pl-pds">"</span>Endpoint=sb://dxlabs.servicebus.windows.net/;SharedAccessKeyName=ReceivePolicy;SharedAccessKey=3XHaU3pm5t82WxA43hUM/bWa7kumqAsqzA1rVJq3Qv0=<span class="pl-pds">"</span></span>;</pre></div>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">string</span> eventHubConnectionString = <span class="pl-s"><span class="pl-pds">"</span>Endpoint=sb://dxlabs.servicebus.windows.net/;SharedAccessKeyName=ReceivePolicy;SharedAccessKey=3XHaU3pm5t82WxA43hUM/bWa7kumqAsqzJ1rVJq3Qv0=<span class="pl-pds">"</span></span>;</pre></div>
 </li>
 <li>
-<p>Replace <strong>storage_account_name</strong> in line 3 with the the name of the storage account you created in Exercise 3, Step 2, and <strong>storage_account_key</strong> in line 4 with the storage account's primary key (which you pasted into a text editor for later retrieval in Exercise 3, Step 5).</p>
+<p>Replace <em>storage_account_name</em> in line 3 with the the name of the storage account you created in Exercise 3, Step 2, and <em>storage_account_key</em> in line 4 with the storage account's primary access key. You can copy the access key to the clipboard by opening the storage account in the portal, clicking <strong>MANAGE ACCESS KEYS</strong> at the bottom of the page, and clicking the <strong>Copy</strong> button next to <strong>PRIMARY ACCESS KEY</strong>.</p>
 
 <blockquote>
 <p>This storage account has nothing to do with the Stream Analytics job; it's used by the EventProcessorHost class. However, you are letting one storage account do double duty for Stream Analytics and EventProcessorHost.</p>
@@ -1314,7 +1294,7 @@ Debug.WriteLine(<span class="pl-s"><span class="pl-pds">"</span>Receiving...<spa
 </blockquote>
 </li>
 <li>
-<p>Open Index.cshtml in the project's Views/Home folder and replace its contents with the following statements:</p>
+<p>Open <strong>Index.cshtml</strong> in the project's Views/Home folder and replace its contents with the following statements:</p>
 
 <div class="highlight highlight-text-html-basic"><pre>@{
     ViewBag.Title = "Home Page";
@@ -1421,7 +1401,7 @@ Debug.WriteLine(<span class="pl-s"><span class="pl-pds">"</span>Receiving...<spa
 <li><p>Return to the console window in which ATMEventGenerator is running and press <strong>Ctrl+C</strong> to terminate it.</p></li>
 </ol>
 
-<p>You now have a Web app that displays output from a Stream Analytics job in near real-time. There are other ways to build such dashboards, including <a href="https://powerbi.microsoft.com/">Microsoft Power BI</a>. With Power BI, you can create dashboards that render output from Stream Analytics jobs without writing any code. The connection between Azure and Power BI is currently offered only as a preview and is subject to certain limitations, but soon the two will be making beautiful music together.</p>
+<p>You now have a Web app that displays output from a Stream Analytics job in near real-time. There are other ways to build such dashboards, including <a href="https://powerbi.microsoft.com/">Microsoft Power BI</a>. With Power BI, you can create dashboards that render output from Stream Analytics jobs without writing any code. For more information, refer to <a href="https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-power-bi-dashboard/">Stream Analytics &amp; Power BI: A real-time analytics dashboard for streaming data</a>.</p>
 
 <p><a name="Summary"></a></p>
 

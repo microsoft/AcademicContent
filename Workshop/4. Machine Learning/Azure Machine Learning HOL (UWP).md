@@ -150,7 +150,7 @@ Close the visualization window by clicking the "**x**" in the upper-right corner
 <a name="Exercise3"></a>
 ## Exercise 3: Train a classification model
 
-In this exercise, you'll use ML Studio's drag-and-drop user interface to train an ML model. *Training* involves picking a machine-learning algorithm and feeding data into the model. During training, the computer looks for patterns in the data that it can use to predict values from future inputs.
+In this exercise, you will use ML Studio's drag-and-drop user interface to train an ML model. *Training* involves picking a machine-learning algorithm and feeding data into the model. During training, the computer looks for patterns in the data that it can use to predict values from future inputs.
 
 There are several types of machine-learning models. One of the most common is the regression model, which uses one of a number of regression algorithms to produce a numeric value — for example, a person's age or the probability that a credit-card transaction is fraudulent. You will be training a classification model, which seeks to resolve a set of inputs into one of a set of known outputs. A classic example of a classification model is one that examines e-mails and classifies them as "spam" or "not spam." Your model will examine a set of inputs representing pixel patterns and attempt to classify each as a digit from 0 to 9, inclusive.
 
@@ -350,7 +350,7 @@ The whole reason for deploying an Azure ML model as a Web service is so you can 
 
 In this exercise, you will write a client app that targets the [Universal Windows Platform](https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp), or UWP. The beauty of such apps is that they run on a variety of Windows devices, including PCs, tablets, phones, and even on Xbox One. The app you will write enables you to draw digits into an onscreen grid. Then it calls your ML Web service and tells you what digit you drew.
 
-1. In order to build and run UWP apps on a Windows 10 PC, you must enable developer mode on the device. If you're using the VM provided with this lab, developer mode has already been enabled. If you're not using the VM, click the **Windows** button (also known as the Start button) in the lower-left corner of the desktop. Then select **Settings** from the menu and click **Update & security** in the Settings dialog. Now click **For developers** on the left and select **Developer mode** on the right, as shown below.
+1. In order to build and run UWP apps on a Windows 10 PC, you must enable developer mode on the device. To ensure that developer mode is enabled, click the **Windows** button (also known as the Start button) in the lower-left corner of the desktop. Then select **Settings** from the menu and click **Update & security** in the "Settings" dialog. Now click **For developers** on the left and select **Developer mode** on the right, as shown below.
 
     ![Enabling developer mode in Windows 10](Images/enable-developer-mode.png)
 
@@ -622,12 +622,12 @@ In this exercise, you will write a client app that targets the [Universal Window
 	- OnCellEntered is the method called when a finger, pen, or mouse (in UWP parlance, a "pointing device") makes contact with any of the 64 Rectangles. Its job: toggle the Rectangle "on" or "off" by changing its opacity.
 	- The OnSubmit method is called when you click the Submit button. It scans the 8x8 grid to determine which squares are "on," and then passes the data to MLSubmit.
 	- MLSubmitAsync is where the magic happens. It uses UWP's HttpClient class to place a REST call to the Web service. It is closely patterned after the C# sample code presented on the Web service's dashboard.
+	
+1. In the source code you just inserted, replace *api_key* with the API key for your Web service obtained in Exercise 5, Step 5.
 
-1. In the source code you just inserted, replace **api_key** with the API key for your Web service obtained in Exercise 5, Step 5.
+1. Next, replace *web\_service\_url* with the URL of your Web service obtained in Exercise 5, Step 7.
 
-1. Next, replace **web\_service\_url** with the URL of your Web service obtained in Exercise 5, Step 7.
-
-1. Go to the **Build** menu at the top of the Visual Studio window and use the **Build Solution** command to build the solution. Correct any build errors that are reported, and then press Ctrl+F5 to launch the MLClient app. Confirm that it looks like this:
+1. Go to the **Build** menu at the top of the Visual Studio window and use the **Build Solution** command to build the solution. Correct any build errors that are reported, and then press **Ctrl+F5** to launch the app. Confirm that it looks like this:
 
     ![The MLClient app](Images/mlclient-app-1.png)
 
@@ -662,13 +662,13 @@ MLClient puts a graphical front end on Web-service calls. You draw a digit into 
 
     _Switching from Local Machine to the Windows Simulator_
 
-1. Now press Ctrl+F5 to launch the app in the simulator.
+1. Now press **Ctrl+F5** to launch the app in the simulator.
 
     ![MLClient on a tablet](Images/simulator.png)
 
     _MLClient on a tablet_
 
-If you weren't already running in a VM, you could run the app in the Windows phone emulator, too. But the phone emulator runs in a VM, and you generally can't run a VM in a VM. Typically, a developer does a little extra work to get an app to optimize its display for different devices and form factors. It's truly a case in which a little bit of code goes a long, long way.
+Typically, a developer does a little extra work to optimize the way a UWP app is displayed on different devices. That's beyond the scope of this lab, but something to be aware of if you plan to use UWP apps in your work or business. [Here's a video](https://channel9.msdn.com/Series/Windows-10-development-for-absolute-beginners/UWP-038-Working-with-Adaptive-Layout) with information about using adaptive layouts to make a UWP app look great on a wide range of devices.
 
 ## Summary
 

@@ -117,8 +117,8 @@ class PixelGrid {
 
     postRequest(request: any) {
 
-        const url = '... add your URL here ...';
-        const apiKey = '... add your API Key here ...';
+        const url = 'web_service_url';
+        const apiKey = 'api_key';
 
         let body = JSON.stringify(request);
         let headers = new Headers({
