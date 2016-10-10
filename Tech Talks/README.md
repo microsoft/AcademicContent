@@ -76,7 +76,7 @@ If you want to report any issues we need to fix. Please log an <a href="https://
 					</tr>
 						<tr>
 					   <td><b>Microsoft Power BI - So what is PowerBI learn all about the various option for using PowerBI to visualise Data</b></td>
-					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20PowerBI_StudentPresentation.pptx)</td>
+					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20PowerBI_StudentPresentation.pptx) | [Tutorial] (https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/08/31/visualisation-of-data-with-power-bi/)</td>
 					   <td>Understand PowerBI we discuss the difference the history of data visualisation and then the various way PowerBI can visualise data</td>
 					</tr>
 						<tr>
