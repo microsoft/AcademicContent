@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Docker and Azure Container Service HOL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<p><a name="HOLTitle"></a></p>
+
+<h1>Running Docker Containers in the Azure Container Service</h1>
+
+<hr>
+
+<p><a name="Overview"></a></p>
+
+<h2>Overview</h2>
+
+<p>Containers, which allow software and files to be bundled up into neat packages that can be run on different computers and different operating systems, are earning a lot of attention these days. And almost synonymous with the term "container" is the term "Docker." <a href="http://www.docker.com">Docker</a> is the world's most popular containerization platform. This description of it comes from the Docker Web site:</p>
+
+<p><em>Docker containers wrap a piece of software in a complete filesystem that contains everything needed to run: code, runtime, system tools, system libraries – anything that can be installed on a server. This guarantees that the software will always run the same, regardless of its environment.</em></p>
+
+<p>Containers are similar to virtual machines (VMs) in that they provide a predictable and isolated environment in which software can run. Because containers are smaller than VMs, they start almost instantly and use less RAM. Moreover, multiple containers running on a single machine share the same operating system kernel. Docker is based on open standards, enabling Docker containers to run on all major Linux distributions as well as Windows Server 2016.</p>
+
+<p>To simplify the use of Docker containers, Azure offers the <a href="https://azure.microsoft.com/en-us/services/container-service/">Azure Container Service</a> (ACS), which hosts Docker containers in the cloud and provides an optimized configuration of popular open-source scheduling and orchestration tools, including <a href="https://dcos.io/">DC/OS</a> and <a href="https://www.docker.com/products/docker-swarm">Docker Swarm</a>. The latter uses native clustering capabilities to turn a group of Docker engines into a single virtual Docker engine using the configuration shown below and is a handy tool for executing CPU-intensive jobs in parallel. In essence, one or more master VMs control a "swarm" of agent VMs created from an <a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/">Azure Virtual Machine Scale Set</a>. The agent VMs host Docker containers that execute your code.</p>
+
+<p><a href="Images/docker-swarm.png" target="_blank"><img src="Images/docker-swarm.png" alt="Docker Swarm configuration in the Azure Container Service" style="max-width:100%;"></a></p>
+
+<p><em>Docker Swarm configuration in the Azure Container Service</em></p>
+
+<p>In this lab, you will package a Python app and a set of color images in a Docker container. Then you will run the container in Azure and run the Python app inside it to convert the color images to grayscale. You will get hands-on experience creating Azure Container Services and remoting into them to execute Docker commands and manipulate Docker containers</p>
+
+<p><a name="Objectives"></a></p>
+
+<h3>Objectives</h3>
+
+<p>In this hands-on lab, you will learn how to:</p>
+
+<ul>
+<li>Create an Azure Container Service</li>
+<li>Remote into an Azure Container Service using SSH</li>
+<li>Create Docker images and run Docker containers in Azure</li>
+<li>Run jobs in containers created from Docker images</li>
+<li>Stop Docker containers that are running</li>
+<li>Delete a container service</li>
+</ul>
+
+<p><a name="Prerequisites"></a></p>
+
+<h3>Prerequisites</h3>
+
+<p>The following are required to complete this hands-on lab:</p>
+
+<ul>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
+<li>
+<a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">PuTTY</a> (Windows users only). You can either install the full package using the MSI installer, or install just two binaries: putty.exe and puttygen.exe.</li>
+<li>Docker client (also known as the <em>Docker Engine CLI</em>) for <a href="https://get.docker.com/builds/Windows/x86_64/docker-latest.zip">Windows</a>, <a href="https://get.docker.com/builds/Darwin/x86_64/docker-latest.tgz">macOS</a>, or <a href="https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz">Linux</a>
+</li>
+</ul>
+
+<p>To install the Docker client for Windows, open <a href="https://get.docker.com/builds/Windows/x86_64/docker-latest.zip">https://get.docker.com/builds/Windows/x86_64/docker-latest.zip</a> and copy the executable file named "docker.exe" from the "docker" subdirectory to a local folder. To install the Docker client for macOS, open <a href="https://get.docker.com/builds/Darwin/x86_64/docker-latest.tgz">https://get.docker.com/builds/Darwin/x86_64/docker-latest.tgz</a> and copy the executable file named "docker" from the "docker" subdirectory to a local folder. To install the Docker client for Linux, open <a href="https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz">https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz</a> and copy the executable file named "docker" from the "docker" subdirectory to a local folder. (You can ignore the other files in the "docker" subdirectory.)</p>
+
+<p>You do not need to install the Docker client if you already have Docker (or Docker Toolbox) installed on your machine.</p>
+
+<hr>
+
+<p><a name="Exercises"></a></p>
+
+<h2>Exercises</h2>
+
+<p>This hands-on lab includes the following exercises:</p>
+
+<ul>
+<li><a href="#Exercise1">Exercise 1: Create an SSH key pair</a></li>
+<li><a href="#Exercise2">Exercise 2: Create an Azure Container Service</a></li>
+<li><a href="#Exercise3">Exercise 3: Connect to the Azure Container Service</a></li>
+<li><a href="#Exercise4">Exercise 4: Create a Docker image and run it in a container</a></li>
+<li><a href="#Exercise5">Exercise 5: Suspend the master VM</a></li>
+<li><a href="#Exercise6">Exercise 6: Delete the resource group</a></li>
+</ul>
+
+<p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
+
+<p><a name="Exercise1"></a></p>
+
+<h2>Exercise 1: Create an SSH key pair</h2>
+
+<p>Before you can deploy Docker images to Azure, you must create an Azure Container Service. And in order to create an Azure Container Service, you need a public/private key pair for authenticating with that service over SSH. In this exercise, you will create an SSH key pair. If you are using macOS or Linux, you will create the key pair with ssh-keygen. If you are running Windows instead, you will use a third-party tool named PuTTYGen.</p>
+
+<blockquote>
+<p>Unlike macOS and Linux, Windows doesn't have an SSH key generator built in. PuTTYGen is a free key generator that is popular in the Windows community. It is part of an open-source toolset called <a href="http://www.putty.org/">PuTTY</a>, which provides the SSH support that Windows lacks.</p>
+</blockquote>
+
+<ol>
+<li><p><strong>If you are running Windows, skip to Step 6</strong>. Otherwise, proceed to Step 2.</p></li>
+<li><p>On your Mac or Linux machine, launch a terminal window.</p></li>
+<li>
+<p>Execute the following command in the terminal window:</p>
+
+<pre>ssh-keygen
+</pre>
+
+<p>Press <strong>Enter</strong> three times to accept the default output file name and create a key pair without a passphrase. The output will look something like this: </p>
+
+<p><a href="Images/docker-ssh-keygen.png" target="_blank"><img src="Images/docker-ssh-keygen.png" alt="Generating a public/private key pair" style="max-width:100%;"></a></p>
+
+<p><em>Generating a public/private key pair</em></p>
+</li>
+<li>
+<p>Use the following commands to navigate to the hidden ".ssh" subdirectory created by ssh-keygen and list the contents of that subdirectory:</p>
+
+<pre>cd ~/.ssh
+ls
+</pre>
+
+<p>Confirm that the ".ssh" subdirectory contains a pair of files named id_rsa and id_rsa.pub. The former contains the private key, and the latter contains the public key. Remember where these files are located, because you will need them in subsequent exercises.</p>
+</li>
+<li><p><strong>Proceed to <a href="#Exercise2">Exercise 2</a>. The remaining steps in this exercise are for Windows users only</strong>.</p></li>
+<li>
+<p>Launch PuTTYGen and click the <strong>Generate</strong> button. For the next few seconds, move your cursor around in the empty space in the "Key" box to help randomize the keys that are generated.</p>
+
+<p><a href="Images/docker-puttygen1.png" target="_blank"><img src="Images/docker-puttygen1.png" alt="Generating a public/private key pair" style="max-width:100%;"></a></p>
+
+<p><em>Generating a public/private key pair</em></p>
+</li>
+<li>
+<p>Once the keys are generated, click <strong>Save public key</strong> and save the public key to a text file named public.txt. Then click <strong>Save private key</strong> and save the private key to a file named private.ppk. When prompted to confirm that you want to save the private key without a passphrase, click <strong>Yes</strong>.</p>
+
+<p><a href="Images/docker-puttygen2.png" target="_blank"><img src="Images/docker-puttygen2.png" alt="Saving the public and private keys" style="max-width:100%;"></a></p>
+
+<p><em>Saving the public and private keys</em></p>
+</li>
+</ol>
+
+<p>You now have a pair of files containing a public key and a private key. Remember where these files are located, because you will need them in subsequent exercises.</p>
+
+<p><a name="Exercise2"></a></p>
+
+<h2>Exercise 2: Create an Azure Container Service</h2>
+
+<p>Now that you have an SSH key pair, you can create and configure an Azure Container Service. In this exercise, you will use the Azure Portal to create an Azure Container Service for running Docker containers.</p>
+
+<ol>
+<li>
+<p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. Select <strong>+ New -&gt; Containers -&gt; Azure Container Service</strong>.</p>
+
+<p><a href="Images/docker-new-container.png" target="_blank"><img src="Images/docker-new-container.png" alt="Creating a container service" style="max-width:100%;"></a></p>
+
+<p><em>Creating a container service</em></p>
+</li>
+<li>
+<p>Click the <strong>Create</strong> button in the "Azure Container Service" blade. In the "Basics" blade, enter "dockeruser" (without quotation marks) for <strong>User name</strong> and the public key that you generated in Exercise 1 for <strong>SSH public key</strong>. Select <strong>Create new</strong> under <strong>Resource group</strong> and enter the resource-group name "ACSLabResourceGroup" (without quotation marks). Select the location nearest you under <strong>Location</strong>, and then click the <strong>OK</strong> button.</p>
+
+<p><a href="Images/docker-acs-basics.png" target="_blank"><img src="Images/docker-acs-basics.png" alt="Basic settings" style="max-width:100%;"></a></p>
+
+<p><em>Basic settings</em></p>
+</li>
+<li>
+<p>In the "Framework configuration" blade, select <strong>Swarm</strong> as the orchestrator configuration. Then click <strong>OK</strong>.</p>
+
+<blockquote>
+<p>DC/OS and Swarm are popular open-source orchestration tools that enable you to deploy clusters containing thousands or even tens of thousands of containers. (Think of a compute cluster consisting of containers rather than physical servers, all sharing a load and running code in parallel.) DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. Swarm is Docker's own native clustering tool. Both are preinstalled in Azure Container Service, with the goal being that you can use the one you are most familiar with rather than have to learn a new tool.</p>
+</blockquote>
+
+<p><a href="Images/docker-acs-framework-configuration.png" target="_blank"><img src="Images/docker-acs-framework-configuration.png" alt="Framework configuration settings" style="max-width:100%;"></a></p>
+
+<p><em>Framework configuration settings</em></p>
+</li>
+<li>
+<p>In the "Azure Container service settings" blade, set <strong>Agent count</strong> to <strong>2</strong>, <strong>Master count</strong> to <strong>1</strong>, and enter a DNS name in the <strong>DNS prefix for container service</strong> box. (The DNS name doesn't have to be unique across Azure, but it does have to be unique to a data center. To ensure uniqueness, you should <em>include birth dates or other personal information</em> that is unlikely to be used by other students working this lab. Otherwise, you may see a green check mark in the <strong>DNS prefix</strong> box but still suffer a deployment failure.) Then click <strong>OK</strong>.</p>
+
+<blockquote>
+<p>When you create an Azure Container Service, one or more master VMs are created to orchestrate the workload. In addition, an <a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/">Azure Virtual Machine Scale Set</a> is created to provide VMs for the "agents," or VMs that the master VMs delegate work to. Docker container instances are hosted in the agent VMs. By default, Azure uses a standard D2 virtual machine for each agent. These are dual-core machines with 7 GB of RAM. Agent VMs are created as needed to handle the workload. In this example, there will be one master VM and up to two agent VMs.</p>
+</blockquote>
+
+<p><a href="Images/docker-acs-service-settings.png" target="_blank"><img src="Images/docker-acs-service-settings.png" alt="Service settings" style="max-width:100%;"></a></p>
+
+<p><em>Service settings</em></p>
+</li>
+<li>
+<p>In the "Summary" blade, review the settings you selected. Then click <strong>OK</strong>.</p>
+
+<p><a href="Images/docker-acs-summary.png" target="_blank"><img src="Images/docker-acs-summary.png" alt="Settings summary" style="max-width:100%;"></a></p>
+
+<p><em>Settings summary</em></p>
+</li>
+<li><p>In the ensuing "Purchase" blade, click the <strong>Purchase</strong> button to begin deploying a new container service.</p></li>
+<li>
+<p>Deployment typically takes about 10 minutes. To monitor the deployment, click <strong>Resource groups</strong> on the left side of the portal to display a list of all the resource groups associated with your account. Then select the <strong>ACSLabResourceGroup</strong> resource group created for the container service to open a resource-group blade. When "Succeeded" appears under "Last Deployment," the deployment has completed successfully.</p>
+
+<blockquote>
+<p>Click the browser's <strong>Refresh</strong> button every few minutes to update the deployment status. Clicking the <strong>Refresh</strong> button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.</p>
+</blockquote>
+
+<p><a href="Images/docker-success.png" target="_blank"><img src="Images/docker-success.png" alt="Successful deployment" style="max-width:100%;"></a></p>
+
+<p><em>Successful deployment</em></p>
+</li>
+</ol>
+
+<p>Take a short break and wait for the deployment to finish. Then proceed to Exercise 3.</p>
+
+<p><a name="Exercise3"></a></p>
+
+<h2>Exercise 3: Connect to the Azure Container Service</h2>
+
+<p>In this exercise, you will establish an SSH connection to the container service you deployed in Exercise 2 so you can use the Docker client to create Docker containers and run them in Azure.</p>
+
+<ol>
+<li>
+<p>After the container service finishes deploying, return to the blade for the "ACSLabResourceGroup" resource group. Then click the resource named <strong>swarm-master-lb-xxxxxxxx</strong>. This is the master load balancer for the swarm.</p>
+
+<p><a href="Images/docker-open-master-lb.png" target="_blank"><img src="Images/docker-open-master-lb.png" alt="Opening the master load balancer" style="max-width:100%;"></a></p>
+
+<p><em>Opening the master load balancer</em></p>
+</li>
+<li>
+<p>Click the IP address under "Public IP Address."</p>
+
+<p><a href="Images/docker-click-ip-address.png" target="_blank"><img src="Images/docker-click-ip-address.png" alt="The master load balancer's public IP" style="max-width:100%;"></a></p>
+
+<p><em>The master load balancer's public IP</em></p>
+</li>
+<li>
+<p>Hover over the DNS name under "DNS Name." Wait for a <strong>Copy</strong> button to appear, and then click it to copy the master load balancer's DNS name to the clipboard.</p>
+
+<p><a href="Images/docker-copy-dns-name.png" target="_blank"><img src="Images/docker-copy-dns-name.png" alt="Copying the DNS name" style="max-width:100%;"></a></p>
+
+<p><em>Copying the DNS name</em></p>
+</li>
+<li><p><strong>If you are running Windows, skip to Step 9</strong>. Otherwise, proceed to Step 5.</p></li>
+<li><p>On your Mac or Linux machine, launch a terminal window (or return to the one you opened in Exercise 1 if it's still open).</p></li>
+<li>
+<p>Execute the following command to SSH in to the Azure Container Service, replacing <em>dnsname</em> with the DNS name on the clipboard:</p>
+
+<pre>ssh dockeruser@<i>dnsname</i> -p 2200 -L 22375:127.0.0.1:2375
+</pre>
+
+<blockquote>
+<p>The purpose of the -L switch is to forward traffic transmitted through port 22375 on the local machine (that's the port used by the <strong>docker</strong> command you will be using shortly) to port 2375 at the other end. Docker Swarm listens on port 2375. The -p switch instructs SSH to use port 2200 rather than the default 22. The load balancer you're connecting to listens on port 2200 and forwards the SSH messages it receives to port 22 on the master VM.</p>
+</blockquote>
+</li>
+<li>
+<p>If asked to confirm that you wish to connect, answer yes. Once connected, you'll see a screen that resembles the one below.</p>
+
+<blockquote>
+<p>Observe that you didn't have to enter a password. That's because the connection was authenticated using the public/private key pair you generated in Exercise 1. Key pairs tend to be much more secure than passwords because they are cryptographically strong.</p>
+</blockquote>
+
+<p><a href="Images/docker-ssh.png" target="_blank"><img src="Images/docker-ssh.png" alt="Successful connection" style="max-width:100%;"></a></p>
+
+<p><em>Successful connection</em></p>
+</li>
+<li><p>Leave the terminal window open and <strong>proceed to <a href="#Exercise4">Exercise 4</a>. The remaining steps in this exercise are for Windows users only</strong>. </p></li>
+<li>
+<p>Launch PuTTY and paste the DNS name on the clipboard into the <strong>Host Name (or IP address)</strong> box. Set the port number to <strong>2200</strong> and type "ACS" (without quotation marks) into the <strong>Saved Sessions</strong> box. Click the <strong>Save</strong> button to save these settings under that name.</p>
+
+<blockquote>
+<p>Why port 2200 instead of port 22, which is the default for SSH? Because the load balancer you're connecting to listens on port 2200 and forwards the SSH messages it receives to port 22 on the master VM.</p>
+</blockquote>
+
+<p><a href="Images/docker-putty1.png" target="_blank"><img src="Images/docker-putty1.png" alt="Configuring a PuTTY session" style="max-width:100%;"></a></p>
+
+<p><em>Configuring a PuTTY session</em></p>
+</li>
+<li>
+<p>In the treeview on the left, click the + sign next to <strong>SSH</strong>, and then click <strong>Auth</strong>. Click the  <strong>Browse</strong> button and select the private-key file that you created in Exercise 1.</p>
+
+<p><a href="Images/docker-putty2.png" target="_blank"><img src="Images/docker-putty2.png" alt="Entering the private key" style="max-width:100%;"></a></p>
+
+<p><em>Entering the private key</em></p>
+</li>
+<li>
+<p>Select <strong>Tunnels</strong> in the treeview. Then set <strong>Source port</strong> to <strong>22375</strong> and <strong>Destination</strong> to <strong>127.0.0.1:2375</strong>, and click the <strong>Add</strong> button.</p>
+
+<blockquote>
+<p>The purpose of this is to forward traffic transmitted through port 22375 on the local machine (that's the port used by the <strong>docker</strong> command you will be using shortly) to port 2375 at the other end. Docker Swarm listens on port 2375.</p>
+</blockquote>
+
+<p><a href="Images/docker-putty3.png" target="_blank"><img src="Images/docker-putty3.png" alt="Configuring the SSH tunnel" style="max-width:100%;"></a></p>
+
+<p><em>Configuring the SSH tunnel</em></p>
+</li>
+<li>
+<p>Click <strong>Session</strong> at the top of the treeview. Click the <strong>Save</strong> button to save your configuration changes, and then click <strong>Open</strong> to create a secure SSH connection to the container service. If you are warned that the server's host key isn't cached in the registry and asked to confirm that you want to connect anyway, click <strong>Yes</strong>.</p>
+
+<p><a href="Images/docker-putty4.png" target="_blank"><img src="Images/docker-putty4.png" alt="Opening a connection to the container service" style="max-width:100%;"></a></p>
+
+<p><em>Opening a connection to the container service</em></p>
+</li>
+<li>
+<p>An SSH window will open and prompt you to log in. Enter the user name ("dockeruser") that you specified in Exercise 2, Step 2. Then press the <strong>Enter</strong> key. Once connected, you'll see a screen that resembles the one below.</p>
+
+<blockquote>
+<p>Observe that you didn't have to enter a password. That's because the connection was authenticated using the public/private key pair you generated in Exercise 1. Key pairs tend to be much more secure than passwords because they are cryptographically strong.</p>
+</blockquote>
+
+<p><a href="Images/docker-putty5.png" target="_blank"><img src="Images/docker-putty5.png" alt="Successful connection" style="max-width:100%;"></a></p>
+
+<p><em>Successful connection</em></p>
+</li>
+</ol>
+
+<p>Now that you're connected, you can run the Docker client on your local machine and use port forwarding to execute commands in the Azure Container Service. Leave the SSH window open while you work through the next exercise.</p>
+
+<p><a name="Exercise4"></a></p>
+
+<h2>Exercise 4: Create a Docker image and run it in a container</h2>
+
+<p>Now comes the fun part: creating a Docker image and running it inside a container in Azure. If you haven't already installed the Docker client, refer to the instructions at the beginning of this lab to download and install the Docker client for your operating system. </p>
+
+<ol>
+<li>
+<p>Open a terminal window (macOS or Linux) or a Command Prompt window (Windows) and navigate to the "resources" subdirectory of this lab. It contains the files that you will build into a container image.</p>
+
+<p>Take a moment to examine the contents of the "resources" subdirectory. It contains a file named Dockerfile, which contains the commands Docker will use to build a container image. It also contains a Python script named convertimages.py, a subdirectory named "input," and a subdirectory named "output." The latter subdirectory is empty. The "input" subdirectory contains several color JPG images. The Python script enumerates the files in the "input" subdirectory, converts them to grayscale, and writes the grayscale images to the "output" subdirectory.</p>
+</li>
+<li>
+<p>If you are running macOS or Linux, execute the following command in the terminal window:</p>
+
+<pre>export DOCKER_HOST=tcp://127.0.0.1:22375
+</pre>
+
+<p>If you are running Windows instead, execute this command in the Command Prompt window:</p>
+
+<pre>set DOCKER_HOST=tcp://127.0.0.1:22375
+</pre>
+
+<blockquote>
+<p>This command directs the Docker client to send output to localhost port 22375, which you redirected to port 2375 in the Azure Container Service in the previous exercise. Remember that port 2375 is the one Docker Swarm listens on. The commands that you execute in the next few steps are typed into a local terminal window, but they are <strong>executed in the container service you deployed to the cloud</strong> using the SSH tunnel that you established in the previous exercise.</p>
+</blockquote>
+</li>
+<li>
+<p>Be sure you're in the "resources" subdirectory. Then execute the following command to create a container image named "ubuntu-convert" containing the Python script as well as the "input" and "output" subdirectories and their contents. Be sure to include the period at the end of the command:</p>
+
+<pre>docker build --no-cache --tag ubuntu-convert .
+</pre>
+</li>
+<li>
+<p>Wait for the command to finish executing. (It will take a few minutes for Docker to build the container image.) Then execute the following command to list the images that are present, and confirm that the list contains an image named "ubuntu-convert:"</p>
+
+<pre>docker images
+</pre>
+</li>
+<li>
+<p>Now execute the following command to start the container image running and name the container "acslab:"</p>
+
+<pre>docker run -dit --name acslab ubuntu-convert /bin/bash
+</pre>
+</li>
+<li>
+<p>The container is now running. The next task is to execute the Python script in the root of the file system in the running container. To do that, execute the following command:</p>
+
+<pre>docker exec -it acslab /convertimages.py
+</pre>
+</li>
+<li>
+<p>If the Python script ran successfully, the "output" subdirectory in the container should contain grayscale versions of the JPG files in the "input" subdirectory. Use the following command to copy the files from the "output" subdirectory in the container to the "output" subdirectory on the local machine:</p>
+
+<pre>docker cp acslab:/output .
+</pre>
+
+<blockquote>
+<p>Because you are still in the lab's "resources" subdirectory, this command will copy the grayscale images to the "resources" subdirectory's "output" subdirectory.</p>
+</blockquote>
+</li>
+<li>
+<p>Stop the running container by executing the following command:</p>
+
+<pre>docker stop acslab
+</pre>
+</li>
+<li>
+<p>Type the following command to delete the "acslab" container:</p>
+
+<pre>docker rm acslab
+</pre>
+</li>
+<li><p>List the contents of the "output" subdirectory under the "resources" subdirectory that you are currently in. Confirm that it contains eight JPG files copied from the container.</p></li>
+<li>
+<p>Open one of the JPG files and confirm that it contains a grayscale image like the one pictured below.</p>
+
+<p><a href="Images/docker-output.jpg" target="_blank"><img src="Images/docker-output.jpg" alt="Grayscale image copied from the container" style="max-width:100%;"></a></p>
+
+<p><em>Grayscale image copied from the container</em></p>
+</li>
+</ol>
+
+<p>Congratulations! You just created a Docker container image and ran it in a Docker container hosted in Azure. You can close the SSH window now if you'd like because you are finished using the SSH connection.</p>
+
+<p><a name="Exercise5"></a></p>
+
+<h2>Exercise 5: Suspend the master VM</h2>
+
+<p>When virtual machines are running, you are being charged — even if the VMs are idle. Therefore, it's advisable to stop virtual machines when they are not in use. You will still be charged for storage, but that cost is typically insignificant compared to the cost of an active VM.</p>
+
+<p>Your container service contains a master VM that needs to be stopped when you're not running containers. The Azure Portal makes it easy to stop virtual machines. VMs that you stop are easily started again later so you can pick up right where you left off. In this exercise, you will stop the master VM to avoid incurring charges for it.</p>
+
+<ol>
+<li>
+<p>In the Azure Portal, open the blade for the "ACSLabResourceGroup" resource group. Click the virtual machine whose name begins with <strong>swarm-master</strong> to open a blade for the master VM.</p>
+
+<p><a href="Images/docker-open-vm.png" target="_blank"><img src="Images/docker-open-vm.png" alt="Opening a blade for the master VM" style="max-width:100%;"></a></p>
+
+<p><em>Opening a blade for the master VM</em></p>
+</li>
+<li>
+<p>Click the <strong>Stop</strong> button to stop the master VM. Answer <strong>Yes</strong> when prompted to verify that you wish to stop it.</p>
+
+<p><a href="Images/docker-stop-vm.png" target="_blank"><img src="Images/docker-stop-vm.png" alt="Stopping the master VM" style="max-width:100%;"></a></p>
+
+<p><em>Stopping the master VM</em></p>
+</li>
+</ol>
+
+<p>There is no need to stop the agent VMs. They are part of an <a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/">Azure Virtual Machine Scale Set</a> and are automatically spun up and down as needed by the master VM. Note that if you wish to run containers again in this container service, you will need to restart the master VM.</p>
+
+<p><a name="Exercise6"></a></p>
+
+<h2>Exercise 6: Delete the resource group</h2>
+
+<p>Resource groups are a useful feature of Azure because they simplify the task of managing related resources. One of the most practical reasons to use resource groups is that deleting a resource group deletes all the resources it contains. Rather than delete those resources one by one, you can delete them all at once.</p>
+
+<p>In this exercise, you will delete the resource group created in <a href="#Exercise2">Exercise 2</a> when you created the container service. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.</p>
+
+<ol>
+<li>
+<p>In the Azure Portal, open the blade for the "ACSLabResourceGroup" resource group. Then click the <strong>Delete</strong> button at the top of the blade.</p>
+
+<p><a href="Images/docker-delete-resource-group.png" target="_blank"><img src="Images/docker-delete-resource-group.png" alt="Deleting a resource group" style="max-width:100%;"></a></p>
+
+<p><em>Deleting a resource group</em></p>
+</li>
+<li>
+<p>Because deleting a resource group is a permanent action that can't be undone, you must confirm that you want to delete it. Do so by typing the name of the resource group into the box labeled <br>
+<strong>TYPE THE RESOURCE GROUP NAME</strong>. Then click <strong>Delete</strong> to delete the resource group and everything inside it.</p>
+
+<p><a href="Images/confirm-delete-resource-group.png" target="_blank"><img src="Images/confirm-delete-resource-group.png" alt="Confirming resource-group deletion" style="max-width:100%;"></a></p>
+
+<p><em>Confirming resource-group deletion</em></p>
+</li>
+</ol>
+
+<p>After a few minutes, you will be notified that the resource group was deleted. If the deleted resource group still appears in the "Resource groups" blade, click that blade's <strong>Refresh</strong> button to update the list of resource groups. The deleted resource group should go away.  </p>
+
+<h2>Summary</h2>
+
+<p>The Azure Container Service makes it easy to run apps packaged in Docker containers in the cloud without having to manage servers or install a container stack yourself. Container images are smaller than VM images, they start faster, and they typically cost less since a single VM can host multiple container instances. More importantly, Docker containers can be hosted in other cloud platforms such as Amazon Web Services (AWS). If you want to avoid being tied to a single cloud platform, containers are a great way to achieve that independence.</p>
+
+<hr>
+
+<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
