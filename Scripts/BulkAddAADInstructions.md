@@ -17,13 +17,16 @@ User running the script simply needs to be overall Azure Subscription Owner and 
 
 ##Create your data text file data.txt
 Each line of the csv file should include the following fields in order:
+
+For email this is the AAD useraccount @ domain not the users email alias so example it may be in the following format yiycc@***.ac.uk not Chris.Charles@***.ac.uk  
+
 > SubscriptionID,Email
 example 
 SubscriptionID,Email
 0786686c376-d76d-4704-b1f3-8505ffc999d5,flappaga@****.ac.uk
 07892238361-d72d-4724-b143-8505ffc999d5,colina@****.ac.uk
 
-##Changing the Azure Subscription to the Current Subscription replace Azure Subscription
+##Changing the Azure Subscription to the Current Subscription replace Azure Subscription this changes the Admin to be in the subscription to allow accounts to be added.
 Select-AzureSubscription -SubscriptionId "090fa8f2-cc0e-4d36-8cc7-122221993796" -Current 
 
 Save the location of the file and ensure you check $FilePath  and change the path $FilePath= 'C:\Microsoft\Documents\Faculty\AddContributors\data.txt' 
