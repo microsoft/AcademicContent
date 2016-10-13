@@ -23,6 +23,9 @@ SubscriptionID,Email
 0786686c376-d76d-4704-b1f3-8505ffc999d5,flappaga@****.ac.uk
 07892238361-d72d-4724-b143-8505ffc999d5,colina@****.ac.uk
 
+##Changing the Azure Subscription to the Current Subscription replace Azure Subscription
+Select-AzureSubscription -SubscriptionId "090fa8f2-cc0e-4d36-8cc7-122221993796" -Current 
+
 Save the location of the file and ensure you check $FilePath  and change the path $FilePath= 'C:\Microsoft\Documents\Faculty\AddContributors\data.txt' 
 
 * RoleName specifies the [role] (https://azure.microsoft.com/en-us/documentation/articles/role-based-access-built-in-roles/) you want to assign to the user, usually this will be *Contributor* 
