@@ -10,8 +10,8 @@ $data = Import-Csv -Path $FilePath
 # cycle through users within the txt file
 foreach ($user in $data)
 {
-##Changing the Azure Subscription to the Current Subscription replace Azure Subscription ID to the Subscription which you want the users to manage
-    Select-AzureRmSubscription -SubscriptionId $user.SubscriptionID -Current
+##Azure Subscription ID to the Subscription which you want the users to manage
+    Select-AzureRmSubscription -SubscriptionId $user.SubscriptionID 
 ##Adding user in the txt file with Role of Contributor to Azure Subscription
     New-AzureRmRoleAssignment -SignInName $user.Email -RoleDefinitionName 'Contributor' -Scope "/subscriptions/$($user.SubscriptionID)"
 } 
