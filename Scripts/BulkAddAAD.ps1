@@ -1,7 +1,7 @@
 ##Changing the default file path of where the Data.txt is located
 $FilePath = 'C:\Microsoft\Documents\Faculty\AddContributors\data.txt'
 
-##This command logs you into Azure 
+##This command logs you into Azure Resoure Manager
 Login-AzureRmAccount
 
 # import csv - headers: SubscriptionID,Email
