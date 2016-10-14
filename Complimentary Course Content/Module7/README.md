@@ -10,7 +10,7 @@
          <div class="jumbotron">
             <h1>Module 7 - DevOps</h1>
             <p><b>June 2016 release</b></p>
-            <p>This module covers the fundamental concepts of DevOps including configuration management. This module introduces Chef. Additionally, module 7 teaches how to launch a web server, desired state configurations, and how to test a web server (all using Chef).</p>
+            <p>This module covers the fundamental concepts of DevOps including configuration management. This module introduces Chef. In the labs, the concepts of DevOps are demonstrated using Azure.Additionally, module 7 teaches how to launch a web server, desired state configurations, and how to test a web server (all using Chef).</p>
          </div>
       </div>
       <div class="panel-body">
