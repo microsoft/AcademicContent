@@ -22,3 +22,6 @@ This tutorial describes the process of taking your Feather M0 WiFi kit, and usin
 
 ##Please follow the Tutorial 
 Tutorial-Azure IOT Suite with Ardunino.docx
+
+##Setting up via IOTSuite and Individual Azure components 
+See the following tutorial https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/10/16/creating-an-end-to-end-iot-solution-using-the-microsoft-azure-iot-starter-kit-w-adafruit-feather-m0-wifi-and-microsoft-azure/
