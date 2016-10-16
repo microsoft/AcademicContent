@@ -23,8 +23,8 @@ int fadeAmount = 5;    // how many points to fade the LED by
 int setAlarm =0; 
 
 
-static const char* deviceId = "nk_arduino_device_1";
-static const char* connectionString = "HostName=[YourHostNameHere].azure-devices.net;DeviceId=nk_arduino_device_1;SharedAccessKey=[Your Secret Keys here]";
+static const char* deviceId = "DeviceID";
+static const char* connectionString = "HostName=[YourHostNameHere].azure-devices.net;DeviceId=[deviceID];SharedAccessKey=[Your Secret Keys here]";
 
 
 // /* .... New Code
