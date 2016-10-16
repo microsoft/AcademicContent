@@ -10,7 +10,7 @@
          <div class="jumbotron">
             <h1>Module 4 - Data Analysis using Hadoop</h1>
             <p><b>June 2016 release</b></p>
-            <p>This module introduces Big Data, its platforms, and its analysis. Hadoop is the most popular approach to Big Data, for storing and computing statistics for massive data sets. The module describes Big Data, Hadoop, Hadoop's ecosystems, and Hive. In the labs, Hive is presented as the main context to show how massive data sets can be analyzed. At the end of this module, students should know how to use Hive for Big Data Analys on Azure HDInsight.</p>
+            <p>This module introduces Big Data, its platforms, and its analysis. Hadoop is the most popular approach to Big Data, for storing and computing statistics for massive data sets. The module describes Big Data, Hadoop, Hadoop's ecosystems, and Hive. In the labs, Hive is presented as the main context to show how massive data sets can be analyzed. At the end of this module, students should know how to use Hive for Big Data Analysis on Azure HDInsight.</p>
          </div>
       </div>
       <div class="panel-body">
