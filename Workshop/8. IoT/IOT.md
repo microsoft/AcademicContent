@@ -4,7 +4,7 @@
 ---
 
 <a name="Overview"></a>
-## Overview ##In this lab, we will explore Azure IOT Suite . 
+## Overview In this lab, we will explore Azure IOT Suite . 
    
  Azure IoT Suite brings the Internet of your things to life. Connect your devices, analyze previously-untapped data, and integrate business systems—and transform your company when you uncover new business models and revenue streams.
 
@@ -35,6 +35,7 @@ This tutorial describes the process of taking your Feather M0 WiFi kit, and usin
 ### Prerequisites ###
 
 Read more at http://www.microsoft.com/en-us/cloud-platform/internet-of-things-azure-iot-suite
-Developer Resources 
+
+Developer Resources https://azure.microsoft.com/en-gb/documentation/learning-paths/iot-suite/
 
 Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
