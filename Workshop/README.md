@@ -98,19 +98,16 @@ Note: New VMs that accompany the Azure Workshop will be available in early-Septe
                      <td><b>OR</b><p><p>[HOL - Deploy a Docker container swarm and process data in parallel using a Python script](6. HPC and Containers/Containers HOL/Docker and Azure Container Service HOL.md)</td>
                   </tr>
                    <tr>
-                     <td rowspan=3>PowerBi and Data Visualisation</td>
+                     <td rowspan=2>PowerBi and Data Visualisation</td>
                      <td>30</td>
                      <td>[Presentation (https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20PowerBI_StudentPresentation.pptx)]</td>
                   </tr>
                   <tr>
                      <td>60</td>
-                     <td><b>CHOOSE EITHER</b><p><p>[HOL - Building a PowerBI DashBoard in the Day](9..md)</td>
+                     <td><b>CHOOSE EITHER</b><p><p>[HOL - Building a PowerBI DashBoard in the Day](9. PowerBI Dashboard/)</td>
                   </tr>
                   <tr>
-                     <td>60</td>
-                     <td><b>OR</b><p><p>[HOL - Deploy a Docker container swarm and process data in parallel using a Python script](6. HPC/SLURM Docker Swarm HOL.md)</td>
-                  </tr>
-               </table>
+                   </table>
             </div>
                      <div class="panel panel-default">
             <div class="panel-heading">
