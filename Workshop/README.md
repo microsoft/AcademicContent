@@ -209,10 +209,20 @@ Note: New VMs that accompany the Azure Workshop will be available in early-Septe
                      <td>45</td>
                      <td><b>CHOOSE EITHER</b><p><p>[HOL - Build an intelligent-pictures site with C# and ASP.NET MVC](3. Storage/Azure Storage and Cognitive Services HOL (MVC).md)</td>
                   </tr>
-				  <tr>
+                   <tr>
 					<td>45</td>
 					<td><b>OR</b><p><p>[HOL - Build an intelligent-pictures site with JavaScript and Node.js](3. Storage/Azure Storage and Cognitive Services HOL (Node).md)</td>
 				  </tr>
+            <tr>
+                     <td rowspan=2>Intro to Azure IOT with Feather M0 Internet of things starter kit</td>
+                     <td>30</td>
+                     <td>[Overview of Azzure IOT Archietcure](https://github.com/MSFTImagine/computerscience/blob/master/Workshop/8.%20IoT/Microsoft_Azure_IoT_Reference_Architecture.pdf)</td>
+                  </tr>
+                  <tr>
+                  <td>80</td>
+                  <td>[HOL - Building a simply Temp Sensor and connecting it to Azure IOT Suite](8. IoT/Adafruit_Feather_IoTSuite/)</td>
+                  </tr>		
+                  <tr>
                </table>
             </div>
          </div>
