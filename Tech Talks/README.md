@@ -82,7 +82,7 @@ If you want to report any issues we need to fix. Please log an <a href="https://
 						<tr>
 					   <td><b>Microsoft Power BI and REST Services - Samples of how to use REST APIS to build amazing data visualisations</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20PowerBI_RESTSamples_student.pptx)</td>
-					   <td>Understand PowerBI and its APIs samples and demos</td>
+					   <td>Understand PowerBI APIs samples and demos</td>
 					</tr>
 				 </table>
 			</div>
