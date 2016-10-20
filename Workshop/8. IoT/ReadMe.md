@@ -1,5 +1,5 @@
 <a name="HOLTitle"></a>
-# Building a Custom Dashboard in a Day#
+# Building your first Azure IOT Solution#
 
 ---
 
