@@ -80,6 +80,14 @@ Mobile Apps, Notification Hubs, SQL Database, MySQL with ClearDB, Visual Studio 
 		     Understand how to use Azure for data analysis
 		     </td>
                   </tr>
+                  <tr>
+                     <td align="center">Supplemental Materials</td>
+                     <td>[Introduction to Cloud Computing lecture (by Microsoft DX Germany)](Lessons/Module1_Sub Lecture Introduction to Cloud Computing.pptx)</td>
+                     <td></td>
+                     <td>
+                     Additional documents and lecture material on cloud computing.
+		                 </td>
+                  </tr>
                 </table>
         </div>
      </body>
