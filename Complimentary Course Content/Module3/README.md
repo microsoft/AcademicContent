@@ -132,7 +132,7 @@
                   </tr>
                   <tr>
                      <td align="center">12</td>
-                     <td>[Mobile Apps with Microsoft Azure App Service](Lessons/Module3_Lesson12 Mobile Apps with Microsoft Azure App Service.pptx)</td>
+                     <td>[Microsoft Azure App Service](Lessons/Module3_Lesson12 Mobile Apps with Microsoft Azure App Service.pptx)</td>
                      <td>[Lab](Labs/)</td>
                      <td>The value of adding pre-configured common mobile functionality<br>
 The functionality that can be added to mobile apps via App Service<br>
