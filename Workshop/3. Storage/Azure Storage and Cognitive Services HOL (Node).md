@@ -45,7 +45,7 @@ This hands-on lab includes the following exercises:
 - [Exercise 3: Get a subscription key for the Computer Vision API](#Exercise3)
 - [Exercise 4: Write the app in Visual Studio Code](#Exercise4)
 - [Exercise 5: Test the app in your browser](#Exercise5)
-- [Exercise 6: Deploy the app to Azure](#Exercise8)
+- [Exercise 6: Deploy the app to Azure](#Exercise6)
 
 Estimated time to complete this lab: **60** minutes.
 
