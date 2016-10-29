@@ -678,25 +678,18 @@ ls
 <p><em>Opening the master load balancer</em></p>
 </li>
 <li>
-<p>Click the IP address under "Public IP Address."</p>
+<p>Hover over the IP address under "Public IP address." Wait for a <strong>Copy</strong> button to appear, and then click it to copy the master load balancer's IP address to the clipboard.</p>
 
-<p><a href="Images/docker-click-ip-address.png" target="_blank"><img src="Images/docker-click-ip-address.png" alt="The master load balancer's public IP" style="max-width:100%;"></a></p>
+<p><a href="Images/docker-click-ip-address.png" target="_blank"><img src="Images/docker-click-ip-address.png" alt="The master load balancer's public IP address" style="max-width:100%;"></a></p>
 
-<p><em>The master load balancer's public IP</em></p>
+<p><em>The master load balancer's public IP address</em></p>
 </li>
-<li>
-<p>Hover over the DNS name under "DNS Name." Wait for a <strong>Copy</strong> button to appear, and then click it to copy the master load balancer's DNS name to the clipboard.</p>
-
-<p><a href="Images/docker-copy-dns-name.png" target="_blank"><img src="Images/docker-copy-dns-name.png" alt="Copying the DNS name" style="max-width:100%;"></a></p>
-
-<p><em>Copying the DNS name</em></p>
-</li>
-<li><p><strong>If you are running Windows, skip to Step 9</strong>. Otherwise, proceed to Step 5.</p></li>
+<li><p><strong>If you are running Windows, skip to Step 8</strong>. Otherwise, proceed to Step 4.</p></li>
 <li><p>On your Mac or Linux machine, launch a terminal window (or return to the one you opened in Exercise 1 if it's still open).</p></li>
 <li>
-<p>Execute the following command to SSH in to the Azure Container Service, replacing <em>dnsname</em> with the DNS name on the clipboard:</p>
+<p>Execute the following command to SSH in to the Azure Container Service, replacing <em>ipaddress</em> with the IP address on the clipboard:</p>
 
-<pre>ssh dockeruser@<i>dnsname</i> -p 2200 -L 22375:127.0.0.1:2375
+<pre>ssh dockeruser@<i>ipaddress</i> -p 2200 -L 22375:127.0.0.1:2375
 </pre>
 
 <blockquote>
@@ -716,7 +709,7 @@ ls
 </li>
 <li><p>Leave the terminal window open and <strong>proceed to <a href="#Exercise4">Exercise 4</a>. The remaining steps in this exercise are for Windows users only</strong>. </p></li>
 <li>
-<p>Launch PuTTY and paste the DNS name on the clipboard into the <strong>Host Name (or IP address)</strong> box. Set the port number to <strong>2200</strong> and type "ACS" (without quotation marks) into the <strong>Saved Sessions</strong> box. Click the <strong>Save</strong> button to save these settings under that name.</p>
+<p>Launch PuTTY and paste the IP address on the clipboard into the <strong>Host Name (or IP address)</strong> box. Set the port number to <strong>2200</strong> and type "ACS" (without quotation marks) into the <strong>Saved Sessions</strong> box. Click the <strong>Save</strong> button to save these settings under that name.</p>
 
 <blockquote>
 <p>Why port 2200 instead of port 22, which is the default for SSH? Because the load balancer you're connecting to listens on port 2200 and forwards the SSH messages it receives to port 22 on the master VM.</p>
@@ -814,7 +807,7 @@ ls
 <li>
 <p>The container is now running. The next task is to execute the Python script in the root of the file system in the running container. To do that, execute the following command:</p>
 
-<pre>docker exec -it acslab /convertimages.py
+<pre>docker exec -it acslab python /convertimages.py
 </pre>
 </li>
 <li>

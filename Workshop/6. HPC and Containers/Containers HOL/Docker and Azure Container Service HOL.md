@@ -170,26 +170,20 @@ In this exercise, you will establish an SSH connection to the container service 
 
 	_Opening the master load balancer_
 
-1. Click the IP address under "Public IP Address."
+1. Hover over the IP address under "Public IP address." Wait for a **Copy** button to appear, and then click it to copy the master load balancer's IP address to the clipboard.
 
-	![The master load balancer's public IP](Images/docker-click-ip-address.png)
+	![The master load balancer's public IP address](Images/docker-click-ip-address.png)
 
-	_The master load balancer's public IP_
+	_The master load balancer's public IP address_
 
-1. Hover over the DNS name under "DNS Name." Wait for a **Copy** button to appear, and then click it to copy the master load balancer's DNS name to the clipboard.
-
-	![Copying the DNS name](Images/docker-copy-dns-name.png)
-
-	_Copying the DNS name_
-
-1. **If you are running Windows, skip to Step 9**. Otherwise, proceed to Step 5.
+1. **If you are running Windows, skip to Step 8**. Otherwise, proceed to Step 4.
 
 1. On your Mac or Linux machine, launch a terminal window (or return to the one you opened in Exercise 1 if it's still open).
 
-1. Execute the following command to SSH in to the Azure Container Service, replacing *dnsname* with the DNS name on the clipboard:
+1. Execute the following command to SSH in to the Azure Container Service, replacing *ipaddress* with the IP address on the clipboard:
 
 	<pre>
-	ssh dockeruser@<i>dnsname</i> -p 2200 -L 22375:127.0.0.1:2375
+	ssh dockeruser@<i>ipaddress</i> -p 2200 -L 22375:127.0.0.1:2375
 	</pre>
 
 	> The purpose of the -L switch is to forward traffic transmitted through port 22375 on the local machine (that's the port used by the **docker** command you will be using shortly) to port 2375 at the other end. Docker Swarm listens on port 2375. The -p switch instructs SSH to use port 2200 rather than the default 22. The load balancer you're connecting to listens on port 2200 and forwards the SSH messages it receives to port 22 on the master VM.
@@ -204,7 +198,7 @@ In this exercise, you will establish an SSH connection to the container service 
 
 1. Leave the terminal window open and **proceed to [Exercise 4](#Exercise4). The remaining steps in this exercise are for Windows users only**. 
 
-1. Launch PuTTY and paste the DNS name on the clipboard into the **Host Name (or IP address)** box. Set the port number to **2200** and type "ACS" (without quotation marks) into the **Saved Sessions** box. Click the **Save** button to save these settings under that name.
+1. Launch PuTTY and paste the IP address on the clipboard into the **Host Name (or IP address)** box. Set the port number to **2200** and type "ACS" (without quotation marks) into the **Saved Sessions** box. Click the **Save** button to save these settings under that name.
 
 	> Why port 2200 instead of port 22, which is the default for SSH? Because the load balancer you're connecting to listens on port 2200 and forwards the SSH messages it receives to port 22 on the master VM.
 
@@ -286,7 +280,7 @@ Now comes the fun part: creating a Docker image and running it inside a containe
 1. The container is now running. The next task is to execute the Python script in the root of the file system in the running container. To do that, execute the following command:
 
 	<pre>
-	docker exec -it acslab /convertimages.py
+	docker exec -it acslab python /convertimages.py
 	</pre>
 
 1. If the Python script ran successfully, the "output" subdirectory in the container should contain grayscale versions of the JPG files in the "input" subdirectory. Use the following command to copy the files from the "output" subdirectory in the container to the "output" subdirectory on the local machine:
