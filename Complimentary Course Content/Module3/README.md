@@ -46,7 +46,7 @@
                   </tr>
                   <tr>
                      <td align="center">3</td>
-                     <td>[C# Fundamentals](Lessons/Module3_Lesson03 C# Fundamentals.pptx)</td>
+                     <td>[C# Fundamentals](Lessons/Module3_Lesson03 C%23 Fundamentals.pptx)</td>
                      <td></td>
                      <td>What C# is<br>
 			 Where C# came from<br>
