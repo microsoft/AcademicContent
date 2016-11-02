@@ -62,9 +62,51 @@ Estimated time to complete this lab: **15** minutes.
 
 In this exercise, you will use your browser to connect to a Windows 10 virtual machine (VM) that has been prepared for you. The VM contains all the tools you need to work the labs in this course, including Visual Studio 2015, Visual Studio Code, Node.js, and others.
 
-1. Open your browser and navigate to the lab URL provided by the instructor.
+1. Open your browser and navigate to https://ms-azureworkshop.learnondemand.net. Then click the **Sign In** button.
 
-1. After a few moments, the VM's Windows 10 desktop appears in your browser. If you are asked whether you want "your PC" (the virtual machine) to be discoverable on the network, click **No**.
+    ![The Learn on Demand portal](Images/start-azure-training.png)
+
+    _The Learn on Demand portal_
+
+1. Click **Learn on Demand Systems Account**.
+
+	> If you have a Microsoft account and would prefer to sign in with it, you can click **Microsoft Account** instead and sign in that way.
+
+    ![Choosing a sign-in option](Images/sign-in-options.png)
+
+    _Choosing a sign-in option_
+
+1. If you have a Learn on Demand account, enter your user name and password and click **Sign in**. Otherwise, click **Create an Account**.
+
+    ![Signing in](Images/enter-credentials.png)
+
+    _Signing in_
+
+1. If you clicked **Create an Account** in the previous step, fill out the form for creating a new account. Then click **Save**.
+
+    ![Creating an account](Images/create-account.png)
+
+    _Creating an account_
+
+1. Click **Redeem Training Key**.
+
+    ![Redeeming a training key](Images/redeem-training-key.png)
+
+    _Redeeming a training key_
+
+1. Enter the training key provided by the instructor. Then click **Redeem Training Key**.
+
+    ![Entering a training key](Images/enter-training-key.png)
+
+    _Entering a training key_
+
+1. Click **Launch Test Lab**.
+
+    ![Launching the test lab](Images/launch-test-lab.png)
+
+    _Launching the test lab_
+
+1. After a few moments, the Windows 10 desktop appears in your browser. If you are asked whether you want "your PC" (the virtual machine) to be discoverable on the network, click **No**.
 
     ![The virtual-machine desktop](Images/desktop.png)
 
