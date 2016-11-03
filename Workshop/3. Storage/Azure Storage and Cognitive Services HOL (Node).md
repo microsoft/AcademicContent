@@ -140,6 +140,10 @@ In this exercise, you will acquire a subscription key allowing you to call the C
 
 1. If you are asked to sign in, do so with your Microsoft account.
 
+	> There are two types of Microsoft accounts: personal accounts and "work/school" accounts, also known as Office 365 accounts. Microsoft Cognitive Services requires a personal account. If you are using the Windows 10 VM created for these labs, the credentials provided for you in the VM are for a work/school account, which means you must create a personal Microsoft account if you don't already have one to sign up for Cognitive Services.
+
+	> If you already have a personal Microsoft account, use it to sign in to Cognitive Services. If you don't have a personal Microsoft account, go to https://signup.live.com and create one for this exercise.
+
 1. Click **Yes** when asked if this app can access your info.
 
     ![Approving access to personal info](Images/access-your-info.png)
