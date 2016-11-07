@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:14.04
 MAINTAINER Blaize <me@blaize.net>
 
 LABEL Description="Python Image Convert on Ubuntu" Vendor="blaize.net" Version="1.0"
