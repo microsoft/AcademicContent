@@ -216,7 +216,7 @@ Note: New VMs that accompany the Azure Workshop will be available in early-Septe
             <tr>
                      <td rowspan=2>Intro to Azure IOT with Feather M0 Internet of things starter kit</td>
                      <td>30</td>
-                     <td>[Overview of Azzure IOT Archietcure](https://github.com/MSFTImagine/computerscience/blob/master/Workshop/8.%20IoT/Microsoft_Azure_IoT_Reference_Architecture.pdf)</td>
+                     <td>[Overview of Azure IOT Architecture](https://github.com/MSFTImagine/computerscience/blob/master/Workshop/8.%20IoT/Microsoft_Azure_IoT_Reference_Architecture.pdf)</td>
                   </tr>
                   <tr>
                   <td>80</td>
