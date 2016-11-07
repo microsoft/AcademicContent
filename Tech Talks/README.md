@@ -86,7 +86,7 @@ If you want to report any issues we need to fix. Please log an <a href="https://
 					   </tr>
 						<tr>
 					   <td><b>Microsoft Storage Services - Using Microsoft Azure for Storage Services </b></td>
-					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20AzureStorageOverview.pptx)</td>
+					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20AzureStorageOverview.pptx)  | [Demos](https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks/StorageDemo)</td>
 					   <td>Understand Microsoft Azure Storage Services Demos are located in storage Demo Folder</td>
 					</tr>
 				 </table>
