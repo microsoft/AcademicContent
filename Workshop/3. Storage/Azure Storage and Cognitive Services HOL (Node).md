@@ -179,16 +179,28 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
  
 1. In the Command Prompt window, execute the following command, substituting the Computer Vision API key you copied to the clipboard in the previous exercise for *vision_api_key*:
 
+	Windows:
 	<pre>
 	set AZURE_VISION_API_KEY=<i>vision_api_key</i>
 	</pre>
 
+	Mac:
+	<pre>
+	export AZURE_VISION_API_KEY=<i>vision_api_key</i>
+	</pre>
+	
 	> Storing sensitive values such as API keys in environment variables prevents you from having to embed them in your code, where a determined intruder could find them and use them. When you deploy the app to the cloud, these values will be stored in Azure and never exposed to the end user or transmitted over the wire.
 
 1. Next, execute the following command, substituting the name of the storage account you created in Exercise 1 for *storage_account_name*:
 
+	Windows:
 	<pre>
 	set AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i>
+	</pre>
+	
+	Mac:
+	<pre>
+	export AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i>
 	</pre>
 
 1. Return to the Azure Portal for a moment and open the blade for the storage account you created in Exercise 1. Then click **Access keys** to view the storage account's access keys. 
@@ -204,9 +216,15 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
     _Copying the storage account's access key_
 
 1. Return to the Command Prompt window and type the following command, replacing *storage_account_key* with the access key on the clipboard:
-
+	
+	Windows:
 	<pre>
 	set AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i>
+	</pre>
+	
+	Mac:
+	<pre>
+	export AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i>
 	</pre>
 
 1. In the Command Prompt window, navigate to the Intellipix directory you created in Step 1 and execute the following command (note the space and the period at the end of the command) to start Visual Studio Code in that directory:
