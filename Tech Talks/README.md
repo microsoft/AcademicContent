@@ -83,6 +83,11 @@ If you want to report any issues we need to fix. Please log an <a href="https://
 					   <td><b>Microsoft Power BI and REST Services - Samples of how to use REST APIS to build amazing data visualisations</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20PowerBI_RESTSamples_student.pptx)</td>
 					   <td>Understand PowerBI APIs samples and demos</td>
+					   </tr>
+						<tr>
+					   <td><b>Microsoft Storage Services - Using Microsoft Azure for Storage Services </b></td>
+					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20AzureStorageOverview.pptx)</td>
+					   <td>Understand Microsoft Azure Storage Services Demos are located in storage Demo Folder</td>
 					</tr>
 				 </table>
 			</div>
