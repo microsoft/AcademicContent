@@ -60,7 +60,7 @@ TeessideTableDemo
 
 #Azure Connection  
 Remember to add your azure setting to app.config files in both Demos
-   <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account_name>;AccountKey=<account_key>" />
+add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account_name>;AccountKey=<account_key>
   
 # Resources
 -   The Container Channel: https://channel9.msdn.com/
