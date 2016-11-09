@@ -89,6 +89,11 @@ If you want to report any issues we need to fix. Please log an <a href="https://
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20AzureStorageOverview.pptx)  | [Demos](https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks/StorageDemo)</td>
 					   <td>Understand Microsoft Azure Storage Services Demos are located in storage Demo Folder</td>
 					</tr>
+					<tr>
+					   <td><b>Microsoft Xbox One - Building Windows 10 UWP Apps and Games for Xbox One</b></td>
+					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Building%20UWP%20Apps%20&%20Games%20for%20XboxOne.pptx)  | [Demos](https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks/XboxOneUWPDemo)</td>
+					   <td>Understand Microsoft Xbox One UWP App and Game development</td>
+					</tr>
 				 </table>
 			</div>
       </div>

@@ -1,4 +1,4 @@
-# Micrsoft Storage
+# Microsoft Storage Demos
 
 Demo for Azure Storage
 
