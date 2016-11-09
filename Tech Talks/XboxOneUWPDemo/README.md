@@ -1,5 +1,6 @@
-# Microsoft Storage Demos
-Demo for Building Xbox One UWP Apps and Games
+# Microsoft Xbox One UWP App & Game Development 
+
+- Please see the presentation for developing apps and games for Xbox One this section contains the Demos for Building Xbox One UWP Apps and Games
 
 # Technical Prerequisites:
 
