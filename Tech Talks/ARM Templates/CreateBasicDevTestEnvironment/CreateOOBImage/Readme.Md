@@ -15,7 +15,7 @@
 
 2. Once these have been set, run the script like this:-
 
-- Add-AzureRMAccount .\CreateOOBImage.ps1 -ResourceGroupName Servers -ResourceGroupLocation "WestEurope"
+- Add-AzureRMAccount .\UploadPostBuildScript.ps1 -ResourceGroupName Servers -ResourceGroupLocation "WestEurope"
 
 ##Example
 
