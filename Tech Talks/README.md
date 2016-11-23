@@ -95,9 +95,19 @@ If you want to report any issues we need to fix. Please log an <a href="https://
 					   <td>Understand Microsoft Xbox One UWP App and Game development</td>
 					</tr>
 					<tr>
-					   <td><b>Microsoft MICROSOFT A.I. CONVERSATIONAL UI AND COGNITIVE SERVICES</b></td>
+					   <td><b>Microsoft A.I. Conversational UI & Cognitive Services</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20MicrosoftAI%20ConversationalUI%20%26%20Cognitive.pdf)</td>
-					   <td>Understand Microsoft Xbox One UWP App and Game development</td>
+					   <td>Understanding Microsoft AI Strategy and how conversation as a service can build intelligent apps</td>
+					</tr>
+					<tr>
+					   <td><b>Microsoft Machine Learning demystified/b></td>
+					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/bhttps://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Advanced%20Machine%20Learning.pptx)| [Demos](hhttps://github.com/MSFTImagine/computerscience/blob/master/Workshop/4.%20Machine%20Learning/Azure%20Machine%20Learning%20HOL%20(UWP).md)</td>
+					   <td>Understand Microsoft Machine Learning </td>
+					</tr>
+					<tr>
+					   <td><b>Microsoft Cognitive Services adding smarts to your applications</b></td>
+					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Machine%20Learning%20Cognitive%20%26%20Bots.pdf)</td>
+					   <td>Understand Microsoft Machine Learning, Cognitive Services and the Bot Framework</td>
 					</tr>
 				 </table>
 			</div>
