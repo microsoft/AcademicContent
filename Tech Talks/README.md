@@ -100,7 +100,7 @@ If you want to report any issues we need to fix. Please log an <a href="https://
 					   <td>Understanding Microsoft AI Strategy and how conversation as a service can build intelligent apps</td>
 					</tr>
 					<tr>
-					   <td><b>Microsoft Machine Learning demystified/b></td>
+					   <td><b>Microsoft Machine Learning demystified</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/bhttps://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Advanced%20Machine%20Learning.pptx)| [Demos](hhttps://github.com/MSFTImagine/computerscience/blob/master/Workshop/4.%20Machine%20Learning/Azure%20Machine%20Learning%20HOL%20(UWP).md)</td>
 					   <td>Understand Microsoft Machine Learning </td>
 					</tr>
