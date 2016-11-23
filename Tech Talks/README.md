@@ -92,7 +92,7 @@ If you want to report any issues we need to fix. Please log an <a href="https://
 					<tr>
 					   <td><b>Microsoft Xbox One - Building Windows 10 UWP Apps and Games for Xbox One</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Building%20UWP%20Apps%20&%20Games%20for%20XboxOne.pptx)  | [Demos](https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks/XboxOneUWPDemo)</td>
-					   <td>Understand Microsoft Xbox One UWP App and Game development</td>
+					   <td>Understand Microsoft Xbox One UWP App and Game development building UWP Games and Apps with C#, Unity3d and MonoGame</td>
 					</tr>
 					<tr>
 					   <td><b>Microsoft A.I. Conversational UI & Cognitive Services</b></td>
@@ -107,7 +107,7 @@ If you want to report any issues we need to fix. Please log an <a href="https://
 					<tr>
 					   <td><b>Microsoft Cognitive Services adding smarts to your applications</b></td>
 					   <td>[Presentation](https://github.com/MSFTImagine/computerscience/blob/master/Tech%20Talks/Tech%20Talk%20-%20Machine%20Learning%20Cognitive%20%26%20Bots.pdf)</td>
-					   <td>Understand Microsoft Machine Learning, Cognitive Services and the Bot Framework</td>
+					   <td>Understand Microsoft Machine Learning, Cognitive Services and the Bot Framework and the opportunity of using these services to add smarts to your applications the perfect services for your hackathon and challenges</td>
 					</tr>
 				 </table>
 			</div>
