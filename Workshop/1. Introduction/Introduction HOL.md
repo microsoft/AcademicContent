@@ -14,7 +14,7 @@ Although Azure services can be accessed from any operating system running on an 
 
 > You can work the labs in this course without a VM if you have an active Azure subscription and are running Windows 10 with the proper tools installed. Each lab lists the tools required as well as links for downloading them. Moreover, all of the required tools are free. Here's a complete list in case you would like to configure a Windows 10 PC or laptop with everything needed for the labs:
 
->- [Visual Studio 2015 Community edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) or higher
+- [Visual Studio 2015 Community edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) or higher
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [PHP for Windows](http://windows.php.net/download/)
 - [Microsoft Azure Storage Explorer](http://storageexplorer.com/)
@@ -100,11 +100,11 @@ In this exercise, you will use your browser to connect to a Windows 10 virtual m
 
     _Entering a training key_
 
-1. Click **Launch Test Lab**.
+1. Scroll down the page and click **Launch** to launch the lab.
 
-    ![Launching the test lab](Images/launch-test-lab.png)
+    ![Launching the lab](Images/launch-lab.png)
 
-    _Launching the test lab_
+    _Launching the lab_
 
 1. After a few moments, the Windows 10 desktop appears in your browser. If you are asked whether you want "your PC" (the virtual machine) to be discoverable on the network, click **No**.
 
