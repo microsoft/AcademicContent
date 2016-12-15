@@ -178,12 +178,12 @@ In this exercise, you will upload the Python scripts that you modified in Exerci
 
 1. Execute the following command in the terminal window, replacing _masterDNS_ with the DNS name on the clipboard. When prompted, enter the admin password for the cluster ("Azure4Research!").
 
+	> Because this is the first time you have connected to the master node, you will be prompted with a security warning asking if you want to update the cached key. Since the host is one you created, answer yes.
+
     <pre>
     scp * azureuser@<i>masterDNS</i>:.</pre>
 
 1. The next step is to establish an SSH connection to the master node. To do that, execute the command below in the terminal window, once more replacing _masterDNS_ with the DNS name on the clipboard. When prompted for a password, enter the password ("Azure4Research!") you entered into the deployment template in [Exercise 2](#Exercise2)
-
-	> Because this is the first time you have connected to the master node, you will be prompted with a warning asking if you trust this host. Since the host is one you created, click **Yes**.
 
     <pre>
     ssh azureuser@<i>masterDNS</i></pre>
@@ -224,12 +224,12 @@ In this exercise, you will upload the Python scripts that you modified in Exerci
  
 1. Execute the following command, replacing _masterDNS_ with the DNS name on the clipboard. When prompted, enter the admin password for the cluster ("Azure4Research!").
 
+	> Because this is the first time you have connected to the master node, you will be prompted with a security warning asking if you want to update the cached key. Since the host is one you created, answer yes.
+
     <pre>
     pscp * azureuser@<i>masterDNS</i>:.</pre>
 
 1. Start PuTTY (putty.exe) and paste the DNS name into the **Host Name (or IP address)** field. Then click the **Open** button to initiate a Secure Shell (SSH) connection.
-
-	> Because this is the first time you have connected to the master node, you will be prompted with a warning asking if you trust this host. Since the host is one you created, click **Yes**.
 
     ![Connecting with PuTTY](Images/connect-with-putty.png)
 
@@ -255,7 +255,7 @@ The next task is to run a job on the cluster that you just configured.
 <a name="Exercise5"></a>
 ## Exercise 5: Run a job and view the results
 
-TODO: Add opening paragraph.
+In this exercise, you will run **controller.py** on the cluster's master node. **controller.py** performs the CPU-intensive task of computing the distances over a sphere between more than 7,300 airports, yielding more than 53 million distances in total. Rather than do the work on the master node, **controller.py** uses SLURM to delegate calculations to the worker nodes and divides the work into the number of "slices" specified in a command-line parameter. 
 
 1. In the terminal window (macOS and Linux) or the PuTTY terminal window (Windows), execute the following command:
 
@@ -264,7 +264,6 @@ TODO: Add opening paragraph.
 	```
 
 	**controller.py** accepts one parameter that tells it how many jobs to delegate to SLURM. It divides the workload for building the distance table into equal proportions for each job, and uses SLURM to delegate the jobs to each of the nodes in the cluster. 
-
 
 1. Return to the Azure Portal. Click **Resource groups** in the ribbon on the left, and then click the "ScalingLabResourceGroup" resource group containing the storage account you created in [Exercise 1](#Exercise1).
 
