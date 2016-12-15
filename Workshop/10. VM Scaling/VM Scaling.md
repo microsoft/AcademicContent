@@ -35,7 +35,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription, or [sign up for a free trial](https://azure.microsoft.com/en-us/free/).
+- An active Microsoft Azure subscription, or [sign up for a free trial](https://azure.microsoft.com/en-us/free/)
 - [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) (Windows users only)
 
 <a name="Exercises"></a>
@@ -131,11 +131,11 @@ Let's get started!
 
 	_Deploying from GitHub_
 
-1. Select **Create new** under **Resource group** and enter the resource-group name "ClusterResourceGroup" (without quotation marks). It is important NOT to use the same resource group you used for the storage account in Exercise 1, because when you delete the cluster in Exercise TK, you don't want to the storage account to be deleted, too.
+1. Select **Create new** under **Resource group** and enter the resource-group name "ClusterResourceGroup" (without quotation marks). It is important NOT to use the same resource group you used for the storage account in Exercise 1, because when you delete the cluster in Exercise 6, you don't want to the storage account to be deleted, too.
 
-	Select the location nearest you — the same one you selected for the storage account in Exercise 1 — under **Location**. Specify "azureuser" as the **Admin User Name** and "Azure4Research!" as the **Admin Password**. Leave **Vm Size** set to **Standard_D1_v2** and set **Scale Number** to 1 to create a cluster containing one master node and one worker node. Then check the **I agree to the terms and conditions stated above** box and click the **Purchase** button at the bottom of the blade.
+	Select the location nearest you — the same one you selected for the storage account in Exercise 1 — under **Location**. Specify "azureuser" as the **Admin User Name** and "Azure4Research!" as the **Admin Password**. Leave **Vm Size** set to **Standard_D1_v2** and set **Scale Number** to **1** to create a cluster containing one master node and one worker node, each with a single CPU. Then check the **I agree to the terms and conditions stated above** box and click the **Purchase** button at the bottom of the blade.
 
-	> It is very important that you use "azureuser" as the admin user name, because the scripts that you will use to configure the cluster use that user name.
+	> It is very important to specify "azureuser" as the admin user name, because the scripts that you will use to configure the cluster use that user name.
 
     ![Deploying the cluster](Images/template-parameters.png)
 
@@ -344,7 +344,7 @@ After a few minutes, the cluster and all of its resources will be deleted. Billi
 
 In this exercise, you will deploy a new cluster containing a single worker node with eight CPUs. Then you will run the same job on it and compare the performance of this cluster to the performance of the cluster containing a single worker node with one CPU.
 
-1. Repeat Exercises 2-5, but this time, in Exercise 2, Step 2, set **Vm Size** to **Standard_D4_v2** and **Scale Number** to 1.
+1. Repeat Exercises 2-5, but this time, in Exercise 2, Step 2, set **Vm Size** to **Standard_D4_v2** and **Scale Number** to **1**.
 
 	![Creating a cluster containing one worker node with eight CPUs](Images/vm-parameters-1.png)
 
@@ -361,9 +361,9 @@ How long did it take for the job to run this time?
 <a name="Exercise8"></a>
 ## Exercise 8: Test with a cluster containing eight worker nodes with one CPU each
 
-In this exercise, you will deploy a new cluster containing eight worker nodes with one CPU each for a total of eight CPUs. Then you will run the same job on it and compare the performance of this cluster to the performance of the other two clusters.
+In this exercise, you will deploy a new cluster containing eight worker nodes with one CPU each. Then you will run the same job on it and compare the performance of this cluster to the performance of the other two clusters. Note that it will take longer to deploy and configure the cluster this time due to the increased number of worker nodes.
 
-1. Repeat Exercises 2-5, but this time, in Exercise 2, Step 2, set **Vm Size** to **Standard_D1_v2** and **Scale Number** to 8. 
+1. Repeat Exercises 2-5, but this time, in Exercise 2, Step 2, set **Vm Size** to **Standard_D1_v2** and **Scale Number** to **8**. 
 
 	![Creating a cluster containing eight worker nodes with one CPU each](Images/vm-parameters-2.png)
 
