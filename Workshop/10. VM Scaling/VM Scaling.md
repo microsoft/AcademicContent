@@ -6,29 +6,36 @@
 <a name="Overview"></a>
 ## Overview ##
 
-TODO: Add intoductory paragraph
+One of the benefits of using the cloud to attack large computing problems is virtually limitless scalability. In Microsoft Azure, you can create a cluster of virtual machines (VMs) networked to form a high-performance computing (HPC) cluster in a matter of minutes. If you need more computing power than the cluster can provide, you can *scale up* by creating a cluster with larger and more capable virtual machines (more cores, more RAM, etc.), or you can *scale out* by creating a cluster with more nodes. Finding the optimum cluster configuration for a given job is a key requirement for utilizing compute resources effectively and efficiently.
 
-The [Simple Linux Utility for Resource Management (SLURM)](https://slurm.schedmd.com/), also known as the SLURM Workload Manager, is a free and open-source job scheduler for Linux that excels at distributing heavy computing workloads across clusters of machines and processors. It is used on more than half of the world's largest supercomputers and High-Performance Computing (HPC) clusters, and it enjoys widespread use in the research community for jobs that require significant CPU resources.
+In this hands-on lab, you will run a compute-intensive job on three different HPC clusters and compare performance. The cluster sizes you will use are:
 
-Azure makes it easy to deploy SLURM clusters and size them to handle workloads large and small. In this lab, you will get first-hand experience deploying HPC clusters in Azure as well as managing and using the nodes in a cluster. And you will learn how easy it is to bring massive computing power to bear on problems that require it when you use the cloud. 
+- One worker node with one core and 3.5 GB of RAM
+- One worker node with eight cores and 28 GB of RAM
+- Eight worker nodes, each with one core and 3.5 GB of RAM
 
-This lab uses SLURM to manage the calculations for a distance table with over 7,300 airports. The number of possible distances on a table is the square of the number of airports, meaning there are over 53 million possible distances. 
+The job that you will run is written in Python, and it involves using the latitudes and longitudes of more than 7,300 airports to build a distance table like the one below containing the distance between each airport. Since the number of distances is the square of the number of airports, the job computes more than 53 million distances, and the calculations are floating-point intensive as well as CPU-intensive because the distances are calculated over the [surface of a sphere](https://en.wikipedia.org/wiki/Great-circle_distance).
 
 ![Sample Distance Table](Images/disttabl.gif)
 
-The distances are caculated over the [surface of a sphere](https://en.wikipedia.org/wiki/Great-circle_distance). These calculations requires a number of CPU intense, floating point operations per distance calculated. Using an HPC cluster can divide this workload among multiple CPU's to significantly speed up the time for calculation. This lab will compare using a single node to perform the calculations, a more powerful single node, and lastly a cluster of 8 nodes.
+_Sample distance table_
+
+To distribute the workload among all the nodes and cores in each cluster, the Python code that you will run uses the [Simple Linux Utility for Resource Management](https://slurm.schedmd.com/), also known as the SLURM Workload Manager or simply SLURM. SLURM is a free and open-source job scheduler for Linux that excels at distributing heavy computing workloads across clusters of machines and processors. It is used on more than half of the world's largest supercomputers and HPC clusters, and it enjoys widespread use in the research community for jobs that require significant compute resources.
+
+This lab normally requires 90 minutes or more to complete because it has you deploy and test three clusters sequentially. You can economize on time by deploying all three clusters in parallel, essentially working Exercises 2, 7, and 8 at the same time. Be aware, however, that some free Azure subscriptions limit the number of virtual-machine cores that can be extant at any one time, so depending on what type of subscription you have, you may or may not be able to deploy three clusters concurrently. 
 
 <a name="Objectives"></a>
 ### Objectives ###
 
 In this hands-on lab, you will learn how to:
 
-- Create a SLURM cluster using an Azure Resource Manager template
+- Create a SLURM cluster in Azure
 - Copy local resources to a SLURM cluster
-- Remote into the nodes in a SLURM cluster
+- Remote into a SLURM cluster
 - Run jobs on a SLURM cluster
-- Start and stop nodes in a SLURM cluster
 - Use the Azure Resource Manager to delete a SLURM cluster
+
+Moreover, you will get a first-hand look at the differences in performance when scaling up versus scaling out. Of course, every job is different, so the exercises herein provide just one example of the performance differences one can expect.
 
 <a name="Prerequisites"></a>
 ### Prerequisites ###
@@ -47,8 +54,8 @@ The following are required to complete this hands-on lab:
 - [Exercise 4 (Windows): Connect to and configure the cluster](#Exercise3)
 - [Exercise 5: Run a job and view the results](#Exercise5)
 - [Exercise 6: Delete the cluster](#Exercise6)
-- [Exercise 7: Test with a cluster containing one worker nodes with eight CPUs](#Exercise7)
-- [Exercise 8: Test with a cluster containing eight worker nodes with one CPU each](#Exercise8)
+- [Exercise 7: Test with a cluster containing one worker nodes with eight cores](#Exercise7)
+- [Exercise 8: Test with a cluster containing eight worker nodes with one core each](#Exercise8)
 - [Exercise 9: Delete the storage account](#Exercise9)
 
 Estimated time to complete this lab: **90 minutes**.
@@ -133,7 +140,7 @@ Let's get started!
 
 1. Select **Create new** under **Resource group** and enter the resource-group name "ClusterResourceGroup" (without quotation marks). It is important NOT to use the same resource group you used for the storage account in Exercise 1, because when you delete the cluster in Exercise 6, you don't want to the storage account to be deleted, too.
 
-	Select the location nearest you — the same one you selected for the storage account in Exercise 1 — under **Location**. Specify "azureuser" as the **Admin User Name** and "Azure4Research!" as the **Admin Password**. Leave **Vm Size** set to **Standard_D1_v2** and set **Scale Number** to **1** to create a cluster containing one master node and one worker node, each with a single CPU. Then check the **I agree to the terms and conditions stated above** box and click the **Purchase** button at the bottom of the blade.
+	Select the location nearest you — the same one you selected for the storage account in Exercise 1 — under **Location**. Specify "azureuser" as the **Admin User Name** and "Azure4Research!" as the **Admin Password**. Leave **Vm Size** set to **Standard_D1_v2** and set **Scale Number** to **1** to create a cluster containing one master node and one worker node, each with a single core. Then check the **I agree to the terms and conditions stated above** box and click the **Purchase** button at the bottom of the blade.
 
 	> It is very important to specify "azureuser" as the admin user name, because the scripts that you will use to configure the cluster use that user name.
 
@@ -255,15 +262,13 @@ The next task is to run a job on the cluster that you just configured.
 <a name="Exercise5"></a>
 ## Exercise 5: Run a job and view the results
 
-In this exercise, you will run **controller.py** on the cluster's master node. **controller.py** performs the CPU-intensive task of computing the distances over a sphere between more than 7,300 airports, yielding more than 53 million distances in total. Rather than do the work on the master node, **controller.py** uses SLURM to delegate calculations to the worker nodes and divides the work into the number of "slices" specified in a command-line parameter. 
+In this exercise, you will run **controller.py** on the cluster's master node. **controller.py** performs the CPU-intensive task of computing the distances over a sphere between more than 7,300 airports, yielding more than 53 million distances in total. Rather than do the work on the master node, **controller.py** uses SLURM to delegate calculations to the worker nodes and divides the work into the number of "slices" specified in a command-line parameter. You generally want one "slice" for each core in the cluster.
 
 1. In the terminal window (macOS and Linux) or the PuTTY terminal window (Windows), execute the following command:
 
 	```
 	python3 controller.py 1
 	```
-
-	**controller.py** accepts one parameter that tells it how many jobs to delegate to SLURM. It divides the workload for building the distance table into equal proportions for each job, and uses SLURM to delegate the jobs to each of the nodes in the cluster. 
 
 1. Return to the Azure Portal. Click **Resource groups** in the ribbon on the left, and then click the "ScalingLabResourceGroup" resource group containing the storage account you created in [Exercise 1](#Exercise1).
 
@@ -301,21 +306,21 @@ In this exercise, you will run **controller.py** on the cluster's master node. *
 
 	_Downloading the blob_
 
-1. Note the start time for the workload and the finish time for the last job to complete.
+1. The Python script that you ran in Step 1 finishes quickly, but the job itself runs asynchronously and will probably take four minutes or more on a cluster consisting of a single worker node and single core. When the job is complete, **log.txt** will contain something similar to this:
 
-	Example: 
+	```
+	Starting: 2016-12-16 13:15:45
+	Starting 0-7377:2016-12-16 13:15:45
+	Finishing 0-7377:2016-12-16 13:19:55
+	```
 
-	````
-	Starting: 2016-12-12 01:35:07
-	Starting 0-3689:2016-12-12 01:35:09
-	Starting 3690-7377:2016-12-12 01:35:09
-	Finishing 3690-7377:2016-12-12 01:37:01
-	Finishing 0-3689:2016-12-12 01:37:12
-	````
+	The first line indicates when the job was started (when **controller.py** was executed). The succeeding lines indicate when each "slice" of the job was started and completed. In this case, because you passed 1 as a command-line parameter to **controller.py**, there is one starting/finishing pair.
 
-	The difference between these two times is the time it takes to complete the workload. Keep this file handy to compare to Exercises 10 and 11.
+	Download **log.txt** repeatedly until it contains three lines of output similar to the ones above.
 
-TODO: Add closing paragraph.
+1. Compute the wall-clock time required to complete the job by subtracting the time on the first line from the time on the final line. In the example above, the time required is 4 minutes and 10 seconds.
+
+You now have a baseline for a performance comparison: the time the job required on a single worker node with just one core. **Write down the result so you can easily retrieve it later**. In subsequent runs with larger clusters, **log.txt** will be overwritten with newer results.
 
 <a name="Exercise6"></a>
 ## Exercise 6: Delete the cluster
@@ -339,15 +344,17 @@ When virtual machines are running, you are being charged — even if the VMs are
 After a few minutes, the cluster and all of its resources will be deleted. Billing stops when you click the **Delete** button, so you're not charged for the time required to delete the cluster. Similarly, bulling doesn't start until a cluster is fully and successfully deployed.
 
 <a name="Exercise7"></a>
-## Exercise 7: Test with a cluster containing one worker node with eight CPUs
+## Exercise 7: Test with a cluster containing one worker node with eight cores
 
-In this exercise, you will deploy a new cluster containing a single worker node with eight CPUs. Then you will run the same job on it and compare the performance of this cluster to the performance of the cluster containing a single worker node with one CPU.
+In this exercise, you will deploy a new cluster containing a single worker node with eight cores. Then you will run the same job on it and compare the performance of this cluster to the performance of the cluster containing a single worker node with one core.
 
 1. Repeat Exercises 2-5, but this time, in Exercise 2, Step 2, set **Vm Size** to **Standard_D4_v2** and **Scale Number** to **1**.
 
-	![Creating a cluster containing one worker node with eight CPUs](Images/vm-parameters-1.png)
+	> Feel free to use a different resource-group name if you would like (for example, "ClusterResourceGroup2") in case the previous resource group is still being deleted.
 
-	_Creating a cluster containing one worker node with eight CPUs_
+	![Creating a cluster containing one worker node with eight cores](Images/vm-parameters-1.png)
+
+	_Creating a cluster containing one worker node with eight cores_
 
 1. Repeat Exercises 5 and 6, but use the following command to run the job in Exercise 5, Step 1:
 
@@ -355,18 +362,41 @@ In this exercise, you will deploy a new cluster containing a single worker node 
 	python3 controller.py 8
 	```
 
-How long did it take for the job to run this time?
+1. This time, the final **log.txt** file will look something like this since the job was divided into eight parts to better leverage the eight cores available:
+
+	```
+	Starting 1846-2768:2016-12-16 13:48:03
+	Starting 3692-4614:2016-12-16 13:48:03
+	Finishing 3692-4614:2016-12-16 13:48:33
+	Starting 0-922:2016-12-16 13:48:33
+	Finishing 1846-2768:2016-12-16 13:48:42
+	Starting 923-1845:2016-12-16 13:48:42
+	Finishing 0-922:2016-12-16 13:49:03
+	Starting 2769-3691:2016-12-16 13:49:03
+	Finishing 923-1845:2016-12-16 13:49:15
+	Starting 4615-5537:2016-12-16 13:49:16
+	Finishing 2769-3691:2016-12-16 13:49:33
+	Starting 5538-6460:2016-12-16 13:49:34
+	Finishing 4615-5537:2016-12-16 13:49:51
+	Starting 6461-7377:2016-12-16 13:49:51
+	Finishing 5538-6460:2016-12-16 13:50:04
+	Finishing 6461-7377:2016-12-16 13:50:25
+	```
+
+How long did it take for the job to run this time? How does it compare to the result you received when you ran the job on a single core?
 
 <a name="Exercise8"></a>
-## Exercise 8: Test with a cluster containing eight worker nodes with one CPU each
+## Exercise 8: Test with a cluster containing eight worker nodes with one core each
 
-In this exercise, you will deploy a new cluster containing eight worker nodes with one CPU each. Then you will run the same job on it and compare the performance of this cluster to the performance of the other two clusters. Note that it will take longer to deploy and configure the cluster this time due to the increased number of worker nodes.
+In this exercise, you will deploy a new cluster containing eight worker nodes with one core each. Then you will run the same job on it and compare the performance of this cluster to the performance of the other two clusters. Note that it will take longer to deploy and configure the cluster this time due to the increased number of worker nodes.
 
-1. Repeat Exercises 2-5, but this time, in Exercise 2, Step 2, set **Vm Size** to **Standard_D1_v2** and **Scale Number** to **8**. 
+1. Repeat Exercises 2-5, but this time, in Exercise 2, Step 2, set **Vm Size** to **Standard_D1_v2** and **Scale Number** to **8**.
 
-	![Creating a cluster containing eight worker nodes with one CPU each](Images/vm-parameters-2.png)
+	> Feel free to use a different resource-group name if you would like (for example, "ClusterResourceGroup3") in case the previous resource group is still being deleted.
 
-	_Setting the VM size_
+	![Creating a cluster containing eight worker nodes with one core each](Images/vm-parameters-2.png)
+
+	_Creating a cluster containing eight worker nodes with one core each_
 
 1. Repeat Exercises 5 and 6, and use the following command to run the job in Exercise 5, Step 1:
 
@@ -374,7 +404,29 @@ In this exercise, you will deploy a new cluster containing eight worker nodes wi
 	python3 controller.py 8
 	```
 
-How long did it take for the job to run this time?
+1. This time, the final **log.txt** file will look something like this:
+
+	```
+	Starting: 2016-12-16 15:00:23
+	Starting 923-1845:2016-12-16 15:00:25
+	Starting 2769-3691:2016-12-16 15:00:25
+	Starting 5538-6460:2016-12-16 15:00:25
+	Starting 0-922:2016-12-16 15:00:25
+	Starting 4615-5537:2016-12-16 15:00:25
+	Starting 1846-2768:2016-12-16 15:00:25
+	Starting 3692-4614:2016-12-16 15:00:25
+	Starting 6461-7377:2016-12-16 15:00:25
+	Finishing 5538-6460:2016-12-16 15:00:55
+	Finishing 0-922:2016-12-16 15:00:56
+	Finishing 4615-5537:2016-12-16 15:00:57
+	Finishing 3692-4614:2016-12-16 15:00:57
+	Finishing 923-1845:2016-12-16 15:00:58
+	Finishing 2769-3691:2016-12-16 15:00:59
+	Finishing 6461-7377:2016-12-16 15:01:01
+	Finishing 1846-2768:2016-12-16 15:01:03
+	```
+
+How long did it take for the job to run this time? How does it compare to the results you received when you ran the job on a single core and on a single node containing eight cores?
 
 <a name="Exercise9"></a>
 ## Exercise 9: Delete the storage account
@@ -400,15 +452,9 @@ After a few minutes, the resource group and all of its resources will be deleted
 <a name="Summary"></a>
 ## Summary
 
-In this hands-on lab, you learned how to:
+In this hands-on lab, you compared the performance of three HPC clusters running the same compute-intensive job. It's just one data point, but is indicative of the kinds of differences you can expect, especially when using SLURM to distribute the workload among nodes and cores. If you would like to go further in your experimentation, consider trying different types of Azure VMs such as the recently introduced [H-series](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-a8-a9-a10-a11-specs) of machines, which are designed for high-end computational needs such as molecular modeling and computational fluid dynamics and feature InfiniBand networking, as well as [N-series](http://gpu.azure.com/) machines, which contain GPUs. The results will undoubtedly vary with these machines, and you would expect better performance given that the D1_v2 and D4_v2 VMs you used in these exercises are relatively modest machines.
 
-- Create a SLURM cluster using an Azure Resource Manager template
-- Copy local resources to a SLURM cluster
-- Remote into the nodes in a SLURM cluster
-- Run jobs on a SLURM cluster
-- Delete a SLURM cluster by deleting the resource group containing it
-
-It is **much** easier to deploy a SLURM cluster in Azure than to install and configure a physical SLURM cluster. This is one of the ways in which cloud computing benefits researchers: it allows you to quickly and easily deploy the resources you need, *when* you need them, pay only for the resources you use, and delete them when they are no longer necessary.
+For more information on the numerous VM sizes available in Azure, refer to https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-sizes for Windows VMs and https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-sizes for Linux VMs.
 
 ----
 
