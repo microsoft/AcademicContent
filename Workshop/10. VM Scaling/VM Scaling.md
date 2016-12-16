@@ -6,9 +6,9 @@
 <a name="Overview"></a>
 ## Overview ##
 
-One of the benefits of using the cloud to attack large computing problems is virtually limitless scalability. In Microsoft Azure, you can create a cluster of virtual machines (VMs) networked to form a high-performance computing (HPC) cluster in a matter of minutes. If you need more computing power than the cluster can provide, you can *scale up* by creating a cluster with larger and more capable virtual machines (more cores, more RAM, etc.), or you can *scale out* by creating a cluster with more nodes. Finding the optimum cluster configuration for a given job is a key requirement for utilizing compute resources effectively and efficiently.
+One of the benefits of using the cloud to handle large computing workloads is virtually limitless scalability. In Microsoft Azure, you can create a cluster of virtual machines (VMs) networked to form a high-performance computing (HPC) cluster in a matter of minutes. If you need more computing power than the cluster can provide, you can *scale up* by creating a cluster with larger and more capable virtual machines (more cores, more RAM, etc.), or you can *scale out* by creating a cluster with more nodes. Finding the optimum cluster configuration for a given job is a key requirement for utilizing compute resources effectively and efficiently.
 
-In this hands-on lab, you will run a compute-intensive job on three different HPC clusters and compare performance. The cluster sizes you will use are:
+In this hands-on lab, you will run a compute-intensive job on three different Linux HPC clusters and compare performance. The cluster sizes you will use are:
 
 - One worker node with one core and 3.5 GB of RAM
 - One worker node with eight cores and 28 GB of RAM
@@ -49,9 +49,9 @@ The following are required to complete this hands-on lab:
 ## Exercises ##
 
 - [Exercise 1: Create a storage account and configure Python scripts](#Exercise1)
-- [Exercise 2: Deploy a compute cluster](#Exercise2)
+- [Exercise 2: Deploy an HPC cluster](#Exercise2)
 - [Exercise 3 (macOS and Linux): Connect to and configure the cluster](#Exercise3)
-- [Exercise 4 (Windows): Connect to and configure the cluster](#Exercise3)
+- [Exercise 4 (Windows): Connect to and configure the cluster](#Exercise4)
 - [Exercise 5: Run a job and view the results](#Exercise5)
 - [Exercise 6: Delete the cluster](#Exercise6)
 - [Exercise 7: Test with a cluster containing one worker nodes with eight cores](#Exercise7)
@@ -63,7 +63,7 @@ Estimated time to complete this lab: **90 minutes**.
 <a name="Exercise1"></a>
 ## Exercise 1: Create a storage account and configure Python scripts
 
-In this exercise, you will use the [Azure Portal](https://portal.azure.com) to create a storage account. Then you will modify the scripts that you will run to compare the performance of various VM configurations so that they can use this account to store data in blob storage. 
+In this exercise, you will use the [Azure Portal](https://portal.azure.com) to create a storage account. Then you will modify the job scripts used to compare the performance of various VM configurations so they can use this account to store data in blob storage. 
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
  
@@ -77,13 +77,13 @@ In this exercise, you will use the [Azure Portal](https://portal.azure.com) to c
 
 	> Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure. If someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the **Name** field.
 
-	Once you have a name that Azure will accept (as indicated by the green check mark in the **Name** field), make sure **Resource manager** is selected as the deployment model and **General purpose** is selected as the account kind. Then select **Create new** under **Resource group** and type "ScalingLabResourceGroup" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the **Location** box, and clicking the **Create** button at the bottom of the blade to create the new storage account.
+	Once you have a name that Azure will accept (as indicated by the green check mark in the **Name** field), make sure **Resource manager** is selected as the **Deployment model** and **General purpose** is selected as the **Account kind**. Then select **Create new** under **Resource group** and type "ScalingLabResourceGroup" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the **Location** box, and clicking the **Create** button at the bottom of the blade to create the new storage account.
     
 	![Specifying parameters for a new storage account](Images/create-storage-account.png)
 
     _Specifying parameters for a new storage account_
 
-1. After the account is created (it generally takes 30 seconds or so), click **Resource groups**, and then click the "ScalingLabResourceGroup" resource group that was created along with the storage account.
+1. After the account is created (it generally takes 30 seconds or so), click **Resource groups** in the ribbon on the left side of the portal, and then click the "ScalingLabResourceGroup" resource group that was created along with the storage account.
 
 	![Opening the resource group](Images/open-resource-group.png)
 
@@ -101,22 +101,22 @@ In this exercise, you will use the [Azure Portal](https://portal.azure.com) to c
 
     _Copying the access key_
  
-1. Find **controller.py** in this lab's "resources" folder and open it for editing in the text or program editor of your choice.
+1. Find **controller.py** in this lab's "resources" folder and open it in the text or program editor of your choice.
 
-1. In **controller.py**, replace *storage_account_name* on line 14 with the name of the storage account you created in Step 3, and replace *storage_account_key* on line 15 with the storage-account access key that is on the clipboard. Then save your changes and close the file.
+1. In **controller.py**, replace *storage_account_name* on line 14 with the name of the storage account you created in Step 3, and replace *storage_account_key* on line 15 with the access key that is on the clipboard. Then save your changes and close the file.
 
 	![Modifying controller.py](Images/modify-script.png)
 
     _Modifying controller.py_
 
-1. Find **worker.py** in this lab's "resources" folder and open it for editing in the text or program editor of your choice.
+1. Find **worker.py** in this lab's "resources" folder and open it in the text or program editor of your choice.
 
-1. In **worker.py**, replace *storage_account_name* on line 11 with the name of the storage account you created in Step 3, and replace *storage_account_key* on line 12 with the storage-account access key that is on the clipboard. Then save your changes and close the file.
+1. In **worker.py**, replace *storage_account_name* on line 11 with the name of the storage account you created in Step 3, and replace *storage_account_key* on line 12 with the access key that is on the clipboard. Then save your changes and close the file.
 
-You now have an Azure storage account that you can use in your tests as well as Python scripts that access the storage account. The next step is to deploy your first compute cluster for testing.
+You now have an Azure storage account that you can use in your tests as well as Python scripts that can access the storage account. The next step is to deploy your first HPC cluster for testing.
 
 <a name="Exercise2"></a>
-## Exercise 2: Deploy a compute cluster
+## Exercise 2: Deploy an HPC cluster
 
 The Azure Resource Manager allows you to provision applications using declarative templates. A template contains a complete description of everything that makes up the application, including virtual machines, databases, Web apps, IP addresses, and other resources. Templates can include parameters that users are prompted to fill in each time an application is deployed. Templates can also invoke scripts to initialize resources to a known and consistent state. To learn more about Azure Resource Manager templates, refer to the [documentation](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/) online.
 
@@ -138,9 +138,9 @@ Let's get started!
 
 	_Deploying from GitHub_
 
-1. Select **Create new** under **Resource group** and enter the resource-group name "ClusterResourceGroup" (without quotation marks). It is important NOT to use the same resource group you used for the storage account in Exercise 1, because when you delete the cluster in Exercise 6, you don't want to the storage account to be deleted, too.
+1. Select **Create new** under **Resource group** and enter the resource-group name "ClusterResourceGroup" (without quotation marks). It is important NOT to use the same resource group you used for the storage account in Exercise 1, because when you delete the cluster in Exercise 6, you don't want the storage account to be deleted, too.
 
-	Select the location nearest you — the same one you selected for the storage account in Exercise 1 — under **Location**. Specify "azureuser" as the **Admin User Name** and "Azure4Research!" as the **Admin Password**. Leave **Vm Size** set to **Standard_D1_v2** and set **Scale Number** to **1** to create a cluster containing one master node and one worker node, each with a single core. Then check the **I agree to the terms and conditions stated above** box and click the **Purchase** button at the bottom of the blade.
+	Select the location nearest you — the same one you selected for the storage account in Exercise 1 — under **Location**. Specify "azureuser" as the **Admin User Name** and "Azure4Research!" as the **Admin Password**. Leave **Vm Size** set to **Standard_D1_v2** and set **Scale Number** to **1** to create a cluster containing one worker node with a single core. Then check the **I agree to the terms and conditions stated above** box and click the **Purchase** button at the bottom of the blade.
 
 	> It is very important to specify "azureuser" as the admin user name, because the scripts that you will use to configure the cluster use that user name.
 
@@ -148,13 +148,13 @@ Let's get started!
 
 	_Deploying the cluster_
 
-1. Click **Resource groups** in the ribbon on the left. Then click the "ClusterResourceGroup" resource group created for the cluster.
+1. Click **Resource groups** in the ribbon on the left. Then click the resource group created for the cluster.
 
     ![Opening the resource group](Images/open-cluster-resource-group.png)
 
 	_Opening the resource group_
 
-1. Wait until "Deploying" changes to "Succeeded," indicating that the cluster has been successfully deployed. It generally takes a few minutes for the deployment to complete.
+1. Wait until "Deploying" changes to "Succeeded," indicating that the cluster has been successfully deployed. It generally takes about five minutes for the deployment to complete for a cluster with a single worker node, and more for clusters containing more nodes.
 
 	> Click the browser's **Refresh** button occasionally to update the deployment status. Clicking the **Refresh** button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.
 
@@ -162,7 +162,7 @@ Let's get started!
 
 	_Successful deployment_
 
-With the cluster deployed, the next step is to connect to the cluster and configure it to run the scripts you prepared in Exercise 1. If you are running macOS or Linux, proceed to [Exercise 3](#Exercise3). Otherwise, if you are running Windows, skip to [Exercise 4](#Exercise4).
+With the cluster deployed, the next step is to connect to the cluster and configure it to run the scripts you prepared in Exercise 1. If you are running macOS or Linux, proceed to [Exercise 3](#Exercise3). If you are running Windows, skip to [Exercise 4](#Exercise4).
 
 <a name="Exercise3"></a>
 ## Exercise 3 (macOS and Linux): Connect to and configure the cluster
@@ -190,7 +190,7 @@ In this exercise, you will upload the Python scripts that you modified in Exerci
     <pre>
     scp * azureuser@<i>masterDNS</i>:.</pre>
 
-1. The next step is to establish an SSH connection to the master node. To do that, execute the command below in the terminal window, once more replacing _masterDNS_ with the DNS name on the clipboard. When prompted for a password, enter the password ("Azure4Research!") you entered into the deployment template in [Exercise 2](#Exercise2)
+1. The next step is to establish an SSH connection to the master node. To do that, execute the command below in the terminal window, once more replacing _masterDNS_ with the DNS name on the clipboard. When prompted for a password, enter the admin password for the cluster ("Azure4Research!").
 
     <pre>
     ssh azureuser@<i>masterDNS</i></pre>
@@ -262,7 +262,7 @@ The next task is to run a job on the cluster that you just configured.
 <a name="Exercise5"></a>
 ## Exercise 5: Run a job and view the results
 
-In this exercise, you will run **controller.py** on the cluster's master node. **controller.py** performs the CPU-intensive task of computing the distances over a sphere between more than 7,300 airports, yielding more than 53 million distances in total. Rather than do the work on the master node, **controller.py** uses SLURM to delegate calculations to the worker nodes and divides the work into the number of "slices" specified in a command-line parameter. You generally want one "slice" for each core in the cluster.
+In this exercise, you will run **controller.py** on the cluster's master node. **controller.py** performs the compute-intensive task of computing the distances over a sphere between more than 7,300 airports, yielding more than 53 million distances in total. Rather than do the work on the master node, **controller.py** uses SLURM to delegate calculations to the worker nodes and divides the work into the number of "slices" specified in a command-line parameter. You generally want one "slice" for each core in the cluster.
 
 1. In the terminal window (macOS and Linux) or the PuTTY terminal window (Windows), execute the following command:
 
@@ -276,7 +276,7 @@ In this exercise, you will run **controller.py** on the cluster's master node. *
 
     _Opening the resource group_
 
-1. Click the storage account found inside the resource group.
+1. Click the resource group's storage account.
 
 	![Opening the storage account](Images/open-storage-account.png)
 
@@ -288,7 +288,7 @@ In this exercise, you will run **controller.py** on the cluster's master node. *
 
 	_Viewing blob containers_
 
-1. Click **distances** to open the container named "distances." This container was created by the Pythin code you ran on the cluster.
+1. Click **distances** to open the container named "distances." This container was created by the Python code you ran on the cluster.
 
     ![Opening the blob container](Images/view-blobs.png)
 
@@ -306,7 +306,7 @@ In this exercise, you will run **controller.py** on the cluster's master node. *
 
 	_Downloading the blob_
 
-1. The Python script that you ran in Step 1 finishes quickly, but the job itself runs asynchronously and will probably take four minutes or more on a cluster consisting of a single worker node and single core. When the job is complete, **log.txt** will contain something similar to this:
+1. The Python script that you ran in Step 1 finishes quickly, but the job itself runs asynchronously and will probably take four minutes or more on a cluster consisting of a single worker node with a single core. When the job is complete, **log.txt** will contain something similar to this:
 
 	```
 	Starting: 2016-12-16 13:15:45
@@ -314,7 +314,7 @@ In this exercise, you will run **controller.py** on the cluster's master node. *
 	Finishing 0-7377:2016-12-16 13:19:55
 	```
 
-	The first line indicates when the job was started (when **controller.py** was executed). The succeeding lines indicate when each "slice" of the job was started and completed. In this case, because you passed 1 as a command-line parameter to **controller.py**, there is one starting/finishing pair.
+	The first line indicates when the job was started (when **controller.py** was executed). The succeeding lines indicate when each "slice" of the job was started and completed. In this case, because you passed 1 as a command-line parameter to **controller.py**, there is one Starting/Finishing pair.
 
 	Download **log.txt** repeatedly until it contains three lines of output similar to the ones above.
 
@@ -327,7 +327,7 @@ You now have a baseline for a performance comparison: the time the job required 
 
 When virtual machines are running, you are being charged — even if the VMs are idle. Therefore, it is advisable to delete virtual machines when they're not longer needed. In this exercise, you'll delete the cluster by deleting the resource group containing the cluster. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.
 
-1. In the [Azure Portal](https://portal.azure.com), click **Resource groups** in the ribbon on the left. Then click the "ClusterResourceGroup" resource group created for the cluster.
+1. In the [Azure Portal](https://portal.azure.com), click **Resource groups** in the ribbon on the left. Then click the resource group created for the cluster.
 
     ![Opening the resource group](Images/open-cluster-resource-group.png)
 
@@ -398,7 +398,7 @@ In this exercise, you will deploy a new cluster containing eight worker nodes wi
 
 	_Creating a cluster containing eight worker nodes with one core each_
 
-1. Repeat Exercises 5 and 6, and use the following command to run the job in Exercise 5, Step 1:
+1. Repeat Exercises 5 and 6, but use the following command to run the job in Exercise 5, Step 1:
 
 	```
 	python3 controller.py 8
