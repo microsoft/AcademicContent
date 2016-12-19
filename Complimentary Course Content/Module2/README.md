@@ -59,7 +59,7 @@
                   <tr>
                      <td align="center">4</td>
                      <td>[Building a Web Application Server with Express](Lessons/Module2_Lesson4 Building a Web Application Server with Express.pptx)</td>
-                     <td></td>
+                     <td>[Lab](Labs/Module 2 Lesson 4 Lab.docx)</td>
                      <td>Understand the difference between static and dynamic content<br>
                          Use Node’s middleware<br>
                          Run Express
