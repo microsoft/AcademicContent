@@ -3,17 +3,18 @@ var express = require('express'),
   logger = require('morgan'),
   crypto = require('crypto')
 
-var port = process.env.port || 3000
-//let posts = require('./posts.json')
+
 let tableName = 'microblogdev'
 let partitionKey = 'postsPartitionA'
 
 var azure = require('azure-storage')
-// console.log(process.env);
+
 var tableSvc = azure.createTableService()
 tableSvc.createTableIfNotExists(tableName, function(error, result, response){
   if(!error){
-    // Table exists or created
+    console.log('Table exists or created', result)
+  } else {
+    console.log('Error creating table', error)
   }
 })
 var entGen = azure.TableUtilities.entityGenerator
@@ -104,17 +105,16 @@ app.delete('/api/posts/:id', function(req, res, next) {
     res.send({msg: 'success'})
   })
 })
-
-app.get('/api/secret-route-to-delete-table', (req, res)=>{
-  tableSvc.deleteTable(tableName, function(error, response){
-    if(!error){
-      res.send('Table deleted')
-    } else {
-      res.send('error ;(')
-    }
+//
+// tableSvc.deleteTable(tableName, function(error, response){
+//     if(!error){
+//         // Table deleted
+//     }
+// })
+if (require.main === module) {
+  app.listen(3000, function(){
+    console.log('Express server listening on port 3000')
   })
-})
-
-app.listen(port, function(){
-  console.log('Express server listening on port 3000')
-})
+} else {
+  module.exports = app
+}

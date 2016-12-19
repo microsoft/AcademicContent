@@ -1,7 +1,11 @@
 var superagent = require('superagent')
 var expect = require('expect.js')
-let baseUrl = 'http://localhost:3000/api'
+const app = require('./app.js')
 
+let baseUrl = 'http://localhost:3007/api'
+before((done)=>{
+  app.listen(3007, done)
+})
 describe('express rest api server', function(){
   var id
 
@@ -85,4 +89,7 @@ describe('express rest api server', function(){
         done()
       })
   })
+})
+after(()=>{
+  process.exit()
 })

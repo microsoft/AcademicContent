@@ -8,17 +8,18 @@ let tableName = 'microblogdev'
 let partitionKey = 'postsPartitionA'
 
 var azure = require('azure-storage')
-// console.log(process.env);
+// console.log(process.env)
 var tableSvc = azure.createTableService()
 tableSvc.createTableIfNotExists(tableName, function(error, result, response){
   if(!error){
-    // Table exists or created
+    console.log('Table exists or created', result)
+  } else {
+    console.log('Error creating table', error)
   }
 })
 var entGen = azure.TableUtilities.entityGenerator
 
 var app = express()
-app.use(express.static('public'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(logger('dev'))
@@ -87,7 +88,7 @@ app.put('/api/posts/:id', function(req, res, next) {
   tableSvc.replaceEntity(tableName, updatedPost, function(error, result, response){
     if (error) return next(error)
     // Entity updated
-    console.log(result);
+    console.log(result)
     res.send({msg:'success'})
   })
 })
@@ -98,17 +99,23 @@ app.delete('/api/posts/:id', function(req, res, next) {
   post.RowKey = {'_': req.params.id}
   tableSvc.deleteEntity(tableName, post, function(error, response){
     if (error) return next(error)
-    // console.log(response);
+    // console.log(response)
     // Entity deleted
     res.send({msg: 'success'})
   })
 })
-// 
+//
 // tableSvc.deleteTable(tableName, function(error, response){
 //     if(!error){
 //         // Table deleted
 //     }
 // })
-app.listen(3000, function(){
-  console.log('Express server listening on port 3000')
-})
+
+
+if (require.main === module) {
+  app.listen(3000, function(){
+    console.log('Express server listening on port 3000')
+  })
+} else {
+  module.exports = app
+}

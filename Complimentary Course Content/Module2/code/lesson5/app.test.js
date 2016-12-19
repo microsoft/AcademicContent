@@ -1,7 +1,10 @@
 var superagent = require('superagent')
 var expect = require('expect.js')
-let baseUrl = 'http://localhost:3000/api'
-
+var app = require('./app.js')
+let baseUrl = 'http://localhost:3007/api'
+before(function(done){
+  app.listen(3007, done)
+})
 describe('express rest api server', function(){
   var id
 
@@ -13,8 +16,9 @@ describe('express rest api server', function(){
       .end(function(e, res){
         // console.log(res.body)
         expect(e).to.eql(null)
-        expect(res.body['RowKey']._).to.be.ok
-        id = res.body['RowKey']._
+        expect(res.body).to.be.number
+        expect(res.body.id).to.be.number
+        id = res.body.id
         done()
       })
   })
@@ -25,9 +29,9 @@ describe('express rest api server', function(){
         // console.log(res.body)
         expect(e).to.eql(null)
         expect(typeof res.body).to.eql('object')
-        expect(res.body.RowKey._).to.be.ok
-        expect(res.body.RowKey._).to.eql(id)
-        expect(res.body.author._).to.eql('John')
+        expect(res.body.id).to.be.number
+        expect(res.body.id).to.eql(id)
+        expect(res.body.author).to.eql('John')
         done()
       })
   })
@@ -38,7 +42,7 @@ describe('express rest api server', function(){
         // console.log(res.body)
         expect(e).to.eql(null)
         expect(res.body.length).to.be.above(0)
-        expect(res.body.map(function (item){return item.RowKey._})).to.contain(id)
+        expect(res.body.map(function (item){return item.id})).to.contain(id)
         done()
       })
   })
@@ -61,8 +65,8 @@ describe('express rest api server', function(){
         // console.log(res.body)
         expect(e).to.eql(null)
         expect(typeof res.body).to.eql('object')
-        expect(res.body.RowKey._).to.eql(id)
-        expect(res.body.author._).to.eql('Peter')
+        expect(res.body.id).to.eql(id)
+        expect(res.body.author).to.eql('Peter')
         done()
       })
   })
@@ -81,8 +85,11 @@ describe('express rest api server', function(){
       .end(function(e, res){
         // console.log(res.body)
         expect(e).to.eql(null)
-        expect(res.body.map(function (item){return item.RowKey._})).to.not.be(id)
+        expect(res.body.map(function (item){return item.id})).to.not.be(id)
         done()
       })
   })
+})
+after(function(){
+  process.exit()
 })

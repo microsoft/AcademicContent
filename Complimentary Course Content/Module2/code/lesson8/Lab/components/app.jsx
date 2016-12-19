@@ -5,9 +5,9 @@ let fD = ReactDOM.findDOMNode
 
 let App = React.createClass({
   getInitialState() {
-    return {posts: []}
+    return {posts: null}
   },
-  loadPosts(){
+  loadPosts() {
     fetch(baseUrl + '/posts')
       .then((response) => {
         return response.json()
@@ -29,7 +29,7 @@ let App = React.createClass({
 })
 
 let AddPost = React.createClass({
-  handleSubmit(event){
+  handleSubmit(event) {
     event.preventDefault()
     fetch(baseUrl + '/posts', {
       method: 'POST',
@@ -46,7 +46,7 @@ let AddPost = React.createClass({
       this.props.loadPosts()
     })
   },
-  render(){
+  render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <input name="author" type="text" ref="author" placeholder="Peter"/>
@@ -58,21 +58,21 @@ let AddPost = React.createClass({
 })
 
 let PostList = React.createClass({
-    render() {
-      console.log(this.props);
-      // if (this.props.posts.length == 0) return <div>No posts yet</div>
-      return (
-        <div>
-          {this.props.posts.map((post)=>{
-            return <Post key={post.RowKey._} post={post} loadPosts={this.props.loadPosts}/>
-          })}
-        </div>
-      )
-    }
+  render() {
+    if (this.props.posts == null) return <div>Loading...</div>
+    if (this.props.posts.length == 0) return <div>No posts yet</div>
+    return (
+      <div>
+        {this.props.posts.map((post)=>{
+          return <Post key={post.RowKey._} post={post} loadPosts={this.props.loadPosts}/>
+        })}
+      </div>
+    )
+  }
 })
 
 let Post = React.createClass({
-  removePost(){
+  removePost() {
     fetch(`${baseUrl}/posts/${this.props.post.RowKey._}`, {
       method: 'DELETE',
       headers: {
@@ -83,7 +83,7 @@ let Post = React.createClass({
       this.props.loadPosts()
     })
   },
-  render(){
+  render() {
     let post = this.props.post
     return <div><h2>{post.text._}</h2> by {post.author._} <button onClick={this.removePost}>remove</button></div>
   }

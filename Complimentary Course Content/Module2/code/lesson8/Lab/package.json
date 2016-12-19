@@ -4,10 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "sh start.sh",
+    "start": "npm i && node app.js",
     "test": "sh test.sh",
     "build": "./node_modules/.bin/babel components/app.jsx --out-file public/js/bundle.js  --source-maps inline",
     "build-watch": "./node_modules/.bin/babel components/app.jsx  --watch --out-file public/js/bundle.js  --source-maps inline"
+  },
+  "engines": {
+    "node": "6.9.0",
+    "npm": "3.10.8"
   },
   "repository": {
     "type": "git",
