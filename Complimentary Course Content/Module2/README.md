@@ -77,7 +77,7 @@
                   <tr>
                      <td align="center">6</td>
                      <td>[Working with Node.js and Azure Table Storage](Lessons/Module2_Lesson6 Working with Node.js and Azure Table Storage.pptx)</td>
-                     <td></td>
+                     <td>[Lab](Labs/Module 2 Lesson 6 Lab.docx)</td>
                      <td>Understand the basics of Azure Storage<br>
                          Interact with Azure Storage Tables using Node.js<br>
                          Perform basic CRUD operations
