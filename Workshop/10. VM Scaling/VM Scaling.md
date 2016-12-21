@@ -195,7 +195,7 @@ In this exercise, you will upload the Python scripts that you modified in Exerci
     <pre>
     ssh azureuser@<i>masterDNS</i></pre>
 
-1. To be certain that the script files you uploaded to the cluster contain Linux-style line endings ("/r" rather than "/r/n"), execute the following commands in the terminal window to install and run the dos2unix conversion program:
+1. To be certain that the script files you uploaded to the cluster contain Linux-style line endings ("/r" rather than "/r/n"), execute the following command in the terminal window to install and run the dos2unix conversion program:
 
     ```
     sudo apt-get install dos2unix
@@ -244,7 +244,7 @@ In this exercise, you will upload the Python scripts that you modified in Exerci
 
 1. A PuTTY terminal window will appear and you will be prompted to **login as**. Log in with the user name ("azureuser") and password ("Azure4Research!") you entered into the deployment template in [Exercise 2](#Exercise2).
 
-1. To be certain that the script files you uploaded to the cluster contain Linux-style line endings ("/r" rather than "/r/n"), execute the following commands in the PuTTY terminal window to install and run the dos2unix conversion program:
+1. To be certain that the script files you uploaded to the cluster contain Linux-style line endings ("/r" rather than "/r/n"), execute the following command in the PuTTY terminal window to install and run the dos2unix conversion program:
 
     ```
     sudo apt-get install dos2unix

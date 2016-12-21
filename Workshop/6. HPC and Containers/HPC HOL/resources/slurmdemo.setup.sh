@@ -36,14 +36,14 @@ wget 'https://raw.githubusercontent.com/Wintellect/blobxfer/master/blobxfer-0.9.
 for node in $(sinfo -o "%n" -h|grep -v `hostname`)
 do
 
-  ssh azureuser@$node sudo apt-get -y install python-pip
-  ssh azureuser@$node sudo apt-get -y install imagemagick
-  ssh azureuser@$node pip install azure
+  ssh adminuser@$node sudo apt-get -y install python-pip
+  ssh adminuser@$node sudo apt-get -y install imagemagick
+  ssh adminuser@$node pip install azure
 
-  scp slurmdemo.py azureuser@$node:~
-  scp slurmdemo.sh azureuser@$node:~
+  scp slurmdemo.py adminuser@$node:~
+  scp slurmdemo.sh adminuser@$node:~
 
-  ssh azureuser@$node wget 'https://raw.githubusercontent.com/Wintellect/blobxfer/master/blobxfer-0.9.9.10.py'
+  ssh adminuser@$node wget 'https://raw.githubusercontent.com/Wintellect/blobxfer/master/blobxfer-0.9.9.10.py'
 
 done
 
