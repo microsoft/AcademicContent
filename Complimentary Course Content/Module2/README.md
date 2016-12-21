@@ -49,7 +49,16 @@
                   </tr>
                   <tr>
                      <td align="center">3</td>
-                     <td>[Building a Web Application Server with Express](Lessons/Module2_Lesson3 Building a Web Application Server with Express.pptx)</td>
+                     <td>[Building a Website with Azure](Lessons/Module2_Lesson3 Azure Websites.pptx)</td>
+                     <td>[Lab](Labs/Module 2 Lesson 3 Lab.docx)</td>
+                     <td>Understand why to adopt cloud computing<br>
+                        Explain some Azure service models<br>
+                        Define the benefits of Azure websites
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="center">4</td>
+                     <td>[Building a Web Application Server with Express](Lessons/Module2_Lesson4 Building a Web Application Server with Express.pptx)</td>
                      <td></td>
                      <td>Understand the difference between static and dynamic content<br>
                          Use Node’s middleware<br>
@@ -57,39 +66,39 @@
                      </td>
                   </tr>
                   <tr>
-                     <td align="center">4</td>
-                     <td>[Building REST Services with Express](Lessons/Module2_Lesson4 Building REST Services with Express.pptx)</td>
-                     <td>[Lab](Labs/Module 2 Lesson 4 Lab.docx)</td>
+                     <td align="center">5</td>
+                     <td>[Building REST Services with Express](Lessons/Module2_Lesson5 Building REST Services with Express.pptx)</td>
+                     <td>[Lab](Labs/Module 2 Lesson 5 Lab.docx)</td>
                      <td>Understand the basics of REST<br>
                          Use REST verbs for CRUD operations<br>
                          Parse JSON, Buffer, and HTML
                      </td>
                   </tr>
                   <tr>
-                     <td align="center">5</td>
-                     <td>[Working with Node.js and Azure Table Storage](Lessons/Module2_Lesson5 Working with Node.js and Azure Table Storage.pptx)</td>
-                     <td></td>
+                     <td align="center">6</td>
+                     <td>[Working with Node.js and Azure Table Storage](Lessons/Module2_Lesson6 Working with Node.js and Azure Table Storage.pptx)</td>
+                     <td>[Lab](Labs/Module 2 Lesson 6 Lab.docx)</td>
                      <td>Understand the basics of Azure Storage<br>
                          Interact with Azure Storage Tables using Node.js<br>
                          Perform basic CRUD operations
                      </td>
                   </tr>
                   <tr>
-                     <td align="center">6</td>
-                     <td>[Building a Web Application Client with React](Lessons/Module2_Lesson6 Building a Web Application Client with React.pptx)</td>
-                     <td>[Lab](Labs/Module 2 Lesson 6 Lab.docx)</td>
+                     <td align="center">7</td>
+                     <td>[Building a Web Application Client with React](Lessons/Module2_Lesson7 Building a Web Application Client with React.pptx)</td>
+                     <td>[Lab](Labs/Module 2 Lesson 7 Lab.docx)</td>
                      <td>Understand the basics of React, JSX, and Babel<br>
                          Build a web application client using React, JSX, and Babel
                      </td>
                   </tr>
                   <tr>
-                     <td align="center">7</td>
-                     <td>[Deploying Node.js Applications to Azure](Lessons/Module2_Lesson7 Deploying Node.js Web Applications to Azure.pptx)</td>
-                     <td>[Lab](Labs/Module 2 Lesson 7 Lab.docx)</td>
+                     <td align="center">8</td>
+                     <td>[Deploying Node.js Applications to Azure](Lessons/Module2_Lesson8 Deploying Node.js Web Applications to Azure.pptx)</td>
+                     <td>[Lab](Labs/Module 2 Lesson 8 Lab.docx)</td>
                      <td>
                         Create an Azure Site<br>
                         Understand Azure Deployment using Git<br>
-                        Interact with the Azure CLI 
+                        Interact with the Azure CLI
                      </td>
                   </tr>
             </table>
