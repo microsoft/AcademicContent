@@ -52,11 +52,11 @@ Estimated time to complete this lab: **60** minutes.
 
 In this exercise, you will create an HDInsight cluster running [Apache Spark](http://spark.apache.org/). Spark is renowned for its versatility and is built for speed, performing some operations 100 times faster than Hadoop.
 
-1. Go to the [Azure Portal](https://portal.azure.com/) and sign in using your Microsoft account.
+1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
 
-1. Click **+ New** in the upper-left corner. Then click **Intelligence + Analytics**, followed by **HDInsight**.
+1. Click **+ New** in the upper-left corner of the portal. Then click **Intelligence + analytics** followed by **HDInsight**.
 
-    ![Creating an HDInsight cluster](Images/spark-create-hdinsight-cluster.png)
+    ![Creating an HDInsight cluster](Images/new-hdinsight.png)
 
     _Creating an HDInsight cluster_
 
