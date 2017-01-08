@@ -30,7 +30,6 @@ In this hands-on lab, you will learn how to:
 The following are required to complete this hands-on lab:
 
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
-- [Microsoft Azure Storage Explorer](http://storageexplorer.com/)
 
 ---
 <a name="Exercises"></a>
@@ -68,31 +67,31 @@ In this exercise, you will create an HDInsight cluster running [Apache Spark](ht
 
     _Specifying the cluster name_
 
-1. Click **Select Cluster Type** to open a "Cluster Type configuration" blade. In that blade, select **Spark** as the **Cluster Type**. Under **Version**, select Spark version **1.6.2 (HDI 3.5)**. Then click **Standard** to select a **Cluster Tier**, and finish up by clicking the **Select** button at the bottom of the blade.
+1. Click **Cluster configuration** to open a "Cluster configuration" blade. In that blade, select **Spark** as the **Cluster type** and **Spark 1.6.2 (HDI 3.5)** as the **Version**. Make sure **Cluster tier** is set to **Standard**, and finish up by clicking the **Select** button at the bottom of the blade.
 
     ![Specifying the cluster type](Images/cluster-type.png)
 
     _Specifying the cluster type_
 
-1. Click **Credentials** to open a "Cluster Credentials" blade. Leave **Cluster Login Username** set to "admin" and set the **Cluster Login Password** to "A4rsparkdemo!".  Enter "sshuser" (without quotation marks) for the **SSH Username**, make sure **SSH Authentication Type** is set to **Password**, and enter "A4rsparkdemo!" (again without quotation marks) again for the **SSH Password**. Then click the **Select** button at the bottom of the blade.
+1. Click **Credentials** to open a "Cluster credentials" blade. Leave **Cluster login username** set to "admin" and set the **Cluster login password** to "A4rsparkdemo!" (without quotation marks).  Enter "sshuser" for the **SSH username**, make sure **SSH authentication type** is set to **PASSWORD**, and enter "A4rsparkdemo!" for the **SSH password**. Then click the **Select** button at the bottom of the blade.
 
     ![Specifying cluster credentials](Images/cluster-credentials.png)
 
     _Specifying cluster credentials_
 
-1. Click **Data Source** to open a "Data Source" blade. Leave **Selection Method** set to **From all subscriptions** and enter a unique storage-account name in the box below **Create a new storage account**. (Once more, try to make the name as unique as possible by including birth dates or other values that aren't likely to be used by someone else.) For **Choose Default Container**, enter "sparklab" (without quotation marks). Select the **Location** nearest you, and then click the **Select** button at the bottom of the blade.
+1. Click **Data source** to open a "Data source" blade. Enter a unique storage-account name in the box below **Create a new Storage account**. (Once more, try to make the name as unique as possible by including birth dates or other values that aren't likely to be used by someone else.) For **Default container**, enter "sparklab" (without quotation marks). Select the **Location** nearest you, and then click the **Select** button at the bottom of the blade.
 
     ![Specifying the data source](Images/data-source.png)
 
     _Specifying the data source_
 
-1. Click **Node Pricing Tiers** to open a "Pricing" blade. Make sure **Number of Worker nodes** is set to **4** and accept the default values everywhere else. Then click the **Select** button at the bottom of the blade.
+1. Click **Cluster size** to open a "Pricing" blade. Make sure **Number of Worker nodes** is set to **4** and accept the default values everywhere else. Then click the **Select** button at the bottom of the blade.
 
-    ![Specifying the node pricing tier](Images/node-pricing-tiers.png)
+    ![Specifying the cluster size](Images/cluster-size.png)
 
-    _Specifying the node pricing tier_
+    _Specifying the cluster size_
 
-1. Select **Create new** under **Resource Group** and enter the resource-group name "SparkLabResourceGroup" (without quotation marks). Then click the **Create** button at the bottom of the blade to start deploying the cluster.
+1. Select **Create new** under **Resource group** and enter the resource-group name "SparkLabResourceGroup" (without quotation marks). Then click the **Create** button at the bottom of the blade to start deploying the cluster.
 
     ![Specifying a resource group and creating the cluster](Images/resource-group.png)
 
@@ -111,35 +110,45 @@ In this exercise, you learned how to provision an HDInsight Spark cluster on Azu
 <a name="Exercise2"></a>
 ## Exercise 2: Upload Jupyter notebooks to the cluster ##
 
-You will be using Jupyter notebooks to do the data-exploration and machine-learning portions of this lab. The notebooks have been prepared for you ahead of time, and need to be uploaded to your cluster. In this exercise, you’ll use the cross-platform [Microsoft Azure Storage Explorer](http://storageexplorer.com/) to upload the notebooks. If Storage Explorer isn't installed on your computer, take the time to install it now.
+You will be using Jupyter notebooks to do the data-exploration and machine-learning portions of this lab. The notebooks have been prepared for you ahead of time, and need to be uploaded to your cluster. In this exercise, you will use the Azure Portal to upload the notebooks.
 
-1. Start the Microsoft Azure Storage Explorer. If you're prompted for credentials, sign in with the user name and password for your Microsoft account.
+1. Click the storage account that was created for the cluster (the storage account whose name you specified in Exercise 1, Step 6).
 
-1. In the Storage Explorer window, find the storage account that was created when you deployed the Spark cluster (the storage account name you entered in Exercise 1, Step 6.) Expand the list of items underneath that storage account and click the small arrow next to **Blob Containers** to show a list of containers. Then click the container named "sparklab." Notice that it contains several folders that were created during the provisioning process. This is the root folder for your Spark cluster.
+    ![Opening the cluster's storage account](Images/open-storage-account.png)
 
-    ![Contents of the "sparklab" container](Images/sparklab-container.png)
+    _Opening the cluster's storage account_
 
-    _Contents of the "sparklab" container_
+1. Click **Blobs**.
 
-1. Double-click the folder named "HdiNotebooks." The is the root folder for the cluster's Jupyter notebooks.
+    ![Opening the cluster's blob storage](Images/open-blob-storage.png)
 
-    ![Opening the "HdiNotebooks" folder](Images/open-hdinotebooks-folder.png)
+    _Opening the cluster's blob storage_
+
+1. Click **sparklab**.
+
+    ![Opening the blob container](Images/open-container.png)
+
+    _Opening the blob container_
+
+1. Click **HdiNotebooks**.
+
+    ![Opening the "HdiNotebooks" folder](Images/open-folder.png)
 
     _Opening the "HdiNotebooks" folder_
 
-1. Click the **Upload** button and select **Upload Files** from the menu.
+1. Click **Upload**.
 
-    ![Uploading notebooks to blob storage](Images/upload-files.png)
+    ![Uploading files to the "HdiNotebooks" folder](Images/upload-notebooks-1.png)
 
-    _Uploading notebooks to blob storage_
+    _Uploading files to the "HdiNotebooks" folder_
 
-1. Click the **...** button to the right of the field labeled "Files." In the ensuing dialog, navigate to this lab's "resources " subdirectory and select the three .ipynb files in that subdirectory. Then close the dialog and click the **Upload** button.
+1. Click the button with the folder icon to the right of the **Files** box. Navigate to this lab's "resources" directory and select the three **.ipynb** files in that directory. Then click the **Upload** button. 
 
-    ![Uploading .ipynb files](Images/upload-files-dialog.png)
+    ![Uploading Jupyter notebooks](Images/upload-notebooks-2.png)
 
-    _Uploading .ipynb files_
+    _Uploading Jupyter notebooks_
 
-1. Confirm that all three files were uploaded to the "HdiNotebooks" folder.
+1. Wait until the files have uploaded. Then return to the "HdiNotebooks" blade and confirm that all three files were uploaded to the "HdiNotebooks" folder.
 
     ![Uploaded notebooks](Images/uploaded-files.png)
 

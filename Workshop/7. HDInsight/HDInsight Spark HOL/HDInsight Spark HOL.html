@@ -492,7 +492,6 @@ vertical-align:1px;
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
 <li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li><a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a></li>
 </ul>
 <hr>
 <p><a name="Exercises"></a></p>
@@ -528,27 +527,27 @@ vertical-align:1px;
 <p><em>Specifying the cluster name</em></p>
 </li>
 <li>
-<p>Click <strong>Select Cluster Type</strong> to open a "Cluster Type configuration" blade. In that blade, select <strong>Spark</strong> as the <strong>Cluster Type</strong>. Under <strong>Version</strong>, select Spark version <strong>1.6.2 (HDI 3.5)</strong>. Then click <strong>Standard</strong> to select a <strong>Cluster Tier</strong>, and finish up by clicking the <strong>Select</strong> button at the bottom of the blade.</p>
+<p>Click <strong>Cluster configuration</strong> to open a "Cluster configuration" blade. In that blade, select <strong>Spark</strong> as the <strong>Cluster type</strong> and <strong>Spark 1.6.2 (HDI 3.5)</strong> as the <strong>Version</strong>. Make sure <strong>Cluster tier</strong> is set to <strong>Standard</strong>, and finish up by clicking the <strong>Select</strong> button at the bottom of the blade.</p>
 <p><a href="Images/cluster-type.png" target="_blank"><img src="Images/cluster-type.png" alt="Specifying the cluster type" style="max-width:100%;"></a></p>
 <p><em>Specifying the cluster type</em></p>
 </li>
 <li>
-<p>Click <strong>Credentials</strong> to open a "Cluster Credentials" blade. Leave <strong>Cluster Login Username</strong> set to "admin" and set the <strong>Cluster Login Password</strong> to "A4rsparkdemo!".  Enter "sshuser" (without quotation marks) for the <strong>SSH Username</strong>, make sure <strong>SSH Authentication Type</strong> is set to <strong>Password</strong>, and enter "A4rsparkdemo!" (again without quotation marks) again for the <strong>SSH Password</strong>. Then click the <strong>Select</strong> button at the bottom of the blade.</p>
+<p>Click <strong>Credentials</strong> to open a "Cluster credentials" blade. Leave <strong>Cluster login username</strong> set to "admin" and set the <strong>Cluster login password</strong> to "A4rsparkdemo!" (without quotation marks).  Enter "sshuser" for the <strong>SSH username</strong>, make sure <strong>SSH authentication type</strong> is set to <strong>PASSWORD</strong>, and enter "A4rsparkdemo!" for the <strong>SSH password</strong>. Then click the <strong>Select</strong> button at the bottom of the blade.</p>
 <p><a href="Images/cluster-credentials.png" target="_blank"><img src="Images/cluster-credentials.png" alt="Specifying cluster credentials" style="max-width:100%;"></a></p>
 <p><em>Specifying cluster credentials</em></p>
 </li>
 <li>
-<p>Click <strong>Data Source</strong> to open a "Data Source" blade. Leave <strong>Selection Method</strong> set to <strong>From all subscriptions</strong> and enter a unique storage-account name in the box below <strong>Create a new storage account</strong>. (Once more, try to make the name as unique as possible by including birth dates or other values that aren't likely to be used by someone else.) For <strong>Choose Default Container</strong>, enter "sparklab" (without quotation marks). Select the <strong>Location</strong> nearest you, and then click the <strong>Select</strong> button at the bottom of the blade.</p>
+<p>Click <strong>Data source</strong> to open a "Data source" blade. Enter a unique storage-account name in the box below <strong>Create a new Storage account</strong>. (Once more, try to make the name as unique as possible by including birth dates or other values that aren't likely to be used by someone else.) For <strong>Default container</strong>, enter "sparklab" (without quotation marks). Select the <strong>Location</strong> nearest you, and then click the <strong>Select</strong> button at the bottom of the blade.</p>
 <p><a href="Images/data-source.png" target="_blank"><img src="Images/data-source.png" alt="Specifying the data source" style="max-width:100%;"></a></p>
 <p><em>Specifying the data source</em></p>
 </li>
 <li>
-<p>Click <strong>Node Pricing Tiers</strong> to open a "Pricing" blade. Make sure <strong>Number of Worker nodes</strong> is set to <strong>4</strong> and accept the default values everywhere else. Then click the <strong>Select</strong> button at the bottom of the blade.</p>
-<p><a href="Images/node-pricing-tiers.png" target="_blank"><img src="Images/node-pricing-tiers.png" alt="Specifying the node pricing tier" style="max-width:100%;"></a></p>
-<p><em>Specifying the node pricing tier</em></p>
+<p>Click <strong>Cluster size</strong> to open a "Pricing" blade. Make sure <strong>Number of Worker nodes</strong> is set to <strong>4</strong> and accept the default values everywhere else. Then click the <strong>Select</strong> button at the bottom of the blade.</p>
+<p><a href="Images/cluster-size.png" target="_blank"><img src="Images/cluster-size.png" alt="Specifying the cluster size" style="max-width:100%;"></a></p>
+<p><em>Specifying the cluster size</em></p>
 </li>
 <li>
-<p>Select <strong>Create new</strong> under <strong>Resource Group</strong> and enter the resource-group name "SparkLabResourceGroup" (without quotation marks). Then click the <strong>Create</strong> button at the bottom of the blade to start deploying the cluster.</p>
+<p>Select <strong>Create new</strong> under <strong>Resource group</strong> and enter the resource-group name "SparkLabResourceGroup" (without quotation marks). Then click the <strong>Create</strong> button at the bottom of the blade to start deploying the cluster.</p>
 <p><a href="Images/resource-group.png" target="_blank"><img src="Images/resource-group.png" alt="Specifying a resource group and creating the cluster" style="max-width:100%;"></a></p>
 <p><em>Specifying a resource group and creating the cluster</em></p>
 </li>
@@ -564,33 +563,40 @@ vertical-align:1px;
 <p>In this exercise, you learned how to provision an HDInsight Spark cluster on Azure, and about some of the options you can choose from when doing so. Wait for the deployment to finish, and then proceed to the next exercise.</p>
 <p><a name="Exercise2"></a></p>
 <h2>Exercise 2: Upload Jupyter notebooks to the cluster</h2>
-<p>You will be using Jupyter notebooks to do the data-exploration and machine-learning portions of this lab. The notebooks have been prepared for you ahead of time, and need to be uploaded to your cluster. In this exercise, you’ll use the cross-platform <a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a> to upload the notebooks. If Storage Explorer isn't installed on your computer, take the time to install it now.</p>
+<p>You will be using Jupyter notebooks to do the data-exploration and machine-learning portions of this lab. The notebooks have been prepared for you ahead of time, and need to be uploaded to your cluster. In this exercise, you will use the Azure Portal to upload the notebooks.</p>
 <ol>
 <li>
-<p>Start the Microsoft Azure Storage Explorer. If you're prompted for credentials, sign in with the user name and password for your Microsoft account.</p>
+<p>Click the storage account that was created for the cluster (the storage account whose name you specified in Exercise 1, Step 6).</p>
+<p><a href="Images/open-storage-account.png" target="_blank"><img src="Images/open-storage-account.png" alt="Opening the cluster's storage account" style="max-width:100%;"></a></p>
+<p><em>Opening the cluster's storage account</em></p>
 </li>
 <li>
-<p>In the Storage Explorer window, find the storage account that was created when you deployed the Spark cluster (the storage account name you entered in Exercise 1, Step 6.) Expand the list of items underneath that storage account and click the small arrow next to <strong>Blob Containers</strong> to show a list of containers. Then click the container named "sparklab." Notice that it contains several folders that were created during the provisioning process. This is the root folder for your Spark cluster.</p>
-<p><a href="Images/sparklab-container.png" target="_blank"><img src="Images/sparklab-container.png" alt="Contents of the &quot;sparklab&quot; container" style="max-width:100%;"></a></p>
-<p><em>Contents of the "sparklab" container</em></p>
+<p>Click <strong>Blobs</strong>.</p>
+<p><a href="Images/open-blob-storage.png" target="_blank"><img src="Images/open-blob-storage.png" alt="Opening the cluster's blob storage" style="max-width:100%;"></a></p>
+<p><em>Opening the cluster's blob storage</em></p>
 </li>
 <li>
-<p>Double-click the folder named "HdiNotebooks." The is the root folder for the cluster's Jupyter notebooks.</p>
-<p><a href="Images/open-hdinotebooks-folder.png" target="_blank"><img src="Images/open-hdinotebooks-folder.png" alt="Opening the &quot;HdiNotebooks&quot; folder" style="max-width:100%;"></a></p>
+<p>Click <strong>sparklab</strong>.</p>
+<p><a href="Images/open-container.png" target="_blank"><img src="Images/open-container.png" alt="Opening the blob container" style="max-width:100%;"></a></p>
+<p><em>Opening the blob container</em></p>
+</li>
+<li>
+<p>Click <strong>HdiNotebooks</strong>.</p>
+<p><a href="Images/open-folder.png" target="_blank"><img src="Images/open-folder.png" alt="Opening the &quot;HdiNotebooks&quot; folder" style="max-width:100%;"></a></p>
 <p><em>Opening the "HdiNotebooks" folder</em></p>
 </li>
 <li>
-<p>Click the <strong>Upload</strong> button and select <strong>Upload Files</strong> from the menu.</p>
-<p><a href="Images/upload-files.png" target="_blank"><img src="Images/upload-files.png" alt="Uploading notebooks to blob storage" style="max-width:100%;"></a></p>
-<p><em>Uploading notebooks to blob storage</em></p>
+<p>Click <strong>Upload</strong>.</p>
+<p><a href="Images/upload-notebooks-1.png" target="_blank"><img src="Images/upload-notebooks-1.png" alt="Uploading files to the &quot;HdiNotebooks&quot; folder" style="max-width:100%;"></a></p>
+<p><em>Uploading files to the "HdiNotebooks" folder</em></p>
 </li>
 <li>
-<p>Click the <strong>...</strong> button to the right of the field labeled "Files." In the ensuing dialog, navigate to this lab's "resources " subdirectory and select the three .ipynb files in that subdirectory. Then close the dialog and click the <strong>Upload</strong> button.</p>
-<p><a href="Images/upload-files-dialog.png" target="_blank"><img src="Images/upload-files-dialog.png" alt="Uploading .ipynb files" style="max-width:100%;"></a></p>
-<p><em>Uploading .ipynb files</em></p>
+<p>Click the button with the folder icon to the right of the <strong>Files</strong> box. Navigate to this lab's "resources" directory and select the three <strong>.ipynb</strong> files in that directory. Then click the <strong>Upload</strong> button.</p>
+<p><a href="Images/upload-notebooks-2.png" target="_blank"><img src="Images/upload-notebooks-2.png" alt="Uploading Jupyter notebooks" style="max-width:100%;"></a></p>
+<p><em>Uploading Jupyter notebooks</em></p>
 </li>
 <li>
-<p>Confirm that all three files were uploaded to the "HdiNotebooks" folder.</p>
+<p>Wait until the files have uploaded. Then return to the "HdiNotebooks" blade and confirm that all three files were uploaded to the "HdiNotebooks" folder.</p>
 <p><a href="Images/uploaded-files.png" target="_blank"><img src="Images/uploaded-files.png" alt="Uploaded notebooks" style="max-width:100%;"></a></p>
 <p><em>Uploaded notebooks</em></p>
 </li>
