@@ -28,7 +28,7 @@ In this hands-on lab, you will learn how to:
 The following are required to complete this hands-on lab:
 
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
-- Windows users need to install	[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html), an open-source SSH client for Windows. Install the latest full package using the MSI installer.
+- [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) (Windows users only). Install the latest full package using the MSI installer.
 
 ---
 <a name="Exercises"></a>
@@ -57,7 +57,7 @@ In this exercise, you will use the Azure Portal to deploy an HDInsight Hadoop cl
 
     _Creating an HDInsight cluster_
 
-1. In the **Cluster Name** box, enter a unique DNS name for the cluster and make sure a green check mark appears next to it indicating that the name is valid and unique.
+1. In the **Cluster name** box, enter a unique DNS name for the cluster and make sure a green check mark appears next to it indicating that the name is valid and unique.
 
 	> In case someone else in the lab selects the same name, try to make it as unique as possible by including birth dates, initials, and anything else you care to add. The name you entered may be unique right now, but it might NOT be unique a few minutes into the deployment.
 
@@ -65,37 +65,37 @@ In this exercise, you will use the Azure Portal to deploy an HDInsight Hadoop cl
 
     _Specifying the cluster name_
 
-1. Click **Cluster configuration**. Then, in the ensuing blade, specify **Hadoop** as the **Cluster Type** and **Linux** as the **Operating System**, and accept the default version of Hadoop offered to you. Then select **Standard** as the **Cluster Tier**, and finish up by clicking the **Select** button at the bottom of the blade.
+1. Click **Cluster configuration**. Then, in the ensuing blade, select **Hadoop** as the **Cluster type** and **Linux** as the **Operating system**, and accept the default version of Hadoop offered to you. Make sure **Standard** is selected as the **Cluster tier**, and finish up by clicking the **Select** button at the bottom of the blade.
 
     ![Specifying the cluster type](Images/cluster-type.png)
 
     _Specifying the cluster type_
 
-1. Click **Applications** and select **StreamSets Data Collector HI**. Then click the **Select** button at the bottom of the blade.
+1. Click **Applications** and select **StreamSets Data Collector for HI**. Accept the legal terms presented to you, and then click the **Select** button at the bottom of the blade.
 
     ![Specifying the installed applications](Images/cluster-applications.png)
 
     _Specifying the installed applications_
 
-1. Click **Credentials** to open a "Cluster Credentials" blade. Leave **Cluster Login Username** set to "admin" and set the **Cluster Login Password** to "Had00pdemo!" without quotation marks. (The fourth and fifth characters are zeroes, not capital Os.) Enter "sshuser" (without quotation marks) for the **SSH Username**, make sure **SSH Authentication Type** is set to **Password**, and enter "Had00pdemo!" (again without quotation marks) again for the **SSH Password**. Then click the **Select** button at the bottom of the blade.
+1. Click **Credentials** to open a "Cluster credentials" blade. Leave **Cluster login username** set to "admin" and set the **Cluster login password** to "Had00pdemo!" without quotation marks. (The fourth and fifth characters are zeroes, not capital Os.) Enter "sshuser" (without quotation marks) for the **SSH Username**, make sure **SSH Authentication Type** is set to **PASSWORD**, and enter "Had00pdemo!" (again without quotation marks) again for the **SSH password**. Then click the **Select** button at the bottom of the blade.
 
     ![Specifying cluster credentials](Images/cluster-credentials.png)
 
     _Specifying cluster credentials_
 
-1. Click **Data Source** to open a "Data Source" blade. Leave **Selection Method** set to **From all subscriptions** and enter a unique storage-account name in the box below **Create a new storage account**. (Once more, try to make the name as unique as possible by including birth dates or other values that aren't likely to be used by someone else. You can use lowercase letters, numbers, and hyphens in the storage-account name. Make sure a green check mark appears indicating that the name is valid and unique) For **Choose Default Container**, enter "hadoop" (without quotation marks). Select the **Location** nearest you, and then click the **Select** button at the bottom of the blade.
+1. Click **Data source** to open a "Data source" blade. Set **Selection method** to **From all subscriptions** and enter a unique storage-account name in the box below **Create a new Storage account**. (Once more, try to make the name as unique as possible by including birth dates or other values that aren't likely to be used by someone else. You can use lowercase letters, numbers, and hyphens in the storage-account name. Make sure a green check mark appears indicating that the name is valid and unique) For **Default container**, enter "hadoop" (without quotation marks). Select the **Location** nearest you, and then click the **Select** button at the bottom of the blade.
 
     ![Specifying the data source](Images/data-source.png)
 
     _Specifying the data source_
 
-1. Click **Pricing** to open a "Pricing" blade. Make sure **Number of Worker nodes** is set to **4** and accept the default values everywhere else. Then click the **Select** button at the bottom of the blade.
+1. Click **Cluster size** to open a "Pricing" blade. Make sure **Number of Worker nodes** is set to **4** and accept the default values everywhere else. Then click the **Select** button at the bottom of the blade.
 
-    ![Specifying the pricing](Images/pricing.png)
+    ![Specifying the pricing](Images/cluster-size.png)
 
     _Specifying the pricing_
 
-1. Select **Create new** under **Resource Group** and enter "HadoopLabResourceGroup" (without quotation marks) as the resource-group name. Then click the **Create** button at the bottom of the blade to begin deploying the cluster.
+1. Select **Create new** under **Resource group** and enter "HadoopLabResourceGroup" (without quotation marks) as the resource-group name. Then click the **Create** button at the bottom of the blade to begin deploying the cluster.
 
     ![Specifying a resource group and creating the cluster](Images/resource-group.png)
 
@@ -116,7 +116,7 @@ In this exercise, you learned how to provision an HDInsight Hadoop cluster on Az
 
 Before you can run jobs on the Hadoop cluster, you need to open an SSH connection to it so you can execute commands on the cluster. In this exercise, you will remote into the cluster via SSH using the **ssh** command if you are running macOS or Linux, or PuTTY if you are running Windows. If you are a Windows user and haven't installed PuTTY, take the time to [install it now](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-**If you're a Windows user, skip to Step 2**. Otherwise, proceed to Step 1.
+**If you are running Windows, skip to Step 2**. Otherwise, proceed to Step 1.
 
 1. **Linux and macOS users only**: Open a terminal window so you can use the **ssh** command to establish a connection. Execute the following command in the terminal window, replacing *clustername* with the cluster name you entered in Exercise 1, Step 3:
 

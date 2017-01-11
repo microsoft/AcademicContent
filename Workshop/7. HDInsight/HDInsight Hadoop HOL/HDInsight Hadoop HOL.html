@@ -490,7 +490,7 @@ vertical-align:1px;
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
 <li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li>Windows users need to install	<a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">PuTTY</a>, an open-source SSH client for Windows. Install the latest full package using the MSI installer.</li>
+<li><a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">PuTTY</a> (Windows users only). Install the latest full package using the MSI installer.</li>
 </ul>
 <hr>
 <p><a name="Exercises"></a></p>
@@ -517,7 +517,7 @@ vertical-align:1px;
 <p><em>Creating an HDInsight cluster</em></p>
 </li>
 <li>
-<p>In the <strong>Cluster Name</strong> box, enter a unique DNS name for the cluster and make sure a green check mark appears next to it indicating that the name is valid and unique.</p>
+<p>In the <strong>Cluster name</strong> box, enter a unique DNS name for the cluster and make sure a green check mark appears next to it indicating that the name is valid and unique.</p>
 <blockquote>
 <p>In case someone else in the lab selects the same name, try to make it as unique as possible by including birth dates, initials, and anything else you care to add. The name you entered may be unique right now, but it might NOT be unique a few minutes into the deployment.</p>
 </blockquote>
@@ -525,32 +525,32 @@ vertical-align:1px;
 <p><em>Specifying the cluster name</em></p>
 </li>
 <li>
-<p>Click <strong>Cluster configuration</strong>. Then, in the ensuing blade, specify <strong>Hadoop</strong> as the <strong>Cluster Type</strong> and <strong>Linux</strong> as the <strong>Operating System</strong>, and accept the default version of Hadoop offered to you. Then select <strong>Standard</strong> as the <strong>Cluster Tier</strong>, and finish up by clicking the <strong>Select</strong> button at the bottom of the blade.</p>
+<p>Click <strong>Cluster configuration</strong>. Then, in the ensuing blade, select <strong>Hadoop</strong> as the <strong>Cluster type</strong> and <strong>Linux</strong> as the <strong>Operating system</strong>, and accept the default version of Hadoop offered to you. Make sure <strong>Standard</strong> is selected as the <strong>Cluster tier</strong>, and finish up by clicking the <strong>Select</strong> button at the bottom of the blade.</p>
 <p><a href="Images/cluster-type.png" target="_blank"><img src="Images/cluster-type.png" alt="Specifying the cluster type" style="max-width:100%;"></a></p>
 <p><em>Specifying the cluster type</em></p>
 </li>
 <li>
-<p>Click <strong>Applications</strong> and select <strong>StreamSets Data Collector HI</strong>. Then click the <strong>Select</strong> button at the bottom of the blade.</p>
+<p>Click <strong>Applications</strong> and select <strong>StreamSets Data Collector for HI</strong>. Accept the legal terms presented to you, and then click the <strong>Select</strong> button at the bottom of the blade.</p>
 <p><a href="Images/cluster-applications.png" target="_blank"><img src="Images/cluster-applications.png" alt="Specifying the installed applications" style="max-width:100%;"></a></p>
 <p><em>Specifying the installed applications</em></p>
 </li>
 <li>
-<p>Click <strong>Credentials</strong> to open a "Cluster Credentials" blade. Leave <strong>Cluster Login Username</strong> set to "admin" and set the <strong>Cluster Login Password</strong> to "Had00pdemo!" without quotation marks. (The fourth and fifth characters are zeroes, not capital Os.) Enter "sshuser" (without quotation marks) for the <strong>SSH Username</strong>, make sure <strong>SSH Authentication Type</strong> is set to <strong>Password</strong>, and enter "Had00pdemo!" (again without quotation marks) again for the <strong>SSH Password</strong>. Then click the <strong>Select</strong> button at the bottom of the blade.</p>
+<p>Click <strong>Credentials</strong> to open a "Cluster credentials" blade. Leave <strong>Cluster login username</strong> set to "admin" and set the <strong>Cluster login password</strong> to "Had00pdemo!" without quotation marks. (The fourth and fifth characters are zeroes, not capital Os.) Enter "sshuser" (without quotation marks) for the <strong>SSH Username</strong>, make sure <strong>SSH Authentication Type</strong> is set to <strong>PASSWORD</strong>, and enter "Had00pdemo!" (again without quotation marks) again for the <strong>SSH password</strong>. Then click the <strong>Select</strong> button at the bottom of the blade.</p>
 <p><a href="Images/cluster-credentials.png" target="_blank"><img src="Images/cluster-credentials.png" alt="Specifying cluster credentials" style="max-width:100%;"></a></p>
 <p><em>Specifying cluster credentials</em></p>
 </li>
 <li>
-<p>Click <strong>Data Source</strong> to open a "Data Source" blade. Leave <strong>Selection Method</strong> set to <strong>From all subscriptions</strong> and enter a unique storage-account name in the box below <strong>Create a new storage account</strong>. (Once more, try to make the name as unique as possible by including birth dates or other values that aren't likely to be used by someone else. You can use lowercase letters, numbers, and hyphens in the storage-account name. Make sure a green check mark appears indicating that the name is valid and unique) For <strong>Choose Default Container</strong>, enter "hadoop" (without quotation marks). Select the <strong>Location</strong> nearest you, and then click the <strong>Select</strong> button at the bottom of the blade.</p>
+<p>Click <strong>Data source</strong> to open a "Data source" blade. Set <strong>Selection method</strong> to <strong>From all subscriptions</strong> and enter a unique storage-account name in the box below <strong>Create a new Storage account</strong>. (Once more, try to make the name as unique as possible by including birth dates or other values that aren't likely to be used by someone else. You can use lowercase letters, numbers, and hyphens in the storage-account name. Make sure a green check mark appears indicating that the name is valid and unique) For <strong>Default container</strong>, enter "hadoop" (without quotation marks). Select the <strong>Location</strong> nearest you, and then click the <strong>Select</strong> button at the bottom of the blade.</p>
 <p><a href="Images/data-source.png" target="_blank"><img src="Images/data-source.png" alt="Specifying the data source" style="max-width:100%;"></a></p>
 <p><em>Specifying the data source</em></p>
 </li>
 <li>
-<p>Click <strong>Pricing</strong> to open a "Pricing" blade. Make sure <strong>Number of Worker nodes</strong> is set to <strong>4</strong> and accept the default values everywhere else. Then click the <strong>Select</strong> button at the bottom of the blade.</p>
-<p><a href="Images/pricing.png" target="_blank"><img src="Images/pricing.png" alt="Specifying the pricing" style="max-width:100%;"></a></p>
+<p>Click <strong>Cluster size</strong> to open a "Pricing" blade. Make sure <strong>Number of Worker nodes</strong> is set to <strong>4</strong> and accept the default values everywhere else. Then click the <strong>Select</strong> button at the bottom of the blade.</p>
+<p><a href="Images/cluster-size.png" target="_blank"><img src="Images/cluster-size.png" alt="Specifying the pricing" style="max-width:100%;"></a></p>
 <p><em>Specifying the pricing</em></p>
 </li>
 <li>
-<p>Select <strong>Create new</strong> under <strong>Resource Group</strong> and enter "HadoopLabResourceGroup" (without quotation marks) as the resource-group name. Then click the <strong>Create</strong> button at the bottom of the blade to begin deploying the cluster.</p>
+<p>Select <strong>Create new</strong> under <strong>Resource group</strong> and enter "HadoopLabResourceGroup" (without quotation marks) as the resource-group name. Then click the <strong>Create</strong> button at the bottom of the blade to begin deploying the cluster.</p>
 <p><a href="Images/resource-group.png" target="_blank"><img src="Images/resource-group.png" alt="Specifying a resource group and creating the cluster" style="max-width:100%;"></a></p>
 <p><em>Specifying a resource group and creating the cluster</em></p>
 </li>
@@ -567,7 +567,7 @@ vertical-align:1px;
 <p><a name="Exercise2"></a></p>
 <h2>Exercise 2: Connect to the cluster via SSH</h2>
 <p>Before you can run jobs on the Hadoop cluster, you need to open an SSH connection to it so you can execute commands on the cluster. In this exercise, you will remote into the cluster via SSH using the <strong>ssh</strong> command if you are running macOS or Linux, or PuTTY if you are running Windows. If you are a Windows user and haven't installed PuTTY, take the time to <a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">install it now</a>.</p>
-<p><strong>If you're a Windows user, skip to Step 2</strong>. Otherwise, proceed to Step 1.</p>
+<p><strong>If you are running Windows, skip to Step 2</strong>. Otherwise, proceed to Step 1.</p>
 <ol>
 <li>
 <p><strong>Linux and macOS users only</strong>: Open a terminal window so you can use the <strong>ssh</strong> command to establish a connection. Execute the following command in the terminal window, replacing <em>clustername</em> with the cluster name you entered in Exercise 1, Step 3:</p>
