@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Azure Functions HOL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<p><a name="HOLTitle"></a></p>
+<h1>Azure Functions</h1>
+<hr>
+<p><a name="Overview"></a></p>
+<h2>Overview</h2>
+<p>Functions have been the basic building blocks of software since the first lines of code were written and the need for code organization and reuse became a necessity. Azure Functions expand on these concepts by allowing developers to create "serverless", event-driven functions that run in the cloud and can be shared across a wide variety of services and systems, uniformly managed, and easily scaled based on demand. In addition, Azure Functions can be written in a variety of languages, including C#, JavaScript, Python, Bash, and PowerShell, and they're perfect for building apps and nanoservices that employ a compute-on-demand model.</p>
+<p>In this lab, you will create an Azure Function that monitors a blob container in Azure Storage for new images, and then performs automated analysis of the images using the Microsoft Cognitive Services <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a>. Specifically, The Azure Function will analyze each image that is uploaded to the container for adult or racy content and create a copy of the image in another container. Images that contain adult or racy content will be copied to one container, and images that do not contain adult or racy content will be copied to another. In addition, the scores returned by the Computer Vision API will be stored in blob metadata.</p>
+<p><a name="Objectives"></a></p>
+<h3>Objectives</h3>
+<p>In this hands-on lab, you will learn how to:</p>
+<ul>
+<li>Create an Azure Function App</li>
+<li>Write an Azure Function that uses a blob trigger</li>
+<li>Add application settings to an Azure Function App</li>
+<li>Use Microsoft Cognitive Services to analyze images and store the results in blob metadata</li>
+</ul>
+<p><a name="Prerequisites"></a></p>
+<h3>Prerequisites</h3>
+<p>The following are required to complete this hands-on lab:</p>
+<ul>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a></li>
+<li><a href="http://storageexplorer.com">Microsoft Azure Storage Explorer</a> (optional)</li>
+</ul>
+<hr>
+<p><a name="Exercises"></a></p>
+<h2>Exercises</h2>
+<p>This hands-on lab includes the following exercises:</p>
+<ul>
+<li><a href="#Exercise1">Exercise 1: Create an Azure Function App</a></li>
+<li><a href="#Exercise2">Exercise 2: Add an Azure Function</a></li>
+<li><a href="#Exercise3">Exercise 3: Add a subscription key to application settings</a></li>
+<li><a href="#Exercise4">Exercise 4: Test the Azure Function</a></li>
+<li><a href="#Exercise5">Exercise 5: View blob metadata (optional)</a></li>
+</ul>
+<p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
+<p><a name="Exercise1"></a></p>
+<h2>Exercise 1: Create an Azure Function App</h2>
+<p>The first step in writing an Azure Function is to create an Azure Function App. In this exercise, you will create an Azure Function App using the Azure Portal. Then you will add the three blob containers to the storage account that is created for the Function App: one to store uploaded images, a second to store images that do not contain adult or racy content, and a third to contain images that <em>do</em> contain adult or racy content.</p>
+<ol>
+<li>
+<p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If asked to log in, do so using your Microsoft account.</p>
+</li>
+<li>
+<p>Click <strong>+ New</strong>, followed by <strong>Compute</strong> and <strong>Function App</strong>.</p>
+<p><a href="Images/new-function-app.png" target="_blank"><img src="Images/new-function-app.png" alt="Creating an Azure Function App" style="max-width:100%;"></a></p>
+<p><em>Creating an Azure Function App</em></p>
+</li>
+<li>
+<p>Enter an app name that is unique within Azure. Under <strong>Resource Group</strong>, select <strong>Create new</strong> and enter "FunctionsLabResourceGroup" (without quotation marks) as the resource-group name to create a resource group for the Function App. Choose the <strong>Location</strong> nearest you, and accept the default values for all other parameters. Then click <strong>Create</strong> to create a new Function App.</p>
+<blockquote>
+<p>The app name becomes part of a DNS name and therefore must be unique within Azure. Make sure a green check mark appears to the name indicating it is unique. You probably <strong>won't</strong> be able to use "functionslab" as the app name.</p>
+</blockquote>
+<p><a href="Images/function-app-name.png" target="_blank"><img src="Images/function-app-name.png" alt="Naming a Function App" style="max-width:100%;"></a></p>
+<p><em>Naming a Function App</em></p>
+</li>
+<li>
+<p>Click <strong>Resource groups</strong> in the ribbon on the left side of the portal, and then click the resource group created for the Function App.</p>
+<p><a href="Images/open-resource-group.png" target="_blank"><img src="Images/open-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
+<p><em>Opening the resource group</em></p>
+</li>
+<li>
+<p>Wait until "Deploying" changes to "Succeeded," indicating that the Function App has been deployed.</p>
+<blockquote>
+<p>Refresh the page in the browser every now and then to update the deployment status. Clicking the <strong>Refresh</strong> button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.</p>
+</blockquote>
+<p><a href="Images/deployment-status.png" target="_blank"><img src="Images/deployment-status.png" alt="Viewing the deployment status" style="max-width:100%;"></a></p>
+<p><em>Viewing the deployment status</em></p>
+</li>
+<li>
+<p>Click the storage account that was created for the Function App.</p>
+<p><a href="Images/open-storage-account.png" target="_blank"><img src="Images/open-storage-account.png" alt="Opening the storage account" style="max-width:100%;"></a></p>
+<p><em>Opening the storage account</em></p>
+</li>
+<li>
+<p>Click <strong>Blobs</strong> to view the contents of blob storage.</p>
+<p><a href="Images/open-blob-storage.png" target="_blank"><img src="Images/open-blob-storage.png" alt="Opening blob storage" style="max-width:100%;"></a></p>
+<p><em>Opening blob storage</em></p>
+</li>
+<li>
+<p>Click <strong>+ Container</strong> to add a container.</p>
+<p><a href="Images/add-container.png" target="_blank"><img src="Images/add-container.png" alt="Adding a container" style="max-width:100%;"></a></p>
+<p><em>Adding a container</em></p>
+</li>
+<li>
+<p>Type "uploaded" into the <strong>Name</strong> box. Then click the <strong>Create</strong> button to create the container.</p>
+<p><a href="Images/name-container.png" target="_blank"><img src="Images/name-container.png" alt="Naming the container" style="max-width:100%;"></a></p>
+<p><em>Naming the container</em></p>
+</li>
+<li>
+<p>Repeat Steps 8 and 9 to add containers named "accepted" and "rejected" to blob storage.</p>
+</li>
+<li>
+<p>Confirm that all three containers were added to blob storage.</p>
+<p><a href="Images/new-containers.png" target="_blank"><img src="Images/new-containers.png" alt="The new containers" style="max-width:100%;"></a></p>
+<p><em>The new containers</em></p>
+</li>
+</ol>
+<p>The Azure Function App has been created and you have added three containers to the storage account created for it. The next step is to add an Azure Function.</p>
+<p><a name="Exercise2"></a></p>
+<h2>Exercise 2: Add an Azure Function</h2>
+<p>Once you have created an Azure Function App, you can add Azure Functions to it. In this exercise, you will add a function to the Function App you created in <a href="#Exercise1">Exercise 1</a> and write C# code that uses the <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a> to analyze images added to the "uploaded" container for adult or racy content.</p>
+<ol>
+<li>
+<p>Return to the blade for the "FunctionsLabResourceGroup" resource group and click the Azure Function App that you created in <a href="#Exercise1">Exercise 1</a>.</p>
+<p><a href="Images/open-function-app.png" target="_blank"><img src="Images/open-function-app.png" alt="Opening the Function App" style="max-width:100%;"></a></p>
+<p><em>Opening the Function App</em></p>
+</li>
+<li>
+<p>Click <strong>+ New Function</strong> and set <strong>Language</strong> to <strong>C#</strong>. Then click <strong>BlobTrigger-CSharp</strong>.</p>
+<p><a href="Images/function-app-select-template.png" target="_blank"><img src="Images/function-app-select-template.png" alt="Selecting a function template" style="max-width:100%;"></a></p>
+<p><em>Selecting a function template</em></p>
+</li>
+<li>
+<p>Enter "BlobImageAnalysis" (without quotation marks) for the function name and "uploaded/{name}" into the <strong>Path</strong> box. (The latter applies the blob storage trigger to the "uploaded" container that you created in Exercise 1.) Then click the <strong>Create</strong> button to create the Azure Function.</p>
+<p><a href="Images/create-azure-function.png" target="_blank"><img src="Images/create-azure-function.png" alt="Creating an Azure Function" style="max-width:100%;"></a></p>
+<p><em>Creating an Azure Function</em></p>
+</li>
+<li>
+<p>Replace the code shown in the code editor with the following statements:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">Microsoft.WindowsAzure.Storage.Blob</span>;
+<span class="pl-k">using</span> <span class="pl-en">Microsoft.WindowsAzure.Storage</span>;
+<span class="pl-k">using</span> <span class="pl-en">System.Net.Http.Headers</span>;
+<span class="pl-k">using</span> <span class="pl-en">System.Configuration</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">async</span> <span class="pl-k">static</span> Task Run(Stream myBlob, <span class="pl-k">string</span> name, TraceWriter log)
+{       
+    log.Info($<span class="pl-s"><span class="pl-pds">"</span>Analyzing uploaded image {name} for adult content...<span class="pl-pds">"</span></span>);
+
+    <span class="pl-k">var</span> array = <span class="pl-k">await</span> ToByteArrayAsync(myBlob);
+    <span class="pl-k">var</span> result = <span class="pl-k">await</span> AnalyzeImageAsync(array, log);
+    
+    log.Info(<span class="pl-s"><span class="pl-pds">"</span>Is Adult: <span class="pl-pds">"</span></span> + result.adult.isAdultContent.ToString());
+    log.Info(<span class="pl-s"><span class="pl-pds">"</span>Adult Score: <span class="pl-pds">"</span></span> + result.adult.adultScore.ToString());
+    log.Info(<span class="pl-s"><span class="pl-pds">"</span>Is Racy: <span class="pl-pds">"</span></span> + result.adult.isRacyContent.ToString());
+    log.Info(<span class="pl-s"><span class="pl-pds">"</span>Racy Score: <span class="pl-pds">"</span></span> + result.adult.racyScore.ToString());
+
+    <span class="pl-k">if</span> (result.adult.isAdultContent || result.adult.isRacyContent)
+    {
+        <span class="pl-c">// Copy blob to the "rejected" container</span>
+        StoreBlobWithMetadata(myBlob, <span class="pl-s"><span class="pl-pds">"</span>rejected<span class="pl-pds">"</span></span>, name, result, log);
+    }
+    <span class="pl-k">else</span>
+    {
+        <span class="pl-c">// Copy blob to the "accepted" container</span>
+        StoreBlobWithMetadata(myBlob, <span class="pl-s"><span class="pl-pds">"</span>accepted<span class="pl-pds">"</span></span>, name, result, log);
+    }
+}
+
+<span class="pl-k">private</span> <span class="pl-k">async</span> <span class="pl-k">static</span> Task&lt;ImageAnalysisInfo&gt; AnalyzeImageAsync(<span class="pl-k">byte</span>[] bytes, TraceWriter log)
+{
+    HttpClient client = <span class="pl-k">new</span> HttpClient();
+
+    <span class="pl-k">var</span> key = ConfigurationManager.AppSettings[<span class="pl-s"><span class="pl-pds">"</span>SubscriptionKey<span class="pl-pds">"</span></span>].ToString();
+    client.DefaultRequestHeaders.Add(<span class="pl-s"><span class="pl-pds">"</span>Ocp-Apim-Subscription-Key<span class="pl-pds">"</span></span>, key);
+
+    HttpContent payload = <span class="pl-k">new</span> ByteArrayContent(bytes);
+    payload.Headers.ContentType = <span class="pl-k">new</span> MediaTypeWithQualityHeaderValue(<span class="pl-s"><span class="pl-pds">"</span>application/octet-stream<span class="pl-pds">"</span></span>);
+    
+    <span class="pl-k">var</span> results = <span class="pl-k">await</span> client.PostAsync(<span class="pl-s"><span class="pl-pds">"</span>https://api.projectoxford.ai/vision/v1.0/analyze?visualFeatures=Adult<span class="pl-pds">"</span></span>, payload);
+    <span class="pl-k">var</span> result = <span class="pl-k">await</span> results.Content.ReadAsAsync&lt;ImageAnalysisInfo&gt;();
+    <span class="pl-k">return</span> result;
+}
+
+<span class="pl-c">// Writes a blob to a specified container and stores metadata with it</span>
+<span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-k">void</span> StoreBlobWithMetadata(Stream image, <span class="pl-k">string</span> containerName, <span class="pl-k">string</span> blobName, ImageAnalysisInfo info, TraceWriter log)
+{
+    log.Info($<span class="pl-s"><span class="pl-pds">"</span>Writing blob and metadata to {containerName} container...<span class="pl-pds">"</span></span>);
+    
+    <span class="pl-k">var</span> connection = ConfigurationManager.AppSettings[<span class="pl-s"><span class="pl-pds">"</span>AzureWebJobsStorage<span class="pl-pds">"</span></span>].ToString();
+    <span class="pl-k">var</span> account = CloudStorageAccount.Parse(connection);
+    <span class="pl-k">var</span> client = account.CreateCloudBlobClient();
+    <span class="pl-k">var</span> container = client.GetContainerReference(containerName);
+
+    <span class="pl-k">try</span>
+    {
+        <span class="pl-k">var</span> blob = container.GetBlockBlobReference(blobName);
+    
+        <span class="pl-k">if</span> (blob != <span class="pl-c1">null</span>) 
+        {
+            <span class="pl-c">// Upload the blob</span>
+            blob.UploadFromStream(image);
+
+            <span class="pl-c">// Get the blob attributes</span>
+            blob.FetchAttributes();
+            
+			<span class="pl-c">// Write the blob metadata</span>
+            blob.Metadata[<span class="pl-s"><span class="pl-pds">"</span>isAdultContent<span class="pl-pds">"</span></span>] = info.adult.isAdultContent.ToString(); 
+            blob.Metadata[<span class="pl-s"><span class="pl-pds">"</span>adultScore<span class="pl-pds">"</span></span>] = info.adult.adultScore.ToString(<span class="pl-s"><span class="pl-pds">"</span>P0<span class="pl-pds">"</span></span>).Replace(<span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>); 
+            blob.Metadata[<span class="pl-s"><span class="pl-pds">"</span>isRacyContent<span class="pl-pds">"</span></span>] = info.adult.isRacyContent.ToString(); 
+            blob.Metadata[<span class="pl-s"><span class="pl-pds">"</span>racyScore<span class="pl-pds">"</span></span>] = info.adult.racyScore.ToString(<span class="pl-s"><span class="pl-pds">"</span>P0<span class="pl-pds">"</span></span>).Replace(<span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>); 
+            
+			<span class="pl-c">// Save the blob metadata</span>
+            blob.SetMetadata();
+        }
+    }
+    <span class="pl-k">catch</span> (Exception ex)
+    {
+        log.Info(ex.Message);
+    }
+}
+
+<span class="pl-c">// Converts a stream to a byte array </span>
+<span class="pl-k">private</span> <span class="pl-k">async</span> <span class="pl-k">static</span> Task&lt;<span class="pl-k">byte</span>[]&gt; ToByteArrayAsync(Stream stream)
+{
+    Int32 length = stream.Length &gt; Int32.MaxValue ? Int32.MaxValue : Convert.ToInt32(stream.Length);
+    <span class="pl-k">byte</span>[] buffer = <span class="pl-k">new</span> Byte[length];
+    <span class="pl-k">await</span> stream.ReadAsync(buffer, <span class="pl-c1">0</span>, length);
+    <span class="pl-k">return</span> buffer;
+}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">ImageAnalysisInfo</span>
+{
+    <span class="pl-k">public</span> Adult <span class="pl-en">adult</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">requestId</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Adult</span>
+{
+    <span class="pl-k">public</span> <span class="pl-k">bool</span> <span class="pl-en">isAdultContent</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public</span> <span class="pl-k">bool</span> <span class="pl-en">isRacyContent</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public</span> <span class="pl-k">float</span> <span class="pl-en">adultScore</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public</span> <span class="pl-k">float</span> <span class="pl-en">racyScore</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}</pre></div>
+<blockquote>
+<p><strong>Run</strong> is the method called each time the function is executed. The <strong>Run</strong> method uses a helper method named <strong>AnalyzeImageAsync</strong> to pass each blob added to the "uploaded" container to the Computer Vision API for analysis. Then it calls a helper method named <strong>StoreBlobWithMetadata</strong> to create a copy of the blob in either the "accepted" container or the "rejected" container, depending on the scores returned by <strong>AnalyzeImageAsync</strong>.</p>
+</blockquote>
+</li>
+<li>
+<p>Click the <strong>Save</strong> button at the top of the code editor to save your changes. The click <strong>View Files</strong>.</p>
+<p><a href="Images/save-run-file.png" target="_blank"><img src="Images/save-run-file.png" alt="Saving the function" style="max-width:100%;"></a></p>
+<p><em>Saving the function</em></p>
+</li>
+<li>
+<p>Click <strong>+ Add</strong> to add a new file, and name the file <strong>project.json</strong>.</p>
+<p><a href="Images/add-project-file.png" target="_blank"><img src="Images/add-project-file.png" alt="Adding a project file" style="max-width:100%;"></a></p>
+<p><em>Adding a project file</em></p>
+</li>
+<li>
+<p>Add the following statements to <strong>project.json</strong>:</p>
+<div class="highlight highlight-source-json"><pre>{
+    <span class="pl-s"><span class="pl-pds">"</span>frameworks<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>net46<span class="pl-pds">"</span></span>: {
+            <span class="pl-s"><span class="pl-pds">"</span>dependencies<span class="pl-pds">"</span></span>: {
+                <span class="pl-s"><span class="pl-pds">"</span>WindowsAzure.Storage<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>7.2.0<span class="pl-pds">"</span></span>
+            }
+        }
+    }
+}</pre></div>
+</li>
+<li>
+<p>Click the <strong>Save</strong> button to save your changes. Then click <strong>run.csx</strong> to go back to that file in the code editor.</p>
+<p><a href="Images/save-project-file.png" target="_blank"><img src="Images/save-project-file.png" alt="Saving the project file" style="max-width:100%;"></a></p>
+<p><em>Saving the project file</em></p>
+</li>
+</ol>
+<p>An Azure Function written in C# has been created, complete with a JSON project file containing information regarding project dependencies. The next step is to add an application setting that the code you added to the Azure Function relies on.</p>
+<p><a name="Exercise3"></a></p>
+<h2>Exercise 3: Add a subscription key to application settings</h2>
+<p>The Azure Function you created in <a href="#Exercise2">Exercise 2</a> loads a subscription key for the Microsoft Cognitive Services Computer Vision API from application settings. This key is required in order for your code to call the Computer Vision API, and is transmitted in an HTTP header in each call. In this exercise, you will add an application setting containing the subscription key to the Function App.</p>
+<ol>
+<li>
+<p>Open a new browser window and navigate to <a href="https://www.microsoft.com/cognitive-services/en-us/subscriptions">https://www.microsoft.com/cognitive-services/en-us/subscriptions</a>. If you haven't signed up for the Computer Vision API, do so now. (Signing up is free.) Then, on the subscriptions page, click <strong>Copy</strong> under <strong>Key 1</strong> to copy your Computer Vision subscription key to the clipboard.</p>
+<p><a href="Images/computer-vision-key.png" target="_blank"><img src="Images/computer-vision-key.png" alt="Copying the subscription key to the clipboard" style="max-width:100%;"></a></p>
+<p><em>Copying the subscription key to the clipboard</em></p>
+</li>
+<li>
+<p>Return to your Function App in the Azure Portal and click <strong>Function app settings</strong> in the lower-left corner of the function designer.</p>
+<p><a href="Images/function-app-select-app-settings.png" target="_blank"><img src="Images/function-app-select-app-settings.png" alt="Viewing Function App settings" style="max-width:100%;"></a></p>
+<p><em>Viewing Function App settings</em></p>
+</li>
+<li>
+<p>Scroll down the page and click <strong>Go to App Service Settings</strong>.</p>
+<p><a href="Images/open-app-service-settings.png" target="_blank"><img src="Images/open-app-service-settings.png" alt="Viewing App Service settings" style="max-width:100%;"></a></p>
+<p><em>Viewing App Service settings</em></p>
+</li>
+<li>
+<p>Click <strong>Application settings</strong>. Then scroll down until you find the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the <strong>Value</strong> box. Then click <strong>Save</strong> at the top of the blade.</p>
+<p><a href="Images/add-key.png" target="_blank"><img src="Images/add-key.png" alt="Adding a subscription key" style="max-width:100%;"></a></p>
+<p><em>Adding a subscription key</em></p>
+</li>
+<li>
+<p>The app settings are now configured for your Azure Function. It's a good idea to validate those settings by recompiling the function and ensuring that it compiles without errors. Scroll left until you see the "Function app" blade, and then click <strong>BlobImageAnalysis</strong>.</p>
+<p><a href="Images/open-function.png" target="_blank"><img src="Images/open-function.png" alt="Opening the function" style="max-width:100%;"></a></p>
+<p><em>Opening the function</em></p>
+</li>
+<li>
+<p>Make sure <strong>Develop</strong> is selected. Make a simple change to the <strong>run.csx</strong> file in the code editor — for example, add a space or blank line and then delete it. Then click <strong>Save and run</strong> to recompile the function. Confirm that "Compilation succeeded" appears in the output log.</p>
+<p><a href="Images/function-recompile.png" target="_blank"><img src="Images/function-recompile.png" alt="Recompiling the function" style="max-width:100%;"></a></p>
+<p><em>Recompiling the function</em></p>
+</li>
+</ol>
+<p>The work of writing and configuring the Azure Function is complete. Now comes the fun part: testing it out.</p>
+<p><a name="Exercise4"></a></p>
+<h2>Exercise 4: Test the Azure Function</h2>
+<p>Your function is configured to listen for changes to the blob container named "uploaded" that you created in <a href="#Exercise1">Exercise 1</a>. Each time an image appears in the container, the function executes and passes the image to the Computer Vision API for analysis. To test the function, you simply upload images to the container. In this exercise, you will use the Azure Portal to upload images to the "uploaded" container and verify that copies of the images are placed in the "accepted" and "rejected" containers.</p>
+<ol>
+<li>
+<p>In the Azure Portal, go to the resource group created for your Function App. Then click the storage account that was created for it.</p>
+<p><a href="Images/open-storage-account.png" target="_blank"><img src="Images/open-storage-account.png" alt="Opening the storage account" style="max-width:100%;"></a></p>
+<p><em>Opening the storage account</em></p>
+</li>
+<li>
+<p>Click <strong>Blobs</strong> to view the contents of blob storage.</p>
+<p><a href="Images/open-blob-storage.png" target="_blank"><img src="Images/open-blob-storage.png" alt="Opening blob storage" style="max-width:100%;"></a></p>
+<p><em>Opening blob storage</em></p>
+</li>
+<li>
+<p>Click <strong>uploaded</strong> to open the "uploaded" container.</p>
+<p><a href="Images/open-uploaded-container.png" target="_blank"><img src="Images/open-uploaded-container.png" alt="Opening the &quot;uploaded&quot; container" style="max-width:100%;"></a></p>
+<p><em>Opening the "uploaded" container</em></p>
+</li>
+<li>
+<p>Click <strong>Upload</strong>.</p>
+<p><a href="Images/upload-images-1.png" target="_blank"><img src="Images/upload-images-1.png" alt="Uploading images to the &quot;uploaded&quot; container" style="max-width:100%;"></a></p>
+<p><em>Uploading images to the "uploaded" container</em></p>
+</li>
+<li>
+<p>Click the button with the folder icon to the right of the <strong>Files</strong> box. Select all of the files in this lab's "Resources" folder. Then click the <strong>Upload</strong> button to upload the files to the "uploaded" container.</p>
+<p><a href="Images/upload-images-2.png" target="_blank"><img src="Images/upload-images-2.png" alt="Uploading images to the &quot;uploaded&quot; container" style="max-width:100%;"></a></p>
+<p><em>Uploading images to the "uploaded" container</em></p>
+</li>
+<li>
+<p>Return to the blade for the "uploaded" container and verify that eight images were uploaded.</p>
+<p><a href="Images/uploaded-images.png" target="_blank"><img src="Images/uploaded-images.png" alt="Images uploaded to the &quot;uploaded&quot; container" style="max-width:100%;"></a></p>
+<p><em>Images uploaded to the "uploaded" container</em></p>
+</li>
+<li>
+<p>Close the blade for the "uploaded" container and open the "accepted" container.</p>
+<p><a href="Images/open-accepted-container.png" target="_blank"><img src="Images/open-accepted-container.png" alt="Opening the &quot;accepted&quot; container" style="max-width:100%;"></a></p>
+<p><em>Opening the "accepted" container</em></p>
+</li>
+<li>
+<p>Verify that the "accepted" container holds seven images. <strong>These are the images that were classified as neither adult nor racy by the Computer Vision API</strong>.</p>
+<blockquote>
+<p>It may take a minute or more for all of the images to appear in the container. Click <strong>Refresh</strong> every few seconds until you see all seven images.</p>
+</blockquote>
+<p><a href="Images/accepted-images.png" target="_blank"><img src="Images/accepted-images.png" alt="Images uploaded to the &quot;accepted&quot; container" style="max-width:100%;"></a></p>
+<p><em>Images uploaded to the "accepted" container</em></p>
+</li>
+<li>
+<p>Close the blade for the "accepted" container and open the blade for the "rejected" container.</p>
+<p><a href="Images/open-rejected-container.png" target="_blank"><img src="Images/open-rejected-container.png" alt="Opening the &quot;rejected&quot; container" style="max-width:100%;"></a></p>
+<p><em>Opening the "rejected" container</em></p>
+</li>
+<li>
+<p>Verify that the "rejected" container holds one image. <strong>This image was classified as adult or racy (or both) by the Computer Vision API</strong>.</p>
+<p><a href="Images/rejected-images.png" target="_blank"><img src="Images/rejected-images.png" alt="Images uploaded to the &quot;rejected&quot; container" style="max-width:100%;"></a></p>
+<p><em>Images uploaded to the "rejected" container</em></p>
+</li>
+</ol>
+<p>The presence of seven images in the "accepted" container and one in the "rejected" container is proof that your Azure Function executed each time an image was uploaded to the "uploaded" container. If you would like, return to the BlobImageAnalysis function in the portal and click <strong>Monitor</strong>. You will see a log detailing each time the function executed.</p>
+<p><a name="Exercise5"></a></p>
+<h2>Exercise 5: View blob metadata (optional)</h2>
+<p>What if you would like to view the scores for adult content and raciness returned by the Computer Vision API for each image uploaded to the "uploaded" container? The scores are stored in blob metadata for the images in the "accepted" and "rejected" containers, but blob metadata can't be viewed through the Azure Portal.</p>
+<p>In this exercise, you will use the cross-platform <a href="http://storageexplorer.com">Microsoft Azure Storage Explorer</a> to view blob metadata and see how the Computer Vision API scored the images you uploaded.</p>
+<ol>
+<li>
+<p>If you haven't installed the Microsoft Azure Storage Explorer, go to <a href="http://storageexplorer.com">http://storageexplorer.com</a> and install it now. Versions are available for Windows, macOS, and Linux.</p>
+</li>
+<li>
+<p>Start Storage Explorer. If you are asked to log in, do so using the same account you used to log in to the Azure Portal.</p>
+</li>
+<li>
+<p>Find the storage account that was created for your Azure Function App in <a href="#Exercise1">Exercise 1</a> and expand the list of blob containers underneath it. Then click the container named "rejected."</p>
+<blockquote>
+<p>If this is the first time you have run Storage Explorer, you may have to click the person icon and tell it which Azure subscription or subscriptions you want it to display.</p>
+</blockquote>
+<p><a href="Images/explorer-open-rejected-container.png" target="_blank"><img src="Images/explorer-open-rejected-container.png" alt="Opening the &quot;rejected&quot; container" style="max-width:100%;"></a></p>
+<p><em>Opening the "rejected" container</em></p>
+</li>
+<li>
+<p>Right-click (on a Mac, Command-click) the image in the "rejected" container and select <strong>Properties</strong> from the context menu.</p>
+<p><a href="Images/explorer-view-blob-metadata.png" target="_blank"><img src="Images/explorer-view-blob-metadata.png" alt="Viewing blob metadata" style="max-width:100%;"></a></p>
+<p><em>Viewing blob metadata</em></p>
+</li>
+<li>
+<p>Inspect the blob's metadata. <em>IsAdultContent</em> and <em>isRacyContent</em> are Boolean values that indicate whether the Computer Vision API detected adult or racy content in the image. <em>adultScore</em> and <em>racyScore</em> are the computed probabilities.</p>
+<p><a href="Images/explorer-metadata-values.png" target="_blank"><img src="Images/explorer-metadata-values.png" alt="Scores returned by the Computer Vision API" style="max-width:100%;"></a></p>
+<p><em>Scores returned by the Computer Vision API</em></p>
+</li>
+<li>
+<p>Open the "accepted" container and inspect the metadata for some of the blobs stored there. How do these metadata values differ from the ones attached to the blob in the "rejected" container?</p>
+</li>
+</ol>
+<p>You can probably imagine how this might be used in the real world. Suppose you were building a photo-sharing site and wanted to prevent adult images from being stored. You could easily write an Azure Function that inspects each image that is uploaded and deletes it from storage if it contains adult content.</p>
+<p><a name="Summary"></a></p>
+<h2>Summary</h2>
+<p>In this hands-on lab you learned how to:</p>
+<ul>
+<li>Create an Azure Function App</li>
+<li>Write an Azure Function that uses a blob trigger</li>
+<li>Add application settings to an Azure Function App</li>
+<li>Use Microsoft Cognitive Services to analyze images and store the results in blob metadata</li>
+</ul>
+<p>This is just one example of how you can leverage Azure Functions to automate repetitive tasks. Experiment with other Azure Function templates to learn more about Azure Functions and to identify additional ways in which they can aid your research or business.</p>
+<hr>
+<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
