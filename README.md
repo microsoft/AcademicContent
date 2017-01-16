@@ -30,7 +30,8 @@
                <h3 class="panel-title">Available academic resources</h3>
             </div>
             <div class="panel-body">
-               <table class="table table-bordered table-striped table-hover">
+            <h2>Content from DX Academic team</h2>
+          <table class="table table-bordered table-striped table-hover">
 					<tr>
 					   <td><b>Complimentary Course Content</b></td>
 					   <td>[Link](https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content)</td>
@@ -45,6 +46,44 @@
 					   <td><b>Workshop</b></td>
 					   <td>[Link](https://github.com/MSFTImagine/computerscience/tree/master/Workshop)</td>
 					   <td>1-day hands-on lab using cross-platform technologies with Microsoft Azure.</td>
+					</tr>
+				 </table>
+         <h2>Content from other sources</h2>
+         <table class="table table-bordered table-striped table-hover">
+					<tr>
+					   <td><b>Technical</b></td>
+					   <td>[Link](https://github.com/Microsoft/TechnicalCommunityContent)</td>
+					   <td>Hands on content from DX Community team, overlaps with workshop content here, but has some different modules.</td>
+					</tr>
+          <tr>
+					   <td><b>Technical</b></td>
+					   <td>[Link](http://aka.ms/NUSworkshop)</td>
+					   <td>Bots and LUIS workshop from TE in Singapore.</td>
+					</tr>
+          <tr>
+					   <td><b>Technical</b></td>
+					   <td>[Link](https://github.com/Microsoft/CNTK/wiki/Setup-Windows-Binary-Script)</td>
+					   <td>Resources to set up Cognitive Toolkit using notebooks from product team. After installing tutorials will be in c:\repos\bindings\python\tutorials.</td>
+					</tr>
+					<tr>
+					   <td><b>Case Studies</b></td>
+					   <td>[Link](https://microsoft.github.io/techcasestudies/)</td>
+					   <td>Companies using Azure stories collected by the Ascend team.</td>
+					</tr>
+          <tr>
+					   <td><b>Case Studies</b></td>
+					   <td>[Link](https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/)</td>
+					   <td>Faculty using Azure for Research stories collected by Microsoft Research. Submit your own Azure research stories here too!</td>
+					</tr>
+          <tr>
+					   <td><b>Data Sets</b></td>
+					   <td>[Link](http://aka.ms/datascience)</td>
+					   <td>Data sets shared by Microsoft Research for academic use.</td>
+					</tr>
+          <tr>
+					   <td><b>Data Sets</b></td>
+					   <td>[Link](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-use-sample-datasets)</td>
+					   <td>Data sets shared by Azure Machine Learning team to help explore machine learning.</td>
 					</tr>
 				 </table>
 			</div>
