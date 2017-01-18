@@ -458,7 +458,7 @@ The Power BI Services Portal is both flexible and robust, and since it runs in a
 	
 	_Adding CompanyName to the visualization_	
 	
-1. Add the ProductID field from the Orders table, the OrderID field from Order Details, and the ProductName field from Products to the visualization. If needed, drag the handle on the right edge of the table visualization to expand it so you can see the added fields.
+1. Add the ProductID field from the Order Details table, the OrderID field from Orders, and the ProductName field from Products to the visualization. If needed, drag the handle on the right edge of the table visualization to expand it so you can see the added fields.
 
 	![Adding additional fields](Images/desktop-adding-additional-fields.png)
 	

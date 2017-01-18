@@ -469,31 +469,18 @@ vertical-align:1px;
 </head>
 <body>
 <p><a name="HOLTitle"></a></p>
-
 <h1>Using Microsoft Power BI to Explore and Visualize Data</h1>
-
 <hr>
-
 <p><a name="Overview"></a></p>
-
 <h2>Overview</h2>
-
 <p><a href="https://powerbi.microsoft.com/en-us/mobile/">Microsoft Power BI</a> was created to address the data explosion in commercial and academic organizations, the need to analyze that data, and the need for rich, interactive visuals to represent the data and reveal key insights. It contains a suite of tools that assist in the full life cycle of data analysis, from data discovery and collection to data transformation, aggregation, visualization, sharing, and collaboration. Moreover, it allows you to create rich visualizations without writing any code and present them in interactive dashboards.</p>
-
 <p>Power BI can organize and unify all of your organization’s data to provide a clear, real-time view of your world. Its features include data connectors for a wide range of services and applications, support for popular file formats and databases, a full-featured expression engine, a WYSIWYG editor for creating sophisticated visualizations, support for visualizing data on the Web or on mobile devices running iOS, Android, or Windows, and support for embedding visualizations in your own Web or mobile apps.</p>
-
 <p><a href="Images/power-bi.png" target="_blank"><img src="Images/power-bi.png" alt="Interactive Power BI dashboard running on iOS and Windows" style="max-width:100%;"></a></p>
-
 <p><em>Interactive Power BI dashboard running on iOS and Windows</em></p>
-
-<p>In this lab, you will use Microsoft Power BI to view sales data for a fictitious company and create reports and dashboards containing visualizations of that data. You will learn the basics of report creation and also learn various ways to share those reports with others, both internal and external to your organization. </p>
-
+<p>In this lab, you will use Microsoft Power BI to view sales data for a fictitious company and create reports and dashboards containing visualizations of that data. You will learn the basics of report creation and also learn various ways to share those reports with others, both internal and external to your organization.</p>
 <p><a name="Objectives"></a></p>
-
 <h3>Objectives</h3>
-
 <p>In this hands-on lab, you will learn how to:</p>
-
 <ul>
 <li>Connect Power BI to business data</li>
 <li>Visualize business data in a dashboard</li>
@@ -502,30 +489,18 @@ vertical-align:1px;
 <li>Publish and share Power BI content</li>
 <li>Use Power BI Desktop to do advanced modeling</li>
 </ul>
-
 <p><a name="Prerequisites"></a></p>
-
 <h3>Prerequisites</h3>
-
 <p>The following are required to complete this hands-on lab:</p>
-
 <ul>
-<li>An active Microsoft Office 365 subscription, or <a href="https://portal.office.com/signup/">sign up for a free trial</a>
-</li>
-<li>An active Microsoft Power BI subscription or <a href="https://app.powerbi.com/signupredirect?pbi_source=web">sign up for a free trial</a>
-</li>
-<li>
-<a href="https://go.microsoft.com/fwlink/?LinkId=521662&amp;clcid=0x409">Microsoft Power BI Desktop</a> (Windows only).</li>
+<li>An active Microsoft Office 365 subscription, or <a href="https://portal.office.com/signup/">sign up for a free trial</a></li>
+<li>An active Microsoft Power BI subscription or <a href="https://app.powerbi.com/signupredirect?pbi_source=web">sign up for a free trial</a></li>
+<li><a href="https://go.microsoft.com/fwlink/?LinkId=521662&amp;clcid=0x409">Microsoft Power BI Desktop</a> (Windows only).</li>
 </ul>
-
 <hr>
-
 <p><a name="Exercises"></a></p>
-
 <h2>Exercises</h2>
-
 <p>This hands-on lab includes the following exercises:</p>
-
 <ul>
 <li><a href="#Exercise1">Exercise 1: Connect to a database</a></li>
 <li><a href="#Exercise2">Exercise 2: Create a data visualization</a></li>
@@ -534,553 +509,403 @@ vertical-align:1px;
 <li><a href="#Exercise5">Exercise 5: Publish and share content</a></li>
 <li><a href="#Exercise6">Exercise 6: Do more with Power BI Desktop</a></li>
 </ul>
-
 <p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
-
 <p><a name="Exercise1"></a></p>
-
 <h2>Exercise 1: Connect to a database</h2>
-
 <p>The first step in using Microsoft Power BI to explore and visualize data is to connect to a data source. In this exercise, you will connect to an Azure SQL Server database containing customer, product, and sales data for a fictitious company named Adventure Works.</p>
-
 <ol>
-<li><p>Open the Power BI Services Portal at <a href="https://powerbi.microsoft.com">https://powerbi.microsoft.com</a>. If you are not signed in to Power BI, click <strong>Sign In</strong> and log in with your Microsoft Office 365 Account.</p></li>
+<li>
+<p>Open the Power BI Services Portal at <a href="https://powerbi.microsoft.com">https://powerbi.microsoft.com</a>. If you are not signed in to Power BI, click <strong>Sign In</strong> and log in with your Microsoft Office 365 Account.</p>
+</li>
 <li>
 <p>Click the <strong>hamburger</strong> icon to open the side menu, and then click <strong>Get Data</strong>.</p>
-
 <p><a href="Images/portal-get-data.png" target="_blank"><img src="Images/portal-get-data.png" alt="Accessing data sources" style="max-width:100%;"></a></p>
-
 <p><em>Accessing data sources</em></p>
 </li>
 <li>
 <p>Under "Import or Connect to Data," click <strong>Get</strong> in the "Databases" tile.</p>
-
 <p><a href="Images/portal-databases-get.png" target="_blank"><img src="Images/portal-databases-get.png" alt="Accessing databases" style="max-width:100%;"></a></p>
-
 <p><em>Accessing databases</em></p>
 </li>
 <li>
 <p>Click <strong>Azure SQL Data Warehouse</strong>. Then click <strong>Connect</strong> in the pullout that appears below the tile.</p>
-
 <blockquote>
 <p>If you are informed that "This content pack is a Power BI Pro feature," accept the free trial of Power BI Pro. Then repeat this step to connect to Azure SQL Data Warehouse.</p>
 </blockquote>
-
 <p><a href="Images/portal-databases-warehouse.png" target="_blank"><img src="Images/portal-databases-warehouse.png" alt="Accessing Azure SQL Data Warehouse" style="max-width:100%;"></a></p>
-
 <p><em>Accessing Azure SQL Data Warehouse</em></p>
 </li>
 <li>
 <p>Enter the values shown below in the "Connect to Azure SQL Data Warehouse" dialog. Then click the <strong>Next</strong> button.</p>
-
 <p><a href="Images/portal-enter-location.png" target="_blank"><img src="Images/portal-enter-location.png" alt="Connecting to a SQL Server database" style="max-width:100%;"></a></p>
-
 <p><em>Connecting to a SQL Server database</em></p>
 </li>
 <li>
 <p>Enter "PowerBILabUser" (without quotation marks) as the username and "PowerBI_1" (again without quotation marks) as the password. Then click <strong>Sign in</strong> to connect to Azure SQL Data Warehouse and the Adventure Works database.</p>
-
 <p><a href="Images/portal-enter-credentials.png" target="_blank"><img src="Images/portal-enter-credentials.png" alt="Entering SQL Server credentials" style="max-width:100%;"></a></p>
-
 <p><em>Entering SQL Server credentials</em></p>
 </li>
 <li>
 <p>Click the <strong>hamburger</strong> icon to open the side menu if it isn't already open, and confirm that a new item named "powerbilabs" appears in the menu under "Datasets."</p>
-
 <p><a href="Images/portal-new-dataset.png" target="_blank"><img src="Images/portal-new-dataset.png" alt="The new dataset" style="max-width:100%;"></a></p>
-
 <p><em>The new dataset</em></p>
 </li>
 </ol>
-
 <p>You are now connected to an instance of the Adventure Works database hosted in Azure SQL Data Warehouse. Now it's time to build a report that depicts some of the data in the database.</p>
-
 <p><a name="Exercise2"></a></p>
-
 <h2>Exercise 2: Create a data visualization</h2>
-
 <p>The heart of Power BI is the rich visualizations you can present to the user via dashboards and reports. In this exercise, you will create a report that shows data from one of the tables in the Adventure Works database.</p>
-
 <ol>
 <li>
 <p>Click <strong>powerbilabs</strong> in the side menu to open the dataset in the report designer.</p>
-
 <p><a href="Images/portal-open-dataset.png" target="_blank"><img src="Images/portal-open-dataset.png" alt="Opening the powerbilabs dataset" style="max-width:100%;"></a></p>
-
 <p><em>Opening the powerbilabs dataset</em></p>
 </li>
 <li>
 <p>In the report designer, click the <strong>Table</strong> icon in the "Visualizations" panel to add an empty table visualization to the workspace.</p>
-
 <p><a href="Images/portal-new-table-viz-01.png" target="_blank"><img src="Images/portal-new-table-viz-01.png" alt="Adding a table visualization" style="max-width:100%;"></a></p>
-
 <p><em>Adding a table visualization</em></p>
 </li>
 <li>
 <p>To connect the table visualization to your data, click <strong>Customers</strong> in the "Fields" panel to display the fields in the database's Customers table.</p>
-
 <p><a href="Images/portal-select-customers-entity.png" target="_blank"><img src="Images/portal-select-customers-entity.png" alt="Selecting the Customers table" style="max-width:100%;"></a></p>
-
 <p><em>Selecting the Customers table</em></p>
 </li>
 <li>
 <p>Check <strong>CompanyName</strong>, <strong>ContactName</strong>, and <strong>Phone</strong> to add these fields to the table visualization.</p>
-
 <blockquote>
 <p>You can resize the table visualization as desired by dragging the directional handles located around its edges.</p>
 </blockquote>
-
 <p><a href="Images/portal-select-customer-fields-01.png" target="_blank"><img src="Images/portal-select-customer-fields-01.png" alt="Selecting fields in the Customers table" style="max-width:100%;"></a></p>
-
 <p><em>Selecting fields in the Customers table</em></p>
 </li>
 <li>
 <p>To view your report visualization in interactive mode, click <strong>Reading view</strong>. If prompted to save your report, click <strong>Save</strong> and enter the name "Adventure Works" (without quotation marks).</p>
-
 <blockquote>
-<p>In interactive mode, you can perform actions on your visualizations, such as sorting, grouping, and drilling down into other report elements. </p>
+<p>In interactive mode, you can perform actions on your visualizations, such as sorting, grouping, and drilling down into other report elements.</p>
 </blockquote>
-
 <p><a href="Images/portal-select-reading-view.png" target="_blank"><img src="Images/portal-select-reading-view.png" alt="Switching to reading view" style="max-width:100%;"></a></p>
-
 <p><em>Switching to reading view</em></p>
 </li>
 <li>
 <p>Click the arrow in the header of the CompanyName column to toggle the sort direction.</p>
-
 <p><a href="Images/portal-select-column-sort.png" target="_blank"><img src="Images/portal-select-column-sort.png" alt="Toggling the sort direction" style="max-width:100%;"></a></p>
-
 <p><em>Toggling the sort direction</em></p>
 </li>
 <li>
-<p>Click <strong>Edit report</strong> in the top menu to exit interactive mode.  </p>
-
+<p>Click <strong>Edit report</strong> in the top menu to exit interactive mode.</p>
 <p><a href="Images/portal-select-edit-report.png" target="_blank"><img src="Images/portal-select-edit-report.png" alt="Exiting interactive mode" style="max-width:100%;"></a></p>
-
 <p><em>Exiting interactive mode</em></p>
 </li>
 <li>
 <p>To change the fields displayed in the visualization, go to the "Fields" panel and uncheck all of the fields in the Customers table. Then click <strong>Products by Category</strong> to show the items underneath it, and check <strong>CategoryName</strong> and <strong>ProductName</strong>. Your table visualization will update with the selected values.</p>
-
 <p><a href="Images/portal-select-product-fields-01.png" target="_blank"><img src="Images/portal-select-product-fields-01.png" alt="Changing the fields in the table visualization" style="max-width:100%;"></a></p>
-
 <p><em>Changing the fields in the table visualization</em></p>
 </li>
 <li>
 <p>Click <strong>Save</strong> in the top menu to save the report.</p>
-
 <p><a href="Images/portal-click-save-menu.png" target="_blank"><img src="Images/portal-click-save-menu.png" alt="Saving your report" style="max-width:100%;"></a></p>
-
 <p><em>Saving your report</em></p>
 </li>
 </ol>
-
 <p>Creating a report from a single table is easy: simply check the fields that you want to display in a visualization. You used a table visualization in this exercise, but there are lots of other visualizations to choose from. Feel free to try other visualizations and experiment with the different ways in which data can be visualized.</p>
-
 <p><a name="Exercise3"></a></p>
-
 <h2>Exercise 3: Add related data visualizations</h2>
-
 <p>Now that you know how to create a simple visualization, it's easy to add related visualizations as well as create visualizations of other types. In the previous exercise, you used a table visualization to depict product data. In this exercise, you will work with customer data using table visualizations and map visualizations.</p>
-
 <ol>
 <li>
 <p>Remove the existing table visualization by clicking the ellipsis (<strong>...</strong>) in the upper-right corner and clicking <strong>Remove</strong>.</p>
-
 <p><a href="Images/portal-remove-tiles.png" target="_blank"><img src="Images/portal-remove-tiles.png" alt="Removing a visualization" style="max-width:100%;"></a></p>
-
 <p><em>Removing a visualization</em></p>
 </li>
 <li>
 <p>Click the <strong>Table</strong> icon in the "Visualizations" panel to add an empty table visualization to the workspace.</p>
-
 <p><a href="Images/portal-new-table-viz-01.png" target="_blank"><img src="Images/portal-new-table-viz-01.png" alt="Adding a table visualization" style="max-width:100%;"></a></p>
-
 <p><em>Adding a table visualization</em></p>
 </li>
 <li>
 <p>In the "Fields" panel, check <strong>CompanyName</strong> and <strong>Count of Rows</strong> under Customers.</p>
-
 <p><a href="Images/portal-select-customer-fields-02.png" target="_blank"><img src="Images/portal-select-customer-fields-02.png" alt="Selecting fields in the Customers table" style="max-width:100%;"></a></p>
-
 <p><em>Selecting fields in the Customers table</em></p>
 </li>
-<li><p>Click an empty area on the report designer surface to prepare the report designer to accept a new visualization.  </p></li>
+<li>
+<p>Click an empty area on the report designer surface to prepare the report designer to accept a new visualization.</p>
+</li>
 <li>
 <p>Check <strong>CustomerID</strong>, <strong>OrderID</strong> and <strong>Count of Rows</strong> under Orders. Observe that the report designer automatically creates a new table visualization for you.</p>
-
 <p><a href="Images/portal-select-order-fields-01.png" target="_blank"><img src="Images/portal-select-order-fields-01.png" alt="Selecting fields in the Orders table" style="max-width:100%;"></a></p>
-
 <p><em>Selecting fields in the Orders table</em></p>
 </li>
-<li><p>Click an empty area on the report designer surface to prepare the report designer to accept a new visualization.</p></li>
+<li>
+<p>Click an empty area on the report designer surface to prepare the report designer to accept a new visualization.</p>
+</li>
 <li>
 <p>In the "Visualizations" panel, click the <strong>Slicer</strong> icon to add a slicer visualization. Then, in the "Fields" panel, check <strong>CompanyName</strong> under Customers. The slicer visualization will populate with a list of customers.</p>
-
 <blockquote>
 <p>The purpose of a slicer is to narrow the portion of the dataset shown in other visualizations. Since both of your visualizations contain related data, Power BI automatically understands the relationships and responds to actions performed in related elements.</p>
 </blockquote>
-
 <p><a href="Images/portal-adding-slicer-01.png" target="_blank"><img src="Images/portal-adding-slicer-01.png" alt="Adding a slicer visualization" style="max-width:100%;"></a></p>
-
 <p><em>Adding a slicer visualization</em></p>
 </li>
 <li>
 <p>To demonstrate how related visualizations interact, click <strong>Around the Horn</strong> in the slicer visualization and observe how the table visualizations update to show order information for the selected customer.</p>
-
 <blockquote>
 <p>You can select multiple customers in the slicer by holding down the Ctrl key as you check the boxes for each customer.</p>
 </blockquote>
-
 <p><a href="Images/portal-selecting-slicer-01.png" target="_blank"><img src="Images/portal-selecting-slicer-01.png" alt="Showing data for a specific customer" style="max-width:100%;"></a></p>
-
 <p><em>Showing data for a specific customer</em></p>
 </li>
-<li><p>Click <strong>Around the Horn</strong> again to uncheck it.</p></li>
-<li><p>Up to this point in the exercise, you have been working with simple lists of data. To create more compelling visualizations, you can select a different type of visualization in the "Visualizations" panel. To demonstrate, begin by selecting the table visualization that shows Customer, CompanyName, and Count of Rows.</p></li>
+<li>
+<p>Click <strong>Around the Horn</strong> again to uncheck it.</p>
+</li>
+<li>
+<p>Up to this point in the exercise, you have been working with simple lists of data. To create more compelling visualizations, you can select a different type of visualization in the "Visualizations" panel. To demonstrate, begin by selecting the table visualization that shows Customer, CompanyName, and Count of Rows.</p>
+</li>
 <li>
 <p>In the Customers section of the "Fields" panel, uncheck <strong>CompanyName</strong> and check <strong>Country</strong>.</p>
-
 <p><a href="Images/portal-change-connected-fields-01.png" target="_blank"><img src="Images/portal-change-connected-fields-01.png" alt="Changing the fields displayed in a visualization" style="max-width:100%;"></a></p>
-
 <p><em>Changing the fields displayed in a visualization</em></p>
 </li>
 <li>
-<p>In the "Visualizations" panel, click the <strong>Map</strong> icon and observe how the table visualization changes to an interactive map that includes proportionally sized map elements (the green circles) representing the number of customers in different countries. The customer counts come from the Count of Rows field. Now hover the mouse cursor over one of the green circles in the map to display a tooltip containing information about the number of customers in that country. </p>
-
+<p>In the "Visualizations" panel, click the <strong>Map</strong> icon and observe how the table visualization changes to an interactive map that includes proportionally sized map elements (the green circles) representing the number of customers in different countries. The customer counts come from the Count of Rows field. Now hover the mouse cursor over one of the green circles in the map to display a tooltip containing information about the number of customers in that country.</p>
 <p><a href="Images/portal-change-to-map.png" target="_blank"><img src="Images/portal-change-to-map.png" alt="Changing a table to a map" style="max-width:100%;"></a></p>
-
 <p><em>Changing a table to a map</em></p>
 </li>
 <li>
 <p>Click <strong>Save</strong> in the top menu to save the changes to your report.</p>
-
 <p><a href="Images/portal-click-save-menu.png" target="_blank"><img src="Images/portal-click-save-menu.png" alt="Saving your report" style="max-width:100%;"></a></p>
-
 <p><em>Saving your report</em></p>
 </li>
 </ol>
-
 <p>The map visualization is a step in right direction toward creating richer visualizations, but your report is still somewhat plain. In the next exercise, you will use some of Power BI's report formatting options to add more flair.</p>
-
 <p><a name="Exercise4"></a></p>
-
 <h2>Exercise 4: Enhance your visualizations</h2>
-
 <p>No matter how valuable and relevant your data may be, unless it's presented in a way that's easy to understand and visually appealing, consumers of that data will find it difficult to extract meaning from it. One of the most effective ways to grab a viewer's attention and present data in a meaningful way is to apply formatting and other enhancements to your visualizations. In this exercise, you will enhance the visualizations you have created in order to dress up your report.</p>
-
 <ol>
 <li>
 <p>Click the header of the slicer visualization to select the slicer.</p>
-
 <p><a href="Images/portal-select-slicer-header.png" target="_blank"><img src="Images/portal-select-slicer-header.png" alt="Selecting the slicer" style="max-width:100%;"></a></p>
-
 <p><em>Selecting the slicer</em></p>
 </li>
 <li>
 <p>Click the <strong>Format</strong> icon in the "Visualizations" panel.</p>
-
 <p><a href="Images/portal-select-format-tab.png" target="_blank"><img src="Images/portal-select-format-tab.png" alt="Displaying formatting options" style="max-width:100%;"></a></p>
-
 <p><em>Displaying formatting options</em></p>
 </li>
 <li>
 <p>Click <strong>Items</strong> to expand the "Items" panel. Then use the color picker adjacent to "Font color" to set the font color to black.</p>
-
 <p><a href="Images/portal-select-color-picker-01.png" target="_blank"><img src="Images/portal-select-color-picker-01.png" alt="Changing the font color" style="max-width:100%;"></a></p>
-
 <p><em>Changing the font color</em></p>
 </li>
 <li>
 <p>Change the text size to 12.</p>
-
 <p><a href="Images/portal-select-text-size-01.png" target="_blank"><img src="Images/portal-select-text-size-01.png" alt="Changing the text size" style="max-width:100%;"></a></p>
-
 <p><em>Changing the text size</em></p>
 </li>
 <li>
 <p>Click the header of the table visualization to select it.</p>
-
 <p><a href="Images/portal-select-table-header.png" target="_blank"><img src="Images/portal-select-table-header.png" alt="Selecting the table visualization" style="max-width:100%;"></a></p>
-
 <p><em>Selecting the table visualization</em></p>
 </li>
 <li>
 <p>Click the <strong>Format</strong> icon in the "Visualizations" panel. Then expand the "General" panel and set the text size to 12.</p>
-
 <p><a href="Images/portal-select-text-size-02.png" target="_blank"><img src="Images/portal-select-text-size-02.png" alt="Changing the text size" style="max-width:100%;"></a></p>
-
 <p><em>Changing the text size</em></p>
 </li>
 <li>
 <p>Expand the "Title" panel and click the slider to change <strong>Off</strong> to <strong>On</strong>. Then type "Customer Order Counts" (without quotation marks) into the "Title Text" box.</p>
-
 <p><a href="Images/portal-select-title-on.png" target="_blank"><img src="Images/portal-select-title-on.png" alt="Editing a visualization title" style="max-width:100%;"></a></p>
-
 <p><em>Editing a visualization title</em></p>
 </li>
 <li>
 <p>Click the header of the map visualization to select it.</p>
-
 <p><a href="Images/portal-select-map-header.png" target="_blank"><img src="Images/portal-select-map-header.png" alt="Selecting the map visualization" style="max-width:100%;"></a></p>
-
 <p><em>Selecting the map visualization</em></p>
 </li>
 <li>
 <p>Click the <strong>Format</strong> icon in the "Visualizations" panel. Then expand the "Data colors" panel and use the color picker adjacent to "Default color" to set the default color to purple.</p>
-
 <p><a href="Images/portal-select-color-picker-02.png" target="_blank"><img src="Images/portal-select-color-picker-02.png" alt="Changing the map's default color" style="max-width:100%;"></a></p>
-
 <p><em>Changing the map's default color</em></p>
 </li>
 <li>
 <p>Click the slider next to "Category labels" to change <strong>Off</strong> to <strong>On</strong> and turn labels on in the map.</p>
-
 <p><a href="Images/portal-select-map-labels-on.png" target="_blank"><img src="Images/portal-select-map-labels-on.png" alt="Turning on map labels" style="max-width:100%;"></a></p>
-
 <p><em>Turning on map labels</em></p>
 </li>
-<li><p>Click the header of the table visualization to select it.</p></li>
+<li>
+<p>Click the header of the table visualization to select it.</p>
+</li>
 <li>
 <p>Locate the Customers table in the "Fields" panel and check <strong>CompanyName</strong>. Then move down to the Orders table and uncheck <strong>CustomerID</strong> and <strong>OrderId</strong>.</p>
-
 <p><a href="Images/portal-change-connected-fields-02.png" target="_blank"><img src="Images/portal-change-connected-fields-02.png" alt="Changing the fields shown in the table visualization" style="max-width:100%;"></a></p>
-
 <p><em>Changing the fields shown in the table visualization</em></p>
 </li>
 <li>
 <p>Click the <strong>Stacked column chart</strong> icon in the "Visualizations" panel to change the table visualization into a stacked-column chart.</p>
-
 <p><a href="Images/portal-change-column-chart.png" target="_blank"><img src="Images/portal-change-column-chart.png" alt="Changing a table visualization into a stacked column chart" style="max-width:100%;"></a></p>
-
 <p><em>Changing a table visualization into a stacked column chart</em></p>
 </li>
 <li>
 <p>Click the <strong>Format</strong> icon in the "Visualizations" panel. Then expand the "Data colors" panel and use the color picker adjacent to "Default color" to set the default color to purple.</p>
-
 <p><a href="Images/portal-change-chart-formatting.png" target="_blank"><img src="Images/portal-change-chart-formatting.png" alt="Changing the chart's default color" style="max-width:100%;"></a></p>
-
 <p><em>Changing the chart's default color</em></p>
 </li>
 <li>
 <p>Click <strong>Save</strong> in the top menu to save the changes to your report.</p>
-
 <p><a href="Images/portal-click-save-menu.png" target="_blank"><img src="Images/portal-click-save-menu.png" alt="Saving your report" style="max-width:100%;"></a></p>
-
 <p><em>Saving your report</em></p>
 </li>
 </ol>
-
 <p>Feel free to adjust other values as well and try different visualizations to see how the data is presented. When you are satisfied with the formatting changes, the next step is to share your report.</p>
-
 <p><a name="Exercise5"></a></p>
-
 <h2>Exercise 5: Publish and share content</h2>
-
 <p>Power BI makes it easy to publish and share your content with users and groups of users, both internal and external to your organization. In this exercise, you will insert the report that you created in previous exercises into a dashboard and learn how to share that dashboard with other Power BI users. The you will see how Power BI's "Publish to Web" feature can be used to share content with external users.</p>
-
 <ol>
 <li>
 <p>Click <strong>Pin Live Page</strong> in the top menu of the Adventure Works dashboard.</p>
-
 <p><a href="Images/portal-select-pin-live-page.png" target="_blank"><img src="Images/portal-select-pin-live-page.png" alt="Pinning a live page" style="max-width:100%;"></a></p>
-
 <p><em>Pinning a live page</em></p>
 </li>
 <li>
 <p>Select <strong>New dashboard</strong>, enter "Adventure Works" (without quotation marks) as the dashboard title, and click <strong>Pin live</strong>.</p>
-
 <p><a href="Images/portal-create-new-dashboard.png" target="_blank"><img src="Images/portal-create-new-dashboard.png" alt="Creating a new dashboard" style="max-width:100%;"></a></p>
-
 <p><em>Creating a new dashboard</em></p>
 </li>
 <li>
 <p>Click <strong>Adventure Works</strong> in the "Dashboards" section of the side menu.</p>
-
 <p><a href="Images/portal-select-new-dashboard.png" target="_blank"><img src="Images/portal-select-new-dashboard.png" alt="Selecting the Adventure Works dashboard" style="max-width:100%;"></a></p>
-
 <p><em>Selecting the Adventure Works dashboard</em></p>
 </li>
 <li>
 <p>Click <strong>Share</strong> in the upper-right corner of the dashboard.</p>
-
 <p><a href="Images/portal-select-share-icon.png" target="_blank"><img src="Images/portal-select-share-icon.png" alt="Sharing the dashboard" style="max-width:100%;"></a></p>
-
 <p><em>Sharing the dashboard</em></p>
 </li>
 <li>
 <p>Type your Office 365 e-mail address — the one you logged into Power BI with — into the e-mail address box. Then click <strong>Share</strong> to e-mail yourself a link to the Adventure Works dashboard.</p>
-
 <blockquote>
 <p>You are only sharing the dashboard with yourself, but realize that you can share the dashboard with any Power BI user by including the e-mail address that they use to access Power BI in the list of e-mail addresses that you enter.</p>
 </blockquote>
-
 <p><a href="Images/portal-enter-share-info.png" target="_blank"><img src="Images/portal-enter-share-info.png" alt="Entering a list of recipients" style="max-width:100%;"></a></p>
-
 <p><em>Entering a list of recipients</em></p>
 </li>
 <li>
 <p>Click <strong>Share</strong> again. Click <strong>Access</strong> and copy the URL under <strong>Dashboard Link</strong> to the clipboard. Then click the <strong>Close</strong> button to close the "Share dashboard" panel.</p>
-
 <p><a href="Images/portal-optional-share-info.png" target="_blank"><img src="Images/portal-optional-share-info.png" alt="Copying the dashboard link" style="max-width:100%;"></a></p>
-
 <p><em>Copying the dashboard link</em></p>
 </li>
-<li><p>Open a new browser tab or window and paste the dashboard link into the address bar to see how the dashboard will appear to users you share it with.</p></li>
+<li>
+<p>Open a new browser tab or window and paste the dashboard link into the address bar to see how the dashboard will appear to users you share it with.</p>
+</li>
 <li>
 <p>Sharing a dashboard this way limits its visibility to those you grant access to. However, Power BI also offers a "Publish to Web" feature that allows a report to be embedded in a public Web site or shared publicly through a URL. To demonstrate, return to the Power BI Services Portal and click <strong>Adventure Works</strong> in the "Reports" section of the side menu to open the report.</p>
-
 <p><a href="Images/portal-select-side-report.png" target="_blank"><img src="Images/portal-select-side-report.png" alt="Opening the Adventure Works report" style="max-width:100%;"></a></p>
-
 <p><em>Opening the Adventure Works report</em></p>
 </li>
 <li>
 <p>Click <strong>File</strong> in the menu in the upper-left corner of the report, and then click <strong>Publish to web</strong>.</p>
-
 <p><a href="Images/portal-select-file-publish.png" target="_blank"><img src="Images/portal-select-file-publish.png" alt="Publishing to the Web" style="max-width:100%;"></a></p>
-
 <p><em>Publishing to the Web</em></p>
 </li>
 <li>
 <p>Click <strong>Create embed code</strong>.</p>
-
 <p><a href="Images/portal-embed-warning-01.png" target="_blank"><img src="Images/portal-embed-warning-01.png" alt="Creating an embed code" style="max-width:100%;"></a></p>
-
 <p><em>Creating an embed code</em></p>
 </li>
 <li>
 <p>Click <strong>Publish</strong>.</p>
-
 <p><a href="Images/portal-embed-warning-02.png" target="_blank"><img src="Images/portal-embed-warning-02.png" alt="Publishing the report" style="max-width:100%;"></a></p>
-
 <p><em>Publishing the report</em></p>
 </li>
 <li>
 <p>The dialog that ensues contains two important values: a link that you can use to share the report with anyone (whether they're a Power BI user or not), and an IFRAME that you can paste into a Web page to embed the report in the page. Inspect these values, and then click <strong>Close</strong> to close the dialog.</p>
-
 <p><a href="Images/portal-embed-success.png" target="_blank"><img src="Images/portal-embed-success.png" alt="Values for sharing a report publicly" style="max-width:100%;"></a></p>
-
 <p><em>Values for sharing a report publicly</em></p>
 </li>
 </ol>
-
 <p>It's that simple to publish and share your Power BI content. If you are working with Power BI on a Windows computer, you can do even more by leveraging Power BI Desktop. If you are running Windows, proceed to Exercise 6. Otherwise, you are finished with this lab.</p>
-
 <p><a name="Exercise6"></a></p>
-
 <h2>Exercise 6: Do more with Power BI Desktop</h2>
-
 <p>The Power BI Services Portal is both flexible and robust, and since it runs in a browser, it can be accessed from any computer. But if you're a Windows user, you have an even more powerful tool at your disposal: <a href="https://powerbi.microsoft.com/en-us/desktop/">Power BI Desktop</a>. It includes advanced features the portal does not, especially when it comes to query management, visualizations, and modeling. In this exercise, you will use Power BI Desktop to connect to a database, create a table visualization, and add a computed column to the visualization.</p>
-
 <ol>
 <li>
 <p>In the Power BI Services Portal, click the <strong>Download</strong> icon in the top-right corner and select <strong>Power BI Desktop</strong>. (Alternatively, you can point your browser to <a href="https://powerbi.microsoft.com/en-us/desktop/">https://powerbi.microsoft.com/en-us/desktop/</a> and click the <strong>Download</strong> button there to download and install Power BI Desktop.) Follow the onscreen instructions to install Power BI Desktop on your computer.</p>
-
 <p><a href="Images/portal-click-download-desktop.png" target="_blank"><img src="Images/portal-click-download-desktop.png" alt="Downloading Power BI Desktop" style="max-width:100%;"></a></p>
-
 <p><em>Downloading Power BI Desktop</em></p>
 </li>
-<li><p>Start Power BI Desktop. If you are asked to sign in, do so with your Microsoft Office 365 Account.</p></li>
+<li>
+<p>Start Power BI Desktop. If you are asked to sign in, do so with your Microsoft Office 365 Account.</p>
+</li>
 <li>
 <p>Click <strong>Get Data</strong> in the ribbon at the top, and then select <strong>SQL Server</strong>.</p>
-
 <p><a href="Images/desktop-get-data.png" target="_blank"><img src="Images/desktop-get-data.png" alt="Accessing data sourses in Power BI Desktop" style="max-width:100%;"></a></p>
-
 <p><em>Accessing data sources in Power BI Desktop</em></p>
 </li>
 <li>
 <p>Enter the values shown below in the "SQL Server Database" dialog. Then click the <strong>OK</strong> button.</p>
-
 <p><a href="Images/desktop-connect-to-database.png" target="_blank"><img src="Images/desktop-connect-to-database.png" alt="Connecting to the Adventure Works database" style="max-width:100%;"></a></p>
-
 <p><em>Connecting to the Adventure Works database</em></p>
 </li>
 <li>
 <p>If prompted for credentials, click <strong>Database</strong> on the left so you can provide database credentials rather than Windows credentials. Enter "PowerBILabUser" (without quotation marks) as the username and "PowerBI_1" (again without quotation marks) as the password. Then click <strong>Connect</strong> to connect to the Adventure Works database.</p>
-
 <p><a href="Images/desktop-enter-credentials.png" target="_blank"><img src="Images/desktop-enter-credentials.png" alt="Entering database credentials" style="max-width:100%;"></a></p>
-
 <p><em>Entering database credentials</em></p>
 </li>
 <li>
 <p>In the "Navigator" dialog, click <strong>Customers</strong> and <strong>Products</strong> to select the corresppnding tables, and then click <strong>Select Related Tables</strong>. Power BI will analyze the relationships in those tables and automatically select additional tables. Finish up by clicking <strong>Load</strong>.</p>
-
 <p><a href="Images/desktop-select-related-tables.png" target="_blank"><img src="Images/desktop-select-related-tables.png" alt="Selecting tables and loading the dataset" style="max-width:100%;"></a></p>
-
-<p><em>Selecting tables and loading the dataset</em>  </p>
+<p><em>Selecting tables and loading the dataset</em></p>
 </li>
 <li>
 <p>Go to the "Visualizations" panel and click the <strong>Table</strong> icon to add a table visualization.</p>
-
 <p><a href="Images/desktop-select-table-visualization.png" target="_blank"><img src="Images/desktop-select-table-visualization.png" alt="Adding a table visualization" style="max-width:100%;"></a></p>
-
-<p><em>Adding a table visualization</em>  </p>
+<p><em>Adding a table visualization</em></p>
 </li>
 <li>
 <p>To connect the table visualization to your data, go to the "Fields" panel and click  <strong>Customers</strong> to show the fields in the Customers table. Then click <strong>CompanyName</strong> to add the CompanyName field to the visualization.</p>
-
 <p><a href="Images/desktop-adding-customer-fields.png" target="_blank"><img src="Images/desktop-adding-customer-fields.png" alt="Adding CompanyName to the visualization" style="max-width:100%;"></a></p>
-
-<p><em>Adding CompanyName to the visualization</em>   </p>
+<p><em>Adding CompanyName to the visualization</em></p>
 </li>
 <li>
-<p>Add the ProductID field from the Orders table, the OrderID field from Order Details, and the ProductName field from Products to the visualization. If needed, drag the handle on the right edge of the table visualization to expand it so you can see the added fields.</p>
-
+<p>Add the ProductID field from the Order Details table, the OrderID field from Orders, and the ProductName field from Products to the visualization. If needed, drag the handle on the right edge of the table visualization to expand it so you can see the added fields.</p>
 <p><a href="Images/desktop-adding-additional-fields.png" target="_blank"><img src="Images/desktop-adding-additional-fields.png" alt="Adding additional fields" style="max-width:100%;"></a></p>
-
-<p><em>Adding additional fields</em>  </p>
+<p><em>Adding additional fields</em></p>
 </li>
 <li>
 <p>Click <strong>Order Details</strong> in the "Fields" panel.</p>
-
 <p><a href="Images/desktop-select-order-details-entity.png" target="_blank"><img src="Images/desktop-select-order-details-entity.png" alt="Selecting Order Details" style="max-width:100%;"></a></p>
-
-<p><em>Selecting Order Details</em>   </p>
+<p><em>Selecting Order Details</em></p>
 </li>
 <li>
 <p>Click <strong>New Measure</strong> in the ribbon at the top. A formula input box will be displayed.</p>
-
 <p><a href="Images/desktop-create-new-measure.png" target="_blank"><img src="Images/desktop-create-new-measure.png" alt="Creating a new measure" style="max-width:100%;"></a></p>
-
-<p><em>Creating a new measure</em>    </p>
+<p><em>Creating a new measure</em></p>
 </li>
 <li>
 <p>Enter the following data-analysis expression (DAX) into the input box and click the check mark to left of it to validate and save the expression. A new column named "Measure" will appear under Order Details in the "Fields" panel representing the average product price for a group of orders.</p>
-
 <pre><code>Measure = AVERAGE('Order Details'[UnitPrice])
 </code></pre>
 </li>
 <li>
 <p>Place the mouse cursor over "Measure" in the "Fields" panel and click the ellipsis (<strong>...</strong>) that appears. Select <strong>Rename</strong> from the menu. Then type "AveragePrice" (without quotation marks) as the new name for the measure.</p>
-
 <p><a href="Images/desktop-rename-measure.png" target="_blank"><img src="Images/desktop-rename-measure.png" alt="Renaming the measure" style="max-width:100%;"></a></p>
-
-<p><em>Renaming the measure</em>  </p>
+<p><em>Renaming the measure</em></p>
 </li>
 <li>
 <p>Click <strong>AveragePrice</strong> to add the average product price to the table visualization.</p>
-
 <p><a href="Images/desktop-selecting-new-measure.png" target="_blank"><img src="Images/desktop-selecting-new-measure.png" alt="Adding AveragePrice to the table visualization" style="max-width:100%;"></a></p>
-
-<p><em>Adding AveragePrice to the table visualization</em>    </p>
+<p><em>Adding AveragePrice to the table visualization</em></p>
 </li>
 <li>
 <p>Click <strong>Modeling</strong> to display the Modeling ribbon. Then change the number of decimal places displayed to <strong>2</strong>. Observe how the AveragePrice column updates in the table visualization.</p>
-
 <p><a href="Images/desktop-view-decimal-format-change.png" target="_blank"><img src="Images/desktop-view-decimal-format-change.png" alt="Changing the number of decimal places" style="max-width:100%;"></a></p>
-
-<p><em>Changing the number of decimal places</em> </p>
+<p><em>Changing the number of decimal places</em></p>
 </li>
 </ol>
-
 <p>The ability to add measures to a model is just one of the ways in which Power BI Desktop extends what you can do with the Power BI Service Portal. Other features exclusive to Power BI Desktop include calculated columns and calculated tables. Feel free to play around with the model to experiment with these features and learn why Power BI Desktop is the tool of choice for most Power BI experts.</p>
-
 <p><a name="Summary"></a></p>
-
 <h2>Summary</h2>
-
 <p>In this hands-on lab you learned how to:</p>
-
 <ul>
 <li>Connect Power BI to business data</li>
 <li>Visualize business data in a dashboard</li>
@@ -1089,11 +914,8 @@ vertical-align:1px;
 <li>Publish and share Power BI content</li>
 <li>Use Power BI Desktop to do advanced modeling</li>
 </ul>
-
 <p>There is much more you can do to leverage the power of Power BI, but this is a start. Take time to experiment with other Power BI and Power BI Desktop features, and identify other ways you can enhance your business intelligence by integrating Power BI into your processes.</p>
-
 <hr>
-
 <p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
