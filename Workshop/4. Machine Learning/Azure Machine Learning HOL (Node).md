@@ -777,9 +777,9 @@ In this exercise, you will write a cross-platform client app using [Node.js](htt
 
 1. Use Visual Studio Code's **File -> Save All** command to save all of your changes. Then return to the Command Prompt or terminal window and compile the application by executing the following command:
          
-    <pre>
+    ```
     npm run tsc
-    </pre>
+    ```
 
 Congratulations! You built an Electron application that relies on Azure Machine Learning for intelligence. The final task is to try it out and see how intelligent the app really is.
          
