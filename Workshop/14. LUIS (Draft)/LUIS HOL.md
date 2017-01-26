@@ -31,7 +31,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft account. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - Microsoft [Visual Studio Code](http://code.visualstudio.com) version 1.7.0 or higher
 - Internet Explorer 10 or higher or [Google Chrome](https://www.google.com/chrome/) 
 
@@ -43,7 +43,7 @@ The following are required to complete this hands-on lab:
 This hands-on lab includes the following exercises:
 
 - [Exercise 1: Create a LUIS application](#Exercise1)
-- [Exercise 2: Create and configure custom LUIS intents and entities](#Exercise2)
+- [Exercise 2: Create and configure intents and entities](#Exercise2)
 - [Exercise 3: Enhance LUIS intents with prebuilt entities and phrase lists](#Exercise3)
 - [Exercise 4: Train a LUIS model and publish to an HTTP endpoint](#Exercise4)
 - [Exercise 5: Create a bot to access a LUIS model](#Exercise5)
@@ -54,9 +54,9 @@ Estimated time to complete this lab: **60** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Create a LUIS application ##
 
-The first step in creating an intelligent interaction model with LUIS is to provision an application in the [LUIS Portal](https://www.luis.ai/). In order to use the portal, you must run it in Internet Explorer or Google Chrome. If you do not have one of these browsers available, stop now and [install Chrome](https://www.google.com/chrome/).
+The first step in creating an intelligent interaction model with LUIS is to provision an application in the [LUIS portal](https://www.luis.ai/). In order to use the portal, you must run it in Internet Explorer or Google Chrome. If you do not have one of these browsers available, stop now and [install Chrome](https://www.google.com/chrome/).
 
-1. Open the [LUIS Portal](https://www.luis.ai/) in Internet Explorer or Chrome. If you aren't already signed in, click **Sign in or create an account** and sign in with your Microsoft account. If you are prompted to "let this app access your info," review the permissions requested and click **Yes**. Additionally, if you are prompted to provide additional details such as the country you live in and the company you work for, fill in the information and click **Continue**.	
+1. Open the [LUIS portal](https://www.luis.ai/) in Internet Explorer or Chrome. If you aren't already signed in, click **Sign in or create an account** and sign in with your Microsoft account. If you are prompted to "let this app access your info," review the permissions requested and click **Yes**. Additionally, if you are prompted to provide additional details such as the country you live in and the company you work for, fill in the information and click **Continue**.	
 
     ![Signing in to LUIS](Images/luis-click-login.png)
 
@@ -64,102 +64,93 @@ The first step in creating an intelligent interaction model with LUIS is to prov
  
 1. Click **+ New App**, and then select **New Application**. 
 
-    ![Creating a new LUIS application](Images/luis-select-create-new-app.png)
+    ![Creating a LUIS application](Images/luis-select-create-new-app.png)
 
-    _Creating a new LUIS application_
+    _Creating a LUIS application_
  
 1. In the ensuing dialog, enter "Newsy" (without quotation marks) as the application name and specify **Bot** as the usage scenario. Check the **News & Magazines** box click the **Add App** button. 
 
-    ![Editing LUIS application information](Images/luis-edit-app-info.png)
+    ![Entering information about the application](Images/luis-edit-app-info.png)
 
-    _Editing LUIS application information_
+    _Entering information about the application_
  
 Your LUIS application is now provisioned and you are ready to start creating and configuring intents and entities.
 
 <a name="Exercise2"></a>
-## Exercise 2: Create and configure custom LUIS intents and entities ##
+## Exercise 2: Create and configure intents and entities ##
 
-The next step in configuring your LUIS application is to create both intents and entities. Intents describe an action that defines what a user “intends” to do, and entities describe a refinement “target” for an intent. This process will create a simple intent for searching news and an entity to provide the type of news to search for, such as “soccer” or “Microsoft Surface”.
+The next step is to configure your LUIS application by creating intents and entities. Intents represent actions such as "search" or "find," while entities describe a target for an intent. In this exercise, you will create a simple intent for searching the news and an entity to specify the type of news to search for, such as "soccer" or "Microsoft Surface."
 
-To create an intent:
+1. If the Newsy application you created in [Exercise 1](#Exercise1) isn't open in the LUIS portal, click it to open it. Then click **+** to the right of **Intents** to add an intent.
 
-1. Open the [LUIS Application portal](https://www.luis.ai/ "LUIS Application portal"), if not already signed in from Exercise 1. If asked to login, do so with your Microsoft account.
-1. Click **Newsy** in the application list. You will be redirected to the LUIS application page for the Newsy application created in Exercise 1.
+    ![Adding an intent](Images/luis-click-new-intent-01.png)
 
-    ![Selecting the Newsy application](Images/luis-click-app-name.png)
-
-    _Selecting the Newsy application_
+    _Adding an intent_
  
-1. Click the **+** button in the right side of the "Intents" panel to add an intent.
+1. Enter "SearchNews" (without quotation marks) for the intent name, and type "Find soccer news" (again, without quotation marks) into box below. Then click the **Save** button.
 
-    ![Adding a new intent](Images/luis-click-new-intent-01.png)
+    ![Saving the intent](Images/luis-save-new-intent-01.png)
 
-    _Adding a new intent_
+    _Saving the intent_
+
+1. Click **+** to the right of **Entities** to add an entity.
+
+    ![Adding an entity](Images/luis-click-new-entity-01.png)
+
+    _Adding an entity_ 
+
+1. Enter "NewsCategory" (without quotation marks) as the entity name. Then click the **Save** button.
  
-1. Type in “SearchNews” (without quotation marks) in the **New intent name** entry.
-1. Type in “Find soccer news” (again, without quotation marks) in the **Example utterance** entry.
-1. Click the **Save** button. Your new SearchNews intent has now been created and will display on the “New utterances” panel.
+    ![Saving the entity](Images/luis-save-new-entity-01.png)
 
-    ![Saving a new intent](Images/luis-save-new-intent-01.png)
+    _Saving the entity_ 
 
-    _Saving a new intent_
-
-To create an entity:
-
-1. Click the **+** button in the right side of the "Entities" panel to add an entity.
-
-    ![Adding a new entity](Images/luis-click-new-entity-01.png)
-
-    _Adding a new entity_ 
-
-1. Type in “NewsCategory” (without quotation marks) in the **Add a new entity** entry.
-1. Leave “Include children” unchecked and click the **Save** button. A new NewsCategory entity has now been created.
+1. To connect the NewsCategory entity to the SearchNews intent, click the word "soccer" and select **NewsCategory** from the popup menu. Then click the **Submit** button.
  
-    ![Saving a new entity](Images/luis-save-new-entity-01.png)
+    ![Connecting an entity to an utterance](Images/luis-connect-new-entity-01.png)
 
-    _Saving a new entity_ 
+    _Connecting an entity to an utterance_
 
-1. To connect the NewsCategory entity to the SearchNews intent, click your mouse cursor on the word “soccer” in the previously created section of the “New utterances” panel. A small popup will appear prompting you to select an entity from a list. Click the yellow-highlighted NewsCategory label, and then click the **Submit** button.
- 
-    ![Connecting an entity in an utterance](Images/luis-connect-new-entity-01.png)
-
-    _Connecting an entity in an utterance_
-
-The phrase “find soccer news” is now associated with the SearchNews intent, and LUIS will understand the word “soccer” as the target of your action. In order for LUIS to train the model successfully, it needs a few more sample utterances.
+	The phrase "Find soccer news" is now associated with the SearchNews intent, and LUIS will understand the word “soccer” as the target of your action. In order for LUIS to train the model successfully, it needs a few more sample utterances.
 	
-To add additional utterances:
-1. Type in “Get soccer news” in the New **utterances** panel and click the **right arrow** button.
+1. Type "Get soccer news" into the box in the "New utterances" panel and click the **right arrow**.
  
-    ![Adding a new utterance](Images/luis-search-utterance-01.png)
+    ![Adding an utterance](Images/luis-search-utterance-01.png)
 
-    _Adding a new utterance_	 
+    _Adding an utterance_	 
 
-1. If the new utterance is labeled with an intent of "None", select "SearchNews" from the assigned intent dropdown, otherwise, skip this step.
-1.  Click your mouse cursor on the word “soccer” and select the yellow-highlighted "NewsCategory" label again.
-1. Click the **Submit** button to associate this phrase with the SearchNews intent.
+1. Select "SearchNews" from the intent drop-down.
+
+    ![Selecting an intent](Images/select-searchnews.png)
+
+    _Selecting an intent_	 
+
+1. Click the word "soccer" and select **NewsCategory** from the popup menu. Then click the **Submit** button.
  
-    ![Connecting an additional entity in an utterance](Images/luis-connect-new-entity-02.png)
+    ![Connecting an additional entity to an utterance](Images/luis-connect-new-entity-02.png)
 
-    _Connecting an additional entity in an utterance_
+    _Connecting an additional entity to an utterance_
 
-1. Repeat steps 1 through 3, making certain you select SearchNews from the assigned intent dropdown, with the following sample phrases (without quotation marks) to populate your LUIS application with enough information to properly train the model:
-	- “Get motorcycle news”
-	- “Find motorcycle news”
-	- “Get tornado news”
-	- “Find tornado news”
-1. Review your new utterances by selecting the “Review labels” tab and select **Show all labeled utterances** from the dropdown, ensuring that all entries are assigned to the SearchNews intent and have a yellow-highlighted entity.
+1. Repeat steps 6 through 8, making certain you select **SearchNews** from the intent drop-down, with the following sample phrases (without quotation marks) to populate your LUIS application with enough information to properly train the model:
+
+	- "Get motorcycle news"
+	- "Find motorcycle news"
+	- "Get tornado news"
+	- "Find tornado news"
+
+1. Review the utterances you have defined by clicking **Review labels** and selecting **Show all labeled utterances** from the drop-down list. Confirm that all entries are assigned to the SearchNews intent and have a yellow-highlighted entity.
  
     ![Reviewing labeled utterances](Images/luis-review-labels.png)
 
     _Reviewing labeled utterances_
 
-1. Click **Train** at the bottom left corner of the LUIS application panel. After a delay of a few seconds a status label stating “Last train completed” and timestamp will appear. 
+1. Click **Train** in the lower-left corner of the portal. After a few seconds, the message "Last train completed" followed by a timestamp will appear. 
  
     ![Training a LUIS model](Images/luis-click-train.png)
 
     _Training a LUIS model_
 
-Your LUIS application is now configured to understand phrases similar to “Get soccer news” and easily identify that a user actually wants to search news for the term “soccer”. LUIS is smart enough now to know a phrase such as “Find hockey news” is also an intent to search news, but on the word “hockey”, even though you haven’t explicitly trained the model with that term. Your LUIS model is now ready to be configured with more advanced scenarios, like identifying terms from a specific list of news categories.
+Your LUIS application is now configured to understand phrases such as "Get soccer news" and to discern that the user wants to search news for the term "soccer." LUIS is smart enough now to know that a phrase such as "Find hockey news" also represents an intent to search news, but for news regarding hockey even though you haven't explicitly trained the model with that term. Your LUIS model is now ready to be configured to support more advanced scenarios, such as identifying terms from a specific list of news categories.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Enhance LUIS intents with prebuilt entities and phrase lists ##
