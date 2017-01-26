@@ -31,9 +31,9 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft account. If you don't have one, [sign up for an account](https://signup.microsoft.com)
+- An active Microsoft account. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - Microsoft [Visual Studio Code](http://code.visualstudio.com) version 1.7.0 or higher
-- Either Internet Explorer or [Google Chrome](https://www.google.com/chrome/) 
+- Internet Explorer 10 or higher or [Google Chrome](https://www.google.com/chrome/) 
 
 ---
 
@@ -54,47 +54,27 @@ Estimated time to complete this lab: **60** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Create a LUIS application ##
 
-The first step in creating an intelligent interaction model with LUIS is to provision an application in the [LUIS Portal](https://www.luis.ai/). In order to portal, you must run it in Internet Explorer or Google Chrome. If you do not have one of these browsers available, stop now and [install Chrome](https://www.google.com/chrome/).
+The first step in creating an intelligent interaction model with LUIS is to provision an application in the [LUIS Portal](https://www.luis.ai/). In order to use the portal, you must run it in Internet Explorer or Google Chrome. If you do not have one of these browsers available, stop now and [install Chrome](https://www.google.com/chrome/).
 
-1. Open the [LUIS Portal](https://www.luis.ai/) in Internet Explorer or Chrome. If you aren't already signed in, click **Sign in or create an account** and sign in with your Microsoft account.
+1. Open the [LUIS Portal](https://www.luis.ai/) in Internet Explorer or Chrome. If you aren't already signed in, click **Sign in or create an account** and sign in with your Microsoft account. If you are prompted to "let this app access your info," review the permissions requested and click **Yes**. Additionally, if you are prompted to provide additional details such as the country you live in and the company you work for, fill in the information and click **Continue**.	
 
-    ![Signing in to the LUIS Portal](Images/luis-click-login.png)
+    ![Signing in to LUIS](Images/luis-click-login.png)
 
-    _Signing in to the LUIS Portal_
+    _Signing in to LUIS_
  
-1. If you are prompted to allow LUIS to access basic information in your Microsoft account profile, review the information displayed and when comfortable with allowing access, click the **Yes** button.
+1. Click **+ New App**, and then select **New Application**. 
 
-    ![Allowing LUIS to access your information](Images/luis-allow-access.png)
+    ![Creating a new LUIS application](Images/luis-select-create-new-app.png)
 
-    _Allowing LUIS to access your information_
+    _Creating a new LUIS application_
  
-1. If you are prompted to review and accept information on the “Additional Info and Terms of use, Privacy, and Cookies” dialog, do the following:
-	- Select your current country from the **Country** dropdown.
-	- Enter your first and last name in the **Organization/Company** entry
-	- Select **Other** in the **How did you hear about us** dropdown.
-	- Check the **I agree to the “Microsoft Cognitive Services” Preview – Online Services agreement and the Privacy and Cookie statement** checkbox.
-	- Click the **Continue** button, after which you will be redirected to the LUIS Application portal.	
-
-    ![Accepting the LUIS privacy agreement](Images/luis-accept-privacy.png)
-
-    _Accepting the LUIS privacy agreement_
- 
-1. Click **+New App** and then select **New Application**. 
-
-    ![Selecting to create a new LUIS application](Images/luis-select-create-new-app.png)
-
-    _Selecting to create a new LUIS application_
- 
-1. In the “Add a new application” dialog, enter “Newsy” (without quotation marks) in the **Enter application name** entry.
-1. Select **Bot** from the “Enter application usage scenario” dropdown.
-1. Check **News & Magazines** in the “Choose application domain(s)” panel.
-1. Leave the “Enter application description” and "Choose Application Culture" values as the defaults and click the **Add App** button. 
+1. In the ensuing dialog, enter "Newsy" (without quotation marks) as the application name and specify **Bot** as the usage scenario. Check the **News & Magazines** box click the **Add App** button. 
 
     ![Editing LUIS application information](Images/luis-edit-app-info.png)
 
     _Editing LUIS application information_
  
-Your LUIS application has how been provisioned and you’re ready to start creating and configuring intents and entities for your application.
+Your LUIS application is now provisioned and you are ready to start creating and configuring intents and entities.
 
 <a name="Exercise2"></a>
 ## Exercise 2: Create and configure custom LUIS intents and entities ##
