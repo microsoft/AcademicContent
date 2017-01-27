@@ -20,11 +20,10 @@ In this lab, you will create a LUIS application, configure a language understand
 In this hands-on lab, you will learn how to:
 
 - Create a LUIS application
-- Create and configure custom LUIS intents and entities
-- Enhance LUIS intents with pre-built entities and phrase lists
-- Train a LUIS model and publish to an HTTP endpoint
-- Create a bot to access a LUIS model
-- Integrate a LUIS model into a bot
+- Define intents and entities
+- Use pre-built entities and phrase lists
+- Train a LUIS model and publish it to an HTTP endpoint
+- Create a bot that uses a LUIS model
 
 <a name="Prerequisites"></a>
 ### Prerequisites ###
@@ -46,8 +45,8 @@ This hands-on lab includes the following exercises:
 - [Exercise 2: Configure intents and entities](#Exercise2)
 - [Exercise 3: Add pre-built entities and phrase lists](#Exercise3)
 - [Exercise 4: Publish the model to an HTTP endpoint](#Exercise4)
-- [Exercise 5: Create a bot](#Exercise5)
-- [Exercise 6: Integrate the model into the bot](#Exercise6)
+- [Exercise 5: Create a bot and connect it to the model](#Exercise5)
+- [Exercise 6: Test the bot](#Exercise6)
  
 Estimated time to complete this lab: **60** minutes.
 
@@ -344,9 +343,9 @@ In this exercise, you will publish the model to an HTTP endpoint so it can be ac
 Now that the model is available over HTTP, you can call it from an application and be confident that LUIS will understand the user's intent when searching for news.
 
 <a name="Exercise5"></a>
-## Exercise 5: Create a bot ##
+## Exercise 5: Create a bot and connect it to the model ##
 
-In this exercise, you will use the Microsoft Bot Framework to build a bot that you will later connect to the LUIS model you built and deployed so the bot can respond to commands such as "Find health news." You will use Visual Studio Code to write the bot. If you haven't installed Visual Studio Code, [please do so](http://code.visualstudio.com) before continuing with this exercise. It's free, and it runs on Windows, Linux, and macOS.
+In this exercise, you will use the Microsoft Bot Framework to build a bot and connect it to the LUIS model you built and deployed so the bot can respond to commands such as "Find health news." You will use Visual Studio Code to write the bot. If you haven't installed Visual Studio Code, [please do so](http://code.visualstudio.com) before continuing with this exercise. It's free, and it runs on Windows, Linux, and macOS.
 
 1. Start Visual Studio Code and select **Integrated Terminal** from the **View** menu. A TERMINAL window will appear at the bottom of the workspace.
  
@@ -397,7 +396,7 @@ In this exercise, you will use the Microsoft Bot Framework to build a bot that y
 	npm install --save restify
 	```	 
 
-1. Execute the following command to run the application and output "Welcome to Newsy!" to the TERMINAL window:
+1. Execute the following command to run the application. Confirm that "Welcome to Newsy!" appears in the TERMINAL window:
 
 	```
 	node app.js
@@ -409,7 +408,7 @@ In this exercise, you will use the Microsoft Bot Framework to build a bot that y
 
     _Adding a launch file to the project_	
 
-1. Add the following line to **launch.json**, inserting it between the "program" property and the "cwd" property as shown below. The save the file.
+1. Add the following line to **launch.json**, inserting it between the "program" property and the "cwd" property as shown below. Then save the file.
 
 	```JSON
 	"console": "integratedTerminal",
@@ -419,23 +418,7 @@ In this exercise, you will use the Microsoft Bot Framework to build a bot that y
 
     _Adding a "console" setting to launch.json_	
 
-The bot project is now set up and you are ready to connect the bot to the LUIS model you deployed in [Exercise 4](#Exercise4). This is the fun part. Let's get to it!
-
-<a name="Exercise6"></a>
-## Exercise 6: Integrate the model into the bot ##
-
-The entire goal of creating a bot is to have intelligent, automated interactions with users. Now that all the configuration and project setup is complete, you can start writing code for your bot to listen for user input, send the information to LUIS for analysis, and then search a news service based on LUIS suggestions.
-
-To add bot communication and LUIS suggestion code logic to your bot:
-
-1. Open Visual Studio Code, or return to it if Visual Studio Code is still open from the previous exercise.
-1. In the Visual Studio Code Explorer, select the **app.js** file created in the previous exercise. The file contents will open in the Editor window.
- 
-    ![Opening the app.js file](Images/vs-select-app-js-file.png)
-
-    _Opening the app.js file_	
-
-1. Replace the entire contents of the file with the following code:
+1. Return to **app.js** and replace the contents of the file with the following code:
 
 	```JavaScript
 	var builder = require('botbuilder');
@@ -445,13 +428,11 @@ To add bot communication and LUIS suggestion code logic to your bot:
 	var connector = new builder.ConsoleConnector().listen();
 	var bot = new builder.UniversalBot(connector);
 	
-	var luisAppId = "ae91e38d-4167-4a84-a359-d9bd864fdd69";
-	var luisSubscriptionKey = "bf1131f271e5477398c77428cc445257";
+	var luisAppId = "LUIS_APP_ID";
+	var luisSubscriptionKey = "LUIS_SUBSCRIPTION_ID";
 	
 	bot.dialog('/', [
-	
 	    function (session) {
-	
 	        if (session.userData.intent == null) {
 	            builder.Prompts.text(session, "Welcome to Newsy! Try typing something like 'Find health news'.");
 	        }
@@ -459,20 +440,16 @@ To add bot communication and LUIS suggestion code logic to your bot:
 	            builder.Prompts.text(session, "Try typing something like 'Find health news'.");
 	        }
 	    },
-	
 	    function (session, results) {
-	
 	        session.userData.searchQuery = results.response;
 	        var searchQuery = querystring.escape(session.userData.searchQuery);
 	        var searchQueryString = "";
 	
 	        processLuisResults(session, searchQuery, searchQueryString);
 	    }
-	
 	]);
 	
 	var processLuisResults = (function (session, searchQuery, searchQueryString) {
-	
 	    //CALL LUIS APPLICATION
 	    var optionsLuisGet = {
 	        host: 'api.projectoxford.ai',
@@ -516,7 +493,6 @@ To add bot communication and LUIS suggestion code logic to your bot:
 	                //SEND DERIVED LUIS INTENT OVER TO BING SEARCH
 	                showNewsResults(session, searchQueryString);
 	            }
-	
 	        });
 	    });
 	
@@ -528,7 +504,6 @@ To add bot communication and LUIS suggestion code logic to your bot:
 	});
 	
 	var showNewsResults = (function (session, searchQueryString) {
-	
 	    //CALL BING NEWS SEARCH
 	    var optionsSearch = {
 	        host: 'traininglabservices.azurewebsites.net',
@@ -549,7 +524,6 @@ To add bot communication and LUIS suggestion code logic to your bot:
 	
 	                session.send(title + "\r\n" + description);
 	            }
-	
 	        });
 	    });
 	
@@ -558,102 +532,69 @@ To add bot communication and LUIS suggestion code logic to your bot:
 	        session.send(e.toString());
 	    });
 	    //END BING NEWS SEARCH   
-	
 	});
 	```	
  
-    ![The updated app.js file](Images/vs-updated-app-js.png)
+	> Take a moment to review the code and observe how it uses the Microsoft Bot Framework Bot Builder to dialog with the user, and how it places calls to the HTTP endpoint created in Exercise 4 to access your LUIS model. 
 
-    _The updated app.js file_		
+1. Before you can test the bot, you need to update your code with the app ID and subcription ID of your LUIS model. These values can be retrieved from LUIS portal. [Return to the portal](https://www.luis.ai/) in your browser and open the Newsy application you created in [Exercise 1](#Exercise1) if it isn't already open.
 
-
-Review the code and observe the use of the Microsoft Bot Framework Bot Builder prompt actions to welcome a user to your bot, conveniently built into the framework, as well as simple HTTP endpoint calls to access your LUIS model. 
-
-Before you can test your new bot, you need to update your code to specify the LUIS App ID and LUIS Subscription ID automatically generated for you in Exercise 1 when you created your LUIS application. These values can be found at the LUIS Application portal.
-
-To access your LUIS App ID and Subscription ID:
-
-1. Open the LUIS application portal, if not already signed in from Exercise 1. Click the **Sign in or create an account button**. Select **Sign in using a Microsoft account**. If asked to login, do so with your Microsoft Account.
-1. Click **Newsy** in the application list. You will be redirected to the LUIS application page for the Newsy application created in Exercise 1.
+1. Click **App Settings**.
  
-    ![Selecting the Newsy application](Images/luis-click-app-name.png)
+    ![Opening App Settings](Images/luis-click-app-settings.png)
 
-    _Selecting the Newsy application_
+    _Opening App Settings_
  
-1. Click **App Settings** at the top right corner of the portal. The application settings for your Newsy application will be displayed.
+1. Copy the app ID to clipboard. Then click the **X** in the upper-right corner to close the dialog.
  
-    ![Selecting LUIS application App Settings](Images/luis-click-app-settings.png)
+    ![Copying the app ID](Images/luis-select-app-id.png)
 
-    _Selecting LUIS application App Settings_
+    _Copying the app ID_
  
-    ![LUIS application App Settings](Images/luis-app-settings.png)
-
-    _LUIS application App Settings_ 
+1. Return to **app.js** in Visual Studio Code and replace *LUIS_APP_ID* on line 8 with the app ID that is on the clipboard.
  
-1. Copy the unique identifier value to the right of the “App Id” label in the “General Settings” section to your clipboard. This is your LUIS application App ID.
- 
-    ![Selecting the LUIS application App Id](Images/luis-select-app-id.png)
-
-    _Selecting the LUIS application App Id_
- 
-1. Return to your Visual Studio Code environment, and locate the “[LUIS_APP_ID]” value on or about line 8. Highlight and paste the value from the previous step to replace this value.
- 
-    ![Pasting the LUIS application App Id from the clipboard](Images/vs-paste-app-id.png)
-
-    _Pasting the LUIS application App Id from the clipboard_
-
-1. Return to the LUIS Application portal and click your display name to the right of the gear icon in the top right corner of the portal to display the “My Settings” page.
+1. Return to the LUIS portal and click your name to the right of the gear icon.
  
     ![Accessing LUIS account settings](Images/luis-click-settings.png)
 
     _Accessing LUIS account settings_
 
-1. Copy the unique identifier value directly below the right of the “Programmatic API Key” label to your clipboard. This is your LUIS Subscription ID.
+1. Click **Subscription Keys**. Then copy the programmatic API Key to the clipboard. This is your  LUIS Subscription ID.
  
-    ![Selecting the LUIS Subscription Id](Images/luis-subscription-settings.png)
+    ![Copying the subscription Id](Images/luis-subscription-settings.png)
 
-    _Selecting the LUIS Subscription Id_
+    _Copying the subscription Id_
  
-1. Return to your Visual Studio Code environment, and locate the “[LUIS_SUBSCRIPTION_ID]” value on or about line 9. Highlight and paste the value from the previous step to replace this value.
+1. Return to **app.js** in Visual Studio Code and replace *LUIS_SUBSCRIPTION_ID* on line 9 with the app ID that is on the clipboard. Then save the file.
  
-    ![Pasting the LUIS Subscription Id from the clipboard](Images/vs-paste-subscription-id.png)
+That's it! Your bot is now built, connected to LUIS, and ready to test.
 
-    _Pasting the LUIS Subscription Id from the clipboard_
+<a name="Exercise6"></a>
+## Exercise 6: Test the bot ##
 
-That’s it! Your bot application is now fully configured to access your LUIS model. To run the Newsy bot to sample real user interaction:
+The motivation for creating a bot is to have it carry on conversations with users. LUIS makes those conversations feel much more natural. In this exercise, you will run the bot you implemented in the previous exercise and see Language Understanding Intelligent Service at work.
 
-1. Open the Integrated Terminal by clicking **View** > **Integrated Terminal** in the VS Code menu. The TERMINAL window will appear at the bottom of your environment workspace.
-1. At the prompt, type “node app.js” (without quotation marks) and hit **enter on your keyboard**. Your bot is now running and listening for interaction.
+1. In Visual Studio Code's TERMINAL window, execute the following command to start the bot:
+
+	```
+	node app.js
+	```
+
+1. Type "Hello" to "wake up" the bot. Then press **Enter** and wait for the bot to respond.
  
-    ![Running the Newsy bot to start listening for interaction](Images/vs-executing-node-js.png)
+    ![Waking up the bot](Images/vs-starting-convo.png)
 
-    _Running the Newsy bot to start listening for interaction_
+    _Waking up the bot_
 
-1. Type “hello” (again, without quotation marks) to “wake up” your bot. Newsy will now begin a new conversation by recommending a phrase.
+1. Type "find soccer news" and press **Enter**. Wait for the bot to respond. After a brief pause while the bot calls out to your LUIS model over HTTP, up to five relevant news articles will appear.
  
-    ![Waking up the Newsy bot](Images/vs-starting-convo.png)
+    ![Communicating with the bot](Images/vs-start-search.png)
 
-    _Waking up the Newsy bot_
+    _Communicating with the bot_
 
-1. Type a request using similar language to the utterances you labeled in Exercise 2, such as “Find soccer news” or “Get Health news” (without quotation marks.) 
- 
-    ![Asking Newsy to find news](Images/vs-start-search.png)
+1. Type "Hello" again and press **Enter**. Then type "find some great news about Microsoft" and press **Enter** again. What does the bot return this time? 
 
-    _Asking Newsy to find news_
-
-1. After a short delay a list of up to five (5) relevant news article and descriptions will appear in the TERMINAL window.
- 
-    ![Viewing news results after sending a request to LUIS](Images/vs-bot-search-results.png)
-
-    _Viewing news results after sending a request to LUIS_
-
-1. You can repeat this process as many times as you’d like, by typing in “hello” after news results are displayed, and then typing in additional utterances. You can even try something like “Find some great Microsoft news”. Notice how LUIS understand what you’re really asking for, and sends only the important keywords (entities) over to the news search service.
- 
-    ![Viewing intelligent LUIS predictions](Images/vs-bot-search-results-again.png)
-
-    _Viewing intelligent LUIS predictions_
-
-In this exercise, you’ve written a locally running bot that leverages built in features of the Microsoft Bot Framework, and added additional code to access all the intelligence of LUIS via the model you created, trained, and published in earlier exercises. You have also run your bot within the terminal to experience the flow of the conversation and the way LUIS intelligently analyzes human language and responds with what results based on the most likely intentions.
+Feel free to try other commands such as "get the latest political news" and to continue to converse with the bot. It understands a relatively narrow range of commands, but for those commands that it does understand, it almost seems to know what you're saying. Of course, you could expand the bot's vocabulary by adding additional utterances to the LUIS model that you built. The only limit is how much time you're willing to spend refining and enhancing the model.
 
 <a name="Summary"></a>
 ## Summary ##
@@ -661,13 +602,12 @@ In this exercise, you’ve written a locally running bot that leverages built in
 In this hands-on lab you learned how to:
 
 - Create a LUIS application
-- Create and configure custom LUIS intents and entities
-- Enhance LUIS intents with pre-built entities and phrase lists
-- Train a LUIS model and publish to an HTTP endpoint
-- Create a bot to access a LUIS model
-- Integrate a LUIS model into a bot
+- Define intents and entities
+- Use pre-built entities and phrase lists
+- Train a LUIS model and publish it to an HTTP endpoint
+- Create a bot that uses a LUIS model
 
-This is just a beginning, as there’s a whole lot more you can do to leverage the power of the Microsoft Language Understanding and Intelligent Services. Start experimenting with other LUIS features, especially intent dialogs and more complex models using other pre-built entities to create truly “intelligent” human to computer interactions in your applications.
+There is much more that you can do to leverage the power of the Microsoft Language Understanding Intelligent Services in your code. Try experimenting with other LUIS features such as [intent dialogs](https://docs.botframework.com/en-us/node/builder/chat/IntentDialog/#navtitle) and adding other pre-built entities to your model. For additional background on LUIS and examples of how to use it, refer to https://docs.botframework.com/en-us/node/builder/guides/understanding-natural-language/.
 
 ----
 
