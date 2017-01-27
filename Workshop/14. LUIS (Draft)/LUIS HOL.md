@@ -12,7 +12,7 @@ One of the key challenges in the world of human-computer interactions is trainin
  
 Microsoft's [Language Understanding Intelligent Service](https://www.microsoft.com/cognitive-services/en-us/language-understanding-intelligent-service-luis), or LUIS for short, is designed to fill this need, making it extremely easy to deploy a model that takes sentences or *utterances* passed to it and interprets them by discerning intent and extracting *entities* such as "global warming". LUIS also lets you define sets of intentions and entities that are relevant to a specific application, which it can then use to provide guidance as a developer walks through the process of building a language understanding system. 
 
-In this lab, you will create a LUIS application, configure a language understanding model using prebuilt and custom entities, and define intents. Then you will use the model to build a simple bot experience using the Microsoft Bot Framework.
+In this lab, you will create a LUIS application, configure a language understanding model using pre-built and custom entities, and define intents. Then you will use the model to build a bot experience using the Microsoft Bot Framework.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -43,11 +43,11 @@ The following are required to complete this hands-on lab:
 This hands-on lab includes the following exercises:
 
 - [Exercise 1: Create a LUIS application](#Exercise1)
-- [Exercise 2: Create and configure intents and entities](#Exercise2)
-- [Exercise 3: Enhance LUIS intents with prebuilt entities and phrase lists](#Exercise3)
-- [Exercise 4: Train a LUIS model and publish to an HTTP endpoint](#Exercise4)
-- [Exercise 5: Create a bot to access a LUIS model](#Exercise5)
-- [Exercise 6: Integrate a LUIS model into a bot](#Exercise6)
+- [Exercise 2: Configure intents and entities](#Exercise2)
+- [Exercise 3: Add pre-built entities and phrase lists](#Exercise3)
+- [Exercise 4: Train the model and publish to an HTTP endpoint](#Exercise4)
+- [Exercise 5: Create a bot that uses the model](#Exercise5)
+- [Exercise 6: Integrate the model into the bot](#Exercise6)
  
 Estimated time to complete this lab: **60** minutes.
 
@@ -77,11 +77,11 @@ The first step in creating an intelligent interaction model with LUIS is to prov
 Your LUIS application is now provisioned and you are ready to start creating and configuring intents and entities.
 
 <a name="Exercise2"></a>
-## Exercise 2: Create and configure intents and entities ##
+## Exercise 2: Configure intents and entities ##
 
 The next step is to configure your LUIS application by creating intents and entities. Intents represent actions such as "search" or "find," while entities describe a target for an intent. In this exercise, you will create a simple intent for searching the news and an entity to specify the type of news to search for, such as "soccer" or "Microsoft Surface."
 
-1. If the Newsy application you created in [Exercise 1](#Exercise1) isn't open in the LUIS portal, click it to open it. Then click **+** to the right of **Intents** to add an intent.
+1. Click **+** to the right of **Intents** to add an intent.
 
     ![Adding an intent](Images/luis-click-new-intent-01.png)
 
@@ -113,13 +113,13 @@ The next step is to configure your LUIS application by creating intents and enti
 
 	The phrase "Find soccer news" is now associated with the SearchNews intent, and LUIS will understand the word “soccer” as the target of your action. In order for LUIS to train the model successfully, it needs a few more sample utterances.
 	
-1. Type "Get soccer news" into the box in the "New utterances" panel and click the **right arrow**.
+1. Type "Get soccer news" into the box in the "New utterances" panel and click the **arrow**.
  
     ![Adding an utterance](Images/luis-search-utterance-01.png)
 
     _Adding an utterance_	 
 
-1. Select "SearchNews" from the intent drop-down.
+1. Select **SearchNews** from the drop-down list of intents.
 
     ![Selecting an intent](Images/select-searchnews.png)
 
@@ -144,7 +144,7 @@ The next step is to configure your LUIS application by creating intents and enti
 
     _Reviewing labeled utterances_
 
-1. Click **Train** in the lower-left corner of the portal. After a few seconds, the message "Last train completed" followed by a timestamp will appear. 
+1. Click **Train** in the lower-left corner of the page. After a few seconds, the message "Last train completed" followed by a timestamp will appear. 
  
     ![Training a LUIS model](Images/luis-click-train.png)
 
@@ -153,154 +153,87 @@ The next step is to configure your LUIS application by creating intents and enti
 Your LUIS application is now configured to understand phrases such as "Get soccer news" and to discern that the user wants to search news for the term "soccer." LUIS is smart enough now to know that a phrase such as "Find hockey news" also represents an intent to search news, but for news regarding hockey even though you haven't explicitly trained the model with that term. Your LUIS model is now ready to be configured to support more advanced scenarios, such as identifying terms from a specific list of news categories.
 
 <a name="Exercise3"></a>
-## Exercise 3: Enhance LUIS intents with prebuilt entities and phrase lists ##
+## Exercise 3: Add pre-built entities and phrase lists ##
 
-Now that LUIS understands some basic intentions and phrases, it’s time to add a little more intelligence to your model by leveraging pre-built entities and phrase lists.
+Now that LUIS understands some basic intentions and phrases, it's time to make the model even more intelligent by leveraging pre-built entities and phrase lists. In this exercise, you will add the pre-built encyclopedia entity to your intents, and add a phrase list for refining news results by category.
 
-In this exercise, you’ll be adding the pre-built encyclopedia entity to your intents, as well as adding a phrase list for refining news results by category.
-
-To add a pre-built entity to your model:
-
-1. Open the [LUIS Application portal](https://www.luis.ai/ "LUIS Application portal"), if not already signed in from Exercise 1. If asked to login, do so with your Microsoft account.
-1. Click **Newsy** in the application list. You will be redirected to the LUIS application page for the Newsy application created in Exercise 1.
+1. Click **+** to the right of "Pre-built Entities" to display a list of pre-built entities.
  
-    ![Selecting the Newsy application](Images/luis-click-app-name.png)
+    ![Showing pre-built entities](Images/luis-click-new-preentity-01.png)
 
-    _Selecting the Newsy application_
+    _Showing pre-built entities_ 
 
-1. Click the **+** button in the right side of the “Pre-built Entities” panel to display the available pre-built entities list.
+1. Scroll down and select **encyclopedia**. Then click the **OK** button. A new pre-built entity named "encyclopedia" will be added to the list.
  
-    ![Adding a new pre-built entity](Images/luis-click-new-preentity-01.png)
+    ![Adding the Encyclopedia entity](Images/luis-select-ency-entity.png)
 
-    _Adding a new pre-built entity_ 
+    _Adding the Encyclopedia entity_ 
 
-1. Scroll down the "Pre-built entities" list and select the **encyclopedia** entity and then click the **OK** button. A new pre-built entity named “encyclopedia” will be added to the list.
+1. Click **+** to the right of "Phrase List Features" to add a new phrase list.
  
-    ![Selecting the pre-built Encyclopedia entity](Images/luis-select-ency-entity.png)
+    ![Adding a phrase list](Images/luis-click-new-phraselist-01.png)
 
-    _Selecting the pre-built Encyclopedia entity_ 
- 
-    ![The new pre-built Encyclopedia entity](Images/luis-ency-added.png)
+    _Adding a phrase list_ 
 
-    _The new pre-built Encyclopedia entity_ 
-
-To add a phrase list to your model:
-
-1. Click the **+** button in the right side of the “Phrase List Features” to add a new phrase list.
- 
-    ![Adding a new phrase list](Images/luis-click-new-phraselist-01.png)
-
-    _Adding a new phrase list_ 
-
-1. Type in “NewsCategory” (without quotation marks) in the phrase list heading, and then enter the following comma-delimited value in the line below.
+1. Type "NewsCategory" (without quotation marks) for the feature name. Enter the comma-delimited list below, and then click the **Save** button.
 
 	```
 	Business,Entertainment,Health,Politics,ScienceAndTechnology,Sports,US,World 
  	```
 
-    ![Entering new phrase list values](Images/luis-enter-phraselist-info.png)
+    ![Saving the phrase list](Images/luis-save-phraselist-info.png)
 
-    _Entering new phrase list values_ 
+    _Saving the phrase list_ 
 
-1. Click the **Save** button to save your phrase list.
+1. Now that you have added an encyclopedia entity and phrase list, it is time to create a couple more intents to help LUIS understand whether a user wants to search news by using an encyclopedia entity such as "Super Bowl" or "World War," or using a more general category such as "Health" or "Politics." Begin by clicking **SearchNews** in the list of intents.
  
-    ![Saving new phrase list values](Images/luis-save-phraselist-info.png)
+    ![Opening the SearchNews intent](Images/luis-select-searchnews.png)
 
-    _Saving new phrase list values_ 
+    _Opening the SearchNews intent_ 
 
-Now that you have your encyclopedia entity and phrase list created, it’s time to create a couple more intents to help LUIS understand whether a user wants to search news by either a common entry found in an encyclopedia, like “Super Bowl” or “World War” or in a general category like “Health” or “Politics”.
+1. Click **+ Add Action**. Then click **+ Add Parameter**. Enter "Encyclopedia" as the parameter name and select **encyclopedia** in the drop-down list labeled "Type." Then click the **Save** button.
 
-1. Click **SearchNews** in the "Intents" panel to edit the intent.
+    ![Adding an action](Images/luis-save-updated-intent-2.png)
+
+    _Adding an action_ 
+
+1. Click **+** to the right of "Intents" to add an intent.
  
-    ![Selecting the SearchNews intent](Images/luis-select-searchnews.png)
+    ![Adding another intent](Images/luis-click-new-intent-02.png)
 
-    _Selecting the SearchNews intent_ 
+    _Adding another intent_ 
 
-1. Click to expand the **+Add Action** link and then click **+Add Parameter**.
+1. Enter "SearchNewsByCategory" for the intent name and "Find Super Bowl news" as an example of a command that triggers the intent. Then click **+ Add Action**, followed by **+ Add Parameter**. Under "Action Parameters," check the **Required** box, enter "NewsCategory" as the parameter name, select **NewsCategory** for both **Type** and **Value**, and enter "Please specify a category" for the prompt. Then click the **Save** button.
+
+    ![Saving the intent](Images/luis-save-intent-info-02.png)
+
+    _Saving the intent_ 
  
-    ![Expanding the Add Action link](Images/luis-expand-add-action.png)
+1. Notice that the phrase "find super bowl news" is now displayed, with the term "super bowl" highlighted and "SearchNewsByCategory" selected as the intent. LUIS was smart enough to understand the term "super bowl" as an encyclopedia entry. Click the **Submit** button to add this entry to your model. 
 
-    _Expanding the Add Action link_ 
- 
-    ![Expanding the Add Parameter link](Images/luis-expand-add-parameter.png)
+    ![Saving the new utterance](Images/luis-submit-new-utterance-02.png)
 
-    _Expanding the Add Parameter link_ 
+    _Saving the new utterance_ 
 
-1. Leave the Required checkbox unchecked, and enter “Encyclopedia” in the **Name** entry, and then select **encyclopedia** in the Type dropdown.
-1. Click the **Save** button to save changes to the SearchNews intent.
- 
-    ![Saving an updated intent](Images/luis-saving-updated-intent.png)
-
-    _Saving an updated intent_ 
-
-1. Click the **+** button in the right side of the "Intents" panel to add an intent.
- 
-    ![Adding another new intent](Images/luis-click-new-intent-02.png)
-
-    _Adding another new intent_ 
-
-1. Type in “SearchNewsByCategory” (without quotation marks) in the **New intent name** entry.
-1. Type in “Find Super Bowl news” (again, without quotation marks) in the **Example utterance** entry.
- 
-    ![Entering new intent values](Images/luis-enter-intent-info.png)
-
-    _Entering new intent values_ 
- 
-1. Click to expand the **Add Action** link, and then click **Add Parameter**.
- 
-    ![Adding an intent action](Images/luis-click-add-action.png)
-
-    _Adding an intent action_ 
- 
-    ![Adding an intent parameter](Images/luis-click-add-parameter.png)
-
-    _Adding an intent parameter_ 
- 
-1. Check the **Required** checkbox, enter “NewsCategory” as the parameter name, and select NewsCategory from both the **Type** and **Value** dropdowns.
-1. Enter “Please specify a category” as the value for the parameter **Prompt** as well.
- 
-    ![Updating intent information](Images/luis-save-intent-info-02.png)
-
-    _Updating intent information_ 
- 
-1. Click the **Save** button to be returned to the “New Utterances” panel.
- 
-    ![Saving updated intent information](Images/luis-save-updated-intent.png)
-
-    _Saving updated intent information_ 
-
-	Notice the phrase “find super bowl news” is now displayed in the panel, with the term “super bowl” highlighted in a teal color, as well as “SearchNews” selected in the intent dropdown. LUIS was smart enough to understand the term “super bowl” as an encyclopedia entry. 
-
-1. Click the **Submit** button to add this entry to your model. 
-
-    ![Submitting another new utterance](Images/luis-submit-new-utterance-02.png)
-
-    _Submitting another new utterance_ 
-
-1. Enter the phrase “Get Health news” in the **New utterances** entry and click the **right arrow** button.
+1. Type "Get Health news" into the box and click the **arrow**.
 
     ![Searching for an utterance](Images/luis-search-utterance-02.png)
 
     _Searching for an utterance_ 
 
-	> If LUIS doesn't automatically label this utterance as SearchNewsByCategory you will need to select SearchNewsByCategory prior to clicking the Submit button. 
-	
-1. Click the **Submit** button to save this utterance.
+
+1.  Select **SearchNewsByCategory** from the drop-down list of intents. Click the word "health" and select **NewsCategory** to connect the two. Then click the **Submit** button.
  
-    ![Submitting another new utterance](Images/luis-submit-new-utterance-03.png)
+    ![Saving the new utterance](Images/luis-submit-new-utterance-03.png)
 
-    _Submitting another new utterance_ 
+    _Saving the new utterance_ 
 
-1. Click **Train** at the bottom left corner of the LUIS application panel. After a delay of a few seconds a status label stating “Last train completed” and timestamp will appear. 
+1. Click **Train** in the lower-left corner of the page to train the model. 
  
-    ![Training a LUIS model](Images/luis-click-train.png)
-
-    _Training a LUIS model_
-
-Your LUIS model has now been enhanced with both a pre-built entity and a phrase list, and can understand most typical phrases relating to finding news based on various terms. Let’s take a look at how LUIS interprets this information and publish the model to make it available for use in a human to computer interaction.
+Your LUIS model has now been enhanced with a pre-built entity and a phrase list, and can understand most typical phrases relating to finding news based on various terms. Let's see how LUIS interprets this information and publish the model to make it available for use.
 
 <a name="Exercise4"></a>
-## Exercise 4: Train a LUIS model and publish to an HTTP endpoint ##
+## Exercise 4: Train the model and publish to an HTTP endpoint ##
 
 Before your LUIS model can be accessed via an application, you need to ensure your model is up-to-date by training it one more time and then publishing the model to a location accessible to your application.
 
@@ -365,7 +298,7 @@ To train and publish your model:
 In this exercise, you performed a final training on your LUIS model, as well as publishing and testing access to your model via an HTTP endpoint. You can now integrate your model into an application with confidence, knowing LUIS will understand a user’s intent when searching for news.
 
 <a name="Exercise5"></a>
-## Exercise 5: Create a bot to access a LUIS model ##
+## Exercise 5: Create a bot that uses the model ##
 
 Now that your LUIS model is published and available for use in applications, it’s time to start building an application to demonstrate the beauty of LUIS. For this exercise, you’ll be creating a bot in Visual Studio Code, that runs locally on your computer using the Microsoft Bot Framework. If you haven’t installed Visual Studio Code, you will need to do so before continuing with this exercise.
 
@@ -486,7 +419,7 @@ To automatically generate your bot project configuration file:
 Your bot project is now setup and configured and you’re ready to write code to demonstrate communication between a user and your bot. The next step is to write code to access your LUIS model endpoint and send the information to a news service to return search results to a user, creating a more provide a more meaningful human to computer experience.
 
 <a name="Exercise6"></a>
-## Exercise 6: Integrate a LUIS model into a bot ##
+## Exercise 6: Integrate the model into the bot ##
 
 The entire goal of creating a bot is to have intelligent, automated interactions with users. Now that all the configuration and project setup is complete, you can start writing code for your bot to listen for user input, send the information to LUIS for analysis, and then search a news service based on LUIS suggestions.
 
