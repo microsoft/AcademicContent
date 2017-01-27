@@ -45,7 +45,7 @@ This hands-on lab includes the following exercises:
 - [Exercise 1: Create a LUIS application](#Exercise1)
 - [Exercise 2: Configure intents and entities](#Exercise2)
 - [Exercise 3: Add pre-built entities and phrase lists](#Exercise3)
-- [Exercise 4: Train the model and publish to an HTTP endpoint](#Exercise4)
+- [Exercise 4: Publish the model to an HTTP endpoint](#Exercise4)
 - [Exercise 5: Create a bot that uses the model](#Exercise5)
 - [Exercise 6: Integrate the model into the bot](#Exercise6)
  
@@ -233,69 +233,115 @@ Now that LUIS understands some basic intentions and phrases, it's time to make t
 Your LUIS model has now been enhanced with a pre-built entity and a phrase list, and can understand most typical phrases relating to finding news based on various terms. Let's see how LUIS interprets this information and publish the model to make it available for use.
 
 <a name="Exercise4"></a>
-## Exercise 4: Train the model and publish to an HTTP endpoint ##
+## Exercise 4: Publish the model to an HTTP endpoint ##
 
-Before your LUIS model can be accessed via an application, you need to ensure your model is up-to-date by training it one more time and then publishing the model to a location accessible to your application.
+In this exercise, you will publish the model to an HTTP endpoint so it can be accessed by applications that wish to incorporate language understanding. Before proceeding, be certain that you trained the model in the last step in the previous exercise. If you did not train it, train it now.
 
-To train and publish your model:
-
-1. Open the [LUIS Application portal](https://www.luis.ai/ "LUIS Application portal"), if not already signed in from Exercise 1. If asked to login, do so with your Microsoft account.
-1. Click **Newsy** in the application list. You will be redirected to the LUIS application page for the Newsy application created in Exercise 1.
+1. Click **Publish**.
  
-    ![Selecting the Newsy application](Images/luis-click-app-name.png)
+    ![Publishing the model](Images/luis-click-publish.png)
 
-    _Selecting the Newsy application_
-
-1. Click **Train** at the bottom left corner of the LUIS application panel. After a delay of a few seconds a status label stating “Last train completed” and timestamp will appear.
-   
-    ![Training a LUIS model](Images/luis-click-train.png)
-
-    _Training a LUIS model_
-
-1. Click **Publish** at the top left corner of the LUIS application to display the “Publish Current Application to URL” dialog.
+    _Publishing the model_
  
-    ![Clicking Publish](Images/luis-click-publish.png)
-
-    _Clicking Publish_
- 
-    ![The LUIS application Publish dialog](Images/luis-publish-page.png)
-
-    _The LUIS application Publish dialog_
-
-
 1. Click the **Publish web service** button. 
  
     ![Publishing to an HTTP endpoint](Images/luis-click-publish-to-endpoint.png)
 
     _Publishing to an HTTP endpoint_
 
-	After a short delay the dialog will expand to reveal both a “Query” entry as well as a clickable link to test queries against your model. 
-
-1. Enter “Find Super Bowl news” in the **Query** entry and then click the **link** below.
+1. After a short delay, the dialog will expand and show an interface for entering queries, calling the HTTP endpoint, and viewing query results. Type "Find Super Bowl news" into the **Query** box and then click the link below to test the query.
  
-    ![Querying a LUIS endpoint](Images/luis-test-query.png)
+    ![Testing the query](Images/luis-test-query.png)
 
-    _Querying a LUIS endpoint_
+    _Testing the query_
 	
-	This emulates calling the HTTP endpoint and displays the results in JSON format for review. Notice LUIS returns an intent as “SearchNews” as well as an entity of “super bowl” in the result. 
+1. This calls the HTTP endpoint and displays the JSON data that is returned. Observe that LUIS identified "super bowl" as the entity and determined that "SearchNewsByCategory" was the most likely intent:
 
-    ![LUIS query test results in JSON format](Images/luis-test-results.png)
+	```JSON
+	{
+	  "query": "Find Super Bowl news",
+	  "topScoringIntent": {
+	    "intent": "SearchNewsByCategory",
+	    "score": 0.414106578,
+	    "actions": [
+	      {
+	        "triggered": false,
+	        "name": "SearchNewsByCategory",
+	        "parameters": [
+	          {
+	            "name": "NewsCategory",
+	            "type": "NewsCategory",
+	            "required": true,
+	            "value": null
+	          }
+	        ]
+	      }
+	    ]
+	  },
+	  "intents": [
+	    {
+	      "intent": "SearchNewsByCategory",
+	      "score": 0.414106578,
+	      "actions": [
+	        {
+	          "triggered": false,
+	          "name": "SearchNewsByCategory",
+	          "parameters": [
+	            {
+	              "name": "NewsCategory",
+	              "type": "NewsCategory",
+	              "required": true,
+	              "value": null
+	            }
+	          ]
+	        }
+	      ]
+	    },
+	    {
+	      "intent": "SearchNews",
+	      "score": 0.131110832,
+	      "actions": [
+	        {
+	          "triggered": true,
+	          "name": "SearchNews",
+	          "parameters": [
+	            {
+	              "name": "Encyclopedia",
+	              "type": "encyclopedia",
+	              "required": false,
+	              "value": null
+	            }
+	          ]
+	        }
+	      ]
+	    },
+	    {
+	      "intent": "None",
+	      "score": 0.04309769
+	    }
+	  ],
+	  "entities": [
+	    {
+	      "entity": "super bowl",
+	      "type": "builtin.encyclopedia.time.event",
+	      "startIndex": 5,
+	      "endIndex": 14,
+	      "score": 0.9727775
+	    }
+	  ],
+	  "dialog": {
+	    "prompt": "Please specify a category",
+	    "parameterName": "NewsCategory",
+	    "parameterType": "NewsCategory",
+	    "contextId": "dc4c0b11-95b1-463f-8251-2b7e59253ee9",
+	    "status": "Question"
+	  }
+	}
+	```
 
-    _LUIS query test results in JSON format_
-	
-1. Enter “Get Health news” in the **Query** entry and then click the **link** below one more time.
- 
-    ![Re-querying a LUIS endpoint](Images/luis-test-new-query.png)
+1. Click the **X** in the upper-right corner of the dialog to close the dialog.
 
-    _Re-querying a LUIS endpoint_
-
-	 Notice LUIS is smart enough to return an intent as “SearchNewsByCategory” as well as an entity of “health” in the result. This occurs due to the addition of the phrase list attached to the SearchNewsByCategory intent.
-
-    ![LUIS re-query test results in JSON format](Images/luis-test-smart-results.png)
-
-    _LUIS re-query test results in JSON format_
-	
-In this exercise, you performed a final training on your LUIS model, as well as publishing and testing access to your model via an HTTP endpoint. You can now integrate your model into an application with confidence, knowing LUIS will understand a user’s intent when searching for news.
+Now that the model is available over HTTP, you can use it from an application and be confident that LUIS will understand a user's intent when searching for news.
 
 <a name="Exercise5"></a>
 ## Exercise 5: Create a bot that uses the model ##
