@@ -46,7 +46,7 @@ This hands-on lab includes the following exercises:
 - [Exercise 2: Configure intents and entities](#Exercise2)
 - [Exercise 3: Add pre-built entities and phrase lists](#Exercise3)
 - [Exercise 4: Publish the model to an HTTP endpoint](#Exercise4)
-- [Exercise 5: Create a bot that uses the model](#Exercise5)
+- [Exercise 5: Create a bot](#Exercise5)
 - [Exercise 6: Integrate the model into the bot](#Exercise6)
  
 Estimated time to complete this lab: **60** minutes.
@@ -341,128 +341,85 @@ In this exercise, you will publish the model to an HTTP endpoint so it can be ac
 
 1. Click the **X** in the upper-right corner of the dialog to close the dialog.
 
-Now that the model is available over HTTP, you can use it from an application and be confident that LUIS will understand a user's intent when searching for news.
+Now that the model is available over HTTP, you can call it from an application and be confident that LUIS will understand the user's intent when searching for news.
 
 <a name="Exercise5"></a>
-## Exercise 5: Create a bot that uses the model ##
+## Exercise 5: Create a bot ##
 
-Now that your LUIS model is published and available for use in applications, it’s time to start building an application to demonstrate the beauty of LUIS. For this exercise, you’ll be creating a bot in Visual Studio Code, that runs locally on your computer using the Microsoft Bot Framework. If you haven’t installed Visual Studio Code, you will need to do so before continuing with this exercise.
+In this exercise, you will use the Microsoft Bot Framework to build a bot that you will later connect to the LUIS model you built and deployed so the bot can respond to commands such as "Find health news." You will use Visual Studio Code to write the bot. If you haven't installed Visual Studio Code, [please do so](http://code.visualstudio.com) before continuing with this exercise. It's free, and it runs on Windows, Linux, and macOS.
 
-Once you have confirmed you have Visual Studio Code installed you can start building your bot:
-
-1. Start Visual Studio Code and open the Integrated Terminal by clicking **View** > **Integrated Terminal** in the VS Code menu. The TERMINAL windows will appear at the bottom of your environment workspace.
+1. Start Visual Studio Code and select **Integrated Terminal** from the **View** menu. A TERMINAL window will appear at the bottom of the workspace.
  
-    ![Opening the Integrated Terminal](Images/vs-select-open-terminal.png)
+    ![Opening an Integrated Terminal](Images/vs-select-open-terminal.png)
 
-    _Opening the Integrated Terminal_
+    _Opening an Integrated Terminal_
 
-    ![The Integrated Terminal window](Images/vs-integrated-terminal.png)
-
-    _The Integrated Terminal window_
-
-1. In the TERMINAL window type “md Newsy” and hit the **enter key** on your keyboard. A new folder named Newsy has been created.
- 
-    ![Executing md Newsy](Images/vs-md-newsy.png)
-
-    _Executing md Newsy_
-
-1. Type “cd Newsy” in the TERMINAL window, and hit the **enter key** on your keyboard to navigate to the new "Newsy" folder.
-
-    ![Executing cd Newsy](Images/vs-cd-newsy.png)
-
-    _Executing cd Newsy_
-
-1. Type “code .” [the word code, followed by a space and period) to open VS Code in your new folder location. 
-
-    ![Opening a new instance of Visual Studio Code](Images/vs-code-dot.png)
-
-    _Opening a new instance of Visual Studio Code_
-
-	A new instance of VS Code will start. You will be working in this instance of VS Code for the remainder of the exercises.
-
-    ![The new Newsy](Images/vs-newsy-opened.png)
-
-    _The new Newsy project_
-
-1. In the Explorer, click the **New File** icon to the right of the NEWSY heading to create a new file, and then type “app.js” (without quotation marks) in the new line item in Explorer and hit the **enter key** on your keyboard.
-
-    ![Adding a new project file](Images/vs-click-add-new-file.png)
-
-    _Adding a new project file_
-
-    ![The new app.js file](Images/vs-new-app-js-file.png)
-
-    _The new app.js file_
-
-	A new app.js file has been created. This file will contain the code for your bot.
-
-1. Enter the following single line of code at the top of your new app.js file: 
+1. In the TERMINAL window, execute the following commands to create a folder named "Newsy" and make it the current directory:
 
 	```
+	md Newsy
+	cd Newsy
+	```
+ 
+    ![Creating a "Newsy" folder](Images/vs-newsy.png)
+
+    _Creating a "Newsy" folder_
+
+1. Execute the following command in the TERMINAL window to launch a new instance of Visual Studio Code from the Newsy directory. You can then close the old instance of Visual Studio Code.
+
+	```
+	code .
+	```
+
+1. Click the **New File** icon to create a new file in the "Newsy" folder, and name the file **app.js**.
+
+    ![Adding a new to the project](Images/vs-click-add-new-file.png)
+
+    _Adding a new file to the project_
+
+1. Enter the following line of JavaScript code into **app.js**. Then save the file.
+
+	```JavaScript
 	console.log("Welcome to Newsy!");
 	```
 
-1. From the Visual Studio code menu, open the Integrated Terminal again by clicking **View** > **Integrated Terminal**. 
+1. Select **Integrated Terminal** from the **View** menu again to open an integrated terminal. 
  
-    ![Opening the Integrated Terminal](Images/vs-select-open-terminal.png)
-
-    _Opening the Integrated Terminal_
-
 1. In the TERMINAL window, execute the following command to install the Microsoft Bot Builder SDK:
 
-```
-npm install --save botbuilder
-```	
+	```
+	npm install --save botbuilder
+	```	
 
-1. Now execute this command in the TERMINAL window to install the packages needed to leverage REST-based messaging routes in your code:
-
-```
-npm install --save restify
-```	 
-
-1. Execute the following command in the TERMINAL window to run the application and output "Welcome to Newsy!":
-
-```
-node app.js
-```	
-
-To finish configuring your bot project we need to add the configuration values generated by your LUIS application in Exercise 1. You will be adding these values to an auto generated configuration file. 
-
-To automatically generate your bot project configuration file:
-
-1.	Click the Visual Studio Code **Debug** tab to open the DEBUG panel.
-
-    ![Selecting the Debug tab](Images/vs-select-debug-tab.png)
-
-    _Selecting the Debug tab_	
-
-1.	Click the **DEBUG** (green arrow) in the top panel menu and then select **Node.js** from the “Select Environment” drop down. A new launch.json file will be automatically created with default values for deployment and debugging. A message will appear alerting you to setup the launch configuration file for this project. Click the **Close** button.
-	
-    ![Creating a new launch file](Images/vs-creating-launch-file.png)
-
-    _Creating a new launch file_	
-	
-    ![Acknowledging creation of a newly created launch.json file](Images/vs-new-launch-file-created.png)
-
-    _Acknowledging creation of a newly created launch.json file_	
-
-1.	Locate the “cwd” node and enter **a comma** (**,**) at the end of this line, and then enter the following code directly below the “cwd" line to add console support for  the integrated terminal:		
+1. Now execute this command to install the packages needed to leverage REST-based messaging routes in your code:
 
 	```
-	"console": "integratedTerminal"  
+	npm install --save restify
+	```	 
+
+1. Execute the following command to run the application and output "Welcome to Newsy!" to the TERMINAL window:
+
+	```
+	node app.js
+	```	
+
+1.	Click the **Debug** button in the ribbon on the left. Then click the **green arrow** at top and select **Node.js** from the drop-down list. This adds a new configuration file named **launch.json** to your project. When a message appears asking you to set up the launch configuration file for this project, click the **Close** button.
+	
+    ![Adding a launch file to the project](Images/vs-creating-launch-file.png)
+
+    _Adding a launch file to the project_	
+
+1. Add the following line to **launch.json**, inserting it between the "program" property and the "cwd" property as shown below. The save the file.
+
+	```JSON
+	"console": "integratedTerminal",
 	```
 	
-    ![Adding the launch file console node](Images/vs-edit-launch.png)
+    ![Adding a "console" setting to launch.json](Images/vs-edit-launch.png)
 
-    _Adding the launch file console node_	
+    _Adding a "console" setting to launch.json_	
 
-1. Close the new launch.json file by selecting **File** > **Close Editor** from the Visual Studio Code menu. If prompted to save changes, click **Save**.
-	
-    ![Closing the Visual Code editor window](Images/vs-file-close-editor.png)
-
-    _Closing the Visual Code editor window_	
-
-Your bot project is now setup and configured and you’re ready to write code to demonstrate communication between a user and your bot. The next step is to write code to access your LUIS model endpoint and send the information to a news service to return search results to a user, creating a more provide a more meaningful human to computer experience.
+The bot project is now set up and you are ready to connect the bot to the LUIS model you deployed in [Exercise 4](#Exercise4). This is the fun part. Let's get to it!
 
 <a name="Exercise6"></a>
 ## Exercise 6: Integrate the model into the bot ##
