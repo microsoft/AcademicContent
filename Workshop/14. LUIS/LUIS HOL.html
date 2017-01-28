@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LUIS HOL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<p><a name="HOLTitle"></a></p>
+<h1>Microsoft Language Understanding Intelligent Service (LUIS)</h1>
+<hr>
+<p><a name="Overview"></a></p>
+<h2>Overview</h2>
+<p>One of the key challenges in the world of human-computer interactions is training a computer to discern a user's intent from natural-language commands. Suppose that a user types "find news about Microsoft" into a news reader or browser. A person understands this command easily. But implementing the logic for a computer to understand this simple phrase is an exceedingly difficult task, especially when you factor in language and culture and the influence that those have on how we communicate.</p>
+<p><a href="Images/luis-lab-header.png" target="_blank"><img src="Images/luis-lab-header.png" alt="Human-computer interaction" style="max-width:100%;"></a></p>
+<p>Microsoft's <a href="https://www.microsoft.com/cognitive-services/en-us/language-understanding-intelligent-service-luis">Language Understanding Intelligent Service</a>, or LUIS for short, is designed to fill this need, offering a fast and effective way to add language understanding to applications. LUIS lets you create models that take sentences or <em>utterances</em> and interpret them by discerning <em>intents</em> such as "find news" and extracting <em>entities</em> such as "Microsoft". LUIS utilizes interactive machine-learning techniques and benefits from extensive research on language understanding performed by researchers at Microsoft Research and other institutions. And once a LUIS model is built and trained, it is easily deployed as a Web service so bots and other applications can call it to convert commands entered by users into actions.</p>
+<p>In this lab, you will create a LUIS application, configure a language-understanding model using both pre-built and custom entities, and define intents. Then you will build a bot that uses the model to respond to natural-language commands such as "find news about Microsoft" or "get the latest soccer news."</p>
+<p><a name="Objectives"></a></p>
+<h3>Objectives</h3>
+<p>In this hands-on lab, you will learn how to:</p>
+<ul>
+<li>Create a LUIS application</li>
+<li>Define intents and entities</li>
+<li>Use pre-built entities and phrase lists</li>
+<li>Train a LUIS model and publish it to an HTTP endpoint</li>
+<li>Create a bot that uses a LUIS model</li>
+</ul>
+<p><a name="Prerequisites"></a></p>
+<h3>Prerequisites</h3>
+<p>The following are required to complete this hands-on lab:</p>
+<ul>
+<li>A Microsoft account. If you don't have one, <a href="https://account.microsoft.com/account">sign up for free</a>.</li>
+<li>Microsoft <a href="http://code.visualstudio.com">Visual Studio Code</a> version 1.7.0 or higher</li>
+<li>Internet Explorer 10 or higher or <a href="https://www.google.com/chrome/">Google Chrome</a></li>
+</ul>
+<hr>
+<p><a name="Exercises"></a></p>
+<h2>Exercises</h2>
+<p>This hands-on lab includes the following exercises:</p>
+<ul>
+<li><a href="#Exercise1">Exercise 1: Create a LUIS application</a></li>
+<li><a href="#Exercise2">Exercise 2: Configure intents and entities</a></li>
+<li><a href="#Exercise3">Exercise 3: Add pre-built entities and phrase lists</a></li>
+<li><a href="#Exercise4">Exercise 4: Publish the model to an HTTP endpoint</a></li>
+<li><a href="#Exercise5">Exercise 5: Create a bot and connect it to the model</a></li>
+<li><a href="#Exercise6">Exercise 6: Test the bot</a></li>
+</ul>
+<p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
+<p><a name="Exercise1"></a></p>
+<h2>Exercise 1: Create a LUIS application</h2>
+<p>The first step in creating an intelligent language model with LUIS is to provision an application in the <a href="https://www.luis.ai/">LUIS portal</a>. In order to use the portal, you must run it in Internet Explorer or Google Chrome. If you do not have one of these browsers available, stop now and <a href="https://www.google.com/chrome/">install Chrome</a>.</p>
+<ol>
+<li>
+<p>Open the <a href="https://www.luis.ai/">LUIS portal</a> in Internet Explorer or Chrome. If you aren't already signed in, click <strong>Sign in or create an account</strong> and sign in with your Microsoft account. If you are prompted to "let this app access your info," review the permissions requested and click <strong>Yes</strong>. Additionally, if you are prompted to provide additional details such as the country you live in and the company you work for, fill in the information and click <strong>Continue</strong>.</p>
+<p><a href="Images/luis-click-login.png" target="_blank"><img src="Images/luis-click-login.png" alt="Signing in to LUIS" style="max-width:100%;"></a></p>
+<p><em>Signing in to LUIS</em></p>
+</li>
+<li>
+<p>Click <strong>+ New App</strong>, and then select <strong>New Application</strong>.</p>
+<p><a href="Images/luis-select-create-new-app.png" target="_blank"><img src="Images/luis-select-create-new-app.png" alt="Creating a LUIS application" style="max-width:100%;"></a></p>
+<p><em>Creating a LUIS application</em></p>
+</li>
+<li>
+<p>In the ensuing dialog, enter "Newsy" (without quotation marks) as the application name and select <strong>Bot</strong> as the usage scenario. Check the <strong>News &amp; Magazines</strong> box and click the <strong>Add App</strong> button.</p>
+<p><a href="Images/luis-edit-app-info.png" target="_blank"><img src="Images/luis-edit-app-info.png" alt="Entering information about the application" style="max-width:100%;"></a></p>
+<p><em>Entering information about the application</em></p>
+</li>
+</ol>
+<p>Your LUIS application is now provisioned and you are ready to start configuring it by adding intents and entities.</p>
+<p><a name="Exercise2"></a></p>
+<h2>Exercise 2: Configure intents and entities</h2>
+<p>In the language of LUIS, <strong>intents</strong> represent actions such as "search" or "find," while <strong>entities</strong> describe target for intents. In this exercise, you will create a simple intent for searching the news and an entity to specify the type of news to search for, such as "soccer" or "Microsoft Surface."</p>
+<ol>
+<li>
+<p>Click <strong>+</strong> to the right of "Intents" to add an intent.</p>
+<p><a href="Images/luis-click-new-intent-01.png" target="_blank"><img src="Images/luis-click-new-intent-01.png" alt="Adding an intent" style="max-width:100%;"></a></p>
+<p><em>Adding an intent</em></p>
+</li>
+<li>
+<p>Enter "SearchNews" (without quotation marks) for the intent name, and type "Find soccer news" (again, without quotation marks) into box below. The latter is an example of an <em>utterance</em>, which is a command that triggers an intent. Then click the <strong>Save</strong> button.</p>
+<p><a href="Images/luis-save-new-intent-01.png" target="_blank"><img src="Images/luis-save-new-intent-01.png" alt="Defining an intent" style="max-width:100%;"></a></p>
+<p><em>Defining an intent</em></p>
+</li>
+<li>
+<p>Click <strong>+</strong> to the right of "Entities" to add an entity.</p>
+<p><a href="Images/luis-click-new-entity-01.png" target="_blank"><img src="Images/luis-click-new-entity-01.png" alt="Adding an entity" style="max-width:100%;"></a></p>
+<p><em>Adding an entity</em></p>
+</li>
+<li>
+<p>Enter "NewsCategory" as the entity name. Then click the <strong>Save</strong> button.</p>
+<p><a href="Images/luis-save-new-entity-01.png" target="_blank"><img src="Images/luis-save-new-entity-01.png" alt="Defining an entity" style="max-width:100%;"></a></p>
+<p><em>Defining an entity</em></p>
+</li>
+<li>
+<p>To connect the NewsCategory entity to the SearchNews intent, click the word "soccer" and select <strong>NewsCategory</strong> from the popup menu. Then click the <strong>Submit</strong> button.</p>
+<p><a href="Images/luis-connect-new-entity-01.png" target="_blank"><img src="Images/luis-connect-new-entity-01.png" alt="Connecting an entity to an intent" style="max-width:100%;"></a></p>
+<p><em>Connecting an entity to an intent</em></p>
+<p>The phrase "Find soccer news" is now associated with the SearchNews intent, and LUIS will understand the word “soccer” as the target of your action. In order for LUIS to train the model successfully, it needs a few more sample utterances.</p>
+</li>
+<li>
+<p>Type "Get soccer news" into the box in the "New utterances" panel and click the <strong>arrow</strong>.</p>
+<p><a href="Images/luis-search-utterance-01.png" target="_blank"><img src="Images/luis-search-utterance-01.png" alt="Adding an utterance" style="max-width:100%;"></a></p>
+<p><em>Adding an utterance</em></p>
+</li>
+<li>
+<p>Select <strong>SearchNews</strong> from the drop-down list of intents.</p>
+<p><a href="Images/select-searchnews.png" target="_blank"><img src="Images/select-searchnews.png" alt="Selecting an intent" style="max-width:100%;"></a></p>
+<p><em>Selecting an intent</em></p>
+</li>
+<li>
+<p>Click the word "soccer" and select <strong>NewsCategory</strong> from the popup menu. Then click the <strong>Submit</strong> button.</p>
+<p><a href="Images/luis-connect-new-entity-02.png" target="_blank"><img src="Images/luis-connect-new-entity-02.png" alt="Configuring an utterance" style="max-width:100%;"></a></p>
+<p><em>Configuring an utterance</em></p>
+</li>
+<li>
+<p>Repeat steps 6 through 8, making certain you select <strong>SearchNews</strong> from the intent drop-down, with the following sample phrases (without quotation marks) to populate your LUIS application with information to properly train the model:</p>
+<ul>
+<li>"Get motorcycle news"</li>
+<li>"Find motorcycle news"</li>
+<li>"Get tornado news"</li>
+<li>"Find tornado news"</li>
+</ul>
+</li>
+<li>
+<p>Review the utterances you have defined by clicking <strong>Review labels</strong> and selecting <strong>Show all labeled utterances</strong> from the drop-down list. Confirm that all entries are assigned to the SearchNews intent and have a yellow-highlighted entity.</p>
+<p><a href="Images/luis-review-labels.png" target="_blank"><img src="Images/luis-review-labels.png" alt="Reviewing labeled utterances" style="max-width:100%;"></a></p>
+<p><em>Reviewing labeled utterances</em></p>
+</li>
+<li>
+<p>Click <strong>Train</strong> in the lower-left corner of the page. After a few seconds, the message "Last train completed" will appear.</p>
+<p><a href="Images/luis-click-train.png" target="_blank"><img src="Images/luis-click-train.png" alt="Training a LUIS model" style="max-width:100%;"></a></p>
+<p><em>Training a LUIS model</em></p>
+</li>
+</ol>
+<p>Your LUIS application is now configured to understand phrases such as "Get soccer news" and to discern that the user wants to search news for the term "soccer." LUIS is smart enough now to know that a phrase such as "Find hockey news" also represents an intent to search news, but for news regarding hockey even though you haven't explicitly trained the model with that term. Your LUIS model is now ready to be configured to support more advanced scenarios, such as identifying terms from a specific list of news categories.</p>
+<p><a name="Exercise3"></a></p>
+<h2>Exercise 3: Add pre-built entities and phrase lists</h2>
+<p>Now that LUIS understands some basic intents and phrases, it's time to make the model even more intelligent by leveraging pre-built entities and phrase lists. Pre-built entities allow a model to know, for example, that words such as "tomorrow" and "September 30" that appear in an entity represent dates and times, or that "20 years old" represents an age. A complete list of the pre-built entities that LUIS supports can be found at <a href="https://www.microsoft.com/cognitive-services/en-us/LUIS-api/documentation/Pre-builtEntities">https://www.microsoft.com/cognitive-services/en-us/LUIS-api/documentation/Pre-builtEntities</a>. In this exercise, you will add the pre-built <em>encyclopedia</em> entity to your intents, and add a phrase list for refining news results by category.</p>
+<ol>
+<li>
+<p>Click <strong>+</strong> to the right of "Pre-built Entities" to display a list of pre-built entities.</p>
+<p><a href="Images/luis-click-new-preentity-01.png" target="_blank"><img src="Images/luis-click-new-preentity-01.png" alt="Showing pre-built entities" style="max-width:100%;"></a></p>
+<p><em>Showing pre-built entities</em></p>
+</li>
+<li>
+<p>Scroll down and select <strong>encyclopedia</strong>. Then click the <strong>OK</strong> button. A new pre-built entity named "encyclopedia" will be added to the list.</p>
+<p><a href="Images/luis-select-ency-entity.png" target="_blank"><img src="Images/luis-select-ency-entity.png" alt="Adding the encyclopedia entity" style="max-width:100%;"></a></p>
+<p><em>Adding the encyclopedia entity</em></p>
+</li>
+<li>
+<p>Click <strong>+</strong> to the right of "Phrase List Features" to add a new phrase list.</p>
+<p><a href="Images/luis-click-new-phraselist-01.png" target="_blank"><img src="Images/luis-click-new-phraselist-01.png" alt="Adding a phrase list" style="max-width:100%;"></a></p>
+<p><em>Adding a phrase list</em></p>
+</li>
+<li>
+<p>Type "NewsCategory" (without quotation marks) for the feature name. Enter the comma-delimited list below, and then click the <strong>Save</strong> button.</p>
+<pre><code>Business,Entertainment,Health,Politics,ScienceAndTechnology,Sports,US,World 
+</code></pre>
+<p><a href="Images/luis-save-phraselist-info.png" target="_blank"><img src="Images/luis-save-phraselist-info.png" alt="Saving the phrase list" style="max-width:100%;"></a></p>
+<p><em>Saving the phrase list</em></p>
+</li>
+<li>
+<p>Now that you have added an encyclopedia entity and phrase list, it is time to create a couple more intents to help LUIS understand whether a user wants to search news by using an encyclopedia entity such as "Super Bowl" or "World War," or using a more general category such as "Health" or "Politics." Begin by clicking <strong>SearchNews</strong> in the list of intents.</p>
+<p><a href="Images/luis-select-searchnews.png" target="_blank"><img src="Images/luis-select-searchnews.png" alt="Opening the SearchNews intent" style="max-width:100%;"></a></p>
+<p><em>Opening the SearchNews intent</em></p>
+</li>
+<li>
+<p>Click <strong>+ Add Action</strong>. Then click <strong>+ Add Parameter</strong>. Enter "Encyclopedia" as the parameter name and select <strong>encyclopedia</strong> in the drop-down list labeled "Type." Then click the <strong>Save</strong> button.</p>
+<p><a href="Images/luis-save-updated-intent-2.png" target="_blank"><img src="Images/luis-save-updated-intent-2.png" alt="Adding an action" style="max-width:100%;"></a></p>
+<p><em>Adding an action</em></p>
+</li>
+<li>
+<p>Click <strong>+</strong> to the right of "Intents" to add an intent.</p>
+<p><a href="Images/luis-click-new-intent-02.png" target="_blank"><img src="Images/luis-click-new-intent-02.png" alt="Adding another intent" style="max-width:100%;"></a></p>
+<p><em>Adding another intent</em></p>
+</li>
+<li>
+<p>Enter "SearchNewsByCategory" for the intent name and "Find Super Bowl news" as an example of a command that triggers the intent. Then click <strong>+ Add Action</strong>, followed by <strong>+ Add Parameter</strong>. Under "Action Parameters," check the <strong>Required</strong> box, enter "NewsCategory" as the parameter name, select <strong>NewsCategory</strong> for both <strong>Type</strong> and <strong>Value</strong>, and enter "Please specify a category" for the prompt. Then click the <strong>Save</strong> button.</p>
+<p><a href="Images/luis-save-intent-info-02.png" target="_blank"><img src="Images/luis-save-intent-info-02.png" alt="Saving the intent" style="max-width:100%;"></a></p>
+<p><em>Saving the intent</em></p>
+</li>
+<li>
+<p>Notice that the phrase "find super bowl news" is now displayed, with the term "super bowl" highlighted and "SearchNewsByCategory" selected as the intent. LUIS was smart enough to understand the term "super bowl" as an encyclopedia entry. Click the <strong>Submit</strong> button to add this entry to your model.</p>
+<p><a href="Images/luis-submit-new-utterance-02.png" target="_blank"><img src="Images/luis-submit-new-utterance-02.png" alt="Saving the utterance" style="max-width:100%;"></a></p>
+<p><em>Saving the utterance</em></p>
+</li>
+<li>
+<p>Type "Get Health news" into the new utterances box and click the <strong>arrow</strong>.</p>
+<p><a href="Images/luis-search-utterance-02.png" target="_blank"><img src="Images/luis-search-utterance-02.png" alt="Adding an utterance" style="max-width:100%;"></a></p>
+<p><em>Adding an utterance</em></p>
+</li>
+<li>
+<p>Select <strong>SearchNewsByCategory</strong> from the drop-down list of intents. Click the word "health" and select <strong>NewsCategory</strong> to connect the two. Then click the <strong>Submit</strong> button.</p>
+<p><a href="Images/luis-submit-new-utterance-03.png" target="_blank"><img src="Images/luis-submit-new-utterance-03.png" alt="Saving the utterance" style="max-width:100%;"></a></p>
+<p><em>Saving the utterance</em></p>
+</li>
+<li>
+<p>Click <strong>Train</strong> in the lower-left corner of the page to train the model.</p>
+</li>
+</ol>
+<p>Your LUIS model has now been enhanced with a pre-built entity and a phrase list, and can understand most typical phrases relating to finding news based on various terms. Let's see how LUIS interprets this information and publish the model to make it available for use.</p>
+<p><a name="Exercise4"></a></p>
+<h2>Exercise 4: Publish the model to an HTTP endpoint</h2>
+<p>In this exercise, you will publish the model to an HTTP endpoint so it can be accessed by applications that wish to incorporate language understanding. Before proceeding, be certain that you trained the model in the last step in the previous exercise. If you did not train it, train it now.</p>
+<ol>
+<li>
+<p>Click <strong>Publish</strong>.</p>
+<p><a href="Images/luis-click-publish.png" target="_blank"><img src="Images/luis-click-publish.png" alt="Publishing the model" style="max-width:100%;"></a></p>
+<p><em>Publishing the model</em></p>
+</li>
+<li>
+<p>Click the <strong>Publish web service</strong> button.</p>
+<p><a href="Images/luis-click-publish-to-endpoint.png" target="_blank"><img src="Images/luis-click-publish-to-endpoint.png" alt="Publishing to an HTTP endpoint" style="max-width:100%;"></a></p>
+<p><em>Publishing to an HTTP endpoint</em></p>
+</li>
+<li>
+<p>After a short delay, the dialog will expand and show an interface for entering queries, calling the HTTP endpoint, and viewing query results. Type "Find Super Bowl news" into the "Query" box and then click the link below to test the query.</p>
+<p><a href="Images/luis-test-query.png" target="_blank"><img src="Images/luis-test-query.png" alt="Testing the query" style="max-width:100%;"></a></p>
+<p><em>Testing the query</em></p>
+</li>
+<li>
+<p>This calls the HTTP endpoint and displays the JSON data that is returned. Observe that LUIS identified "super bowl" as the entity and determined that "SearchNewsByCategory" was the most likely intent:</p>
+<div class="highlight highlight-source-json"><pre>{
+  <span class="pl-s"><span class="pl-pds">"</span>query<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Find Super Bowl news<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>topScoringIntent<span class="pl-pds">"</span></span>: {
+    <span class="pl-s"><span class="pl-pds">"</span>intent<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>SearchNewsByCategory<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>score<span class="pl-pds">"</span></span>: <span class="pl-c1">0.414106578</span>,
+    <span class="pl-s"><span class="pl-pds">"</span>actions<span class="pl-pds">"</span></span>: [
+      {
+        <span class="pl-s"><span class="pl-pds">"</span>triggered<span class="pl-pds">"</span></span>: <span class="pl-c1">false</span>,
+        <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>SearchNewsByCategory<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>parameters<span class="pl-pds">"</span></span>: [
+          {
+            <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>NewsCategory<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>NewsCategory<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>required<span class="pl-pds">"</span></span>: <span class="pl-c1">true</span>,
+            <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>: <span class="pl-c1">null</span>
+          }
+        ]
+      }
+    ]
+  },
+  <span class="pl-s"><span class="pl-pds">"</span>intents<span class="pl-pds">"</span></span>: [
+    {
+      <span class="pl-s"><span class="pl-pds">"</span>intent<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>SearchNewsByCategory<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>score<span class="pl-pds">"</span></span>: <span class="pl-c1">0.414106578</span>,
+      <span class="pl-s"><span class="pl-pds">"</span>actions<span class="pl-pds">"</span></span>: [
+        {
+          <span class="pl-s"><span class="pl-pds">"</span>triggered<span class="pl-pds">"</span></span>: <span class="pl-c1">false</span>,
+          <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>SearchNewsByCategory<span class="pl-pds">"</span></span>,
+          <span class="pl-s"><span class="pl-pds">"</span>parameters<span class="pl-pds">"</span></span>: [
+            {
+              <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>NewsCategory<span class="pl-pds">"</span></span>,
+              <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>NewsCategory<span class="pl-pds">"</span></span>,
+              <span class="pl-s"><span class="pl-pds">"</span>required<span class="pl-pds">"</span></span>: <span class="pl-c1">true</span>,
+              <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>: <span class="pl-c1">null</span>
+            }
+          ]
+        }
+      ]
+    },
+    {
+      <span class="pl-s"><span class="pl-pds">"</span>intent<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>SearchNews<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>score<span class="pl-pds">"</span></span>: <span class="pl-c1">0.131110832</span>,
+      <span class="pl-s"><span class="pl-pds">"</span>actions<span class="pl-pds">"</span></span>: [
+        {
+          <span class="pl-s"><span class="pl-pds">"</span>triggered<span class="pl-pds">"</span></span>: <span class="pl-c1">true</span>,
+          <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>SearchNews<span class="pl-pds">"</span></span>,
+          <span class="pl-s"><span class="pl-pds">"</span>parameters<span class="pl-pds">"</span></span>: [
+            {
+              <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Encyclopedia<span class="pl-pds">"</span></span>,
+              <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>encyclopedia<span class="pl-pds">"</span></span>,
+              <span class="pl-s"><span class="pl-pds">"</span>required<span class="pl-pds">"</span></span>: <span class="pl-c1">false</span>,
+              <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>: <span class="pl-c1">null</span>
+            }
+          ]
+        }
+      ]
+    },
+    {
+      <span class="pl-s"><span class="pl-pds">"</span>intent<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>score<span class="pl-pds">"</span></span>: <span class="pl-c1">0.04309769</span>
+    }
+  ],
+  <span class="pl-s"><span class="pl-pds">"</span>entities<span class="pl-pds">"</span></span>: [
+    {
+      <span class="pl-s"><span class="pl-pds">"</span>entity<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>super bowl<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>builtin.encyclopedia.time.event<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>startIndex<span class="pl-pds">"</span></span>: <span class="pl-c1">5</span>,
+      <span class="pl-s"><span class="pl-pds">"</span>endIndex<span class="pl-pds">"</span></span>: <span class="pl-c1">14</span>,
+      <span class="pl-s"><span class="pl-pds">"</span>score<span class="pl-pds">"</span></span>: <span class="pl-c1">0.9727775</span>
+    }
+  ],
+  <span class="pl-s"><span class="pl-pds">"</span>dialog<span class="pl-pds">"</span></span>: {
+    <span class="pl-s"><span class="pl-pds">"</span>prompt<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Please specify a category<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>parameterName<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>NewsCategory<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>parameterType<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>NewsCategory<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>contextId<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>dc4c0b11-95b1-463f-8251-2b7e59253ee9<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>status<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Question<span class="pl-pds">"</span></span>
+  }
+}</pre></div>
+</li>
+<li>
+<p>Click the <strong>X</strong> in the upper-right corner of the dialog to close the dialog.</p>
+</li>
+</ol>
+<p>Now that the model is available over HTTP, you can call it from an application and incorporate the model's intelligence in the application.</p>
+<p><a name="Exercise5"></a></p>
+<h2>Exercise 5: Create a bot and connect it to the model</h2>
+<p>In this exercise, you will use the Microsoft Bot Framework to build a bot and connect it to the LUIS model you built and deployed so the bot can respond to commands such as "Find health news." You will use Visual Studio Code to write the bot. If you haven't installed Visual Studio Code, <a href="http://code.visualstudio.com">please do so</a> before continuing with this exercise. It's free, and it runs on Windows, Linux, and macOS.</p>
+<ol>
+<li>
+<p>Start Visual Studio Code and select <strong>Integrated Terminal</strong> from the <strong>View</strong> menu. A TERMINAL window will appear at the bottom of the workspace.</p>
+<p><a href="Images/vs-select-open-terminal.png" target="_blank"><img src="Images/vs-select-open-terminal.png" alt="Opening an Integrated Terminal" style="max-width:100%;"></a></p>
+<p><em>Opening an Integrated Terminal</em></p>
+</li>
+<li>
+<p>In the TERMINAL window, execute the following commands to create a folder named "Newsy" and make it the current directory:</p>
+<pre><code>md Newsy
+cd Newsy
+</code></pre>
+<p><a href="Images/vs-newsy.png" target="_blank"><img src="Images/vs-newsy.png" alt="Creating a &quot;Newsy&quot; folder" style="max-width:100%;"></a></p>
+<p><em>Creating a "Newsy" folder</em></p>
+</li>
+<li>
+<p>Execute the following command in the TERMINAL window to launch a new instance of Visual Studio Code from the Newsy directory. You can then close the old instance of Visual Studio Code.</p>
+<pre><code>code .
+</code></pre>
+</li>
+<li>
+<p>In the new instance of Visual Studio Code, click the <strong>New File</strong> icon to create a new file in the "Newsy" folder, and name the file <strong>app.js</strong>.</p>
+<p><a href="Images/vs-click-add-new-file.png" target="_blank"><img src="Images/vs-click-add-new-file.png" alt="Adding a file to the project" style="max-width:100%;"></a></p>
+<p><em>Adding a file to the project</em></p>
+</li>
+<li>
+<p>Enter the following line of JavaScript code into <strong>app.js</strong>. Then save the file.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Welcome to Newsy!<span class="pl-pds">"</span></span>);</pre></div>
+</li>
+<li>
+<p>Select <strong>Integrated Terminal</strong> from the <strong>View</strong> menu again to open an integrated terminal.</p>
+</li>
+<li>
+<p>In the TERMINAL window, execute the following command to install the Microsoft Bot Builder SDK:</p>
+<pre><code>npm install --save botbuilder
+</code></pre>
+</li>
+<li>
+<p>Now execute this command to install the packages needed to leverage REST-based messaging routes in your code:</p>
+<pre><code>npm install --save restify
+</code></pre>
+</li>
+<li>
+<p>Execute the following command to run the application. Confirm that "Welcome to Newsy!" appears in the TERMINAL window:</p>
+<pre><code>node app.js
+</code></pre>
+</li>
+<li>
+<p>Click the <strong>Debug</strong> button in the ribbon on the left. Then click the <strong>green arrow</strong> at top and select <strong>Node.js</strong> from the drop-down list. This adds a new configuration file named <strong>launch.json</strong> to your project. When a message appears asking you to set up the launch configuration file for this project, click the <strong>Close</strong> button.</p>
+<p><a href="Images/vs-creating-launch-file.png" target="_blank"><img src="Images/vs-creating-launch-file.png" alt="Adding a launch file to the project" style="max-width:100%;"></a></p>
+<p><em>Adding a launch file to the project</em></p>
+</li>
+<li>
+<p>Add the following line to <strong>launch.json</strong>, inserting it between the "program" property and the "cwd" property as shown below. Then save the file.</p>
+<div class="highlight highlight-source-json"><pre><span class="pl-s"><span class="pl-pds">"</span>console<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>integratedTerminal<span class="pl-pds">"</span></span>,</pre></div>
+<p><a href="Images/vs-edit-launch.png" target="_blank"><img src="Images/vs-edit-launch.png" alt="Configuring the integrated terminal as the debugging console" style="max-width:100%;"></a></p>
+<p><em>Configuring the integrated terminal as the debugging console</em></p>
+</li>
+<li>
+<p>Return to <strong>app.js</strong> and replace the contents of the file with the following code:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> builder <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>botbuilder<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> https <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>https<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> querystring <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>querystring<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> connector <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">builder.ConsoleConnector</span>().<span class="pl-en">listen</span>();
+<span class="pl-k">var</span> bot <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">builder.UniversalBot</span>(connector);
+
+<span class="pl-k">var</span> luisAppId <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>LUIS_APP_ID<span class="pl-pds">"</span></span>;
+<span class="pl-k">var</span> luisSubscriptionKey <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>LUIS_SUBSCRIPTION_ID<span class="pl-pds">"</span></span>;
+
+<span class="pl-smi">bot</span>.<span class="pl-en">dialog</span>(<span class="pl-s"><span class="pl-pds">'</span>/<span class="pl-pds">'</span></span>, [
+    <span class="pl-k">function</span> (<span class="pl-smi">session</span>) {
+        <span class="pl-k">if</span> (<span class="pl-smi">session</span>.<span class="pl-smi">userData</span>.<span class="pl-smi">intent</span> <span class="pl-k">==</span> <span class="pl-c1">null</span>) {
+            <span class="pl-smi">builder</span>.<span class="pl-smi">Prompts</span>.<span class="pl-c1">text</span>(session, <span class="pl-s"><span class="pl-pds">"</span>Welcome to Newsy! Try typing something like 'Find health news'.<span class="pl-pds">"</span></span>);
+        }
+        <span class="pl-k">else</span> {
+            <span class="pl-smi">builder</span>.<span class="pl-smi">Prompts</span>.<span class="pl-c1">text</span>(session, <span class="pl-s"><span class="pl-pds">"</span>Try typing something like 'Find health news'.<span class="pl-pds">"</span></span>);
+        }
+    },
+    <span class="pl-k">function</span> (<span class="pl-smi">session</span>, <span class="pl-smi">results</span>) {
+        <span class="pl-smi">session</span>.<span class="pl-smi">userData</span>.<span class="pl-smi">searchQuery</span> <span class="pl-k">=</span> <span class="pl-smi">results</span>.<span class="pl-smi">response</span>;
+        <span class="pl-k">var</span> searchQuery <span class="pl-k">=</span> <span class="pl-smi">querystring</span>.<span class="pl-en">escape</span>(<span class="pl-smi">session</span>.<span class="pl-smi">userData</span>.<span class="pl-smi">searchQuery</span>);
+        <span class="pl-k">var</span> searchQueryString <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>;
+
+        <span class="pl-en">processLuisResults</span>(session, searchQuery, searchQueryString);
+    }
+]);
+
+<span class="pl-k">var</span> processLuisResults <span class="pl-k">=</span> (<span class="pl-k">function</span> (<span class="pl-smi">session</span>, <span class="pl-smi">searchQuery</span>, <span class="pl-smi">searchQueryString</span>) {
+    <span class="pl-c"><span class="pl-c">//</span>CALL LUIS APPLICATION</span>
+    <span class="pl-k">var</span> optionsLuisGet <span class="pl-k">=</span> {
+        host<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>api.projectoxford.ai<span class="pl-pds">'</span></span>,
+        port<span class="pl-k">:</span> <span class="pl-c1">443</span>,
+        path<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>/luis/v2.0/apps/<span class="pl-pds">'</span></span> <span class="pl-k">+</span> luisAppId <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>?subscription-key=<span class="pl-pds">'</span></span> <span class="pl-k">+</span> luisSubscriptionKey <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>&amp;q=<span class="pl-pds">'</span></span> <span class="pl-k">+</span> searchQuery <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>&amp;verbose=true<span class="pl-pds">'</span></span>,
+        method<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>GET<span class="pl-pds">'</span></span>
+    };
+
+    <span class="pl-k">var</span> reqGet <span class="pl-k">=</span> <span class="pl-smi">https</span>.<span class="pl-en">request</span>(optionsLuisGet, <span class="pl-k">function</span> (<span class="pl-smi">res</span>) {
+        <span class="pl-smi">res</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>data<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">luisResults</span>) {
+
+            <span class="pl-k">var</span> luisResult <span class="pl-k">=</span> <span class="pl-c1">JSON</span>.<span class="pl-c1">parse</span>(<span class="pl-smi">luisResults</span>.<span class="pl-c1">toString</span>());
+            <span class="pl-smi">session</span>.<span class="pl-smi">userData</span>.<span class="pl-smi">intent</span> <span class="pl-k">=</span> <span class="pl-smi">luisResult</span>.<span class="pl-smi">intents</span>[<span class="pl-c1">0</span>].<span class="pl-smi">intent</span>.<span class="pl-c1">toString</span>();
+
+            <span class="pl-k">if</span> (<span class="pl-smi">luisResult</span>.<span class="pl-smi">topScoringIntent</span>.<span class="pl-smi">intent</span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span>) {
+                <span class="pl-smi">session</span>.<span class="pl-c1">send</span>(<span class="pl-s"><span class="pl-pds">"</span>I'm not quite sure what you mean by '<span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-smi">session</span>.<span class="pl-smi">userData</span>.<span class="pl-smi">searchQuery</span>.<span class="pl-c1">toUpperCase</span>() <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>'<span class="pl-pds">"</span></span>);
+            }
+            <span class="pl-k">else</span> {
+
+                <span class="pl-k">if</span> (<span class="pl-smi">luisResult</span>.<span class="pl-smi">topScoringIntent</span>.<span class="pl-smi">actions</span>[<span class="pl-c1">0</span>].<span class="pl-smi">parameters</span>[<span class="pl-c1">0</span>].<span class="pl-c1">value</span> <span class="pl-k">!=</span> <span class="pl-c1">null</span>) {
+                    <span class="pl-smi">session</span>.<span class="pl-smi">userData</span>.<span class="pl-smi">entity</span><span class="pl-k">=</span><span class="pl-smi">luisResult</span>.<span class="pl-smi">topScoringIntent</span>.<span class="pl-smi">actions</span>[<span class="pl-c1">0</span>].<span class="pl-smi">parameters</span>[<span class="pl-c1">0</span>].<span class="pl-c1">value</span>[<span class="pl-c1">0</span>].<span class="pl-smi">entity</span>;
+                }
+                <span class="pl-k">else</span> {
+                    <span class="pl-smi">session</span>.<span class="pl-smi">userData</span>.<span class="pl-smi">entity</span> <span class="pl-k">=</span> <span class="pl-smi">luisResult</span>.<span class="pl-c1">entities</span>[<span class="pl-c1">0</span>].<span class="pl-smi">entity</span>.<span class="pl-c1">toString</span>()
+                }               
+
+                <span class="pl-k">switch</span> (<span class="pl-smi">session</span>.<span class="pl-smi">userData</span>.<span class="pl-smi">intent</span>) {
+                    <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">"</span>FindNews<span class="pl-pds">"</span></span>:
+                        searchQueryString <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>searchQuery=<span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-smi">querystring</span>.<span class="pl-en">escape</span>(<span class="pl-smi">session</span>.<span class="pl-smi">userData</span>.<span class="pl-smi">entity</span>);
+                        <span class="pl-k">break</span>;
+                    <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">"</span>FindNewsByCategory<span class="pl-pds">"</span></span>:
+                        searchQueryString <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>category=<span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-smi">querystring</span>.<span class="pl-en">escape</span>(<span class="pl-smi">session</span>.<span class="pl-smi">userData</span>.<span class="pl-smi">entity</span>);
+                        <span class="pl-k">break</span>;
+                    <span class="pl-k">default</span>:
+                        searchQueryString <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>searchQuery=<span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-smi">querystring</span>.<span class="pl-en">escape</span>(<span class="pl-smi">session</span>.<span class="pl-smi">userData</span>.<span class="pl-smi">entity</span>);
+                        <span class="pl-k">break</span>;
+                }
+
+                <span class="pl-smi">session</span>.<span class="pl-c1">send</span>(<span class="pl-s"><span class="pl-pds">"</span>Here's some news about <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-smi">session</span>.<span class="pl-smi">userData</span>.<span class="pl-smi">entity</span>.<span class="pl-c1">toUpperCase</span>() <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> for you:<span class="pl-pds">"</span></span>);
+
+                <span class="pl-c"><span class="pl-c">//</span>SEND DERIVED LUIS INTENT OVER TO BING SEARCH</span>
+                <span class="pl-en">showNewsResults</span>(session, searchQueryString);
+            }
+        });
+    });
+
+    <span class="pl-smi">reqGet</span>.<span class="pl-en">end</span>();
+    <span class="pl-smi">reqGet</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">e</span>) {
+        <span class="pl-smi">session</span>.<span class="pl-c1">send</span>(<span class="pl-smi">e</span>.<span class="pl-c1">toString</span>());
+    });
+    <span class="pl-c"><span class="pl-c">//</span>END CALL LUIS APPLICATION</span>
+});
+
+<span class="pl-k">var</span> showNewsResults <span class="pl-k">=</span> (<span class="pl-k">function</span> (<span class="pl-smi">session</span>, <span class="pl-smi">searchQueryString</span>) {
+    <span class="pl-c"><span class="pl-c">//</span>CALL BING NEWS SEARCH</span>
+    <span class="pl-k">var</span> optionsSearch <span class="pl-k">=</span> {
+        host<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>traininglabservices.azurewebsites.net<span class="pl-pds">'</span></span>,
+        port<span class="pl-k">:</span> <span class="pl-c1">443</span>,
+        path<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>/api/News?<span class="pl-pds">'</span></span> <span class="pl-k">+</span> searchQueryString,
+        method<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>GET<span class="pl-pds">'</span></span>
+    };
+
+    <span class="pl-k">var</span> reqGet <span class="pl-k">=</span> <span class="pl-smi">https</span>.<span class="pl-en">request</span>(optionsSearch, <span class="pl-k">function</span> (<span class="pl-smi">res</span>) {
+        <span class="pl-smi">res</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>data<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">newsResults</span>) {
+
+            <span class="pl-k">var</span> newsResult <span class="pl-k">=</span> <span class="pl-c1">JSON</span>.<span class="pl-c1">parse</span>(<span class="pl-smi">newsResults</span>.<span class="pl-c1">toString</span>());
+
+            <span class="pl-k">for</span> (<span class="pl-k">var</span> result <span class="pl-k">in</span> newsResult) {
+                val <span class="pl-k">=</span> newsResult[result];
+                <span class="pl-k">var</span> title <span class="pl-k">=</span> <span class="pl-smi">val</span>.<span class="pl-smi">Title</span>;
+                <span class="pl-k">var</span> description <span class="pl-k">=</span> <span class="pl-smi">val</span>.<span class="pl-smi">Description</span>;
+
+                <span class="pl-smi">session</span>.<span class="pl-c1">send</span>(title <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\r\n</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> description);
+            }
+        });
+    });
+
+    <span class="pl-smi">reqGet</span>.<span class="pl-en">end</span>();
+    <span class="pl-smi">reqGet</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">e</span>) {
+        <span class="pl-smi">session</span>.<span class="pl-c1">send</span>(<span class="pl-smi">e</span>.<span class="pl-c1">toString</span>());
+    });
+    <span class="pl-c"><span class="pl-c">//</span>END BING NEWS SEARCH   </span>
+});</pre></div>
+<blockquote>
+<p>Take a moment to review the code and observe how it uses the Microsoft Bot Framework Bot Builder to prompt the user, and how it places calls to the HTTP endpoint created in Exercise 4 to access your LUIS model.</p>
+</blockquote>
+</li>
+<li>
+<p>Before you can test the bot, you need to update your code with the app ID and subcription ID of your LUIS model. These values can be retrieved from LUIS portal. <a href="https://www.luis.ai/">Return to the portal</a> in your browser and open the Newsy application you created in <a href="#Exercise1">Exercise 1</a> if it isn't already open.</p>
+</li>
+<li>
+<p>Click <strong>App Settings</strong>.</p>
+<p><a href="Images/luis-click-app-settings.png" target="_blank"><img src="Images/luis-click-app-settings.png" alt="Opening App Settings" style="max-width:100%;"></a></p>
+<p><em>Opening App Settings</em></p>
+</li>
+<li>
+<p>Copy the app ID to clipboard. Then click the <strong>X</strong> in the upper-right corner to close the dialog.</p>
+<p><a href="Images/luis-select-app-id.png" target="_blank"><img src="Images/luis-select-app-id.png" alt="Copying the app ID" style="max-width:100%;"></a></p>
+<p><em>Copying the app ID</em></p>
+</li>
+<li>
+<p>Return to <strong>app.js</strong> in Visual Studio Code and replace <em>LUIS_APP_ID</em> on line 8 with the app ID that is on the clipboard.</p>
+</li>
+<li>
+<p>Return to the LUIS portal and click your name to the right of the gear icon.</p>
+<p><a href="Images/luis-click-settings.png" target="_blank"><img src="Images/luis-click-settings.png" alt="Accessing LUIS account settings" style="max-width:100%;"></a></p>
+<p><em>Accessing LUIS account settings</em></p>
+</li>
+<li>
+<p>Click <strong>Subscription Keys</strong>. Then copy the programmatic API Key to the clipboard. This is your  LUIS subscription ID.</p>
+<p><a href="Images/luis-subscription-settings.png" target="_blank"><img src="Images/luis-subscription-settings.png" alt="Copying the subscription Id" style="max-width:100%;"></a></p>
+<p><em>Copying the subscription Id</em></p>
+</li>
+<li>
+<p>Return to <strong>app.js</strong> in Visual Studio Code and replace <em>LUIS_SUBSCRIPTION_ID</em> on line 9 with the app ID that is on the clipboard. Then save the file.</p>
+</li>
+</ol>
+<p>That's it! Your bot is now built, connected to LUIS, and ready to test.</p>
+<p><a name="Exercise6"></a></p>
+<h2>Exercise 6: Test the bot</h2>
+<p>The motivation for creating a bot is to have it carry on conversations with users. LUIS makes those conversations feel much more natural. In this exercise, you will run the bot you implemented in the previous exercise and see Language Understanding Intelligent Service at work.</p>
+<ol>
+<li>
+<p>In Visual Studio Code's TERMINAL window, execute the following command to start the bot:</p>
+<pre><code>node app.js
+</code></pre>
+</li>
+<li>
+<p>Type "Hello" to "wake up" the bot. Then press <strong>Enter</strong> and wait for the bot to respond.</p>
+<p><a href="Images/vs-starting-convo.png" target="_blank"><img src="Images/vs-starting-convo.png" alt="Waking up the bot" style="max-width:100%;"></a></p>
+<p><em>Waking up the bot</em></p>
+</li>
+<li>
+<p>Type "find soccer news" and press <strong>Enter</strong>. Wait for the bot to respond. After a brief pause while the bot calls out to your LUIS model, up to five relevant news articles will appear.</p>
+<p><a href="Images/vs-start-search.png" target="_blank"><img src="Images/vs-start-search.png" alt="Communicating with the bot" style="max-width:100%;"></a></p>
+<p><em>Communicating with the bot</em></p>
+</li>
+<li>
+<p>Type "Hello" again and press <strong>Enter</strong>. Then type "find some great news about Microsoft" and press <strong>Enter</strong> again. What does the bot return this time?</p>
+</li>
+</ol>
+<p>Feel free to try other commands such as "get the latest political news" and continue to converse with the bot. It understands a relatively narrow range of commands, but for those commands that it does understand, it almost seems to know what you're saying. Of course, you could expand the bot's vocabulary by adding to the LUIS model that you built. The only limit is how much time you're willing to spend refining and enhancing the model.</p>
+<p><a name="Summary"></a></p>
+<h2>Summary</h2>
+<p>In this hands-on lab you learned how to:</p>
+<ul>
+<li>Create a LUIS application</li>
+<li>Define intents and entities</li>
+<li>Use pre-built entities and phrase lists</li>
+<li>Train a LUIS model and publish it to an HTTP endpoint</li>
+<li>Create a bot that uses a LUIS model</li>
+</ul>
+<p>There is much more that you can do to leverage the power of the Microsoft Language Understanding Intelligent Services in your code. For starters, try experimenting with other LUIS features such as <a href="https://docs.botframework.com/en-us/node/builder/chat/IntentDialog/#navtitle">intent dialogs</a> and adding more pre-built entities to your model. For additional background on LUIS and examples of how to use it, refer to <a href="https://docs.botframework.com/en-us/node/builder/guides/understanding-natural-language/">https://docs.botframework.com/en-us/node/builder/guides/understanding-natural-language/</a>.</p>
+<hr>
+<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
