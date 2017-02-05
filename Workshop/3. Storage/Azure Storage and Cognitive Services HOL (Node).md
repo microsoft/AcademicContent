@@ -31,7 +31,7 @@ The following are required to complete this hands-on lab:
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - [Microsoft Azure Storage Explorer](http://storageexplorer.com/)
 - [Visual Studio Code](https://code.visualstudio.com/download)
-- [Git](https://git-scm.com/downloads) version 2.0 or higher
+- [Git](https://git-scm.com/downloads) version 2.0 or higher. See https://git-scm.com/book/en/v2/Getting-Started-Installing-Git for instructions for installing it on Windows, macOS, and Linux.
 - [Node.js](https://nodejs.org/en/download/) version 4 or higher
 
 ---
@@ -181,13 +181,11 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
 	Windows:
 	<pre>
-	set AZURE_VISION_API_KEY=<i>vision_api_key</i>
-	</pre>
+	set AZURE_VISION_API_KEY=<i>vision_api_key</i></pre>
 
 	Mac:
 	<pre>
-	export AZURE_VISION_API_KEY=<i>vision_api_key</i>
-	</pre>
+	export AZURE_VISION_API_KEY=<i>vision_api_key</i></pre>
 	
 	> Storing sensitive values such as API keys in environment variables prevents you from having to embed them in your code, where a determined intruder could find them and use them. When you deploy the app to the cloud, these values will be stored in Azure and never exposed to the end user or transmitted over the wire.
 
@@ -195,13 +193,11 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
 	Windows:
 	<pre>
-	set AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i>
-	</pre>
+	set AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i></pre>
 	
 	Mac:
 	<pre>
-	export AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i>
-	</pre>
+	export AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i></pre>
 
 1. Return to the Azure Portal for a moment and open the blade for the storage account you created in Exercise 1. Then click **Access keys** to view the storage account's access keys. 
 
@@ -219,19 +215,16 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 	
 	Windows:
 	<pre>
-	set AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i>
-	</pre>
+	set AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i></pre>
 	
 	Mac:
 	<pre>
-	export AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i>
-	</pre>
+	export AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i></pre>
 
 1. In the Command Prompt window, navigate to the Intellipix directory you created in Step 1 and execute the following command (note the space and the period at the end of the command) to start Visual Studio Code in that directory:
 
 	<pre>
-	code .
-	</pre>
+	code .</pre>
 
 1. In Visual Studio Code, click the **Git** button in the ribbon on the left.
 
@@ -248,14 +241,12 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 1. Return to the Command Prompt window and make sure you're still in the "Intellipix" directory that you created for the project (the directory that was just placed under source control). Then execute the following command to initialize the project. When prompted for an author name, enter your name.
 
 	<pre>
-	npm init -y
-	</pre> 
+	npm init -y</pre> 
 
 1. Now execute the following command to install the NPM packages that the app will use:
 
 	<pre>
-    npm install -save azure-storage express multer request streamifier
-	</pre> 
+    npm install -save azure-storage express multer request streamifier</pre> 
 
 	> [azure-storage](https://www.npmjs.com/package/azure-storage) is Microsoft's Azure Storage Client Library for Node.js. It provides convenient JavaScript APIs for accessing blob storage, table storage, and more.
 
@@ -283,8 +274,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
     <pre>
 	.vscode/
-	node_modules/
-	</pre>
+	node_modules/</pre>
 
 1. Add a file named **server.js** to the project and insert the following statements:
 
@@ -748,8 +738,7 @@ In this exercise, you will run the app locally in order to test it and familiari
 1. Return to the Command Prompt window and, once more, make sure you're in the "Intellipix" directory that you created for the project. Then execute the following command to start **server.js**:
 
 	<pre>
-	node server.js
-	</pre>
+	node server.js</pre>
 
 1. Open your browser and navigate to [http://localhost:9898](http://localhost:9898).
 
@@ -820,7 +809,7 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
 
-1. Click **+ New**, followed by **Web + mobile** and **Web App**.
+1. Click **+ New**, followed by **Web + Mobile** and **Web App**.
 
     ![Creating a new Azure Web App](Images/node-new-web-app.png)
 
@@ -923,14 +912,12 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 1. Return to the Command Prompt window (or open a new one if you closed the last one) and execute the following command to add "azure" as a remote name. Substitute the Git URL on the clipboard for *git_url*.
 
 	<pre>
-	git remote add azure <i>git_url</i>
-	</pre>
+	git remote add azure <i>git_url</i></pre>
 
 1. Now use the following command to deploy Intellipix from your local Git repository to Azure. When prompted to enter Git credentials, type the user name and password you specified in Step 17 of this exercise.
 
 	<pre>
-	git push azure master
-	</pre>
+	git push azure master</pre>
 
 1. After a few moments, you should be greeted with a successful deployment.
 

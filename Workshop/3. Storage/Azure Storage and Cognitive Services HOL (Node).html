@@ -493,7 +493,7 @@ vertical-align:1px;
 <li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
 <li><a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a></li>
 <li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
-<li><a href="https://git-scm.com/downloads">Git</a> version 2.0 or higher</li>
+<li><a href="https://git-scm.com/downloads">Git</a> version 2.0 or higher. See <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a> for instructions for installing it on Windows, macOS, and Linux.</li>
 <li><a href="https://nodejs.org/en/download/">Node.js</a> version 4 or higher</li>
 </ul>
 <hr>
@@ -631,11 +631,9 @@ vertical-align:1px;
 <li>
 <p>In the Command Prompt window, execute the following command, substituting the Computer Vision API key you copied to the clipboard in the previous exercise for <em>vision_api_key</em>:</p>
 <p>Windows:</p>
- <pre> set AZURE_VISION_API_KEY=<i>vision_api_key</i>
- </pre>
+ <pre> set AZURE_VISION_API_KEY=<i>vision_api_key</i></pre>
 <p>Mac:</p>
- <pre> export AZURE_VISION_API_KEY=<i>vision_api_key</i>
- </pre>
+ <pre> export AZURE_VISION_API_KEY=<i>vision_api_key</i></pre>
 <blockquote>
 <p>Storing sensitive values such as API keys in environment variables prevents you from having to embed them in your code, where a determined intruder could find them and use them. When you deploy the app to the cloud, these values will be stored in Azure and never exposed to the end user or transmitted over the wire.</p>
 </blockquote>
@@ -643,11 +641,9 @@ vertical-align:1px;
 <li>
 <p>Next, execute the following command, substituting the name of the storage account you created in Exercise 1 for <em>storage_account_name</em>:</p>
 <p>Windows:</p>
- <pre> set AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i>
- </pre>
+ <pre> set AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i></pre>
 <p>Mac:</p>
- <pre> export AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i>
- </pre>
+ <pre> export AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i></pre>
 </li>
 <li>
 <p>Return to the Azure Portal for a moment and open the blade for the storage account you created in Exercise 1. Then click <strong>Access keys</strong> to view the storage account's access keys.</p>
@@ -662,16 +658,13 @@ vertical-align:1px;
 <li>
 <p>Return to the Command Prompt window and type the following command, replacing <em>storage_account_key</em> with the access key on the clipboard:</p>
 <p>Windows:</p>
- <pre> set AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i>
- </pre>
+ <pre> set AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i></pre>
 <p>Mac:</p>
- <pre> export AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i>
- </pre>
+ <pre> export AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i></pre>
 </li>
 <li>
 <p>In the Command Prompt window, navigate to the Intellipix directory you created in Step 1 and execute the following command (note the space and the period at the end of the command) to start Visual Studio Code in that directory:</p>
- <pre> code .
- </pre>
+ <pre> code .</pre>
 </li>
 <li>
 <p>In Visual Studio Code, click the <strong>Git</strong> button in the ribbon on the left.</p>
@@ -685,13 +678,11 @@ vertical-align:1px;
 </li>
 <li>
 <p>Return to the Command Prompt window and make sure you're still in the "Intellipix" directory that you created for the project (the directory that was just placed under source control). Then execute the following command to initialize the project. When prompted for an author name, enter your name.</p>
- <pre> npm init -y
- </pre> 
+ <pre> npm init -y</pre> 
 </li>
 <li>
 <p>Now execute the following command to install the NPM packages that the app will use:</p>
- <pre> npm install -save azure-storage express multer request streamifier
- </pre> 
+ <pre> npm install -save azure-storage express multer request streamifier</pre> 
 <blockquote>
 <p><a href="https://www.npmjs.com/package/azure-storage">azure-storage</a> is Microsoft's Azure Storage Client Library for Node.js. It provides convenient JavaScript APIs for accessing blob storage, table storage, and more.</p>
 </blockquote>
@@ -715,8 +706,7 @@ vertical-align:1px;
 <li>
 <p>Add the following statements to <strong>.gitignore</strong> to exclude the specified directories from source control:</p>
  <pre> .vscode/
- node_modules/
- </pre>
+ node_modules/</pre>
 </li>
 <li>
 <p>Add a file named <strong>server.js</strong> to the project and insert the following statements:</p>
@@ -1174,8 +1164,7 @@ vertical-align:1px;
 <ol>
 <li>
 <p>Return to the Command Prompt window and, once more, make sure you're in the "Intellipix" directory that you created for the project. Then execute the following command to start <strong>server.js</strong>:</p>
- <pre> node server.js
- </pre>
+ <pre> node server.js</pre>
 </li>
 <li>
 <p>Open your browser and navigate to <a href="http://localhost:9898">http://localhost:9898</a>.</p>
@@ -1243,7 +1232,7 @@ vertical-align:1px;
 <p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
 </li>
 <li>
-<p>Click <strong>+ New</strong>, followed by <strong>Web + mobile</strong> and <strong>Web App</strong>.</p>
+<p>Click <strong>+ New</strong>, followed by <strong>Web + Mobile</strong> and <strong>Web App</strong>.</p>
 <p><a href="Images/node-new-web-app.png" target="_blank"><img src="Images/node-new-web-app.png" alt="Creating a new Azure Web App" style="max-width:100%;"></a></p>
 <p><em>Creating a new Azure Web App</em></p>
 </li>
@@ -1331,13 +1320,11 @@ vertical-align:1px;
 </li>
 <li>
 <p>Return to the Command Prompt window (or open a new one if you closed the last one) and execute the following command to add "azure" as a remote name. Substitute the Git URL on the clipboard for <em>git_url</em>.</p>
- <pre> git remote add azure <i>git_url</i>
- </pre>
+ <pre> git remote add azure <i>git_url</i></pre>
 </li>
 <li>
 <p>Now use the following command to deploy Intellipix from your local Git repository to Azure. When prompted to enter Git credentials, type the user name and password you specified in Step 17 of this exercise.</p>
- <pre> git push azure master
- </pre>
+ <pre> git push azure master</pre>
 </li>
 <li>
 <p>After a few moments, you should be greeted with a successful deployment.</p>
