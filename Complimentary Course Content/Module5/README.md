@@ -10,7 +10,7 @@
          <div class="jumbotron">
             <h1>Module 5 - Data Science and Machine Learning</h1>
             <p><b>June 2016 release</b></p>
-            <p>The module introduces the fundamental concepts of data science and machine learning using Spark and Spark Machine Learning library. Thus, at the end of the course, students should know the fundamental concepts of machine learning and be adapt Spark for machine learning and data science to predict the trend and patterns of massive data sets.</p>
+            <p>The module introduces the fundamental concepts of data science and machine learning using Spark and Spark Machine Learning library. Thus, at the end of the course, students should know the fundamental concepts of machine learning and be adapt Spark for machine learning and data science to predict the trend and patterns of massive data sets.[Labs updated Jan 2016]</p>
          </div>
       </div>
       <div class="panel-body">
