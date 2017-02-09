@@ -1,0 +1,22 @@
+﻿Question	Answer	Source
+Hi	Welcome to the QnA Factbot!	
+What NFL team has won the most Super Bowls?	The Pittsburgh Steelers have won 6 Super Bowls out of 8 appearances, making them the team with the most Super Bowl wins.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What movies have one the most Academy Awards?	Ben-Hur (1959), Titanic (1997), The Lord of the Rings: The Return of the King (2003) have all received 11 Academy awards	http://traininglabservices.azurewebsites.net/help/faqs.html
+What's the largest city in the world?	Tokyo-Yokohama, Japan is the largest city in the world, with a population of almost 40 million people.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What's the busiest airport in the world?	Hartsfield-Jackson Atlanta International Airport in Atlanta, Georgia currently serves over 100 million passengers every year.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What's the tallest building in the world?	The Burj Khalifa, or 'Khalifa Tower', is a megatall skyscraper in Dubai, United Arab Emirates boasting a height of 2,722 feet.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What's the fastest sea animal?	The fastest animal in the sea is the black marlin, which has a recorded speed of 80 mph.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What television show has won the most Emmy Awards?	Over the course of 41 seasons, Saturday Night Live has raked in the mostÿEmmys ever, at 44 wins and 199 nominations, in a multitude of categories.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What drama series has won the most Emmy awards ever?	The phenomenal fantasy saga Game of Thrones boasts almost 40 Emmy Awards and over 100 nominations. 	http://traininglabservices.azurewebsites.net/help/faqs.html
+What's the largest carnivore in the world?	The Southern Sea Elephant is the largest carnivorous animal in the world with sizes of up to 11,000 lbs.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What's the top selling music album of all time?	Michael Jackson's Thriller, released in 1982, holds the title for most sales, at a staggering 46 million copies sold to date.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What's the best selling multiplatform game of all time.	Tetris, orignally released in 1984, has currently sold almost half a billion units worldwide.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What's the top selling music artist of all time?	The Beatles have currently sold approximately 600 million albums worldwide, with a career spanning only 10 years.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What's the highest grossing movie of all time?	The highest grossing movie of all time was Avatar at a record $2,787,965,087 worldwide.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What's the best selling pickup truck of all time?	Over 34,000,000 people have purchased a Ford F-150 series vehicle, and the Ford F-150 has been America's bestselling vehicle for 28 consecutive years.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What book has sold the most copies?	Written in 1612, Don Quixote, by author Miguel de Cervantes, has sold over 500 million copies to date.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What's the best sellling gaming console of all time?	The Sony PlayStation 2, released in 2000, has sold over 150 million units to date.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What author has sold the most novels?	British mystery writer Agatha Christie has racked up approximately 4 billion (U.S.) is sales, over a career spanning almost 90 'whodunit' novels.	http://traininglabservices.azurewebsites.net/help/faqs.html
+Who is the richest person in the world?	According to the Forbes 2016 list, 'The World's Billionaires', Bill Gates is the richest person in the world with an estimated net worth of $81 billion.	http://traininglabservices.azurewebsites.net/help/faqs.html
+Who is the highest paid celebrity in the world?	27 year old pop musician Taylor Swift earned approximately 172 million dollars in 2016.	http://traininglabservices.azurewebsites.net/help/faqs.html
+What's the most popular software programming language in the world?	In corporate environments, C# reigns supreme, where it's used by over 75% of businessess worldwide. Outside of corporate environments, Java and JavaScript still hold the numbers.	http://traininglabservices.azurewebsites.net/help/faqs.html
