@@ -49,7 +49,7 @@ This hands-on lab includes the following exercises:
 - [Exercise 4: Set up continuous integration](#Exercise4)
 - [Exercise 5: Debug your bot](#Exercise5)
 - [Exercise 6: Update your bot](#Exercise6)
-- [Exercise 7: Test the bot](#Exercise7)
+- [Exercise 7: Test your bot](#Exercise7)
  
 Estimated time to complete this lab: **60** minutes.
 
@@ -405,21 +405,19 @@ In this exercise, you created a local copy of your bot project and set up contin
 <a name="Exercise5"></a>
 ## Exercise 5: Debug your bot ##
 
-The Microsoft Bot Framework supports a number of mechanisms for debugging bots, including the [Bot Framework Emulator](https://emulator.botframework.com/). In this exercise, you will learn how to use Visual Studio code to debug bots by setting breakpoints and stepping through code, in a simplified guided bot experience before integrating your bot with the Microsoft QnA knowledge base created earlier in this lab.
+The Microsoft Bot Framework supports a number of mechanisms for debugging bots, including the [Bot Framework Emulator](https://emulator.botframework.com/). In this exercise, you will learn how to use Visual Studio code to debug bots by setting breakpoints and stepping through code before integrating your bot with the Microsoft QnA knowledge base that you published in [Exercise 3](#Exercise3).
 
-Since most of the logic for a bot experience using a Microsoft QnA knowledge is encapsulated in the QnAMakerDialog object, it's  helpful to get a clear understanding of bot communication by debugging a simple "guided" bot experience first. To update your bot code to support a guided experience:
+1. Since most of the logic for a bot experience using a Microsoft QnA knowledge is encapsulated in the QnAMakerDialog object, it is helpful to get a clear understanding of bot communication by debugging a simple "guided" bot experience first. Begin by clicking the **Explorer** button to view the structure of the project.
 
-1. In Visual Studio Code, click the **Explorer** button in the View Bar to view the structure of your bot code.
+    ![Switching to Explorer view](Images/vs-select-explorer.png)
 
-    ![Selecting the Explorer](Images/vs-select-explorer.png)
+    _Switching to Explorer view_ 
 
-    _Selecting the Explorer_ 
+1. Select **index.js** to open it in the code editor. This file contains the code for bot interactions.
 
-1. In the Explorer, select **index.js** to open it in the code editor. This file contains the code for bot interactions.
+    ![Opening index.js](Images/vs-select-index-js.png)
 
-    ![Opening the index.js file](Images/vs-select-index-js.png)
-
-    _Opening the index.js file_ 
+    _Opening index.js_ 
 
 1. Replace the entire contents of **index.js** with the following code:
 
@@ -479,74 +477,53 @@ Since most of the logic for a bot experience using a Microsoft QnA knowledge is 
 	
 	```
 
-1. Observe the use of the Microsoft Bot Builder dialog prompts on **lines 19**, **25**, and **31**. Set a breakpoint on each of these lines by clicking the margin at the far left of the code window for each line.
+1. Observe the Microsoft Bot Builder dialog prompts on lines 19, 25, and 31. Set a breakpoint on each of these lines by clicking in the margin to the left of each line.
  
     ![Adding breakpoints to index.js](Images/vs-add-breakpoints.png)
 
     _Adding breakpoints to index.js_ 
 
-1. Click the **Debug** button in the View Bar on the left side of Visual Studio Code, and then click the **green arrow** at the top of the debugging panel to start a debugging session.
+1. Click the **Debug** button in the ribbon the left, and then click the green arrow to start a debugging session.
  
-    ![Launching the VS Code debugger](Images/vs-launch-debugger.png)
+    ![Launching the debugger](Images/vs-launch-debugger.png)
 
-    _Launching the VS Code debugger_ 
+    _Launching the debugger_ 
 
-1. Observe the location of the bot debugging endpoint displayed in the Visual Studio Code **Debug Console**.
- 
-    ![The bot debugging endpoint](Images/vs-local-endpoint.png)
+1. Your bot code is now running locally. An easy way to step through processes while debugging is to use the Microsoft Bot Framework Emulator. If you haven't installed the Microsoft Bot Framework Emulator, take a moment to do so now. You can download it from https://emulator.botframework.com/. 
 
-    _The bot debugging endpoint_ 
-
-Your bot code is now running locally. An easy way to step through processes while debugging is to use the Microsoft Bot Framework Emulator.   
-
-If you haven't installed the Microsoft Bot Framework Emulator, take a moment to do so now. You can download the Bot Framework Emulator from https://emulator.botframework.com/. 
-
-1. Open the Bot Framework Emulator, if not already open from your initial installation.
-1. Select the "Enter your endpoint URL" panel at the top of the emulator window and enter the following endpoint URL:
+1. Launch the Bot Framework Emulator and type the following URL into the box at the top of the window:
 
 	```
 	http://localhost:3978/api/messages
 	```
 
-1. Leave the Microsoft App ID and Microsoft App Password entries empty, and click **CONNECT**. The Bot Framework Emulator is now connected to your Visual Studio Code debugging session.
+1. Leave **Microsoft App ID** and **Microsoft App Password** blank for now, and click **CONNECT** to connect the emulator to your debugging session.
  
-    ![Connecting the Bot Framwork Emulator](Images/emulator-connect.png)
+    ![Connecting the emulator to the debugging session](Images/emulator-connect.png)
 
-    _Connecting the Bot Framwork Emulator_ 
+    _Connecting the emulator to the debugging session_ 
 
-1. Observe log entries being created in the emulator "Log" panel.
+1. Type "Hi" (without quotation marks) into the box at the bottom of the emulator and press **Enter**. Visual Studio Code will break on line 19 of **index.js**. 
  
-    ![Newly created emulator log entries](Images/emulator-log-entries.png)
+    ![Chatting with the bot](Images/emulator-step-01.png)
 
-    _Newly created emulator log entries_ 
-
-1. Type in "hi" (without quotation marks) in the "Type your message..." entry at the bottom of the emulator chat window and press **Enter** on your keyboard. The Visual Studio Code editor will now become active and positioned on the breakpoint at line 19 of your bot code. 
+    _Chatting with the bot_
  
-    ![Entering a default phrase in the Bot Framwork Emulator Chat window](Images/emulator-step-01.png)
-
-    _Entering a default phrase in the Bot Framwork Emulator Chat window_
+1. Click the **Continue** button in Visual Studio Code and return to the emulator to see the bot's response.
  
-    ![The VS Code debugger positioned at line 19](Images/vs-stop-breakpoint-01.png)
+    ![Continuing in the debugger](Images/vs-click-continue.png)
 
-    _The VS Code debugger positioned at line 19_ 
+    _Continuing in the debugger_ 
 
-1. Click the **Continue** button in the Visual Studio Code debugging toolbar and return to the emulator to observe the bot response.
- 
-    ![Continuing through a breakpoint](Images/vs-click-continue.png)
-
-    _Continuing through a breakpoint_ 
-
-1. Continue through the guided bot conversation, answering each question, and observing the debugging interaction at each step through the conversation, as well as the ability to view user communication by hovering over values in the code editor.
- 
-    ![Viewing the value of session.userData.name property in a debugging session](Images/vs-debug-watch.png)
-
-    _Viewing the value of session.userData.name property in a debugging session_ 
+1. Continue through the guided bot conversation, answering each question and clicking **Continue** in Visual Studio Code each time it breaks on a breakpoint.
  
     ![A guided bot conversation](Images/emulator-complete-convo.png)
 
-    _A guided bot conversation_ 
+    _A guided bot conversation_
 
-At this point, you have a fully functioning bot and are familiar with setting breakpoints and debugging bot code. Now that you see how easy it is to walk through and debug bot communication processes using a simple guided conversation, the next step is to update your bot code to communicate with the Microsoft QnA knowledge base populated in Exercise 3.
+1. Click the **Stop** button in Visual Studio Code's debugging toolbar to end the debugging session.
+
+At this point, you have a fully functioning bot and know how to debug a bot by launching it in the debugger in Visual Studio Code and connect to the debugging session from the Microsoft Bot Emulator. The next step is to update your bot code to connect to the knowledge base you deployed in [Exercise 3](#Exercise3).
 
 <a name="Exercise6"></a>
 ## Exercise 6: Update your bot ##
@@ -752,7 +729,7 @@ To update the bot configuration with QnA knowledge base information:
 Now that your bot has been written, updated, and tested, the final step is to test it in a connected channel.
 
 <a name="Exercise7"></a>
-## Exercise 7: Test the bot ##
+## Exercise 7: Test your bot ##
 
 Once deployed, bots can be connected to channels such as Skype, Slack, Microsoft Teams, and Facebook Messenger, where you can interact with them the way you would interact with any other user. In this exercise, you will test your bot with Skype. If Skype isn't already installed on your computer, please install it now. You can download Skype for Windows, macOS, and Linux from https://www.skype.com/en/download-skype/skype-for-computer/.
 
