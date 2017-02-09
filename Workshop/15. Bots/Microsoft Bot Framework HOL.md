@@ -47,7 +47,7 @@ This hands-on lab includes the following exercises:
 - [Exercise 2: Update Microsoft QnA Service settings](#Exercise2)
 - [Exercise 3: Populate and publish a QnA knowledge base](#Exercise3)
 - [Exercise 4: Set up continuous integration](#Exercise4)
-- [Exercise 5: Debug our bot](#Exercise5)
+- [Exercise 5: Debug your bot](#Exercise5)
 - [Exercise 6: Update your bot](#Exercise6)
 - [Exercise 7: Test the bot](#Exercise7)
  
@@ -80,7 +80,7 @@ The first step in creating a bot is to provide a location for the bot to be host
 
     _Opening the resource group_
   
-1. Wait until "Deploying" changes to "Succeeded" indicating your Bot Service has been successfully deployed.
+1. Wait until "Deploying" changes to "Succeeded" indicating that the Bot Service was successfully deployed.
 
     ![Successful deployment](Images/portal-app-deployment-status.png)
 
@@ -88,9 +88,9 @@ The first step in creating a bot is to provide a location for the bot to be host
   
 1. Click **qnafactbot** (or the name you entered in Step 3) to open the App Service created for your bot.
 
-    ![Opening the bot service](Images/portal-click-bot-service.png)
+    ![Opening the Bot Service](Images/portal-click-bot-service.png)
 
-    _Opening the bot service_
+    _Opening the Bot Service_
   
 1. Click **Create Microsoft App ID and password**. If you are asked to sign in again, do so using your Microsoft account.
 
@@ -128,13 +128,13 @@ The first step in creating a bot is to provide a location for the bot to be host
 
     _Selecting a language and template_
 
-1. Check the **I agree** box, and then click **OK**. 
+1. Check the **I agree** box, and then click **OK**. (If you are presented with the option of connecting to an existing knowledge base or creating a new one, choose the latter.) 
 
     ![Connecting to QnA Maker](Images/connect-bot-to-qnamaker.png)
 
     _Connecting to QnA Maker_
   
-1. After a short delay, the Bot Service will open in the portal and display the Bot Service editor, as pictured below. The Bot Service has now been created, and the following services have been provisioned and configured:
+1. After a brief pause, the Bot Service will open in the portal and display the Bot Service editor, as pictured below. The Bot Service has now been created, and the following services have been provisioned and configured:
 
 	- A Microsoft Bot registration
 	- A Microsoft App registration
@@ -145,7 +145,7 @@ The first step in creating a bot is to provide a location for the bot to be host
 
     _The Bot Service editor_  
 
-1. To make sure these services can communicate with each other, you can test bot communication in the Azure Bot Service editor. To test, type the word "hi" (without quotation marks) into the chat window on the right side of the page.
+1. To make sure these services can communicate with each other, you can test bot communication in the Azure Bot Service editor. To test, type the word "hi" (without quotation marks) into the chat window on the right side of the page. Then press **Enter** or click the paper-airplane icon (which stands for "Send").
 
     ![Testing bot communication](Images/portal-send-chat-test.png)
 
@@ -212,12 +212,12 @@ Although your bot has been created, it can only understand the word "hi" by resp
 
     _Chatting with the bot_
 
-This is a great start, but a simple reply to the greeting "hi" doesn't demonstrate a lot of value. To give your bot some meaningful content to work with, the next step is to populate the knowledge base with more questions and answers and publish it for your bot to use.
+This is a great start, but a simple reply to the greeting "hi" doesn't demonstrate a lot of value. To give your bot some meaningful content to work with, the next step is to populate the knowledge base with more questions and answers.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Populate and publish a QnA knowledge base ##
 
-The Microsoft QnA Maker tool is designed to understand question and answer pairs from a variety of methods, including automatic population from a website FAQ page, manual entry, or even a tab-separated text file on your local computer. In this exercise, you will use all of these techniques to create a set of question and answer pairs.
+You can enter questions and answers into a QnA Maker knowledge base manually, or you can import them from a variety of sources, including Web sites and local text files. In this exercise, you will use each of these techniques to populate the knowledge base with questions and answers and then publish it for your bot to use.
 
 1. Click **Settings** to the return to the Settings page in the [Microsoft QnA Maker portal](https://qnamaker.ai/).
  
@@ -231,37 +231,37 @@ The Microsoft QnA Maker tool is designed to understand question and answer pairs
 	https://traininglabservices.azurewebsites.net/help/faqs.html
 	```
 
-1. Click **Save and retrain** to instruct QnA Maker to populate the Knowledge Base with questions and answers from the Web site whose URL you provided.
+1. Click **Save and retrain** to populate the knowledge base with questions and answers from the Web site whose URL you provided.
  
-    ![Populating the Knowledge Base with questions and answers](Images/qna-add-faq-url.png)
+    ![Populating the knowledge base with questions and answers](Images/qna-add-faq-url.png)
 
-    _Populating the Knowledge Base with questions and answers_
+    _Populating the knowledge base with questions and answers_
 
 1. Click **Knowledge Base** and confirm that six new questions and answers were added. Then click **Save and retrain** to save the changes.
 
-    ![The updated Knowledge Base](Images/qna-updated-kb-01.png)
+    ![The updated knowledge base](Images/qna-updated-kb-01.png)
 
-    _The updated Knowledge Base_
+    _The updated knowledge base_
 
 1. Click **Test** to return to the Test page. Type "What's the largest city in the world?" into the box at the bottom of the chat window and press **Enter**. Confirm that the bot responds as shown below.
  
-    ![Testing the updated Knowledge Base](Images/qna-test-largest-city.png)
+    ![Testing the updated knowledge base](Images/qna-test-largest-city.png)
 
-    _Testing the updated Knowledge Base_
+    _Testing the updated knowledge base_
 
 1. The knowledge base only contains a few questions and answers, but can easily be updated to include more. You can even import questions and answers stored in text files on your computer. To demonstrate, click **Replace Knowledge Base** in the upper-left corner of the portal.
  
-    ![Replacing the Knowledge Base](Images/qna-click-replace-kb.png)
+    ![Replacing the knowledge base](Images/qna-click-replace-kb.png)
 
-    _Replacing the Knowledge Base_
+    _Replacing the knowledge base_
 
 1. Browse to the "Resources" folder included with this lab and select the text file named **Final QnA.txt**. Click **OK** when prompted to confirm that importing this file will overwrite existing questions and answers.
  
 1. Click **Knowledge Base** and confirm that 14 new questions and answers appear in the Knowledge Base. (The six you imported from the URL are still there, despite the fact that you were warned that they would be overwritten.) Then click **Save and retrain** to save the changes.
 
-    ![The updated Knowledge Base](Images/qna-updated-kb-02.png)
+    ![The updated knowledge base](Images/qna-updated-kb-02.png)
 
-    _The updated Knowledge Base_
+    _The updated knowledge base_
 
 1. Click **Test** to return to the Test page. Type "What book has sold the most copies?" into the box at the bottom of the chat window and press **Enter**. Confirm that the bot responds as shown below. 
  
@@ -269,7 +269,7 @@ The Microsoft QnA Maker tool is designed to understand question and answer pairs
 
     _Chatting with the bot_
 
-1. The Knowledge Base now contains 20 questions and answers, but an invalid character is present in the answer in row 7. To remove the character, click **Knowledge Base** to return to the Knowledge Base page. Locate the invalid character in row 7 between the words "most" and "Emmys," and replace it with a space character. Then click **Save and retrain**.
+1. The knowledge base now contains 20 questions and answers, but an invalid character is present in the answer in row 7. To remove the character, click **Knowledge Base** to return to the Knowledge Base page. Locate the invalid character in row 7 between the words "most" and "Emmys," and replace it with a space character. Then click **Save and retrain**.
  
     ![Editing answer #7](Images/qna-invalid-char.png)
 
@@ -277,177 +277,130 @@ The Microsoft QnA Maker tool is designed to understand question and answer pairs
 
 1. Click **Publish** to publish the QnA Knowledge Base so it can be used with a bot.
  
-    ![Publishing knowledge base changes](Images/qna-click-publish.png)
+    ![Publishing the knowledge base](Images/qna-click-publish.png)
 
-    _Publishing knowledge base changes_
+    _Publishing the knowledge base_
 
 1. When asked to "Review your changes,", click **Publish**. After a brief pause, you should be notified that the service has been deployed.
  
-    ![Reviewing knowledge base publishing changes](Images/qna-review-publishing-changes.png)
+    ![Reviewing changes](Images/qna-review-publishing-changes.png)
 
-    _Reviewing knowledge base publishing changes_
+    _Reviewing changes_
 
-The QnA Knowledge Base has been populated with questions and answers and published for use in a bot. In the remaining exercises, you will use Visual Studio Code to work with the Microsoft Bot Framework code created for you in [Exercise 1](#Exercise1).
+The QnA knowledge base has been populated with questions and answers and published for use in a bot. In the remaining exercises, you will use Visual Studio Code to work with the Microsoft Bot Framework code created for you in [Exercise 1](#Exercise1).
 
 <a name="Exercise4"></a>
 ## Exercise 4: Set up continuous integration ##
 
 Publishing changes to your bot project often involves a number of steps, since you typically work with code in a local development environment, such as Visual Studio Code, but the final code needs to exist somewhere bot users can easily access. Since an Azure Bot Service is a type of Azure App Service, you can leverage the "continuous integration" feature of Azure App Services to keep your code synchronized with external repositories, such as Visual studio Team Services or GitHub.
 
-1. Open the Azure Portal dashboard (if it’s not already open from Exercise 1) and click the **“hamburger”** icon to open the side drawer menu.
-1. Click **Resource Groups** followed by **BotsResourceGroup**.
+1. Return to the Azure Portal and open the Bot Service you created in [Exercise 1](#Exercise1) if it isn't already open.
 
-    ![Opening the resource group](Images/portal-open-resource-group.png)
+    ![Opening the Bot Service](Images/portal-click-bot-service.png)
 
-    _Opening the resource group_
+    _Opening the Bot Service_
   
-1. Select the **Overview** tab.
-1. Click **qnafactbot** (or the name you used to create the Azure Bot Service in Exercise 1, Step 3) to open the Azure Bot Service editor for the bot.
+1. Click **Settings**, and then click **Configure**.
 
-    ![Opening the bot service](Images/portal-click-bot-service.png)
+    ![Expanding the "Continuous integration" panel](Images/portal-expand-configure.png)
 
-    _Opening the bot service_
+    _Expanding the "Continuous integration" panel_
   
-1. Select the **Settings** tab in the Bot Service editor. 
-1. Expand the **Configure** node under the "Continuous integration" group.
+1. Click the link to the zip file containing source code. Once the download is complete, unzip the zip file and copy its contents to the local folder of your choice.
 
-    ![Expanding the Continuous integration Configure node](Images/portal-expand-configure.png)
+    ![Downloading the source code](Images/portal-click-download-source.png)
 
-    _Expanding the Continuous integration Configure node_
+    _Downloading the source code_
   
-1. Click the zip file link referenced to the right of "Download your source code".
+1. Scroll down the page and click the **Open** button to the right of "Advanced Settings."
 
-    ![Generating the bot project archive file](Images/portal-click-download-source.png)
+    ![Opening advanced settings](Images/portal-open-advanced-settings.png)
 
-    _Generating the bot project archive file_
-  
-1. After a short delay, the Azure Bot Service will prompt you to save the generated zip file to your local computer. Follow the prompts from your browser to save this file to a location on your local computer, and then extract/unzip the zip file to a location for local use. 
+    _Opening advanced settings_  
 
-    ![Saving the generated archive file](Images/fe-extract-project-archive.png)
+1. Click **Deployment credentials**.
 
-    _Saving the generated archive file_  
+    ![Viewing deployment credentials](Images/portal-select-deployment-credentials.png)
 
-Your Microsoft Bot Framework code is now available on your local computer.
+    _Viewing deployment credentials_  
 
-1. Still in the "Settings" tab of Azure Portal dashboard, locate the "Advanced Settings" panel and click **Open** to open the Azure Bot Service App Service blade.
+1. Enter a user name such as "BotAdministrator" (you will probably have to use a different user name since these must be unique within Azure) and enter "Password_1" as the password. Click **Save** to save your changes. Then close the blade by clicking the **x** in the upper-right corner.
 
-    ![Opening the Advanced Settings blade](Images/portal-open-advanced-settings.png)
+    ![Entering deployment credentials](Images/portal-enter-ci-creds.png)
 
-    _Opening the Advanced Settings blade_  
+    _Entering deployment credentials_  
 
-1. In the "App Deployment" group, click **Deployment Credentials**.
-
-    ![Opening Deployment Credential settings](Images/portal-select-deployment-credentials.png)
-
-    _Opening Deployment Credential settings_  
-
-1. Type in a user name, such as "BotAdministrator" (without quotation marks) in the **FTP/deployment username** entry. This is the username you will use when deploying your bot code throughout the remainder of this lab.
-1. Type in "Password_1" (again, without quotation marks) in the **Password** entry, and then enter it one more time in the **Confirm password** entry. This is the password you will use when deploying your bot code throughout the remainder of this lab.
-
-    ![Entering continuous integration credentials](Images/portal-enter-ci-creds.png)
-
-    _Entering continuous integration credentials_  
-
-1. Click **Save** in the "Deployment credentials" blade to save your credential changes. 
-
-    ![Saving continuous integration credentials](Images/portal-saving-ci-creds.png)
-
-    _Saving continuous integration credentials_  
-
-1. Close the "Deployment credentials" blade by clicking the **"x"** in the top right corner of the blade to return to the Azure Bot Service editor.
- 
-    ![Closing the Deployment credentials blade](Images/portal-close-ci-blade.png)
-
-    _Closing the Deployment credentials blade_  
-
-1. In the "Continuous integration" panel, click **Set up integration source** to open the "Deployments" panel.
+1. Click **Set up integration source**.
  
     ![Setting up an integration source](Images/portal-click-set-source.png)
 
     _Setting up an integration source_  
 
-1. In the "Deployments" panel click **Setup**, and then **Choose Source**.
+1. Click **Setup**, followed by **Choose Source**.
  
-    ![Selecting an integration source](Images/portal-select-source.png)
+    ![Choosing a deployment source](Images/portal-select-source.png)
 
-    _Selecting an integration source_  
+    _Choosing a deployment source_  
 
 1. Select **Local Git Repository** as the deployment source, and then click **OK**. 
  
-    ![Selecting Local Git Repository as the integration source](Images/portal-set-local-git.png)
+    ![Specifying a local Git repository as the deployment source](Images/portal-set-local-git.png)
 
-    _Selecting Local Git Repository as the integration source_  
+    _Specifying a local Git repository as the deployment source_  
 
-	Azure Bot Service continuous integration is now enabled and you can start working with a local copy of the bot code in Visual Studio Code.
-
-	If you haven't installed Visual Studio Code, take a moment to do so now. You can download Visual Studio Code from http://code.visualstudio.com. You should also install [Node.js](https://nodejs.org) and [Git Client](https://git-scm.com/downloads), if it isn't already installed. All these products work cross-platform and can be installed on Windows, macOS, or Linux.
+1. If you haven't installed Visual Studio Code, take a moment to do so now. You can download Visual Studio Code from http://code.visualstudio.com. You should also install [Node.js](https://nodejs.org) and [Git Client](https://git-scm.com/downloads) if they aren't already installed. All of these products work cross-platform and can be installed on Windows, macOS, or Linux.
 
 	> An easy way to determine whether Node.js is installed is to open a terminal window or Command Prompt window and execute a **node -v** command. If the Node.js version number is displayed, then Node.js is installed.
 
-1. Open Visual Studio Code.
-1. From the Visual Studio Code menu select **File** > **Open Folder**, and browse to the archive content extracted in Step 8, then select the **messages** folder and click **Open**.
+1. Start Visual Studio Code. Select **Open Folder** from the **File** menu and browse to the folder to which you copied the contents of the downloaded zip file in Step 3. Then select the "messages" folder and click **Select Folder**.
  
-    ![Opening a folder in Visual Studio Code](Images/vs-open-folder.png)
+    ![Selecting the "messages" folder](Images/fe-select-messages-folder.png)
 
-    _Opening a folder in Visual Studio Code_  
+    _Selecting the "messages" folder_  
 
-    ![Selecting the bot service code messages folder](Images/fe-select-messages-folder.png)
-
-    _Selecting the bot service code messages folder_  
-
-1. Click the **Git** button in the View Bar on the left side of Visual Studio Code, and then click **Initialize Git Repository**. This will initialize a Git repository for the bot project locally.
+1. Click the **Git** button in the ribbon on the left, and then click **Initialize Git Repository**. This will initialize a local Git repository for the project.
 
     ![Initializing the local Git repository](Images/vs-init-git-repo.png)
 
     _Initializing the local Git repository_  
 
-1. Locate the Git commit label window and type in "First commit" in the message entry, and then click the **checkmark icon** to commit your initial project to your local repository. After a short delay, your bot code will be committed to the local Git repository.
+1. Type "First commit" into the message box, and then click the check mark to commit your changes.
 
-    ![Committing bot code to the local Git repository](Images/vs-first-git-commit.png)
+    ![Committing changes to the local Git repository](Images/vs-first-git-commit.png)
 
-    _Committing bot code to the local Git repository_  
+    _Committing changes to the local Git repository_  
 
-1. Still, in Visual Studio Code, select **View** > **Integrated Terminal**.
+1. Use Visual Studio Code's **View -> Integrated Terminal** command to open an integrated terminal window inside Visual Studio Code. Execute the following command in the integrated terminal, replacing "[BOT_APP_NAME]" in two places with the name of the Bot Service you entered in [Exercise 1](#Exercise1), Step 3.
 
-    ![Opening the Integrated Terminal](Images/vs-view-terminal.png)
+	```
+	git remote add qnafactbot https://[BOT_APP_NAME].scm.azurewebsites.net:443/[BOT_APP_NAME].git
+	```
 
-    _Opening the Integrated Terminal_  
+1. Select **Command Palette** from the **View** menu to open the command palette. Then type "Git Pub" into the command palette and select **Git Publish**. 
 
-1. Execute the following command in the Integrated Terminal, replacing the values "[BOT_APP_NAME]" with the name of your bot service created in Exercise 1.
+    ![Selecting "Git: Publish" from the command palette](Images/vs-select-git-publish.png)
 
-```
-git remote add qnafactbot https://[BOT_APP_NAME].scm.azurewebsites.net:443/[BOT_APP_NAME].git
-```
+    _Selecting "Git: Publish" from the command palette_  
 
-1. Select **View**  > **Command Palette** to open the VS Code command palette, and then type in "Git Pub" in the command palette and select **Git Publish**. 
-
-    ![Opening the Command Palette](Images/vs-view-command-palette.png)
-
-    _Opening the Command Palette_  
-
-    ![Selecting Git: Publish from the Command Palette](Images/vs-select-git-publish.png)
-
-    _Selecting Git: Publish from the Command Palette_  
-
-1. If prompted to confirm publishing, review the dialog information and click **Publish**.
+1. If prompted to confirm that you want to publish, click **Publish**.
 
     ![Confirming Git publishing](Images/vs-confirm-publish.png)
 
     _Confirming Git publishing_ 
 
-1. If prompted for credentials, enter the Continuous Integration **username** and **password** configured in Steps 3 and 4 of this exercise.
+1. If prompted for credentials, enter the user name and password ("Password_1") you specified in Step 6 of this exercise.
 
-    ![Entering Continuous Integration credentials for Git publishing](Images/vs-enter-git-creds.png)
+    ![Entering deployment credentials](Images/vs-enter-git-creds.png)
 
-    _Entering Continuous Integration credentials for Git publishing_ 
+    _Entering deployment credentials_ 
 
-	After a short delay, your bot code will be published to the Azure Bot Service via continuous integration. A visual indicator over the Git button in the View Bar will display a clock indicator while publishing is in progress.
+1. Wait until your bot code has been published. A clock will appear over the Git button in the ribbon on the left while publishing is in progress, and disappear when publishing is complete.
 
     ![The Git publishing indicator](Images/vs-git-delay-icon.png)
 
     _The Git publishing indicator_ 
 
-In this exercise, you created a local copy of your bot project and setup continuous integration to simplify publishing bot code changes to your Azure Bot Service via a local Git repository. Your initial bot code has been published to Azure and it's time to start seeing your bot in action by learning how to debug bots in Visual Studio Code.
+In this exercise, you created a local copy of your bot project and set up continuous integration to simplify publishing bot code changes to your Azure Bot Service via a local Git repository. Your initial bot code has been published to Azure and it's time to see your bot in action and learn how to debug it in Visual Studio Code.
 
 <a name="Exercise5"></a>
 ## Exercise 5: Debug your bot ##
