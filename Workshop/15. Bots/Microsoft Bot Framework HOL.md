@@ -19,7 +19,7 @@ In this hands-on lab, you will learn how to:
 
 - Create an Azure Bot Service to register and host a bot
 - Create a Microsoft QnA Service to populate a knowledge base
-- Setup continuous code integration to publish bot code
+- Set up continuous code integration to publish bot code
 - Debug the bots that you build
 - Update your bot using Visual Studio Code, Node.js, and JavaScript
 - Interact with a bot using Skype
@@ -674,9 +674,9 @@ In this exercise, you will update your bot to connect it to the Microsoft QnA kn
 
 1. If Visual Studio Code prompts with a Git synchronization warning, click **OK**.
 
-	![The Git synchronization warning](Images/vs-git-warning.png)
+	![Dismissing the synchronization warning](Images/vs-git-warning.png)
 
-    _The Git synchronization warning_  
+    _Dismissing the synchronization warning_  
 
 Now that your bot has been written, updated, and tested, the final step is to test it outside the debugger in a connected channel.
 
@@ -685,54 +685,45 @@ Now that your bot has been written, updated, and tested, the final step is to te
 
 Once deployed, bots can be connected to channels such as Skype, Slack, Microsoft Teams, and Facebook Messenger, where you can interact with them the way you would interact with any other user. In this exercise, you will test your bot with Skype. If Skype isn't already installed on your computer, please install it now. You can download Skype for Windows, macOS, and Linux from https://www.skype.com/en/download-skype/skype-for-computer/.
 
-1. Open the Azure Portal dashboard (if it’s not already open from the previous exercise) and click the **“hamburger”** icon to open the side drawer menu.
-1. Click **Resource Groups** followed by **BotsResourceGroup**.
-1. Select the **Overview** tab.
-1. Click **qnafactbot** (or the name you used to create the Azure Bot Service in Exercise 1, Step 2) to open the Azure Bot Service editor for the bot.
+1. Return to your Bot Service in the Azure Portal and click **Channels**. 
 
-    ![Opening the bot service](Images/portal-click-bot-service.png)
+    ![Opening the Channels page](Images/portal-bot-channel-tab.png)
 
-    _Opening the bot service_
+    _Opening the Channels page_
  
-1. Select the **Channels** tab in the Bot Service editor. 
+1. Click **Edit** in the "Skype" row.
 
-    ![The Bot Service Channels tab](Images/portal-bot-channel-tab.png)
+    ![Editing the Skype channel](Images/portal-edit-skype.png)
 
-    _The Bot Service Channels tab_
+    _Editing the Skype channel_
  
-1. Locate the "Channels" panel and click **Edit** in the row for the Skype channel.
+1. Ensure that **Enable QnAFactbot on Skype** is toggled on and click **I'm done configuring** at the bottom of the page. Your bot is now ready to test in a Skype conversation.
 
-    ![Editing the Bot Service Skype channel](Images/portal-edit-skype.png)
+    ![Enabling Skype integration](Images/portal-enable-skype.png)
 
-    _Editing the Bot Service Skype channel_
- 
-1. Ensure that **Enable QnAFactbot on Skype** is toggled ON and click **I’m done configuring** at the bottom of the page. Your bot is now ready to test in a Skype conversation.
-
-    ![Ensuring Bot Service Skype integration](Images/portal-enable-skype.png)
-
-    _Ensuring Bot Service Skype integration_
+    _Enabling Skype integration_
  
 1. Click the **Add to Skype** button.
  
-    ![Adding QnA Factbot to Skype](Images/portal-click-add-to-skype.png)
+    ![Adding the bot to Skype](Images/portal-click-add-to-skype.png)
 
-    _Adding QnA Factbot to Skype_
+    _Adding the bot to Skype_
  
-1.  Click **Add to Contacts** to add the bot as a Skype contact. After a short delay, Skype will launch and display a new conversation thread between you and the bot. 
+1.  Click **Add to Contacts** to add the bot as a Skype contact. Skype will launch and display a new conversation thread between you and the bot. 
   
-	> If Skype does not automatically add QnA Factbot to a conversation, select the bot from the "Recent" list in Skype to initiate a conversation manually. 
+	> If Skype does not automatically initiate a conversation with the bot, select the bot from the "Recent" list in Skype to initiate a conversation manually. 
 	
-    ![Adding QnA Factbot to your Skype contacts](Images/skype-add-to-contacts.png)
+    ![Adding the bot as a Skype contact](Images/skype-add-to-contacts.png)
 
-    _Adding QnA Factbot to your Skype contacts_
+    _Adding the bot as a Skype contact_
 	
-1. Start a conversation with the QnA Factbot by typing "hi" into the Skype window. After a short delay, the bot will display a welcome message and you can start a question and answer process using the information available in your QnA knowledge base!   	
+1. Start a conversation with the QnA Factbot by typing "hi" into the Skype window.The bot will display a welcome message and you can start a question-and-answer process using the information available in your QnA knowledge base!   	
  
-    ![Using the QnA Factbot in Skype](Images/skype-responses.png)
+    ![Chatting with the bot in Skype](Images/skype-responses.png)
 
-    _Using the QnA Factbot in Skype_
+    _Chatting with the bot in Skype_
 
-You now have a fully functioning bot, created with the Microsoft Bot Framework, available for anyone in the world to use. You may have noticed there are many other channels to choose from as well. Feel free to plug your bot into other channels and test it in different scenarios. 
+You now have a fully functional bot, created with the Microsoft Bot Framework and available for anyone in the world to use. You may have noticed there are many other channels to choose from as well. Feel free to plug your bot into other channels and test it in different scenarios. 
 
 <a name="Summary"></a>
 ## Summary ##
@@ -741,9 +732,9 @@ In this hands-on lab you learned how to:
 
 - Create an Azure Bot Service to register and host a bot
 - Create a Microsoft QnA Service to populate a knowledge base
-- Setup continuous code integration to publish bot code
+- Set up continuous code integration to publish bot code
 - Debug the bots that you build
-- Update your bot using Visual Studio Code, Node.js, and JavaScript- 
+- Update your bot using Visual Studio Code, Node.js, and JavaScript 
 - Interact with a bot using Skype
 
 There is much more that you can do to leverage the power of the Microsoft Bot Framework by incorporating [dialogs](http://aihelpwebsite.com/Blog/EntryId/9/Introduction-To-Using-Dialogs-With-The-Microsoft-Bot-Framework), [FormFlow](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/07/14/building-a-microsoft-bot-using-microsoft-bot-framework-using-formflow/), and [Microsoft Language Understanding and Intelligence Services (LUIS)](https://docs.botframework.com/en-us/node/builder/guides/understanding-natural-language/). With these and other features, you can build sophisticated bots that respond to users' queries and commands and interact in a fluid, conversational, and non-linear manner. For more information, see https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/04/05/what-is-microsoft-bot-framework-overview/.
