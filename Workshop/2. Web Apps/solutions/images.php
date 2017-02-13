@@ -5,7 +5,7 @@
 
         public static function Upload() {
 
-            $maxsize = 10000000; // set to approx 10 MB
+            $maxsize = 4194304; // set to 4 MB
 
             // check associated error code
             if ($_FILES['imageToUpload']['error'] == UPLOAD_ERR_OK) {
@@ -26,28 +26,40 @@
                             // put the image in the db...
                             $database = new Database();
                             $id = $database->UploadImage($_FILES['imageToUpload']['name'], $imagefp);
-                            $msg = 'Image successfully saved in database with id = ' . $id;
+                            header("Location: /");
+                            exit;
                         }
-                        else { 
-                            $msg = "Uploaded file is not an image.";
+                        else { // not an image
+                            echo '<script type="text/javascript">';
+                            echo 'alert("Uploaded file is not an image");';
+                            echo 'window.location.href = "/";';
+                            echo '</script>';
+                            exit;
                         }
                     }
-                    else {
-                        // if the file is not less than the maximum allowed, print an error
-                        $msg = '<div>File exceeds the Maximum File limit</div>
-                            <div>Maximum File limit is '.$maxsize.' bytes</div>
-                            <div>File '.$_FILES['imageToUpload']['name'].' is '.$_FILES['imageToUpload']['size'].
-                            ' bytes</div><hr />';
+                    else { // file too large
+                        echo '<script type="text/javascript">';
+                        echo 'alert("Uploaded file is too large");';
+                        echo 'window.location.href = "/";';
+                        echo '</script>';
+                        exit;
                     }
                 }
-                else
-                    $msg = "File not uploaded successfully.";
-
+                else { // upload failed
+                    echo '<script type="text/javascript">';
+                    echo 'alert("File upload failed");';
+                    echo 'window.location.href = "/";';
+                    echo '</script>';
+                    exit;
+                }
             }
             else {
-                $msg = file_upload_error_message($_FILES['imageToUpload']['error']);
+                echo '<script type="text/javascript">';
+                echo 'alert("File upload failed");';
+                echo 'window.location.href = "/";';
+                echo '</script>';
+                exit;
             }
-            return $msg;
         }
 
         public static function GetImages() {

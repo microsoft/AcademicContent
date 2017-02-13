@@ -45,11 +45,15 @@
                 if (isset($_FILES['imageToUpload'])) {
                     include "images.php";
                     try {
-                        $msg = Images::Upload();  // this will upload the image
-                        echo "<p class='navbar-text navbar-right'>".$msg."</p>";  // Message showing success or failure.
-                        }
-                    catch (Exception $e) {
-                        echo "<p class='navbar-text navbar-right text-danger'>"."Sorry, could not upload file".$e->getMessage()."</p>";
+                        Images::Upload();  // upload the image
+                    }
+                    catch (Exception $e) { // upload failed
+                        $msg = $e->getMessage();
+                        echo '<script type="text/javascript">';
+                        echo 'alert("'.$msg.'");';
+                        echo 'window.location.href = "/";';
+                        echo '</script>';
+                        exit;
                     }
                 }
             ?>

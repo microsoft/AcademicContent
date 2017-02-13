@@ -526,103 +526,107 @@ vertical-align:1px;
 </li>
 <li>
 <p>Add the following code and markup to the new file to serve as the main page for your Web site:</p>
-<div class="highlight highlight-text-html-basic"><pre>&lt;!DOCTYPE html&gt;
-&lt;<span class="pl-ent">html</span>&gt;
-&lt;<span class="pl-ent">head</span>&gt;
-    &lt;<span class="pl-ent">title</span>&gt;My Images&lt;/<span class="pl-ent">title</span>&gt;
-    <span class="pl-c"><span class="pl-c">&lt;!--</span> Latest compiled and minified CSS <span class="pl-c">--&gt;</span></span>
-    &lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css<span class="pl-pds">"</span></span> 
-        <span class="pl-e">integrity</span>=<span class="pl-s"><span class="pl-pds">"</span>sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7<span class="pl-pds">"</span></span> 
-        <span class="pl-e">crossorigin</span>=<span class="pl-s"><span class="pl-pds">"</span>anonymous<span class="pl-pds">"</span></span>&gt;
-    <span class="pl-c"><span class="pl-c">&lt;!--</span> Optional theme <span class="pl-c">--&gt;</span></span>
-    &lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css<span class="pl-pds">"</span></span> 
-        <span class="pl-e">integrity</span>=<span class="pl-s"><span class="pl-pds">"</span>sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r<span class="pl-pds">"</span></span> 
-        <span class="pl-e">crossorigin</span>=<span class="pl-s"><span class="pl-pds">"</span>anonymous<span class="pl-pds">"</span></span>&gt;
-    &lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>content/styles.css<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">'</span>text/css<span class="pl-pds">'</span></span>&gt;
-    
-    <span class="pl-c"><span class="pl-c">&lt;!--</span> jQuery (necessary for Bootstrap's JavaScript plugins) <span class="pl-c">--&gt;</span></span>
-<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
-    <span class="pl-c"><span class="pl-c">&lt;!--</span> Latest compiled and minified JavaScript <span class="pl-c">--&gt;</span></span>
-<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js<span class="pl-pds">"</span></span> </span>
-<span class="pl-s1">        <span class="pl-e">integrity</span>=<span class="pl-s"><span class="pl-pds">"</span>sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS<span class="pl-pds">"</span></span> </span>
-<span class="pl-s1">        <span class="pl-e">crossorigin</span>=<span class="pl-s"><span class="pl-pds">"</span>anonymous<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
-
-&lt;/<span class="pl-ent">head</span>&gt;
-&lt;<span class="pl-ent">body</span>&gt;
-    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>container-fluid bg-primary<span class="pl-pds">"</span></span>&gt;
-        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>row col-md-12<span class="pl-pds">"</span></span>&gt;
-            &lt;<span class="pl-ent">h3</span>&gt;My Images&lt;/<span class="pl-ent">h3</span>&gt;
-        &lt;/<span class="pl-ent">div</span>&gt;
-    &lt;/<span class="pl-ent">div</span>&gt;
-
-    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>navbar navbar-default<span class="pl-pds">"</span></span>&gt;
-        &lt;<span class="pl-ent">form</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>navbar-form navbar-left<span class="pl-pds">"</span></span> <span class="pl-e">enctype</span>=<span class="pl-s"><span class="pl-pds">"</span>multipart/form-data<span class="pl-pds">"</span></span> <span class="pl-e">action</span>=<span class="pl-s"><span class="pl-pds">"</span>&lt;?php echo $_SERVER['PHP_SELF']; ?&gt;<span class="pl-pds">"</span></span> <span class="pl-e">method</span>=<span class="pl-s"><span class="pl-pds">"</span>post<span class="pl-pds">"</span></span>&gt;
-            &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>form-group<span class="pl-pds">"</span></span>&gt;
-                &lt;<span class="pl-ent">label</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>sr-only<span class="pl-pds">"</span></span> <span class="pl-e">for</span>=<span class="pl-s"><span class="pl-pds">"</span>imageToUpload<span class="pl-pds">"</span></span>&gt;Image to Upload&lt;/<span class="pl-ent">label</span>&gt;
-                &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>input-group<span class="pl-pds">"</span></span>&gt;
-                    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>input-group-btn<span class="pl-pds">"</span></span>&gt;
-                        &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>btn btn-default btn-file<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>button<span class="pl-pds">"</span></span>&gt;
-                            Image File:&lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>imageToUpload<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>imageToUpload<span class="pl-pds">"</span></span>&gt;
-                        &lt;/<span class="pl-ent">span</span>&gt;
-                    &lt;/<span class="pl-ent">span</span>&gt;
-                    &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>form-control<span class="pl-pds">"</span></span> <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Select a file to upload...<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>selectedFileName<span class="pl-pds">"</span></span> <span class="pl-e">readonly</span>&gt;
-                &lt;/<span class="pl-ent">div</span>&gt;
-            &lt;/<span class="pl-ent">div</span>&gt;
-            &lt;<span class="pl-ent">button</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>submit<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>btn btn-default navbar-btn<span class="pl-pds">"</span></span>&gt;Upload&lt;/<span class="pl-ent">button</span>&gt;
-            &lt;?php
-                if (isset($_FILES['imageToUpload'])) {
-                    include "images.php";
-                    try {
-                        $msg = Images::Upload();  // this will upload the image
-                        echo "&lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">'</span>navbar-text navbar-right<span class="pl-pds">'</span></span>&gt;".$msg."&lt;/<span class="pl-ent">p</span>&gt;";  // Message showing success or failure.
-                        }
-                    catch (Exception $e) {
-                        echo "&lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">'</span>navbar-text navbar-right text-danger<span class="pl-pds">'</span></span>&gt;"."Sorry, could not upload file".$e-&gt;getMessage()."&lt;/<span class="pl-ent">p</span>&gt;";
-                    }
-                }
-            ?&gt;
-        &lt;/<span class="pl-ent">form</span>&gt;
-    &lt;/<span class="pl-ent">div</span>&gt;
-    
-    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>container-fluid<span class="pl-pds">"</span></span>&gt;
-        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>row<span class="pl-pds">"</span></span>&gt;
-            &lt;?php
-                include "images.php";
-                $images = Images::GetImages();
-                foreach ($images as $image) {
-            ?&gt;
-                &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">'</span>col-lg-2 col-md-4 col-sm-6 col-xs-12<span class="pl-pds">'</span></span>&gt;
-                    &lt;?php
-                        echo "&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">'</span>image_display.php?id=".$image-&gt;id."<span class="pl-pds">'</span></span> <span class="pl-e">target</span>=<span class="pl-s"><span class="pl-pds">'</span>_blank<span class="pl-pds">'</span></span>&gt;";
-                        echo "&lt;<span class="pl-ent">img</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">'</span>img-responsive<span class="pl-pds">'</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">'</span>image_display.php?id=".$image-&gt;id."<span class="pl-ii">&amp;</span>width=192<span class="pl-pds">'</span></span> <span class="pl-e">alt</span>=<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span> /&gt;";
-                        echo "&lt;/<span class="pl-ent">a</span>&gt;";
-                    ?&gt;
-                &lt;/<span class="pl-ent">div</span>&gt;
-            &lt;?php
-                }
-            ?&gt;
-        &lt;/<span class="pl-ent">div</span>&gt;
-    &lt;/<span class="pl-ent">div</span>&gt;
-
-<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span> <span class="pl-e">language</span>=<span class="pl-s"><span class="pl-pds">"</span>javascript<span class="pl-pds">"</span></span>&gt;</span>
-<span class="pl-s1">        <span class="pl-c"><span class="pl-c">//</span> Show name of selected image file in the text display in the custom UI element</span></span>
-<span class="pl-s1">        <span class="pl-en">$</span>(<span class="pl-c1">document</span>).<span class="pl-en">ready</span>(<span class="pl-k">function</span> () {</span>
-<span class="pl-s1">            <span class="pl-en">$</span>(<span class="pl-c1">document</span>).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>change<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>.btn-file :file<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> () {</span>
-<span class="pl-s1">                <span class="pl-k">var</span> input <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-c1">this</span>),</span>
-<span class="pl-s1">                    numFiles <span class="pl-k">=</span> <span class="pl-smi">input</span>.<span class="pl-c1">get</span>(<span class="pl-c1">0</span>).<span class="pl-smi">files</span> <span class="pl-k">?</span> <span class="pl-smi">input</span>.<span class="pl-c1">get</span>(<span class="pl-c1">0</span>).<span class="pl-smi">files</span>.<span class="pl-c1">length</span> <span class="pl-k">:</span> <span class="pl-c1">1</span>,</span>
-<span class="pl-s1">                    label <span class="pl-k">=</span> <span class="pl-smi">input</span>.<span class="pl-en">val</span>().<span class="pl-c1">replace</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-cce">\\</span><span class="pl-pds">/</span>g</span>, <span class="pl-s"><span class="pl-pds">'</span>/<span class="pl-pds">'</span></span>).<span class="pl-c1">replace</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-c1">.</span><span class="pl-k">*</span><span class="pl-cce">\/</span><span class="pl-pds">/</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>);</span>
-<span class="pl-s1">                <span class="pl-smi">input</span>.<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">'</span>fileselect<span class="pl-pds">'</span></span>, [numFiles, label]);</span>
-<span class="pl-s1">            })</span>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">&lt;</span><span class="pl-k">!</span><span class="pl-c1">DOCTYPE</span> <span class="pl-c1">html</span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1"><span class="pl-k">&lt;</span><span class="pl-c1">html</span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1"><span class="pl-k">&lt;</span><span class="pl-c1">head</span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-c1">title</span><span class="pl-k">&gt;</span><span class="pl-c1">My</span> <span class="pl-c1">Images</span><span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">title</span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-k">!</span><span class="pl-k">--</span> <span class="pl-c1">Latest</span> <span class="pl-c1">compiled</span> <span class="pl-k">and</span> <span class="pl-c1">minified</span> <span class="pl-c1">CSS</span> <span class="pl-k">--</span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-c1">link</span> <span class="pl-c1">rel</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-c1">href</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css<span class="pl-pds">"</span></span> </span>
+<span class="pl-s1">        <span class="pl-c1">integrity</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7<span class="pl-pds">"</span></span> </span>
+<span class="pl-s1">        <span class="pl-c1">crossorigin</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>anonymous<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-k">!</span><span class="pl-k">--</span> <span class="pl-c1">Optional</span> <span class="pl-c1">theme</span> <span class="pl-k">--</span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-c1">link</span> <span class="pl-c1">rel</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-c1">href</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css<span class="pl-pds">"</span></span> </span>
+<span class="pl-s1">        <span class="pl-c1">integrity</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r<span class="pl-pds">"</span></span> </span>
+<span class="pl-s1">        <span class="pl-c1">crossorigin</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>anonymous<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-c1">link</span> <span class="pl-c1">rel</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-c1">href</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>content/styles.css<span class="pl-pds">"</span></span> <span class="pl-c1">type</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>text/css<span class="pl-pds">'</span></span><span class="pl-k">&gt;</span></span>
 <span class="pl-s1"></span>
-<span class="pl-s1">            <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.btn-file :file<span class="pl-pds">'</span></span>).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>fileselect<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> (<span class="pl-c1">event</span>, <span class="pl-smi">numFiles</span>, <span class="pl-smi">label</span>) {</span>
-<span class="pl-s1">                <span class="pl-en">console</span>.<span class="pl-c1">log</span>(numFiles);</span>
-<span class="pl-s1">                <span class="pl-en">console</span>.<span class="pl-c1">log</span>(label);</span>
-<span class="pl-s1">                <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>#selectedFileName<span class="pl-pds">"</span></span>).<span class="pl-en">val</span>(label);</span>
-<span class="pl-s1">            });</span>
-<span class="pl-s1">        });</span>
-<span class="pl-s1">    &lt;/<span class="pl-ent">script</span>&gt;</span>
-&lt;/<span class="pl-ent">body</span>&gt;
-&lt;/<span class="pl-ent">html</span>&gt;</pre></div>
+<span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-k">!</span><span class="pl-k">--</span> jQuery (<span class="pl-c1">necessary</span> <span class="pl-k">for</span> <span class="pl-c1">Bootstrap</span><span class="pl-s"><span class="pl-pds">'</span>s JavaScript plugins) --&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt;&lt;/script&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">    &lt;!-- Latest compiled and minified JavaScript --&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">    &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" </span></span>
+<span class="pl-s1"><span class="pl-s">        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" </span></span>
+<span class="pl-s1"><span class="pl-s">        crossorigin="anonymous"&gt;&lt;/script&gt;</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">&lt;/head&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">&lt;body&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">    &lt;div class="container-fluid bg-primary"&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">        &lt;div class="row col-md-12"&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">            &lt;h3&gt;My Images&lt;/h3&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">        &lt;/div&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">    &lt;/div&gt;</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    &lt;div class="navbar navbar-default"&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">        &lt;form class="navbar-form navbar-left" enctype="multipart/form-data" action="&lt;?php echo $_SERVER[<span class="pl-pds">'</span></span><span class="pl-c1">PHP_SELF</span><span class="pl-s"><span class="pl-pds">'</span>]; ?&gt;" method="post"&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">            &lt;div class="form-group"&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                &lt;label class="sr-only" for="imageToUpload"&gt;Image to Upload&lt;/label&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                &lt;div class="input-group"&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                    &lt;span class="input-group-btn"&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                        &lt;span class="btn btn-default btn-file" type="button"&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                            Image File:&lt;input type="file" id="imageToUpload" name="imageToUpload"&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                        &lt;/span&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                    &lt;/span&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                    &lt;input type="text" class="form-control" placeholder="Select a file to upload..." id="selectedFileName" readonly&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                &lt;/div&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">            &lt;/div&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">            &lt;button type="submit" class="btn btn-default navbar-btn"&gt;Upload&lt;/button&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">            &lt;?php</span></span>
+<span class="pl-s1"><span class="pl-s">                if (isset($_FILES[<span class="pl-pds">'</span></span><span class="pl-c1">imageToUpload</span><span class="pl-s"><span class="pl-pds">'</span>])) {</span></span>
+<span class="pl-s1"><span class="pl-s">                    include "images.php";</span></span>
+<span class="pl-s1"><span class="pl-s">                    try {</span></span>
+<span class="pl-s1"><span class="pl-s">                        Images::Upload();  // upload the image</span></span>
+<span class="pl-s1"><span class="pl-s">                    }</span></span>
+<span class="pl-s1"><span class="pl-s">                    catch (Exception $e) { // upload failed</span></span>
+<span class="pl-s1"><span class="pl-s">                        $msg = $e-&gt;getMessage();</span></span>
+<span class="pl-s1"><span class="pl-s">                        echo <span class="pl-pds">'</span></span><span class="pl-k">&lt;</span><span class="pl-c1">script</span> <span class="pl-c1">type</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span><span class="pl-s"><span class="pl-pds">'</span>;</span></span>
+<span class="pl-s1"><span class="pl-s">                        echo <span class="pl-pds">'</span></span>alert(<span class="pl-s"><span class="pl-pds">"</span>'.<span class="pl-smi">$msg</span>.'<span class="pl-pds">"</span></span>);<span class="pl-s"><span class="pl-pds">'</span>;</span></span>
+<span class="pl-s1"><span class="pl-s">                        echo <span class="pl-pds">'</span></span><span class="pl-c1">window</span><span class="pl-k">.</span><span class="pl-c1">location</span><span class="pl-k">.</span><span class="pl-c1">href</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>/<span class="pl-pds">"</span></span>;<span class="pl-s"><span class="pl-pds">'</span>;</span></span>
+<span class="pl-s1"><span class="pl-s">                        echo <span class="pl-pds">'</span></span><span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">script</span><span class="pl-k">&gt;</span><span class="pl-s"><span class="pl-pds">'</span>;</span></span>
+<span class="pl-s1"><span class="pl-s">                        exit;</span></span>
+<span class="pl-s1"><span class="pl-s">                    }</span></span>
+<span class="pl-s1"><span class="pl-s">                }</span></span>
+<span class="pl-s1"><span class="pl-s">            ?&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">        &lt;/form&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">    &lt;/div&gt;</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    &lt;div class="container-fluid"&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">        &lt;div class="row"&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">            &lt;?php</span></span>
+<span class="pl-s1"><span class="pl-s">                include "images.php";</span></span>
+<span class="pl-s1"><span class="pl-s">                $images = Images::GetImages();</span></span>
+<span class="pl-s1"><span class="pl-s">                foreach ($images as $image) {</span></span>
+<span class="pl-s1"><span class="pl-s">            ?&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                &lt;div class=<span class="pl-pds">'</span></span><span class="pl-c1">col</span><span class="pl-k">-</span><span class="pl-c1">lg</span><span class="pl-k">-</span><span class="pl-c1">2</span> <span class="pl-c1">col</span><span class="pl-k">-</span><span class="pl-c1">md</span><span class="pl-k">-</span><span class="pl-c1">4</span> <span class="pl-c1">col</span><span class="pl-k">-</span><span class="pl-c1">sm</span><span class="pl-k">-</span><span class="pl-c1">6</span> <span class="pl-c1">col</span><span class="pl-k">-</span><span class="pl-c1">xs</span><span class="pl-k">-</span><span class="pl-c1">12</span><span class="pl-s"><span class="pl-pds">'</span>&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                    &lt;?php</span></span>
+<span class="pl-s1"><span class="pl-s">                        echo "&lt;a href=<span class="pl-pds">'</span></span><span class="pl-c1">image_display</span><span class="pl-k">.</span><span class="pl-c1">php</span>?<span class="pl-c1">id</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>.<span class="pl-smi">$image</span><span class="pl-k">-&gt;</span><span class="pl-smi">id</span>.<span class="pl-pds">"</span></span><span class="pl-s"><span class="pl-pds">'</span> target=<span class="pl-pds">'</span></span><span class="pl-c1">_blank</span><span class="pl-s"><span class="pl-pds">'</span>&gt;";</span></span>
+<span class="pl-s1"><span class="pl-s">                        echo "&lt;img class=<span class="pl-pds">'</span></span><span class="pl-c1">img</span><span class="pl-k">-</span><span class="pl-c1">responsive</span><span class="pl-s"><span class="pl-pds">'</span> src=<span class="pl-pds">'</span></span><span class="pl-c1">image_display</span><span class="pl-k">.</span><span class="pl-c1">php</span>?<span class="pl-c1">id</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>.<span class="pl-smi">$image</span><span class="pl-k">-&gt;</span><span class="pl-smi">id</span>.<span class="pl-pds">"</span></span><span class="pl-k">&amp;</span><span class="pl-c1">width</span><span class="pl-k">=</span><span class="pl-c1">192</span><span class="pl-s"><span class="pl-pds">'</span> alt=<span class="pl-pds">'</span><span class="pl-pds">'</span> /&gt;";</span></span>
+<span class="pl-s1"><span class="pl-s">                        echo "&lt;/a&gt;";</span></span>
+<span class="pl-s1"><span class="pl-s">                    ?&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                &lt;/div&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">            &lt;?php</span></span>
+<span class="pl-s1"><span class="pl-s">                }</span></span>
+<span class="pl-s1"><span class="pl-s">            ?&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">        &lt;/div&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">    &lt;/div&gt;</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    &lt;script type="text/javascript" language="javascript"&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">        // Show name of selected image file in the text display in the custom UI element</span></span>
+<span class="pl-s1"><span class="pl-s">        $(document).ready(function () {</span></span>
+<span class="pl-s1"><span class="pl-s">            $(document).on(<span class="pl-pds">'</span></span><span class="pl-c1">change</span><span class="pl-s"><span class="pl-pds">'</span>, <span class="pl-pds">'</span></span><span class="pl-k">.</span><span class="pl-c1">btn</span><span class="pl-k">-</span><span class="pl-c1">file</span> :<span class="pl-c1">file</span><span class="pl-s"><span class="pl-pds">'</span>, function () {</span></span>
+<span class="pl-s1"><span class="pl-s">                var input = $(this),</span></span>
+<span class="pl-s1"><span class="pl-s">                    numFiles = input.get(0).files ? input.get(0).files.length : 1,</span></span>
+<span class="pl-s1"><span class="pl-s">                    label = input.val().replace(/<span class="pl-cce">\\</span>/g, <span class="pl-pds">'</span></span><span class="pl-k">/</span><span class="pl-s"><span class="pl-pds">'</span>).replace(/.*\//, <span class="pl-pds">'</span><span class="pl-pds">'</span>);</span></span>
+<span class="pl-s1"><span class="pl-s">                input.trigger(<span class="pl-pds">'</span></span><span class="pl-c1">fileselect</span><span class="pl-s"><span class="pl-pds">'</span>, [numFiles, label]);</span></span>
+<span class="pl-s1"><span class="pl-s">            })</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">            $(<span class="pl-pds">'</span></span><span class="pl-k">.</span><span class="pl-c1">btn</span><span class="pl-k">-</span><span class="pl-c1">file</span> :<span class="pl-c1">file</span><span class="pl-s"><span class="pl-pds">'</span>).on(<span class="pl-pds">'</span></span><span class="pl-c1">fileselect</span><span class="pl-s"><span class="pl-pds">'</span>, function (event, numFiles, label) {</span></span>
+<span class="pl-s1"><span class="pl-s">                console.log(numFiles);</span></span>
+<span class="pl-s1"><span class="pl-s">                console.log(label);</span></span>
+<span class="pl-s1"><span class="pl-s">                $("#selectedFileName").val(label);</span></span>
+<span class="pl-s1"><span class="pl-s">            });</span></span>
+<span class="pl-s1"><span class="pl-s">        });</span></span>
+<span class="pl-s1"><span class="pl-s">    &lt;/script&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">&lt;/body&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">&lt;/html&gt;</span></span></pre></div>
 </li>
 <li>
 <p>Use the <strong>File -&gt; Save</strong> command to save the file. Name it <strong>index.php</strong>.</p>
@@ -631,6 +635,9 @@ vertical-align:1px;
 </li>
 <li>
 <p>Repeat Steps 4 through 6 to add a file named <strong>image_display.php</strong> containing the following code to the project. This is the code that returns images requested by the browser over HTTP.</p>
+<blockquote>
+<p>When pasting code such as this into a PHP file, be <em>certain</em> that the closing tag ("?&gt;") on the last line has no extraneous spaces after it. Otherwise, the file will not execute.</p>
+</blockquote>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
 <span class="pl-s1">    <span class="pl-k">if</span> ((<span class="pl-c1">isset</span>(<span class="pl-smi">$_GET</span>[<span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>]) <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">is_numeric</span>(<span class="pl-smi">$_GET</span>[<span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>])) <span class="pl-k">===</span> <span class="pl-c1">FALSE</span>) <span class="pl-k">die</span>;</span>
 <span class="pl-s1"></span>
@@ -690,7 +697,7 @@ vertical-align:1px;
 <span class="pl-s1"></span>
 <span class="pl-s1">        <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">function</span> <span class="pl-en">Upload</span>() {</span>
 <span class="pl-s1"></span>
-<span class="pl-s1">            <span class="pl-smi">$maxsize</span> <span class="pl-k">=</span> <span class="pl-c1">10000000</span>; <span class="pl-c"><span class="pl-c">//</span> set to approx 10 MB</span></span>
+<span class="pl-s1">            <span class="pl-smi">$maxsize</span> <span class="pl-k">=</span> <span class="pl-c1">4194304</span>; <span class="pl-c"><span class="pl-c">//</span> set to 4 MB</span></span>
 <span class="pl-s1"></span>
 <span class="pl-s1">            <span class="pl-c"><span class="pl-c">//</span> check associated error code</span></span>
 <span class="pl-s1">            <span class="pl-k">if</span> (<span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>] <span class="pl-k">==</span> <span class="pl-c1">UPLOAD_ERR_OK</span>) {</span>
@@ -711,28 +718,40 @@ vertical-align:1px;
 <span class="pl-s1">                            <span class="pl-c"><span class="pl-c">//</span> put the image in the db...</span></span>
 <span class="pl-s1">                            <span class="pl-smi">$database</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Database</span>();</span>
 <span class="pl-s1">                            <span class="pl-smi">$id</span> <span class="pl-k">=</span> <span class="pl-smi">$database</span><span class="pl-k">-&gt;</span>UploadImage(<span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>], <span class="pl-smi">$imagefp</span>);</span>
-<span class="pl-s1">                            <span class="pl-smi">$msg</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Image successfully saved in database with id = <span class="pl-pds">'</span></span> <span class="pl-k">.</span> <span class="pl-smi">$id</span>;</span>
+<span class="pl-s1">                            <span class="pl-c1">header</span>(<span class="pl-s"><span class="pl-pds">"</span>Location: /<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1">                            <span class="pl-k">exit</span>;</span>
 <span class="pl-s1">                        }</span>
-<span class="pl-s1">                        <span class="pl-k">else</span> { </span>
-<span class="pl-s1">                            <span class="pl-smi">$msg</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Uploaded file is not an image.<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1">                        <span class="pl-k">else</span> { <span class="pl-c"><span class="pl-c">//</span> not an image</span></span>
+<span class="pl-s1">                            <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;script type="text/javascript"&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                            <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>alert("Uploaded file is not an image");<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                            <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>window.location.href = "/";<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                            <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;/script&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                            <span class="pl-k">exit</span>;</span>
 <span class="pl-s1">                        }</span>
 <span class="pl-s1">                    }</span>
-<span class="pl-s1">                    <span class="pl-k">else</span> {</span>
-<span class="pl-s1">                        <span class="pl-c"><span class="pl-c">//</span> if the file is not less than the maximum allowed, print an error</span></span>
-<span class="pl-s1">                        <span class="pl-smi">$msg</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;div&gt;File exceeds the Maximum File limit&lt;/div&gt;</span></span>
-<span class="pl-s1"><span class="pl-s">                            &lt;div&gt;Maximum File limit is <span class="pl-pds">'</span></span><span class="pl-k">.</span><span class="pl-smi">$maxsize</span><span class="pl-k">.</span><span class="pl-s"><span class="pl-pds">'</span> bytes&lt;/div&gt;</span></span>
-<span class="pl-s1"><span class="pl-s">                            &lt;div&gt;File <span class="pl-pds">'</span></span><span class="pl-k">.</span><span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>]<span class="pl-k">.</span><span class="pl-s"><span class="pl-pds">'</span> is <span class="pl-pds">'</span></span><span class="pl-k">.</span><span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>size<span class="pl-pds">'</span></span>]<span class="pl-k">.</span></span>
-<span class="pl-s1">                            <span class="pl-s"><span class="pl-pds">'</span> bytes&lt;/div&gt;&lt;hr /&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                    <span class="pl-k">else</span> { <span class="pl-c"><span class="pl-c">//</span> file too large</span></span>
+<span class="pl-s1">                        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;script type="text/javascript"&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>alert("Uploaded file is too large");<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>window.location.href = "/";<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;/script&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                        <span class="pl-k">exit</span>;</span>
 <span class="pl-s1">                    }</span>
 <span class="pl-s1">                }</span>
-<span class="pl-s1">                <span class="pl-k">else</span></span>
-<span class="pl-s1">                    <span class="pl-smi">$msg</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>File not uploaded successfully.<span class="pl-pds">"</span></span>;</span>
-<span class="pl-s1"></span>
+<span class="pl-s1">                <span class="pl-k">else</span> { <span class="pl-c"><span class="pl-c">//</span> upload failed</span></span>
+<span class="pl-s1">                    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;script type="text/javascript"&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>alert("File upload failed");<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>window.location.href = "/";<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;/script&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                    <span class="pl-k">exit</span>;</span>
+<span class="pl-s1">                }</span>
 <span class="pl-s1">            }</span>
 <span class="pl-s1">            <span class="pl-k">else</span> {</span>
-<span class="pl-s1">                <span class="pl-smi">$msg</span> <span class="pl-k">=</span> file_upload_error_message(<span class="pl-smi">$_FILES</span>[<span class="pl-s"><span class="pl-pds">'</span>imageToUpload<span class="pl-pds">'</span></span>][<span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>]);</span>
+<span class="pl-s1">                <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;script type="text/javascript"&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>alert("File upload failed");<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>window.location.href = "/";<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;/script&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">                <span class="pl-k">exit</span>;</span>
 <span class="pl-s1">            }</span>
-<span class="pl-s1">            <span class="pl-k">return</span> <span class="pl-smi">$msg</span>;</span>
 <span class="pl-s1">        }</span>
 <span class="pl-s1"></span>
 <span class="pl-s1">        <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">function</span> <span class="pl-en">GetImages</span>() {</span>

@@ -69,104 +69,108 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
     
 1. Add the following code and markup to the new file to serve as the main page for your Web site:
     
-    ```html
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>My Images</title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
-            integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
-            crossorigin="anonymous">
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" 
-            integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" 
-            crossorigin="anonymous">
-        <link rel="stylesheet" href="content/styles.css" type='text/css'>
-        
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
-            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" 
-            crossorigin="anonymous"></script>
-    
-    </head>
-    <body>
-        <div class="container-fluid bg-primary">
-            <div class="row col-md-12">
-                <h3>My Images</h3>
-            </div>
-        </div>
-    
-        <div class="navbar navbar-default">
-            <form class="navbar-form navbar-left" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <div class="form-group">
-                    <label class="sr-only" for="imageToUpload">Image to Upload</label>
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <span class="btn btn-default btn-file" type="button">
-                                Image File:<input type="file" id="imageToUpload" name="imageToUpload">
-                            </span>
-                        </span>
-                        <input type="text" class="form-control" placeholder="Select a file to upload..." id="selectedFileName" readonly>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-default navbar-btn">Upload</button>
-                <?php
-                    if (isset($_FILES['imageToUpload'])) {
-                        include "images.php";
-                        try {
-                            $msg = Images::Upload();  // this will upload the image
-                            echo "<p class='navbar-text navbar-right'>".$msg."</p>";  // Message showing success or failure.
-                            }
-                        catch (Exception $e) {
-                            echo "<p class='navbar-text navbar-right text-danger'>"."Sorry, could not upload file".$e->getMessage()."</p>";
-                        }
-                    }
-                ?>
-            </form>
-        </div>
-        
-        <div class="container-fluid">
-            <div class="row">
-                <?php
-                    include "images.php";
-                    $images = Images::GetImages();
-                    foreach ($images as $image) {
-                ?>
-                    <div class='col-lg-2 col-md-4 col-sm-6 col-xs-12'>
-                        <?php
-                            echo "<a href='image_display.php?id=".$image->id."' target='_blank'>";
-                            echo "<img class='img-responsive' src='image_display.php?id=".$image->id."&width=192' alt='' />";
-                            echo "</a>";
-                        ?>
-                    </div>
-                <?php
-                    }
-                ?>
-            </div>
-        </div>
-    
-        <script type="text/javascript" language="javascript">
-            // Show name of selected image file in the text display in the custom UI element
-            $(document).ready(function () {
-                $(document).on('change', '.btn-file :file', function () {
-                    var input = $(this),
-                        numFiles = input.get(0).files ? input.get(0).files.length : 1,
-                        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-                    input.trigger('fileselect', [numFiles, label]);
-                })
-    
-                $('.btn-file :file').on('fileselect', function (event, numFiles, label) {
-                    console.log(numFiles);
-                    console.log(label);
-                    $("#selectedFileName").val(label);
-                });
-            });
-        </script>
-    </body>
-    </html>
+    ```php
+	<!DOCTYPE html>
+	<html>
+	<head>
+	    <title>My Images</title>
+	    <!-- Latest compiled and minified CSS -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+	        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
+	        crossorigin="anonymous">
+	    <!-- Optional theme -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" 
+	        integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" 
+	        crossorigin="anonymous">
+	    <link rel="stylesheet" href="content/styles.css" type='text/css'>
+	
+	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	    <!-- Latest compiled and minified JavaScript -->
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
+	        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" 
+	        crossorigin="anonymous"></script>
+	
+	</head>
+	<body>
+	    <div class="container-fluid bg-primary">
+	        <div class="row col-md-12">
+	            <h3>My Images</h3>
+	        </div>
+	    </div>
+	
+	    <div class="navbar navbar-default">
+	        <form class="navbar-form navbar-left" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	            <div class="form-group">
+	                <label class="sr-only" for="imageToUpload">Image to Upload</label>
+	                <div class="input-group">
+	                    <span class="input-group-btn">
+	                        <span class="btn btn-default btn-file" type="button">
+	                            Image File:<input type="file" id="imageToUpload" name="imageToUpload">
+	                        </span>
+	                    </span>
+	                    <input type="text" class="form-control" placeholder="Select a file to upload..." id="selectedFileName" readonly>
+	                </div>
+	            </div>
+	            <button type="submit" class="btn btn-default navbar-btn">Upload</button>
+	            <?php
+	                if (isset($_FILES['imageToUpload'])) {
+	                    include "images.php";
+	                    try {
+	                        Images::Upload();  // upload the image
+	                    }
+	                    catch (Exception $e) { // upload failed
+	                        $msg = $e->getMessage();
+	                        echo '<script type="text/javascript">';
+	                        echo 'alert("'.$msg.'");';
+	                        echo 'window.location.href = "/";';
+	                        echo '</script>';
+	                        exit;
+	                    }
+	                }
+	            ?>
+	        </form>
+	    </div>
+	
+	    <div class="container-fluid">
+	        <div class="row">
+	            <?php
+	                include "images.php";
+	                $images = Images::GetImages();
+	                foreach ($images as $image) {
+	            ?>
+	                <div class='col-lg-2 col-md-4 col-sm-6 col-xs-12'>
+	                    <?php
+	                        echo "<a href='image_display.php?id=".$image->id."' target='_blank'>";
+	                        echo "<img class='img-responsive' src='image_display.php?id=".$image->id."&width=192' alt='' />";
+	                        echo "</a>";
+	                    ?>
+	                </div>
+	            <?php
+	                }
+	            ?>
+	        </div>
+	    </div>
+	
+	    <script type="text/javascript" language="javascript">
+	        // Show name of selected image file in the text display in the custom UI element
+	        $(document).ready(function () {
+	            $(document).on('change', '.btn-file :file', function () {
+	                var input = $(this),
+	                    numFiles = input.get(0).files ? input.get(0).files.length : 1,
+	                    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+	                input.trigger('fileselect', [numFiles, label]);
+	            })
+	
+	            $('.btn-file :file').on('fileselect', function (event, numFiles, label) {
+	                console.log(numFiles);
+	                console.log(label);
+	                $("#selectedFileName").val(label);
+	            });
+	        });
+	    </script>
+	</body>
+	</html>
     ```
 
 1. Use the **File -> Save** command to save the file. Name it **index.php**.
@@ -176,6 +180,8 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
     _Saving the file_
     
 1. Repeat Steps 4 through 6 to add a file named **image_display.php** containing the following code to the project. This is the code that returns images requested by the browser over HTTP.
+
+	> When pasting code such as this into a PHP file, be *certain* that the closing tag ("?>") on the last line has no extraneous spaces after it. Otherwise, the file will not execute.
 
     ```php
     <?php
@@ -232,71 +238,83 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
 1. Repeat Steps 4 through 6 to add a file named **images.php** containing the following code to the project. This is the code used to upload, store, and retrieve images.
 
     ```php
-    <?php
-        include "database.php";
-    
-        class Images {
-    
-            public static function Upload() {
-    
-                $maxsize = 10000000; // set to approx 10 MB
-    
-                // check associated error code
-                if ($_FILES['imageToUpload']['error'] == UPLOAD_ERR_OK) {
-    
-                    // check whether file is uploaded with HTTP POST
-                    if (is_uploaded_file($_FILES['imageToUpload']['tmp_name'])) {    
-    
-                        // check size of uploaded image on server side
-                        if ( $_FILES['imageToUpload']['size'] < $maxsize) {  
-    
-                            // check whether uploaded file is of image type
-                            $finfo = finfo_open(FILEINFO_MIME_TYPE);
-                            if (strpos(finfo_file($finfo, $_FILES['imageToUpload']['tmp_name']), "image") === 0) {    
-    
-                                // open the image file for insertion
-                                $imagefp = fopen($_FILES['imageToUpload']['tmp_name'], 'rb');
-    
-                                // put the image in the db...
-                                $database = new Database();
-                                $id = $database->UploadImage($_FILES['imageToUpload']['name'], $imagefp);
-                                $msg = 'Image successfully saved in database with id = ' . $id;
-                            }
-                            else { 
-                                $msg = "Uploaded file is not an image.";
-                            }
-                        }
-                        else {
-                            // if the file is not less than the maximum allowed, print an error
-                            $msg = '<div>File exceeds the Maximum File limit</div>
-                                <div>Maximum File limit is '.$maxsize.' bytes</div>
-                                <div>File '.$_FILES['imageToUpload']['name'].' is '.$_FILES['imageToUpload']['size'].
-                                ' bytes</div><hr />';
-                        }
-                    }
-                    else
-                        $msg = "File not uploaded successfully.";
-    
-                }
-                else {
-                    $msg = file_upload_error_message($_FILES['imageToUpload']['error']);
-                }
-                return $msg;
-            }
-    
-            public static function GetImages() {
-                $database = new Database();
-                $images = $database->GetAllImages();
-                return $images;
-            }
-    
-            public static function GetImage($id) {
-                $database = new Database();
-                $image = $database->FindImage($id);
-                return $image;
-            }
-        }
-    ?>
+	<?php
+	    include "database.php";
+	
+	    class Images {
+	
+	        public static function Upload() {
+	
+	            $maxsize = 4194304; // set to 4 MB
+	
+	            // check associated error code
+	            if ($_FILES['imageToUpload']['error'] == UPLOAD_ERR_OK) {
+	
+	                // check whether file is uploaded with HTTP POST
+	                if (is_uploaded_file($_FILES['imageToUpload']['tmp_name'])) {    
+	
+	                    // check size of uploaded image on server side
+	                    if ( $_FILES['imageToUpload']['size'] < $maxsize) {  
+	
+	                        // check whether uploaded file is of image type
+	                        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+	                        if (strpos(finfo_file($finfo, $_FILES['imageToUpload']['tmp_name']), "image") === 0) {    
+	
+	                            // open the image file for insertion
+	                            $imagefp = fopen($_FILES['imageToUpload']['tmp_name'], 'rb');
+	
+	                            // put the image in the db...
+	                            $database = new Database();
+	                            $id = $database->UploadImage($_FILES['imageToUpload']['name'], $imagefp);
+	                            header("Location: /");
+	                            exit;
+	                        }
+	                        else { // not an image
+	                            echo '<script type="text/javascript">';
+	                            echo 'alert("Uploaded file is not an image");';
+	                            echo 'window.location.href = "/";';
+	                            echo '</script>';
+	                            exit;
+	                        }
+	                    }
+	                    else { // file too large
+	                        echo '<script type="text/javascript">';
+	                        echo 'alert("Uploaded file is too large");';
+	                        echo 'window.location.href = "/";';
+	                        echo '</script>';
+	                        exit;
+	                    }
+	                }
+	                else { // upload failed
+	                    echo '<script type="text/javascript">';
+	                    echo 'alert("File upload failed");';
+	                    echo 'window.location.href = "/";';
+	                    echo '</script>';
+	                    exit;
+	                }
+	            }
+	            else {
+	                echo '<script type="text/javascript">';
+	                echo 'alert("File upload failed");';
+	                echo 'window.location.href = "/";';
+	                echo '</script>';
+	                exit;
+	            }
+	        }
+	
+	        public static function GetImages() {
+	            $database = new Database();
+	            $images = $database->GetAllImages();
+	            return $images;
+	        }
+	
+	        public static function GetImage($id) {
+	            $database = new Database();
+	            $image = $database->FindImage($id);
+	            return $image;
+	        }
+	    }
+	?>
     ```
 
 1. Repeat Steps 4 through 6 to add a file named **database.php** containing the following code to the project. This is the code used to interact with the MySQL database. Observe that the database connection string isn't embedded in the code, but is instead retrieved from an environment variable named *MYSQLCONNSTR_defaultConnection*. The value of this approach will be explained in the next exercise.
