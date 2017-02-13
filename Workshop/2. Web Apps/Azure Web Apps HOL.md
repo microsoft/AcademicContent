@@ -638,8 +638,8 @@ Now it is time to copy the files that comprise your Web site to the Azure Web Ap
 
 1. Upload a few images to the Web site. Click any of the image thumbnails to see an enlarged view.
 
-	> By default, the PHP installation in your Azure Web App limits file uploads to 8 MB. You can increase the limit by adding a .user.ini file to your site as [described here](https://azure.microsoft.com/en-us/documentation/articles/web-sites-php-configure/). For now, just upload images that are smaller than 8 MB because you would have to adjust other PHP settings such as MEMORY_LIMIT to handle very large images.
-    
+	> The code that uploads the images limits file uploads to 4 MB to stay under PHP's default upload-size limit and to improve performance, so be sure to select images that are 4 MB or smaller in size.
+
     ![The working Web site](Images/final-workingwebsite.png)
 
     _The working Web site_
