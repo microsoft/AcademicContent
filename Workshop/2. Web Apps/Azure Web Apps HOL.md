@@ -175,7 +175,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
 
     _Saving the file_
     
-1. Repeat Steps 3 through 5 to add a file named **image_display.php** containing the following code to the project. This is the code that returns images requested by the browser over HTTP.
+1. Repeat Steps 4 through 6 to add a file named **image_display.php** containing the following code to the project. This is the code that returns images requested by the browser over HTTP.
 
     ```php
     <?php
@@ -229,7 +229,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
     ?>
     ```
 
-1. Repeat Steps 3 through 5 to add a file named **images.php** containing the following code to the project. This is the code used to upload, store, and retrieve images.
+1. Repeat Steps 4 through 6 to add a file named **images.php** containing the following code to the project. This is the code used to upload, store, and retrieve images.
 
     ```php
     <?php
@@ -296,10 +296,10 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
                 return $image;
             }
         }
-    ?>  
+    ?>
     ```
 
-1. Repeat Steps 3 through 5 to add a file named **database.php** containing the following code to the project. This is the code used to interact with the MySQL database. Observe that the database connection string isn't embedded in the code, but is instead retrieved from an environment variable named *MYSQLCONNSTR_defaultConnection*. The value of this approach will be explained in the next exercise.
+1. Repeat Steps 4 through 6 to add a file named **database.php** containing the following code to the project. This is the code used to interact with the MySQL database. Observe that the database connection string isn't embedded in the code, but is instead retrieved from an environment variable named *MYSQLCONNSTR_defaultConnection*. The value of this approach will be explained in the next exercise.
 
     ```php
     <?php
@@ -392,7 +392,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
 
     _Adding a Content folder to the project_
      
-1. Repeat Steps 3 through 5 to add a file named **styles.css** containing the following CSS to the **Content** folder that you just created:
+1. Repeat Steps 4 through 6 to add a file named **styles.css** containing the following CSS to the **Content** folder that you just created:
 
     ```css
     /* Custom background color for the nav-bar element. */
