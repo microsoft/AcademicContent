@@ -158,8 +158,6 @@ Installing the Microsoft Cognitive Toolkit is reasonably straightforward if you 
 
 1. The script will download a number of libraries and install them on your computer. This will take a few minutes to complete. Once the script is finished, you will be shown a command that activates the CNTK Python environment. Copy this command to the clipboard.
 
-1. The script will download a number of libraries and install them on your computer. This will take a few minutes to complete. Once the script is finishes, the script will notify the user with a message about examples and tutorials along with a **source** command that will activate the **CNTK environment**. Copy and paste or type command into the Terminal window.
-
 	![Copying the command to activate the environment](Images/source-command.png)
 
 	_Copying the command to activate the environment_
