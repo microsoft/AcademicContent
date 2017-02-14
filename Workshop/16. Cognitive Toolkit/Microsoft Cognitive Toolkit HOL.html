@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Microsoft Cognitive Toolkit HOL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<p><a name="HOLTitle"></a></p>
+<h1>Building Neural Networks with the Microsoft Cognitive Toolkit</h1>
+<hr>
+<p><a name="Overview"></a></p>
+<h2>Overview</h2>
+<p>The <a href="https://www.microsoft.com/en-us/research/product/cognitive-toolkit/">Microsoft Cognitive Toolkit</a>, also known as the Computational Network Toolkit (CNTK), is a powerful set of free and open-source tools for developing deep-learning applications. It was initially developed by computer scientists at Microsoft to aid in their own research, was later adopted by Bing and other product groups, and is now being used by Microsoft customers. It can run on a single machine with a single CPU, or scale efficiently across multiple machines with multiple CPUs and NVIDIA GPUs, including Azure's <a href="https://azure.microsoft.com/en-us/blog/azure-n-series-preview-availability/">GPU offering</a>. The toolkit supports C++ and Python and includes a number of libraries and utilities for processing speech, images, text, and video, as well as examples demonstrating how to use them. For more information on its history, its uses, and its capabilities, see <a href="https://blogs.microsoft.com/next/2016/10/25/microsoft-releases-beta-microsoft-cognitive-toolkit-deep-learning-advances">https://blogs.microsoft.com/next/2016/10/25/microsoft-releases-beta-microsoft-cognitive-toolkit-deep-learning-advances</a>.</p>
+<p>The toolkit centers around machine learning with <a href="https://en.wikipedia.org/wiki/Artificial_neural_network">neural networks</a>. Machine learning enables computers to discern patterns in data that are difficult to identify algorithmically. Imagine trying to write an algorithm to identify images containing cats. The algorithm might scan the image looking for features characteristic of cats such as pointed ears, whiskers, and slit pupils, but identifying those features by examining individual pixels and groups of pixels would be difficult. By contrast, a machine-learning model trained with hundreds of thousands of cat images could "learn" to identify cats from patterns in the data without explicitly understanding what those patterns represent. Machine learning touches lives every day and is widely used in industry to flag fraudulent credit-card transactions, generate online shopping recommendations, and more.</p>
+<p><a href="Images/cats.jpg" target="_blank"><img src="Images/cats.jpg" alt="Features of Cats" style="max-width:100%;"></a></p>
+<p><em>Features of cats (image: Wikimedia Commons)</em></p>
+<p>When used for image processing, neural networks begin by decomposing an input image into regions as illustrated above. These regions constitute a series of <em>input nodes</em> in a neural network. These nodes are connected to many <em>hidden nodes</em> via probabilistic edges. Each input region is assigned a value, which is mathematically generated from the probability of an edge combined with input from other nodes. Signals from these nodes feed into other nodes and traverse the network until they reach an <em>output node</em> specifying a probabilistic outcome.</p>
+<p><a href="Images/neural-network.png" target="_blank"><img src="Images/neural-network.png" alt="Neural network featuring a single hidden layer" style="max-width:100%;"></a></p>
+<p><em>Neural network featuring a single hidden layer</em></p>
+<p>Neural networks are trained with one set of inputs and then tested with another set of inputs. Handwriting recognition is one of the common applications. Handwriting is somewhat unique to an individual, but there are common characteristics of written characters that can be detected in images.</p>
+<p>The <a href="http://yann.lecun.com/exdb/mnist/">MNIST database</a> is a popular dataset for training and evaluating handwriting-recognition models. The database contains 60,000 scanned and normalized images of the digits 0 through 9 drawn by high school students. It also includes a set of 10,000 test images for evaluating a model's accuracy. Numerous scholarly papers have been published using this dataset, each seeking to optimize neural networks to produce more positives and fewer errors when identifying hand-written digits. Models built around the MNIST database frequently divide each image into regions and feed them into a neural network for processing. For a more in-depth explanation of how neural networks are used in this context, and in particular with MNIST data, check out <a href="http://neuralnetworksanddeeplearning.com/chap1.html">http://neuralnetworksanddeeplearning.com/chap1.html</a>.</p>
+<p>In this lab, you will use the MNIST database to train and test a pair of neural networks, and then use the trained models to identify hand-written digits.</p>
+<p><a name="Objectives"></a></p>
+<h3>Objectives</h3>
+<p>In this hands-on lab, you will learn how to:</p>
+<ul>
+<li>Install the Microsoft Cognitive Toolkit</li>
+<li>Use the MNIST dataset to train and test neural networks</li>
+<li>Edit CNTK configuration files to input custom datasets</li>
+</ul>
+<p><a name="Prerequisites"></a></p>
+<h3>Prerequisites</h3>
+<p>The following are required to complete this hands-on lab:</p>
+<ul>
+<li>A text or program editor</li>
+<li>A machine with 64-bit Linux or 64-bit Windows installed</li>
+</ul>
+<p>If you do not have a 64-bit Linux or 64-bit Windows machine, you can create a <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-portal">Linux Virtual Machine on Azure</a> and perform the lab using the VM. If you don't have an Azure subscription, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</p>
+<h2>Exercises</h2>
+<p>This hands-on lab includes the following exercises:</p>
+<ul>
+<li><a href="#Exercise1">Exercise 1: Install the Cognitive Toolkit (Windows)</a></li>
+<li><a href="#Exercise2">Exercise 2: Install the Cognitive Toolkit (Linux)</a></li>
+<li><a href="#Exercise3">Exercise 3: Install training and testing data</a></li>
+<li><a href="#Exercise4">Exercise 4: Train and test a pair of neural networks</a></li>
+<li><a href="#Exercise5">Exercise 5: Input custom handwriting samples</a></li>
+<li><a href="#Exercise6">Exercise 6: Generate handwriting samples of your own (optional)</a></li>
+</ul>
+<p>Estimated time to complete this lab: <strong>45</strong> minutes.</p>
+<p><a id="user-content-Exercise1"></a></p>
+<h2>Exercise 1: Install the Cognitive Toolkit (Windows)</h2>
+<p>Installing the Microsoft Cognitive Toolkit is reasonably straightforward if you use the precompiled binaries available on GitHub. The toolkit comes with installation scripts for Windows and Linux. In this exercise, you will use the Windows scripts to install the toolkit on a Windows machine. If you are running Linux, skip this exercise and go to <a href="#Exercise2">Exercise 2</a>.</p>
+<ol>
+<li>
+<p>Visit the <a href="https://github.com/Microsoft/CNTK/releases">CNTK release site on GitHub</a> and download the latest CPU-only version of the toolkit from the "Windows" section of the page. If you are prompted to accept any license agreements, answer yes.</p>
+<p><a href="Images/windows-download.png" target="_blank"><img src="Images/windows-download.png" alt="Downloading CNTK for Windows" style="max-width:100%;"></a></p>
+<p><em>Downloading CNTK for Windows</em></p>
+</li>
+<li>
+<p>Open the downloaded zip file and copy the folder named "cntk" to your desktop or to the location of you choice.</p>
+</li>
+<li>
+<p>Press <strong>Windows + R</strong>, and then execute the following command to launch a Command Prompt window in administrator mode:</p>
+<pre><code>powershell -Command "Start-Process cmd -Verb RunAs"
+</code></pre>
+<p><a href="Images/command-prompt.png" target="_blank"><img src="Images/command-prompt.png" alt="Launching a Command Prompt as administrator" style="max-width:100%;"></a></p>
+<p><em>Launching a Command Prompt as administrator</em></p>
+</li>
+<li>
+<p>In the Command Prompt window, use a <strong>cd</strong> command to change to the "cntk" directory that you copied from the zip file. Then execute the following command:</p>
+<pre><code>cd Scripts\install\windows
+</code></pre>
+</li>
+<li>
+<p>Use the following command to run a PowerShell script to install CNTK dependencies:</p>
+<pre><code>powershell -ExecutionPolicy UnRestricted -File install.ps1 -Execute
+</code></pre>
+</li>
+<li>
+<p>Each time you are prompted with a security warning, press <strong>R</strong> followed by <strong>Enter</strong> to answer "Run once."</p>
+<p><a href="Images/security-warning.png" target="_blank"><img src="Images/security-warning.png" alt="Allowing the script to run" style="max-width:100%;"></a></p>
+<p><em>Allowing the script to run</em></p>
+</li>
+<li>
+<p>When prompted to continue, press <strong>1</strong> followed by <strong>Enter</strong> to answer "I agree and want to continue."</p>
+<p><a href="Images/i-agree.png" target="_blank"><img src="Images/i-agree.png" alt="Proceeding with the installation process" style="max-width:100%;"></a></p>
+<p><em>Proceeding with the installation process</em></p>
+</li>
+<li>
+<p>Once the script determines what needs to be installed and prompts you for confirmation to continue, press <strong>Y</strong> followed by <strong>Enter</strong> to answer "yes."</p>
+</li>
+<li>
+<p>The script downloads a number of libraries and installs them on your computer. This will take a few minutes to complete. Once the script is finished, you will be shown the path to a .bat file that activates the CNTK Python environment. Copy this command to the clipboard.</p>
+<p><a href="Images/install-finished.png" target="_blank"><img src="Images/install-finished.png" alt="Copying the command that activates the environment" style="max-width:100%;"></a></p>
+<p><em>Copying the command that activates the environment</em></p>
+</li>
+<li>
+<p>Paste the command on the clipboard into the Command Prompt window and execute it.</p>
+</li>
+</ol>
+<p>The prompt will change to one for the CNTK Python environment. CNTK is now installed and ready to use. Each time you use the toolkit, you will need to run this command to launch the CNTK Python environment. Copy the command to a text file so you can easily retrieve it later.</p>
+<p>Now skip to <a href="#Exercise3">Exercise 3</a>. Exercise 2 is for Linux users only.</p>
+<p><a id="user-content-Exercise2"></a></p>
+<h2>Exercise 2: Install the Cognitive Toolkit (Linux)</h2>
+<p>Installing the Microsoft Cognitive Toolkit is reasonably straightforward if you use the precompiled binaries available on GitHub. The toolkit comes with installation scripts for Windows and Linux. In this exercise, you will use the Linux scripts to install the toolkit on a Linux machine.</p>
+<ol>
+<li>
+<p>Visit the <a href="https://github.com/Microsoft/CNTK/releases">CNTK release site on GitHub</a> and download the latest CPU-only version of the toolkit from the "Linux" section of the page. If you are prompted to accept any license agreements, answer yes.</p>
+<p><a href="Images/linux-download.png" target="_blank"><img src="Images/linux-download.png" alt="Downloading CNTK for Linux" style="max-width:100%;"></a></p>
+<p><em>Downloading CNTK for Linux</em></p>
+</li>
+<li>
+<p>After the download completes, open a Terminal window. This can usually be found on the Applications menu for your distro, or can often be launched by pressing <strong>Ctrl+Alt+F1</strong>.</p>
+</li>
+<li>
+<p>In the Terminal window, change to the "Downloads" directory:</p>
+<pre><code>cd ~/Downloads
+</code></pre>
+</li>
+<li>
+<p>Use the following command to uncompress the <strong>CNTK-2-X-Linux-64bit-CPU-Only.tar.gz</strong> file:</p>
+<pre><code> tar -xvzf CNTK-2-x-Linux-64bit-CPU-Only.tar.gz
+</code></pre>
+</li>
+<li>
+<p>Use the following command to switch to the Linux install folder:</p>
+<pre><code>cd cntk/Scripts/install/linux/
+</code></pre>
+</li>
+<li>
+<p>Use the following command to launch the install script. If prompted for a sudo password, type it in and press <strong>Enter</strong>.</p>
+<pre><code> ./install-cntk.sh
+</code></pre>
+</li>
+<li>
+<p>The script downloads a number of libraries and installs them on your computer. This will take a few minutes to complete. Once the script is finished, you will be shown a command that activates the CNTK Python environment. Copy this command to the clipboard.</p>
+<p><a href="Images/source-command.png" target="_blank"><img src="Images/source-command.png" alt="Copying the command that activates the environment" style="max-width:100%;"></a></p>
+<p><em>Copying the command that activates the environment</em></p>
+</li>
+<li>
+<p>Paste the command on the clipboard into the Terminal window and execute it.</p>
+</li>
+</ol>
+<p>The prompt will change to one for the CNTK Python environment. CNTK is now installed and ready to use. Each time you use the toolkit, you will need to run this command to launch the CNTK Python environment. Copy the command to a text file so you can easily retrieve it later.</p>
+<p><a id="user-content-Exercise3"></a></p>
+<h2>Exercise 3: Install training and testing data</h2>
+<p>One of the more popular datasets for training and testing neural networks is the <a href="http://yann.lecun.com/exdb/mnist/">MNIST database</a>, which contains a training dataset of 60,000 handwritten samples of the digits 0 through 9, each normalized and centered in a 28 x 28 grayscale grid, plus a testing sample of 10,000 digits. The characters are written using black ink on a a white background. In this exercise, you will download the training and testing data in preparation for using it in a series of neural networks.</p>
+<p><a href="Images/digits.png" target="_blank"><img src="Images/digits.png" alt="Sample digits from the MNIST database" style="max-width:100%;"></a></p>
+<p><em>Sample digits from the MNIST database</em></p>
+<ol>
+<li>
+<p>In the Command Prompt or Terminal window left open from the previous exercise, execute the following command to change to the toolkit's "MNIST" folder:</p>
+<p><strong>Windows:</strong></p>
+<pre><code>cd ..\..\..\Examples\Image\DataSets\MNIST
+</code></pre>
+<p><strong>Linux:</strong></p>
+<pre><code>cd ../../../Examples/Image/DataSets/MNIST
+</code></pre>
+</li>
+<li>
+<p>Now execute the following command to download and install the MNIST images:</p>
+<pre><code>python install_mnist.py
+</code></pre>
+</li>
+<li>
+<p>Wait for the script to finish. Once downloaded, the dataset is converted from a binary format to a text format that can be consumed by CNTK. These text files used for input are explained in greater detail in <a href="#Exercise5">Exercise 5</a>.</p>
+<p><a href="Images/install-dataset.png" target="_blank"><img src="Images/install-dataset.png" alt="The completed installation script" style="max-width:100%;"></a></p>
+<p><em>The completed installation script</em></p>
+</li>
+</ol>
+<p>The script created two text files: one for training and one for testing. The training data is in a text file named <strong>Train-28x28_cntk_text.txt</strong>. The testing data is in <strong>Test-28x28_cntk_text.txt</strong>. Confirm that both files are present in the current directory before proceeding.</p>
+<p><a id="user-content-Exercise4"></a></p>
+<h2>Exercise 4: Train and test a pair of neural networks</h2>
+<p>The Microsoft Cognitive Toolkit comes with several configuration files enabling various types of neural networks to be created, trained, and tested with a single command. One of the simplest network types is the "One Hidden Layer" network, which is not a deep neural network, but rather one that contains a single layer of hidden nodes. Another type of neural network that CNTK supports right out of the box is the "One Convolution" network, which is a <a href="https://en.wikipedia.org/wiki/Convolutional_neural_network">convolutional neural network</a> with a single convolutional layer. Convolutional networks are often used in image recognition.</p>
+<p>In this exercise, you will train and test a One Hidden Layer network and a One Convolution network using MNIST image data and compare the results.</p>
+<ol>
+<li>
+<p>In the Command Prompt or Terminal window left open from the previous exercise, use the following command to change to the toolkit's "GettingStarted" folder:</p>
+<p><strong>Windows:</strong></p>
+<pre><code>cd ..\..\GettingStarted
+</code></pre>
+<p><strong>Linux:</strong></p>
+<pre><code>cd ../../GettingStarted
+</code></pre>
+</li>
+<li>
+<p>The "GettingStarted" folder contains several .cntk files, each corresponding to a specific type of neural network, and each targeting the MNIST dataset. Each .cntk file contains instructions for creating a neural network, training it with MNIST data, and testing it. Use the following command to list the .cntk files in the directory:</p>
+<p><strong>Windows:</strong></p>
+<pre><code>dir *.cntk
+</code></pre>
+<p><strong>Linux:</strong></p>
+<pre><code>ls -l *.cntk
+</code></pre>
+<p><a href="Images/cntk-files.png" target="_blank"><img src="Images/cntk-files.png" alt=".cntk files for testing and training neural networks" style="max-width:100%;"></a></p>
+<p><em>.cntk files for testing and training neural networks</em></p>
+</li>
+<li>
+<p>Execute the following command to train and test a One Hidden Layer network:</p>
+<pre><code>cntk configFile=01_OneHidden.cntk
+</code></pre>
+</li>
+<li>
+<p>Wait for the training and testing to complete. The training and testing process writes output to the screen. At the end will be a test summary, including an <strong>errs</strong> value denoting the percentage of errors encountered during testing. Lower percentages mean that the neural network was able to correctly identify more digits in the test dataset.</p>
+<p><a href="Images/one-hidden.png" target="_blank"><img src="Images/one-hidden.png" alt="Testing a One Hidden Layer neural network" style="max-width:100%;"></a></p>
+<p><em>Testing a One Hidden Layer neural network</em></p>
+</li>
+<li>
+<p>Next, use the following command to train and test a One Convolution network:</p>
+<pre><code>cntk configFile=02_OneConv.cntk
+</code></pre>
+</li>
+<li>
+<p>Wait for the training and testing to complete. Notice the lower error rate for this network. This means that it correctly identified more of the test digits than the first network.</p>
+<p><a href="Images/one-conv.png" target="_blank"><img src="Images/one-conv.png" alt="Testing a One Convolution neural network" style="max-width:100%;"></a></p>
+<p><em>Testing a One Convolution neural network</em></p>
+</li>
+</ol>
+<p>Feel free if time permits to use some of the other .cntk files in the directory to train and test other neural networks and compare the results to the One Hidden Layer and One Convolution network.</p>
+<p><a id="user-content-Exercise5"></a></p>
+<h2>Exercise 5: Input custom handwriting samples</h2>
+<p>The "resources" folder of this lab contains a set of custom images that can be used for testing handwriting recognition, as well as Python scripts for creating the text files required to test them with CNTK. These images are not part of the MNIST dataset, but are ones generated for this exercise.</p>
+<p><a href="Images/test-images.png" target="_blank"><img src="Images/test-images.png" alt="Custom images for testing neural networks" style="max-width:100%;"></a></p>
+<p><em>Custom images for testing neural networks</em></p>
+<p>In this exercise, you will use these images to determine how well the networks you trained in the previous exercise can recognize handwritten digits that aren't part of the testing dataset.</p>
+<ol>
+<li>
+<p>In the Command Prompt or Terminal window, change to this lab's "resources" directory. Then use the following command to run the script named <strong>images2cntk.py</strong>. This will create a file named <strong>Custom-Test-28x28_cntk_text.txt</strong>:</p>
+<pre><code>python images2cntk.py
+</code></pre>
+</li>
+<li>
+<p>Open <strong>Custom-Test-28x28_cntk_text.txt</strong> in your favorite text or program editor and examine its contents. The file contains 10 rows: one for each test image. Each row contains a section named "labels" and a section named "features." The "labels" data denotes the actual value of the digit 0 through 9. The first value is 1 or 0 for 0, the second is 1 or 0 for 1, and so on. For the digit 7, all of the values in "labels" will be 0 except the 8th, which will contain a 1. The "features" data represents the image itself. There are 784 values, one for each pixel in a 28 x 28 array, and each value is a grayscale value from 0 to 255, with 0 representing empty space and 255 representing filled space ("ink").</p>
+<p><a href="Images/sample-data.png" target="_blank"><img src="Images/sample-data.png" alt="Text file containing sample data" style="max-width:100%;"></a></p>
+<p><em>Text file containing sample data</em></p>
+</li>
+<li>
+<p>Use a <strong>cd</strong> command to navigate back to the "GettingStarted" directory from which you executed the <strong>cntk</strong> commands in the previous exercise.</p>
+</li>
+<li>
+<p>Make a copy of <strong>01_OneHidden.cntk</strong> and name the copy <strong>01_OneHidden_Custom.cntk</strong>. Then open <strong>01_OneHidden_Custom.cntk</strong> in a text or program editor.</p>
+</li>
+<li>
+<p>Scroll to the bottom of the file and look for the comment "# TEST CONFIG." The "reader" section underneath the comment specifies where CNTK will look for test data. It currently points to the <strong>Test-28x28_cntk_text.txt</strong> file installed with the toolkit. Modify the <strong>file =</strong> line with the full path to the <strong>Custom-Test-28x28_cntk_text.txt</strong> file you created in Step 1 of this exercise. Here is an example using a Windows path name:</p>
+<pre><code>reader = {
+    readerType = "CNTKTextFormatReader"
+    file = "C:\Labs\CNTK\resources\Custom-Test-28x28_cntk_text.txt"
+    input = {
+        features = { dim = 784 ; format = "dense" }
+        labels =   { dim = 10  ; format = "dense" }
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>Save the modified .cntk file.</p>
+</li>
+<li>
+<p>Run the <strong>cntk</strong> command on the modified .cntk file. The test script will run much faster now because the trained model was saved to disk. CNTK uses the trained model instead of regenerating it.</p>
+<pre><code>cntk configFile=01_OneHidden_Custom.cntk
+</code></pre>
+</li>
+<li>
+<p>Note the error rate for the custom images:</p>
+<p><a href="Images/one-hidden-custom.png" target="_blank"><img src="Images/one-hidden-custom.png" alt="Testing the One Hidden Layer network with custom images" style="max-width:100%;"></a></p>
+<p><em>Testing the One Hidden Layer network with custom images</em></p>
+</li>
+<li>
+<p>Now, make a copy of <strong>02_OneConv.cntk</strong> named <strong>02_OneConv_Custom.cntk</strong> and edit it to use the test images as well. Then use the following command to run the One Convolution network with the test images:</p>
+<pre><code>cntk configFile=02_OneConv_Custom.cntk
+</code></pre>
+</li>
+<li>
+<p>Note the error rate for the custom images. Which network was better able to recognize the digits in the test images?</p>
+<p><a href="Images/one-conv-custom.png" target="_blank"><img src="Images/one-conv-custom.png" alt="Testing the One Convolution network with custom images" style="max-width:100%;"></a></p>
+<p><em>Testing the One Convolution network with custom images</em></p>
+</li>
+</ol>
+<p>These tests demonstrate that different neural networks can produce different results, even if they were trained with the same input data. In this case, the One Convolution network was more adept at recognizing digits in the test images.</p>
+<p><a id="user-content-Exercise6"></a></p>
+<h2>Exercise 6: Generate handwriting samples of your own (optional)</h2>
+<p>If you care to, you can use your favorite bitmap editor to generate test images of your own and run them through the neural networks that you created. Here's how to do it.</p>
+<ol>
+<li>
+<p>Create a 28 x 28 bitmap with a white background.</p>
+</li>
+<li>
+<p>Zoom in on it, and draw a digit.</p>
+<p><a href="Images/edit-custom-image-zoomed.png" target="_blank"><img src="Images/edit-custom-image-zoomed.png" alt="Drawing an 8" style="max-width:100%;"></a></p>
+<p><em>Drawing an 8</em></p>
+</li>
+<li>
+<p>Save the image into the "input-images" folder in this lab's "resources" directory. Name the file <strong>X-YY.png</strong>, where X is the value of the digit, and YY is any number you want other than 01 (the suffix used for the test images provided with this lab). For example, the image above might be named <strong>8-02.png</strong>.</p>
+</li>
+<li>
+<p>Repeat Steps 1 through 3 to create additional test images.</p>
+</li>
+<li>
+<p>Finally, repeat the steps in <a href="#Exercise5">Exercise 5</a> to regenerate the text file containing the image data and rerun the tests with the new set of images.</p>
+</li>
+</ol>
+<p>Neural networks are fun! And with the Microsoft Cognitive Toolkit to help out, they're easy to create, too.</p>
+<p><a name="Summary"></a></p>
+<h2>Summary</h2>
+<p>Neural networks are useful for applying pattern recognition to a variety of media types. In this lab, you used the Microsoft Cognitive Toolkit, also known as CNTK, to train neural networks to do handwriting recognition using the MNIST database. The toolkit also contains libraries and samples for speech recognition, image classification, language understanding, and more, and it includes a full API that can you can use to build applications that incorporate neural networks. For more information, and more samples to learn from, see <a href="https://www.microsoft.com/en-us/research/product/cognitive-toolkit/model-gallery/">https://www.microsoft.com/en-us/research/product/cognitive-toolkit/model-gallery/</a>.</p>
+<p>If you are new to machine learning and would like to learn more about how it works and what kinds of tasks it is used for, you will find an excellent series of articles at <a href="https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471">https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471</a>. In particular, <a href="https://medium.com/@ageitgey/machine-learning-is-fun-part-2-a26a10b68df3">Part 2</a> and <a href="https://medium.com/@ageitgey/machine-learning-is-fun-part-3-deep-learning-and-convolutional-neural-networks-f40359318721">Part 3</a> deal with neural networks and are a terrific aid in understanding what they are and how they work.</p>
+<hr>
+<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
