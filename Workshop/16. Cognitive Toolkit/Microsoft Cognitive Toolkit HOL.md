@@ -52,9 +52,9 @@ This hands-on lab includes the following exercises:
 * [Exercise 1: Install the Cognitive Toolkit (Windows)](#Exercise1)
 * [Exercise 2: Install the Cognitive Toolkit (Linux)](#Exercise2)
 * [Exercise 3: Install training and testing data](#Exercise3)
-* [Exercise 4: Train and test neural networks](#Exercise4)
+* [Exercise 4: Train and test a pair of neural networks](#Exercise4)
 * [Exercise 5: Test with custom images](#Exercise5)
-* [Exercise 6: Generate custom images (optional)](#Exercise6)
+* [Exercise 6: Test with images of your own (optional)](#Exercise6)
 
 Estimated time to complete this lab: **45** minutes.
 
@@ -204,7 +204,7 @@ _Sample digits from the MNIST database_
 The script created two text files: one for training and one for testing. The training data is in a text file named **Train-28x28_cntk_text.txt**. The testing data is in **Test-28x28_cntk_text.txt**. Confirm that both files are present in the current directory before proceeding.
 
 <a id="Exercise4"/></a>
-## Exercise 4: Train and test neural networks
+## Exercise 4: Train and test a pair of neural networks
 
 The Microsoft Cognitive Toolkit comes with several configuration files making it easy to create various types of neural networks. One of the simplest networks is the "One Hidden Layer" network, which is not a deep neural network, but rather one that contains a single layer of hidden nodes. Another type of neural network CNTK supports is the "One Convolution" network, which is a [convolutional neural network](https://en.wikipedia.org/wiki/Convolutional_neural_network) with a single convolutional layer. Convolutional networks are often used to perform image recognition. For an excellent explanation of what convolutional networks are and how they work, see https://medium.com/@ageitgey/machine-learning-is-fun-part-3-deep-learning-and-convolutional-neural-networks-f40359318721.
 
@@ -338,28 +338,30 @@ In this exercise, you will use these images to determine how well the networks y
 These tests demonstrate that different neural networks can produce different results, even if they were trained with the same input data. In this case, the One Convolution network was clearly more adept at recognizing digits in the test images.
 
 <a id="Exercise6"/></a>
-## Exercise 6: Generate custom images (optional)
+## Exercise 6: Test with images of your own (optional)
 
-It is possible to generate custom images to test with. Using user generated images helps further validate the models created by the training images.
+If you care to, you can use your favorite bitmap editor to generate additional test images of your own and run them through your neural networks. Here's how to do it.
 
-1. Create a 28 x 28 square with a white background in a raster graphics editor.
+1. Create a 28 x 28 bitmap with a white background.
 
-2. Zoom in on it, and draw a digit using hand writing. 
+1. Zoom in on it, and draw a digit. 
 
-	![Editing a custom image zoomed in](Images/edit-custom-image-zoomed.png)
+	![Drawing an 8](Images/edit-custom-image-zoomed.png)
 
-	_Editing a custom image zoomed in_
+	_Drawing an 8_
 
-3. Name the image X-YY.png -- X is the value that corresponds to the digit represented in the image, and YY is any number. For the image above, one would name it "8-02.png".
+1. Save the image into the "input-images" folder in this lab's "resources" directory. Name the file **X-YY.png**, where X is the value of the digit, and YY is any number you want other than 01 (the suffix used for the test images provided with this lab). For example, the image above might be named **8-02.png**.
 
-4. Copy the image into the **input-images** folder in the **solution** folder, then rerun the  **images2cntk.py** script to generate the **Custom-Test-28x28_cntk_text.txt**  data as in step 2 under exercise 5. 
+1. Repeat Steps 1 through to create additional test images.
 
-5. Finally, rerun the tests with the new custom images and see the results for each neural network.
+1. Finally, repeat the steps in [Exercise 5](#Exercise5) to regenerate the text file containing the image data and rerun the tests with the new set of images.
+
+Neural networks are fun! And with the Microsoft Cognitive Toolkit to help out, they're easy to create, too.
 
 <a name="Summary"></a>
 ## Summary ##
 
-Neural Networks are useful for developing pattern recognition for arbitrary input on any varieties of media types. This lab has looked at one of the most common applications for neural networks, handwriting recognition. The Microsoft Cognitive Toolkit though contains libraries and utilities for speech recognition, video, images, and likewise can be applied to any number of other applications.
+Neural networks are useful for applying pattern recognition to a variety of media types. In this lab, you used the Microsoft Cognitive Toolkit, also known as CNTK, to train neural networks to do handwriting recognition using the MNIST database. The toolkit also contains libraries and samples for speech recognition, image classification, language understanding, and more, and it includes a full API that can you can use to build applications that incorporate neural networks. For more information, and more samples to learn from, see https://www.microsoft.com/en-us/research/product/cognitive-toolkit/model-gallery/.
 
 ---
 
