@@ -340,7 +340,7 @@ These tests demonstrate that different neural networks can produce different res
 <a id="Exercise6"/></a>
 ## Exercise 6: Test with images of your own (optional)
 
-If you care to, you can use your favorite bitmap editor to generate additional test images of your own and run them through your neural networks. Here's how to do it.
+If you care to, you can use your favorite bitmap editor to generate test images of your own and run them through your neural networks. Here's how to do it.
 
 1. Create a 28 x 28 bitmap with a white background.
 
@@ -352,7 +352,7 @@ If you care to, you can use your favorite bitmap editor to generate additional t
 
 1. Save the image into the "input-images" folder in this lab's "resources" directory. Name the file **X-YY.png**, where X is the value of the digit, and YY is any number you want other than 01 (the suffix used for the test images provided with this lab). For example, the image above might be named **8-02.png**.
 
-1. Repeat Steps 1 through to create additional test images.
+1. Repeat Steps 1 through 3 to create additional test images.
 
 1. Finally, repeat the steps in [Exercise 5](#Exercise5) to regenerate the text file containing the image data and rerun the tests with the new set of images.
 
