@@ -22,7 +22,7 @@ _Neural network (image: Wikimedia Commons)_
 
 Neural networks are trained with one set of inputs and then tested with another set of inputs. Handwriting recognition is one of the common applications, especially neural networks mimc the behavior of the human brain. Handwriting is usually unique to an individual, but there are common characteristics of written characters that can be detected in images.
 
-The [MNIST datasbase](https://en.wikipedia.org/wiki/MNIST_database) is a popular dataset for training and evaluating handwriting-recognition models. The database contains 60,000 images of the digits 0 through 9 drawn by high school students. It also includes a set of 10,000 test images. A number of scholarly papers have been published using this dataset, each seeking to optimize neural networks to produce more positives and fewer errors when identifying characters. Models built around the MNIST database frequently divide each image into regions and feed them into a neural network for processing. For a more in-depth explanation of machine learning, particularly as it relates to MNIST, check out http://neuralnetworksanddeeplearning.com/chap1.html.
+The [MNIST datasbase](http://yann.lecun.com/exdb/mnist/) is a popular dataset for training and evaluating handwriting-recognition models. The database contains 60,000 images of the digits 0 through 9 drawn by high school students. It also includes a set of 10,000 test images. A number of scholarly papers have been published using this dataset, each seeking to optimize neural networks to produce more positives and fewer errors when identifying characters. Models built around the MNIST database frequently divide each image into regions and feed them into a neural network for processing. For a more in-depth explanation of machine learning, particularly as it relates to MNIST, check out http://neuralnetworksanddeeplearning.com/chap1.html.
 
 In this lab, you will use the MNIST database to train and test a variety of different algorithms, and then use the trained models to test sets of images against the models.
 
@@ -169,41 +169,39 @@ The prompt will change to one for the CNTK Python environment. CNTK is now insta
 <a id="Exercise3"/></a>
 ## Exercise 3: Install training and testing data
 
-Neural Networks are "trained" using data sets of known values to help in pattern recognition when tested with unknown values. One of the more popular sets for Neural Networks is the [MNIST dataset](http://yann.lecun.com/exdb/mnist/), which contains a set of 60,000 handwriting samples of digits, 0 through 9. Each image is one digit in a 28 x 28 grayscale bitmap. The characters are written using black ink on a a white background, so the the handwriting recognition is looking for varying degrees of contrast between the background and foreground to shape a respective digit.
+One of the more popular datasets for training and testing neural networks is the [MNIST database](http://yann.lecun.com/exdb/mnist/), which contains a training dataset of 60,000 handwritten samples of the digits 0 through 9, each normalized and centered in a 28 x 28 grayscale bitmap, plus a testing sample of 10,000 digits. The characters are written using black ink on a a white background. In this exercise, you will download the training and testing data in preparation for using it in a series of neural networks.
 
-![Sample Digits](Images/digits.png)
+![Sample digits from the MNIST database](Images/digits.png)
 
-_Sample Digits_
+_Sample digits from the MNIST database_
 
-1. Change folders to the **MNIST dataset** folder in **Examples**. 
+1. In the Command Prompt or Terminal window left open from the previous exercise, execute the following command to change to the "MNIST" folder:
 
 	**Windows:**
 
-	````
+	```
 	cd ..\..\..\Examples\Image\DataSets\MNIST
-	````
+	```
 
 	**Linux:**
 
-	````
+	```
 	cd ../../../Examples/Image/DataSets/MNIST
-	````
+	```
 
-1. Install the image data with the provided script.
+1. Now execute the following command to download and install the MNIST images:
 
-	**Windows and Linux:**
-
-	````
+	```
 	python install_mnist.py
-	````
+	```
 
-1. The scripts will download and install the dataset, which will take a few minute to complete. Once downloaded, the dataset is converted from a binary format to a text format that is used by CNTK. This will be discussed further in a later Exercise.
+1. Wait for the script to finish. Once downloaded, the dataset is converted from a binary format to a text format that is used by CNTK. This will be discussed further in a later exercise.
 
-	![Installed Dataset](Images/install-dataset.png)
+	![The completed installation script](Images/install-dataset.png)
 
-	_Installed Dataset_
+	_The completed installation script_
 
-	There are two sets of files the **train** set and the **test** set. The train set contains the 60,000 sample images to train the neural network to recognize handwriting. The scripts output the data into a text file called **Train-28x28_cntk_text.txt**. The second set contains 10,000 images to test the trained neural network. The output for the test data is **Test-28x28_cntk_text.txt**.
+The script created two text files: one for training and one for testing. The training data is in a text file named **Train-28x28_cntk_text.txt**. The testing data is in **Test-28x28_cntk_text.txt**. Confirm that both files are present in the current directory before proceeding.
 
 <a id="Exercise4"/></a>
 ## Exercise 4: Train and test neural networks
