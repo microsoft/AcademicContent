@@ -272,81 +272,70 @@ If you would like, use some of the other .cntk files in the directory to train a
 <a id="Exercise5"/></a>
 ## Exercise 5: Test with custom images
 
-The **solution** folder in the lab has a set of custom images that can be used for testing. These images can be used to produce a test input file for the neural networks. These images are not part of the MNIST dataset.
+The "resources" folder of this lab contains a set of custom images that can be used for testing handwriting recognition, as well as Python scripts for creating the text files required to test them with CNTK. These images are not part of the MNIST dataset, but are ones generated for this exercise.
 
+![Custom images for testing neural networks](Images/test-images.png)
 
-![Test Images](Images/test-images.png)
+_Custom images for testing neural networks_
 
-_Test Images_
+In this exercise, you will use these images to determine how well the networks you trained in the previous exercise can recognize handwritten digits that aren't part of the testing dataset.
 
-1. Change directories to the **solution** folder for the lab.
+1. In the Command Prompt or Terminal window, change to this lab's "resources" directory. Then use the following command to run the script named **images2cntk.py**. This will create a file named **Custom-Test-28x28_cntk_text.txt**:
 
-1. Run the **images2cntk.py** script in the solution folder. This script will create a test input file called "Custom-Test-28x28_cntk_text.txt"
-
-	**Windows and Linux:**
-
-	````
+	```
 	python images2cntk.py
-	````
+	```
 
-1. The output file contains data from each of the images in a single row. One section is called **labels** and the other **features**. The **labels** correspond to the actual value of the digit -- there are 10 possible values 0 through 9. The first value is 1 or 0 for 0, the second 1 or 0 for 1 and so on. If the value is 7, then all the values of the labels section will be 0 except the 8th value, which will be marked as 1. The **features** correspond to the value for the binary data in the images. 0 is white while 255 is black. There are 784 values, one for each pixel.
+1. Open **Custom-Test-28x28_cntk_text.txt** in your favorite text or program editor and examine its contents. The file contains 10 rows: one for each test image. Each row contains a section named "labels" and a section named "features." The "labels" data denotes the actual value of the digit 0 through 9. The first value is 1 or 0 for 0, the second is 1 or 0 for 1, and so on. For the digit 7, all of the values in "labels" will be 0 except the 8th, which will contain a 1. The "features" data represents the image itself. There are 784 values, one for each pixel in a 28 x 28 array, and each value is a grayscale value from 0 to 255, with 0 representing white and 255 representing black.
 
-	![Sample Data](Images/sample-data.png)
+	![Text file containing sample data](Images/sample-data.png)
 
-	_Sample Data_
+	_Text file containing sample data_
 
-1. Now, in the cntk folder open the **01_OneHidden.cntk** used for training and testing in Exercise 4 in a text editor. This file has two large sections **trainNetwork** and **testNetwork**. trainNetwork contains all the settings to train the network based on the training dataset. The testNetwork contains all the settings used for testing the network.
+1. Use a **cd** command to navigate back to the "GettingStarted" directory from which you executed the **cntk** commands in the previous exercise.
 
-1. Find the testNetwork section in the file, and look at the **reader** section in **testNetwork**. The **reader** defines the file format for the input data. (The **trainNetwork** also has a reader section as well.) Notice the features and labels sections are defined in the reader section as well as the data source for the test data called **file**. Comment out the **file** line with a pound sign (#) and add a new **file** line with the full path to the **Custom-Test-28x28_cntk_text.txt** in step 2.
+1. Make a copy of **01_OneHidden.cntk** and name the copy **01_OneHidden_Custom.cntk**. Then open **01_OneHidden_Custom.cntk** in a text or program editor.
 
+1. Scroll to the bottom of the file and look for the comment "# TEST CONFIG." The "reader" section underneath the comment specifies where CNTK will look for test data. It currently points to the **Test-28x28_cntk_text.txt** file installed with the toolkit. Modify the **file =** line with the full path to the **Custom-Test-28x28_cntk_text.txt** file created in Step 1. Here is an example using a Windows path name:
 
-	**Example reader:**
-
-	````
+	```
 	reader = {
-        	readerType = "CNTKTextFormatReader"
-        	# file = "$DataDir$/Test-28x28_cntk_text.txt"
-		file = "C:\path\to\solution\Custom-Test-28x28_cntk_text.txt"
-        	input = {
-           	 features = { dim = 784 ; format = "dense" }
-           	 labels =   { dim = 10  ; format = "dense" }
-        	}
+        readerType = "CNTKTextFormatReader"
+	    file = "C:\Labs\CNTK\resources\Custom-Test-28x28_cntk_text.txt"
+        input = {
+            features = { dim = 784 ; format = "dense" }
+            labels =   { dim = 10  ; format = "dense" }
+        }
 	}
-	````
+	```
 
-1. Save the file.
+1. Save the modified .cntk file.
 
-1. Back in the Command Prompt, run the **cntk** command for the modified cntk file. The test script will run much faster now because the trained model was saved to disk. CNTK uses the trained model instead of regenerating it. 
+1. Run the **cntk** command on the modified .cntk file. The test script will run much faster now because the trained model was saved to disk. CNTK uses the trained model instead of regenerating it. 
 
+	```
+	cntk configFile=01_OneHidden_Custom.cntk
+	```
 
-	**Windows and Linux:**
+1. Note the error rate for the custom images:
 
-	````
-	cntk configFile=01_OneHidden.cntk
-	````
+	![Results of testing the One Hidden Layer network with custom images](Images/one-hidden-custom.png)
 
-	Notice the error rate for the custom set of images.
+	_Results of testing the One Hidden Layer network with custom images_
 
-	![One Hidden Custom Test](Images/one-hidden-custom.png)
-
-	_One Hidden Custom Test_
-
-1. Now, use the edit the **reader** for **testNetwork** in **02_OneConv.cntk** as in step 4, then run the cntk command test with **One Convolution**.
-
+1. Now, make a copy of **02_OneConv.cntk** named **02_OneConv_Custom.cntk** and edit it to use the test images as well. Then use the following command to run the One Convolution network with the test images:
 	
-	**Windows and Linux:**
+	```
+	cntk configFile=02_OneConv_Custom.cntk
+	```
 
-	````
-	cntk configFile=02_OneConv.cntk
-	````
+1. Note the error rate for the custom images. Which network was better able to recognize the digits in the test images?
 
-	Notice the error rate for the custom set of images. The rate is different for this network.
+	![Results of testing the One Convolution network with custom images](Images/one-conv-custom.png)
 
-	![One Hidden Custom Test](Images/one-conv-custom.png)
+	_Results of testing the One Convolution network with custom images_
 
-	_One Convolution Custom Test_
-
-These images show how different neural networks can produce different results although the networks were trained with the same input data. The One Convolution is able to recognize more of the custom images than the One Hidden network.
+These tests demonstrate that different neural networks can produce different results, even if they were trained with the same input data. In this case, the One Convolution network was clearly more adept at recognizing digits in the test images.
 
 <a id="Exercise6"/></a>
 ## Exercise 6: Generate custom images (optional)
