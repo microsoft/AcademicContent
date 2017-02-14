@@ -175,7 +175,7 @@ One of the more popular datasets for training and testing neural networks is the
 
 _Sample digits from the MNIST database_
 
-1. In the Command Prompt or Terminal window left open from the previous exercise, execute the following command to change to the "MNIST" folder:
+1. In the Command Prompt or Terminal window left open from the previous exercise, execute the following command to change to the toolkit's "MNIST" folder:
 
 	**Windows:**
 
@@ -206,73 +206,68 @@ The script created two text files: one for training and one for testing. The tra
 <a id="Exercise4"/></a>
 ## Exercise 4: Train and test neural networks
 
-The Microsoft Cognitive Toolkit comes with a number of sample configurations to use various types of neural networks. Each type of network uses the same training and test data for purposes of consistency. One of the simplest networks is a One Hidden Layer network, which is not a deep neural network, rather only has input nodes, one set of hidden nodes, then output nodes.
+The Microsoft Cognitive Toolkit comes with several configuration files making it easy to create various types of neural networks. One of the simplest networks is the "One Hidden Layer" network, which is not a deep neural network, but rather one that contains a single layer of hidden nodes. Another type of neural network CNTK supports is the "One Convolution" network, which is a [convolutional neural network](https://en.wikipedia.org/wiki/Convolutional_neural_network) with a single convolutional layer. Convolutional networks are often used to perform image recognition. For an excellent explanation of what convolutional networks are and how they work, see https://medium.com/@ageitgey/machine-learning-is-fun-part-3-deep-learning-and-convolutional-neural-networks-f40359318721.
 
-1. Change Directories to the Getting Started Folder
+In this exercise, you will train and test a One Hidden Layer network and a One Convolution network using MNIST image data and compare the results.
+
+1. In the Command Prompt or Terminal window left open from the previous exercise, use the following command to change to the toolkit's "GettingStarted" folder:
 
 	**Windows:**
 
-	````
+	```
 	cd ..\..\GettingStarted
-	````
+	```
 
 	**Linux:**
 
-	````
+	```
 	cd ../../GettingStarted
-	````
+	```
 
-1. Each Network and Test are defined in a .cntk file. The file contains instructions for the data source which in this case is the data from MNIST, the training parameters to define the neural network type, and also the test data data to test the neural networks. To see a list of the .cntk files, list the directory. The lab will modify one or more of these files later.
-
+1. The "GettingStarted" folder contains several .cntk files, each corresponding to a specific type of neural network, and each targeting the MNIST dataset. Each .cntk file contains instructions for creating a neural network, training it with MNIST data, and testing it. Use the following command to list the .cntk files in the directory:
 
 	**Windows:**
 
-	````
+	```
 	dir *.cntk
-	````
+	```
 
 	**Linux:**
 
-	````
+	```
 	ls -l *.cntk
-	````
+	```
 
-	![.cntk Files](Images/cntk-files.png)
+	![.cntk files for testing and training neural networks](Images/cntk-files.png)
 
-	_.cntk Files_
+	_.cntk files for testing and training neural networks_
 
 
-1. Now, the cntk command can be used with the configuration file and the dataset to train and test a network. The examples already configured to point to the dataset folder, so no changes are needed at this point.
+1. Execute the following command to train and test a One Hidden Layer network:
 
-	
-	**Windows and Linux:**
-
-	````
+	```
 	cntk configFile=01_OneHidden.cntk
-	````
+	```
 
-1. Wait for the training and testing to complete. This may take a few minutes. The training and testing will write output back to the screen. Once completed, there will be a summary of the tests, will a percentage of errors. Lower percentages mean that the neural network was able to recognize more images in test set.
+1. Wait for the training and testing to complete. The training and testing process will write output to the screen. At the end will be a test summary, including an **errs** value denoting the percentage of errors encountered during testing. Lower percentages mean that the neural network was able to recognize more images in the test set.
 
-	![One Hidden Results](Images/one-hidden.png)
+	![Results of testing a One Hidden Layer network](Images/one-hidden.png)
 
-	_One Hidden Results_
+	_Results of testing a One Hidden Layer network_
 
-2. Now, use the cntk command to train and test with One Convolution.
+2. Next, use the following command to train and test a One Convolution network:
 
-	
-	**Windows and Linux:**
-
-	````
+	```
 	cntk configFile=02_OneConv.cntk
-	````
+	```
 
-1. Wait for the training and testing to complete. Notice the lower error rate in this network. This means that it was able to recognize more of the test samples than the first network test.
+1. Wait for the training and testing to complete. Notice the lower error rate in this network. This means that it was able to recognize more of the test samples than the first network.
 
-	![One Convolution Results](Images/one-conv.png)
+	![Results of testing a One Convolution network](Images/one-conv.png)
 
-	_One Convolution Results_
+	_Results of testing a One Convolution network_
 
-1. Repeat the training and testing for more neural networks to see the error rate for these other networks.
+If you would like, use some of the other .cntk files in the directory to train and test other neural networks and compare the results to the One Hidden Layer and One Convolution network.
 
 <a id="Exercise5"/></a>
 ## Exercise 5: Test with custom images
