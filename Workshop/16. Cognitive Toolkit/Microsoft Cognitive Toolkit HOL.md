@@ -6,21 +6,21 @@
 <a name="Overview"></a>
 ## Overview ##
 
-The [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), formerly known as the Cognitive Network Toolkit (CNTK), is a powerful set of free and open-source tools for developing deep-learning applications. It was initially developed by computer scientists at Microsoft to aid in their own research, and was later adopted by Bing and other product groups as well as by Microsoft customers. It can run on a single machine with a single CPU, or scale efficiently across multiple machines with multiple CPUs and NVIDIA GPUs, including Azure's [GPU offering](https://azure.microsoft.com/en-us/blog/azure-n-series-preview-availability/). The Microsoft Cognitive Toolkit supports C++ and Python and includes a number of libraries and utilities for speech, image, language, and video recognition and many examples of how to use them. For more information on its history, its uses, and its capabilities, see https://blogs.microsoft.com/next/2016/10/25/microsoft-releases-beta-microsoft-cognitive-toolkit-deep-learning-advances.
+The [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), also known as the Computational Network Toolkit (CNTK), is a powerful set of free and open-source tools for developing deep-learning applications. It was initially developed by computer scientists at Microsoft to aid in their own research, and was later adopted by Bing and other product groups as well as by Microsoft customers. It can run on a single machine with a single CPU, or scale efficiently across multiple machines with multiple CPUs and NVIDIA GPUs, including Azure's [GPU offering](https://azure.microsoft.com/en-us/blog/azure-n-series-preview-availability/). The Microsoft Cognitive Toolkit supports C++ and Python and includes a number of libraries and utilities for speech, image, language, and video recognition and many examples of how to use them. For more information on its history, its uses, and its capabilities, see https://blogs.microsoft.com/next/2016/10/25/microsoft-releases-beta-microsoft-cognitive-toolkit-deep-learning-advances.
 
-The toolkit centers around machine learning with [neural networks](https://en.wikipedia.org/wiki/Artificial_neural_network). Machine learning enables computers to discern patterns in data that are difficult to identify algorithmically. Imagine trying to write an algorithm to identify images containing cats. The algorithm might scan the image looking for features characteristic of cats such as pointed ears, whiskers, and slit pupils, but identifying those features by examining individual pixels would be difficult. By contrast, a machine-learning model trained with thousands of cat images could "learn" to identify cats from patterns in the data without explicitly understanding what those patterns represent. Machine learning touches lives every day and is widely used in industry to flag fraudulent credit-card transactions, generate online shopping recommendations, perform optical character recognition, and more.
+The toolkit centers around machine learning with [neural networks](https://en.wikipedia.org/wiki/Artificial_neural_network). Machine learning enables computers to discern patterns in data that are difficult to identify algorithmically. Imagine trying to write an algorithm to identify images containing cats. The algorithm might scan the image looking for features characteristic of cats such as pointed ears, whiskers, and slit pupils, but identifying those features by examining individual pixels would be difficult. By contrast, a machine-learning model trained with thousands of cat images could "learn" to identify cats from patterns in the data without explicitly understanding what those patterns represent. Machine learning touches lives every day and is widely used in industry to flag fraudulent credit-card transactions, generate online shopping recommendations, and more.
 
 ![Features of Cats](Images/cats.jpg)
 
 _Features of cats (image: Wikimedia Commons)_
 
-When used for image processing, neural networks begin by decomposing an input image into regions as illustrated in the images above. These regions constitute a series of *input nodes* in a neural network. These nodes are connected to many *hidden nodes* via probabilistic edges. Each input region is assigned a value, which is mathematically generated from the probability of an edge combined with input from other nodes. Signals from these nodes feed into other nodes and traverse the network until they reach an *output node*. If the destination output node meets a specified probability threshold, then the image is identified as one matching the input criteria. 
+When used for image processing, neural networks begin by decomposing an input image into regions as illustrated above. These regions constitute a series of *input nodes* in a neural network. These nodes are connected to many *hidden nodes* via probabilistic edges. Each input region is assigned a value, which is mathematically generated from the probability of an edge combined with input from other nodes. Signals from these nodes feed into other nodes and traverse the network until they reach an *output node*. If the destination output node meets a specified probability threshold, then the image is identified as one matching the input criteria. 
 
 ![Neural Network](Images/neural-network.png)
 
 _Neural network (image: Wikimedia Commons)_
 
-Neural networks are trained with one set of inputs and then tested with another set of inputs. Handwriting recognition is one of the common applications for neural networks. Handwriting is usually unique to an individual, but there are common characteristics of written characters that can be detected in images.
+Neural networks are trained with one set of inputs and then tested with another set of inputs. Handwriting recognition is one of the common applications, especially neural networks mimc the behavior of the human brain. Handwriting is usually unique to an individual, but there are common characteristics of written characters that can be detected in images.
 
 The [MNIST datasbase](https://en.wikipedia.org/wiki/MNIST_database) is a popular dataset for training and evaluating handwriting-recognition models. The database contains 60,000 images of the digits 0 through 9 drawn by high school students. It also includes a set of 10,000 test images. A number of scholarly papers have been published using this dataset, each seeking to optimize neural networks to produce more positives and fewer errors when identifying characters. Models built around the MNIST database frequently divide each image into regions and feed them into a neural network for processing. For a more in-depth explanation of machine learning, particularly as it relates to MNIST, check out http://neuralnetworksanddeeplearning.com/chap1.html.
 
@@ -31,9 +31,9 @@ In this lab, you will use the MNIST database to train and test a variety of diff
 
 In this hands-on lab, you will learn how to:
 
-* Install the Microsoft Cognitive Toolkit
-* Download and use the MNIST Dataset to train and test neural networks
-* Edit the configuration files to use different inputs for testing.
+- Install the Microsoft Cognitive Toolkit
+- Use the MNIST dataset to train and test neural networks
+- Edit the configuration files to use different inputs for testing
 
 <a name="Prerequisites"></a>
 ### Prerequisites ###
@@ -61,156 +61,112 @@ Estimated time to complete this lab: **45** minutes.
 <a id="Exercise1"/></a>
 ## Exercise 1: Install the Cognitive Toolkit (Windows)
 
-Installing the toolkit it pretty straight forward if you use the pre-compiled binaries. It is possible to compile it from the source, but this is only necessary if you want to extend the code rather than simply use it. CNTK also comes with install scripts for Windows and Linux. This exercise will use the Windows scripts to setup CNTK on a Windows machine.
+Installing the Microsoft Cognitive Toolkit is reasonably straightforward if you use the precompiled binaries available on GitHub. The toolkit comes with install scripts for Windows and Linux. In this exercise, you will use the Windows scripts to install the toolkit on a Windows machine. If you are running Linux, skip this exercise and go to [Exercise 2](#Exercise).
 
+1. Visit the [CNTK release site on GitHub](https://github.com/Microsoft/CNTK/releases) and download the latest CPU-only version of the toolkit from the "Windows" section of the page. If you are prompted to accept any license agreements, answer yes.
 
-1. Visit the [CNTK release site on GitHub](https://github.com/Microsoft/CNTK/releases) to download the latest binary distribution of CNTK. Select the **CNTK for Windows v.2.x CPU only** distribution.
+	![Downloading CNTK for Windows](Images/windows-download.png)
 
-	![Windows Download](Images/windows-download.png)
+	_Downloading CNTK for Windows_
 
-	_Windows Download_
+1. Open the downloaded zip file and copy the folder named "cntk" to your desktop or to the location of you choice.
 
-1. On the next screen, select **I Accept** to agree to the license and start the download.
+1. Press **Windows + R**, and then execute the following command to launch a Command Prompt window in administrator mode.
 
-	![Windows Download](Images/windows-download-1.png)
-
-	_Windows Download_
-
-1. Extract the contents of the zip file. The root of the zip file contains a folder called **cntk**. For ease of use, copy this folder to your **Desktop**.
-
-1. Launch a Command Prompt. Press **Windows + R**, then type in or copy and paste the following command, then, then click **OK**. This command will start the Command Prompt in administrator mode.
-
-	````
+	```
 	powershell -Command "Start-Process cmd -Verb RunAs"
-	````
+	```
 
-	![Run Window](Images/command-prompt.png)
+	![Launching a Command Prompt as administrator](Images/command-prompt.png)
 
-	_Run Window_
+	_Launching a Command Prompt as administrator_
 
-1. Change folder to the **cntk** folder with the **cd** command. This opens the root folder for **cntk**, which contains a other folders with CNTK utilities and Binaries.
+1. In the Command Prompt window, use a **cd** command to change to the "cntk" directory that you copied from the zip file. Then execute the following command:
 
-	````
-	cd %USERPROFILE%\Desktop\cntk
-	````
-
-1. Change to the install folder in **scripts** folder for Windows. This folder contains a  PowerShell scripts that install the CNTK dependencies.
-
-	````
+	```
 	cd Scripts\install\windows
-	````
+	```
 
-1. Install CNTK dependencies with the **install.ps1** script. 
+1. Use the following command to run a PowerShell script to install CNTK dependencies: 
 
-	````
+	```
 	powershell -ExecutionPolicy UnRestricted -File install.ps1 -Execute
-	````
+	```
 
-1. If you see a **Security warning**, select **R** to allow the script to run. You may see this warning for multiple scripts. Select **R** for each script to **Run once**.
+1. Each time you are prompted with a security warning, press **R** followed by **Enter** to answer "Run once."
 
-	![Security Warning](Images/security-warning.png)
+	![Allowing the script to run](Images/security-warning.png)
 
-	_Security Warning_
+	_Allowing the script to run_
 
-1. Once the script starts to execute, the screen will prompt to agree with the install scripts changes. Type in **1** to select the **I agree and want to continue**
+1. When prompted to continue, press **1** followed by **Enter** to answer "I agree and want to continue."
 
-	![CNTK Prerequisites](Images/i-agree.png)
+	![Proceeding with the installation process](Images/i-agree.png)
 
-	_CNTK Prerequisites_
+	_Proceeding with the installation process_
 
+1. Once the script determines what needs to be installed and prompts you for confirmation to continue, press **Y** followed by **Enter** to answer "yes."
 
-1. The script will then determine what needs to be installed. Once the determination is complete, it will list what will be done by the script. Type in **Y** to answer **Do you want to continue?**
+1. The script will download a number of libraries and install them on your computer. This will take a few minutes to complete. Once the script is finished, you will be shown the path to a BAT file that activates the CNTK Python environment. Copy this command to the clipboard.
 
-	![Do you want to continue?](Images/do-you-want-continue.png)
+	![Copying the path to the BAT file](Images/install-finished.png)
 
-	_Do you want to continue?_
+	_Copying the path to the BAT file_
 
-1. The script will download a number of libraries and install them on the computer. This will take a few minutes to complete. Once the script is finishes, the script will notify the user with a message about examples and tutorials along with a path to a script that will activate the **CNTK Python** environment. Copy and paste this path into the Command Prompt window.
+1. Paste the command on the clipboard into the Command Prompt window and execute it.
 
-	![Install finished](Images/install-finished.png)
+The prompt will change to one for the CNTK Python environment. CNTK is now installed and ready to use. Each time you use the toolkit, this command will need to be run to launch the CNTK Python environment. Copy the command to a text file so you can easily retrieve it later.
 
-	_Install finished_
-
-	**Example:**
-
-	````
-	C:\Users\username\Desktop\cntk\scripts\cntkpy35.bat
-	````
-
-1. The prompt will change to indicate that the Command Prompt is in the CNTK Python environment. CNTK is activated and ready to use. Each time you use the toolkit, the command will need to be run first to setup the CNTK Python environment.
-
-	![New Prompt](Images/new-prompt.png)
-
-	_New Prompt_
+Now skip to [Exercise 3](#Exercise3). Exercise 2 is for Linux users only.
 
 <a id="Exercise2"/></a>
 ## Exercise 2: Install the Cognitive Toolkit (Linux)
 
-Like the Windows install, this exercise will use scripts to install CNTK, this time on a Linux machine.
+Installing the Microsoft Cognitive Toolkit is reasonably straightforward if you use the precompiled binaries available on GitHub. The toolkit comes with install scripts for Windows and Linux. In this exercise, you will use the Linux scripts to install the toolkit on a Linux machine.
 
-1. Visit the [CNTK release site on GitHub](https://github.com/Microsoft/CNTK/releases) to download the latest binary distribution of CNTK. Select the **CNTK for Linux v.2.x CPU only** distribution.
+1. Visit the [CNTK release site on GitHub](https://github.com/Microsoft/CNTK/releases) and download the latest CPU-only version of the toolkit from the "Linux" section of the page. If you are prompted to accept any license agreements, answer yes.
 
-	![Windows Download](Images/linux-download.png)
+	![Downloading CNTK for Linux](Images/linux-download.png)
 
-	Linux Download_
+	_Downloading CNTK for Linux_
 
-1. On the next screen, select **I Accept** to agree to the license and start the download.
+1. After the download completes, open a Terminal window. This can usually be found on the Applications menu for your distro, or can often be launched by pressing **Ctrl+Alt+F1**.
 
-	![Windows Download](Images/windows-download-1.png)
+1. In the Terminal window, change to the "Downloads" directory:
 
-	_Linux Download_
-
-1. After the download completes, open a Terminal window. This can usually be found on the Applications menu for your Distro or can usually be accessed with Ctrl + Alt + F1.
-
-1. In the Terminal, change directories to the Downloads directory.
-
-	````
+	```
 	cd ~/Downloads
-	````
+	```
 
-1. Uncompress the **CNTK-2-X-Linux-64bit-CPU-Only.tar.gz** file. For shorthand, most distros allow **tar -xvzf C** then press the **Tab** key to find the file.
+1. Use the following command to uncompress the **CNTK-2-X-Linux-64bit-CPU-Only.tar.gz** file:
 
-	````
+	```
 	 tar -xvzf CNTK-2-x-Linux-64bit-CPU-Only.tar.gz
-	````
+	```
 
-1. Change directories to the Linux install folder.
+1. Use the following command to switch to the Linux install folder:
 
-	````
+	```
 	cd cntk/Scripts/install/linux/
-	````
+	```
 
-1. Launch the install script.
+1. Use the following command to launch the install script. If prompted for a sudo password, type it in and press *Enter**.
 
-	````
+	```
 	 ./install-cntk.sh
-	````
+	```
 
-1. The install script may ask for a **sudo** password. The user install the script needs root privileges in order to install the CNTK prerequisites.
+1. The script will download a number of libraries and install them on your computer. This will take a few minutes to complete. Once the script is finished, you will be shown a command that activates the CNTK Python environment. Copy this command to the clipboard.
 
-	![sudo Password](Images/sudo-password.png)
+1. The script will download a number of libraries and install them on your computer. This will take a few minutes to complete. Once the script is finishes, the script will notify the user with a message about examples and tutorials along with a **source** command that will activate the **CNTK environment**. Copy and paste or type command into the Terminal window.
 
-	_sudo Password_
+	![Copying the command to activate the environment](Images/source-command.png)
 
-1. The script will download a number of libraries and install them on the computer. This will take a few minutes to complete. Once the script is finishes, the script will notify the user with a message about examples and tutorials along with a **source** command that will activate the **CNTK environment**. Copy and paste or type command into the Terminal window.
+	_Copying the command to activate the environment_
 
-	![source Command](Images/source-command.png)
+1. Paste the command on the clipboard into the Terminal window and execute it.
 
-	_source Command_
-
-	**Example:**
-	
-	````
-	source "/home/username/Downloads/cntk/activate-cntk"
-	````
-
-1. Once the command runs, CNTK is activated and ready to use. Each time you use the toolkit, the source command will need to be run first to setup the CNTK environment.
-
-
-	![CNTK is Activated](Images/cntk-activated.png)
-
-	_CNTK is Activated_
-
+The prompt will change to one for the CNTK Python environment. CNTK is now installed and ready to use. Each time you use the toolkit, this command will need to be run to launch the CNTK Python environment. Copy the command to a text file so you can easily retrieve it later.
 
 <a id="Exercise3"/></a>
 ## Exercise 3: Install training and testing data
