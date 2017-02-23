@@ -12,7 +12,7 @@
             <p><b>June 2016 release</b></p>
             <p>This module covers the fundamental concepts of the Internet of Things. IoT can be considered a system of sensor devices and data sources that generate streaming data. Thus, at the end of the course, students should know how to collect streaming data from IoT devices and how to adopt and analyze the streaming data from these devices.<br>
 	    <br>
-	    [2/14/16] Labs corresponding to lessons 5 and 6 are currently being updated to reflect changes made to Azure.</p>
+	    [2/22/17] Labs updated to reflect changes made to Azure.</p>
          </div>
       </div>
       <div class="panel-body">
@@ -63,8 +63,7 @@
                   <tr>
                      <td align="center">5</td>
                      <td>[Event Data Collection](Lessons/Module6_Lesson5 Event data collection.pptx)</td>
-                     <td>[Lab](Labs/Module 6 Lesson 5 Event Data collection Lab.docx)<br>
-		         [Updating]
+                     <td>[Lab](Labs/Module 6 Lesson 5 Event Data collection Lab.docx)
 		     </td>
                      <td>Understand event data collection<br>
 			 Understand Event Hubs API
@@ -73,8 +72,7 @@
                   <tr>
                      <td align="center">6</td>
                      <td>[Azure Stream Analytics](Lessons/Module6_Lesson6 Azure Stream Analytics.pptx)</td>
-                     <td>[Lab](Labs/Module 6 Lesson 6 ASA Lab.docx)<br>
-		         [Updating]
+                     <td>[Lab](Labs/Module 6 Lesson 6 ASA Lab.docx)
 		     </td>
                      <td>Define Streaming Analytics<br>
 			 Understand the basic architecture of Azure Stream Analytics<br>
