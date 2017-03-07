@@ -25,7 +25,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - [Microsoft Azure Storage Explorer](http://storageexplorer.com) (optional)
 
 ---
@@ -41,7 +41,7 @@ This hands-on lab includes the following exercises:
 - [Exercise 4: Test the Azure Function](#Exercise4)
 - [Exercise 5: View blob metadata (optional)](#Exercise5)
 
-Estimated time to complete this lab: **60** minutes.
+Estimated time to complete this lab: **45** minutes.
 
 <a name="Exercise1"></a>
 ## Exercise 1: Create an Azure Function App ##
@@ -71,17 +71,11 @@ The first step in writing an Azure Function is to create an Azure Function App. 
     _Opening the resource group_
 
 
-1. Wait until "Deploying" changes to "Succeeded," indicating that the Function App has been deployed.
+1. Wait until "Deploying" changes to "Succeeded," indicating that the Function App has been deployed. Then click the storage account that was created for the Function App.
 
 	> Refresh the page in the browser every now and then to update the deployment status. Clicking the **Refresh** button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.
 
-    ![Viewing the deployment status](Images/deployment-status.png)
-
-    _Viewing the deployment status_
-
-1. Click the storage account that was created for the Function App.
-
-    ![Opening the storage account](Images/open-storage-account.png)
+    ![Opening the storage account](Images/open-storage-account-after-deployment.png)
 
     _Opening the storage account_
 
@@ -279,14 +273,14 @@ Once you have created an Azure Function App, you can add Azure Functions to it. 
 
     _Saving the project file_
 
-An Azure Function written in C# has been created, complete with a JSON project file containing information regarding project dependencies. The next step is to add an application setting that the code you added to the Azure Function relies on.
+An Azure Function written in C# has been created, complete with a JSON project file containing information regarding project dependencies. The next step is to add an application setting that Azure Function relies on.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Add a subscription key to application settings ##
 
 The Azure Function you created in [Exercise 2](#Exercise2) loads a subscription key for the Microsoft Cognitive Services Computer Vision API from application settings. This key is required in order for your code to call the Computer Vision API, and is transmitted in an HTTP header in each call. In this exercise, you will add an application setting containing the subscription key to the Function App.
 
-1. Open a new browser window and navigate to https://www.microsoft.com/cognitive-services/en-us/subscriptions. If you haven't signed up for the Computer Vision API, do so now. (Signing up is free.) Then, on the subscriptions page, click **Copy** under **Key 1** to copy your Computer Vision subscription key to the clipboard.
+1. Open a new browser window and navigate to https://www.microsoft.com/cognitive-services/en-us/subscriptions. If you haven't signed up for the Computer Vision API, do so now. (Signing up is free.) Then click **Copy** under **Key 1** in your Computer Vision subscription to copy the subscription key to the clipboard.
 
     ![Copying the subscription key to the clipboard](Images/computer-vision-key.png)
 
@@ -316,7 +310,7 @@ The Azure Function you created in [Exercise 2](#Exercise2) loads a subscription 
 
     _Opening the function_
 
-1. Make sure **Develop** is selected. Make a simple change to the **run.csx** file in the code editor — for example, add a space or blank line and then delete it. Then click **Save and run** to recompile the function. Confirm that "Compilation succeeded" appears in the output log.
+1. Make sure **Develop** is selected. Then click **Run** to recompile and run the function. Confirm that "Compilation succeeded" appears in the output log.
 	
     ![Recompiling the function](Images/function-recompile.png)
 
@@ -373,7 +367,7 @@ Your function is configured to listen for changes to the blob container named "u
 
 1. Verify that the "accepted" container holds seven images. **These are the images that were classified as neither adult nor racy by the Computer Vision API**.
 
-	> It may take a minute or more for all of the images to appear in the container. Click **Refresh** every few seconds until you see all seven images.
+	> It may take a minute or more for all of the images to appear in the container. If necessary, click **Refresh** every few seconds until you see all seven images.
 
     ![Images uploaded to the "accepted" container](Images/accepted-images.png)
 

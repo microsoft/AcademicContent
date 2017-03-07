@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Azure Functions HOL</title>
+<title>readme</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
@@ -488,7 +488,7 @@ vertical-align:1px;
 <h3>Prerequisites</h3>
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a></li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
 <li><a href="http://storageexplorer.com">Microsoft Azure Storage Explorer</a> (optional)</li>
 </ul>
 <hr>
@@ -502,7 +502,7 @@ vertical-align:1px;
 <li><a href="#Exercise4">Exercise 4: Test the Azure Function</a></li>
 <li><a href="#Exercise5">Exercise 5: View blob metadata (optional)</a></li>
 </ul>
-<p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
+<p>Estimated time to complete this lab: <strong>45</strong> minutes.</p>
 <p><a name="Exercise1"></a></p>
 <h2>Exercise 1: Create an Azure Function App</h2>
 <p>The first step in writing an Azure Function is to create an Azure Function App. In this exercise, you will create an Azure Function App using the Azure Portal. Then you will add the three blob containers to the storage account that is created for the Function App: one to store uploaded images, a second to store images that do not contain adult or racy content, and a third to contain images that <em>do</em> contain adult or racy content.</p>
@@ -529,16 +529,11 @@ vertical-align:1px;
 <p><em>Opening the resource group</em></p>
 </li>
 <li>
-<p>Wait until "Deploying" changes to "Succeeded," indicating that the Function App has been deployed.</p>
+<p>Wait until "Deploying" changes to "Succeeded," indicating that the Function App has been deployed. Then click the storage account that was created for the Function App.</p>
 <blockquote>
 <p>Refresh the page in the browser every now and then to update the deployment status. Clicking the <strong>Refresh</strong> button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.</p>
 </blockquote>
-<p><a href="Images/deployment-status.png" target="_blank"><img src="Images/deployment-status.png" alt="Viewing the deployment status" style="max-width:100%;"></a></p>
-<p><em>Viewing the deployment status</em></p>
-</li>
-<li>
-<p>Click the storage account that was created for the Function App.</p>
-<p><a href="Images/open-storage-account.png" target="_blank"><img src="Images/open-storage-account.png" alt="Opening the storage account" style="max-width:100%;"></a></p>
+<p><a href="Images/open-storage-account-after-deployment.png" target="_blank"><img src="Images/open-storage-account-after-deployment.png" alt="Opening the storage account" style="max-width:100%;"></a></p>
 <p><em>Opening the storage account</em></p>
 </li>
 <li>
@@ -592,12 +587,12 @@ vertical-align:1px;
 <span class="pl-k">using</span> <span class="pl-en">System.Net.Http.Headers</span>;
 <span class="pl-k">using</span> <span class="pl-en">System.Configuration</span>;
 
-<span class="pl-k">public</span> <span class="pl-k">async</span> <span class="pl-k">static</span> Task Run(Stream myBlob, <span class="pl-k">string</span> name, TraceWriter log)
+<span class="pl-k">public</span> <span class="pl-k">async</span> <span class="pl-k">static</span> <span class="pl-en">Task</span> <span class="pl-en">Run</span>(<span class="pl-en">Stream</span> <span class="pl-smi">myBlob</span>, <span class="pl-k">string</span> <span class="pl-smi">name</span>, <span class="pl-en">TraceWriter</span> <span class="pl-smi">log</span>)
 {       
-    log.Info($<span class="pl-s"><span class="pl-pds">"</span>Analyzing uploaded image {name} for adult content...<span class="pl-pds">"</span></span>);
+    log.Info(<span class="pl-pds">$"</span><span class="pl-s">Analyzing uploaded image </span>{name}<span class="pl-s"> for adult content...</span><span class="pl-pds">"</span>);
 
-    <span class="pl-k">var</span> array = <span class="pl-k">await</span> ToByteArrayAsync(myBlob);
-    <span class="pl-k">var</span> result = <span class="pl-k">await</span> AnalyzeImageAsync(array, log);
+    <span class="pl-k">var</span> <span class="pl-en">array </span>= <span class="pl-k">await</span> ToByteArrayAsync(myBlob);
+    <span class="pl-k">var</span> <span class="pl-en">result </span>= <span class="pl-k">await</span> AnalyzeImageAsync(array, log);
     
     log.Info(<span class="pl-s"><span class="pl-pds">"</span>Is Adult: <span class="pl-pds">"</span></span> + result.adult.isAdultContent.ToString());
     log.Info(<span class="pl-s"><span class="pl-pds">"</span>Adult Score: <span class="pl-pds">"</span></span> + result.adult.adultScore.ToString());
@@ -616,34 +611,34 @@ vertical-align:1px;
     }
 }
 
-<span class="pl-k">private</span> <span class="pl-k">async</span> <span class="pl-k">static</span> Task&lt;ImageAnalysisInfo&gt; AnalyzeImageAsync(<span class="pl-k">byte</span>[] bytes, TraceWriter log)
+<span class="pl-k">private</span> <span class="pl-k">async</span> <span class="pl-k">static</span> <span class="pl-en">Task</span>&lt;<span class="pl-en">ImageAnalysisInfo</span>&gt; <span class="pl-en">AnalyzeImageAsync</span>(<span class="pl-k">byte</span>[] <span class="pl-smi">bytes</span>, <span class="pl-en">TraceWriter</span> <span class="pl-smi">log</span>)
 {
-    HttpClient client = <span class="pl-k">new</span> HttpClient();
+    <span class="pl-en">HttpClient</span> <span class="pl-en">client</span> = <span class="pl-k">new</span> <span class="pl-en">HttpClient</span>();
 
-    <span class="pl-k">var</span> key = ConfigurationManager.AppSettings[<span class="pl-s"><span class="pl-pds">"</span>SubscriptionKey<span class="pl-pds">"</span></span>].ToString();
+    <span class="pl-k">var</span> <span class="pl-en">key </span>= ConfigurationManager.AppSettings[<span class="pl-s"><span class="pl-pds">"</span>SubscriptionKey<span class="pl-pds">"</span></span>].ToString();
     client.DefaultRequestHeaders.Add(<span class="pl-s"><span class="pl-pds">"</span>Ocp-Apim-Subscription-Key<span class="pl-pds">"</span></span>, key);
 
-    HttpContent payload = <span class="pl-k">new</span> ByteArrayContent(bytes);
-    payload.Headers.ContentType = <span class="pl-k">new</span> MediaTypeWithQualityHeaderValue(<span class="pl-s"><span class="pl-pds">"</span>application/octet-stream<span class="pl-pds">"</span></span>);
+    <span class="pl-en">HttpContent</span> <span class="pl-en">payload</span> = <span class="pl-k">new</span> <span class="pl-en">ByteArrayContent</span>(<span class="pl-en">bytes</span>);
+    payload.Headers.ContentType = <span class="pl-k">new</span> <span class="pl-en">MediaTypeWithQualityHeaderValue</span>(<span class="pl-s"><span class="pl-pds">"</span>application/octet-stream<span class="pl-pds">"</span></span>);
     
-    <span class="pl-k">var</span> results = <span class="pl-k">await</span> client.PostAsync(<span class="pl-s"><span class="pl-pds">"</span>https://api.projectoxford.ai/vision/v1.0/analyze?visualFeatures=Adult<span class="pl-pds">"</span></span>, payload);
-    <span class="pl-k">var</span> result = <span class="pl-k">await</span> results.Content.ReadAsAsync&lt;ImageAnalysisInfo&gt;();
+    <span class="pl-k">var</span> <span class="pl-en">results </span>= <span class="pl-k">await</span> client.PostAsync(<span class="pl-s"><span class="pl-pds">"</span>https://api.projectoxford.ai/vision/v1.0/analyze?visualFeatures=Adult<span class="pl-pds">"</span></span>, payload);
+    <span class="pl-k">var</span> <span class="pl-en">result </span>= <span class="pl-k">await</span> results.Content.ReadAsAsync&lt;ImageAnalysisInfo&gt;();
     <span class="pl-k">return</span> result;
 }
 
 <span class="pl-c">// Writes a blob to a specified container and stores metadata with it</span>
-<span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-k">void</span> StoreBlobWithMetadata(Stream image, <span class="pl-k">string</span> containerName, <span class="pl-k">string</span> blobName, ImageAnalysisInfo info, TraceWriter log)
+<span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">StoreBlobWithMetadata</span>(<span class="pl-en">Stream</span> <span class="pl-smi">image</span>, <span class="pl-k">string</span> <span class="pl-smi">containerName</span>, <span class="pl-k">string</span> <span class="pl-smi">blobName</span>, <span class="pl-en">ImageAnalysisInfo</span> <span class="pl-smi">info</span>, <span class="pl-en">TraceWriter</span> <span class="pl-smi">log</span>)
 {
-    log.Info($<span class="pl-s"><span class="pl-pds">"</span>Writing blob and metadata to {containerName} container...<span class="pl-pds">"</span></span>);
+    log.Info(<span class="pl-pds">$"</span><span class="pl-s">Writing blob and metadata to </span>{containerName}<span class="pl-s"> container...</span><span class="pl-pds">"</span>);
     
-    <span class="pl-k">var</span> connection = ConfigurationManager.AppSettings[<span class="pl-s"><span class="pl-pds">"</span>AzureWebJobsStorage<span class="pl-pds">"</span></span>].ToString();
-    <span class="pl-k">var</span> account = CloudStorageAccount.Parse(connection);
-    <span class="pl-k">var</span> client = account.CreateCloudBlobClient();
-    <span class="pl-k">var</span> container = client.GetContainerReference(containerName);
+    <span class="pl-k">var</span> <span class="pl-en">connection </span>= ConfigurationManager.AppSettings[<span class="pl-s"><span class="pl-pds">"</span>AzureWebJobsStorage<span class="pl-pds">"</span></span>].ToString();
+    <span class="pl-k">var</span> <span class="pl-en">account </span>= CloudStorageAccount.Parse(connection);
+    <span class="pl-k">var</span> <span class="pl-en">client </span>= account.CreateCloudBlobClient();
+    <span class="pl-k">var</span> <span class="pl-en">container </span>= client.GetContainerReference(containerName);
 
     <span class="pl-k">try</span>
     {
-        <span class="pl-k">var</span> blob = container.GetBlockBlobReference(blobName);
+        <span class="pl-k">var</span> <span class="pl-en">blob </span>= container.GetBlockBlobReference(blobName);
     
         <span class="pl-k">if</span> (blob != <span class="pl-c1">null</span>) 
         {
@@ -670,26 +665,26 @@ vertical-align:1px;
 }
 
 <span class="pl-c">// Converts a stream to a byte array </span>
-<span class="pl-k">private</span> <span class="pl-k">async</span> <span class="pl-k">static</span> Task&lt;<span class="pl-k">byte</span>[]&gt; ToByteArrayAsync(Stream stream)
+<span class="pl-k">private</span> <span class="pl-k">async</span> <span class="pl-k">static</span> <span class="pl-en">Task</span>&lt;<span class="pl-k">byte</span>[]&gt; <span class="pl-en">ToByteArrayAsync</span>(<span class="pl-en">Stream</span> <span class="pl-smi">stream</span>)
 {
-    Int32 length = stream.Length &gt; Int32.MaxValue ? Int32.MaxValue : Convert.ToInt32(stream.Length);
-    <span class="pl-k">byte</span>[] buffer = <span class="pl-k">new</span> Byte[length];
+    <span class="pl-en">Int32</span> <span class="pl-en">length</span> = stream.Length &gt; Int32.MaxValue ? Int32.MaxValue : Convert.ToInt32(stream.Length);
+    <span class="pl-k">byte</span>[] <span class="pl-en">buffer</span> = <span class="pl-k">new</span> <span class="pl-en">Byte</span>[length];
     <span class="pl-k">await</span> stream.ReadAsync(buffer, <span class="pl-c1">0</span>, length);
     <span class="pl-k">return</span> buffer;
 }
 
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">ImageAnalysisInfo</span>
 {
-    <span class="pl-k">public</span> Adult <span class="pl-en">adult</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
-    <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">requestId</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public </span><span class="pl-en">Adult</span> <span class="pl-en">adult</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public </span><span class="pl-k">string</span> <span class="pl-en">requestId</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }
 
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Adult</span>
 {
-    <span class="pl-k">public</span> <span class="pl-k">bool</span> <span class="pl-en">isAdultContent</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
-    <span class="pl-k">public</span> <span class="pl-k">bool</span> <span class="pl-en">isRacyContent</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
-    <span class="pl-k">public</span> <span class="pl-k">float</span> <span class="pl-en">adultScore</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
-    <span class="pl-k">public</span> <span class="pl-k">float</span> <span class="pl-en">racyScore</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public </span><span class="pl-k">bool</span> <span class="pl-en">isAdultContent</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public </span><span class="pl-k">bool</span> <span class="pl-en">isRacyContent</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public </span><span class="pl-k">float</span> <span class="pl-en">adultScore</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public </span><span class="pl-k">float</span> <span class="pl-en">racyScore</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }</pre></div>
 <blockquote>
 <p><strong>Run</strong> is the method called each time the function is executed. The <strong>Run</strong> method uses a helper method named <strong>AnalyzeImageAsync</strong> to pass each blob added to the "uploaded" container to the Computer Vision API for analysis. Then it calls a helper method named <strong>StoreBlobWithMetadata</strong> to create a copy of the blob in either the "accepted" container or the "rejected" container, depending on the scores returned by <strong>AnalyzeImageAsync</strong>.</p>
@@ -723,13 +718,13 @@ vertical-align:1px;
 <p><em>Saving the project file</em></p>
 </li>
 </ol>
-<p>An Azure Function written in C# has been created, complete with a JSON project file containing information regarding project dependencies. The next step is to add an application setting that the code you added to the Azure Function relies on.</p>
+<p>An Azure Function written in C# has been created, complete with a JSON project file containing information regarding project dependencies. The next step is to add an application setting that Azure Function relies on.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Add a subscription key to application settings</h2>
 <p>The Azure Function you created in <a href="#Exercise2">Exercise 2</a> loads a subscription key for the Microsoft Cognitive Services Computer Vision API from application settings. This key is required in order for your code to call the Computer Vision API, and is transmitted in an HTTP header in each call. In this exercise, you will add an application setting containing the subscription key to the Function App.</p>
 <ol>
 <li>
-<p>Open a new browser window and navigate to <a href="https://www.microsoft.com/cognitive-services/en-us/subscriptions">https://www.microsoft.com/cognitive-services/en-us/subscriptions</a>. If you haven't signed up for the Computer Vision API, do so now. (Signing up is free.) Then, on the subscriptions page, click <strong>Copy</strong> under <strong>Key 1</strong> to copy your Computer Vision subscription key to the clipboard.</p>
+<p>Open a new browser window and navigate to <a href="https://www.microsoft.com/cognitive-services/en-us/subscriptions">https://www.microsoft.com/cognitive-services/en-us/subscriptions</a>. If you haven't signed up for the Computer Vision API, do so now. (Signing up is free.) Then click <strong>Copy</strong> under <strong>Key 1</strong> in your Computer Vision subscription to copy the subscription key to the clipboard.</p>
 <p><a href="Images/computer-vision-key.png" target="_blank"><img src="Images/computer-vision-key.png" alt="Copying the subscription key to the clipboard" style="max-width:100%;"></a></p>
 <p><em>Copying the subscription key to the clipboard</em></p>
 </li>
@@ -754,7 +749,7 @@ vertical-align:1px;
 <p><em>Opening the function</em></p>
 </li>
 <li>
-<p>Make sure <strong>Develop</strong> is selected. Make a simple change to the <strong>run.csx</strong> file in the code editor — for example, add a space or blank line and then delete it. Then click <strong>Save and run</strong> to recompile the function. Confirm that "Compilation succeeded" appears in the output log.</p>
+<p>Make sure <strong>Develop</strong> is selected. Then click <strong>Run</strong> to recompile and run the function. Confirm that "Compilation succeeded" appears in the output log.</p>
 <p><a href="Images/function-recompile.png" target="_blank"><img src="Images/function-recompile.png" alt="Recompiling the function" style="max-width:100%;"></a></p>
 <p><em>Recompiling the function</em></p>
 </li>
@@ -802,7 +797,7 @@ vertical-align:1px;
 <li>
 <p>Verify that the "accepted" container holds seven images. <strong>These are the images that were classified as neither adult nor racy by the Computer Vision API</strong>.</p>
 <blockquote>
-<p>It may take a minute or more for all of the images to appear in the container. Click <strong>Refresh</strong> every few seconds until you see all seven images.</p>
+<p>It may take a minute or more for all of the images to appear in the container. If necessary, click <strong>Refresh</strong> every few seconds until you see all seven images.</p>
 </blockquote>
 <p><a href="Images/accepted-images.png" target="_blank"><img src="Images/accepted-images.png" alt="Images uploaded to the &quot;accepted&quot; container" style="max-width:100%;"></a></p>
 <p><em>Images uploaded to the "accepted" container</em></p>
