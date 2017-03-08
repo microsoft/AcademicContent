@@ -469,53 +469,32 @@ vertical-align:1px;
 </head>
 <body>
 <p><a name="HOLTitle"></a></p>
-
 <h1>Building Smart Apps with Azure Machine Learning</h1>
-
 <hr>
-
 <p><a name="Overview"></a></p>
-
 <h2>Overview</h2>
-
 <p>Machine learning, which facilitates predictive analytics using large volumes of data by employing algorithms that iteratively learn from that data, is one of the fastest growing areas of computer science. Its uses range from credit-card fraud detection and self-driving cars to optical character recognition (OCR) and online shopping recommendations. It makes us smarter by making computers smarter. And its usefulness will only increase as more and more data becomes available and the desire to perform predictive analysis from that data grows, too.</p>
-
 <p><a href="https://azure.microsoft.com/en-us/services/machine-learning/">Azure Machine Learning</a> is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It's accompanied by the Azure Machine Learning Studio (ML Studio), which is a browser-based tool that provides an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for <a href="https://www.r-project.org/">R</a> and <a href="https://www.python.org/">Python</a> means you can build custom scripts  to customize your model. Once you've built and trained your model in the ML Studio, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the <a href="https://gallery.cortanaintelligence.com/">Cortana Intelligence Gallery</a>.</p>
-
 <p>In this lab, you will use Azure Machine Learning to build, train, and score a model that recognizes hand-written numeric digits. You will use a real OCR data set published for academic research. After deploying the model as a Web service, you will write a <a href="https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp">Universal Windows Platform</a> (UWP) client for it that lets you sketch digits on the screen and then consult Azure Machine Learning to see if it can identify the digits you sketched. You'll learn how to build and train a model, as well as how to write code that leverages the model.</p>
-
 <p><a name="Objectives"></a></p>
-
 <h3>Objectives</h3>
-
 <p>In this hands-on lab, you will learn how to:</p>
-
 <ul>
 <li>Build, train, and score a model using the Azure Machine Learning Studio</li>
 <li>Deploy your model as a Web service so it can be accessed from code or scripts</li>
 <li>Call an ML Web service from the apps that you write</li>
 </ul>
-
 <p><a name="Prerequisites"></a></p>
-
 <h3>Prerequisites</h3>
-
 <p>The following are required to complete this hands-on lab:</p>
-
 <ul>
 <li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li>
-<a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio 2015 Community edition</a> or higher with the Windows 10 SDK installed</li>
+<li><a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio 2015 Community edition</a> or higher with the Windows 10 SDK installed</li>
 </ul>
-
 <hr>
-
 <p><a name="Exercises"></a></p>
-
 <h2>Exercises</h2>
-
 <p>This hands-on lab includes the following exercises:</p>
-
 <ul>
 <li><a href="#Exercise1">Exercise 1: Create a Machine Learning experiment</a></li>
 <li><a href="#Exercise2">Exercise 2: Upload a dataset</a></li>
@@ -525,453 +504,361 @@ vertical-align:1px;
 <li><a href="#Exercise6">Exercise 6: Build a universal Windows client</a></li>
 <li><a href="#Exercise7">Exercise 7: Test the model</a></li>
 </ul>
-
 <p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
-
 <p><a name="Exercise1"></a></p>
-
 <h2>Exercise1: Create a Machine Learning experiment</h2>
-
 <p>The first step in employing Azure Machine Learning is to create an ML workspace and an experiment to go in it. In this exercise, you'll get a Machine Learning experiment up and running in the Azure ML Studio.</p>
-
 <ol>
-<li><p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If asked to log in, do so using your Microsoft account.</p></li>
 <li>
-<p>Click <strong>+ New</strong>, followed by <strong>Intelligence + analytics</strong> and <strong>Machine Learning Workspace</strong>.</p>
-
-<p><a href="Images/new-ml-solution.png" target="_blank"><img src="Images/new-ml-solution.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
-
+<p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If asked to log in, do so using your Microsoft account.</p>
+</li>
+<li>
+<p>Click <strong>+ New</strong>, followed by <strong>Intelligence + analytics</strong>. Then click <strong>See all</strong>.</p>
+<p><a href="Images/new-ml-workspace-1.png" target="_blank"><img src="Images/new-ml-workspace-1.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
 <p><em>Creating an ML workspace</em></p>
 </li>
 <li>
-<p>In the "Machine Learning Workspace" blade, enter a workspace name such as "DXLabs" and make sure a green check mark appears next to it. Select <strong>Create new</strong> under <strong>Resource group</strong> and and enter a resource-group name such as "DXLabsResourceGroup" (without quotation marks). Select the location nearest you under <strong>Location</strong>. Then enter a storage-account name and make sure a green check mark appears next to it, too.</p>
-
+<p>Click <strong>Machine Learning Workspace</strong>. (If this option doesn't appear, type "workspace" without quotation marks into the search box at the top of the page, and then select <strong>Machine Learning Workspace</strong> from the search results.)</p>
+<p><a href="Images/new-ml-workspace-2.png" target="_blank"><img src="Images/new-ml-workspace-2.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
+<p><em>Creating an ML workspace</em></p>
+</li>
+<li>
+<p>Click the <strong>Create</strong> button at the bottom of the "Machine Learning Workspace" blade.</p>
+<p><a href="Images/new-ml-workspace-3.png" target="_blank"><img src="Images/new-ml-workspace-3.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
+<p><em>Creating an ML workspace</em></p>
+</li>
+<li>
+<p>The next step is to enter the parameters for the workspace you wish to create. In the "Machine Learning Workspace" blade, enter a workspace name such as "DXLabs" and make sure a green check mark appears next to it. Select <strong>Create new</strong> under <strong>Resource group</strong> and enter a resource-group name such as "MachineLearningResourceGroup." Select the location nearest you under <strong>Location</strong>. Then enter a storage-account name, making it as unique as possible, and make sure a green check mark appears next to it, too.</p>
 <blockquote>
-<p>Recall that storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.</p>
+<p>Storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.</p>
 </blockquote>
-
-<p><a href="Images/workspace-parameters.png" target="_blank"><img src="Images/workspace-parameters.png" alt="Configuring an ML workspace" style="max-width:100%;"></a></p>
-
-<p><em>Configuring an ML workspace</em></p>
+<p>Now click <strong>Web service plan pricing tier</strong> and select <strong>DEVTEST Standard</strong> in the "Choose your pricing tier blade." Finish up by clicking <strong>Select</strong> at the bottom of that blade, and clicking <strong>Create</strong> at the bottom of the "Machine Learning Workspace" blade.</p>
+<p><a href="Images/new-ml-workspace-4.png" target="_blank"><img src="Images/new-ml-workspace-4.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
+<p><em>Creating an ML workspace</em></p>
 </li>
 <li>
-<p>Click <strong>Web service plan pricing tier</strong> and select <strong>DEVTEST Standard</strong>. Then click the <strong>Select</strong> button at the bottom of the "Choose your pricing tier" blade. Check <strong>Pin to dashboard</strong> at the bottom of the "Machine Learning Workspace" blade, and finish up by clicking the <strong>Create</strong> button.</p>
-
-<p><a href="Images/pricing-tier.png" target="_blank"><img src="Images/pricing-tier.png" alt="Choosing a pricing tier" style="max-width:100%;"></a></p>
-
-<p><em>Choosing a pricing tier</em></p>
+<p>Click <strong>Resource groups</strong> in the ribbon on the left side of the portal, and then click the resource group created for the Machine Learning workspace.</p>
+<p><a href="Images/open-resource-group.png" target="_blank"><img src="Images/open-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
+<p><em>Opening the resource group</em></p>
 </li>
 <li>
-<p>It typically takes 30 seconds or so for the new ML workspace to be created. Once deployment has completed, click <strong>Launch Machine Learning Studio</strong>. (If the screen below doesn't display automatically, click the tile that was created for the ML workspace on the dashboard to display it.)</p>
-
+<p>If the text under "Deployments" says "1 Deploying," refresh the page in your browser every few seconds until it changes to "1 Succeeded." Then click the Machine Learning workspace in the resource group.</p>
+<p><a href="Images/open-workspace.png" target="_blank"><img src="Images/open-workspace.png" alt="Opening the workspace" style="max-width:100%;"></a></p>
+<p><em>Opening the workspace</em></p>
+</li>
+<li>
+<p>Click <strong>Launch Machine Learning Studio</strong>.</p>
 <p><a href="Images/launch-ml-studio.png" target="_blank"><img src="Images/launch-ml-studio.png" alt="Launching ML Studio" style="max-width:100%;"></a></p>
-
 <p><em>Launching ML Studio</em></p>
 </li>
 <li>
-<p>Click <strong>Sign in here</strong> to sign in to ML Studio with your Microsoft account.</p>
-
+<p>Click <strong>Sign In</strong> to sign in to ML Studio with your Microsoft account.</p>
 <p><a href="Images/sign-in.png" target="_blank"><img src="Images/sign-in.png" alt="Signing in to ML Studio" style="max-width:100%;"></a></p>
-
 <p><em>Signing in to ML Studio</em></p>
 </li>
 <li>
 <p>In ML Studio, click <strong>+ NEW</strong> in the lower-left corner. Then start a new experiment by clicking <strong>Blank Experiment</strong>.</p>
-
 <p><a href="Images/create-blank-experiment.png" target="_blank"><img src="Images/create-blank-experiment.png" alt="Creating a blank experiment" style="max-width:100%;"></a></p>
-
 <p><em>Creating a blank experiment</em></p>
 </li>
 <li>
 <p>Click the experiment title at the top of the page ("Experiment created on...") and type a new experiment name such as "Digit Recognition."</p>
-
 <p><a href="Images/new-experiment-title.png" target="_blank"><img src="Images/new-experiment-title.png" alt="Renaming the experiment" style="max-width:100%;"></a></p>
-
 <p><em>Renaming the experiment</em></p>
 </li>
 </ol>
-
 <p>Now that the experiment has been created, the next step is to import some data and build a model around it.</p>
-
 <p><a name="Exercise2"></a></p>
-
 <h2>Exercise 2: Upload a dataset</h2>
-
 <p>Azure Machine Learning Studio comes with several sample datasets. Additional datasets are available from a variety of sources, including <a href="http://www.data.gov/">Data.gov</a>, <a href="http://www.kaggle.com/">Kaggle</a>, and the University of California Irvine's <a href="http://archive.ics.uci.edu/ml/">Machine Learning Repository</a>. In this exercise, you will upload a public dataset containing data generated by scanning and digitizing handwritten digits (0 through 9) from a sample of 43 people. You will later use the dataset to train an ML model that can recognize handwritten digits with a high degree of accuracy.</p>
-
 <ol>
 <li>
 <p>Click <strong>+ NEW</strong> in the lower-left corner of ML Studio. Then click <strong>DATASET</strong>, followed by <strong>FROM LOCAL FILE</strong>.</p>
-
 <p><a href="Images/new-dataset.png" target="_blank"><img src="Images/new-dataset.png" alt="Creating a new dataset" style="max-width:100%;"></a></p>
-
 <p><em>Creating a new dataset</em></p>
 </li>
 <li>
 <p>Click the <strong>Browse</strong> button. Navigate to this lab's "resources" subdirectory and select the file named <strong>digit-recognition.csv</strong>. Make sure <strong>Generic CSV File with a header (.csv)</strong> is selected under <strong>SELECT A TYPE FOR THE NEW DATASET</strong>. Optionally enter a friendly name for the dataset in the <strong>ENTER A NAME FOR THE NEW DATASET</strong> box, and then click the check mark in the lower-right corner to begin uploading the dataset.</p>
-
 <p><a href="Images/upload-dataset.png" target="_blank"><img src="Images/upload-dataset.png" alt="Uploading the dataset" style="max-width:100%;"></a></p>
-
 <p><em>Uploading the dataset</em></p>
 </li>
 <li>
 <p>Wait for the upload to finish. Then go to the modules palette on the left and find the dataset you just uploaded under <strong>Saved Datasets</strong> -&gt; <strong>My Datasets</strong>.</p>
-
 <p><a href="Images/select-dataset.png" target="_blank"><img src="Images/select-dataset.png" alt="The uploaded dataset" style="max-width:100%;"></a></p>
-
 <p><em>The uploaded dataset</em></p>
 </li>
 <li>
 <p>Drag the dataset from the modules palette and drop it onto the canvas (the gray area to the right).</p>
-
 <p><a href="Images/add-dataset.png" target="_blank"><img src="Images/add-dataset.png" alt="Adding the dataset to the model" style="max-width:100%;"></a></p>
-
 <p><em>Adding the dataset to the model</em></p>
 </li>
 <li>
 <p>To see what this dataset looks like, click the output port (the circle with the "1" in it) at the bottom of the dataset and select <strong>Visualize</strong>.</p>
-
 <p><a href="Images/visualize-dataset.png" target="_blank"><img src="Images/visualize-dataset.png" alt="Visualizing the dataset" style="max-width:100%;"></a></p>
-
 <p><em>Visualizing the dataset</em></p>
 </li>
 <li>
-<p>The variables, or "features," in the dataset appear as columns, with each row representing a digit from 0 to 9. The dataset contains 3,823 rows and 65 columns. The first 64 columns contain values from 0 to 16 representing 4x4 blocks of pixels. Each digit represented in the dataset was scanned into a 32x32 array, yielding a total of 1,024 pixels per digit. Each scan is represented in the dataset by 64 values, each representing 16 pixels. </p>
-
+<p>The variables, or "features," in the dataset appear as columns, with each row representing a digit from 0 to 9. The dataset contains 3,823 rows and 65 columns. The first 64 columns contain values from 0 to 16 representing 4x4 blocks of pixels. Each digit represented in the dataset was scanned into a 32x32 array, yielding a total of 1,024 pixels per digit. Each scan is represented in the dataset by 64 values, each representing 16 pixels.</p>
 <p><a href="Images/raw-dataset.png" target="_blank"><img src="Images/raw-dataset.png" alt="The Digit Recognition dataset" style="max-width:100%;"></a></p>
-
 <p><em>The Digit Recognition dataset</em></p>
 </li>
 <li>
 <p>Scroll all the way to the right until you see the final column — the one named "digit." Each value in this column is the digit that corresponds to the pixel data in the same row. THIS is the target value that your model will predict given values for the other 64 columns.</p>
-
 <p><a href="Images/digit-column.png" target="_blank"><img src="Images/digit-column.png" alt="The target variable" style="max-width:100%;"></a></p>
-
 <p><em>The target variable</em></p>
 </li>
 </ol>
-
 <p>Close the visualization window by clicking the "<strong>x</strong>" in the upper-right corner. The data is loaded. Now it's time to do something with it.</p>
-
 <p><a name="Exercise3"></a></p>
-
 <h2>Exercise 3: Train a classification model</h2>
-
 <p>In this exercise, you will use ML Studio's drag-and-drop user interface to train an ML model. <em>Training</em> involves picking a machine-learning algorithm and feeding data into the model. During training, the computer looks for patterns in the data that it can use to predict values from future inputs.</p>
-
 <p>There are several types of machine-learning models. One of the most common is the regression model, which uses one of a number of regression algorithms to produce a numeric value — for example, a person's age or the probability that a credit-card transaction is fraudulent. You will be training a classification model, which seeks to resolve a set of inputs into one of a set of known outputs. A classic example of a classification model is one that examines e-mails and classifies them as "spam" or "not spam." Your model will examine a set of inputs representing pixel patterns and attempt to classify each as a digit from 0 to 9, inclusive.</p>
-
 <ol>
 <li>
 <p>At the top of the modules palette, type "metadata" (without quotation marks) into the search box to find the <a href="https://msdn.microsoft.com/en-us/library/azure/dn905986.aspx">Edit Metadata</a> module.</p>
-
 <p><a href="Images/find-metadata-editor.png" target="_blank"><img src="Images/find-metadata-editor.png" alt="Finding the Edit Metadata module" style="max-width:100%;"></a></p>
-
 <p><em>Finding the Edit Metadata module</em></p>
 </li>
 <li>
 <p>Drag the module to the experiment canvas and drop it underneath the dataset. Then connect the output port of the dataset to the input port of the Edit Metadata module by dragging an arrow downward from the output port. Among other things, the Edit Metadata module allows you to specify data types for the columns in the dataset.</p>
-
 <p><a href="Images/metadata-editor.png" target="_blank"><img src="Images/metadata-editor.png" alt="Adding an Edit Metadata module" style="max-width:100%;"></a></p>
-
 <p><em>Adding an Edit Metadata module</em></p>
-
 <blockquote>
 <p>A key concept to understand in Azure ML Studio is that of ports and connectors. In this step, you connected the output port of the dataset to the input port of the Edit Metadata module. The data flows from one module to the next through the connector. Some modules support multiple inputs and outputs and therefore have multiple input and output ports. If you want to know what a port does, hover over it with the mouse and a tooltip will pop up. If you want more information, right-click on the module and select <strong>Help</strong> from the popup menu.</p>
 </blockquote>
 </li>
 <li>
 <p>Click the Edit Metadata module to select it. (When selected, it has a bold blue border.) Then click the <strong>Launch column selector</strong> button in the Properties pane on the right.</p>
-
 <p><a href="Images/launch-column-selector-1.png" target="_blank"><img src="Images/launch-column-selector-1.png" alt="Launching the column selector" style="max-width:100%;"></a></p>
-
 <p><em>Launching the column selector</em></p>
 </li>
 <li>
 <p>Scroll to the bottom of the <strong>AVAILABLE COLUMNS</strong> list and click <strong>digit</strong>. Then click the <strong>&gt;</strong> button to move <strong>digit</strong> into the <strong>SELECTED COLUMNS</strong> list. Recall that <strong>digit</strong> is the value your model will predict. Finish up by clicking the check mark in the lower-right corner of the window.</p>
-
 <p><a href="Images/select-digit-column.png" target="_blank"><img src="Images/select-digit-column.png" alt="Selecting the digit column" style="max-width:100%;"></a></p>
-
 <p><em>Selecting the digit column</em></p>
 </li>
 <li>
 <p>In the Properties pane, select <strong>Make Categorial</strong> from the drop-down list named <strong>Categorical</strong>. This tells the model that values in the <strong>digit</strong> column should be treated as discrete (as opposed to numeric values, which could take on values such as 7.5 and 8.6).</p>
-
 <p><a href="Images/make-categorical.png" target="_blank"><img src="Images/make-categorical.png" alt="Making the digit column categorical" style="max-width:100%;"></a></p>
-
 <p><em>Making the digit column categorical</em></p>
 </li>
 <li>
 <p>Click the <strong>SAVE</strong> button at the bottom of the page to save the experiment.</p>
-
 <p><a href="Images/save-button.png" target="_blank"><img src="Images/save-button.png" alt="Saving the experiment" style="max-width:100%;"></a></p>
-
 <p><em>Saving the experiment</em></p>
-
 <blockquote>
 <p>When working with the Azure Machine Learning Studio, get in the habit of saving your experiments often, particularly before you run a model. That way, if you encounter a problem, you will not have to redo your work. Also, be aware that you <strong>may lose your work if you click the browser's Back button without saving your experiment first.</strong></p>
 </blockquote>
 </li>
 <li>
 <p>Type "split" (without quotation marks) into the search box at the top of the modules palette. Then drag a <a href="https://msdn.microsoft.com/en-us/library/azure/dn905969.aspx">Split Data</a> module onto the canvas and connect the output port from the Edit Metadata module to the input port of the Split Data module. The purpose of the Split Data module is to split a dataset into two parts: one for training and one for scoring. It's useful when you don't have separate datasets for training and scoring.</p>
-
 <p><a href="Images/add-split-data.png" target="_blank"><img src="Images/add-split-data.png" alt="Adding a Split Data module" style="max-width:100%;"></a></p>
-
 <p><em>Adding a Split Data module</em></p>
 </li>
 <li>
 <p>Make sure the Split Data module is selected. Then go to the Properties pane on the right and set the split to 0.8. You will use 80% of the rows to train the model, and the remaining 20% to score it. Also make sure that the <strong>Randomized split</strong> box is checked. This is particularly important when you are splitting data that is ordered.</p>
-
 <p><a href="Images/setting-split-percentage.png" target="_blank"><img src="Images/setting-split-percentage.png" alt="Setting the split percentage" style="max-width:100%;"></a></p>
-
 <p><em>Setting the split percentage</em></p>
 </li>
-<li><p>Click the <strong>SAVE</strong> button at the bottom of the page to save the experiment.</p></li>
-<li><p>Click the <strong>RUN</strong> button at the bottom of the page to run the experiment.</p></li>
+<li>
+<p>Click the <strong>SAVE</strong> button at the bottom of the page to save the experiment.</p>
+</li>
+<li>
+<p>Click the <strong>RUN</strong> button at the bottom of the page to run the experiment.</p>
+</li>
 <li>
 <p>Next, type "train model" (without quotation marks) into the search box at the top of the modules palette. Find the <a href="https://msdn.microsoft.com/en-us/library/azure/dn906044.aspx">Train Model</a> module and drag it onto the canvas. Connect the left output from the Split Data module to the right input of the Train Model module.</p>
-
 <p><a href="Images/add-train-model.png" target="_blank"><img src="Images/add-train-model.png" alt="Adding a Train Model module" style="max-width:100%;"></a></p>
-
 <p><em>Adding a Train Model module</em></p>
 </li>
 <li>
 <p>The next step is a crucial one. In it, you will identify for the Train Model module which value you want it to predict. Select the Train Model module, and then click <strong>Launch column selector</strong> in the Properties pane.</p>
-
 <p><a href="Images/launch-column-selector-2.png" target="_blank"><img src="Images/launch-column-selector-2.png" alt="Launching the column selector" style="max-width:100%;"></a></p>
-
 <p><em>Launching the column selector</em></p>
 </li>
 <li>
 <p>Type in "digit" (without quotation marks) to select the <strong>digit</strong> column. This is the value that your model is going to predict. Finish up by clicking the check mark in the lower-right corner.</p>
-
 <p><a href="Images/specify-target-value.png" target="_blank"><img src="Images/specify-target-value.png" alt="Specifying the target value" style="max-width:100%;"></a></p>
-
 <p><em>Specifying the target value</em></p>
 </li>
 <li>
 <p>Now it's time to select a learning algorithm. Azure Machine Learning offers several kinds of classification and regression algorithms for you to choose from, as well as algorithms of other types. Each is represented by a module in the modules palette. You can always code your own algorithms in R or Python as well. Your model will employ an algorithm known as "Multiclass Logistic Regression." It's a classification algorithm that employs logistic regression, which is frequently used in statistics to predict the probability of an outcome.</p>
-
 <blockquote>
 <p>The Azure Machine Learning team has put together a "cheat sheet" to help you decide which algorithm to choose based on the intended purpose of your model. You can download it from <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf">here</a>.</p>
 </blockquote>
-
 <p>Type "multiclass" (without quotation marks) into the search box at the top of the modules palette. Find the <a href="https://msdn.microsoft.com/en-us/library/azure/dn905853.aspx">Multiclass Logistic Regression</a> module and drag it onto the canvas. Then connect the output from the Multiclass Logistic Regression module to the left input of the Train Model module, as shown below.</p>
-
 <p><a href="Images/add-algorithm.png" target="_blank"><img src="Images/add-algorithm.png" alt="Specifying the learning algorithm" style="max-width:100%;"></a></p>
-
 <p><em>Specifying the learning algorithm</em></p>
 </li>
-<li><p>Click the <strong>SAVE</strong> button to save the experiment.</p></li>
-<li><p>Click the <strong>RUN</strong> button to run the model. Wait until green check marks appear in all the modules indicating that they ran successfully.</p></li>
-<li><p>If you would like to see how influential each of the input variables was in computing an output, right-click the output port of the Train Model module and select <strong>Visualize</strong>. You'll see a list of all the features (columns) in the model and the weights assigned to them.</p></li>
+<li>
+<p>Click the <strong>SAVE</strong> button to save the experiment.</p>
+</li>
+<li>
+<p>Click the <strong>RUN</strong> button to run the model. Wait until green check marks appear in all the modules indicating that they ran successfully.</p>
+</li>
+<li>
+<p>If you would like to see how influential each of the input variables was in computing an output, right-click the output port of the Train Model module and select <strong>Visualize</strong>. You'll see a list of all the features (columns) in the model and the weights assigned to them.</p>
+</li>
 </ol>
-
 <p>The model has been trained. But how accurate is it in predicting values? That's where scoring comes in.</p>
-
 <p><a name="Exercise4"></a></p>
-
 <h2>Exercise 4: Score the model</h2>
-
 <p>In this exercise, you will score the model you trained in the previous exercise. <em>Scoring</em> determines how well the model was trained — that is, how adept it is at predicting target values from variables presented to it. ML Studio makes the scoring process very easy. You used 80% of the dataset that you uploaded to train the model. You will use the remaining 20% to score it.</p>
-
 <ol>
 <li>
 <p>Add a <a href="https://msdn.microsoft.com/en-us/library/azure/dn905995.aspx">Score Model</a> module to the canvas. Connect the output of the Train Model module to the Score Model module's left input port. Then connect the right output port of the Split Data module to the right input port of the Score Model module. That connection represents the 20% of the data that was not used for training.</p>
-
 <p><a href="Images/add-score-model.png" target="_blank"><img src="Images/add-score-model.png" alt="Adding the Score Model module" style="max-width:100%;"></a></p>
-
 <p><em>Adding the Score Model module</em></p>
 </li>
-<li><p>Click the <strong>SAVE</strong> button to save the experiment.</p></li>
-<li><p>Click the <strong>RUN</strong> button to run the experiment.</p></li>
+<li>
+<p>Click the <strong>SAVE</strong> button to save the experiment.</p>
+</li>
+<li>
+<p>Click the <strong>RUN</strong> button to run the experiment.</p>
+</li>
 <li>
 <p>After the run finishes, right-click the output port of the Score Model module and select <strong>Visualize</strong>. Scroll to the right. In the column labeled "digit," you see actual values from the 20% of the dataset passed to the Score Model module. The next ten columns — "Scored Probabilities for Class X" — indicate how the model scored the ten possible outputs (the digits 0 through 9) using the inputs on the left. The higher the number, the greater the likelihood of a match. The final column — "Scored Labels" — indicates which digit the model predicted from the inputs, which is the digit scored with the highest probability. By comparing values in the "digit" column to values under "Scored Labels," you can assess the accuracy of the model. A cursory examination reveals that the model gets it right the vast majority of the time.</p>
-
 <p><a href="Images/scored-dataset.png" target="_blank"><img src="Images/scored-dataset.png" alt="The scored dataset" style="max-width:100%;"></a></p>
-
 <p><em>The scored dataset</em></p>
 </li>
-<li><p>Close the visualization window by clicking the "<strong>x</strong>" in the upper-right corner.</p></li>
+<li>
+<p>Close the visualization window by clicking the "<strong>x</strong>" in the upper-right corner.</p>
+</li>
 <li>
 <p>To evaluate the quality of the results without having to compare hundreds of values manually, add an <a href="https://msdn.microsoft.com/en-us/library/azure/dn905915.aspx">Evaluate Model</a> module to the experiment canvas. Connect the output port of the Score Model module to the left input port of the output of the Evaluate Model module. (There are two input ports because Evaluate Model can be used to compare two models.)</p>
-
 <p><a href="Images/add-evaluate-model.png" target="_blank"><img src="Images/add-evaluate-model.png" alt="Adding the Evaluate Model module" style="max-width:100%;"></a></p>
-
 <p><em>Adding the Evaluate Model module</em></p>
 </li>
-<li><p>Click <strong>Save</strong> to save the experiment. Then run the experiment again by clicking the <strong>RUN</strong> button.</p></li>
+<li>
+<p>Click <strong>Save</strong> to save the experiment. Then run the experiment again by clicking the <strong>RUN</strong> button.</p>
+</li>
 <li>
 <p>Click the output port of the Evaluate Model module and select <strong>Visualize</strong> from the menu. From the <strong>Overall accuracy</strong> and <strong>Average accuracy</strong> numbers, you can see that the model performs very well. Given a digitized scan of a handwritten digit, it can correctly identify the digit more than 97% of the time.</p>
-
 <p><a href="Images/visualize-evaluate-model.png" target="_blank"><img src="Images/visualize-evaluate-model.png" alt="The evaluation results" style="max-width:100%;"></a></p>
-
 <p><em>The evaluation results</em></p>
 </li>
-<li><p>Close the visualization window by clicking the "<strong>x</strong>" in the upper-right corner.</p></li>
+<li>
+<p>Close the visualization window by clicking the "<strong>x</strong>" in the upper-right corner.</p>
+</li>
 </ol>
-
 <p>Now that the model is built and tested, it's time to put it to work. The ultimate goal is to write an app that runs on a PC or mobile device and calls up to the cloud and runs the model. To facilitate that, you need to deploy the model as a Web service.</p>
-
 <p><a name="Exercise5"></a></p>
-
 <h2>Exercise 5: Deploy the model as a Web service</h2>
-
 <p>Once you have a trained and scored model, you can deploy it as a Web service and interact with it programmatically. Before deploying as a Web service, you need to streamline your experiment. This involves creating a new experiment from your trained model, removing unnecessary modules, and adding Web-service input and output modules. Fortunately, ML Studio can do all of this for you.</p>
-
 <ol>
-<li><p>Click the <strong>RUN</strong> button to run your model again.</p></li>
+<li>
+<p>Click the <strong>RUN</strong> button to run your model again.</p>
+</li>
 <li>
 <p>At the bottom of the screen, click the <strong>SET UP WEB SERVICE</strong> button and in the ensuing menu, select <strong>Predictive Web Service [Recommended]</strong>. If this option is grayed out, click the <strong>RUN</strong> button and try again.</p>
-
 <p><a href="Images/deploy-predict-button.png" target="_blank"><img src="Images/deploy-predict-button.png" alt="Creating a predictive Web service" style="max-width:100%;"></a></p>
-
 <p><em>Creating a predictive Web service</em></p>
 </li>
 <li>
 <p>ML Studio will spin for a few seconds, after which a predictive experiment will appear. Observe that Split Data and Train Model are gone, and that 100% of the training data now flows into Score Model. In addition, new modules were added at the top and bottom for Web-service input and output.</p>
-
 <blockquote>
 <p>Don't be alarmed thinking your original model is gone. It's still there. You can get to it by clicking the <strong>Training experiment</strong> tab at the top of the page.</p>
 </blockquote>
-
 <p><a href="Images/predictive-experiment.png" target="_blank"><img src="Images/predictive-experiment.png" alt="The predictive experiment" style="max-width:100%;"></a></p>
-
 <p><em>The predictive experiment</em></p>
 </li>
 <li>
 <p>To create a Web service that you can call to perform predictive analytics, click <strong>RUN</strong> once more. After the run completes, click the <strong>DEPLOY WEB SERVICE</strong> button to deploy the Web service.</p>
-
 <p><a href="Images/deploy-web-service.png" target="_blank"><img src="Images/deploy-web-service.png" alt="Deploying the Web service" style="max-width:100%;"></a></p>
-
 <p><em>Deploying the Web service</em></p>
 </li>
 <li>
 <p>In a moment, the dashboard for the new Web service will appear. The dashboard includes a <strong>Test</strong> button that you can click to test the Web service (not very practical here, because you'd have to enter 64 values from 0 to 16 representing pixel patterns). It also includes an API key that apps can use to make authenticated calls to the service. You will use this API key in the next exercise.</p>
-
 <p>For convenience, click the button to the right of the API key to copy the key to the clipboard, and then paste it into a text editor so you can easily retrieve it later.</p>
-
 <p><a href="Images/web-service-dashboard-1.png" target="_blank"><img src="Images/web-service-dashboard-1.png" alt="Copying the API key" style="max-width:100%;"></a></p>
-
 <p><em>Copying the API key</em></p>
 </li>
 <li>
 <p>Now click <strong>REQUEST/RESPONSE</strong> to see useful information about calling the Web service over HTTPS using <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>.</p>
-
 <p><a href="Images/web-service-dashboard-2.png" target="_blank"><img src="Images/web-service-dashboard-2.png" alt="Viewing Request/Response information" style="max-width:100%;"></a></p>
-
 <p><em>Viewing Request/Response information</em></p>
 </li>
 <li>
 <p>This page offers documentation that's useful to programmers who want to write apps that consume the Web service, including:</p>
-
 <ul>
 <li>How HTTPS requests are formatted</li>
 <li>How HTTPS responses are formatted</li>
 <li>Input and output parameters</li>
 <li>Sample code demonstrating how to call the Web service</li>
 </ul>
-
 <p>Scroll to the bottom of the page and you'll see the sample code. It's available in three languages: C#, Python, and R. Make sure <strong>C#</strong> is selected, and then scroll down until you see the statement that assigns the Web service's URL to client.BaseAddress. Copy this URL to the clipboard and paste it into a text editor so you can retrieve it in the next exercise. You're going to write code similar to this to call the Web service. And to do so, you'll need the URL.</p>
-
 <p><a href="Images/sample-code.png" target="_blank"><img src="Images/sample-code.png" alt="The Web service URL" style="max-width:100%;"></a></p>
-
 <p><em>The Web service URL</em></p>
 </li>
 </ol>
-
 <p>A common question regarding Azure ML Web services is: how much do they cost? You can find the current pricing information in the <a href="https://azure.microsoft.com/en-us/pricing/details/machine-learning/">Machine Learning Pricing</a> page.</p>
-
 <p><a name="Exercise6"></a></p>
-
 <h2>Exercise 6: Build a universal Windows client</h2>
-
 <p>The whole reason for deploying an Azure ML model as a Web service is so you can build smart apps that utilize the model. There are a variety of ways to build such apps. You could call the service from a Web app using JavaScript and AJAX, for example, or you could use Visual Studio to write a <a href="https://www.xamarin.com/">Xamarin</a> app that runs on iOS, Android, and Windows and places calls to the service using .NET's HttpClient class.</p>
-
 <p>In this exercise, you will write a client app that targets the <a href="https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp">Universal Windows Platform</a>, or UWP. The beauty of such apps is that they run on a variety of Windows devices, including PCs, tablets, phones, and even on Xbox One. The app you will write enables you to draw digits into an onscreen grid. Then it calls your ML Web service and tells you what digit you drew.</p>
-
 <ol>
 <li>
 <p>In order to build and run UWP apps on a Windows 10 PC, you must enable developer mode on the device. To ensure that developer mode is enabled, click the <strong>Windows</strong> button (also known as the Start button) in the lower-left corner of the desktop. Then select <strong>Settings</strong> from the menu and click <strong>Update &amp; security</strong> in the "Settings" dialog. Now click <strong>For developers</strong> on the left and select <strong>Developer mode</strong> on the right, as shown below.</p>
-
 <p><a href="Images/enable-developer-mode.png" target="_blank"><img src="Images/enable-developer-mode.png" alt="Enabling developer mode in Windows 10" style="max-width:100%;"></a></p>
-
 <p><em>Enabling developer mode in Windows 10</em></p>
 </li>
 <li>
 <p>Start Visual Studio 2015 and use the <strong>File -&gt; New -&gt; Project</strong> command to create a new <strong>Blank App (Universal Windows)</strong> project named "MLClient."</p>
-
 <p><a href="Images/new-universal-app.png" target="_blank"><img src="Images/new-universal-app.png" alt="Creating a new UWP project" style="max-width:100%;"></a></p>
-
 <p><em>Creating a new UWP project</em></p>
 </li>
 <li>
 <p>Click <strong>OK</strong> to accept the default target version and minimum version.</p>
-
 <p><a href="Images/specify-uwp-version.png" target="_blank"><img src="Images/specify-uwp-version.png" alt="Selecting UWP versions" style="max-width:100%;"></a></p>
-
 <p><em>Selecting UWP versions</em></p>
 </li>
 <li>
 <p>In the Solution Explorer window, right-click the <strong>MLClient</strong> project and select <strong>Manage NuGet Packages...</strong></p>
-
 <p><a href="Images/manage-nuget-packages.png" target="_blank"><img src="Images/manage-nuget-packages.png" alt="Managing NuGet Packages for the project" style="max-width:100%;"></a></p>
-
 <p><em>Managing NuGet Packages for the project</em></p>
-
 <blockquote>
 <p>NuGet is a free and open-source package manager for Microsoft development platforms. It provides access to thousands of libraries, or <em>packages</em>, containing code to perform a variety of tasks. It is integrated into Visual Studio 2015, which makes it easy to add NuGet packages to your project and make a lot of things happen without writing a lot of code.</p>
 </blockquote>
 </li>
 <li>
 <p>Click <strong>Browse</strong>. Then type "webapi.client" (without quotation marks) into the search box. Click <strong>Microsoft.AspNet.WebApi.Client</strong> to select the Web API client package from NuGet. Finally, click <strong>Install</strong> to install the latest stable version of the package. This package contains helper APIs that your app will use to communicate with the Web service. Click <strong>OK</strong> if you're prompted to review changes, and <strong>I Accept</strong> when prompted to accept licenses for the downloaded packages.</p>
-
 <p><a href="Images/install-webapi-client.png" target="_blank"><img src="Images/install-webapi-client.png" alt="Installing the Web API Client" style="max-width:100%;"></a></p>
-
 <p><em>Installing the Web API Client</em></p>
 </li>
 <li>
 <p>Right-click the <strong>MLClient</strong> project in the Solution Explorer window and select <strong>Add -&gt; Class</strong> to add a class to the project. In the ensuing dialog, type "StringTable.cs" (without quotation marks) into the <strong>Name</strong> box and click <strong>Add</strong>.</p>
-
 <p><a href="Images/add-stringtable-class.png" target="_blank"><img src="Images/add-stringtable-class.png" alt="Adding a StringTable class" style="max-width:100%;"></a></p>
-
 <p><em>Adding a StringTable class</em></p>
 </li>
 <li>
 <p>Implement the StringTable class as follows:</p>
-
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">class</span> <span class="pl-en">StringTable</span>
 {
-    <span class="pl-k">public</span> <span class="pl-k">string</span>[] <span class="pl-en">ColumnNames</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
-    <span class="pl-k">public</span> <span class="pl-k">string</span>[,] <span class="pl-en">Values</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public </span><span class="pl-k">string</span>[] <span class="pl-en">ColumnNames</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public </span><span class="pl-k">string</span>[,] <span class="pl-en">Values</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }</pre></div>
 </li>
 <li>
 <p>Open <strong>MainPage.xaml</strong> and find the empty Grid element highlighted below.</p>
-
 <p><a href="Images/empty-grid-element.png" target="_blank"><img src="Images/empty-grid-element.png" alt="The empty Grid element" style="max-width:100%;"></a></p>
-
 <p><em>The empty Grid element</em></p>
 </li>
 <li>
 <p>Replace the empty Grid with the following markup:</p>
-
 <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">StackPanel</span> <span class="pl-e">VerticalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Center<span class="pl-pds">"</span></span>&gt;
     &lt;<span class="pl-ent">TextBlock</span> <span class="pl-e">Text</span>=<span class="pl-s"><span class="pl-pds">"</span>Draw a digit from 0 to 9<span class="pl-pds">"</span></span> <span class="pl-e">FontSize</span>=<span class="pl-s"><span class="pl-pds">"</span>28<span class="pl-pds">"</span></span> <span class="pl-e">Margin</span>=<span class="pl-s"><span class="pl-pds">"</span>0,0,0,8<span class="pl-pds">"</span></span> <span class="pl-e">HorizontalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Center<span class="pl-pds">"</span></span> /&gt;
     &lt;<span class="pl-ent">Grid</span> <span class="pl-e">x</span><span class="pl-e">:</span><span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>Cells<span class="pl-pds">"</span></span> <span class="pl-e">Width</span>=<span class="pl-s"><span class="pl-pds">"</span>400<span class="pl-pds">"</span></span> <span class="pl-e">Height</span>=<span class="pl-s"><span class="pl-pds">"</span>400<span class="pl-pds">"</span></span>&gt;
-        <span class="pl-c">&lt;!-- Empty cell grid filled programmatically --&gt;</span>
+        <span class="pl-c"><span class="pl-c">&lt;!--</span> Empty cell grid filled programmatically <span class="pl-c">--&gt;</span></span>
     &lt;/<span class="pl-ent">Grid</span>&gt;
     &lt;<span class="pl-ent">Button</span> <span class="pl-e">Content</span>=<span class="pl-s"><span class="pl-pds">"</span>Submit<span class="pl-pds">"</span></span> <span class="pl-e">Width</span>=<span class="pl-s"><span class="pl-pds">"</span>400<span class="pl-pds">"</span></span> <span class="pl-e">Height</span>=<span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span> <span class="pl-e">FontSize</span>=<span class="pl-s"><span class="pl-pds">"</span>32<span class="pl-pds">"</span></span> <span class="pl-e">Margin</span>=<span class="pl-s"><span class="pl-pds">"</span>0,16,0,0<span class="pl-pds">"</span></span> <span class="pl-e">HorizontalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Center<span class="pl-pds">"</span></span> <span class="pl-e">Click</span>=<span class="pl-s"><span class="pl-pds">"</span>OnSubmit<span class="pl-pds">"</span></span> /&gt;
     &lt;<span class="pl-ent">Button</span> <span class="pl-e">Content</span>=<span class="pl-s"><span class="pl-pds">"</span>Clear<span class="pl-pds">"</span></span> <span class="pl-e">Width</span>=<span class="pl-s"><span class="pl-pds">"</span>400<span class="pl-pds">"</span></span> <span class="pl-e">Height</span>=<span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span> <span class="pl-e">FontSize</span>=<span class="pl-s"><span class="pl-pds">"</span>32<span class="pl-pds">"</span></span> <span class="pl-e">Margin</span>=<span class="pl-s"><span class="pl-pds">"</span>0,16,0,0<span class="pl-pds">"</span></span> <span class="pl-e">HorizontalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Center<span class="pl-pds">"</span></span> <span class="pl-e">Click</span>=<span class="pl-s"><span class="pl-pds">"</span>OnClear<span class="pl-pds">"</span></span> /&gt;
 &lt;/<span class="pl-ent">StackPanel</span>&gt;</pre></div>
-
 <blockquote>
 <p>The markup that you just inserted is <a href="https://msdn.microsoft.com/en-us/library/cc189036(VS.95).aspx">Extensible Application Markup Language</a>, or XAML. XAML is a language created by Microsoft for building user interfaces. It was originally created for WPF, but has since been repurposed for universal Windows apps. Combined with <a href="https://www.xamarin.com/forms">Xamarin Forms</a>, it can even be used to build user interfaces for iOS and Android. It is an extremely expressive language that enjoys designer support in Visual Studio and other popular tools.</p>
 </blockquote>
 </li>
 <li>
 <p>Now open <strong>MainPage.xaml.cs</strong> and add the following using statements to those already at the top of the page:</p>
-
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">Windows.UI.Xaml.Shapes</span>;
 <span class="pl-k">using</span> <span class="pl-en">Windows.UI</span>;
 <span class="pl-k">using</span> <span class="pl-en">Windows.Devices.Input</span>;
@@ -984,31 +871,30 @@ vertical-align:1px;
 </li>
 <li>
 <p>Still in <strong>MainPage.xaml.cs</strong>, replace everything inside the MainPage class with the following code:</p>
-
-<div class="highlight highlight-source-cs"><pre><span class="pl-k">private</span> <span class="pl-k">const</span> <span class="pl-k">double</span> _margin = <span class="pl-c1">2.0</span>;  <span class="pl-c">// Margin around each cell</span>
-<span class="pl-k">private</span> <span class="pl-k">const</span> <span class="pl-k">double</span> _opacity = <span class="pl-c1">0.2</span>; <span class="pl-c">// Opacity of empty cells</span>
-<span class="pl-k">private</span> Rectangle _last;
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">private</span> <span class="pl-en">const</span> double _margin = 2.0;  <span class="pl-c">// Margin around each cell</span>
+<span class="pl-k">private</span> <span class="pl-en">const</span> double _opacity = 0.2; <span class="pl-c">// Opacity of empty cells</span>
+<span class="pl-k">private</span> <span class="pl-en">Rectangle</span> <span class="pl-en">_last</span>;
 
 <span class="pl-k">public</span> MainPage()
 {
     <span class="pl-c1">this</span>.InitializeComponent();
 
     <span class="pl-c">// Add rows and columns to the Grid</span>
-    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">8</span>; i++)
-        Cells.ColumnDefinitions.Add(<span class="pl-k">new</span> ColumnDefinition());
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> <span class="pl-en">i</span> = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">8</span>; i++)
+        Cells.ColumnDefinitions.Add(<span class="pl-k">new</span> <span class="pl-en">ColumnDefinition</span>());
 
-    <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; <span class="pl-c1">8</span>; j++)
-        Cells.RowDefinitions.Add(<span class="pl-k">new</span> RowDefinition());
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> <span class="pl-en">j</span> = <span class="pl-c1">0</span>; j &lt; <span class="pl-c1">8</span>; j++)
+        Cells.RowDefinitions.Add(<span class="pl-k">new</span> <span class="pl-en">RowDefinition</span>());
 
     <span class="pl-c">// Fill the Grid with Rectangles</span>
-    <span class="pl-k">for</span> (<span class="pl-k">int</span> row = <span class="pl-c1">0</span>; row &lt; <span class="pl-c1">8</span>; row++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> <span class="pl-en">row</span> = <span class="pl-c1">0</span>; row &lt; <span class="pl-c1">8</span>; row++)
     {
-        <span class="pl-k">for</span> (<span class="pl-k">int</span> col = <span class="pl-c1">0</span>; col &lt; <span class="pl-c1">8</span>; col++)
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> <span class="pl-en">col</span> = <span class="pl-c1">0</span>; col &lt; <span class="pl-c1">8</span>; col++)
         {
-            <span class="pl-k">var</span> cell = <span class="pl-k">new</span> Rectangle();
-            cell.Fill = <span class="pl-k">new</span> SolidColorBrush(Colors.Blue);
+            <span class="pl-k">var</span> <span class="pl-en">cell </span>= <span class="pl-k">new</span> <span class="pl-en">Rectangle</span>();
+            cell.Fill = <span class="pl-k">new</span> <span class="pl-en">SolidColorBrush</span>(Colors.Blue);
             cell.Opacity = _opacity;
-            cell.Margin = <span class="pl-k">new</span> Thickness(_margin);
+            cell.Margin = <span class="pl-k">new</span> <span class="pl-en">Thickness</span>(_margin);
             cell.SetValue(Grid.RowProperty, row);
             cell.SetValue(Grid.ColumnProperty, col);
             cell.PointerPressed += OnCellPressed;
@@ -1018,28 +904,28 @@ vertical-align:1px;
     }
 }
 
-<span class="pl-k">private</span> <span class="pl-k">void</span> OnCellPressed(<span class="pl-k">object</span> sender, PointerRoutedEventArgs e)
+<span class="pl-k">private</span> <span class="pl-k">void</span> <span class="pl-en">OnCellPressed</span>(<span class="pl-k">object</span> <span class="pl-smi">sender</span>, <span class="pl-en">PointerRoutedEventArgs</span> <span class="pl-smi">e</span>)
 {
     <span class="pl-k">if</span> (e.Pointer.PointerDeviceType == PointerDeviceType.Mouse)
     {
-        <span class="pl-k">var</span> point = e.GetCurrentPoint(<span class="pl-c1">null</span>);
+        <span class="pl-k">var</span> <span class="pl-en">point </span>= e.GetCurrentPoint(<span class="pl-c1">null</span>);
 
         <span class="pl-k">if</span> (point.Properties.IsLeftButtonPressed)
         {
-            <span class="pl-k">var</span> cell = (Rectangle)sender;
+            <span class="pl-k">var</span> <span class="pl-en">cell </span>= (<span class="pl-en">Rectangle</span>)sender;
             ToggleCell(cell); <span class="pl-c">// Toggle the cell (left mouse button only)</span>
             _last = cell;
         }
     }
 }
 
-<span class="pl-k">private</span> <span class="pl-k">void</span> OnCellEntered(<span class="pl-k">object</span> sender, PointerRoutedEventArgs e)
+<span class="pl-k">private</span> <span class="pl-k">void</span> <span class="pl-en">OnCellEntered</span>(<span class="pl-k">object</span> <span class="pl-smi">sender</span>, <span class="pl-en">PointerRoutedEventArgs</span> <span class="pl-smi">e</span>)
 {
-    <span class="pl-k">var</span> cell = (Rectangle)sender;
+    <span class="pl-k">var</span> <span class="pl-en">cell </span>= (<span class="pl-en">Rectangle</span>)sender;
 
     <span class="pl-k">if</span> (e.Pointer.PointerDeviceType == PointerDeviceType.Mouse)
     {
-        <span class="pl-k">var</span> point = e.GetCurrentPoint(<span class="pl-c1">null</span>);
+        <span class="pl-k">var</span> <span class="pl-en">point </span>= e.GetCurrentPoint(<span class="pl-c1">null</span>);
 
         <span class="pl-k">if</span> (!point.Properties.IsLeftButtonPressed)
             <span class="pl-k">return</span>; <span class="pl-c">// Ignore if it's a mouse but not the left button</span>
@@ -1054,22 +940,22 @@ vertical-align:1px;
     ToggleCell(cell);
 }
 
-<span class="pl-k">private</span> <span class="pl-k">void</span> ToggleCell(Rectangle cell)
+<span class="pl-k">private</span> <span class="pl-k">void</span> <span class="pl-en">ToggleCell</span>(<span class="pl-en">Rectangle</span> <span class="pl-smi">cell</span>)
 {
     cell.Opacity = (cell.Opacity &lt; <span class="pl-c1">1.0</span>) ? <span class="pl-c1">1.0</span> : _opacity;
 }
 
-<span class="pl-k">private</span> <span class="pl-k">async</span> <span class="pl-k">void</span> OnSubmit(<span class="pl-k">object</span> sender, RoutedEventArgs e)
+<span class="pl-k">private</span> <span class="pl-k">async</span> <span class="pl-k">void</span> <span class="pl-en">OnSubmit</span>(<span class="pl-k">object</span> <span class="pl-smi">sender</span>, <span class="pl-en">RoutedEventArgs</span> <span class="pl-smi">e</span>)
 {
     <span class="pl-c">// Package up the data</span>
-    <span class="pl-k">string</span>[] values = <span class="pl-k">new</span> <span class="pl-k">string</span>[<span class="pl-c1">65</span>];
+    <span class="pl-k">string</span>[] <span class="pl-en">values</span> = <span class="pl-k">new</span> <span class="pl-k">string</span>[<span class="pl-c1">65</span>];
 
-    <span class="pl-k">for</span> (<span class="pl-k">int</span> row = <span class="pl-c1">0</span>; row &lt; <span class="pl-c1">8</span>; row++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> <span class="pl-en">row</span> = <span class="pl-c1">0</span>; row &lt; <span class="pl-c1">8</span>; row++)
     {
-        <span class="pl-k">for</span> (<span class="pl-k">int</span> col = <span class="pl-c1">0</span>; col &lt; <span class="pl-c1">8</span>; col++)
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> <span class="pl-en">col</span> = <span class="pl-c1">0</span>; col &lt; <span class="pl-c1">8</span>; col++)
         {
-            <span class="pl-k">int</span> index = (row * <span class="pl-c1">8</span>) + col;
-            values[index] = ((Rectangle)Cells.Children[index]).Opacity == <span class="pl-c1">1.0</span> ? <span class="pl-s"><span class="pl-pds">"</span>16<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>;
+            <span class="pl-k">int</span> <span class="pl-en">index</span> = (row * <span class="pl-c1">8</span>) + col;
+            values[index] = ((<span class="pl-en">Rectangle</span>)Cells.Children[index]).Opacity == <span class="pl-c1">1.0</span> ? <span class="pl-s"><span class="pl-pds">"</span>16<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>;
         }
     }
 
@@ -1083,28 +969,28 @@ vertical-align:1px;
     <span class="pl-k">catch</span>(Exception ex)
     {
         <span class="pl-c">// Let the user know if something went wrong</span>
-        <span class="pl-k">var</span> dialog = <span class="pl-k">new</span> MessageDialog(ex.Message);
+        <span class="pl-k">var</span> <span class="pl-en">dialog </span>= <span class="pl-k">new</span> <span class="pl-en">MessageDialog</span>(ex.Message);
         <span class="pl-k">await</span> dialog.ShowAsync();
     }
 }
 
-<span class="pl-k">private</span> <span class="pl-k">void</span> OnClear(<span class="pl-k">object</span> sender, RoutedEventArgs e)
+<span class="pl-k">private</span> <span class="pl-k">void</span> <span class="pl-en">OnClear</span>(<span class="pl-k">object</span> <span class="pl-smi">sender</span>, <span class="pl-en">RoutedEventArgs</span> <span class="pl-smi">e</span>)
 {
-    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">64</span>; i++)
-        ((Rectangle)Cells.Children[i]).Opacity = _opacity;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> <span class="pl-en">i</span> = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">64</span>; i++)
+        ((<span class="pl-en">Rectangle</span>)Cells.Children[i]).Opacity = _opacity;
 }
 
-<span class="pl-k">private</span> <span class="pl-k">async</span> Task MLSubmitAsync(<span class="pl-k">string</span>[] v)
+<span class="pl-k">private</span> <span class="pl-k">async</span> <span class="pl-en">Task</span> <span class="pl-en">MLSubmitAsync</span>(<span class="pl-k">string</span>[] <span class="pl-smi">v</span>)
 {
-    <span class="pl-k">using</span> (<span class="pl-k">var</span> client = <span class="pl-k">new</span> HttpClient())
+    <span class="pl-k">using</span> (<span class="pl-k">var</span> <span class="pl-en">client </span>= <span class="pl-k">new</span> <span class="pl-en">HttpClient</span>())
     {
-        <span class="pl-k">var</span> request = <span class="pl-k">new</span>
+        <span class="pl-k">var</span> <span class="pl-en">request </span>= new
         {
-            Inputs = <span class="pl-k">new</span> Dictionary&lt;<span class="pl-k">string</span>, StringTable&gt;()
+            Inputs = <span class="pl-k">new</span> <span class="pl-en">Dictionary</span>&lt;<span class="pl-k">string</span>, StringTable&gt;()
             {
                 {
                     <span class="pl-s"><span class="pl-pds">"</span>input1<span class="pl-pds">"</span></span>,
-                    <span class="pl-k">new</span> StringTable()
+                    <span class="pl-k">new</span> <span class="pl-en">StringTable</span>()
                     {
                         ColumnNames = <span class="pl-k">new</span> <span class="pl-k">string</span>[]
                         {
@@ -1135,37 +1021,35 @@ vertical-align:1px;
                     }
                 },
             },
-            GlobalParameters = <span class="pl-k">new</span> Dictionary&lt;<span class="pl-k">string</span>, <span class="pl-k">string</span>&gt;() { }
+            GlobalParameters = <span class="pl-k">new</span> <span class="pl-en">Dictionary</span>&lt;<span class="pl-k">string</span>, <span class="pl-k">string</span>&gt;() { }
         };
 
-        <span class="pl-k">const</span> <span class="pl-k">string</span> key = <span class="pl-s"><span class="pl-pds">"</span>api_key<span class="pl-pds">"</span></span>;
-        client.DefaultRequestHeaders.Authorization = <span class="pl-k">new</span> AuthenticationHeaderValue(<span class="pl-s"><span class="pl-pds">"</span>Bearer<span class="pl-pds">"</span></span>, key);
-        client.BaseAddress = <span class="pl-k">new</span> Uri(<span class="pl-s"><span class="pl-pds">"</span>web_service_url<span class="pl-pds">"</span></span>);
+        const <span class="pl-k">string</span> <span class="pl-en">key</span> = <span class="pl-s"><span class="pl-pds">"</span>api_key<span class="pl-pds">"</span></span>;
+        client.DefaultRequestHeaders.Authorization = <span class="pl-k">new</span> <span class="pl-en">AuthenticationHeaderValue</span>(<span class="pl-s"><span class="pl-pds">"</span>Bearer<span class="pl-pds">"</span></span>, key);
+        client.BaseAddress = <span class="pl-k">new</span> <span class="pl-en">Uri</span>(<span class="pl-s"><span class="pl-pds">"</span>web_service_url<span class="pl-pds">"</span></span>);
 
-        HttpResponseMessage response = <span class="pl-k">await</span> client.PostAsJsonAsync(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>, request).ConfigureAwait(<span class="pl-c1">false</span>);
+        <span class="pl-en">HttpResponseMessage</span> <span class="pl-en">response</span> = <span class="pl-k">await</span> client.PostAsJsonAsync(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>, request).ConfigureAwait(<span class="pl-c1">false</span>);
 
         <span class="pl-c">// Resumes on background thread, so marshal to the UI thread</span>
-        <span class="pl-k">await</span> <span class="pl-c1">this</span>.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, <span class="pl-k">async</span> () =&gt;
+        <span class="pl-k">await</span> <span class="pl-c1">this</span>.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =&gt;
         {
             <span class="pl-k">if</span> (response.IsSuccessStatusCode)
             {
-                <span class="pl-k">string</span> json = <span class="pl-k">await</span> response.Content.ReadAsStringAsync();
-                <span class="pl-k">dynamic</span> result = JsonConvert.DeserializeObject&lt;<span class="pl-k">dynamic</span>&gt;(json);
-                <span class="pl-k">var</span> digit = result.Results.output1.<span class="pl-k">value</span>.Values[<span class="pl-c1">0</span>][<span class="pl-c1">75</span>];
-                <span class="pl-k">var</span> dialog = <span class="pl-k">new</span> MessageDialog(String.Format(<span class="pl-s"><span class="pl-pds">"</span>Azure ML says you entered a {0}<span class="pl-pds">"</span></span>, digit));
+                <span class="pl-k">string</span> <span class="pl-en">json</span> = <span class="pl-k">await</span> response.Content.ReadAsStringAsync();
+                <span class="pl-k">dynamic</span> <span class="pl-en">result</span> = JsonConvert.DeserializeObject&lt;<span class="pl-k">dynamic</span>&gt;(<span class="pl-en">json</span>);
+                <span class="pl-k">var</span> <span class="pl-en">digit </span>= result.Results.output1.<span class="pl-k">value</span>.Values[<span class="pl-c1">0</span>][<span class="pl-c1">75</span>];
+                <span class="pl-k">var</span> <span class="pl-en">dialog </span>= <span class="pl-k">new</span> <span class="pl-en">MessageDialog</span>(String.Format(<span class="pl-s"><span class="pl-pds">"</span>Azure ML says you entered a {0}<span class="pl-pds">"</span></span>, digit));
                 <span class="pl-k">await</span> dialog.ShowAsync();
             }
             <span class="pl-k">else</span>
             {
-                <span class="pl-k">var</span> dialog = <span class="pl-k">new</span> MessageDialog(String.Format(<span class="pl-s"><span class="pl-pds">"</span>The request failed with status code: {0}<span class="pl-pds">"</span></span>, response.StatusCode));
+                <span class="pl-k">var</span> <span class="pl-en">dialog </span>= <span class="pl-k">new</span> <span class="pl-en">MessageDialog</span>(String.Format(<span class="pl-s"><span class="pl-pds">"</span>The request failed with status code: {0}<span class="pl-pds">"</span></span>, response.StatusCode));
                 <span class="pl-k">await</span> dialog.ShowAsync();
             }
         });
     }
 }</pre></div>
-
 <p>Admittedly, that's a lot of code. But it packs a lot of punch, too. Here are a few parts of it that you may care to examine more closely:</p>
-
 <ul>
 <li>MainPage's class constructor fills the Grid element declared in MainPage.xaml with XAML Rectangles to form an 8x8 grid. XAML elements such as this are normally created declaratively, but in this case, creating them in code prevents MainPage.xaml from being filled with row after row of nearly identical Rectangle elements.</li>
 <li>OnCellEntered is the method called when a finger, pen, or mouse (in UWP parlance, a "pointing device") makes contact with any of the 64 Rectangles. Its job: toggle the Rectangle "on" or "off" by changing its opacity.</li>
@@ -1173,69 +1057,53 @@ vertical-align:1px;
 <li>MLSubmitAsync is where the magic happens. It uses UWP's HttpClient class to place a REST call to the Web service. It is closely patterned after the C# sample code presented on the Web service's dashboard.</li>
 </ul>
 </li>
-<li><p>In the source code you just inserted, replace <em>api_key</em> with the API key for your Web service obtained in Exercise 5, Step 5.</p></li>
-<li><p>Next, replace <em>web_service_url</em> with the URL of your Web service obtained in Exercise 5, Step 7.</p></li>
+<li>
+<p>In the source code you just inserted, replace <em>api_key</em> with the API key for your Web service obtained in Exercise 5, Step 5.</p>
+</li>
+<li>
+<p>Next, replace <em>web_service_url</em> with the URL of your Web service obtained in Exercise 5, Step 7.</p>
+</li>
 <li>
 <p>Go to the <strong>Build</strong> menu at the top of the Visual Studio window and use the <strong>Build Solution</strong> command to build the solution. Correct any build errors that are reported, and then press <strong>Ctrl+F5</strong> to launch the app. Confirm that it looks like this:</p>
-
 <p><a href="Images/mlclient-app-1.png" target="_blank"><img src="Images/mlclient-app-1.png" alt="The MLClient app" style="max-width:100%;"></a></p>
-
 <p><em>The MLClient app</em></p>
 </li>
 </ol>
-
 <p>Congratulations! You just built a universal Windows app that relies on Azure Machine Learning for intelligence. The final task is to try it out and see how intelligent the app really is.</p>
-
 <p><a name="Exercise7"></a></p>
-
 <h2>Exercise 7: Test the model</h2>
-
 <p>MLClient puts a graphical front end on Web-service calls. You draw a digit into the grid of squares by dragging a finger, pen, or mouse over the squares. Clicking the <strong>Submit</strong> button creates an array of 64 values (one per square, and one for each of the 64 feature columns in the training dataset), serializes it into JSON, and passes it to the Web service. The app deserializes the JSON that comes back and displays the result. In essence, MLClient provides a highly visual way to gauge the accuracy of your ML model.</p>
-
 <ol>
 <li>
 <p>Use your mouse to sketch a "7" into the grid, similar to the one shown below. Then click the <strong>Submit</strong> button.</p>
-
 <p><a href="Images/mlclient-app-2.png" target="_blank"><img src="Images/mlclient-app-2.png" alt="Testing the app" style="max-width:100%;"></a></p>
-
 <p><em>Testing the app</em></p>
 </li>
 <li>
 <p>In a moment, a popup window will appear telling you what digit you sketched. Is it correct?</p>
-
 <p><a href="Images/it-works.png" target="_blank"><img src="Images/it-works.png" alt="Azure ML's response" style="max-width:100%;"></a></p>
-
 <p><em>Azure ML's response</em></p>
 </li>
 <li>
 <p>Click the <strong>Clear</strong> button to clear the grid and try a few other digits. You'll probably find that the model you built is better at identifying some digits than others, and that you get the best results when the digits you draw fill the expanse of the grid as much as possible.</p>
-
 <blockquote>
 <p>The incorrect answers are partly the result of the relatively small dataset you trained the model with (the dataset was roughly 0.5 MB, which is small by big-data standards), and partly due to the fact that the onscreen grid MLClient displays uses only 1/16th the resolution of the scans that the model was trained with. Nonetheless, it's a pretty impressive feat for an app to perform basic OCR in this manner. And it's indicative of the kinds of apps you can build when you have Azure Machine Learning doing the heavy lifting.</p>
 </blockquote>
 </li>
 <li>
 <p>Recall that one of the benefits of the Universal Windows Platform is that apps can run on a variety of devices. To see how MLClient would look on a tablet, select <strong>Simulator</strong> from the drop-down list of devices under the menu bar.</p>
-
 <p><a href="Images/switch-to-simulator.png" target="_blank"><img src="Images/switch-to-simulator.png" alt="Selecting simulator output" style="max-width:100%;"></a></p>
-
 <p><em>Switching from Local Machine to the Windows Simulator</em></p>
 </li>
 <li>
 <p>Now press <strong>Ctrl+F5</strong> to launch the app in the simulator.</p>
-
 <p><a href="Images/simulator.png" target="_blank"><img src="Images/simulator.png" alt="MLClient on a tablet" style="max-width:100%;"></a></p>
-
 <p><em>MLClient on a tablet</em></p>
 </li>
 </ol>
-
 <p>Typically, a developer does a little extra work to optimize the way a UWP app is displayed on different devices. That's beyond the scope of this lab, but something to be aware of if you plan to use UWP apps in your work or business. <a href="https://channel9.msdn.com/Series/Windows-10-development-for-absolute-beginners/UWP-038-Working-with-Adaptive-Layout">Here's a video</a> with information about using adaptive layouts to make a UWP app look great on a wide range of devices.</p>
-
 <h2>Summary</h2>
-
 <p>In this hands-on lab, you learned how to:</p>
-
 <ul>
 <li>Create an Azure Machine Learning experiment</li>
 <li>Upload a dataset</li>
@@ -1243,11 +1111,8 @@ vertical-align:1px;
 <li>Deploy the model as a Web service</li>
 <li>Call the Web service using REST</li>
 </ul>
-
 <p>There's much more than you can do with Azure Machine Learning, but this is a start. Feel free to experiment with it on your own and explore the exciting world of predictive analysis with a tool that is not only productive, but fun!</p>
-
 <hr>
-
 <p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>

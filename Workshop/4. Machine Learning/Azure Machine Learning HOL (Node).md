@@ -53,33 +53,53 @@ The first step in employing Azure Machine Learning is to create an ML workspace 
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
-1. Click **+ New**, followed by **Intelligence + analytics** and **Machine Learning Workspace**.
+1. Click **+ New**, followed by **Intelligence + analytics**. Then click **See all**.
 
-    ![Creating an ML workspace](Images/new-ml-solution.png)
+    ![Creating an ML workspace](Images/new-ml-workspace-1.png)
 
     _Creating an ML workspace_
 
-1. In the "Machine Learning Workspace" blade, enter a workspace name such as "DXLabs" and make sure a green check mark appears next to it. Select **Create new** under **Resource group** and and enter a resource-group name such as "DXLabsResourceGroup" (without quotation marks). Select the location nearest you under **Location**. Then enter a storage-account name and make sure a green check mark appears next to it, too.
+1. Click **Machine Learning Workspace**. (If this option doesn't appear, type "workspace" without quotation marks into the search box at the top of the page, and then select **Machine Learning Workspace** from the search results.) 
 
-	> Recall that storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.
+    ![Creating an ML workspace](Images/new-ml-workspace-2.png)
 
-    ![Configuring an ML workspace](Images/workspace-parameters.png)
+    _Creating an ML workspace_
 
-    _Configuring an ML workspace_
+1. Click the **Create** button at the bottom of the "Machine Learning Workspace" blade.
 
-1. Click **Web service plan pricing tier** and select **DEVTEST Standard**. Then click the **Select** button at the bottom of the "Choose your pricing tier" blade. Check **Pin to dashboard** at the bottom of the "Machine Learning Workspace" blade, and finish up by clicking the **Create** button.
+    ![Creating an ML workspace](Images/new-ml-workspace-3.png)
 
-    ![Choosing a pricing tier](Images/pricing-tier.png)
+    _Creating an ML workspace_
 
-    _Choosing a pricing tier_
+1. The next step is to enter the parameters for the workspace you wish to create. In the "Machine Learning Workspace" blade, enter a workspace name such as "DXLabs" and make sure a green check mark appears next to it. Select **Create new** under **Resource group** and enter a resource-group name such as "MachineLearningResourceGroup." Select the location nearest you under **Location**. Then enter a storage-account name, making it as unique as possible, and make sure a green check mark appears next to it, too.
 
-1. It typically takes 30 seconds or so for the new ML workspace to be created. Once deployment has completed, click **Launch Machine Learning Studio**. (If the screen below doesn't display automatically, click the tile that was created for the ML workspace on the dashboard to display it.)
+	> Storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.
+
+	Now click **Web service plan pricing tier** and select **DEVTEST Standard** in the "Choose your pricing tier blade." Finish up by clicking **Select** at the bottom of that blade, and clicking **Create** at the bottom of the "Machine Learning Workspace" blade.
+
+    ![Creating an ML workspace](Images/new-ml-workspace-4.png)
+
+    _Creating an ML workspace_
+
+1. Click **Resource groups** in the ribbon on the left side of the portal, and then click the resource group created for the Machine Learning workspace.
+
+    ![Opening the resource group](Images/open-resource-group.png)
+
+    _Opening the resource group_
+
+1. If the text under "Deployments" says "1 Deploying," refresh the page in your browser every few seconds until it changes to "1 Succeeded." Then click the Machine Learning workspace in the resource group.
+
+    ![Opening the workspace](Images/open-workspace.png)
+
+    _Opening the workspace_
+
+1. Click **Launch Machine Learning Studio**.
 
     ![Launching ML Studio](Images/launch-ml-studio.png)
 
     _Launching ML Studio_
 
-1. Click **Sign in here** to sign in to ML Studio with your Microsoft account.
+1. Click **Sign In** to sign in to ML Studio with your Microsoft account.
 
     ![Signing in to ML Studio](Images/sign-in.png)
 

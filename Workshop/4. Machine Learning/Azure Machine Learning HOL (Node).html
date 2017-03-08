@@ -514,30 +514,46 @@ vertical-align:1px;
 <p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If asked to log in, do so using your Microsoft account.</p>
 </li>
 <li>
-<p>Click <strong>+ New</strong>, followed by <strong>Intelligence + analytics</strong> and <strong>Machine Learning Workspace</strong>.</p>
-<p><a href="Images/new-ml-solution.png" target="_blank"><img src="Images/new-ml-solution.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
+<p>Click <strong>+ New</strong>, followed by <strong>Intelligence + analytics</strong>. Then click <strong>See all</strong>.</p>
+<p><a href="Images/new-ml-workspace-1.png" target="_blank"><img src="Images/new-ml-workspace-1.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
 <p><em>Creating an ML workspace</em></p>
 </li>
 <li>
-<p>In the "Machine Learning Workspace" blade, enter a workspace name such as "DXLabs" and make sure a green check mark appears next to it. Select <strong>Create new</strong> under <strong>Resource group</strong> and and enter a resource-group name such as "DXLabsResourceGroup" (without quotation marks). Select the location nearest you under <strong>Location</strong>. Then enter a storage-account name and make sure a green check mark appears next to it, too.</p>
+<p>Click <strong>Machine Learning Workspace</strong>. (If this option doesn't appear, type "workspace" without quotation marks into the search box at the top of the page, and then select <strong>Machine Learning Workspace</strong> from the search results.)</p>
+<p><a href="Images/new-ml-workspace-2.png" target="_blank"><img src="Images/new-ml-workspace-2.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
+<p><em>Creating an ML workspace</em></p>
+</li>
+<li>
+<p>Click the <strong>Create</strong> button at the bottom of the "Machine Learning Workspace" blade.</p>
+<p><a href="Images/new-ml-workspace-3.png" target="_blank"><img src="Images/new-ml-workspace-3.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
+<p><em>Creating an ML workspace</em></p>
+</li>
+<li>
+<p>The next step is to enter the parameters for the workspace you wish to create. In the "Machine Learning Workspace" blade, enter a workspace name such as "DXLabs" and make sure a green check mark appears next to it. Select <strong>Create new</strong> under <strong>Resource group</strong> and enter a resource-group name such as "MachineLearningResourceGroup." Select the location nearest you under <strong>Location</strong>. Then enter a storage-account name, making it as unique as possible, and make sure a green check mark appears next to it, too.</p>
 <blockquote>
-<p>Recall that storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.</p>
+<p>Storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.</p>
 </blockquote>
-<p><a href="Images/workspace-parameters.png" target="_blank"><img src="Images/workspace-parameters.png" alt="Configuring an ML workspace" style="max-width:100%;"></a></p>
-<p><em>Configuring an ML workspace</em></p>
+<p>Now click <strong>Web service plan pricing tier</strong> and select <strong>DEVTEST Standard</strong> in the "Choose your pricing tier blade." Finish up by clicking <strong>Select</strong> at the bottom of that blade, and clicking <strong>Create</strong> at the bottom of the "Machine Learning Workspace" blade.</p>
+<p><a href="Images/new-ml-workspace-4.png" target="_blank"><img src="Images/new-ml-workspace-4.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
+<p><em>Creating an ML workspace</em></p>
 </li>
 <li>
-<p>Click <strong>Web service plan pricing tier</strong> and select <strong>DEVTEST Standard</strong>. Then click the <strong>Select</strong> button at the bottom of the "Choose your pricing tier" blade. Check <strong>Pin to dashboard</strong> at the bottom of the "Machine Learning Workspace" blade, and finish up by clicking the <strong>Create</strong> button.</p>
-<p><a href="Images/pricing-tier.png" target="_blank"><img src="Images/pricing-tier.png" alt="Choosing a pricing tier" style="max-width:100%;"></a></p>
-<p><em>Choosing a pricing tier</em></p>
+<p>Click <strong>Resource groups</strong> in the ribbon on the left side of the portal, and then click the resource group created for the Machine Learning workspace.</p>
+<p><a href="Images/open-resource-group.png" target="_blank"><img src="Images/open-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
+<p><em>Opening the resource group</em></p>
 </li>
 <li>
-<p>It typically takes 30 seconds or so for the new ML workspace to be created. Once deployment has completed, click <strong>Launch Machine Learning Studio</strong>. (If the screen below doesn't display automatically, click the tile that was created for the ML workspace on the dashboard to display it.)</p>
+<p>If the text under "Deployments" says "1 Deploying," refresh the page in your browser every few seconds until it changes to "1 Succeeded." Then click the Machine Learning workspace in the resource group.</p>
+<p><a href="Images/open-workspace.png" target="_blank"><img src="Images/open-workspace.png" alt="Opening the workspace" style="max-width:100%;"></a></p>
+<p><em>Opening the workspace</em></p>
+</li>
+<li>
+<p>Click <strong>Launch Machine Learning Studio</strong>.</p>
 <p><a href="Images/launch-ml-studio.png" target="_blank"><img src="Images/launch-ml-studio.png" alt="Launching ML Studio" style="max-width:100%;"></a></p>
 <p><em>Launching ML Studio</em></p>
 </li>
 <li>
-<p>Click <strong>Sign in here</strong> to sign in to ML Studio with your Microsoft account.</p>
+<p>Click <strong>Sign In</strong> to sign in to ML Studio with your Microsoft account.</p>
 <p><a href="Images/sign-in.png" target="_blank"><img src="Images/sign-in.png" alt="Signing in to ML Studio" style="max-width:100%;"></a></p>
 <p><em>Signing in to ML Studio</em></p>
 </li>
@@ -908,18 +924,18 @@ vertical-align:1px;
 <li>
 <p>Now create a file named <strong>main.css</strong> in the project directory and add the following style definitions:</p>
 <div class="highlight highlight-source-css"><pre><span class="pl-e">.pixel-grid</span> {
-    <span class="pl-c1">-webkit-<span class="pl-c1">user-select</span></span>: <span class="pl-c1">none</span>;
+    <span class="pl-c1"><span class="pl-c1">-webkit-user-select</span></span>: <span class="pl-c1">none</span>;
     <span class="pl-c1"><span class="pl-c1">user-select</span></span>: <span class="pl-c1">none</span>;
     <span class="pl-c1"><span class="pl-c1">cursor</span></span>: <span class="pl-c1">pointer</span>;
 }
 
-<span class="pl-e">.pixel-grid</span> &gt; <span class="pl-ent">div</span> {
+<span class="pl-e">.pixel-grid</span> <span class="pl-k">&gt;</span> <span class="pl-ent">div</span> {
     <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">0</span>;
     <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">0</span>;
     <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">block</span>;
 }
 
-<span class="pl-e">.pixel-grid</span> &gt; <span class="pl-ent">div</span> &gt; <span class="pl-ent">div</span> {
+<span class="pl-e">.pixel-grid</span> <span class="pl-k">&gt;</span> <span class="pl-ent">div</span> <span class="pl-k">&gt;</span> <span class="pl-ent">div</span> {
     <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">0</span> <span class="pl-c1">2<span class="pl-k">px</span></span>;
     <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">0</span>;
     <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">inline-block</span>;
@@ -1013,12 +1029,12 @@ vertical-align:1px;
 
 <span class="pl-k">const</span> GridSize<span class="pl-k">:</span> <span class="pl-c1">number</span> <span class="pl-k">=</span> <span class="pl-c1">8</span>;
 
-<span class="pl-k">function</span> forEachIndex(<span class="pl-v">count</span><span class="pl-k">:</span> <span class="pl-c1">number</span>, <span class="pl-v">callback</span><span class="pl-k">:</span> (<span class="pl-v">idx</span><span class="pl-k">:</span> <span class="pl-c1">number</span>) <span class="pl-k">=&gt;</span> <span class="pl-c1">void</span>) {
+<span class="pl-k">function</span> forEachIndex(<span class="pl-v">count</span><span class="pl-k">:</span> <span class="pl-c1">number</span>, <span class="pl-en">callback</span><span class="pl-k">:</span> (<span class="pl-v">idx</span><span class="pl-k">:</span> <span class="pl-c1">number</span>) <span class="pl-k">=&gt;</span> <span class="pl-c1">void</span>) {
     <span class="pl-k">for</span>(<span class="pl-k">let</span> idx <span class="pl-k">=</span> <span class="pl-c1">0</span>; <span class="pl-smi">idx</span> <span class="pl-k">&lt;</span> <span class="pl-smi">count</span>; <span class="pl-smi">idx</span> <span class="pl-k">+=</span> <span class="pl-c1">1</span>) {
         <span class="pl-en">callback</span>(<span class="pl-smi">idx</span>);
     }
 }
-<span class="pl-k">function</span> mapByIndex(<span class="pl-v">count</span><span class="pl-k">:</span> <span class="pl-c1">number</span>, <span class="pl-v">callback</span><span class="pl-k">:</span> (<span class="pl-v">idx</span><span class="pl-k">:</span> <span class="pl-c1">number</span>) <span class="pl-k">=&gt;</span> <span class="pl-c1">any</span>) {
+<span class="pl-k">function</span> mapByIndex(<span class="pl-v">count</span><span class="pl-k">:</span> <span class="pl-c1">number</span>, <span class="pl-en">callback</span><span class="pl-k">:</span> (<span class="pl-v">idx</span><span class="pl-k">:</span> <span class="pl-c1">number</span>) <span class="pl-k">=&gt;</span> <span class="pl-c1">any</span>) {
     <span class="pl-k">let</span> items <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Array</span>(<span class="pl-smi">count</span>);
     <span class="pl-en">forEachIndex</span>(<span class="pl-smi">count</span>, <span class="pl-v">idx</span> <span class="pl-k">=&gt;</span> {
         <span class="pl-smi">items</span>[<span class="pl-smi">idx</span>] <span class="pl-k">=</span> <span class="pl-en">callback</span>(<span class="pl-smi">idx</span>);
