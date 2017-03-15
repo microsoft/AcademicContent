@@ -489,7 +489,7 @@ vertical-align:1px;
 <h3>Prerequisites</h3>
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
+<li>An active Microsoft Azure subscription. Use the Azure Pass you activated earlier, or <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
 <li><a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/">Azure Command-Line Interface (CLI)</a></li>
 </ul>
 <hr>
@@ -777,20 +777,18 @@ OUTPUT @results
 </code></pre>
 </li>
 <li>
-<p>Now execute the following commands to create a Data Lake catalog secret containing SQL server connection and authentication information for federated query execution. Substitute your Data Lake Analytics account name for <em>analytics_account_name</em> and your database server name (the one specified in Step 13 of this exercise) for <em>database_server_name</em>:</p>
+<p>Now execute the following commands to create a Data Lake catalog credential used to authenticate when executing federated queries. Substitute your Data Lake Analytics account name for <em>analytics_account_name</em> and your database server name (the one specified in Step 13 of this exercise) for <em>database_server_name</em>:</p>
  <pre> azure config mode arm
- azure datalake analytics catalog secret create "<i>analytics_account_name</i>" "UserIntegration" "tcp://<i>database_server_name</i>.database.windows.net:1433"</pre>
-<p>When prompted for a catalog secret name, type "user-integration-secret" without quotation marks. When prompted for a password, enter the SQL server password ("Azure4Research!") you specified in Step 13.</p>
+ azure datalake analytics catalog credential create <i>analytics_account_name</i> UserIntegration tcp://<i>database_server_name</i>.database.windows.net FederatedCredential azureuser</pre>
+<p>When prompted for a password, enter the SQL server password ("Azure4Research!") you specified in Step 13.</p>
 </li>
 <li>
 <p>Return to your Data Lake Analytics account in the Azure Portal. Then click <strong>+ New Job</strong> and execute the following query:</p>
 <div class="highlight highlight-source-sql"><pre>USE DATABASE UserIntegration;
 
-CREATE CREDENTIAL IF NOT EXISTS FederatedDbSecret WITH USER_NAME <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>azureuser<span class="pl-pds">"</span></span>, IDENTITY <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>user-integration-secret<span class="pl-pds">"</span></span>;
-
 CREATE DATA SOURCE IF NOT EXISTS AcademicSEDb <span class="pl-k">FROM</span> AZURESQLDB WITH
    ( PROVIDER_STRING <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Database=academics-stackexchange-users;Trusted_Connection=False;Encrypt=True<span class="pl-pds">"</span></span>,
-     CREDENTIAL <span class="pl-k">=</span> FederatedDbSecret,
+     CREDENTIAL <span class="pl-k">=</span> FederatedCredential,
      REMOTABLE_TYPES <span class="pl-k">=</span> (bool, byte, sbyte, short, ushort, <span class="pl-k">int</span>, uint, long, ulong, <span class="pl-k">decimal</span>, float, double, string, DateTime) );
 
 CREATE EXTERNAL TABLE User (
@@ -801,7 +799,7 @@ CREATE EXTERNAL TABLE User (
                         [lastaccess] DateTime,
                         [location] string
                     ) <span class="pl-k">FROM</span> AcademicSEDb LOCATION <span class="pl-s"><span class="pl-pds">"</span>dbo.User<span class="pl-pds">"</span></span>;</pre></div>
-<p>This query creates a credential using the "user-integration-secret" catalog secret, configures your SQL database as a data source authenticated with the new credential, and then creates a named table in your local Data Lake Analytics database which is backed by the SQL data source.</p>
+<p>This query configures your SQL database as a data source authenticated with the credential you created in Step 22, and then creates a named table in your local Data Lake Analytics database which is backed by the SQL data source.</p>
 </li>
 </ol>
 <p>That was a lot of work, but you are now ready to issue federated queries. Let's try it out!</p>
@@ -870,7 +868,7 @@ OUTPUT @results
 <p>Azure Data Lake provides a hyperscale, enterprise-wide repository in which different types of data can be collected without regard to size, structure, or velocity. Once aggregated in a Data Lake Store, data can be analyzed with Azure Data Lake Analytics, or processed with popular open-source tools such as Apache Hadoop and Apache Spark hosted in <a href="https://azure.microsoft.com/en-us/services/hdinsight/">Azure HDInsight</a>. In this lab, you learned how to import various types of data into a Data Lake Store and use Azure Data Lake Analytics to query the combined data with U-SQL.</p>
 <p>Azure Data Lake does not itself provide tools for visualizing query results, but other components of Azure and the Azure ecosystem do. For example, <a href="https://powerbi.microsoft.com/en-us/">Microsoft Power BI</a> can be used to visualize query results and can even be connected directly to a Data Lake Store. For more information about combining Azure Data Lake with Power BI and a tutorial to help guide the way, see <a href="https://azure.microsoft.com/en-us/documentation/articles/data-lake-store-power-bi/">Analyze data in Data Lake Store by using Power BI</a>.</p>
 <hr>
-<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
