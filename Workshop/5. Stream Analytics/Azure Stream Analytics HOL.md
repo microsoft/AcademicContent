@@ -46,7 +46,7 @@ This hands-on lab includes the following exercises:
 Estimated time to complete this lab: **60** minutes.
 
 <a name="Exercise1"></a>
-## Exercise1: Create an event hub ##
+## Exercise 1: Create an event hub ##
 
 Azure Stream Analytics supports several types of input, including input from Azure blobs and input from Azure event hubs. Of the two, the latter is typically more interesting because in the IoT world, data is easily transmitted to Azure event hubs through field gateways (for devices that are not IP-capable) or cloud gateways (for devices that *are* IP-capable), and a single Azure event hub can handle millions of events per second transmitted from devices spread throughout the world.
 
@@ -182,8 +182,8 @@ In this exercise, you will generate a shared-access signature token for the even
 
 	```JavaScript
 	///////////////// KEY VARS /////////////////
-	var sas = "SharedAccessSignature sr=https%3A%2F%2Fstreamanalyticslab.servicebus.windows.net%2Finputhub&sig=Rz5dVs73XQkUU8KUcrLivDU4Q7%2Bg8zogdApBZHak480%3D&se=1515170996.004&skn=SendPolicy";
-	var uri = "https://streamanalyticslab.servicebus.windows.net/inputhub";
+	var sas = "SharedAccessSignature sr=https%3A%2F%2Fstreamanalytics-lab.servicebus.windows.net%2Finputhub&sig=Rz5dVs73XQkUU8KUcrLivDU4Q7%2Bg8zogdApBZHak480%3D&se=1515170996.004&skn=SendPolicy";
+	var uri = "https://streamanalytics-lab.servicebus.windows.net/inputhub";
 	///////////////////////////////////////////
 	```
 
@@ -565,4 +565,4 @@ One drawback to hard-coding rules into Stream Analytics is that rules don't "lea
 
 ---
 
-Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
+Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
