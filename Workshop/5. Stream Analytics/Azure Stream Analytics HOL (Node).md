@@ -72,7 +72,9 @@ In this exercise, you'll create an Azure event hub to provide input to Azure Str
 
     _Opening the resource group_
 
-1. Click the namespace whose name you specified in Step 3.
+1. Wait until "Deploying" changes to "Succeeded." Then click the namespace whose name you specified in Step 3.
+
+	> Click the browser's **Refresh** button occasionally to update the deployment status. Clicking the **Refresh** button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.
 
     ![Opening the namespace](Images/open-namespace.png)
 

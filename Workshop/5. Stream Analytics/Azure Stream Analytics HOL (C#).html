@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Azure Stream Analytics HOL (C#)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<p><a name="HOLTitle"></a></p>
+<h1>Analyzing Data in Real Time with Azure Stream Analytics</h1>
+<hr>
+<p><a name="Overview"></a></p>
+<h2>Overview</h2>
+<p>Azure Stream Analytics is a cloud-based service for ingesting high-velocity data streaming from devices, sensors, applications, Web sites, and other data sources and analyzing that data in real time. It supports a SQL-like query language that works over dynamic data streams and makes analyzing constantly changing data no more difficult than performing queries on static data stored in traditional databases. With Azure Stream Analytics, you can set up jobs that analyze incoming data for anomalies or information of interest and record the results, present notifications on dashboards, or even fire off alerts to mobile devices. And all of it can be done at low cost and with a minimum of effort.</p>
+<p>Scenarios for the application of real-time data analytics are legion and include fraud detection, identity-theft protection, optimizing the allocation of resources (think of an Uber-like transportation service that sends drivers to areas of increasing demand <em>before</em> that demand peaks), click-stream analysis on Web sites, shopping suggestions on retail-sales sites, and countless others. Having the ability to process data <em>as it comes in</em> rather than waiting until after it has been aggregated offers a competitive advantage to businesses that are agile enough to make adjustments on the fly.</p>
+<p>In this lab, you'll create an Azure Stream Analytics job and use it to analyze data streaming in from simulated Internet of Things (IoT) devices. And you'll see how simple it is to monitor real-time data streams for information of significance to your research or business.</p>
+<p><a name="Objectives"></a></p>
+<h3>Objectives</h3>
+<p>In this hands-on lab, you will learn how to:</p>
+<ul>
+<li>Create an Azure event hub and use it as a Stream Analytics input</li>
+<li>Create a Stream Analytics job and test queries on sample data streams</li>
+<li>Run a Stream Analytics job and perform queries on live data streams</li>
+<li>Store Stream Analytics output in Azure storage blobs</li>
+</ul>
+<p><a name="Prerequisites"></a></p>
+<h3>Prerequisites</h3>
+<p>The following is required to complete this hands-on lab:</p>
+<ul>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
+<li><a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio 2015 Community edition</a> or higher</li>
+</ul>
+<hr>
+<p><a name="Exercises"></a></p>
+<h2>Exercises</h2>
+<p>This hands-on lab includes the following exercises:</p>
+<ul>
+<li><a href="#Exercise1">Exercise 1: Create an event hub</a></li>
+<li><a href="#Exercise2">Exercise 2: Send events to the event hub</a></li>
+<li><a href="#Exercise3">Exercise 3: Create a Stream Analytics job</a></li>
+<li><a href="#Exercise4">Exercise 4: Prepare queries and test with sample data</a></li>
+<li><a href="#Exercise5">Exercise 5: Add an event hub for output</a></li>
+<li><a href="#Exercise6">Exercise 6: Build a real-time dashboard</a></li>
+<li><a href="#Exercise7">Exercise 7: Analyze a live data stream</a></li>
+</ul>
+<p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
+<p><a name="Exercise1"></a></p>
+<h2>Exercise 1: Create an event hub</h2>
+<p>Azure Stream Analytics supports several types of input, including input from Azure blobs and input from Azure event hubs. Of the two, the latter is typically more interesting because in the IoT world, data is easily transmitted to Azure event hubs through field gateways (for devices that are not IP-capable) or cloud gateways (for devices that <em>are</em> IP-capable), and a single Azure event hub can handle millions of events per second transmitted from devices spread throughout the world.</p>
+<p>In this exercise, you'll create an Azure event hub to provide input to Azure Stream Analytics and configure it to so that it can be accessed safely and securely by IoT devices and gateways.</p>
+<ol>
+<li>
+<p>In your browser, navigate to the <a href="https://portal.azure.com">Azure Portal</a>. If you are asked to sign in, do so using your Microsoft account.</p>
+</li>
+<li>
+<p>In the portal, click <strong>+ New</strong>, followed by <strong>Internet of Things</strong> and <strong>Event Hubs</strong>.</p>
+<p><a href="Images/new-event-hub.png" target="_blank"><img src="Images/new-event-hub.png" alt="Adding a new event hub" style="max-width:100%;"></a></p>
+<p><em>Adding a new event hub</em></p>
+</li>
+<li>
+<p>Type a namespace name into the <strong>Name</strong> box. The name must be unique within Azure, so you will probably have to use something other than the name in the screen shot below. (A green check mark will appear in the box when the name you've entered is one that Azure will accept.) Select <strong>Create new</strong> under <strong>Resource group</strong> and enter the resource-group name "StreamAnalyticsResourceGroup" (without quotation marks). Choose the region closest to you in the <strong>Location</strong> drop-down, and then click the <strong>Create</strong> button.</p>
+<p><a href="Images/create-namespace.png" target="_blank"><img src="Images/create-namespace.png" alt="Creating a namespace" style="max-width:100%;"></a></p>
+<p><em>Creating a namespace</em></p>
+</li>
+<li>
+<p>Click <strong>Resource groups</strong> in the ribbon on the left, and then click the "StreamAnalyticsResourceGroup" resource group created in the previous step.</p>
+<p><a href="Images/open-resource-group.png" target="_blank"><img src="Images/open-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
+<p><em>Opening the resource group</em></p>
+</li>
+<li>
+<p>Wait until "Deploying" changes to "Succeeded." Then click the namespace whose name you specified in Step 3.</p>
+<blockquote>
+<p>Click the browser's <strong>Refresh</strong> button occasionally to update the deployment status. Clicking the <strong>Refresh</strong> button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.</p>
+</blockquote>
+<p><a href="Images/open-namespace.png" target="_blank"><img src="Images/open-namespace.png" alt="Opening the namespace" style="max-width:100%;"></a></p>
+<p><em>Opening the namespace</em></p>
+</li>
+<li>
+<p>Click <strong>+ Event Hub</strong> to add an event hub to the namespace.</p>
+<p><a href="Images/add-event-hub.png" target="_blank"><img src="Images/add-event-hub.png" alt="Adding an event hub" style="max-width:100%;"></a></p>
+<p><em>Adding an event hub</em></p>
+</li>
+<li>
+<p>Type "inputhub" (without quotation marks) into the <strong>Name</strong> box. Then click the <strong>Create</strong> button.</p>
+<p><a href="Images/create-event-hub.png" target="_blank"><img src="Images/create-event-hub.png" alt="Creating an event hub" style="max-width:100%;"></a></p>
+<p><em>Creating an event hub</em></p>
+</li>
+<li>
+<p>Wait for the event hub to be created. Then scroll to the bottom of the blade and click the event hub name.</p>
+<p><a href="Images/open-event-hub.png" target="_blank"><img src="Images/open-event-hub.png" alt="Opening the event hub" style="max-width:100%;"></a></p>
+<p><em>Opening the event hub</em></p>
+</li>
+<li>
+<p>In order to transmit events to the event hub from an application or device, you need to create a shared-access policy that includes Send permission. To begin, click <strong>Shared access policies</strong>, and then click <strong>+ Add</strong>.</p>
+<p><a href="Images/new-shared-access-policy.png" target="_blank"><img src="Images/new-shared-access-policy.png" alt="Adding a shared-access policy" style="max-width:100%;"></a></p>
+<p><em>Adding a shared-access policy</em></p>
+</li>
+<li>
+<p>Type "SendPolicy" (without quotation marks) into the <strong>Policy name</strong> box and check the <strong>Send</strong> box. Then click the <strong>Create</strong> button to create the new policy.</p>
+<p><a href="Images/create-send-policy.png" target="_blank"><img src="Images/create-send-policy.png" alt="Creating a send policy" style="max-width:100%;"></a></p>
+<p><em>Creating a send policy</em></p>
+</li>
+<li>
+<p>Wait a moment for <strong>SendPolicy</strong> to appear in the policies list, and then click it.</p>
+<p><a href="Images/open-send-policy.png" target="_blank"><img src="Images/open-send-policy.png" alt="Opening the policy" style="max-width:100%;"></a></p>
+<p><em>Opening the policy</em></p>
+</li>
+<li>
+<p>Click the <strong>Copy</strong> button to the right of the <strong>CONNECTION STRING-PRIMARY KEY</strong> box to copy the connection string containing the policy's shared-access key to the clipboard. Then temporarily save the connection string by pasting it into your favorite text editor. You'll need it in the next exercise.</p>
+<p><a href="Images/copy-connection-string.png" target="_blank"><img src="Images/copy-connection-string.png" alt="Copying the connection string to the clipboard" style="max-width:100%;"></a></p>
+<p><em>Copying the connection string to the clipboard</em></p>
+</li>
+</ol>
+<p>You have created an event hub that can ingest events and be used as the source of input to a Stream Analytics job. You have also created a policy that allows holders of that policy to send events to the event hub, and a connection string that references that policy. The next step is to use the connection string to transmit events to the event hub.</p>
+<p><a name="Exercise2"></a></p>
+<h2>Exercise 2: Send events to the event hub</h2>
+<p>Applications, devices, and gateways can send events to Azure event hubs using the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx">Azure Event Hubs REST API</a> or the <a href="https://www.amqp.org/">Advanced Message Queuing Protocol</a>, or AMQP for short. In this exercise, you will write a Windows console app that uses AMQP to send events to the event hub you created in <a href="#Exercise1">Exercise 1</a>. Each event will represent a withdrawal from an ATM machine, and will contain relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.</p>
+<ol>
+<li>
+<p>Start Visual Studio 2015 and use the <strong>File -&gt; New -&gt; Project</strong> command to create a new Windows Console Application named "ATMEventGenerator."</p>
+<p><a href="Images/mvc-new-console-app.png" target="_blank"><img src="Images/mvc-new-console-app.png" alt="Creating a new console app" style="max-width:100%;"></a></p>
+<p><em>Creating a new console app</em></p>
+</li>
+<li>
+<p>In the Solution Explorer window, right-click the <strong>ATMEventGenerator</strong> project and select <strong>Manage NuGet Packages...</strong></p>
+<p><a href="Images/mvc-manage-nuget-packages.png" target="_blank"><img src="Images/mvc-manage-nuget-packages.png" alt="Managing NuGet Packages for the project" style="max-width:100%;"></a></p>
+<p><em>Managing NuGet Packages for the project</em></p>
+<blockquote>
+<p>NuGet is a free and open-source package manager for Microsoft development platforms. It provides access to thousands of libraries, or <em>packages</em>, containing code to perform a variety of tasks. It is integrated into Visual Studio 2015, which makes it easy to add NuGet packages to your project and make a lot of things happen without writing a lot of code.</p>
+</blockquote>
+</li>
+<li>
+<p>Click <strong>Browse</strong>. Then type "azure" (without quotation marks) into the search box. Click <strong>WindowsAzure.ServiceBus</strong> to select the Azure service-bus package from NuGet. Finally, click <strong>Install</strong> to install the latest stable version of the package. This package contains the APIs that your app will use to send events to the event hub.</p>
+<p><a href="Images/mvc-install-servicebus-package.png" target="_blank"><img src="Images/mvc-install-servicebus-package.png" alt="Installing WindowsAzure.ServiceBus" style="max-width:100%;"></a></p>
+<p><em>Installing WindowsAzure.ServiceBus</em></p>
+</li>
+<li>
+<p>If prompted to review changes, click <strong>OK</strong>. Optionally check <strong>Do not show this again</strong> so you won't be prompted again.</p>
+<p><a href="Images/mvc-review-changes.png" target="_blank"><img src="Images/mvc-review-changes.png" alt="Reviewing changes" style="max-width:100%;"></a></p>
+<p><em>Reviewing changes</em></p>
+</li>
+<li>
+<p>If prompted to accept a license for the package, click <strong>I Accept</strong>..</p>
+<p><a href="Images/mvc-accept-license.png" target="_blank"><img src="Images/mvc-accept-license.png" alt="Accepting the package license" style="max-width:100%;"></a></p>
+<p><em>Accepting the package license</em></p>
+</li>
+<li>
+<p>Return to the search box and type "newtonsoft," again without quotation marks. Select <strong>Newtonsoft.Json</strong> and click <strong>Install</strong> to install the latest stable version of Json.NET. This package contains convenient APIs for generating and consuming JSON. If prompted to review changes, click <strong>OK</strong>.</p>
+<p><a href="Images/mvc-install-json.net-package.png" target="_blank"><img src="Images/mvc-install-json.net-package.png" alt="Installing Json.NET" style="max-width:100%;"></a></p>
+<p><em>Installing Json.NET</em></p>
+</li>
+<li>
+<p>Open <strong>Program.cs</strong> and add the following <code>using</code> statements to the <code>using</code> statements at the top of the file:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">Microsoft.ServiceBus.Messaging</span>;
+<span class="pl-k">using</span> <span class="pl-en">Newtonsoft.Json</span>;</pre></div>
+</li>
+<li>
+<p>Replace the empty <code>Program</code> class with the following implementation:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">class</span> <span class="pl-en">Program</span>
+{
+    <span class="pl-k">static </span><span class="pl-k">double</span> <span class="pl-en">_probability</span> = <span class="pl-c1">0.01</span>;
+    <span class="pl-k">static </span><span class="pl-k">int</span> <span class="pl-en">_transactions</span> = <span class="pl-c1">0</span>;
+    <span class="pl-k">static </span><span class="pl-k">int</span> <span class="pl-en">_cardNumber</span> = -<span class="pl-c1">1</span>;
+    <span class="pl-k">static </span><span class="pl-k">string</span> <span class="pl-en">_connectionString</span> = <span class="pl-s"><span class="pl-pds">"</span>connection_string<span class="pl-pds">"</span></span>;
+
+    <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">Main</span>(<span class="pl-k">string</span>[] <span class="pl-smi">args</span>)
+    {
+        <span class="pl-k">var</span> <span class="pl-en">rand </span>= <span class="pl-k">new</span> <span class="pl-en">Random</span>();
+        <span class="pl-k">var</span> <span class="pl-en">client </span>= EventHubClient.CreateFromConnectionString(_connectionString, <span class="pl-s"><span class="pl-pds">"</span>inputhub<span class="pl-pds">"</span></span>);
+
+        <span class="pl-k">while</span> (<span class="pl-en">true</span>)
+        {
+            <span class="pl-k">int</span> <span class="pl-en">card</span> = <span class="pl-c1">123456789</span> + rand.Next(<span class="pl-c1">0</span>, <span class="pl-c1">888888888</span>);
+
+            <span class="pl-c">// Occasionally generate a fraudulent transaction by reusing a card number</span>
+            <span class="pl-k">if</span> (rand.NextDouble() &lt; _probability &amp;&amp; _cardNumber != -<span class="pl-c1">1</span>)
+            {
+                card = _cardNumber;
+                _cardNumber = -<span class="pl-c1">1</span>;
+            }
+
+            <span class="pl-c">// Formulate a transaction</span>
+            <span class="pl-k">var</span> <span class="pl-en">transaction </span>= new {
+                transactionId = _transactions++,
+                transactionTime = DateTime.UtcNow.ToString(),
+                deviceId = <span class="pl-c1">12345</span> + rand.Next(<span class="pl-c1">0</span>, <span class="pl-c1">88888</span>),
+                cardNumber = card,
+                amount = rand.Next(<span class="pl-c1">1</span>, <span class="pl-c1">20</span>) * <span class="pl-c1">20</span>
+            };
+
+            <span class="pl-c">// Occasionally record a card number for later use in generating fraud</span>
+            <span class="pl-k">if</span> (rand.NextDouble() &lt; _probability)
+            {
+                _cardNumber = transaction.cardNumber;
+            }
+
+            <span class="pl-c">// Send an event to the event hub</span>
+            <span class="pl-k">var</span> <span class="pl-en">message </span>= JsonConvert.SerializeObject(transaction);
+            client.Send(<span class="pl-k">new</span> <span class="pl-en">EventData</span>(Encoding.UTF8.GetBytes(message)));
+            Console.WriteLine(<span class="pl-s"><span class="pl-pds">"</span>[{0}] Event transmitted<span class="pl-pds">"</span></span>, transaction.transactionId);
+        }
+    }
+}</pre></div>
+</li>
+<li>
+<p>Replace <em>connection_string</em> in line 6 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 1, Step 12.</p>
+</li>
+<li>
+<p>Remove ";EntityPath=inputhub" from the end of the connection string. The <code>_connectionString</code> field should now look something like this:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">static</span> <span class="pl-k">string</span> <span class="pl-en">_connectionString</span> = <span class="pl-s"><span class="pl-pds">"</span>Endpoint=sb://streamanalytics-lab.servicebus.windows.net/;SharedAccessKeyName=SendPolicy;SharedAccessKey=Zx/fjB8kH3nuW789pUpXJ1S45FkCamJq9gYku6cRD3Y=<span class="pl-pds">"</span></span>;</pre></div>
+</li>
+<li>
+<p>Press <strong>Ctrl+F5</strong> to run the program and confirm that you see output similar to the following. Each line represents one event sent to the event hub, and events will roll by at a rate of several per second. (Rates will vary depending on your connection speed.) <strong>Confirm that no exceptions are reported in the output</strong>.</p>
+<p><a href="Images/mvc-messages-sent.png" target="_blank"><img src="Images/mvc-messages-sent.png" alt="Sending events to the event hub" style="max-width:100%;"></a></p>
+<p><em>Sending events to the event hub</em></p>
+</li>
+<li>
+<p>Press <strong>Ctrl+C</strong> to stop the flow of events. Then press <strong>Enter</strong> to close the Command Prompt window.</p>
+</li>
+</ol>
+<p>In real life, there would be real ATM machines sending events to the event hub. ATMEventGenerator simulates these events in software and sets the stage for you to build and test a Stream Analytics job that analyzes these events.</p>
+<p><a name="Exercise3"></a></p>
+<h2>Exercise 3: Create a Stream Analytics job</h2>
+<p>In this exercise, you will use the Azure Portal to create a Stream Analytics job and connect it to the event hub you created in <a href="#Exercise1">Exercise 1</a>. You will also capture the raw data being passed to the Stream Analytics job from the event hub and examine its structure.</p>
+<ol>
+<li>
+<p>Return to the <a href="https://portal.azure.com">Azure Portal</a> and click <strong>+ New</strong>, followed by <strong>Internet of Things</strong> and <strong>Stream Analytics job</strong>.</p>
+<p><a href="Images/new-stream-analytics-job.png" target="_blank"><img src="Images/new-stream-analytics-job.png" alt="Creating a Stream Analytics job" style="max-width:100%;"></a></p>
+<p><em>Creating a Stream Analytics job</em></p>
+</li>
+<li>
+<p>Type "ATMAnalytics" (without quotation marks) into the <strong>Job name</strong> box. Select <strong>Use Existing</strong> under <strong>Resource group</strong> and select the "StreamAnalyticsResourceGroup" resource group that you created in <a href="#Exercise1">Exercise 1</a>. Select the region nearest you for <strong>Location</strong>. (It is important to select the same region that you selected for the event hub in Exercise 1, because you're not charged for data that moves within a data center, but you typically <em>are</em> charged for data that moves <em>between</em> data centers. In addition, locating services that talk to each other in the same data center reduces latency.) Then click the <strong>Create</strong> button.</p>
+<p><a href="Images/create-stream-analytics-job.png" target="_blank"><img src="Images/create-stream-analytics-job.png" alt="Specifying parameters for the Stream Analytics job" style="max-width:100%;"></a></p>
+<p><em>Specifying parameters for the Stream Analytics job</em></p>
+</li>
+<li>
+<p>Click <strong>Resource groups</strong> in the ribbon on the left, and then click the "StreamAnalyticsResourceGroup" resource group.</p>
+<p><a href="Images/open-resource-group.png" target="_blank"><img src="Images/open-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
+<p><em>Opening the resource group</em></p>
+</li>
+<li>
+<p>Click <strong>ATMAnalytics</strong> to open the Stream Analytics job in the portal.</p>
+<p><a href="Images/open-stream-analytics-job.png" target="_blank"><img src="Images/open-stream-analytics-job.png" alt="Opening the Stream Analytics job" style="max-width:100%;"></a></p>
+<p><em>Opening the Stream Analytics job</em></p>
+</li>
+<li>
+<p>Click <strong>Inputs</strong> to add an input to the Stream Analytics job.</p>
+<p><a href="Images/add-input-1.png" target="_blank"><img src="Images/add-input-1.png" alt="Adding an input" style="max-width:100%;"></a></p>
+<p><em>Adding an input</em></p>
+</li>
+<li>
+<p>Click <strong>+ Add</strong>.</p>
+<p><a href="Images/add-input-2.png" target="_blank"><img src="Images/add-input-2.png" alt="Adding an input" style="max-width:100%;"></a></p>
+<p><em>Adding an input</em></p>
+</li>
+<li>
+<p>Type "Withdrawals" (without quotation marks) into the <strong>Input alias</strong> box. Make sure <strong>Source Type</strong> is set to <strong>Data stream</strong> and <strong>Source</strong> is set to <strong>Event hub</strong>. Also make sure <strong>Subscription</strong> is set to <strong>Use event hub from current subscription</strong>, <strong>Service bus namespace</strong> is set to the namespace you specified in Exercise 1, Step 3, and the event hub you created in Exercise 1 ("inputhub") is selected under <strong>Event hub name</strong>. Then select <strong>RootManageSharedAccessKey</strong> from the <strong>Event hub policy name</strong> drop-down and click the <strong>Create</strong> button at the bottom of the blade.</p>
+<p><a href="Images/create-input.png" target="_blank"><img src="Images/create-input.png" alt="Creating an input" style="max-width:100%;"></a></p>
+<p><em>Creating an input</em></p>
+</li>
+<li>
+<p>After a few moments, the new input — "Withdrawals" — appears in the list of inputs for the Stream Analytics job. Click it to open a blade for it.</p>
+<p><a href="Images/open-input.png" target="_blank"><img src="Images/open-input.png" alt="Opening the input" style="max-width:100%;"></a></p>
+<p><em>Opening the input</em></p>
+</li>
+<li>
+<p>Return to Visual Studio and start the ATMEventGenerator app again.</p>
+</li>
+<li>
+<p>With ATMEventGenerator still running, return to the Azure Portal open in your browser and click <strong>Sample Data</strong>.</p>
+<p><a href="Images/sample-data-1.png" target="_blank"><img src="Images/sample-data-1.png" alt="Sampling input data" style="max-width:100%;"></a></p>
+<p><em>Sampling input data</em></p>
+</li>
+<li>
+<p>Click <strong>OK</strong> to begin sampling data from the input stream.</p>
+<p><a href="Images/sample-data-2.png" target="_blank"><img src="Images/sample-data-2.png" alt="Specifying sampling parameters" style="max-width:100%;"></a></p>
+<p><em>Specifying sampling parameters</em></p>
+</li>
+<li>
+<p>Wait a few seconds for sampling to complete, and when you are notified that the sample data can be downloaded, click to download it.</p>
+<p><a href="Images/sample-data-3.png" target="_blank"><img src="Images/sample-data-3.png" alt="Data sampling completed" style="max-width:100%;"></a></p>
+<p><em>Data sampling completed</em></p>
+</li>
+<li>
+<p>Click <strong>Download</strong> to download the data sampled from the input stream.</p>
+<p><a href="Images/sample-data-4.png" target="_blank"><img src="Images/sample-data-4.png" alt="Downloading sample data" style="max-width:100%;"></a></p>
+<p><em>Downloading sample data</em></p>
+</li>
+<li>
+<p>Save the JSON file that is downloaded to a location where you can easily find it. Then open the downloaded file in your favorite text editor and take a moment to examine its contents. How many rows (events) are represented in the sample data? What is the structure of each row — that is, what fields does each row contain?</p>
+<blockquote>
+<p>If you find the output hard to digest since there are no line breaks, try pasting it into an online JSON viewer such as the one at <a href="https://jsonformatter.curiousconcept.com/">https://jsonformatter.curiousconcept.com/</a>.</p>
+</blockquote>
+</li>
+<li>
+<p>Return to the console window in which ATMEventGenerator is running and press <strong>Ctrl+C</strong> to stop it. Then press <strong>Enter</strong> to close the window.</p>
+</li>
+</ol>
+<p>You have connected a Stream Analytics job to an event hub and demonstrated that data is passed from one to the other. You have also sampled the data input to the Stream Analytics job and examined its structure. The next step is to do something with it — specifically, to bring the power of Azure Stream Analytics to bear on the data.</p>
+<p><a name="Exercise4"></a></p>
+<h2>Exercise 4: Prepare queries and test with sample data</h2>
+<p>Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query the data in real time. In this exercise, you'll use the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn834998.aspx">Stream Analytics Query Language</a> to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.</p>
+<p>To flag potentially fraudulent withdrawals from ATMs, you will query for transactions performed with the same ATM card at different ATM machines within a specified time window (60 seconds). In real life, you would probably use a larger time window and perhaps even factor in the distance between ATM machines. However, a narrower time window is useful in a lab environment because it allows you to perform meaningful experiments in minutes rather than hours.</p>
+<ol>
+<li>
+<p>Begin by returning to the Stream Analytics job in the portal and clicking <strong>Query</strong>.</p>
+<p><a href="Images/add-query.png" target="_blank"><img src="Images/add-query.png" alt="Opening the query viewer" style="max-width:100%;"></a></p>
+<p><em>Opening the query viewer</em></p>
+</li>
+<li>
+<p>Click the <strong>ellipsis</strong> (the three dots) to the right of <strong>Withdrawals</strong> and select <strong>Upload sample data from file</strong> from the menu.</p>
+<p><a href="Images/upload-test-data-1.png" target="_blank"><img src="Images/upload-test-data-1.png" alt="Uploading sample data for testing queries" style="max-width:100%;"></a></p>
+<p><em>Uploading sample data for testing queries</em></p>
+</li>
+<li>
+<p>Click the <strong>folder</strong> icon on the right and select the file named <strong>Withdrawals.json</strong> in this lab's "resources" directory. Then click <strong>OK</strong> to upload the file.</p>
+<p><a href="Images/upload-test-data-2.png" target="_blank"><img src="Images/upload-test-data-2.png" alt="Uploading Withdrawals.json" style="max-width:100%;"></a></p>
+<p><em>Uploading Withdrawals.json</em></p>
+</li>
+<li>
+<p>When the upload is complete, enter the following query, and then click the <strong>Test</strong> button to execute it against the sample data you uploaded:</p>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span> <span class="pl-k">FROM</span> Withdrawals</pre></div>
+<blockquote>
+<p>Where did the name "Withdrawals" come from? That's the alias you assigned to the event-hub input in the previous exercise. If you named it differently, you'll need to replace "Withdrawals" with the alias you used.</p>
+</blockquote>
+<p><a href="Images/test-query-1.png" target="_blank"><img src="Images/test-query-1.png" alt="Testing a query" style="max-width:100%;"></a></p>
+<p><em>Testing a query</em></p>
+</li>
+<li>
+<p>Confirm that you see the output pictured below. The test data contains 607 rows. Each row has fields named TRANSACTIONID, TRANSACTIONTIME, DEVICEID, CARDNUMBER, and AMOUNT. DEVICEID is the ID of the ATM machine at which the transaction took place. AMOUNT is the amount of cash withdrawn from the ATM.</p>
+<p><a href="Images/query-results-1.png" target="_blank"><img src="Images/query-results-1.png" alt="Query results" style="max-width:100%;"></a></p>
+<p><em>Query results</em></p>
+</li>
+<li>
+<p>Suppose you only wanted to view transactions for amounts between 200 and 300, inclusive. Furthermore, suppose you wanted to clean up the output by assigning your own column names and excluding the TRANSACTIONID column. Enter the following query and click <strong>Test</strong> again to execute it.</p>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> TransactionTime <span class="pl-k">as</span> [<span class="pl-k">Time</span> of Transaction],
+       DeviceID <span class="pl-k">as</span> [ATM],
+       CardNumber <span class="pl-k">as</span> [Card <span class="pl-k">Number</span>],
+       Amount <span class="pl-k">as</span> [Amount]
+<span class="pl-k">FROM</span> Withdrawals
+<span class="pl-k">WHERE</span> Amount <span class="pl-k">&gt;=</span> <span class="pl-c1">200</span> <span class="pl-k">and</span> Amount <span class="pl-k">&lt;=</span> <span class="pl-c1">300</span></pre></div>
+</li>
+<li>
+<p>Confirm that the query generated the following output:</p>
+<p><a href="Images/query-results-2.png" target="_blank"><img src="Images/query-results-2.png" alt="Customizing the output" style="max-width:100%;"></a></p>
+<p><em>Customizing the output</em></p>
+</li>
+<li>
+<p>One of the key features of the Stream Analytics Query Language is its ability to group results using windows of time whose length you specify. To demonstrate, enter the following query to count the number of transactions taking place each minute and click <strong>Test</strong> to execute it:</p>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-c1">System</span>.<span class="pl-c1">Timestamp</span> <span class="pl-k">as</span> [<span class="pl-k">Time</span> Ending],
+    <span class="pl-c1">COUNT</span>(<span class="pl-k">*</span>) <span class="pl-k">AS</span> [<span class="pl-k">Number</span> of Transactions]
+<span class="pl-k">FROM</span> Withdrawals <span class="pl-k">TIMESTAMP</span> BY TransactionTime
+<span class="pl-k">GROUP BY</span> TumblingWindow(n, <span class="pl-c1">1</span>)</pre></div>
+<blockquote>
+<p>TIMESTAMP BY is an important element of the Stream Analytics Query Language. If it was omitted from the query above, you would be querying for the number of transactions that arrived <em>at the event hub</em> each minute rather than the number of transactions that occurred in each 1-minute interval. TIMESTAMP BY allows you to specify a field in the input stream as the event time.</p>
+</blockquote>
+</li>
+<li>
+<p>Confirm that you see the output below:</p>
+<p><a href="Images/query-results-3.png" target="_blank"><img src="Images/query-results-3.png" alt="Querying for the number of transactions per minute" style="max-width:100%;"></a></p>
+<p><em>Querying for the number of transactions per minute</em></p>
+</li>
+<li>
+<p>Now it's time to query the test data for potentially fraudulent transactions — transactions involving the same ATM card but different ATM machines that take place within 60 seconds of each other. <em>This is the query you will use in a subsequent exercise against a live data stream</em>.</p>
+<p>Enter the following query and click <strong>Test</strong> to execute it:</p>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-c1">W1</span>.<span class="pl-c1">CardNumber</span> <span class="pl-k">as</span> [Card <span class="pl-k">Number</span>],
+    <span class="pl-c1">W1</span>.<span class="pl-c1">DeviceID</span> <span class="pl-k">as</span> [ATM <span class="pl-c1">1</span>], <span class="pl-c1">W2</span>.<span class="pl-c1">DeviceID</span> <span class="pl-k">as</span> [ATM <span class="pl-c1">2</span>],
+    <span class="pl-c1">W1</span>.<span class="pl-c1">TransactionTime</span> <span class="pl-k">as</span> [<span class="pl-k">Time</span> <span class="pl-c1">1</span>], <span class="pl-c1">W2</span>.<span class="pl-c1">TransactionTime</span> <span class="pl-k">as</span> [<span class="pl-k">Time</span> <span class="pl-c1">2</span>]
+<span class="pl-k">FROM</span> Withdrawals W1 <span class="pl-k">TIMESTAMP</span> BY TransactionTime
+<span class="pl-k">JOIN</span> Withdrawals W2 <span class="pl-k">TIMESTAMP</span> BY TransactionTime
+<span class="pl-k">ON</span> <span class="pl-c1">W1</span>.<span class="pl-c1">CardNumber</span> <span class="pl-k">=</span> <span class="pl-c1">W2</span>.<span class="pl-c1">CardNumber</span>
+<span class="pl-k">AND</span> DATEDIFF(ss, W1, W2) BETWEEN <span class="pl-c1">0</span> <span class="pl-k">and</span> <span class="pl-c1">60</span>
+<span class="pl-k">WHERE</span> <span class="pl-c1">W1</span>.<span class="pl-c1">DeviceID</span> <span class="pl-k">!=</span> <span class="pl-c1">W2</span>.<span class="pl-c1">DeviceID</span></pre></div>
+</li>
+<li>
+<p>This time the output should contain just three rows, each representing two transactions performed with one ATM card at two different locations within 60 seconds of each other:</p>
+<p><a href="Images/query-results-4.png" target="_blank"><img src="Images/query-results-4.png" alt="Detecting potentially fraudulent transactions" style="max-width:100%;"></a></p>
+<p><em>Detecting potentially fraudulent transactions</em></p>
+</li>
+<li>
+<p>Click the <strong>Save</strong> button at the top of the blade to save the query. Then click <strong>Yes</strong> when asked to confirm.</p>
+<p><a href="Images/save-query.png" target="_blank"><img src="Images/save-query.png" alt="Saving the query" style="max-width:100%;"></a></p>
+<p><em>Saving the query</em></p>
+</li>
+</ol>
+<p>With the query now formulated, tested against a set of sample data, and saved, it's almost time to deploy it against a live data stream to produce a running record of potentially fraudulent transactions. But first, you need to add an output to the Stream Analytics job.</p>
+<p><a name="Exercise5"></a></p>
+<h2>Exercise 5: Add an event hub for output</h2>
+<p>Being able to run queries and see the results in the portal is great for testing, but the whole point of Stream Analytics is being able to query live data streams. Azure Stream Analytics supports a variety of output types, including blobs, Azure SQL databases, and event hubs. You can designate blob storage as the destination for output from a Stream Analytics job to generate a persistent record of query results. Another useful scenario involves using event hubs as output. Because software can subscribe to events from event hubs, developers can build custom applications that show Stream Analytics output in real time.</p>
+<p>In this exercise, you will create an event hub for output, and then configure the Stream Analytics job to write output to the event hub. In the next exercise, you will write an app that connects to the output event hub.</p>
+<ol>
+<li>
+<p>Return to the "StreamAnalyticsResourceGroup" resource group and click the event-hub namespace you created in <a href="#Exercise1">Exercise 1</a>.</p>
+<p><a href="Images/open-namespace-2.png" target="_blank"><img src="Images/open-namespace-2.png" alt="Opening the namespace" style="max-width:100%;"></a></p>
+<p><em>Opening the namespace</em></p>
+</li>
+<li>
+<p>Click <strong>+ Event Hub</strong> to add an event hub to the namespace.</p>
+<p><a href="Images/add-event-hub.png" target="_blank"><img src="Images/add-event-hub.png" alt="Adding an event hub" style="max-width:100%;"></a></p>
+<p><em>Adding an event hub</em></p>
+</li>
+<li>
+<p>Type "outputhub" (without quotation marks) into the <strong>Name</strong> box. Then click the <strong>Create</strong> button.</p>
+<p><a href="Images/create-event-hub-2.png" target="_blank"><img src="Images/create-event-hub-2.png" alt="Creating an event hub" style="max-width:100%;"></a></p>
+<p><em>Creating an event hub</em></p>
+</li>
+<li>
+<p>Wait a moment for the event hub to be created. Then scroll to the bottom of the blade and click the event hub name.</p>
+<p><a href="Images/open-event-hub-2.png" target="_blank"><img src="Images/open-event-hub-2.png" alt="Opening the event hub" style="max-width:100%;"></a></p>
+<p><em>Opening the event hub</em></p>
+</li>
+<li>
+<p>In order to receive events from an event hub, you need to create a shared-access policy that includes Listen permission. To begin, click <strong>Shared access policies</strong>, and then click <strong>+ Add</strong>.</p>
+<p><a href="Images/new-shared-access-policy-2.png" target="_blank"><img src="Images/new-shared-access-policy-2.png" alt="Adding a shared-access policy" style="max-width:100%;"></a></p>
+<p><em>Adding a shared-access policy</em></p>
+</li>
+<li>
+<p>Type "ReceivePolicy" (without quotation marks) into the <strong>Policy name</strong> box and check the <strong>Listen</strong> box. Then click the <strong>Create</strong> button to create the new policy.</p>
+<p><a href="Images/create-listen-policy.png" target="_blank"><img src="Images/create-listen-policy.png" alt="Creating a send policy" style="max-width:100%;"></a></p>
+<p><em>Creating a send policy</em></p>
+</li>
+<li>
+<p>Wait a moment for <strong>ReceivePolicy</strong> to appear in the policies list, and then click it.</p>
+<p><a href="Images/open-receive-policy.png" target="_blank"><img src="Images/open-receive-policy.png" alt="Opening the policy" style="max-width:100%;"></a></p>
+<p><em>Opening the policy</em></p>
+</li>
+<li>
+<p>Click the <strong>Copy</strong> button to the right of the <strong>CONNECTION STRING-PRIMARY KEY</strong> box to copy the connection string containing the policy's shared-access key to the clipboard. Then temporarily save the connection string by pasting it into your favorite text editor. You'll need it in the next exercise.</p>
+<p><a href="Images/copy-connection-string-2.png" target="_blank"><img src="Images/copy-connection-string-2.png" alt="Copying the connection string to the clipboard" style="max-width:100%;"></a></p>
+<p><em>Copying the connection string to the clipboard</em></p>
+</li>
+<li>
+<p>Return to the "StreamAnalyticsResourceGroup" resource group and click <strong>ATMAnalytics</strong> to open the Stream Analytics job in the portal.</p>
+<p><a href="Images/open-stream-analytics-job.png" target="_blank"><img src="Images/open-stream-analytics-job.png" alt="Opening the Stream Analytics job" style="max-width:100%;"></a></p>
+<p><em>Opening the Stream Analytics job</em></p>
+</li>
+<li>
+<p>Click <strong>Outputs</strong>.</p>
+<p><a href="Images/add-output-1.png" target="_blank"><img src="Images/add-output-1.png" alt="Creating an output" style="max-width:100%;"></a></p>
+<p><em>Creating an output</em></p>
+</li>
+<li>
+<p>Click <strong>+ Add</strong>.</p>
+<p><a href="Images/add-output-2.png" target="_blank"><img src="Images/add-output-2.png" alt="Adding an output" style="max-width:100%;"></a></p>
+<p><em>Adding an output</em></p>
+</li>
+<li>
+<p>Type "FlaggedWithdrawals" (without quotation marks) into the <strong>Output alias</strong> box. Make sure <strong>Sink</strong> is set to <strong>Event hub</strong> and <strong>Import option</strong> is set to <strong>Use event hub from current subscription</strong>. Under <strong>Service bus namespace</strong>, select the namespace you created in <a href="#Exercise1">Exercise1</a>, and select <strong>outputhub</strong> from the <strong>Event hub name</strong> list. Set <strong>Event hub policy name</strong> to <strong>RootManageSharedAccessKey</strong>, and then click <strong>Create</strong>.</p>
+<p><a href="Images/create-output-2.png" target="_blank"><img src="Images/create-output-2.png" alt="Creating an output" style="max-width:100%;"></a></p>
+<p><em>Creating an output</em></p>
+</li>
+</ol>
+<p>Now that you have directed the output from the Stream Analytics job to an event hub, the next task is to write an app that consumes events from that event hub.</p>
+<p><a name="Exercise6"></a></p>
+<h2>Exercise 6: Build a real-time dashboard</h2>
+<p>In this exercise, you will use Visual Studio to write an ASP.NET MVC Web app that connects to the output event hub and displays real-time notifications of potentially fraudulent transactions. You will also create a storage account required by the dashboard.</p>
+<ol>
+<li>
+<p>Return to the Azure Portal and click <strong>+ New</strong> in the ribbon on the left. Then click <strong>Storage</strong>, followed by <strong>Storage account</strong>.</p>
+<p><a href="Images/new-storage-account.png" target="_blank"><img src="Images/new-storage-account.png" alt="Adding a storage account" style="max-width:100%;"></a></p>
+<p><em>Adding a storage account</em></p>
+</li>
+<li>
+<p>In the ensuing blade, enter a name for the new storage account in <strong>Name</strong> field.</p>
+<blockquote>
+<p>Storage account names must be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure.</p>
+</blockquote>
+<p>Once you have a unique name that Azure will accept (as indicated by the green check mark in the <strong>Name</strong> field), select <strong>Use existing</strong> under <strong>Resource group</strong> and select the resource group named "StreamAnalyticsResourceGroup" so the storage account will belong to the same resource group as the Stream Analytics job and the event hub. Select the location nearest you (the same one you selected for the event hub in <a href="#Exercise1">Exercise 1</a> and the Stream Analytics job in <a href="#Exercise3">Exercise 3</a>) in the <strong>Location</strong> box. Then click the <strong>Create</strong> button at the bottom of the blade.</p>
+<p><a href="Images/create-storage-account.png" target="_blank"><img src="Images/create-storage-account.png" alt="Creating a storage account" style="max-width:100%;"></a></p>
+<p><em>Creating a storage account</em></p>
+</li>
+<li>
+<p>Click <strong>Resource groups</strong> in the ribbon on the left, and then click the "StreamAnalyticsResourceGroup" resource group.</p>
+<p><a href="Images/open-resource-group.png" target="_blank"><img src="Images/open-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
+<p><em>Opening the resource group</em></p>
+</li>
+<li>
+<p>Click the storage account you created in Step 2.</p>
+<p><a href="Images/open-storage-account.png" target="_blank"><img src="Images/open-storage-account.png" alt="Opening the storage account" style="max-width:100%;"></a></p>
+<p><em>Opening the storage account</em></p>
+</li>
+<li>
+<p>Click <strong>Access keys</strong>, and click the <strong>Copy</strong> button to the right of the <strong>key1</strong> box to the copy the storage account's access key to the clipboard. Then temporarily save the access key by pasting it into your favorite text editor. You'll need it later in this exercise.</p>
+<p><a href="Images/copy-storage-access-key.png" target="_blank"><img src="Images/copy-storage-access-key.png" alt="Copying the access key" style="max-width:100%;"></a></p>
+<p><em>Copying the access key</em></p>
+</li>
+<li>
+<p>Start a new instance of Visual Studio 2015 and use the <strong>File -&gt; New -&gt; Project</strong> command to create a new ASP.NET Web Application named "ATMDashboard."</p>
+<p><a href="Images/mvc-new-web-application.png" target="_blank"><img src="Images/mvc-new-web-application.png" alt="Creating a new Web app" style="max-width:100%;"></a></p>
+<p><em>Creating a new Web app</em></p>
+</li>
+<li>
+<p>In the "New ASP.NET Project" dialog, select <strong>MVC</strong> and check the <strong>Web API</strong> box. If <strong>Host in the cloud</strong> is checked, uncheck it. (For testing purposes, you will run this Web app locally.) Then click <strong>OK</strong>.</p>
+<p><a href="Images/mvc-new-web-application-2.png" target="_blank"><img src="Images/mvc-new-web-application-2.png" alt="Specifying parameters for the Web app" style="max-width:100%;"></a></p>
+<p><em>Specifying parameters for the Web app</em></p>
+</li>
+<li>
+<p>In the Solution Explorer window, right-click the <strong>ATMDashboard</strong> project and select <strong>Manage NuGet Packages...</strong></p>
+<p><a href="Images/mvc-manage-nuget-packages-2.png" target="_blank"><img src="Images/mvc-manage-nuget-packages-2.png" alt="Managing NuGet Packages for the project" style="max-width:100%;"></a></p>
+<p><em>Managing NuGet Packages for the project</em></p>
+</li>
+<li>
+<p>Click <strong>Browse</strong>. Then type "eventprocessor" (without quotation marks) into the search box. Click <strong>Microsoft.Azure.ServiceBus.EventProcessorHost</strong> to select the Azure EventProcessorHost package from NuGet. Finally, click <strong>Install</strong> to install the latest stable version of the package. This package contains the APIs that your app will use to receive events from the output event hub. Click <strong>OK</strong> if you're prompted review changes, and <strong>I Accept</strong> when prompted to accept licenses for the downloaded packages.</p>
+<p><a href="Images/mvc-install-eventprocessorhost.png" target="_blank"><img src="Images/mvc-install-eventprocessorhost.png" alt="Installing EventProcessorHost" style="max-width:100%;"></a></p>
+<p><em>Installing EventProcessorHost</em></p>
+</li>
+<li>
+<p>Right-click the project in the Solution Explorer window and use the <strong>Add -&gt; Class</strong> command to add a class file named <strong>ATMEvent.cs</strong> to the project.</p>
+<p><a href="Images/mvc-add-atmevent-class.png" target="_blank"><img src="Images/mvc-add-atmevent-class.png" alt="Adding the ATMEvent class" style="max-width:100%;"></a></p>
+<p><em>Adding the ATMEvent class</em></p>
+</li>
+<li>
+<p>Add the following <code>using</code> statement at the top of the file:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">Newtonsoft.Json</span>;</pre></div>
+</li>
+<li>
+<p>Implement the <code>ATMEvent</code> class as follows:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">ATMEvent</span>
+{
+    [JsonProperty(PropertyName = <span class="pl-s"><span class="pl-pds">"</span>card number<span class="pl-pds">"</span></span>)]
+    <span class="pl-k">public </span><span class="pl-k">string</span> <span class="pl-en">CardNumber</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    [JsonProperty(PropertyName = <span class="pl-s"><span class="pl-pds">"</span>atm 1<span class="pl-pds">"</span></span>)]
+    <span class="pl-k">public </span><span class="pl-k">string</span> <span class="pl-en">ATM1</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    [JsonProperty(PropertyName = <span class="pl-s"><span class="pl-pds">"</span>atm 2<span class="pl-pds">"</span></span>)]
+    <span class="pl-k">public </span><span class="pl-k">string</span> <span class="pl-en">ATM2</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    [JsonProperty(PropertyName = <span class="pl-s"><span class="pl-pds">"</span>time 1<span class="pl-pds">"</span></span>)]
+    <span class="pl-k">public </span><span class="pl-k">string</span> <span class="pl-en">TransactionTime1</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    [JsonProperty(PropertyName = <span class="pl-s"><span class="pl-pds">"</span>time 2<span class="pl-pds">"</span></span>)]
+    <span class="pl-k">public </span><span class="pl-k">string</span> <span class="pl-en">TransactionTime2</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}</pre></div>
+</li>
+<li>
+<p>Right-click the project in the Solution Explorer window and use the <strong>Add -&gt; Class</strong> command to add a class file named <strong>ATMEventAggregator.cs</strong> to the project.</p>
+<p><a href="Images/mvc-add-atmeventaggregator-class.png" target="_blank"><img src="Images/mvc-add-atmeventaggregator-class.png" alt="Adding the ATMEventAggregator class" style="max-width:100%;"></a></p>
+<p><em>Adding the ATMEventAggregator class</em></p>
+</li>
+<li>
+<p>Implement the <code>ATMEventAggregator</code> class as follows:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">class</span> <span class="pl-en">ATMEventAggregator</span>
+{
+    <span class="pl-k">private static </span><span class="pl-en">List</span>&lt;<span class="pl-en">ATMEvent</span>&gt; <span class="pl-en">_events</span> = <span class="pl-k">new</span> <span class="pl-en">List</span>&lt;ATMEvent&gt;();
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">LogEvent</span>(<span class="pl-en">ATMEvent</span> <span class="pl-smi">e</span>)
+    {
+        <span class="pl-k">if</span> (_events.Count &lt; <span class="pl-c1">1024</span>) <span class="pl-c">// Avoid unconstrained memory growth</span>
+        {
+            _events.Add(e);
+        }
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-en">ATMEvent</span>[] <span class="pl-en">GetLoggedEvents</span>()
+    {
+        <span class="pl-k">var</span> <span class="pl-en">events </span>= _events.ToArray();
+        _events.Clear();
+        <span class="pl-k">return</span> events;
+    }
+}</pre></div>
+</li>
+<li>
+<p>Right-click the project in the Solution Explorer window and use the <strong>Add -&gt; Class</strong> command to add a class file named <strong>SimpleEventProcessor.cs</strong> to the project.</p>
+<p><a href="Images/mvc-add-simpleventprocessor-class.png" target="_blank"><img src="Images/mvc-add-simpleventprocessor-class.png" alt="Adding the SimpleEventProcessor class" style="max-width:100%;"></a></p>
+<p><em>Adding the SimpleEventProcessor class</em></p>
+</li>
+<li>
+<p>Add the following <code>using</code> statements to the ones at the top of the file:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">Microsoft.ServiceBus.Messaging</span>;
+<span class="pl-k">using</span> <span class="pl-en">System.Diagnostics</span>;
+<span class="pl-k">using</span> <span class="pl-en">System.Threading.Tasks</span>;
+<span class="pl-k">using</span> <span class="pl-en">Newtonsoft.Json</span>;
+<span class="pl-k">using</span> <span class="pl-en">System.Text</span>;</pre></div>
+</li>
+<li>
+<p>Implement the <code>SimpleEventProcessor</code> class as follows:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">class</span> <span class="pl-en">SimpleEventProcessor</span> : <span class="pl-en">IEventProcessor</span>
+{
+    <span class="pl-en">Stopwatch</span> <span class="pl-en">checkpointStopWatch</span>;
+
+    <span class="pl-k">async</span> <span class="pl-en">Task</span> IEventProcessor.<span class="pl-en">CloseAsync</span>(<span class="pl-en">PartitionContext</span> <span class="pl-smi">context</span>, <span class="pl-en">CloseReason</span> <span class="pl-smi">reason</span>)
+    {
+        Debug.WriteLine(<span class="pl-s"><span class="pl-pds">"</span>Processor Shutting Down. Partition '{0}', Reason: '{1}'.<span class="pl-pds">"</span></span>, context.Lease.PartitionId, reason);
+        <span class="pl-k">if</span> (reason == CloseReason.Shutdown)
+        {
+            <span class="pl-k">await</span> context.CheckpointAsync();
+        }
+    }
+
+    <span class="pl-en">Task</span> IEventProcessor.<span class="pl-en">OpenAsync</span>(<span class="pl-en">PartitionContext</span> <span class="pl-smi">context</span>)
+    {
+        Debug.WriteLine(<span class="pl-s"><span class="pl-pds">"</span>SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'<span class="pl-pds">"</span></span>, context.Lease.PartitionId, context.Lease.Offset);
+        <span class="pl-c1">this</span>.checkpointStopWatch = <span class="pl-k">new</span> <span class="pl-en">Stopwatch</span>();
+        <span class="pl-c1">this</span>.checkpointStopWatch.Start();
+        <span class="pl-k">return</span> Task.FromResult&lt;<span class="pl-k">object</span>&gt;(<span class="pl-en">null</span>);
+    }
+
+    <span class="pl-k">async</span> <span class="pl-en">Task</span> IEventProcessor.<span class="pl-en">ProcessEventsAsync</span>(<span class="pl-en">PartitionContext</span> <span class="pl-smi">context</span>, <span class="pl-en">IEnumerable</span>&lt;<span class="pl-en">EventData</span>&gt; <span class="pl-smi">messages</span>)
+    {
+        <span class="pl-k">foreach</span> (EventData eventData <span class="pl-k">in</span> messages)
+        {
+            <span class="pl-k">string</span> <span class="pl-en">data</span> = Encoding.UTF8.GetString(eventData.GetBytes());
+
+            Debug.WriteLine(<span class="pl-k">string</span>.Format(<span class="pl-s"><span class="pl-pds">"</span>Message received.  Partition: '{0}', Data: '{1}'<span class="pl-pds">"</span></span>,
+                context.Lease.PartitionId, data));
+
+            <span class="pl-c">// Log the event</span>
+            <span class="pl-en">ATMEvent</span> <span class="pl-en">e</span> = JsonConvert.DeserializeObject&lt;ATMEvent&gt;(<span class="pl-en">data</span>);
+            ATMEventAggregator.LogEvent(e);
+        }
+
+        <span class="pl-k">if</span> (<span class="pl-c1">this</span>.checkpointStopWatch.Elapsed &gt; TimeSpan.FromMinutes(<span class="pl-c1">5</span>))
+        {
+            <span class="pl-k">await</span> context.CheckpointAsync();
+            <span class="pl-c1">this</span>.checkpointStopWatch.Restart();
+        }
+    }
+}</pre></div>
+</li>
+<li>
+<p>Open <strong>Global.asax.cs</strong> and add the following <code>using</code> statements:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">Microsoft.ServiceBus.Messaging</span>;
+<span class="pl-k">using</span> <span class="pl-en">System.Diagnostics</span>;</pre></div>
+</li>
+<li>
+<p>In <strong>Global.asax.cs</strong>, add the following statements to the end of the <code>Application_Start</code> method:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">string</span> <span class="pl-en">eventHubConnectionString</span> = <span class="pl-s"><span class="pl-pds">"</span>connection_string<span class="pl-pds">"</span></span>;
+<span class="pl-k">string</span> <span class="pl-en">eventHubName</span> = <span class="pl-s"><span class="pl-pds">"</span>outputhub<span class="pl-pds">"</span></span>;
+<span class="pl-k">string</span> <span class="pl-en">storageAccountName</span> = <span class="pl-s"><span class="pl-pds">"</span>storage_account_name<span class="pl-pds">"</span></span>;
+<span class="pl-k">string</span> <span class="pl-en">storageAccountKey</span> = <span class="pl-s"><span class="pl-pds">"</span>storage_account_key<span class="pl-pds">"</span></span>;
+<span class="pl-k">string</span> <span class="pl-en">storageConnectionString</span> = <span class="pl-k">string</span>.<span class="pl-en">Format</span>("DefaultEndpointsProtocol=https;<span class="pl-en">AccountName</span>={<span class="pl-c1">0</span>};<span class="pl-en">AccountKey</span>={<span class="pl-c1">1</span>}<span class="pl-s"><span class="pl-pds">"</span>, storageAccountName, storageAccountKey);</span>
+<span class="pl-s"></span>
+<span class="pl-s">string eventProcessorHostName = Guid.NewGuid().ToString();</span>
+<span class="pl-s">EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);</span>
+<span class="pl-s">Debug.WriteLine(<span class="pl-pds">"</span></span><span class="pl-en">Registering</span> EventProcessor...");
+<span class="pl-k">var</span> <span class="pl-en">options </span>= <span class="pl-k">new</span> <span class="pl-en">EventProcessorOptions</span>();
+<span class="pl-en">options.ExceptionReceived</span> += (sender, e) =&gt; { Debug.WriteLine(e.Exception); };
+<span class="pl-en">eventProcessorHost.RegisterEventProcessorAsync</span>&lt;<span class="pl-en">SimpleEventProcessor</span>&gt;(options).<span class="pl-en">Wait</span>();
+
+<span class="pl-en">Debug.WriteLine</span>("Receiving...");</pre></div>
+</li>
+<li>
+<p>Replace <em>connection_string</em> in line 1 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 5, Step 8.</p>
+</li>
+<li>
+<p>Remove ";EntityPath=outputhub" from the end of the connection string. The <code>eventHubConnectionString</code> variable declaration should now look something like this:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">string</span> <span class="pl-en">eventHubConnectionString</span> = <span class="pl-s"><span class="pl-pds">"</span>Endpoint=sb://streamanalytics-lab.servicebus.windows.net/;SharedAccessKeyName=ReceivePolicy;SharedAccessKey=3XHaU3pm5t82WxA43hUM/bWa7kQmuAsqzJ1rVJq3Qv0=<span class="pl-pds">"</span></span>;</pre></div>
+</li>
+<li>
+<p>Replace <em>storage_account_name</em> in line 3 with the the name of the storage account you created in Step 2 of this exercise, and <em>storage_account_key</em> in line 4 with the access key you saved in Step 5.</p>
+<blockquote>
+<p>This storage account has nothing to do with the Stream Analytics job; it's used by the EventProcessorHost class.</p>
+</blockquote>
+</li>
+<li>
+<p>In Solution Explorer, right-click the "Controllers" folder and use the <strong>Add -&gt; Controller</strong> command to add an empty Web API 2 controller.</p>
+<p><a href="Images/mvc-add-api-controller.png" target="_blank"><img src="Images/mvc-add-api-controller.png" alt="Adding a Web API Controller" style="max-width:100%;"></a></p>
+<p><em>Adding a Web API Controller</em></p>
+</li>
+<li>
+<p>Name the controller "EventsController" (without quotation marks). Then click <strong>Add</strong>.</p>
+<p><a href="Images/mvc-add-controller-dialog.png" target="_blank"><img src="Images/mvc-add-controller-dialog.png" alt="Naming the Web API Controller" style="max-width:100%;"></a></p>
+<p><em>Naming the Web API Controller</em></p>
+</li>
+<li>
+<p>Add the following method to the <code>EventsController</code> class:</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-en">ATMEvent</span>[] <span class="pl-en">GetEvents</span>()
+{
+    <span class="pl-k">return</span> ATMEventAggregator.GetLoggedEvents();
+}</pre></div>
+<blockquote>
+<p>The controller you just added is a Web API controller. It exposes a REST method that can be called over HTTP to retrieve the latest events that ATMEventAggregator received from the event hub.</p>
+</blockquote>
+</li>
+<li>
+<p>Open <strong>Index.cshtml</strong> in the project's "Views/Home" folder and replace its contents with the following statements:</p>
+<div class="highlight highlight-text-html-basic"><pre>@{
+    ViewBag.Title = "Home Page";
+}
+
+&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>jumbotron<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">h1</span>&gt;ATM Dashboard&lt;/<span class="pl-ent">h1</span>&gt;
+    &lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>lead<span class="pl-pds">"</span></span>&gt;The table below lists potentially fraudulent ATM transactions and is updated every 5 seconds.&lt;/<span class="pl-ent">p</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;
+
+&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>row<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-xs-12<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">table</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>output<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>width: 100%<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">tr</span>&gt;
+                &lt;<span class="pl-ent">td</span>&gt;&lt;<span class="pl-ent">b</span>&gt;Card Number&lt;/<span class="pl-ent">b</span>&gt;&lt;/<span class="pl-ent">td</span>&gt;
+                &lt;<span class="pl-ent">td</span>&gt;&lt;<span class="pl-ent">b</span>&gt;ATM 1&lt;/<span class="pl-ent">b</span>&gt;&lt;/<span class="pl-ent">td</span>&gt;
+                &lt;<span class="pl-ent">td</span>&gt;&lt;<span class="pl-ent">b</span>&gt;ATM 2&lt;/<span class="pl-ent">b</span>&gt;&lt;/<span class="pl-ent">td</span>&gt;
+            &lt;/<span class="pl-ent">tr</span>&gt;
+        &lt;/<span class="pl-ent">table</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;
+
+@section scripts {
+<span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;</span>
+<span class="pl-s1">    <span class="pl-en">$</span>(<span class="pl-k">function</span> () {</span>
+<span class="pl-s1">        <span class="pl-c"><span class="pl-c">//</span> Check for new events every 5 seconds</span></span>
+<span class="pl-s1">        <span class="pl-c1">window</span>.<span class="pl-en">setInterval</span>(<span class="pl-k">function</span> () {</span>
+<span class="pl-s1">            <span class="pl-smi">$</span>.<span class="pl-en">ajax</span>({</span>
+<span class="pl-s1">                url<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>/api/events<span class="pl-pds">"</span></span>,</span>
+<span class="pl-s1">                <span class="pl-en">success</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">result</span>) {</span>
+<span class="pl-s1">                    <span class="pl-k">for</span> (i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-smi">result</span>.<span class="pl-c1">length</span>; i<span class="pl-k">++</span>) {</span>
+<span class="pl-s1">                        <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>#output tr:last<span class="pl-pds">"</span></span>).<span class="pl-c1">after</span>(<span class="pl-s"><span class="pl-pds">"</span>&lt;tr&gt;&lt;td&gt;<span class="pl-pds">"</span></span> <span class="pl-k">+</span> result[i][<span class="pl-s"><span class="pl-pds">"</span>card number<span class="pl-pds">"</span></span>] <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>&lt;/td&gt;&lt;td&gt;<span class="pl-pds">"</span></span> <span class="pl-k">+</span> result[i][<span class="pl-s"><span class="pl-pds">"</span>atm 1<span class="pl-pds">"</span></span>] <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>&lt;/td&gt;&lt;td&gt;<span class="pl-pds">"</span></span> <span class="pl-k">+</span> result[i][<span class="pl-s"><span class="pl-pds">"</span>atm 2<span class="pl-pds">"</span></span>] <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>&lt;/td&gt;&lt;/tr&gt;<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1">                    }</span>
+<span class="pl-s1">                },</span>
+<span class="pl-s1">                <span class="pl-en">error</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">xhr</span>, <span class="pl-smi">status</span>, <span class="pl-smi">error</span>) {</span>
+<span class="pl-s1">                    <span class="pl-k">if</span> (status <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">"</span>error<span class="pl-pds">"</span></span>) {</span>
+<span class="pl-s1">                        <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Error: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-smi">xhr</span>.<span class="pl-c1">status</span>);</span>
+<span class="pl-s1">                    }</span>
+<span class="pl-s1">                },</span>
+<span class="pl-s1">                dataType<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>json<span class="pl-pds">"</span></span></span>
+<span class="pl-s1">            });</span>
+<span class="pl-s1">        }, <span class="pl-c1">5000</span>);</span>
+<span class="pl-s1">    });</span>
+<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span>
+}</pre></div>
+<blockquote>
+<p>See what's happening here? In addition to modifying the view's UI to include an HTML table in which ATM events can be displayed, you added a script block that uses jQuery's $.ajax method to call back to the server every 5 seconds. The endpoint for the call is the method you implemented in the Web API controller in the previous step. When that method returns one or more events, rows are added to the table to display them.</p>
+</blockquote>
+</li>
+<li>
+<p>Go to the <strong>Build</strong> menu at the top of the Visual Studio window and use the <strong>Build Solution</strong> command to build the solution. Correct any build errors that are reported, and then press <strong>Ctrl+F5</strong> to launch the application in your browser. Confirm that the application looks like this:</p>
+<p><a href="Images/mvc-atm-dashboard.png" target="_blank"><img src="Images/mvc-atm-dashboard.png" alt="The ATM dashboard" style="max-width:100%;"></a></p>
+<p><em>The ATM dashboard</em></p>
+</li>
+</ol>
+<p>Leave the browser open with the application running. And don't be alarmed if a few  events show up the first few seconds the dashboard is open. Those are simply events that the event hub cached. You'll be generating new events in the next exercise.</p>
+<p><a name="Exercise7"></a></p>
+<h2>Exercise 7: Analyze a live data stream</h2>
+<p>Almost there! Now it's time to run the Stream Analytics job and see the output in your dashboard.</p>
+<ol>
+<li>
+<p>Return to the Azure Portal and open the blade for the Stream Analytics job. Then click <strong>Start</strong>.</p>
+<p><a href="Images/start-stream-analytics-job-1.png" target="_blank"><img src="Images/start-stream-analytics-job-1.png" alt="Starting the Stream Analytics job" style="max-width:100%;"></a></p>
+<p><em>Starting the Stream Analytics job</em></p>
+</li>
+<li>
+<p>Make sure <strong>Job output start time</strong> is set to <strong>Now</strong>, and then click the <strong>Start</strong> button to start running the job.</p>
+<p><a href="Images/start-stream-analytics-job-2.png" target="_blank"><img src="Images/start-stream-analytics-job-2.png" alt="Specifying the job start time" style="max-width:100%;"></a></p>
+<p><em>Specifying the job start time</em></p>
+</li>
+<li>
+<p>Wait until the Stream Analytics job starts. Then return to the instance of Visual Studio in which the ATMEventGenerator project is open and start ATMEventGenerator again to pump events into the input event hub.</p>
+<blockquote>
+<p>If you'd like, you can run several instances of ATMEventGenerator simultaneously to increase the volume of events.</p>
+</blockquote>
+</li>
+<li>
+<p>Return to the ATMDashboard application running in your browser and watch for a few minutes. Every so often, a line should appear representing a potentially fraudulent transaction and identifying the ATM card number and the ATMs at which the card was used.</p>
+<p><a href="Images/mvc-atm-dashboard-output.png" target="_blank"><img src="Images/mvc-atm-dashboard-output.png" alt="Potentially fraudulent transactions" style="max-width:100%;"></a></p>
+<p><em>Potentially fraudulent transactions</em></p>
+</li>
+<li>
+<p>Return to the Stream Analytics job in the portal and click the <strong>Stop</strong> button to stop it. Then click <strong>Yes</strong> when asked if you're sure you want to stop the job.</p>
+<p><a href="Images/stop-stream-analytics-job.png" target="_blank"><img src="Images/stop-stream-analytics-job.png" alt="Stopping the Stream Analytics job" style="max-width:100%;"></a></p>
+<p><em>Stopping the Stream Analytics job</em></p>
+</li>
+<li>
+<p>Return to the console window in which ATMEventGenerator is running and press <strong>Ctrl+C</strong> to terminate it.</p>
+</li>
+</ol>
+<p>You now have a Web app that displays output from a Stream Analytics job in near real-time. There are other ways to build such dashboards, including <a href="https://powerbi.microsoft.com/">Microsoft Power BI</a>. With Power BI, you can create dashboards that render output from Stream Analytics jobs without writing any code. For more information, refer to <a href="https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-power-bi-dashboard/">Stream Analytics &amp; Power BI: A real-time analytics dashboard for streaming data</a>.</p>
+<p><a name="Summary"></a></p>
+<h2>Summary</h2>
+<p>Azure Stream Analytics is a powerful tool for analyzing live data streams from IoT devices or anything else that's capable of transmitting data. In this lab, you got a first-hand look at Stream Analytics as well as Azure event hubs. Among other things, you learned how to:</p>
+<ul>
+<li>Create an Azure event hub and use it as a Stream Analytics input</li>
+<li>Write a C# app that transmits events to an event hub</li>
+<li>Create a Stream Analytics job and test queries on sample data streams</li>
+<li>Run a Stream Analytics job and perform queries on live data streams</li>
+<li>Create a rule (query) that detects anomalies in streaming data</li>
+<li>Display output from a Stream Analytics job in a Web app</li>
+</ul>
+<p>One drawback to hard-coding rules into Stream Analytics is that rules don't "learn" from the data streams, which can lead to false positives in anomaly detection. If this concerns you, read the article entitled <a href="http://blogs.technet.com/b/machinelearning/archive/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data.aspx">Anomaly Detection – Using Machine Learning to Detect Abnormalities in Time Series Data</a> in the Azure team's Machine Learning blog. In it, they present an anomaly detection service accessible through a REST API that uses Azure Machine Learning to learn from the data presented to it. Imagine combining the power of Stream Analytics to extract information from real-time data streams with the power of Azure Machine Learning to learn from that information and refine the analytics on the fly. This is precisely the type of solution that Microsoft Azure empowers you to build!</p>
+<hr>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
