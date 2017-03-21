@@ -26,7 +26,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. Use the Azure Pass you activated earlier, or [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - [Azure Command-Line Interface (CLI)](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/)
 
 ---
@@ -72,7 +72,7 @@ The starting point for using Azure Data Lake is setting up an Azure Data Lake St
 
     _Opening the resource group_
 
-1. When "Deploying" changes to "Succeeded," the Data Lake Store has been created. Deployment typically takes a minute or less.
+1. Wait until "Deploying" changes to "Succeeded," indicating that the Data Lake Store has been created. Deployment typically takes a minute or less.
 
 	> Click the browser's **Refresh** button occasionally to update the deployment status. Clicking the **Refresh** button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.
 
@@ -120,7 +120,7 @@ This lab's "resources" directory holds two tab-delimited TSV files containing sa
 
     _Opening Data Explorer_
 
-1. A new blade will open. At the top, click **Upload**.
+1. Click **Upload**.
 
     ![Opening the "Upload files" blade](Images/data-explorer-upload.png)
 
@@ -467,4 +467,4 @@ Azure Data Lake does not itself provide tools for visualizing query results, but
 
 ---
 
-Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
+Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the Apache License, Version 2.0. You may use it according to the license as is most appropriate for your project on a case-by-case basis. The terms of this license can be found in http://www.apache.org/licenses/LICENSE-2.0.
