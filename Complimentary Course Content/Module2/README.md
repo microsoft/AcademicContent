@@ -26,7 +26,7 @@
                   </tr>
                   <tr>
                      <td align="center">1</td>
-                     <td>[JS Primer](Lessons/Module2_Lesson1 JS Primer.pptx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Lessons/Module2_Lesson1%20JS%20Primer.pptx">JS Primer</a></td>
                      <td></td>
                      <td>
                          Write a basic JavaScript program<br>
@@ -40,8 +40,8 @@
                   </tr>
                   <tr>
                      <td align="center">2</td>
-                     <td>[Getting Started with Node.js](Lessons/Module2_Lesson2 Getting Started with Node.js.pptx)</td>
-                     <td>[Lab](Labs/Module 2 Lesson 2 Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Lessons/Module2_Lesson2%20Getting%20Started%20with%20Node.js.pptx">Getting Started with Node.js</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Labs/Module%202%20Lesson%202%20Lab.docx">Lab</a></td>
                      <td>Understand the basics of node.js<br>
                          Interact with node.js on the command line<br>
                          Understand and use npm
@@ -49,8 +49,8 @@
                   </tr>
                   <tr>
                      <td align="center">3</td>
-                     <td>[Building a Website with Azure](Lessons/Module2_Lesson3 Azure Websites.pptx)</td>
-                     <td>[Lab](Labs/Module 2 Lesson 3 Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Lessons/Module2_Lesson3%20Azure%20Websites.pptx">Building a Website with Azure</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Labs/Module%202%20Lesson%203%20Lab.docx">Lab</a></td>
                      <td>Understand why to adopt cloud computing<br>
                         Explain some Azure service models<br>
                         Define the benefits of Azure websites
@@ -58,7 +58,7 @@
                   </tr>
                   <tr>
                      <td align="center">4</td>
-                     <td>[Building a Web Application Server with Express](Lessons/Module2_Lesson4 Building a Web Application Server with Express.pptx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Lessons/Module2_Lesson4%20Building%20a%20Web%20Application%20Server%20with%20Express.pptx">Building a Web Application Server with Express</a></td>
                      <td></td>
                      <td>Understand the difference between static and dynamic content<br>
                          Use Node’s middleware<br>
@@ -67,8 +67,8 @@
                   </tr>
                   <tr>
                      <td align="center">5</td>
-                     <td>[Building REST Services with Express](Lessons/Module2_Lesson5 Building REST Services with Express.pptx)</td>
-                     <td>[Lab](Labs/Module 2 Lesson 5 Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Lessons/Module2_Lesson5%20Building%20REST%20Services%20with%20Express.pptx">Building REST Services with Express</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Labs/Module%202%20Lesson%205%20Lab.docx">Lab</a></td>
                      <td>Understand the basics of REST<br>
                          Use REST verbs for CRUD operations<br>
                          Parse JSON, Buffer, and HTML
@@ -76,8 +76,8 @@
                   </tr>
                   <tr>
                      <td align="center">6</td>
-                     <td>[Working with Node.js and Azure Table Storage](Lessons/Module2_Lesson6 Working with Node.js and Azure Table Storage.pptx)</td>
-                     <td>[Lab](Labs/Module 2 Lesson 6 Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Lessons/Module2_Lesson6%20Working%20with%20Node.js%20and%20Azure%20Table%20Storage.pptx">Working with Node.js and Azure Table Storage</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Labs/Module%202%20Lesson%206%20Lab.docx">Lab</a></td>
                      <td>Understand the basics of Azure Storage<br>
                          Interact with Azure Storage Tables using Node.js<br>
                          Perform basic CRUD operations
@@ -85,16 +85,16 @@
                   </tr>
                   <tr>
                      <td align="center">7</td>
-                     <td>[Building a Web Application Client with React](Lessons/Module2_Lesson7 Building a Web Application Client with React.pptx)</td>
-                     <td>[Lab](Labs/Module 2 Lesson 7 Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Lessons/Module2_Lesson7%20Building%20a%20Web%20Application%20Client%20with%20React.pptx">Building a Web Application Client with React</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Labs/Module%202%20Lesson%207%20Lab.docx">Lab</a></td>
                      <td>Understand the basics of React, JSX, and Babel<br>
                          Build a web application client using React, JSX, and Babel
                      </td>
                   </tr>
                   <tr>
                      <td align="center">8</td>
-                     <td>[Deploying Node.js Applications to Azure](Lessons/Module2_Lesson8 Deploying Node.js Web Applications to Azure.pptx)</td>
-                     <td>[Lab](Labs/Module 2 Lesson 8 Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Lessons/Module2_Lesson8%20Deploying%20Node.js%20Web%20Applications%20to%20Azure.pptx">Deploying Node.js Applications to Azure</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Labs/Module%202%20Lesson%208%20Lab.docx">Lab</a></td>
                      <td>
                         Create an Azure Site<br>
                         Understand Azure Deployment using Git<br>
