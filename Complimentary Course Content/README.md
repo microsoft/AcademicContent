@@ -35,8 +35,8 @@
                      <th>Description</th>
                   </tr>
                   <tr>
-                     <td align="center">[1](Module1/)</td>
-                     <td>[Introduction To Cloud Computing](Module1/Lessons)</td>
+                     <td align="center"><a href="https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content/Module1">Module 1</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content/Module1/Lessons">[Introduction To Cloud Computing](Module1/Lessons)</a></td>
                      <td>This module introduces what cloud computing is, why it has become so popular, and the existing approaches to cloud computing. The module 1 labs cover real cloud computing examples. Upon completion of this module, the students should understand the fundamental concepts of cloud computing and how to apply them. | [Labs](Module1/Labs)
                      </td>
                   </tr>
