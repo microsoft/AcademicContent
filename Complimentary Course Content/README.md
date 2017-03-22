@@ -72,7 +72,7 @@
                   </tr>
                   <tr>
                      <td align="center"><a href="https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content/Module7">Module 7</a></td>
-                     <td><a href="https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content/Module2/Lessons">DevOps</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content/Module7/Lessons">DevOps</a></td>
                      <td>This module covers the fundamental concepts of DevOps including configuration management. This module introduces Chef. Additionally, module 7 teaches how to launch a web server, desired state configurations, and how to test a web server (all using Chef). | <a href="https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content/Module7/Labs">Labs</a>
                      </td>
                   </tr>
