@@ -44,8 +44,8 @@ Mobile Apps, Notification Hubs, SQL Database, MySQL with ClearDB, Visual Studio 
                   </tr>
                   <tr>
                      <td align="center">1</td>
-                     <td>[Cloud Computing Overview](Lessons/Module1_Lesson1 Introduction to Cloud Computing.pptx)</td>
-                     <td>[Lab](Labs/Module 1 Lesson 1 Activating your Azure Pass and Using the Azure Portal Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module1/Lessons/Module1_Lesson1%20Introduction%20to%20Cloud%20Computing.pptx">Cloud Computing Overview</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module1/Labs/Module%201%20Lesson%201%20Activating%20your%20Azure%20Pass%20and%20Using%20the%20Azure%20Portal%20Lab.docx">Lab</a></td>
                      <td>Define cloud computing and review types of service offered and deployment models available <br>
 			 Explain cloud computing evolution and development of enabling technologies<br> 
 			 Understand how cloud computing is utilized and why it is gaining popularity and momentum<br>
@@ -54,7 +54,7 @@ Mobile Apps, Notification Hubs, SQL Database, MySQL with ClearDB, Visual Studio 
                   </tr>
                   <tr>
                      <td align="center">2</td>
-                     <td>[Cloud Computing Services](Lessons/Module1_Lesson2 Introduction to Cloud Services.pptx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module1/Lessons/Module1_Lesson2%20Introduction%20to%20Cloud%20Services.pptx">Cloud Computing Services</a></td>
                      <td></td>
                      <td>Explain cloud service models and the underlying division of responsibility that distinguishes them<br>
 			 Understand current SaaS, PaaS, and IaaS services<br>
@@ -63,7 +63,7 @@ Mobile Apps, Notification Hubs, SQL Database, MySQL with ClearDB, Visual Studio 
                   </tr>
                   <tr>
                      <td align="center">3</td>
-                     <td>[Services In Azure](Lessons/Module1_Lesson3 Services in Azure.pptx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module1/Lessons/Module1_Lesson3%20Services%20in%20Azure.pptx">Services In Azure</a></td>
                      <td></td>
                      <td>Explain the types of services offered and deployment models available in Azure<br>
 			 Understand Azure portal services and key capabilities
@@ -71,8 +71,8 @@ Mobile Apps, Notification Hubs, SQL Database, MySQL with ClearDB, Visual Studio 
                   </tr>
                   <tr>
                      <td align="center">4</td>
-                     <td>[How to Start Azure](Lessons/Module1_Lesson4 How to start Azure.pptx)</td>
-                     <td>[Lab](Labs/Module 1 Lesson 4 How to start Azure Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module1/Lessons/Module1_Lesson4%20How%20to%20start%20Azure.pptx">How to Start Azure</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module1/Labs/Module%201%20Lesson%204%20How%20to%20start%20Azure%20Lab.docx">Lab</a></td>
                      <td>
                      Explain what a virtual machine is<br>
 		     Use Azure to create a Windows or Linux virtual machine<br>
@@ -82,7 +82,7 @@ Mobile Apps, Notification Hubs, SQL Database, MySQL with ClearDB, Visual Studio 
                   </tr>
                   <tr>
                      <td align="center">Supplemental Materials</td>
-                     <td>[Introduction to Cloud Computing lecture (by Microsoft DX Germany)](Lessons/Module1_Sub Lecture Introduction to Cloud Computing.pptx)</td>
+                     <td>Introduction to Cloud Computing lecture (by Microsoft DX Germany)(Lessons/Module1_Sub Lecture Introduction to Cloud Computing.pptx)</td>
                      <td></td>
                      <td>
                      Additional documents and lecture material on cloud computing.
