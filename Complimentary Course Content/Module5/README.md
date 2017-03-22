@@ -10,7 +10,7 @@
          <div class="jumbotron">
             <h1>Module 5 - Data Science and Machine Learning</h1>
             <p><b>June 2016 release</b></p>
-            <p>The module introduces the fundamental concepts of data science and machine learning using Spark and Spark Machine Learning library. Thus, at the end of the course, students should know the fundamental concepts of machine learning and be adapt Spark for machine learning and data science to predict the trend and patterns of massive data sets.[Labs updated Jan 2016]</p>
+            <p>The module introduces the fundamental concepts of data science and machine learning using Spark and Spark Machine Learning library. Thus, at the end of the course, students should know the fundamental concepts of machine learning and be adapt Spark for machine learning and data science to predict the trend and patterns of massive data sets.[Labs updated Mar 2017]</p>
          </div>
       </div>
       <div class="panel-body">
@@ -26,7 +26,7 @@
                   </tr>
                   <tr>
                      <td align="center">1</td>
-                     <td>[Data Science and Machine Learning Overview](Lessons/Module5_Lesson1 Data Science and Machine Learning Overview.pptx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module5/Lessons/Module5_Lesson1%20Data%20Science%20and%20Machine%20Learning%20Overview.pptx">Data Science and Machine Learning Overview</a></td>
                      <td></td>
                      <td>The basics of data science<br>
 			 Machine learning basics<br>
@@ -35,18 +35,18 @@
                   </tr>
                   <tr>
                      <td align="center">2</td>
-                     <td>[Spark MLlib and Data Types](Lessons/Module5_Lesson2 Spark MLlib and Data Types.pptx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module5/Lessons/Module5_Lesson2%20Spark%20MLlib%20and%20Data%20Types.pptx">Spark MLlib and Data Types</a></td>
                      <td></td>
                      <td>The fundamentals of Spark<br>
 			 Major components of Spark programming<br>
-			 How Spark Machine learning library (MLlib) works<br>
+			 How Spark Machine learning library  works<br>
 			 Spark data types
                      </td>
                   </tr>
                   <tr>
                      <td align="center">3</td>
-                     <td>[Spark ML Overview and Spark on Azure](Lessons/Module5_Lesson3 Spark ML Overview and Spark on Azure.pptx)</td>
-                     <td>[Labs](Labs/Module 5 Lesson 3 Creating Spark Cluster Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module5/Lessons/Module5_Lesson3%20Spark%20ML%20Overview%20and%20Spark%20on%20Azure.pptx">Spark ML Overview and Spark on Azure</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module5/Labs/Module%205%20Lesson%203%20Creating%20Spark%20Cluster%20Lab.docx">Labs</a></td>
                      <td>Recognize the Spark ML API<br>
 			 Demonstrate how a Spark Cluster is configured on top of HDInsight Cluster<br>
 			 Explain some features available in Azure HDInsight Spark Clusters
@@ -54,8 +54,8 @@
                   </tr>
                   <tr>
                      <td align="center">4</td>
-                     <td>[Spark MLlib Basic Statistics](Lessons/Module5_Lesson4 Spark MLlib Basic Statistics.pptx)</td>
-                     <td>[Lab](Labs/Module 5 Lesson 4 Pipeline ML Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module5/Lessons/Module5_Lesson4%20Spark%20MLlib%20Basic%20Statistics.pptx">Spark MLlib Basic Statistics</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module5/Labs/Module%205%20Lesson%204%20Pipeline%20ML%20Lab.docx">Lab</a></td>
                      <td>How to use basic statistics functions provided by MLlib<br>
 			 The input data types for these functions<br>
 			 How data types affect the functionality of the statistical methods
@@ -63,8 +63,8 @@
                   </tr>
                   <tr>
                      <td align="center">5</td>
-                     <td>[Clustering](Lessons/Module5_Lesson5 Clustering.pptx)</td>
-                     <td>[Lab](Labs/Module 5 Lesson 5 Clustering Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module5/Lessons/Module5_Lesson5%20Clustering.pptx">Clustering</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module5/Labs/Module%205%20Lesson%205%20Clustering%20Lab.docx">Lab</a></td>
                      <td>Understand what a clustering algorithm does<br>
 			 Understand supervised and unsupervised learning<br>
 			 Recognize the K-Means algorithm<br>
@@ -73,7 +73,7 @@
                   </tr>
                   <tr>
                      <td align="center">6</td>
-                     <td>[Regression](Lessons/Module5_Lesson6 Regression.pptx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module5/Lessons/Module5_Lesson6%20Regression.pptx">Regression</a></td>
                      <td></td>
                      <td>Formally define the regression model<br>
 			 Define how to model using simple linear regression<br>
@@ -84,8 +84,8 @@
                   </tr>
                   <tr>
                      <td align="center">7</td>
-                     <td>[Regression and Classification](Lessons/Module5_Lesson7 Regression and Classification.pptx)</td>
-                     <td>[Lab](Labs/Module 5 Lesson 7 Binary Classification Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module5/Lessons/Module5_Lesson7%20Regression%20and%20Classification.pptx">Regression and Classification</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module5/Labs/Module%205%20Lesson%207%20Binary%20Classification%20Lab.docx">Lab</a></td>
                      <td>Explain what regularizers accomplish<br>
 			 Understand cross-validation procedures<br>
 			 Understand nested cross-validation procedures<br>

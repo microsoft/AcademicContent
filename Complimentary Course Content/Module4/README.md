@@ -26,8 +26,8 @@
                   </tr>
                   <tr>
                      <td align="center">1</td>
-                     <td>[Big Data and Hadoop](Lessons/Module4_Lesson01 Big Data and Hadoop.pptx)</td>
-                     <td>[Lab](Labs/Module 4 Lesson 01 Getting started with HDP Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Lessons/Module4_Lesson01%20Big%20Data%20and%20Hadoop.pptx">Big Data and Hadoop</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Labs/Module%204%20Lesson%2001%20Getting%20started%20with%20HDP%20Lab.docx">Lab</a></td>
                      <td>Explain Big Data<br>
 			 Understand why Hadoop is used<br>
 			 Describe the core concepts of Hadoop<br>
@@ -36,7 +36,7 @@
                   </tr>
                   <tr>
                      <td align="center">2</td>
-                     <td>[Getting Started with Hadoop Cluster on Azure](Lessons/Module4_Lesson02 Getting started with Hadoop cluster on Azure.pptx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Lessons/Module4_Lesson02%20Getting%20started%20with%20Hadoop%20cluster%20on%20Azure.pptx">Getting Started with Hadoop Cluster on Azure</a></td>
                      <td></td>
                      <td>Explain the purpose of a Hadoop cluster<br>
 			 Describe YARN Architecture and HDFS<br>
@@ -46,15 +46,15 @@
                   </tr>
                   <tr>
                      <td align="center">3</td>
-                     <td>[Getting Started with HDInsight](Lessons/Module4_Lesson03 Getting started with HDInsight.pptx)</td>
-                     <td>[Lab](Labs/Module 4 Lesson 03 Getting started with HDInsight Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Lessons/Module4_Lesson03%20Getting%20started%20with%20HDInsight.pptx">Getting Started with HDInsight</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Labs/Module%204%20Lesson%2003%20Getting%20started%20with%20HDInsight%20Lab.docx">Lab</a></td>
                      <td>Understand features of HDFS<br>
 			 Understand processing Big Data with HDInsight
                      </td>
                   </tr>
                   <tr>
                      <td align="center">4</td>
-                     <td>[Hive Overview](Lessons/Module4_Lesson04 Hive Overview.pptx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Lessons/Module4_Lesson04%20Hive%20Overview.pptx">Hive Overview</a></td>
                      <td></td>
                      <td>Understand what Hive is<br>
 			 Describe Hive architecture and components<br>
@@ -63,7 +63,7 @@
                   </tr>
                   <tr>
                      <td align="center">5</td>
-                     <td>[Hive Data Types and File Formats](Lessons/Module4_Lesson05 Hive Data Types and File Formats.pptx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Lessons/Module4_Lesson05%20Hive%20Data%20Types%20and%20File%20Formats.pptx">Hive Data Types and File Formats</a></td>
                      <td></td>
                      <td>Describe Hive data types and how they are used<br>
 			 Explain supported Hive file formats
@@ -71,16 +71,16 @@
                   </tr>
                   <tr>
                      <td align="center">6</td>
-                     <td>[Hive Databases and Tables](Lessons/Module4_Lesson06 Hive Databases and Tables.pptx)</td>
-                     <td>[Lab](Labs/Module 4 Lesson 06 Hive CLI and HIve View Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Lessons/Module4_Lesson06%20Hive%20Databases%20and%20Tables.pptx">Hive Databases and Tables</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Labs/Module%204%20Lesson%2006%20Hive%20CLI%20and%20HIve%20View%20Lab.docx">Lab</a></td>
                      <td>How Hive stores and manages databases<br>
 			 Basic commands to create and manipulate databases
                      </td>
                   </tr>
                   <tr>
                      <td align="center">7</td>
-                     <td>[Working with Hive Tables](Lessons/Module4_Lesson07 Working with Hive Tables.pptx)</td>
-                     <td>[Lab](Labs/Module 4 Lesson 07 Hive DLL Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Lessons/Module4_Lesson07%20Working%20with%20Hive%20Tables.pptx">Working with Hive Tables</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Labs/Module%204%20Lesson%2007%20Hive%20DLL%20Lab.docx">Lab</a></td>
                      <td>Create and add data to managed tables<br>
 			 Create external tables and point data to them<br>
 			 Create and work with partitioned tables<br>
@@ -89,7 +89,7 @@
                   </tr>
                   <tr>
                      <td align="center">8</td>
-                     <td>[Hive CLI and Hive Query Language Basics](Lessons/Module4_Lesson08 Hive CLI and Hive Query Language Basics.pptx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Lessons/Module4_Lesson08%20Hive%20CLI%20and%20Hive%20Query%20Language%20Basics.pptx">Hive CLI and Hive Query Language Basics</a></td>
                      <td></td>
                      <td>Use the Hive CLI and Hive shell<br>
 			 Work with the SELECT statement
@@ -97,8 +97,8 @@
                   </tr>
                   <tr>
                      <td align="center">9</td>
-                     <td>[Hive Query Language In-Depth](Lessons/Module4_Lesson09 Hive Query Language In-Depth.pptx)</td>
-                     <td>[Lab](Labs/Module 4 Lesson 09 HiveQL Lab.docx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Lessons/Module4_Lesson09%20Hive%20Query%20Language%20In-Depth.pptx">Hive Query Language In-Depth</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Labs/Module%204%20Lesson%2009%20HiveQL%20Lab.docx">Lab</a></td>
                      <td>Use the SELECT with WHERE statement<br>
 			 Understand different data types used in HiveQL<br>
 			 Recognize floating point comparisons<br>
@@ -107,17 +107,17 @@
                   </tr>
                   <tr>
                      <td align="center">10</td>
-                     <td>[Hive Extensions](Lessons/Module4_Lesson10 Hive Extensions.pptx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Lessons/Module4_Lesson10%20Hive%20Extensions.pptx">Hive Extensions</a></td>
                      <td></td>
                      <td>Use Hive set variables to pass parameters to a Hive query<br>
 			 Create external scripts/programs using TRANSFORM….USING<br>
-			 Understand how user-defined functions (UDFs) are created and used in Hive<br>
+			 Understand how user-defined functions (UDFs are created and used in Hive<br>
 			 Access open source UDFs
                      </td>
                   </tr>
                   <tr>
                      <td align="center">11</td>
-                     <td>[Hive Text Processing](Lessons/Module4_Lesson11 Hive Text Processing.pptx)</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module4/Lessons/Module4_Lesson11%20Hive%20Text%20Processing.pptx">Hive Text Processing</a></td>
                      <td></td>
                      <td>Use String functions for: 
                        <ul>
