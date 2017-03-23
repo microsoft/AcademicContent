@@ -17,10 +17,10 @@ In this lab, you'll create an Azure Stream Analytics job and use it to analyze d
 
 In this hands-on lab, you will learn how to:
 
-- Create an Azure event hub and use it as a Stream Analytics input
+- Create Azure event hubs and use them for Stream Analytics input and output
 - Create a Stream Analytics job and test queries on sample data streams
 - Run a Stream Analytics job and perform queries on live data streams
-- Store Stream Analytics output in Azure storage blobs
+- Consume events from an event hub and display them in a Web app
 
 <a name="Prerequisites"></a>
 ### Prerequisites ###
