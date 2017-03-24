@@ -101,6 +101,16 @@
                         Interact with the Azure CLI
                      </td>
                   </tr>
+                  <tr>
+                     <td align="center">9</td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Lessons/Module2_Lesson9%20Serverless%20Computing%20with%20Azure%20Functions.pptx">Serverless Computing with Azure Functions</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Complimentary%20Course%20Content/Module2/Labs/Module%202%20Lesson%209%20Lab.docx">Lab</a></td>
+                     <td>
+                        Understand Azure Functions<br>
+                        Understand Serverless Computing<br>
+                        Create a HTTP Webhook+API Trigger
+                     </td>
+                  </tr>
             </table>
         </div>
      </body>
