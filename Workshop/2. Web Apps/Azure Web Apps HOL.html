@@ -769,7 +769,7 @@ vertical-align:1px;
 <span class="pl-s1"></span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span></pre></div>
 </li>
 <li>
-<p>Repeat Steps 4 through 6 to add a file named <strong>database.php</strong> containing the following code to the project. This is the code used to interact with the MySQL database. Observe that the database connection string isn't embedded in the code, but is instead retrieved from an environment variable named <em>MYSQLCONNSTR_defaultConnection</em>. The value of this approach will be explained in the next exercise.</p>
+<p>Repeat Steps 4 through 6 to add a file named <strong>database.php</strong> containing the following code to the project. This is the code used to interact with the MySQL database. Observe that the database connection string isn't embedded in the code, but is instead retrieved from an environment variable named <code>MYSQLCONNSTR_localdb</code>. The purpose of this environment variable — and the manner in which it is initialized — is explained at the end of the next exercise.</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
 <span class="pl-s1">    <span class="pl-k">class</span> <span class="pl-en">Database</span> {</span>
 <span class="pl-s1"></span>
@@ -778,7 +778,7 @@ vertical-align:1px;
 <span class="pl-s1">        <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-c1">__construct</span>() {</span>
 <span class="pl-s1">            <span class="pl-c"><span class="pl-c">//</span> Notice that private connection information is *NOT* part of the source</span></span>
 <span class="pl-s1">            <span class="pl-c"><span class="pl-c">//</span> and therefore does not end up in public repos, etc.</span></span>
-<span class="pl-s1">            <span class="pl-smi">$connectionString</span> <span class="pl-k">=</span> <span class="pl-c1">getenv</span>(<span class="pl-s"><span class="pl-pds">"</span>MYSQLCONNSTR_defaultConnection<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1">            <span class="pl-smi">$connectionString</span> <span class="pl-k">=</span> <span class="pl-c1">getenv</span>(<span class="pl-s"><span class="pl-pds">"</span>MYSQLCONNSTR_localdb<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s1">            <span class="pl-smi">$varsString</span> <span class="pl-k">=</span> <span class="pl-c1">str_replace</span>(<span class="pl-s"><span class="pl-pds">"</span>;<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>&amp;<span class="pl-pds">"</span></span>, <span class="pl-smi">$connectionString</span>);</span>
 <span class="pl-s1">            <span class="pl-c1">parse_str</span>(<span class="pl-smi">$varsString</span>);</span>
 <span class="pl-s1"></span>
@@ -944,7 +944,7 @@ vertical-align:1px;
 <p><em>Creating a Web App with MySQL</em></p>
 </li>
 <li>
-<p>Enter a name for your Web app in the <strong>App name</strong> field. <em>This name must be unique within Azure, so make sure a green check mark appears next to it</em>. Select <strong>Create new</strong> under <strong>Resource Group</strong> and enter the resource-group name "WebAppsLabResourceGroup" (without quotation marks). Then select <strong>ClearDB</strong> as the <strong>Database Provider</strong>.</p>
+<p>Enter a name for your Web app in the <strong>App name</strong> field. <em>This name must be unique within Azure, so make sure a green check mark appears next to it</em>. Select <strong>Create new</strong> under <strong>Resource Group</strong> and enter the resource-group name "WebAppsLabResourceGroup" (without quotation marks). Then select <strong>MySQL In App</strong> as the <strong>Database Provider</strong>.</p>
 <blockquote>
 <p>Resource groups are a powerful construct for grouping resources such as storage accounts, databases, and virtual machines together so they can be managed as a unit. Deleting a resource group deletes everything inside it and prevents you from having to delete those resources one by one.</p>
 </blockquote>
@@ -952,20 +952,9 @@ vertical-align:1px;
 <p><em>Configuring the Web App</em></p>
 </li>
 <li>
-<p>Click <strong>App Service plan/location</strong>, and then click <strong>Create New</strong> to create a new App Service plan for your Web app. In the "App Service plan" blade, enter "WebAppsLabServicePlan" (without quotation marks) as the service-plan name and select the location nearest you. Then click <strong>Pricing tier</strong> and select the <strong>F1 Free</strong> tier. (You will have to click <strong>View all</strong> in the "Choose your pricing tier" blade and scroll to the bottom to see the <strong>F1 Free</strong> tier.) Click <strong>Select</strong> to finalize your tier selection, and then click <strong>OK</strong> in the "App Service plan" blade to create the new service plan.</p>
+<p>Click <strong>App Service plan/location</strong>, and then click <strong>Create New</strong> to create a new App Service plan for your Web app. In the "New App Service plan" blade, enter "WebAppsLabServicePlan" (without quotation marks) as the service-plan name and select the location nearest you. Then click <strong>Pricing tier</strong> and select the <strong>F1 Free</strong> tier. Click <strong>Select</strong> to finalize your tier selection, and then click <strong>OK</strong> in the "New App Service plan" blade to create the new service plan.</p>
 <p><a href="Images/web-app-parameters-2.png" target="_blank"><img src="Images/web-app-parameters-2.png" alt="Creating an App Service plan" style="max-width:100%;"></a></p>
 <p><em>Creating an App Service plan</em></p>
-</li>
-<li>
-<p>Click <strong>Database</strong> in the "Web App + MySQL" blade, and then click <strong>Create New</strong> to create a new MySQL database to go with your Web app. Enter "webappslabdb" (without quotation marks) for the <strong>Database Name</strong>. Set <strong>Database Type</strong> to <strong>Shared</strong> and select the location nearest you. Then click <strong>Pricing Tier</strong>, select the <strong>Mercury</strong> tier, and click <strong>Select</strong> at the bottom of the blade.</p>
-<p><a href="Images/web-app-parameters-3.png" target="_blank"><img src="Images/web-app-parameters-3.png" alt="Creating a MySQL database" style="max-width:100%;"></a></p>
-<p><em>Creating a MySQL database</em></p>
-</li>
-<li>
-<p>Click <strong>Legal Terms</strong> in the "New MySQL Database" blade. Review the legal terms and click <strong>Purchase</strong> at the bottom of the "Purchase" blade. Finish up by clicking <strong>OK</strong> at the bottom of the "New MySQL Database" blade.</p>
-<blockquote>
-<p>Nothing is actually being purchased since you selected the Mercury database tier, which is free. In order to provision the MySQL database for you, Azure requires that you acknowledge the terms of use.</p>
-</blockquote>
 </li>
 <li>
 <p>Check <strong>Pin to Dashboard</strong> at the bottom of the "Web App + MySQL" blade, and then click the <strong>Create</strong> button to create your Web app.</p>
@@ -973,7 +962,7 @@ vertical-align:1px;
 <p><em>Creating the Web App</em></p>
 </li>
 <li>
-<p>Once the Web App has been created (it usually takes about one minute), click the tile that was created for it on the dashboard.</p>
+<p>Once the Web App has been created (it usually takes about one minute), click the tile that was created for it on the dashboard if the blade for the Web App doesn't open automatically.</p>
 </li>
 <li>
 <p>Click the Web site URL to browse to the placeholder page for your new Web site.</p>
@@ -985,27 +974,8 @@ vertical-align:1px;
 <p><a href="Images/placeholder-page.png" target="_blank"><img src="Images/placeholder-page.png" alt="The Web site's temporary home page" style="max-width:100%;"></a></p>
 <p><em>The Web site's temporary home page</em></p>
 </li>
-<li>
-<p>Click <strong>Application settings</strong> in the blade for the Web app.</p>
-<p><a href="Images/application-settings.png" target="_blank"><img src="Images/application-settings.png" alt="Viewing application settings" style="max-width:100%;"></a></p>
-<p><em>Viewing application settings</em></p>
-</li>
-<li>
-<p>Scroll down to the "App settings" and "Connection strings" sections. These sections allow you to define key-value pairs that the app can access at runtime. Specifying values such as these in the portal rather than embedding them in your code makes it easier to run the app in different environments and in different contexts, and also helps mitigate the risk of inadvertently uploading code containing database connection strings and other sensitive items to public source-code repositories.</p>
-<blockquote>
-<p>If you're curious about the <strong>Slot setting</strong> boxes, here's a quick explanation. In the Azure App Service, the <em>Basic</em>, <em>Standard</em>, and <em>Premium</em> pricing tiers tiers allow you to provision multiple deployment slots for a given Web App. You can use these slots in several ways, including setting up pre-production staging environments for testing code changes before putting them into production. The <strong>Slot setting</strong> boxes allow you to specify whether a setting or connection string applies to all deployment slots or only to a particular deployment slot.</p>
-</blockquote>
-</li>
-<li>
-<p>By default, connection strings are hidden for security reasons. Click <strong>Show connection string values</strong> to reveal them.</p>
-<p><a href="Images/provision-showconnectionstrings.png" target="_blank"><img src="Images/provision-showconnectionstrings.png" alt="Showing connection string values" style="max-width:100%;"></a></p>
-<p><em>Showing connection string values</em></p>
-</li>
-<li>
-<p>Examine the <strong>defaultConnection</strong> value. It was automatically created when your Web App and MySQL database were provisioned. This is the value your application uses to connect to the MySQL database. It includes the server address (<em>Data Source</em>) for the database, the database name, and the user credentials for connecting to the database.</p>
-</li>
 </ol>
-<p>Most platforms can access connection strings and app settings as environment variables. .NET applications can access them as if they were part of the application's web.config file. The PHP code that you added in <a href="#Exercise1">Exercise 1</a> retrieves the default connection string by calling <code>getenv("MYSQLCONNSTR_defaultConnection");</code> You can find additional information about the conventions used to access these variables <a href="https://azure.microsoft.com/en-us/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/">here</a>.</p>
+<p>When the app was provisioned, an in-app SQL database was provisioned for it, too. The PHP code that you added in <a href="#Exercise1">Exercise 1</a> retrieves a connection string for the database by calling <code>getenv("MYSQLCONNSTR_localdb");</code>. The environment variable <code>MYSQLCONNSTR_localdb</code> is created as part of the provisioning process and is created specifically for the purpose of connecting to in-app SQL databases.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Deploy the Web site</h2>
 <p>Now it is time to copy the files that comprise your Web site to the Azure Web App. In this exercise, you will publish your Web site using FTP.</p>

@@ -6,7 +6,7 @@
         public function __construct() {
             // Notice that private connection information is *NOT* part of the source
             // and therefore does not end up in public repos, etc.
-            $connectionString = getenv("MYSQLCONNSTR_defaultConnection");
+            $connectionString = getenv("MYSQLCONNSTR_localdb");
             $varsString = str_replace(";","&", $connectionString);
             parse_str($varsString);
 

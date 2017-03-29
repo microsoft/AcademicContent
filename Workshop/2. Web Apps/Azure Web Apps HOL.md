@@ -317,7 +317,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
 	?>
     ```
 
-1. Repeat Steps 4 through 6 to add a file named **database.php** containing the following code to the project. This is the code used to interact with the MySQL database. Observe that the database connection string isn't embedded in the code, but is instead retrieved from an environment variable named *MYSQLCONNSTR_defaultConnection*. The value of this approach will be explained in the next exercise.
+1. Repeat Steps 4 through 6 to add a file named **database.php** containing the following code to the project. This is the code used to interact with the MySQL database. Observe that the database connection string isn't embedded in the code, but is instead retrieved from an environment variable named ```MYSQLCONNSTR_localdb```. The purpose of this environment variable — and the manner in which it is initialized — is explained at the end of the next exercise.
 
     ```php
     <?php
@@ -328,7 +328,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
             public function __construct() {
                 // Notice that private connection information is *NOT* part of the source
                 // and therefore does not end up in public repos, etc.
-                $connectionString = getenv("MYSQLCONNSTR_defaultConnection");
+                $connectionString = getenv("MYSQLCONNSTR_localdb");
                 $varsString = str_replace(";","&", $connectionString);
                 parse_str($varsString);
     
@@ -503,7 +503,7 @@ There are several ways to provision an Azure Web App. In this exercise, you will
 
     _Creating a Web App with MySQL_
 
-1. Enter a name for your Web app in the **App name** field. *This name must be unique within Azure, so make sure a green check mark appears next to it*. Select **Create new** under **Resource Group** and enter the resource-group name "WebAppsLabResourceGroup" (without quotation marks). Then select **ClearDB** as the **Database Provider**.
+1. Enter a name for your Web app in the **App name** field. *This name must be unique within Azure, so make sure a green check mark appears next to it*. Select **Create new** under **Resource Group** and enter the resource-group name "WebAppsLabResourceGroup" (without quotation marks). Then select **MySQL In App** as the **Database Provider**.
 
 	> Resource groups are a powerful construct for grouping resources such as storage accounts, databases, and virtual machines together so they can be managed as a unit. Deleting a resource group deletes everything inside it and prevents you from having to delete those resources one by one.
 
@@ -511,21 +511,11 @@ There are several ways to provision an Azure Web App. In this exercise, you will
 
     _Configuring the Web App_
 
-1. Click **App Service plan/location**, and then click **Create New** to create a new App Service plan for your Web app. In the "App Service plan" blade, enter "WebAppsLabServicePlan" (without quotation marks) as the service-plan name and select the location nearest you. Then click **Pricing tier** and select the **F1 Free** tier. (You will have to click **View all** in the "Choose your pricing tier" blade and scroll to the bottom to see the **F1 Free** tier.) Click **Select** to finalize your tier selection, and then click **OK** in the "App Service plan" blade to create the new service plan.
+1. Click **App Service plan/location**, and then click **Create New** to create a new App Service plan for your Web app. In the "New App Service plan" blade, enter "WebAppsLabServicePlan" (without quotation marks) as the service-plan name and select the location nearest you. Then click **Pricing tier** and select the **F1 Free** tier. Click **Select** to finalize your tier selection, and then click **OK** in the "New App Service plan" blade to create the new service plan.
 
     ![Creating an App Service plan](Images/web-app-parameters-2.png)
 
     _Creating an App Service plan_
-
-1. Click **Database** in the "Web App + MySQL" blade, and then click **Create New** to create a new MySQL database to go with your Web app. Enter "webappslabdb" (without quotation marks) for the **Database Name**. Set **Database Type** to **Shared** and select the location nearest you. Then click **Pricing Tier**, select the **Mercury** tier, and click **Select** at the bottom of the blade.
-
-    ![Creating a MySQL database](Images/web-app-parameters-3.png)
-
-    _Creating a MySQL database_
-
-1. Click **Legal Terms** in the "New MySQL Database" blade. Review the legal terms and click **Purchase** at the bottom of the "Purchase" blade. Finish up by clicking **OK** at the bottom of the "New MySQL Database" blade.
-
-	> Nothing is actually being purchased since you selected the Mercury database tier, which is free. In order to provision the MySQL database for you, Azure requires that you acknowledge the terms of use.
 
 1. Check **Pin to Dashboard** at the bottom of the "Web App + MySQL" blade, and then click the **Create** button to create your Web app.
 
@@ -533,7 +523,7 @@ There are several ways to provision an Azure Web App. In this exercise, you will
 
     _Creating the Web App_
     
-1. Once the Web App has been created (it usually takes about one minute), click the tile that was created for it on the dashboard.
+1. Once the Web App has been created (it usually takes about one minute), click the tile that was created for it on the dashboard if the blade for the Web App doesn't open automatically.
 
 1. Click the Web site URL to browse to the placeholder page for your new Web site. 
 
@@ -547,25 +537,7 @@ There are several ways to provision an Azure Web App. In this exercise, you will
 
     _The Web site's temporary home page_
 
-1. Click **Application settings** in the blade for the Web app.
-
-    ![Viewing application settings](Images/application-settings.png)
-
-    _Viewing application settings_
-    
-1. Scroll down to the "App settings" and "Connection strings" sections. These sections allow you to define key-value pairs that the app can access at runtime. Specifying values such as these in the portal rather than embedding them in your code makes it easier to run the app in different environments and in different contexts, and also helps mitigate the risk of inadvertently uploading code containing database connection strings and other sensitive items to public source-code repositories.
-
-    > If you're curious about the **Slot setting** boxes, here's a quick explanation. In the Azure App Service, the _Basic_, _Standard_, and _Premium_ pricing tiers tiers allow you to provision multiple deployment slots for a given Web App. You can use these slots in several ways, including setting up pre-production staging environments for testing code changes before putting them into production. The **Slot setting** boxes allow you to specify whether a setting or connection string applies to all deployment slots or only to a particular deployment slot.
-
-1. By default, connection strings are hidden for security reasons. Click **Show connection string values** to reveal them.
-
-    ![Showing connection string values](Images/provision-showconnectionstrings.png)
-
-    _Showing connection string values_
-   
-1. Examine the **defaultConnection** value. It was automatically created when your Web App and MySQL database were provisioned. This is the value your application uses to connect to the MySQL database. It includes the server address (_Data Source_) for the database, the database name, and the user credentials for connecting to the database.
-
-Most platforms can access connection strings and app settings as environment variables. .NET applications can access them as if they were part of the application's web.config file. The PHP code that you added in [Exercise 1](#Exercise1) retrieves the default connection string by calling `getenv("MYSQLCONNSTR_defaultConnection");` You can find additional information about the conventions used to access these variables [here](https://azure.microsoft.com/en-us/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+When the app was provisioned, an in-app SQL database was provisioned for it, too. The PHP code that you added in [Exercise 1](#Exercise1) retrieves a connection string for the database by calling ```getenv("MYSQLCONNSTR_localdb");```. The environment variable ```MYSQLCONNSTR_localdb``` is created as part of the provisioning process and is created specifically for the purpose of connecting to in-app SQL databases.
     
 <a name="Exercise3"></a>
 ## Exercise 3: Deploy the Web site
