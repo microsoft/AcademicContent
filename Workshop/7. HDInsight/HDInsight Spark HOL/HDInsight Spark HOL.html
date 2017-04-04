@@ -503,7 +503,7 @@ vertical-align:1px;
 <li><a href="#Exercise3">Exercise 3: Work with Jupyter notebooks</a></li>
 <li><a href="#Exercise4">Exercise 4: Interactively explore data in Spark</a></li>
 <li><a href="#Exercise5">Exercise 5: Use Jupyter to develop a machine-learning model</a></li>
-<li><a href="#Exercise6">Exercise 6: Remove the HDInsight Spark cluster</a></li>
+<li><a href="#Exercise6">Exercise 6: Delete the Spark cluster</a></li>
 </ul>
 <p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
 <p><a name="Exercise1"></a></p>
@@ -521,59 +521,61 @@ vertical-align:1px;
 <li>
 <p>In the <strong>Cluster Name</strong> box, enter a unique DNS name for the cluster and make sure a green check mark appears next to it indicating that the name is valid and unique.</p>
 <blockquote>
-<p>In case someone else in the lab selects the same name, try to make it as unique as possible by including birth dates, initials, and anything else you care to add. The name you entered may be unique right now, but it might NOT be unique a few minutes into the deployment.</p>
+<p>In case someone else in the lab selects the same cluster name, make it as unique as possible by including birth dates, initials, and anything else you care to add. The name you entered may be unique right now, but it might NOT be unique a few minutes into the deployment.</p>
 </blockquote>
-<p><a href="Images/cluster-name.png" target="_blank"><img src="Images/cluster-name.png" alt="Specifying the cluster name" style="max-width:100%;"></a></p>
-<p><em>Specifying the cluster name</em></p>
+<p>Enter "Azure4Research!" (without quotation marks) for <strong>Cluster login password</strong>. Select <strong>Create new</strong> under <strong>Resource group</strong> and enter the resource-group name "SparkLabResourceGroup" (once more, without quotation marks). Select the <strong>Location</strong> nearest you, and then click <strong>Cluster type</strong> to open a "Cluster configuration" blade.</p>
+<p><a href="Images/spark-basic.png" target="_blank"><img src="Images/spark-basic.png" alt="Entering basic cluster settings" style="max-width:100%;"></a></p>
+<p><em>Entering basic cluster settings</em></p>
 </li>
 <li>
-<p>Click <strong>Cluster configuration</strong> to open a "Cluster configuration" blade. In that blade, select <strong>Spark</strong> as the <strong>Cluster type</strong> and <strong>Spark 1.6.2 (HDI 3.5)</strong> as the <strong>Version</strong>. Make sure <strong>Cluster tier</strong> is set to <strong>Standard</strong>, and finish up by clicking the <strong>Select</strong> button at the bottom of the blade.</p>
-<p><a href="Images/cluster-type.png" target="_blank"><img src="Images/cluster-type.png" alt="Specifying the cluster type" style="max-width:100%;"></a></p>
-<p><em>Specifying the cluster type</em></p>
+<p>Select <strong>Spark</strong> as the <strong>Cluster type</strong> and accept the default Spark version on the right. Make sure <strong>Cluster tier</strong> is set to <strong>Standard</strong>. Click the <strong>Select</strong> button at the bottom of the blade, and then finish up by clicking the <strong>Next</strong> button at the bottom of the "Basics" blade.</p>
+<p><a href="Images/spark-cluster-configuration.png" target="_blank"><img src="Images/spark-cluster-configuration.png" alt="Entering cluster-configuration settings" style="max-width:100%;"></a></p>
+<p><em>Entering cluster-configuration settings</em></p>
 </li>
 <li>
-<p>Click <strong>Credentials</strong> to open a "Cluster credentials" blade. Leave <strong>Cluster login username</strong> set to "admin" and set the <strong>Cluster login password</strong> to "A4rsparkdemo!" (without quotation marks).  Enter "sshuser" for the <strong>SSH username</strong>, make sure <strong>SSH authentication type</strong> is set to <strong>PASSWORD</strong>, and enter "A4rsparkdemo!" for the <strong>SSH password</strong>. Then click the <strong>Select</strong> button at the bottom of the blade.</p>
-<p><a href="Images/cluster-credentials.png" target="_blank"><img src="Images/cluster-credentials.png" alt="Specifying cluster credentials" style="max-width:100%;"></a></p>
-<p><em>Specifying cluster credentials</em></p>
-</li>
-<li>
-<p>Click <strong>Data source</strong> to open a "Data source" blade. Enter a unique storage-account name in the box below <strong>Create a new Storage account</strong>. (Once more, try to make the name as unique as possible by including birth dates or other values that aren't likely to be used by someone else.) For <strong>Default container</strong>, enter "sparklab" (without quotation marks). Select the <strong>Location</strong> nearest you, and then click the <strong>Select</strong> button at the bottom of the blade.</p>
-<p><a href="Images/data-source.png" target="_blank"><img src="Images/data-source.png" alt="Specifying the data source" style="max-width:100%;"></a></p>
-<p><em>Specifying the data source</em></p>
-</li>
-<li>
-<p>Click <strong>Cluster size</strong> to open a "Pricing" blade. Make sure <strong>Number of Worker nodes</strong> is set to <strong>4</strong> and accept the default values everywhere else. Then click the <strong>Select</strong> button at the bottom of the blade.</p>
-<p><a href="Images/cluster-size.png" target="_blank"><img src="Images/cluster-size.png" alt="Specifying the cluster size" style="max-width:100%;"></a></p>
-<p><em>Specifying the cluster size</em></p>
-</li>
-<li>
-<p>Select <strong>Create new</strong> under <strong>Resource group</strong> and enter the resource-group name "SparkLabResourceGroup" (without quotation marks). Then click the <strong>Create</strong> button at the bottom of the blade to start deploying the cluster.</p>
-<p><a href="Images/resource-group.png" target="_blank"><img src="Images/resource-group.png" alt="Specifying a resource group and creating the cluster" style="max-width:100%;"></a></p>
-<p><em>Specifying a resource group and creating the cluster</em></p>
-</li>
-<li>
-<p>Deploying an HDInsight cluster can take 20 minutes or more. You can monitor the status of the deployment by opening the resource group's blade. Click <strong>Resource group</strong> in the ribbon on the left side of the portal, and then click the resource group name ("SparkLabResourceGroup") to open the blade. "Deploying" will change to "Succeeded" when the deployment has completed successfully.</p>
+<p>Make sure <strong>Primary storage type</strong> is set to <strong>Azure Storage</strong> and <strong>Selection method</strong> is set to <strong>My subscriptions</strong>. Then enter a unique storage account name, once more making it as unique as possible by including birth dates or other information. Type "sparklab" into the <strong>Default container</strong> box, and then click <strong>Next</strong>.</p>
 <blockquote>
-<p>Click the browser's <strong>Refresh</strong> button every few minutes to update the deployment status. Clicking the <strong>Refresh</strong> button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.</p>
+<p>These settings apply to the storgage account that is provisioned along with the cluster. The storage account contains the cluster's file system and the software installed inside.</p>
 </blockquote>
-<p><a href="Images/deployment-status.png" target="_blank"><img src="Images/deployment-status.png" alt="Checking the deployment" style="max-width:100%;"></a></p>
-<p><em>Monitoring the deployment</em></p>
+<p><a href="Images/spark-storage.png" target="_blank"><img src="Images/spark-storage.png" alt="Entering cluster-storage settings" style="max-width:100%;"></a></p>
+<p><em>Entering cluster-storage settings</em></p>
+</li>
+<li>
+<p>Review the cluster settings and make sure everything is correct. Then click <strong>Create</strong> to begin deploying the cluster.</p>
+<blockquote>
+<p>By accepting the defaults, you are deploying a cluster that contains two head nodes and four worker nodes. The head nodes each contain four compute cores and 28 GB of RAM, while the worker nodes each contain eight cores and 7 GB of RAM. If you would like to change the number of nodes or the sizes of the nodes, you may do so by clicking the <strong>Edit</strong> link next to <strong>Cluster size</strong> before clicking <strong>Create</strong>.</p>
+</blockquote>
+<p><a href="Images/spark-summary.png" target="_blank"><img src="Images/spark-summary.png" alt="Reviewing cluster settings" style="max-width:100%;"></a></p>
+<p><em>Reviewing cluster settings</em></p>
+</li>
+<li>
+<p>Click <strong>Resource groups</strong> in the ribbon on the left side of the portal, and then click the resource group created for the HDInsight cluster.</p>
+<p><a href="Images/open-resource-group.png" target="_blank"><img src="Images/open-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
+<p><em>Opening the resource group</em></p>
+</li>
+<li>
+<p>Deploying an HDInsight cluster can take 15 minutes or more. Wait until "Deploying" changes to "Succeeded," indicating that the cluster has been deployed.</p>
+<blockquote>
+<p>Refresh the page in the browser periodically to update the deployment status. Clicking the <strong>Refresh</strong> button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.</p>
+</blockquote>
+<p><a href="Images/deployment-status.png" target="_blank"><img src="Images/deployment-status.png" alt="Viewing the deployment status" style="max-width:100%;"></a></p>
+<p><em>Viewing the deployment status</em></p>
 </li>
 </ol>
 <p>In this exercise, you learned how to provision an HDInsight Spark cluster on Azure, and about some of the options you can choose from when doing so. Wait for the deployment to finish, and then proceed to the next exercise.</p>
 <p><a name="Exercise2"></a></p>
 <h2>Exercise 2: Upload Jupyter notebooks to the cluster</h2>
-<p>You will be using Jupyter notebooks to do the data-exploration and machine-learning portions of this lab. The notebooks have been prepared for you ahead of time, and need to be uploaded to your cluster. In this exercise, you will use the Azure Portal to upload the notebooks.</p>
+<p>You will be using Jupyter notebooks to do the data-exploration and machine-learning portions of this lab. The notebooks have been prepared for you ahead of time, and need to be uploaded to the cluster. In this exercise, you will use the Azure Portal to upload the notebooks.</p>
 <ol>
 <li>
-<p>Click the storage account that was created for the cluster (the storage account whose name you specified in Exercise 1, Step 6).</p>
-<p><a href="Images/open-storage-account.png" target="_blank"><img src="Images/open-storage-account.png" alt="Opening the cluster's storage account" style="max-width:100%;"></a></p>
-<p><em>Opening the cluster's storage account</em></p>
+<p>Click the storage account that was created for the cluster (the storage account whose name you specified in Exercise 1, Step 5).</p>
+<p><a href="Images/open-storage-account.png" target="_blank"><img src="Images/open-storage-account.png" alt="Opening the storage account" style="max-width:100%;"></a></p>
+<p><em>Opening the storage account</em></p>
 </li>
 <li>
 <p>Click <strong>Blobs</strong>.</p>
-<p><a href="Images/open-blob-storage.png" target="_blank"><img src="Images/open-blob-storage.png" alt="Opening the cluster's blob storage" style="max-width:100%;"></a></p>
-<p><em>Opening the cluster's blob storage</em></p>
+<p><a href="Images/open-blob-storage.png" target="_blank"><img src="Images/open-blob-storage.png" alt="Opening blob storage" style="max-width:100%;"></a></p>
+<p><em>Opening blob storage</em></p>
 </li>
 <li>
 <p>Click <strong>sparklab</strong>.</p>
@@ -596,7 +598,7 @@ vertical-align:1px;
 <p><em>Uploading Jupyter notebooks</em></p>
 </li>
 <li>
-<p>Wait until the files have uploaded. Then return to the "HdiNotebooks" blade and confirm that all three files were uploaded to the "HdiNotebooks" folder.</p>
+<p>Wait until the files have uploaded. Then close the "Upload blob" blade and confirm that all three files were uploaded to the "HdiNotebooks" folder.</p>
 <p><a href="Images/uploaded-files.png" target="_blank"><img src="Images/uploaded-files.png" alt="Uploaded notebooks" style="max-width:100%;"></a></p>
 <p><em>Uploaded notebooks</em></p>
 </li>
@@ -670,7 +672,7 @@ vertical-align:1px;
 </ol>
 <p>Once you have completed the steps in the notebook, close the browser window in which the notebook is displayed and return to the Azure Portal.</p>
 <p><a name="Exercise6"></a></p>
-<h2>Exercise 6: Remove the HDInsight Spark cluster</h2>
+<h2>Exercise 6: Delete the Spark cluster</h2>
 <p>When you are finished using an HDInsight Spark cluster, you should delete it because you are charged for it while it exists, regardless of whether it's doing any work. In this exercise, you will delete the resource group created in <a href="#Exercise1">Exercise 1</a> when you created the cluster. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.</p>
 <ol>
 <li>
@@ -683,6 +685,7 @@ vertical-align:1px;
 </li>
 </ol>
 <p>After a few minutes, the cluster and all of its resources will be deleted. Billing stops when you click the <strong>Delete</strong> button, so you're not charged for the time required to delete the cluster. Similarly, bulling doesn't start until a cluster is fully and successfully deployed.</p>
+<p><a name="Summary"></a></p>
 <h2>Summary</h2>
 <p>Here is a summary of what you learned in this lab:</p>
 <ul>
@@ -694,7 +697,7 @@ vertical-align:1px;
 </ul>
 <p>With Apache Spark for Azure HDInsight, high-performance computing clusters with all the tools you need to handle big data are just a few button clicks away. It's just one example of why cloud computing is changing the face of research.</p>
 <hr>
-<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
