@@ -231,8 +231,8 @@ Once you have created an Azure Function App, you can add Azure Functions to it. 
 	  "disabled": false
 	}
 	```
-	> The statement that sets "dataType" to "binary" improves performance when processing blobs that are images.  
 
+	> The statement that sets "dataType" to "binary" improves performance when processing blobs that are images.  
 
 1. Click **Save** to save the changes to the function bindings. 
 
@@ -258,13 +258,7 @@ Once you have created an Azure Function App, you can add Azure Functions to it. 
 	cd BlobImageAnalyis
 	```
 
-1. Execute the following command to install the Node Package Manager (NPM):
-
-	```
-	npm install
-	```
-
-1. Execute the following commands in the console to install the packages used by the function:
+1. Execute the following commands in the console to install the packages used by the function. You can ignore any warning messages that are displayed, and note that each command may take a minute or more to run:
 
 	```
 	npm install request
@@ -354,7 +348,7 @@ Your function is configured to listen for changes to the blob container named "u
 
 1. Verify that the "accepted" container holds seven images. **These are the images that were classified as neither adult nor racy by the Computer Vision API**.
 
-	> It may take a minute or more for all of the images to appear in the container. If necessary, click **Refresh** every few seconds until you see all seven images.
+	> It may take a few minutes for the images to appear in the container. If necessary, click **Refresh** periodically until you see all seven images. The delay occurs because the function was "idle" and you chose **Consumption Plan** as the hosting plan in Exercise 1, Step 3. Consumption Plan is the most cost-efficient way to run Azure Functions, but can incur delays if the function hasn't executed for a while. For more information, see [Choose the correct service plan for Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale).
 
     ![Images uploaded to the "accepted" container](Images/accepted-images.png)
 

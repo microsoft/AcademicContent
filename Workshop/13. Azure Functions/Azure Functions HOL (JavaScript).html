@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Azure Functions HOL (Node)</title>
+<title>Azure Functions HOL (JavaScript)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
@@ -701,12 +701,7 @@ vertical-align:1px;
 </code></pre>
 </li>
 <li>
-<p>Execute the following command to install the Node Package Manager (NPM):</p>
-<pre><code>npm install
-</code></pre>
-</li>
-<li>
-<p>Execute the following commands in the console to install the packages used by the function:</p>
+<p>Execute the following commands in the console to install the packages used by the function. You can ignore any warning messages that are displayed, and note that each command may take a minute or more to run:</p>
 <pre><code>npm install request
 npm install request-promise
 npm install azure-storage
@@ -782,7 +777,7 @@ npm install azure-storage
 <li>
 <p>Verify that the "accepted" container holds seven images. <strong>These are the images that were classified as neither adult nor racy by the Computer Vision API</strong>.</p>
 <blockquote>
-<p>It may take a minute or more for all of the images to appear in the container. If necessary, click <strong>Refresh</strong> every few seconds until you see all seven images.</p>
+<p>It may take a few minutes for the images to appear in the container. If necessary, click <strong>Refresh</strong> periodically until you see all seven images. The delay occurs because the function was "idle" and you chose <strong>Consumption Plan</strong> as the hosting plan in Exercise 1, Step 3. Consumption Plan is the most cost-efficient way to run Azure Functions, but can incur delays if the function hasn't executed for a while. For more information, see <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale">Choose the correct service plan for Azure Functions</a>.</p>
 </blockquote>
 <p><a href="Images/accepted-images.png" target="_blank"><img src="Images/accepted-images.png" alt="Images uploaded to the &quot;accepted&quot; container" style="max-width:100%;"></a></p>
 <p><em>Images uploaded to the "accepted" container</em></p>
