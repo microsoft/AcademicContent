@@ -353,7 +353,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
     function createThumbnailOfImage(){
         var options = {
-            url: "https://api.projectoxford.ai/vision/v1.0/generateThumbnail",
+            url: "https://westus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail",
             qs: {
                 width: 192,
                 height: 128,
@@ -393,7 +393,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
         function analyzeImage() {
             var options = {
-                url: "https://api.projectoxford.ai/vision/v1.0/analyze",
+                url: "https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze",
                 qs: {
                     visualFeatures: "Description"
                 },
