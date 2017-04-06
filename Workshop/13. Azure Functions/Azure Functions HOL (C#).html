@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>readme</title>
+<title>Azure Functions HOL (C#)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
@@ -621,7 +621,7 @@ vertical-align:1px;
     <span class="pl-en">HttpContent</span> <span class="pl-en">payload</span> = <span class="pl-k">new</span> <span class="pl-en">ByteArrayContent</span>(<span class="pl-en">bytes</span>);
     payload.Headers.ContentType = <span class="pl-k">new</span> <span class="pl-en">MediaTypeWithQualityHeaderValue</span>(<span class="pl-s"><span class="pl-pds">"</span>application/octet-stream<span class="pl-pds">"</span></span>);
     
-    <span class="pl-k">var</span> <span class="pl-en">results </span>= <span class="pl-k">await</span> client.PostAsync(<span class="pl-s"><span class="pl-pds">"</span>https://api.projectoxford.ai/vision/v1.0/analyze?visualFeatures=Adult<span class="pl-pds">"</span></span>, payload);
+    <span class="pl-k">var</span> <span class="pl-en">results </span>= <span class="pl-k">await</span> client.PostAsync(<span class="pl-s"><span class="pl-pds">"</span>https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Adult<span class="pl-pds">"</span></span>, payload);
     <span class="pl-k">var</span> <span class="pl-en">result </span>= <span class="pl-k">await</span> results.Content.ReadAsAsync&lt;ImageAnalysisInfo&gt;();
     <span class="pl-k">return</span> result;
 }
@@ -664,12 +664,13 @@ vertical-align:1px;
     }
 }
 
-<span class="pl-c">// Converts a stream to a byte array </span>
+<span class="pl-c">// Converts a stream to a byte array</span>
 <span class="pl-k">private</span> <span class="pl-k">async</span> <span class="pl-k">static</span> <span class="pl-en">Task</span>&lt;<span class="pl-k">byte</span>[]&gt; <span class="pl-en">ToByteArrayAsync</span>(<span class="pl-en">Stream</span> <span class="pl-smi">stream</span>)
 {
     <span class="pl-en">Int32</span> <span class="pl-en">length</span> = stream.Length &gt; Int32.MaxValue ? Int32.MaxValue : Convert.ToInt32(stream.Length);
     <span class="pl-k">byte</span>[] <span class="pl-en">buffer</span> = <span class="pl-k">new</span> <span class="pl-en">Byte</span>[length];
     <span class="pl-k">await</span> stream.ReadAsync(buffer, <span class="pl-c1">0</span>, length);
+    stream.Position = <span class="pl-c1">0</span>;
     <span class="pl-k">return</span> buffer;
 }
 
