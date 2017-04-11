@@ -179,7 +179,7 @@ The notebooks are uploaded and ready to go. Let's put them to work.
 
     _Opening a Jupyter notebook_
 
-1. When prompted for a user name and password, log in with your cluster credentials ("admin" and "A4rsparkdemo!") from Exercise 1, Step 5.
+1. When prompted for a user name and password, log in with your cluster credentials ("admin" and "Azure4Research!") from Exercise 1, Step 5.
 
 	> If you mistype the password and are greeted with a 403 Forbidden error, start a new incognito or private browsing session, go to the Azure Portal, and open the Jupyter notebook again.
 
