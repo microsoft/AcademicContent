@@ -34,7 +34,7 @@
           <table class="table table-bordered table-striped table-hover">
 					<tr>
 					   <td><b>Complimentary Course Content</b></td>
-					   <td>[Link](https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content)</td>
+					   <td><a href="https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content">Complimentary Course Content</a></td>
 					   <td>Learning modules to complement existing course instruction. Includes presentations, speaker notes, and hands-on labs.</td>
 					</tr>
 					<tr>
