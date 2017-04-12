@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Azure Notebooks HOL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<p><a name="HOLTitle"></a></p>
+<h1>Building Interactive Notebooks with Azure Notebooks</h1>
+<hr>
+<p><a name="Overview"></a></p>
+<h2>Overview</h2>
+<p><a href="https://notebooks.azure.com/">Azure Notebooks</a> provides a cloud-based solution for editing and running <a href="http://jupyter.org/">Jupyter</a> notebooks. Jupyter is an environment based on <a href="https://ipython.org/">IPython</a> that facilitates interactive programming and data analysis using a variety of programming languages. Jupyter notebooks enjoy widespread use in research and academia for mathematical modeling, machine learning, statistical analysis, and for teaching and learning how to code.</p>
+<p>Notebooks are composed of <em>cells</em>, some of which contain code that runs interactively. Code is executed by a <em>kernel</em>, which provides an isolated environment for the notebook to run in. The popular IPython kernel supports code written in Python, but <a href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">dozens of other kernels</a> are available supporting other languages. Azure Notebooks support Python, R, and F# out of the box. They also support the installation of the numerous packages and libraries that are commonly used in research.</p>
+<p>Azure Notebooks provides Jupyter as a service for free, so anyone can use it. It's a convenient way to build notebooks and share them with others without having to install and manage a Jupyter server. And it's completely Web-based, making it an ideal solution for collaborating online.</p>
+<p><a name="Objectives"></a></p>
+<h3>Objectives</h3>
+<p>In this hands-on lab, you will learn how to:</p>
+<ul>
+<li>Create a notebook in Azure Notebooks</li>
+<li>Upload, manipulate, and visualize data in a notebook</li>
+<li>Create a slideshow from a notebook</li>
+<li>Share notebooks online</li>
+</ul>
+<p><a name="Prerequisites"></a></p>
+<h3>Prerequisites</h3>
+<p>The following are required to complete this hands-on lab:</p>
+<ul>
+<li>A Microsoft Account</li>
+<li>A modern Web browser</li>
+</ul>
+<hr>
+<p><a name="Exercises"></a></p>
+<h2>Exercises</h2>
+<ul>
+<li><a href="#Exercise1">Exercise 1: Create a library and a notebook</a></li>
+<li><a href="#Exercise2">Exercise 2: Upload data and create a scatter plot</a></li>
+<li><a href="#Exercise3">Exercise 3: Perform linear regression with NumPy</a></li>
+<li><a href="#Exercise4">Exercise 4: Perform linear regression with scikit-learn</a></li>
+<li><a href="#Exercise5">Exercise 5: Analyze the data with Seaborn</a></li>
+<li><a href="#Exercise6">Exercise 6: Create a slideshow</a></li>
+<li><a href="#Exercise7">Exercise 7: Share a notebook</a></li>
+</ul>
+<p>Estimated time to complete this lab: <strong>45</strong> minutes.</p>
+<p><a name="Exercise1"></a></p>
+<h2>Exercise 1: Create a library and a notebook</h2>
+<p>The first order of business is to create a library and a notebook to go in it.</p>
+<ol>
+<li>
+<p>Navigate to <a href="https://notebooks.azure.com">https://notebooks.azure.com</a> in your browser and sign in using your Microsoft account. Then click <strong>Libraries</strong>.</p>
+<p><a href="Images/azure-notebooks-1.png" target="_blank"><img src="Images/azure-notebooks-1.png" alt="Navigating to the Libraries page" style="max-width:100%;"></a></p>
+<p><em>Navigating to the Libraries page</em></p>
+</li>
+<li>
+<p>Click <strong>+ New Library</strong>.</p>
+<p><a href="Images/azure-notebooks-2.png" target="_blank"><img src="Images/azure-notebooks-2.png" alt="Adding a library" style="max-width:100%;"></a></p>
+<p><em>Adding a library</em></p>
+</li>
+<li>
+<p>Enter "Notebook HOL" (without quotation marks) for the library name, "notebook-hol" for the library ID, and "Azure Notebook lab" for the library description. Uncheck the <strong>Public Library</strong> box, and then click <strong>Create</strong>.</p>
+<p><a href="Images/azure-notebooks-3.png" target="_blank"><img src="Images/azure-notebooks-3.png" alt="Creating a library" style="max-width:100%;"></a></p>
+<p><em>Creating a library</em></p>
+</li>
+<li>
+<p>Click the library you just added.</p>
+<p><a href="Images/azure-notebooks-4.png" target="_blank"><img src="Images/azure-notebooks-4.png" alt="Opening the library" style="max-width:100%;"></a></p>
+<p><em>Opening the library</em></p>
+</li>
+<li>
+<p>Click <strong>+ New</strong> to add a notebook to the library.</p>
+<p><a href="Images/azure-notebooks-5.png" target="_blank"><img src="Images/azure-notebooks-5.png" alt="Adding a notebook" style="max-width:100%;"></a></p>
+<p><em>Adding a notebook</em></p>
+</li>
+<li>
+<p>Click the <strong>New</strong> tab. Enter "Notebook HOL.ipynb" into the box below for the notebook name and select <strong>Python 3.5</strong> as the language. Then click the <strong>New</strong> button.</p>
+<p><a href="Images/azure-notebooks-6.png" target="_blank"><img src="Images/azure-notebooks-6.png" alt="Creating a notebook" style="max-width:100%;"></a></p>
+<p><em>Creating a notebook</em></p>
+</li>
+<li>
+<p>Click the new notebook. This will launch the notebook in Jupyter and allow you to start editing it.</p>
+<p><a href="Images/azure-notebooks-7.png" target="_blank"><img src="Images/azure-notebooks-7.png" alt="Opening the notebook" style="max-width:100%;"></a></p>
+<p><em>Opening the notebook</em></p>
+</li>
+</ol>
+<p>You can create additional libraries and notebooks as you work with Azure Notebooks. Libraries are essentially a way of grouping related notebooks. You can create notebooks from scratch, or you can upload existing notebooks. In the next exercise, you will build a notebook from scratch and learn the basics of working with cells.</p>
+<p><a name="Exercise2"></a></p>
+<h2>Exercise 2: Upload data and create a scatter plot</h2>
+<p>Jupyter notebooks are composed of <em>cells</em>. Each cell is assigned one of four types:</p>
+<ul>
+<li><strong>Markdown</strong> for entering text in <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">markdown</a> format</li>
+<li><strong>Code</strong> for entering code that runs interactively</li>
+<li><strong>Raw NBConvert</strong> for entering data inline</li>
+<li><strong>Heading</strong> for section headers</li>
+</ul>
+<p>The notebook editor currently shows an empty cell. In this exercise, you will add content to that cell and add other cells to import Python packages such as <a href="http://www.numpy.org/">NumPy</a>, load a pair of NASA data files containing <a href="https://data.giss.nasa.gov/gistemp/graphs_v3/">climate data</a>, and create a scatter plot from the data.</p>
+<ol>
+<li>
+<p>In the first cell, set the cell type to <strong>Markdown</strong> and enter the "Azure Notebook Hands On Lab" into the cell itself:</p>
+<p><a href="Images/jupyter-1.png" target="_blank"><img src="Images/jupyter-1.png" alt="Defining a markdown cell" style="max-width:100%;"></a></p>
+<p><em>Defining a markdown cell</em></p>
+</li>
+<li>
+<p>Click the <strong>+</strong> button in the toolbar to add a new cell. Make sure the cell type is <strong>Code</strong>, and then enter the following Python code into the cell:</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> matplotlib.pyplot <span class="pl-k">as</span> plt
+<span class="pl-k">import</span> numpy <span class="pl-k">as</span> np
+<span class="pl-k">from</span> sklearn.linear_model <span class="pl-k">import</span> LinearRegression
+<span class="pl-k">import</span> seaborn <span class="pl-k">as</span> sns; sns.set()</pre></div>
+<p><a href="Images/jupyter-2.png" target="_blank"><img src="Images/jupyter-2.png" alt="Adding a code cell" style="max-width:100%;"></a></p>
+<p><em>Adding a code cell</em></p>
+</li>
+<li>
+<p>Now click the <strong>Run</strong> button to run the code cell and import the packages specified in the <code>import</code> statements. Ignore any warnings that are displayed as the environment is prepared for the first time.</p>
+<blockquote>
+<p>You can remove the warnings by selecting the code cell and running it again.</p>
+</blockquote>
+<p><a href="Images/jupyter-3.png" target="_blank"><img src="Images/jupyter-3.png" alt="Running a code cell" style="max-width:100%;"></a></p>
+<p><em>Running a code cell</em></p>
+</li>
+<li>
+<p>Click <strong>Data</strong> in the menu at the top of the page, and select <strong>Upload</strong> from the drop-down menu. Then navigate to the "resources" folder of this lab and upload the files named <strong>5-year-mean-1951-1980.csv</strong> and <strong>5-year-mean-1882-2014.csv</strong>.</p>
+<p><a href="Images/upload-data.png" target="_blank"><img src="Images/upload-data.png" alt="Uploading data to the notebook" style="max-width:100%;"></a></p>
+<p><em>Uploading data to the notebook</em></p>
+</li>
+<li>
+<p>Place the cursor in the empty cell at the bottom of the notebook. Enter "Import Data" as the text and change the cell type to <strong>Markdown</strong>.</p>
+</li>
+<li>
+<p>Now add a <strong>Code</strong> cell and paste in the following code.</p>
+<div class="highlight highlight-source-python"><pre>yearsBase, meanBase <span class="pl-k">=</span> np.loadtxt(<span class="pl-s"><span class="pl-pds">'</span>5-year-mean-1951-1980.csv<span class="pl-pds">'</span></span>, <span class="pl-v">delimiter</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>,<span class="pl-pds">'</span></span>, <span class="pl-v">usecols</span><span class="pl-k">=</span>(<span class="pl-c1">0</span>, <span class="pl-c1">1</span>), <span class="pl-v">unpack</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
+years, mean <span class="pl-k">=</span> np.loadtxt(<span class="pl-s"><span class="pl-pds">'</span>5-year-mean-1882-2014.csv<span class="pl-pds">'</span></span>, <span class="pl-v">delimiter</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>,<span class="pl-pds">'</span></span>, <span class="pl-v">usecols</span><span class="pl-k">=</span>(<span class="pl-c1">0</span>, <span class="pl-c1">1</span>), <span class="pl-v">unpack</span><span class="pl-k">=</span><span class="pl-c1">True</span>)</pre></div>
+</li>
+<li>
+<p>Click the <strong>Run</strong> button to run the cell and use NumPy's <code>loadtxt</code> function to load the data that you uploaded. The data is now in memory and can be used by the application.</p>
+<p><a href="Images/jupyter-4.png" target="_blank"><img src="Images/jupyter-4.png" alt="Loading the data" style="max-width:100%;"></a></p>
+<p><em>Loading the data</em></p>
+</li>
+<li>
+<p>Place the cursor in the empty cell at the bottom of the notebook. Change the cell type to <strong>Markdown</strong> and enter "Create a scatter plot" as the text.</p>
+</li>
+<li>
+<p>Add a <strong>Code</strong> cell and paste in the following code, which uses <a href="http://matplotlib.org/">Mapplotlib</a> to create a scatter plot.</p>
+<div class="highlight highlight-source-python"><pre>plt.scatter(yearsBase, meanBase)
+plt.title(<span class="pl-s"><span class="pl-pds">'</span>scatter plot of mean temp difference vs year<span class="pl-pds">'</span></span>)
+plt.xlabel(<span class="pl-s"><span class="pl-pds">'</span>years<span class="pl-pds">'</span></span>, <span class="pl-v">fontsize</span><span class="pl-k">=</span><span class="pl-c1">12</span>)
+plt.ylabel(<span class="pl-s"><span class="pl-pds">'</span>mean temp difference<span class="pl-pds">'</span></span>, <span class="pl-v">fontsize</span><span class="pl-k">=</span><span class="pl-c1">12</span>)<span class="pl-bu">;</span>
+plt.show()</pre></div>
+</li>
+<li>
+<p>Click <strong>Run</strong> to run the cell and create a scatter plot.</p>
+<p><a href="Images/scatter-plot.png" target="_blank"><img src="Images/scatter-plot.png" alt="Scatter plot produced by Matplotlib" style="max-width:100%;"></a></p>
+<p><em>Scatter plot produced by Matplotlib</em></p>
+</li>
+</ol>
+<p>The data set that you loaded uses a 30-year mean between 1951 and 1980 to calculate a base temperature for that period, and then uses 5-year mean temperatures to calculate the difference between the 5-year mean and the 30-year mean for each year. The scatter plot shows the annual temperature differences.</p>
+<p><a name="Exercise3"></a></p>
+<h2>Exercise 3: Perform linear regression with NumPy</h2>
+<p>Scatter plots offer a handy means for visualizing data, but suppose you wanted to overlay the scatter plot with a trend line showing how the data is trending over time. One way to compute such trend lines is <a href="https://en.wikipedia.org/wiki/Linear_regression">linear regression</a>. In this exercise, you will use NumPy to perform a linear regression and Matplotlib to draw a trend line from the data.</p>
+<ol>
+<li>
+<p>Place the cursor in the empty cell at the bottom of the notebook. Change the cell type to <strong>Markdown</strong> and enter "Perform linear regression" as the text.</p>
+</li>
+<li>
+<p>Add a <strong>Code</strong> cell and paste in the following code. Take a moment to read the comments (the lines that begin with # signs) to understand what the code is doing.</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-c"><span class="pl-c">#</span> Creates a linear regression from the data points</span>
+m,b <span class="pl-k">=</span> np.polyfit(yearsBase, meanBase, <span class="pl-c1">1</span>)
+
+<span class="pl-c"><span class="pl-c">#</span> This is a simple y = mx + b line function</span>
+<span class="pl-k">def</span> <span class="pl-en">f</span>(<span class="pl-smi">x</span>):
+    <span class="pl-k">return</span> m<span class="pl-k">*</span>x <span class="pl-k">+</span> b
+
+<span class="pl-c"><span class="pl-c">#</span> This generates the same scatter plot as before, but adds a line plot using the function above</span>
+plt.scatter(yearsBase, meanBase)
+plt.plot(yearsBase, f(yearsBase))
+plt.title(<span class="pl-s"><span class="pl-pds">'</span>scatter plot of mean temp difference vs year<span class="pl-pds">'</span></span>)
+plt.xlabel(<span class="pl-s"><span class="pl-pds">'</span>years<span class="pl-pds">'</span></span>, <span class="pl-v">fontsize</span><span class="pl-k">=</span><span class="pl-c1">12</span>)
+plt.ylabel(<span class="pl-s"><span class="pl-pds">'</span>mean temp difference<span class="pl-pds">'</span></span>, <span class="pl-v">fontsize</span><span class="pl-k">=</span><span class="pl-c1">12</span>)<span class="pl-bu">;</span>
+plt.show()
+
+<span class="pl-c"><span class="pl-c">#</span> Prints text to the screen showing the computed values of m and b</span>
+<span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">'</span> y = <span class="pl-c1">{0}</span> * x + <span class="pl-c1">{1}</span><span class="pl-pds">'</span></span>.format(m, b))
+plt.show()</pre></div>
+</li>
+<li>
+<p>Now run the cell to display a scatter plot with a regression line.</p>
+<p><a href="Images/num-py-regression.png" target="_blank"><img src="Images/num-py-regression.png" alt="Scatter plot with regression line" style="max-width:100%;"></a></p>
+<p><em>Scatter plot with regression line</em></p>
+</li>
+</ol>
+<p>From the regression line, you can see that the difference between 30-year mean temperatures and 5-year mean temperatures is increasing over time.  Most of the computational work required to generate the regression line was performed by NumPy's <code>polyfit</code> function, which computed the values of <code>m</code> and <code>b</code> in the equation y = mx + b.</p>
+<p><a name="Exercise4"></a></p>
+<h2>Exercise 4: Perform linear regression with scikit-learn</h2>
+<p>Another popular Python library that is widely used in the research community is <a href="http://scikit-learn.org/stable/">scikit-learn</a>, which excels at building machine-learning models to help extract information from data. In this exercise, you will use scikit-learn (which was already imported in <a href="#Exercise2">Exercise 2</a>) to compute a trend line for the NASA climate data.</p>
+<ol>
+<li>
+<p>Place the cursor in the empty cell at the bottom of the notebook. Change the cell type to <strong>Markdown</strong> and enter "Perform linear regression with scikit-learn" as the text.</p>
+</li>
+<li>
+<p>Add a <strong>Code</strong> cell and paste in the following code.</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-c"><span class="pl-c">#</span> Pick the Linear Regression model and instantiate it</span>
+model <span class="pl-k">=</span> LinearRegression(<span class="pl-v">fit_intercept</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
+
+<span class="pl-c"><span class="pl-c">#</span> Fit/build the model</span>
+model.fit(yearsBase[:, np.newaxis], meanBase)
+mean_predicted <span class="pl-k">=</span> model.predict(yearsBase[:, np.newaxis])
+
+<span class="pl-c"><span class="pl-c">#</span> Generate a plot like the one in the previous exercise </span>
+plt.scatter(yearsBase, meanBase)
+plt.plot(yearsBase, mean_predicted)
+plt.title(<span class="pl-s"><span class="pl-pds">'</span>scatter plot of mean temp difference vs year<span class="pl-pds">'</span></span>)
+plt.xlabel(<span class="pl-s"><span class="pl-pds">'</span>years<span class="pl-pds">'</span></span>, <span class="pl-v">fontsize</span><span class="pl-k">=</span><span class="pl-c1">12</span>)
+plt.ylabel(<span class="pl-s"><span class="pl-pds">'</span>mean temp difference<span class="pl-pds">'</span></span>, <span class="pl-v">fontsize</span><span class="pl-k">=</span><span class="pl-c1">12</span>)<span class="pl-bu">;</span>
+plt.show()
+
+<span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">'</span> y = <span class="pl-c1">{0}</span> * x + <span class="pl-c1">{1}</span><span class="pl-pds">'</span></span>.format(model.coef_[<span class="pl-c1">0</span>], model.intercept_))</pre></div>
+</li>
+<li>
+<p>Now run the cell to display a scatter plot with a regression line.</p>
+<p><a href="Images/sklearn-regression.png" target="_blank"><img src="Images/sklearn-regression.png" alt="Scatter plot with regression line computed by sckikit-learn" style="max-width:100%;"></a></p>
+<p><em>Scatter plot with regression line computed by sckikit-learn</em></p>
+</li>
+</ol>
+<p>The output is almost identical to the output in the previous exercise. The difference is that scikit-learn did more of the work for you. Specifically, you didn't have to code a line function as you did with NumPy; scikit-learn's <code>LinearRegression</code> function did it for you. scikit-learn supports <em>many</em> different types of regression, which comes in handy when building sophisticated machine-learning models.</p>
+<p><a name="Exercise5"></a></p>
+<h2>Exercise 5: Analyze the data with Seaborn</h2>
+<p>One of the cool things about Azure Notebooks — and Python in general — is that there are thousands of open-source libraries you can leverage to perform complex tasks without writing a lot of code. In this exercise, you will use <a href="https://seaborn.pydata.org/">Seaborn</a>, a library for statistical visualization, to plot the second of the two data sets you loaded, which covers the years 1882 to 2014. Seaborn can create a regression line accompanied by a projection showing where data points should fall based on the regression with one simple function call.</p>
+<ol>
+<li>
+<p>Place the cursor in the empty cell at the bottom of the notebook. Change the cell type to <strong>Markdown</strong> and enter "Perform linear regression with Seaborn" as the text.</p>
+</li>
+<li>
+<p>Add a <strong>Code</strong> cell and paste in the following code.</p>
+<div class="highlight highlight-source-python"><pre>plt.scatter(years, mean)
+plt.title(<span class="pl-s"><span class="pl-pds">'</span>scatter plot of mean temp difference vs year<span class="pl-pds">'</span></span>)
+plt.xlabel(<span class="pl-s"><span class="pl-pds">'</span>years<span class="pl-pds">'</span></span>, <span class="pl-v">fontsize</span><span class="pl-k">=</span><span class="pl-c1">12</span>)
+plt.ylabel(<span class="pl-s"><span class="pl-pds">'</span>mean temp difference<span class="pl-pds">'</span></span>, <span class="pl-v">fontsize</span><span class="pl-k">=</span><span class="pl-c1">12</span>)<span class="pl-bu">;</span>
+sns.regplot(yearsBase, meanBase)
+plt.show()</pre></div>
+</li>
+<li>
+<p>Run the code cell to produce a scatter chart with a regression line <em>and</em> a visual representation of the range in which the data points are expected to fall.</p>
+<p><a href="Images/seaborn-regression.png" target="_blank"><img src="Images/seaborn-regression.png" alt="Comparison of actual values and predicted values generated with Seaborn" style="max-width:100%;"></a></p>
+<p><em>Comparison of actual values and predicted values generated with Seaborn</em></p>
+</li>
+</ol>
+<p>Notice how the how the data points for the first 100 years conform nicely to the predicted values, but the data points from roughly 1980 forward do not. It is models such as these that lead scientists to believe that climate change is accelerating.</p>
+<p><a name="Exercise6"></a></p>
+<h2>Exercise 6: Create a slideshow</h2>
+<p>What if you wanted to take a notebook you've created and use it in a presentation? You can use create slideshows from the cells in a notebook and play them back when it's presentation time. In this exercise, you will create a slideshow from the notebook you built in the previous exercises.</p>
+<ol>
+<li>
+<p>Scroll up to the top of the notebook. Then select <strong>View</strong> -&gt; <strong>Cell Toolbar</strong> -&gt; <strong>Slideshow</strong>. This will display a <strong>Slide Type</strong> drop-down in each cell for specifying how individual cells behave during a slide show.</p>
+<p><a href="Images/slideshow-1.png" target="_blank"><img src="Images/slideshow-1.png" alt="Toggling the Slide Type display" style="max-width:100%;"></a></p>
+<p><em>Toggling the Slide Type display</em></p>
+</li>
+<li>
+<p>Set the <strong>Slide Type</strong> for each markdown slide in the notebook to <strong>Slide</strong>. Set the <strong>Slide Type</strong> for each code cell to <strong>Fragment</strong>.</p>
+<p><a href="Images/slideshow-2.png" target="_blank"><img src="Images/slideshow-2.png" alt="Specifying the slide type for individual cells" style="max-width:100%;"></a></p>
+<p><em>Specifying the slide type for individual cells</em></p>
+</li>
+<li>
+<p>Click the <strong>Slideshow</strong> button to play the slide show.</p>
+<p><a href="Images/slideshow-3.png" target="_blank"><img src="Images/slideshow-3.png" alt="Starting the slideshow" style="max-width:100%;"></a></p>
+<p><em>Starting the slideshow</em></p>
+</li>
+<li>
+<p>Maximize the browser window (or switch the browser to full-screen mode if your browser supports it). Then use the arrow buttons in the lower-right corner of the page (or the left and right arrows keys on the keyboard) to navigate backward and forward in the slideshow.</p>
+<p><a href="Images/slideshow-4.png" target="_blank"><img src="Images/slideshow-4.png" alt="Viewing the slideshow" style="max-width:100%;"></a></p>
+<p><em>Viewing the slideshow</em></p>
+</li>
+<li>
+<p>When you're finished, click the <strong>X</strong> in the upper-left corner of the page to end the slideshow.</p>
+</li>
+</ol>
+<p>Creating slideshows is easy. But what if you want to share a notebook with colleagues so they can use it, too? That is the subject of the next exercise.</p>
+<p><a name="Exercise7"></a></p>
+<h2>Exercise 7: Share a notebook</h2>
+<p>One of the value-added features of Azure Notebooks is that it provides a cloud-based hub for sharing notebooks. In this exercise, you will share the notebook you created in previous exercises.</p>
+<ol>
+<li>
+<p>Select <strong>File</strong> -&gt; <strong>Close and Halt</strong> to close the notebook.</p>
+<p><a href="Images/share-1.png" target="_blank"><img src="Images/share-1.png" alt="Closing the notebook" style="max-width:100%;"></a></p>
+<p><em>Closing the notebook</em></p>
+</li>
+<li>
+<p>Click <strong>Edit</strong> to edit the library.</p>
+<p><a href="Images/share-2.png" target="_blank"><img src="Images/share-2.png" alt="Editing the library" style="max-width:100%;"></a></p>
+<p><em>Editing the library</em></p>
+</li>
+<li>
+<p>Check the <strong>Public Library</strong> box to make the library public, and then click <strong>Save</strong>.</p>
+<p><a href="Images/share-3.png" target="_blank"><img src="Images/share-3.png" alt="Making the library public" style="max-width:100%;"></a></p>
+<p><em>Making the library public</em></p>
+</li>
+<li>
+<p>Click <strong>Share</strong>.</p>
+<p><a href="Images/share-4.png" target="_blank"><img src="Images/share-4.png" alt="Sharing the library" style="max-width:100%;"></a></p>
+<p><em>Sharing the library</em></p>
+</li>
+<li>
+<p>Notebooks can be shared by links, on social media, and through email. To demonstrate, click <strong>Copy to clipboard</strong> to copy a link to the notebook to the clipboard. Then paste the link into a separate browser window and confirm that the notebook appears there. Finish up by clicking <strong>Close</strong> to close the share dialog.</p>
+<p><a href="Images/share-5.png" target="_blank"><img src="Images/share-5.png" alt="Sharing by link" style="max-width:100%;"></a></p>
+<p><em>Sharing by link</em></p>
+</li>
+<li>
+<p>Another way to share a notebook is to download it as a .ipynb file and send the .ipynb file to whomever you wish to share it with. To download the notebook, click <strong>Download</strong>.</p>
+<p><a href="Images/share-6.png" target="_blank"><img src="Images/share-6.png" alt="Downloading a notebook" style="max-width:100%;"></a></p>
+<p><em>Downloading a notebook</em></p>
+</li>
+</ol>
+<p>Downloading .ipynb files is also useful for making local copies of your notebooks. You can even run them in other Jupyter environments if you would like because there is nothing proprietary about Azure Notebooks.</p>
+<p><a name="Summary"></a></p>
+<h2>Summary</h2>
+<p>The <a href="https://notebooks.azure.com/">Azure Notebooks Web site</a> contains several sample notebooks that you can experiment with and learn from. <a href="https://notebooks.azure.com/n/BDeKVbbN2r4/notebooks/Discover%20Sentiments%20in%20Tweets.ipynb">Discover Sentiments in Tweets</a> performs sentiment analysis on 160,000 tweets, and uses the <a href="https://github.com/amueller/word_cloud">word_cloud</a> package to generate word clouds from the tweets. <a href="https://notebooks.azure.com/n/TV1nKhrt0gk/tree">Introduction to Cognitive Toolkit</a> is a library of notebooks that demonstrate how to use the <a href="https://www.microsoft.com/en-us/research/product/cognitive-toolkit/">Microsoft Cognitive Toolkit</a> to build sophisticated machine-learning models. Check out the Azure Notebooks home page for additional sample notebooks, and use them to deepen your understanding of Jupyter and sharpen your data-science skills.</p>
+<hr>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

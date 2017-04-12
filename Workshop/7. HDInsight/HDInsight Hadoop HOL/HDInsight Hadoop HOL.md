@@ -40,12 +40,12 @@ This hands-on lab includes the following exercises:
 - [Exercise 2: Connect to the cluster via SSH](#Exercise2)
 - [Exercise 3: Analyze an Apache log file with Hive](#Exercise3)
 - [Exercise 4: Use MapReduce to analyze a text file with Python](#Exercise4)
-- [Exercise 5: Delete the HDInsight cluster](#Exercise5)
+- [Exercise 5: Delete the Hadoop cluster](#Exercise5)
 
 Estimated time to complete this lab: **45** minutes.
 
 <a name="Exercise1"></a>
-## Exercise 1: Deploy an HDInsight Hadoop cluster on Linux
+## Exercise 1: Deploy an HDInsight Hadoop cluster on Linux ##
 
 In this exercise, you will use the Azure Portal to deploy an HDInsight Hadoop cluster with Linux installed on the cluster's nodes.
 
@@ -57,62 +57,78 @@ In this exercise, you will use the Azure Portal to deploy an HDInsight Hadoop cl
 
     _Creating an HDInsight cluster_
 
-1. In the **Cluster name** box, enter a unique DNS name for the cluster and make sure a green check mark appears next to it indicating that the name is valid and unique.
+1. In the **Cluster Name** box, enter a unique DNS name for the cluster and make sure a green check mark appears next to it indicating that the name is valid and unique.
 
-	> In case someone else in the lab selects the same name, try to make it as unique as possible by including birth dates, initials, and anything else you care to add. The name you entered may be unique right now, but it might NOT be unique a few minutes into the deployment.
+	> In case someone else in the lab selects the same cluster name, make it as unique as possible by including birth dates, initials, and anything else you care to add. The name you entered may be unique right now, but it might NOT be unique a few minutes into the deployment.
 
-    ![Specifying the cluster name](Images/cluster-name.png)
+	Enter "Azure4Research!" (without quotation marks) for **Cluster login password**. Select **Create new** under **Resource group** and enter the resource-group name "HadoopLabResourceGroup" (once more, without quotation marks). Select the **Location** nearest you, and then click **Cluster type** to open a "Cluster configuration" blade.
 
-    _Specifying the cluster name_
+    ![Entering basic cluster settings](Images/hadoop-basic.png)
 
-1. Click **Cluster configuration**. Then, in the ensuing blade, select **Hadoop** as the **Cluster type** and **Linux** as the **Operating system**, and accept the default version of Hadoop offered to you. Make sure **Standard** is selected as the **Cluster tier**, and finish up by clicking the **Select** button at the bottom of the blade.
+    _Entering basic cluster settings_
 
-    ![Specifying the cluster type](Images/cluster-type.png)
+1. Select **Hadoop** as the **Cluster type**. Make sure **Linux** is selected as the **Operating system**, and accept the default Hadoop version on the right. Make sure **Cluster tier** is set to **Standard**. Click the **Select** button at the bottom of the blade, and then finish up by clicking the **Next** button at the bottom of the "Basics" blade.
 
-    _Specifying the cluster type_
+    ![Entering cluster-configuration settings](Images/hadoop-cluster-configuration.png)
 
-1. Click **Applications** and select **StreamSets Data Collector for HI**. Accept the legal terms presented to you, and then click the **Select** button at the bottom of the blade.
+    _Entering cluster-configuration settings_
 
-    ![Specifying the installed applications](Images/cluster-applications.png)
+1. Make sure **Primary storage type** is set to **Azure Storage** and **Selection method** is set to **My subscriptions**. Then enter a unique storage account name, once more making it as unique as possible by including birth dates or other information. Type "hadooplab" into the **Default container** box, and then click **Next**.
 
-    _Specifying the installed applications_
+	> These settings apply to the storgage account that is provisioned along with the cluster. The storage account contains the cluster's file system and the software installed inside.
 
-1. Click **Credentials** to open a "Cluster credentials" blade. Leave **Cluster login username** set to "admin" and set the **Cluster login password** to "Had00pdemo!" without quotation marks. (The fourth and fifth characters are zeroes, not capital Os.) Enter "sshuser" (without quotation marks) for the **SSH Username**, make sure **SSH Authentication Type** is set to **PASSWORD**, and enter "Had00pdemo!" (again without quotation marks) again for the **SSH password**. Then click the **Select** button at the bottom of the blade.
+    ![Entering cluster-storage settings](Images/hadoop-storage.png)
 
-    ![Specifying cluster credentials](Images/cluster-credentials.png)
+    _Entering cluster-storage settings_
 
-    _Specifying cluster credentials_
+1. Click the **Edit** link next to **Applications**.
 
-1. Click **Data source** to open a "Data source" blade. Set **Selection method** to **From all subscriptions** and enter a unique storage-account name in the box below **Create a new Storage account**. (Once more, try to make the name as unique as possible by including birth dates or other values that aren't likely to be used by someone else. You can use lowercase letters, numbers, and hyphens in the storage-account name. Make sure a green check mark appears indicating that the name is valid and unique) For **Default container**, enter "hadoop" (without quotation marks). Select the **Location** nearest you, and then click the **Select** button at the bottom of the blade.
+    ![Editing installed applications](Images/hadoop-summary.png)
 
-    ![Specifying the data source](Images/data-source.png)
+    _Editing installed applications_
 
-    _Specifying the data source_
+1. Select **StreamSets Data Collector for HI**. Then click **Legal terms** in the "Streamsets Data Collector" blade and the **Purchase** button in the "Purchase" blade. Finish up by clicking **OK** at the bottom of the "Streamsets Data Collector" blade and **Next** at the bottom of the "Applications" blade.
 
-1. Click **Cluster size** to open a "Pricing" blade. Make sure **Number of Worker nodes** is set to **4** and accept the default values everywhere else. Then click the **Select** button at the bottom of the blade.
+    ![Installing Streamsets Data Collector](Images/hadoop-applications.png)
 
-    ![Specifying the pricing](Images/cluster-size.png)
+    _Installing Streamsets Data Collector_
 
-    _Specifying the pricing_
+1. Click **Next** at the bottom of the "Cluster size" blade. By accepting the defaults, you are deploying a cluster that contains two head nodes and four worker nodes. If you would like to change the number of nodes or the sizes of the nodes, you may do so in this blade.
 
-1. Select **Create new** under **Resource group** and enter "HadoopLabResourceGroup" (without quotation marks) as the resource-group name. Then click the **Create** button at the bottom of the blade to begin deploying the cluster.
+    ![Specifying the cluster size](Images/hadoop-cluster-size.png)
 
-    ![Specifying a resource group and creating the cluster](Images/resource-group.png)
+    _Specifying the cluster size_
 
-    _Specifying a resource group and creating the cluster_
+1. Click **Next** at the bottom of the "Advanced settings" blade.
 
-1. Deploying an HDInsight cluster can take 20 minutes or more. You can monitor the status of the deployment by opening the resource group's blade. Click **Resource group** in the ribbon on the left side of the portal, and then click the resource group name ("HadoopLabResourceGroup") to open the blade. "Deploying" will change to "Succeeded" when the deployment has completed successfully.
+    ![Specifying advanced settings](Images/hadoop-advanced-settings.png)
 
-	> Click the browser's **Refresh** button every few minutes to update the deployment status. Clicking the **Refresh** button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.
+    _Specifying advanced settings_
 
-    ![Checking the deployment](Images/deployment-status.png)
+1. Review the cluster settings and make sure everything is correct. Then click **Create** to begin deploying the cluster.
 
-     _Monitoring the deployment_
+    ![Reviewing cluster settings](Images/hadoop-summary-2.png)
+
+    _Reviewing cluster settings_
+
+1. Click **Resource groups** in the ribbon on the left side of the portal, and then click the resource group created for the HDInsight cluster.
+ 
+    ![Opening the resource group](Images/open-resource-group.png)
+
+    _Opening the resource group_
+
+1. Deploying an HDInsight cluster can take 15 minutes or more. Wait until "Deploying" changes to "Succeeded," indicating that the cluster has been deployed.
+
+	> Refresh the page in the browser periodically to update the deployment status. Clicking the **Refresh** button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.
+
+    ![Viewing the deployment status](Images/deployment-status.png)
+
+    _Viewing the deployment status_
 
 In this exercise, you learned how to provision an HDInsight Hadoop cluster on Azure, and about some of the options you can choose from when doing so. Wait for the deployment to finish, and then proceed to the next exercise.
 
 <a name="Exercise2"></a>
-## Exercise 2: Connect to the cluster via SSH
+## Exercise 2: Connect to the cluster via SSH ##
 
 Before you can run jobs on the Hadoop cluster, you need to open an SSH connection to it so you can execute commands on the cluster. In this exercise, you will remote into the cluster via SSH using the **ssh** command if you are running macOS or Linux, or PuTTY if you are running Windows. If you are a Windows user and haven't installed PuTTY, take the time to [install it now](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -136,7 +152,7 @@ Before you can run jobs on the Hadoop cluster, you need to open an SSH connectio
 	A PuTTY terminal window will appear and prompt you for a password. Enter the SSH password ("Had00pdemo!") you specified when you created the cluster and press **Enter**.
 
 <a name="Exercise3"></a>
-## Exercise 3: Analyze an Apache log file with Hive
+## Exercise 3: Analyze an Apache log file with Hive ##
 
 In this exercise, you will use [Apache Hive](https://cwiki.apache.org/confluence/display/Hive?src=sidebar) and the HiveQL query language to query a sample Apache log4j log file that was created along with the cluster. Apache Hive is a data-warehouse infrastructure built on top of Hadoop that facilitates summarizing, querying, and analyzing data. It supports a SQL-like interface for querying data stores that integrate with Hadoop, and it allows you to project structure onto data that lacks structure.
 
@@ -202,7 +218,7 @@ In this exercise, you will use [Apache Hive](https://cwiki.apache.org/confluence
 Hive is useful, but executing Hive commands is not all you can do with a Hadoop cluster. In the next exercise, you will learn how to perform MapReduce operations using Python.
 
 <a name="Exercise4"></a>
-## Exercise 4: Use MapReduce to analyze a text file with Python
+## Exercise 4: Use MapReduce to analyze a text file with Python ##
 
 One of the most important algorithms introduced in recent years is Google's [MapReduce](http://research.google.com/archive/mapreduce.html), which facilitates the processing of very large data sets. MapReduce is a two-stage algorithm that relies on a pair of functions: the *map* function, which transforms a set of input data to produce a result, and the *reduce* function, which reduces the results of a map to a scalar value. What makes MapReduce so relevant for big data is that operations can be executed in parallel and independent of the data source. The parallelism facilitates handling massive amounts of data, and the data-source independence means you are not locked into a particular data store such as MySQL or Microsoft SQL Server.
 
@@ -386,27 +402,19 @@ HDInsight, with its underlying Hadoop implementation, allows you to write MapRed
 This exercise showed how to execute streaming MapReduce jobs with HDInsight using a widely used programming language, Python. The next and most important step is to delete the HDInsight cluster so you are not billed for it when it is not being used.
 
 <a name="Exercise5"></a>
-## Exercise 5:  Delete the HDInsight cluster
+## Exercise 5:  Delete the Hadoop cluster ##
 
-As long as the HDInsight clusters you create exist, you are charged for them. Even when the clusters aren't actively processing data, charges are being incurred. Therefore, it behooves you to shut them down when they're no longer needed. Currently, it is not possible to suspend an HDInsight cluster, so your only option is to delete it.
+When you are finished using an HDInsight Hadoop cluster, you should delete it because you are charged for it while it exists, regardless of whether it's doing any work. In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the cluster. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.
 
-Thankfully, it is easy to remove an HDInsight cluster. Deleting a resource group deletes everything in that resource group, including HDInsight clusters and accompanying resources. In this exercise, you will delete the HDInsight cluster that you created in Exercise 1.
+1. In the Azure Portal, open the blade for the "HadoopLabResourceGroup" resource group that holds the cluster. Then click the **Delete** button at the top of the blade.
 
-1. Return to the Azure Portal and click **Resource groups** on the left side of the page. Then click the "HadoopLabResourceGroup" resource group to open it.
+	![Deleting a resource group](Images/delete-resource-group.png)
 
-1. In the blade for the resource group, click the **Delete** button.
+	_Deleting a resource group_
 
-    ![Deleting a resource group](Images/delete-resource-group.png)
+1. For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group. Then click the **Delete** button to remove all traces of this lab from your account.
 
-    _Deleting a resource group_  
-
-1. As a safeguard against accidental deletion, you must type the resource group's name to delete it. Type in the name, and then click the **Delete** button at the bottom of the blade.
-
-    ![Confirming deletion of a resource group](Images/confirm-delete-resource-group.png)
-
-    _Confirming deletion of a resource group_  
-
-After 10 minutes or so, the cluster and all of its associated resources will be deleted. Billing stops when you click the **Delete** button, so you're not charged for the time required to delete the cluster. Similarly, bulling doesn't start until a cluster is fully and successfully deployed.
+After a few minutes, the cluster and all of its resources will be deleted. Billing stops when you click the **Delete** button, so you're not charged for the time required to delete the cluster. Similarly, bulling doesn't start until a cluster is fully and successfully deployed.
 
 <a name="Summary"></a>
 ## Summary ##
@@ -423,4 +431,4 @@ If you have set up hardware clusters of your own and installed and configured Ha
 
 ---
 
-Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
+Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
