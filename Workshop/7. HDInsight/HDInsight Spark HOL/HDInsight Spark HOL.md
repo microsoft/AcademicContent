@@ -75,9 +75,9 @@ In this exercise, you will create an HDInsight cluster running [Apache Spark](ht
 
     _Entering cluster-configuration settings_
 
-1. Make sure **Primary storage type** is set to **Azure Storage** and **Selection method** is set to **My subscriptions**. Then enter a unique storage account name, once more making it as unique as possible by including birth dates or other information. Type "sparklab" into the **Default container** box, and then click **Next**.
+1. Make sure **Primary storage type** is set to **Azure Storage** and **Selection method** is set to **My subscriptions**. Then enter a name for a new storage account in the **Create a new Storage account** box, once more making the name as unique as possible by including birth dates or other information. (If your subscription already contains one or more storage accounts, you will first have to click **Create new** to display the **Create a new Storage account** box.) Type "sparklab" into the **Default container** box, and then click **Next**.
 
-	> These settings apply to the storgage account that is provisioned along with the cluster. The storage account contains the cluster's file system and the software installed inside.
+	> These settings apply to the storage account that is provisioned along with the cluster. The storage account contains the cluster's file system and the software installed inside.
 
     ![Entering cluster-storage settings](Images/spark-storage.png)
 
