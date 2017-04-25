@@ -90,7 +90,7 @@ The first step in writing an Azure Function is to create an Azure Function App. 
 
     _Adding a container_
 
-1. Repeat Steps 7 and 8 to add containers named "accepted" and "rejected" to blob storage.
+1. Repeat Step 7 to add containers named "accepted" and "rejected" to blob storage.
 
 1. Confirm that all three containers were added to blob storage.
 
