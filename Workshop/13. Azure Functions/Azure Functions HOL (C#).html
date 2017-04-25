@@ -520,8 +520,8 @@ vertical-align:1px;
 <blockquote>
 <p>The app name becomes part of a DNS name and therefore must be unique within Azure. Make sure a green check mark appears to the name indicating it is unique. You probably <strong>won't</strong> be able to use "functionslab" as the app name.</p>
 </blockquote>
-<p><a href="Images/function-app-name.png" target="_blank"><img src="Images/function-app-name.png" alt="Naming a Function App" style="max-width:100%;"></a></p>
-<p><em>Naming a Function App</em></p>
+<p><a href="Images/function-app-name.png" target="_blank"><img src="Images/function-app-name.png" alt="Creating a Function App" style="max-width:100%;"></a></p>
+<p><em>Creating a Function App</em></p>
 </li>
 <li>
 <p>Click <strong>Resource groups</strong> in the ribbon on the left side of the portal, and then click the resource group created for the Function App.</p>
@@ -542,17 +542,12 @@ vertical-align:1px;
 <p><em>Opening blob storage</em></p>
 </li>
 <li>
-<p>Click <strong>+ Container</strong> to add a container.</p>
+<p>Click <strong>+ Container</strong>. Type "uploaded" into the <strong>Name</strong> box and set <strong>Access type</strong> to <strong>Private</strong>. Then click the <strong>OK</strong> button to create a new container.</p>
 <p><a href="Images/add-container.png" target="_blank"><img src="Images/add-container.png" alt="Adding a container" style="max-width:100%;"></a></p>
 <p><em>Adding a container</em></p>
 </li>
 <li>
-<p>Type "uploaded" into the <strong>Name</strong> box. Then click the <strong>Create</strong> button to create the container.</p>
-<p><a href="Images/name-container.png" target="_blank"><img src="Images/name-container.png" alt="Naming the container" style="max-width:100%;"></a></p>
-<p><em>Naming the container</em></p>
-</li>
-<li>
-<p>Repeat Steps 8 and 9 to add containers named "accepted" and "rejected" to blob storage.</p>
+<p>Repeat Steps 7 and 8 to add containers named "accepted" and "rejected" to blob storage.</p>
 </li>
 <li>
 <p>Confirm that all three containers were added to blob storage.</p>
@@ -571,8 +566,13 @@ vertical-align:1px;
 <p><em>Opening the Function App</em></p>
 </li>
 <li>
-<p>Click <strong>+ New Function</strong> and set <strong>Language</strong> to <strong>C#</strong>. Then click <strong>BlobTrigger-CSharp</strong>.</p>
-<p><a href="Images/function-app-select-template.png" target="_blank"><img src="Images/function-app-select-template.png" alt="Selecting a function template" style="max-width:100%;"></a></p>
+<p>Click the <strong>+</strong> sign to the right of <strong>Functions</strong>. Then click <strong>Custom function</strong>.</p>
+<p><a href="Images/add-function.png" target="_blank"><img src="Images/add-function.png" alt="Adding a function" style="max-width:100%;"></a></p>
+<p><em>Adding a function</em></p>
+</li>
+<li>
+<p>Set <strong>Language</strong> to <strong>C#</strong>. Then click <strong>BlobTrigger-CSharp</strong>.</p>
+<p><a href="Images/cs-select-template.png" target="_blank"><img src="Images/cs-select-template.png" alt="Selecting a function template" style="max-width:100%;"></a></p>
 <p><em>Selecting a function template</em></p>
 </li>
 <li>
@@ -648,13 +648,13 @@ vertical-align:1px;
             <span class="pl-c">// Get the blob attributes</span>
             blob.FetchAttributes();
             
-			<span class="pl-c">// Write the blob metadata</span>
+            <span class="pl-c">// Write the blob metadata</span>
             blob.Metadata[<span class="pl-s"><span class="pl-pds">"</span>isAdultContent<span class="pl-pds">"</span></span>] = info.adult.isAdultContent.ToString(); 
             blob.Metadata[<span class="pl-s"><span class="pl-pds">"</span>adultScore<span class="pl-pds">"</span></span>] = info.adult.adultScore.ToString(<span class="pl-s"><span class="pl-pds">"</span>P0<span class="pl-pds">"</span></span>).Replace(<span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>); 
             blob.Metadata[<span class="pl-s"><span class="pl-pds">"</span>isRacyContent<span class="pl-pds">"</span></span>] = info.adult.isRacyContent.ToString(); 
             blob.Metadata[<span class="pl-s"><span class="pl-pds">"</span>racyScore<span class="pl-pds">"</span></span>] = info.adult.racyScore.ToString(<span class="pl-s"><span class="pl-pds">"</span>P0<span class="pl-pds">"</span></span>).Replace(<span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>); 
             
-			<span class="pl-c">// Save the blob metadata</span>
+            <span class="pl-c">// Save the blob metadata</span>
             blob.SetMetadata();
         }
     }
@@ -692,13 +692,13 @@ vertical-align:1px;
 </blockquote>
 </li>
 <li>
-<p>Click the <strong>Save</strong> button at the top of the code editor to save your changes. The click <strong>View Files</strong>.</p>
-<p><a href="Images/save-run-file.png" target="_blank"><img src="Images/save-run-file.png" alt="Saving the function" style="max-width:100%;"></a></p>
+<p>Click the <strong>Save</strong> button at the top of the code editor to save your changes. Then click <strong>View files</strong>.</p>
+<p><a href="Images/cs-save-run-csx.png" target="_blank"><img src="Images/cs-save-run-csx.png" alt="Saving the function" style="max-width:100%;"></a></p>
 <p><em>Saving the function</em></p>
 </li>
 <li>
 <p>Click <strong>+ Add</strong> to add a new file, and name the file <strong>project.json</strong>.</p>
-<p><a href="Images/add-project-file.png" target="_blank"><img src="Images/add-project-file.png" alt="Adding a project file" style="max-width:100%;"></a></p>
+<p><a href="Images/cs-add-project-file.png" target="_blank"><img src="Images/cs-add-project-file.png" alt="Adding a project file" style="max-width:100%;"></a></p>
 <p><em>Adding a project file</em></p>
 </li>
 <li>
@@ -715,11 +715,11 @@ vertical-align:1px;
 </li>
 <li>
 <p>Click the <strong>Save</strong> button to save your changes. Then click <strong>run.csx</strong> to go back to that file in the code editor.</p>
-<p><a href="Images/save-project-file.png" target="_blank"><img src="Images/save-project-file.png" alt="Saving the project file" style="max-width:100%;"></a></p>
+<p><a href="Images/cs-save-project-file.png" target="_blank"><img src="Images/cs-save-project-file.png" alt="Saving the project file" style="max-width:100%;"></a></p>
 <p><em>Saving the project file</em></p>
 </li>
 </ol>
-<p>An Azure Function written in C# has been created, complete with a JSON project file containing information regarding project dependencies. The next step is to add an application setting that Azure Function relies on.</p>
+<p>An Azure Function written in C# has been created, complete with a JSON project file containing information regarding project dependencies. The next step is to add an application setting that the Azure Function relies on.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Add a subscription key to application settings</h2>
 <p>The Azure Function you created in <a href="#Exercise2">Exercise 2</a> loads a subscription key for the Microsoft Cognitive Services Computer Vision API from application settings. This key is required in order for your code to call the Computer Vision API, and is transmitted in an HTTP header in each call. In this exercise, you will add an application setting containing the subscription key to the Function App.</p>
@@ -730,29 +730,19 @@ vertical-align:1px;
 <p><em>Copying the subscription key to the clipboard</em></p>
 </li>
 <li>
-<p>Return to your Function App in the Azure Portal and click <strong>Function app settings</strong> in the lower-left corner of the function designer.</p>
-<p><a href="Images/function-app-select-app-settings.png" target="_blank"><img src="Images/function-app-select-app-settings.png" alt="Viewing Function App settings" style="max-width:100%;"></a></p>
-<p><em>Viewing Function App settings</em></p>
+<p>Return to the Function App in the Azure Portal and click the function name in the ribbon on the left. Then click <strong>Platform features</strong>, followed by <strong>Application settings</strong>.</p>
+<p><a href="Images/open-app-settings.png" target="_blank"><img src="Images/open-app-settings.png" alt="Viewing application settings" style="max-width:100%;"></a></p>
+<p><em>Viewing application settings</em></p>
 </li>
 <li>
-<p>Scroll down the page and click <strong>Go to App Service Settings</strong>.</p>
-<p><a href="Images/open-app-service-settings.png" target="_blank"><img src="Images/open-app-service-settings.png" alt="Viewing App Service settings" style="max-width:100%;"></a></p>
-<p><em>Viewing App Service settings</em></p>
-</li>
-<li>
-<p>Click <strong>Application settings</strong>. Then scroll down until you find the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the <strong>Value</strong> box. Then click <strong>Save</strong> at the top of the blade.</p>
+<p>Scroll down to the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the <strong>Value</strong> box. Then click <strong>Save</strong> at the top of the blade.</p>
 <p><a href="Images/add-key.png" target="_blank"><img src="Images/add-key.png" alt="Adding a subscription key" style="max-width:100%;"></a></p>
 <p><em>Adding a subscription key</em></p>
 </li>
 <li>
-<p>The app settings are now configured for your Azure Function. It's a good idea to validate those settings by recompiling the function and ensuring that it compiles without errors. Scroll left until you see the "Function app" blade, and then click <strong>BlobImageAnalysis</strong>.</p>
-<p><a href="Images/open-function.png" target="_blank"><img src="Images/open-function.png" alt="Opening the function" style="max-width:100%;"></a></p>
-<p><em>Opening the function</em></p>
-</li>
-<li>
-<p>Make sure <strong>Develop</strong> is selected. Then click <strong>Run</strong> to recompile and run the function. Confirm that "Compilation succeeded" appears in the output log.</p>
-<p><a href="Images/function-recompile.png" target="_blank"><img src="Images/function-recompile.png" alt="Recompiling the function" style="max-width:100%;"></a></p>
-<p><em>Recompiling the function</em></p>
+<p>The app settings are now configured for your Azure Function. It's a good idea to validate those settings by running the function and ensuring that it compiles without errors. Click <strong>BlobImageAnalysis</strong>. Then click <strong>Run</strong> to compile and run the function. Confirm that "Compilation succeeded" appears in the output log, and ignore any exceptions that are reported.</p>
+<p><a href="Images/cs-run-function.png" target="_blank"><img src="Images/cs-run-function.png" alt="Compiling the function" style="max-width:100%;"></a></p>
+<p><em>Compiling the function</em></p>
 </li>
 </ol>
 <p>The work of writing and configuring the Azure Function is complete. Now comes the fun part: testing it out.</p>
@@ -800,18 +790,13 @@ vertical-align:1px;
 <blockquote>
 <p>It may take a minute or more for all of the images to appear in the container. If necessary, click <strong>Refresh</strong> every few seconds until you see all seven images.</p>
 </blockquote>
-<p><a href="Images/accepted-images.png" target="_blank"><img src="Images/accepted-images.png" alt="Images uploaded to the &quot;accepted&quot; container" style="max-width:100%;"></a></p>
-<p><em>Images uploaded to the "accepted" container</em></p>
+<p><a href="Images/accepted-images.png" target="_blank"><img src="Images/accepted-images.png" alt="Images in the &quot;accepted&quot; container" style="max-width:100%;"></a></p>
+<p><em>Images in the "accepted" container</em></p>
 </li>
 <li>
-<p>Close the blade for the "accepted" container and open the blade for the "rejected" container.</p>
-<p><a href="Images/open-rejected-container.png" target="_blank"><img src="Images/open-rejected-container.png" alt="Opening the &quot;rejected&quot; container" style="max-width:100%;"></a></p>
-<p><em>Opening the "rejected" container</em></p>
-</li>
-<li>
-<p>Verify that the "rejected" container holds one image. <strong>This image was classified as adult or racy (or both) by the Computer Vision API</strong>.</p>
-<p><a href="Images/rejected-images.png" target="_blank"><img src="Images/rejected-images.png" alt="Images uploaded to the &quot;rejected&quot; container" style="max-width:100%;"></a></p>
-<p><em>Images uploaded to the "rejected" container</em></p>
+<p>Close the blade for the "accepted" container and open the blade for the "rejected" container. Verify that the "rejected" container holds one image. <strong>This image was classified as adult or racy (or both) by the Computer Vision API</strong>.</p>
+<p><a href="Images/rejected-images.png" target="_blank"><img src="Images/rejected-images.png" alt="Images in the &quot;rejected&quot; container" style="max-width:100%;"></a></p>
+<p><em>Images in the "rejected" container</em></p>
 </li>
 </ol>
 <p>The presence of seven images in the "accepted" container and one in the "rejected" container is proof that your Azure Function executed each time an image was uploaded to the "uploaded" container. If you would like, return to the BlobImageAnalysis function in the portal and click <strong>Monitor</strong>. You will see a log detailing each time the function executed.</p>
@@ -860,7 +845,7 @@ vertical-align:1px;
 </ul>
 <p>This is just one example of how you can leverage Azure Functions to automate repetitive tasks. Experiment with other Azure Function templates to learn more about Azure Functions and to identify additional ways in which they can aid your research or business.</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

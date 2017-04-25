@@ -60,16 +60,15 @@ The first step in writing an Azure Function is to create an Azure Function App. 
 
 	> The app name becomes part of a DNS name and therefore must be unique within Azure. Make sure a green check mark appears to the name indicating it is unique. You probably **won't** be able to use "functionslab" as the app name.
  
-    ![Naming a Function App](Images/function-app-name.png)
+    ![Creating a Function App](Images/function-app-name.png)
 
-    _Naming a Function App_
+    _Creating a Function App_
 
 1. Click **Resource groups** in the ribbon on the left side of the portal, and then click the resource group created for the Function App.
  
     ![Opening the resource group](Images/open-resource-group.png)
 
     _Opening the resource group_
-
 
 1. Wait until "Deploying" changes to "Succeeded," indicating that the Function App has been deployed. Then click the storage account that was created for the Function App.
 
@@ -85,19 +84,13 @@ The first step in writing an Azure Function is to create an Azure Function App. 
 
     _Opening blob storage_
 
-1. Click **+ Container** to add a container.
+1. Click **+ Container**. Type "uploaded" into the **Name** box and set **Access type** to **Private**. Then click the **OK** button to create a new container.
 
     ![Adding a container](Images/add-container.png)
 
     _Adding a container_
 
-1. Type "uploaded" into the **Name** box. Then click the **Create** button to create the container.
-
-    ![Naming the container](Images/name-container.png)
-
-    _Naming the container_
-
-1. Repeat Steps 8 and 9 to add containers named "accepted" and "rejected" to blob storage.
+1. Repeat Steps 7 and 8 to add containers named "accepted" and "rejected" to blob storage.
 
 1. Confirm that all three containers were added to blob storage.
 
@@ -118,9 +111,15 @@ Once you have created an Azure Function App, you can add Azure Functions to it. 
 
     _Opening the Function App_
 
-1. Click **+ New Function** and set **Language** to **C#**. Then click **BlobTrigger-CSharp**.
+1. Click the **+** sign to the right of **Functions**. Then click **Custom function**.
+
+    ![Adding a function](Images/add-function.png)
+
+    _Adding a function_
+
+1. Set **Language** to **C#**. Then click **BlobTrigger-CSharp**.
   
-    ![Selecting a function template](Images/function-app-select-template.png)
+    ![Selecting a function template](Images/cs-select-template.png)
 
     _Selecting a function template_
 
@@ -199,13 +198,13 @@ Once you have created an Azure Function App, you can add Azure Functions to it. 
 	            // Get the blob attributes
 	            blob.FetchAttributes();
 	            
-				// Write the blob metadata
+	            // Write the blob metadata
 	            blob.Metadata["isAdultContent"] = info.adult.isAdultContent.ToString(); 
 	            blob.Metadata["adultScore"] = info.adult.adultScore.ToString("P0").Replace(" ",""); 
 	            blob.Metadata["isRacyContent"] = info.adult.isRacyContent.ToString(); 
 	            blob.Metadata["racyScore"] = info.adult.racyScore.ToString("P0").Replace(" ",""); 
 	            
-				// Save the blob metadata
+	            // Save the blob metadata
 	            blob.SetMetadata();
 	        }
 	    }
@@ -242,15 +241,15 @@ Once you have created an Azure Function App, you can add Azure Functions to it. 
 
 	> **Run** is the method called each time the function is executed. The **Run** method uses a helper method named **AnalyzeImageAsync** to pass each blob added to the "uploaded" container to the Computer Vision API for analysis. Then it calls a helper method named **StoreBlobWithMetadata** to create a copy of the blob in either the "accepted" container or the "rejected" container, depending on the scores returned by **AnalyzeImageAsync**. 
 
-1. Click the **Save** button at the top of the code editor to save your changes. The click **View Files**.
+1. Click the **Save** button at the top of the code editor to save your changes. Then click **View files**.
 
-    ![Saving the function](Images/save-run-file.png)
+    ![Saving the function](Images/cs-save-run-csx.png)
 
     _Saving the function_
 
 1. Click **+ Add** to add a new file, and name the file **project.json**.
 
-    ![Adding a project file](Images/add-project-file.png)
+    ![Adding a project file](Images/cs-add-project-file.png)
 
     _Adding a project file_
 
@@ -270,11 +269,11 @@ Once you have created an Azure Function App, you can add Azure Functions to it. 
 
 1. Click the **Save** button to save your changes. Then click **run.csx** to go back to that file in the code editor.
 
-    ![Saving the project file](Images/save-project-file.png)
+    ![Saving the project file](Images/cs-save-project-file.png)
 
     _Saving the project file_
 
-An Azure Function written in C# has been created, complete with a JSON project file containing information regarding project dependencies. The next step is to add an application setting that Azure Function relies on.
+An Azure Function written in C# has been created, complete with a JSON project file containing information regarding project dependencies. The next step is to add an application setting that the Azure Function relies on.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Add a subscription key to application settings ##
@@ -287,35 +286,23 @@ The Azure Function you created in [Exercise 2](#Exercise2) loads a subscription 
 
     _Copying the subscription key to the clipboard_
 
-1. Return to your Function App in the Azure Portal and click **Function app settings** in the lower-left corner of the function designer.
+1. Return to the Function App in the Azure Portal and click the function name in the ribbon on the left. Then click **Platform features**, followed by **Application settings**. 
 
-    ![Viewing Function App settings](Images/function-app-select-app-settings.png)
+    ![Viewing application settings](Images/open-app-settings.png)
 
-    _Viewing Function App settings_
+    _Viewing application settings_
 
-1. Scroll down the page and click **Go to App Service Settings**.
-
-    ![Viewing App Service settings](Images/open-app-service-settings.png)
-
-    _Viewing App Service settings_
-
-1. Click **Application settings**. Then scroll down until you find the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the **Value** box. Then click **Save** at the top of the blade.
+1. Scroll down to the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the **Value** box. Then click **Save** at the top of the blade.
 
     ![Adding a subscription key](Images/add-key.png)
 
     _Adding a subscription key_
 
-1. The app settings are now configured for your Azure Function. It's a good idea to validate those settings by recompiling the function and ensuring that it compiles without errors. Scroll left until you see the "Function app" blade, and then click **BlobImageAnalysis**.
+1. The app settings are now configured for your Azure Function. It's a good idea to validate those settings by running the function and ensuring that it compiles without errors. Click **BlobImageAnalysis**. Then click **Run** to compile and run the function. Confirm that "Compilation succeeded" appears in the output log, and ignore any exceptions that are reported.
 	
-    ![Opening the function](Images/open-function.png)
+    ![Compiling the function](Images/cs-run-function.png)
 
-    _Opening the function_
-
-1. Make sure **Develop** is selected. Then click **Run** to recompile and run the function. Confirm that "Compilation succeeded" appears in the output log.
-	
-    ![Recompiling the function](Images/function-recompile.png)
-
-    _Recompiling the function_
+    _Compiling the function_
 
 The work of writing and configuring the Azure Function is complete. Now comes the fun part: testing it out.
 
@@ -370,21 +357,15 @@ Your function is configured to listen for changes to the blob container named "u
 
 	> It may take a minute or more for all of the images to appear in the container. If necessary, click **Refresh** every few seconds until you see all seven images.
 
-    ![Images uploaded to the "accepted" container](Images/accepted-images.png)
+    ![Images in the "accepted" container](Images/accepted-images.png)
 
-    _Images uploaded to the "accepted" container_
+    _Images in the "accepted" container_
 
-1. Close the blade for the "accepted" container and open the blade for the "rejected" container.
+1. Close the blade for the "accepted" container and open the blade for the "rejected" container. Verify that the "rejected" container holds one image. **This image was classified as adult or racy (or both) by the Computer Vision API**.
 
-    ![Opening the "rejected" container](Images/open-rejected-container.png)
+    ![Images in the "rejected" container](Images/rejected-images.png)
 
-    _Opening the "rejected" container_
-
-1. Verify that the "rejected" container holds one image. **This image was classified as adult or racy (or both) by the Computer Vision API**.
-
-    ![Images uploaded to the "rejected" container](Images/rejected-images.png)
-
-    _Images uploaded to the "rejected" container_
+    _Images in the "rejected" container_
 
 The presence of seven images in the "accepted" container and one in the "rejected" container is proof that your Azure Function executed each time an image was uploaded to the "uploaded" container. If you would like, return to the BlobImageAnalysis function in the portal and click **Monitor**. You will see a log detailing each time the function executed.
 
@@ -437,4 +418,4 @@ This is just one example of how you can leverage Azure Functions to automate rep
 
 ---
 
-Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
+Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.

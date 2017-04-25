@@ -520,8 +520,8 @@ vertical-align:1px;
 <blockquote>
 <p>The app name becomes part of a DNS name and therefore must be unique within Azure. Make sure a green check mark appears to the name indicating it is unique. You probably <strong>won't</strong> be able to use "functionslab" as the app name.</p>
 </blockquote>
-<p><a href="Images/function-app-name.png" target="_blank"><img src="Images/function-app-name.png" alt="Naming a Function App" style="max-width:100%;"></a></p>
-<p><em>Naming a Function App</em></p>
+<p><a href="Images/function-app-name.png" target="_blank"><img src="Images/function-app-name.png" alt="Creating a Function App" style="max-width:100%;"></a></p>
+<p><em>Creating a Function App</em></p>
 </li>
 <li>
 <p>Click <strong>Resource groups</strong> in the ribbon on the left side of the portal, and then click the resource group created for the Function App.</p>
@@ -542,17 +542,12 @@ vertical-align:1px;
 <p><em>Opening blob storage</em></p>
 </li>
 <li>
-<p>Click <strong>+ Container</strong> to add a container.</p>
+<p>Click <strong>+ Container</strong>. Type "uploaded" into the <strong>Name</strong> box and set <strong>Access type</strong> to <strong>Private</strong>. Then click the <strong>OK</strong> button to create a new container.</p>
 <p><a href="Images/add-container.png" target="_blank"><img src="Images/add-container.png" alt="Adding a container" style="max-width:100%;"></a></p>
 <p><em>Adding a container</em></p>
 </li>
 <li>
-<p>Type "uploaded" into the <strong>Name</strong> box. Then click the <strong>Create</strong> button to create the container.</p>
-<p><a href="Images/name-container.png" target="_blank"><img src="Images/name-container.png" alt="Naming the container" style="max-width:100%;"></a></p>
-<p><em>Naming the container</em></p>
-</li>
-<li>
-<p>Repeat Steps 8 and 9 to add containers named "accepted" and "rejected" to blob storage.</p>
+<p>Repeat Steps 7 and 8 to add containers named "accepted" and "rejected" to blob storage.</p>
 </li>
 <li>
 <p>Confirm that all three containers were added to blob storage.</p>
@@ -571,8 +566,13 @@ vertical-align:1px;
 <p><em>Opening the Function App</em></p>
 </li>
 <li>
-<p>Click <strong>+ New Function</strong> and set <strong>Language</strong> to <strong>JavaScript</strong>. Then click <strong>BlobTrigger-JavaScript</strong>.</p>
-<p><a href="Images/function-app-select-template-node.png" target="_blank"><img src="Images/function-app-select-template-node.png" alt="Selecting a function template" style="max-width:100%;"></a></p>
+<p>Click the <strong>+</strong> sign to the right of <strong>Functions</strong>. Then click <strong>Custom function</strong>.</p>
+<p><a href="Images/add-function.png" target="_blank"><img src="Images/add-function.png" alt="Adding a function" style="max-width:100%;"></a></p>
+<p><em>Adding a function</em></p>
+</li>
+<li>
+<p>Set <strong>Language</strong> to <strong>JavaScript</strong>. Then click <strong>BlobTrigger-JavaScript</strong>.</p>
+<p><a href="Images/js-select-template.png" target="_blank"><img src="Images/js-select-template.png" alt="Selecting a function template" style="max-width:100%;"></a></p>
 <p><em>Selecting a function template</em></p>
 </li>
 <li>
@@ -652,14 +652,14 @@ vertical-align:1px;
 </blockquote>
 </li>
 <li>
-<p>Click the <strong>Save</strong> button at the top of the code editor to save your changes.</p>
-<p><a href="Images/save-index-file.png" target="_blank"><img src="Images/save-index-file.png" alt="Saving the function" style="max-width:100%;"></a></p>
+<p>Click the <strong>Save</strong> button at the top of the code editor to save your changes. Then click <strong>View files</strong>.</p>
+<p><a href="Images/js-save-index-js.png" target="_blank"><img src="Images/js-save-index-js.png" alt="Saving the function" style="max-width:100%;"></a></p>
 <p><em>Saving the function</em></p>
 </li>
 <li>
-<p>Click <strong>Integrate</strong>, and then click <strong>Advanced editor</strong> in the upper-right corner to view function bindings.</p>
-<p><a href="Images/open-advanced-editor.png" target="_blank"><img src="Images/open-advanced-editor.png" alt="Opening the advanced editor" style="max-width:100%;"></a></p>
-<p><em>Opening the advanced editor</em></p>
+<p>Click <strong>function.json</strong> to open that file for editing.</p>
+<p><a href="Images/js-open-function-json.png" target="_blank"><img src="Images/js-open-function-json.png" alt="Opening function.json" style="max-width:100%;"></a></p>
+<p><em>Opening function.json</em></p>
 </li>
 <li>
 <p>Replace the JSON shown in the code editor with the following JSON:</p>
@@ -681,18 +681,13 @@ vertical-align:1px;
 </blockquote>
 </li>
 <li>
-<p>Click <strong>Save</strong> to save the changes to the function bindings.</p>
-<p><a href="Images/portal-save-config.png" target="_blank"><img src="Images/portal-save-config.png" alt="Saving binding changes" style="max-width:100%;"></a></p>
-<p><em>Saving binding changes</em></p>
+<p>Click <strong>Save</strong> to save the changes to the file.</p>
+<p><a href="Images/js-save-function-file.png" target="_blank"><img src="Images/js-save-function-file.png" alt="Saving function.json" style="max-width:100%;"></a></p>
+<p><em>Saving function.json</em></p>
 </li>
 <li>
-<p>The function has been written, but you must install some dependency packages in order for it to work. The dependencies come from the two <em>require</em> statements at the beginning of the JavaScript code that you added. To resolve these dependencies, begin by clicking <strong>Function app settings</strong> in the lower-left corner of the function designer.</p>
-<p><a href="Images/function-app-select-app-settings.png" target="_blank"><img src="Images/function-app-select-app-settings.png" alt="Viewing Function App settings" style="max-width:100%;"></a></p>
-<p><em>Viewing Function App settings</em></p>
-</li>
-<li>
-<p>Click <strong>Open dev console</strong>.</p>
-<p><a href="Images/open-dev-console.png" target="_blank"><img src="Images/open-dev-console.png" alt="Opening the developer console" style="max-width:100%;"></a></p>
+<p>The function has been written, but you must install some dependency packages in order for it to work. The dependencies come from the two <code>require</code> statements at the beginning of the JavaScript code that you added. To resolve these dependencies, begin by clicking the function name in the ribbon on the left. Then click <strong>Platform features</strong>, followed by <strong>Console</strong> to open a developer console.</p>
+<p><a href="Images/js-open-dev-console.png" target="_blank"><img src="Images/js-open-dev-console.png" alt="Opening the developer console" style="max-width:100%;"></a></p>
 <p><em>Opening the developer console</em></p>
 </li>
 <li>
@@ -701,7 +696,7 @@ vertical-align:1px;
 </code></pre>
 </li>
 <li>
-<p>Execute the following commands in the console to install the packages used by the function. You can ignore any warning messages that are displayed, and note that each command may take a minute or more to run:</p>
+<p>Execute the following commands in the console to install the packages used by the function. Ignore any warning messages that are displayed, and note that each command may take a minute or more to run:</p>
 <pre><code>npm install request
 npm install request-promise
 npm install azure-storage
@@ -719,17 +714,12 @@ npm install azure-storage
 <p><em>Copying the subscription key to the clipboard</em></p>
 </li>
 <li>
-<p>Return to your Function App in the Azure Portal and click <strong>Function app settings</strong> in the lower-left corner of the function designer.</p>
-<p><a href="Images/function-app-select-app-settings.png" target="_blank"><img src="Images/function-app-select-app-settings.png" alt="Viewing Function App settings" style="max-width:100%;"></a></p>
-<p><em>Viewing Function App settings</em></p>
+<p>Return to the Function App in the Azure Portal and click the function name in the ribbon on the left. Then click <strong>Platform features</strong>, followed by <strong>Application settings</strong>.</p>
+<p><a href="Images/open-app-settings.png" target="_blank"><img src="Images/open-app-settings.png" alt="Viewing application settings" style="max-width:100%;"></a></p>
+<p><em>Viewing application settings</em></p>
 </li>
 <li>
-<p>Scroll down the page and click <strong>Go to App Service Settings</strong>.</p>
-<p><a href="Images/open-app-service-settings.png" target="_blank"><img src="Images/open-app-service-settings.png" alt="Viewing App Service settings" style="max-width:100%;"></a></p>
-<p><em>Viewing App Service settings</em></p>
-</li>
-<li>
-<p>Click <strong>Application settings</strong>. Then scroll down until you find the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the <strong>Value</strong> box. Then click <strong>Save</strong> at the top of the blade.</p>
+<p>Scroll down to the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the <strong>Value</strong> box. Then click <strong>Save</strong> at the top of the blade.</p>
 <p><a href="Images/add-key.png" target="_blank"><img src="Images/add-key.png" alt="Adding a subscription key" style="max-width:100%;"></a></p>
 <p><em>Adding a subscription key</em></p>
 </li>
@@ -777,20 +767,15 @@ npm install azure-storage
 <li>
 <p>Verify that the "accepted" container holds seven images. <strong>These are the images that were classified as neither adult nor racy by the Computer Vision API</strong>.</p>
 <blockquote>
-<p>It may take a few minutes for the images to appear in the container. If necessary, click <strong>Refresh</strong> periodically until you see all seven images. The delay occurs because the function was "idle" and you chose <strong>Consumption Plan</strong> as the hosting plan in Exercise 1, Step 3. Consumption Plan is the most cost-efficient way to run Azure Functions, but can incur delays if the function hasn't executed for a while. For more information, see <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale">Choose the correct service plan for Azure Functions</a>.</p>
+<p>It may take a minute or more for all of the images to appear in the container. If necessary, click <strong>Refresh</strong> every few seconds until you see all seven images.</p>
 </blockquote>
-<p><a href="Images/accepted-images.png" target="_blank"><img src="Images/accepted-images.png" alt="Images uploaded to the &quot;accepted&quot; container" style="max-width:100%;"></a></p>
-<p><em>Images uploaded to the "accepted" container</em></p>
+<p><a href="Images/accepted-images.png" target="_blank"><img src="Images/accepted-images.png" alt="Images in the &quot;accepted&quot; container" style="max-width:100%;"></a></p>
+<p><em>Images in the "accepted" container</em></p>
 </li>
 <li>
-<p>Close the blade for the "accepted" container and open the blade for the "rejected" container.</p>
-<p><a href="Images/open-rejected-container.png" target="_blank"><img src="Images/open-rejected-container.png" alt="Opening the &quot;rejected&quot; container" style="max-width:100%;"></a></p>
-<p><em>Opening the "rejected" container</em></p>
-</li>
-<li>
-<p>Verify that the "rejected" container holds one image. <strong>This image was classified as adult or racy (or both) by the Computer Vision API</strong>.</p>
-<p><a href="Images/rejected-images.png" target="_blank"><img src="Images/rejected-images.png" alt="Images uploaded to the &quot;rejected&quot; container" style="max-width:100%;"></a></p>
-<p><em>Images uploaded to the "rejected" container</em></p>
+<p>Close the blade for the "accepted" container and open the blade for the "rejected" container. Verify that the "rejected" container holds one image. <strong>This image was classified as adult or racy (or both) by the Computer Vision API</strong>.</p>
+<p><a href="Images/rejected-images.png" target="_blank"><img src="Images/rejected-images.png" alt="Images in the &quot;rejected&quot; container" style="max-width:100%;"></a></p>
+<p><em>Images in the "rejected" container</em></p>
 </li>
 </ol>
 <p>The presence of seven images in the "accepted" container and one in the "rejected" container is proof that your Azure Function executed each time an image was uploaded to the "uploaded" container. If you would like, return to the BlobImageAnalysis function in the portal and click <strong>Monitor</strong>. You will see a log detailing each time the function executed.</p>
@@ -839,7 +824,7 @@ npm install azure-storage
 </ul>
 <p>This is just one example of how you can leverage Azure Functions to automate repetitive tasks. Experiment with other Azure Function templates to learn more about Azure Functions and to identify additional ways in which they can aid your research or business.</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
