@@ -87,27 +87,13 @@ Installing the Microsoft Cognitive Toolkit is reasonably straightforward if you 
 	cd Scripts\install\windows
 	```
 
-1. Use the following command to run a PowerShell script to install CNTK dependencies: 
+1. Next, use the following command to install CNTK and its dependencies: 
 
 	```
-	powershell -ExecutionPolicy UnRestricted -File install.ps1 -Execute
+	install.bat
 	```
 
-1. Each time you are prompted with a security warning, press **R** followed by **Enter** to answer "Run once."
-
-	![Allowing the script to run](Images/security-warning.png)
-
-	_Allowing the script to run_
-
-1. When prompted to continue, press **1** followed by **Enter** to answer "I agree and want to continue."
-
-	![Proceeding with the installation process](Images/i-agree.png)
-
-	_Proceeding with the installation process_
-
-1. Once the script determines what needs to be installed and prompts you for confirmation to continue, press **Y** followed by **Enter** to answer "yes."
-
-1. The script downloads a number of libraries and installs them on your computer. This will take a few minutes to complete. Once the script is finished, you will be shown the path to a .bat file that activates the CNTK Python environment. Copy this command to the clipboard.
+1. Each time you are prompted and asked if you want to continue, answer in the affirmative. The script downloads a number of libraries and installs them on your computer. This will take a few minutes to complete. Once the script is finished, you will be shown the path to a .bat file that activates the CNTK Python environment. Copy this command to the clipboard.
 
 	![Copying the command that activates the environment](Images/install-finished.png)
 
