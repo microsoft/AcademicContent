@@ -806,13 +806,13 @@ vertical-align:1px;
 </li>
 <li>
 <p>Execute the following command to verify that you have Node.js version 4 or higher installed. (If Node is installed, you will see the version number.) If Node is not installed or the version is less than 4, go to <a href="https://nodejs.org">https://nodejs.org</a> and install the latest stable version.</p>
- <pre> node --version
- </pre>
+<pre><code>node --version
+</code></pre>
 </li>
 <li>
 <p>Use the following command to create a new Node.js project.</p>
- <pre> npm init -y
- </pre>
+<pre><code>npm init -y
+</code></pre>
 <p>This will create an empty <strong>package.json</strong> file in the current directory.</p>
 <blockquote>
 <p>Node.js uses a package manager, called <strong>npm</strong>, to add additional components to Node.js applications. These additional components are dependencies of your application and are defined in the <strong>package.json</strong> file. Some dependencies are just needed when building the application, but others are required to actually run it. You will use several dependencies in your Electron application.</p>
@@ -820,8 +820,8 @@ vertical-align:1px;
 </li>
 <li>
 <p>In the Command Prompt or terminal window, execute the following command (note the space and the period at the end of the command) to start Visual Studio Code in the current directory:</p>
- <pre> code .
- </pre>
+<pre><code>code .
+</code></pre>
 </li>
 <li>
 <p>In Visual Studio Code, select the <strong>Explorer</strong> command from the <strong>View</strong> menu to make sure the Explorer panel is displayed. Then click <strong>Package.json</strong> to open the file for editing.</p>
@@ -839,19 +839,19 @@ vertical-align:1px;
     <span class="pl-s"><span class="pl-pds">"</span>@angular/http<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>2.0.0<span class="pl-pds">"</span></span>,
     <span class="pl-s"><span class="pl-pds">"</span>@angular/platform-browser<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>2.0.0<span class="pl-pds">"</span></span>,
     <span class="pl-s"><span class="pl-pds">"</span>@angular/platform-browser-dynamic<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>2.0.0<span class="pl-pds">"</span></span>,
-    <span class="pl-s"><span class="pl-pds">"</span>@types/core-js<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^0.9.34<span class="pl-pds">"</span></span>,
-    <span class="pl-s"><span class="pl-pds">"</span>@types/jasmine<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^2.2.34<span class="pl-pds">"</span></span>,
-    <span class="pl-s"><span class="pl-pds">"</span>@types/node<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^6.0.41<span class="pl-pds">"</span></span>,
-    <span class="pl-s"><span class="pl-pds">"</span>core-js<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^2.4.1<span class="pl-pds">"</span></span>,
-    <span class="pl-s"><span class="pl-pds">"</span>reflect-metadata<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^0.1.3<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>@types/core-js<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>0.9.34<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>@types/jasmine<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>2.2.34<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>@types/node<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>6.0.41<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>core-js<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>2.4.1<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>reflect-metadata<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>0.1.3<span class="pl-pds">"</span></span>,
     <span class="pl-s"><span class="pl-pds">"</span>rxjs<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>5.0.0-beta.12<span class="pl-pds">"</span></span>,
     <span class="pl-s"><span class="pl-pds">"</span>systemjs<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>0.19.27<span class="pl-pds">"</span></span>,
-    <span class="pl-s"><span class="pl-pds">"</span>zone.js<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^0.6.23<span class="pl-pds">"</span></span>
+    <span class="pl-s"><span class="pl-pds">"</span>zone.js<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>0.6.23<span class="pl-pds">"</span></span>
   },
   <span class="pl-s"><span class="pl-pds">"</span>devDependencies<span class="pl-pds">"</span></span><span class="pl-k">:</span> {
-    <span class="pl-s"><span class="pl-pds">"</span>electron<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^1.4.0<span class="pl-pds">"</span></span>,
-    <span class="pl-s"><span class="pl-pds">"</span>npm-run-all<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^3.1.0<span class="pl-pds">"</span></span>,
-    <span class="pl-s"><span class="pl-pds">"</span>typescript<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^2.0.3<span class="pl-pds">"</span></span>
+    <span class="pl-s"><span class="pl-pds">"</span>electron<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>1.4.0<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>npm-run-all<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>3.1.0<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>typescript<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>2.0.3<span class="pl-pds">"</span></span>
   },
   <span class="pl-k">...</span>
 }</pre></div>
@@ -895,8 +895,8 @@ vertical-align:1px;
 </li>
 <li>
 <p>Return to the Command Prompt or terminal window and execute the following command to install the dependencies that you defined:</p>
- <pre> npm install
- </pre>
+<pre><code>npm install
+</code></pre>
 </li>
 <li>
 <p>Now it is time to write the application itself. As a first step, use Visual Studio Code to create a file named <strong>index.html</strong> in the project directory and insert the following statements:</p>

@@ -377,15 +377,15 @@ In this exercise, you will write a cross-platform client app using [Node.js](htt
 
 1. Execute the following command to verify that you have Node.js version 4 or higher installed. (If Node is installed, you will see the version number.) If Node is not installed or the version is less than 4, go to https://nodejs.org and install the latest stable version.
  
-    <pre>
+    ```
     node --version
-    </pre>
+    ```
 
 1. Use the following command to create a new Node.js project.
  
-    <pre>
+    ```
     npm init -y
-    </pre>
+    ```
 
     This will create an empty **package.json** file in the current directory.
 
@@ -393,9 +393,9 @@ In this exercise, you will write a cross-platform client app using [Node.js](htt
        
 1. In the Command Prompt or terminal window, execute the following command (note the space and the period at the end of the command) to start Visual Studio Code in the current directory:
 
-	<pre>
+    ```
 	code .
-	</pre>
+    ```
 
 1. In Visual Studio Code, select the **Explorer** command from the **View** menu to make sure the Explorer panel is displayed. Then click **Package.json** to open the file for editing.
 
@@ -407,28 +407,28 @@ In this exercise, you will write a cross-platform client app using [Node.js](htt
                
     ```javascript
     {
-      "dependencies": {
-        "@angular/common": "2.0.0",
-        "@angular/compiler": "2.0.0",
-        "@angular/core": "2.0.0",
-        "@angular/forms": "2.0.0",
-        "@angular/http": "2.0.0",
-        "@angular/platform-browser": "2.0.0",
-        "@angular/platform-browser-dynamic": "2.0.0",
-        "@types/core-js": "^0.9.34",
-        "@types/jasmine": "^2.2.34",
-        "@types/node": "^6.0.41",
-        "core-js": "^2.4.1",
-        "reflect-metadata": "^0.1.3",
-        "rxjs": "5.0.0-beta.12",
-        "systemjs": "0.19.27",
-        "zone.js": "^0.6.23"
-      },
-      "devDependencies": {
-        "electron": "^1.4.0",
-        "npm-run-all": "^3.1.0",
-        "typescript": "^2.0.3"
-      },
+	  "dependencies": {
+	    "@angular/common": "2.0.0",
+	    "@angular/compiler": "2.0.0",
+	    "@angular/core": "2.0.0",
+	    "@angular/forms": "2.0.0",
+	    "@angular/http": "2.0.0",
+	    "@angular/platform-browser": "2.0.0",
+	    "@angular/platform-browser-dynamic": "2.0.0",
+	    "@types/core-js": "0.9.34",
+	    "@types/jasmine": "2.2.34",
+	    "@types/node": "6.0.41",
+	    "core-js": "2.4.1",
+	    "reflect-metadata": "0.1.3",
+	    "rxjs": "5.0.0-beta.12",
+	    "systemjs": "0.19.27",
+	    "zone.js": "0.6.23"
+	  },
+	  "devDependencies": {
+	    "electron": "1.4.0",
+	    "npm-run-all": "3.1.0",
+	    "typescript": "2.0.3"
+	  },
       ...
     }
     ```
@@ -477,9 +477,9 @@ In this exercise, you will write a cross-platform client app using [Node.js](htt
 
 1. Return to the Command Prompt or terminal window and execute the following command to install the dependencies that you defined:
  
-    <pre>
+    ```
     npm install
-    </pre>
+    ```
 
 1. Now it is time to write the application itself. As a first step, use Visual Studio Code to create a file named **index.html** in the project directory and insert the following statements:
 
