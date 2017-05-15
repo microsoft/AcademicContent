@@ -86,13 +86,7 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
     _Viewing blob containers_
 
-1. The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click **+ Container** to create a new container.
-
-    ![Adding a container](Images/add-container.png)
-
-    _Adding a container_
-
-1. Type "photos" (without quotation marks) into the **Name** field and select **Blob** as the **Access type**. Then click **Create** to create a container named "photos."
+1. The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click **+ Container** to create a new container. Type "photos" (without quotation marks) into the **Name** field and select **Blob** as the **Access type**. Then click **OK** to create a container named "photos."
 
 	> By default, containers and their contents are private. Selecting **Blob** as the access type makes the blobs in the "photos" container publicly accessible, but doesn't make the container itself public. This is what you want since the images stored in the "photos" container will be linked to from a Web app. 
 
@@ -132,41 +126,41 @@ The containers are currently empty, but that will change once your app is deploy
 <a name="Exercise3"></a>
 ## Exercise 3: Get a subscription key for the Computer Vision API
 
-[Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/) is a set of intelligence APIs that you can call from your apps. Among the more than 20 APIs it offers are the [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) for distilling actionable information from images, the [Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api) for recognizing emotion in images and video, and the [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api) for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available in preview form for you to begin using today.
+[Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/) is a set of intelligence APIs that you can call from your apps. Among the more than 20 APIs it offers are the [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) for distilling actionable information from images, the [Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api) for recognizing emotion in images and video, and the [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api) for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available in for you to begin using today.
 
 In this exercise, you will acquire a subscription key allowing you to call the Computer Vision API from your code. You'll use this key in Exercise 4 to generate thumbnails from the images uploaded to the Web site, and to generate captions and search keywords for the images.
 
-1. In order to use the Computer Vision API, you need to sign up for a free account and acquire a subscription key. To do that, point your browser to https://www.microsoft.com/cognitive-services/en-us/subscriptions.
+1. In the Azure Portal, click **+ New**, followed by **AI + Cognitive Services** and **Computer Vision API**.
 
-1. If you are asked to sign in, do so with your Microsoft account.
+    ![Creating a new Computer Vision API subscription](Images/new-vision-api.png)
 
-	> There are two types of Microsoft accounts: personal accounts and "work/school" accounts, also known as Office 365 accounts. Microsoft Cognitive Services requires a personal account. If you are using the Windows 10 VM created for these labs, the credentials provided for you in the VM are for a work/school account, which means you must create a personal Microsoft account if you don't already have one to sign up for Cognitive Services.
+    _Creating a new Computer Vision API subscription_
 
-	> If you already have a personal Microsoft account, use it to sign in to Cognitive Services. If you don't have a personal Microsoft account, go to https://signup.live.com and create one for this exercise.
+1. Enter "VisionAPI" into the **Name** box and select **F0** as the **Pricing tier**. Under **Resource Group**, select **Use existing** and select the "IntellipixResourceGroup" that you created in Exercise 1. Check the **I confirm** box, and then click **Create**.
 
-1. Click **Yes** when asked if this app can access your info.
+    ![Subcribing to the Computer Vision API](Images/create-vision-api.png)
 
-    ![Approving access to personal info](Images/access-your-info.png)
+    _Subcribing to the Computer Vision API_
 
-    _Approving access to personal info_
+1. Return to the blade for the "IntellipixResourceGroup" resource group and click the Computer Vision API subscription that you just created.
 
-1. Scroll down until you find **Computer Vision**. Then check the box next to it.
+    ![Opening the Computer Vision API subscription](Images/open-vision-api.png)
 
-    ![Requesting access to the Computer Vision API](Images/check-computer-vision.png)
+    _Opening the Computer Vision API subscription_
 
-    _Requesting access to the Computer Vision API_
+1. Click **Show access keys**.
 
-1. Scroll to the bottom of the page. Check the box to agree to the terms and privacy statement, and then click the **Subscribe** button.
+    ![Viewing the access keys](Images/show-access-keys.png)
 
-    ![Subscribing to the Computer Vision API](Images/subscribe.png)
+    _Viewing the access keys_
 
-    _Subscribing to the Computer Vision API_
+1. Click the **Copy** button to the right of **KEY 1** to copy the access key to the clipboard.
 
-1. Click **Copy** under **Key 1** to copy your Computer Vision subscription key to the clipboard.
+    ![Copying the access key](Images/copy-vision-key.png)
 
-    ![Copying the subscription key to the clipboard](Images/computer-vision-key.png)
+    _Copying the access key_
 
-    _Copying the subscription key to the clipboard_
+Copy the access key that's on the clipboard into your favorite text editor so you can retrieve it again later. You will need it in the next exercise, and you will need it again in Exercise 6.
 
 <a name="Exercise4"></a>
 ## Exercise 4: Write the app in Visual Studio Code

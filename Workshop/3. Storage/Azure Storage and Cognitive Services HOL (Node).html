@@ -542,12 +542,7 @@ vertical-align:1px;
 <p><em>Viewing blob containers</em></p>
 </li>
 <li>
-<p>The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click <strong>+ Container</strong> to create a new container.</p>
-<p><a href="Images/add-container.png" target="_blank"><img src="Images/add-container.png" alt="Adding a container" style="max-width:100%;"></a></p>
-<p><em>Adding a container</em></p>
-</li>
-<li>
-<p>Type "photos" (without quotation marks) into the <strong>Name</strong> field and select <strong>Blob</strong> as the <strong>Access type</strong>. Then click <strong>Create</strong> to create a container named "photos."</p>
+<p>The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click <strong>+ Container</strong> to create a new container. Type "photos" (without quotation marks) into the <strong>Name</strong> field and select <strong>Blob</strong> as the <strong>Access type</strong>. Then click <strong>OK</strong> to create a container named "photos."</p>
 <blockquote>
 <p>By default, containers and their contents are private. Selecting <strong>Blob</strong> as the access type makes the blobs in the "photos" container publicly accessible, but doesn't make the container itself public. This is what you want since the images stored in the "photos" container will be linked to from a Web app.</p>
 </blockquote>
@@ -582,42 +577,36 @@ vertical-align:1px;
 <p>The containers are currently empty, but that will change once your app is deployed and you start uploading photos. Having Storage Explorer installed will make it easy for you to see what your app writes to blob storage.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Get a subscription key for the Computer Vision API</h2>
-<p><a href="https://www.microsoft.com/cognitive-services/">Microsoft Cognitive Services</a> is a set of intelligence APIs that you can call from your apps. Among the more than 20 APIs it offers are the <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a> for distilling actionable information from images, the <a href="https://www.microsoft.com/cognitive-services/en-us/emotion-api">Emotion API</a> for recognizing emotion in images and video, and the <a href="https://www.microsoft.com/cognitive-services/en-us/text-analytics-api">Text Analytics API</a> for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available in preview form for you to begin using today.</p>
+<p><a href="https://www.microsoft.com/cognitive-services/">Microsoft Cognitive Services</a> is a set of intelligence APIs that you can call from your apps. Among the more than 20 APIs it offers are the <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a> for distilling actionable information from images, the <a href="https://www.microsoft.com/cognitive-services/en-us/emotion-api">Emotion API</a> for recognizing emotion in images and video, and the <a href="https://www.microsoft.com/cognitive-services/en-us/text-analytics-api">Text Analytics API</a> for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available in for you to begin using today.</p>
 <p>In this exercise, you will acquire a subscription key allowing you to call the Computer Vision API from your code. You'll use this key in Exercise 4 to generate thumbnails from the images uploaded to the Web site, and to generate captions and search keywords for the images.</p>
 <ol>
 <li>
-<p>In order to use the Computer Vision API, you need to sign up for a free account and acquire a subscription key. To do that, point your browser to <a href="https://www.microsoft.com/cognitive-services/en-us/subscriptions">https://www.microsoft.com/cognitive-services/en-us/subscriptions</a>.</p>
+<p>In the Azure Portal, click <strong>+ New</strong>, followed by <strong>AI + Cognitive Services</strong> and <strong>Computer Vision API</strong>.</p>
+<p><a href="Images/new-vision-api.png" target="_blank"><img src="Images/new-vision-api.png" alt="Creating a new Computer Vision API subscription" style="max-width:100%;"></a></p>
+<p><em>Creating a new Computer Vision API subscription</em></p>
 </li>
 <li>
-<p>If you are asked to sign in, do so with your Microsoft account.</p>
-<blockquote>
-<p>There are two types of Microsoft accounts: personal accounts and "work/school" accounts, also known as Office 365 accounts. Microsoft Cognitive Services requires a personal account. If you are using the Windows 10 VM created for these labs, the credentials provided for you in the VM are for a work/school account, which means you must create a personal Microsoft account if you don't already have one to sign up for Cognitive Services.</p>
-</blockquote>
-<blockquote>
-<p>If you already have a personal Microsoft account, use it to sign in to Cognitive Services. If you don't have a personal Microsoft account, go to <a href="https://signup.live.com">https://signup.live.com</a> and create one for this exercise.</p>
-</blockquote>
+<p>Enter "VisionAPI" into the <strong>Name</strong> box and select <strong>F0</strong> as the <strong>Pricing tier</strong>. Under <strong>Resource Group</strong>, select <strong>Use existing</strong> and select the "IntellipixResourceGroup" that you created in Exercise 1. Check the <strong>I confirm</strong> box, and then click <strong>Create</strong>.</p>
+<p><a href="Images/create-vision-api.png" target="_blank"><img src="Images/create-vision-api.png" alt="Subcribing to the Computer Vision API" style="max-width:100%;"></a></p>
+<p><em>Subcribing to the Computer Vision API</em></p>
 </li>
 <li>
-<p>Click <strong>Yes</strong> when asked if this app can access your info.</p>
-<p><a href="Images/access-your-info.png" target="_blank"><img src="Images/access-your-info.png" alt="Approving access to personal info" style="max-width:100%;"></a></p>
-<p><em>Approving access to personal info</em></p>
+<p>Return to the blade for the "IntellipixResourceGroup" resource group and click the Computer Vision API subscription that you just created.</p>
+<p><a href="Images/open-vision-api.png" target="_blank"><img src="Images/open-vision-api.png" alt="Opening the Computer Vision API subscription" style="max-width:100%;"></a></p>
+<p><em>Opening the Computer Vision API subscription</em></p>
 </li>
 <li>
-<p>Scroll down until you find <strong>Computer Vision</strong>. Then check the box next to it.</p>
-<p><a href="Images/check-computer-vision.png" target="_blank"><img src="Images/check-computer-vision.png" alt="Requesting access to the Computer Vision API" style="max-width:100%;"></a></p>
-<p><em>Requesting access to the Computer Vision API</em></p>
+<p>Click <strong>Show access keys</strong>.</p>
+<p><a href="Images/show-access-keys.png" target="_blank"><img src="Images/show-access-keys.png" alt="Viewing the access keys" style="max-width:100%;"></a></p>
+<p><em>Viewing the access keys</em></p>
 </li>
 <li>
-<p>Scroll to the bottom of the page. Check the box to agree to the terms and privacy statement, and then click the <strong>Subscribe</strong> button.</p>
-<p><a href="Images/subscribe.png" target="_blank"><img src="Images/subscribe.png" alt="Subscribing to the Computer Vision API" style="max-width:100%;"></a></p>
-<p><em>Subscribing to the Computer Vision API</em></p>
-</li>
-<li>
-<p>Click <strong>Copy</strong> under <strong>Key 1</strong> to copy your Computer Vision subscription key to the clipboard.</p>
-<p><a href="Images/computer-vision-key.png" target="_blank"><img src="Images/computer-vision-key.png" alt="Copying the subscription key to the clipboard" style="max-width:100%;"></a></p>
-<p><em>Copying the subscription key to the clipboard</em></p>
+<p>Click the <strong>Copy</strong> button to the right of <strong>KEY 1</strong> to copy the access key to the clipboard.</p>
+<p><a href="Images/copy-vision-key.png" target="_blank"><img src="Images/copy-vision-key.png" alt="Copying the access key" style="max-width:100%;"></a></p>
+<p><em>Copying the access key</em></p>
 </li>
 </ol>
+<p>Copy the access key that's on the clipboard into your favorite text editor so you can retrieve it again later. You will need it in the next exercise, and you will need it again in Exercise 6.</p>
 <p><a name="Exercise4"></a></p>
 <h2>Exercise 4: Write the app in Visual Studio Code</h2>
 <p>In this exercise, you will create a new Web app in Visual Studio Code and add code to upload images, write them to blob storage, display them in a Web page, generate thumbnails, captions, and keywords using the Computer Vision API, and perform keyword searches on uploaded images. The app will be named Intellipix (for "Intelligent Pictures") and will be accessed through your browser. The server-side code will be written in JavaScript and Node.js. The code that runs in the browser will be written in JavaScript and will leverage two of the most popular class libraries on the planet: <a href="https://angularjs.org/">AngularJS</a> and <a href="http://getbootstrap.com/">Bootstrap</a>.</p>
@@ -944,7 +933,7 @@ vertical-align:1px;
 &lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>viewport<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>width=device-width, initial-scale=1<span class="pl-pds">"</span></span>&gt;
 &lt;<span class="pl-ent">title</span>&gt;Intellipix&lt;/<span class="pl-ent">title</span>&gt;
 &lt;<span class="pl-ent">link</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css<span class="pl-pds">"</span></span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span>&gt;
-<span class="pl-s1">&lt;<span class="pl-ent">style</span>&gt;</span>
+&lt;<span class="pl-ent">style</span>&gt;<span class="pl-s1"></span>
 <span class="pl-s1">    <span class="pl-e">.ng-cloak</span> { <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">none</span> <span class="pl-k">!important</span>; }</span>
 <span class="pl-s1">    <span class="pl-ent">a</span> <span class="pl-ent">img</span> {</span>
 <span class="pl-s1">    	<span class="pl-c1"><span class="pl-c1">cursor</span></span>: <span class="pl-c1">pointer</span>;</span>
@@ -952,7 +941,7 @@ vertical-align:1px;
 <span class="pl-s1">    	<span class="pl-e">.image-modal</span> <span class="pl-ent">img</span> {</span>
 <span class="pl-s1">    <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">100<span class="pl-k">%</span></span>;</span>
 <span class="pl-s1">    }</span>
-<span class="pl-s1">&lt;/<span class="pl-ent">style</span>&gt;</span>
+<span class="pl-s1"></span><span class="pl-s1">&lt;</span>/<span class="pl-ent">style</span>&gt;
 &lt;/<span class="pl-ent">head</span>&gt;
 &lt;<span class="pl-ent">body</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>ng-cloak<span class="pl-pds">"</span></span>&gt;
 
