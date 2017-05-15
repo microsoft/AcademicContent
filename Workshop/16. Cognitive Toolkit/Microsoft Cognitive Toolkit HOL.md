@@ -71,17 +71,7 @@ Installing the Microsoft Cognitive Toolkit is reasonably straightforward if you 
 
 1. Open the downloaded zip file and copy the folder named "cntk" to your desktop or to the location of you choice.
 
-1. Press **Windows + R**, and then execute the following command to launch a Command Prompt window in administrator mode:
-
-	```
-	powershell -Command "Start-Process cmd -Verb RunAs"
-	```
-
-	![Launching a Command Prompt as administrator](Images/command-prompt.png)
-
-	_Launching a Command Prompt as administrator_
-
-1. In the Command Prompt window, use a **cd** command to change to the "cntk" directory that you copied from the zip file. Then execute the following command:
+1. Open a Command Prompt window and use a **cd** command to change to the "cntk" directory that you copied from the zip file. Then execute the following command:
 
 	```
 	cd Scripts\install\windows
