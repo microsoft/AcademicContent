@@ -529,10 +529,7 @@ vertical-align:1px;
 <p><em>Opening the resource group</em></p>
 </li>
 <li>
-<p>Wait until "Deploying" changes to "Succeeded," indicating that the Function App has been deployed. Then click the storage account that was created for the Function App.</p>
-<blockquote>
-<p>Refresh the page in the browser every now and then to update the deployment status. Clicking the <strong>Refresh</strong> button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.</p>
-</blockquote>
+<p>Periodically click the <strong>Refresh</strong> button at the top of the blade until "Deploying" changes to "Succeeded," indicating that the Function App has been deployed. Then click the storage account that was created for the Function App.</p>
 <p><a href="Images/open-storage-account-after-deployment.png" target="_blank"><img src="Images/open-storage-account-after-deployment.png" alt="Opening the storage account" style="max-width:100%;"></a></p>
 <p><em>Opening the storage account</em></p>
 </li>
@@ -706,12 +703,32 @@ npm install azure-storage
 <p>An Azure Function written in JavaScript has been created and configured and the packages that the function relies upon have been installed. The next step is to add an application setting that the Azure Function relies on.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Add a subscription key to application settings</h2>
-<p>The Azure Function you created in <a href="#Exercise2">Exercise 2</a> loads a subscription key for the Microsoft Cognitive Services Computer Vision API from application settings. This key is required in order for your code to call the Computer Vision API, and is transmitted in an HTTP header in each call. In this exercise, you will add an application setting containing the subscription key to the Function App.</p>
+<p>The Azure Function you created in <a href="#Exercise2">Exercise 2</a> loads a subscription key for the Microsoft Cognitive Services Computer Vision API from application settings. This key is required in order for your code to call the Computer Vision API, and is transmitted in an HTTP header in each call. In this exercise, you will subscribe to the Computer Vision API, and then add an access key for the subscription to application settings.</p>
 <ol>
 <li>
-<p>Open a new browser window and navigate to <a href="https://www.microsoft.com/cognitive-services/en-us/subscriptions">https://www.microsoft.com/cognitive-services/en-us/subscriptions</a>. If you haven't signed up for the Computer Vision API, do so now. (Signing up is free.) Then click <strong>Copy</strong> under <strong>Key 1</strong> in your Computer Vision subscription to copy the subscription key to the clipboard.</p>
-<p><a href="Images/computer-vision-key.png" target="_blank"><img src="Images/computer-vision-key.png" alt="Copying the subscription key to the clipboard" style="max-width:100%;"></a></p>
-<p><em>Copying the subscription key to the clipboard</em></p>
+<p>In the Azure Portal, click <strong>+ New</strong>, followed by <strong>AI + Cognitive Services</strong> and <strong>Computer Vision API</strong>.</p>
+<p><a href="Images/new-vision-api.png" target="_blank"><img src="Images/new-vision-api.png" alt="Creating a new Computer Vision API subscription" style="max-width:100%;"></a></p>
+<p><em>Creating a new Computer Vision API subscription</em></p>
+</li>
+<li>
+<p>Enter "VisionAPI" into the <strong>Name</strong> box and select <strong>F0</strong> as the <strong>Pricing tier</strong>. Under <strong>Resource Group</strong>, select <strong>Use existing</strong> and select the "FunctionsLabResourceGroup" that you created for the Function App in Exercise 1. Check the <strong>I confirm</strong> box, and then click <strong>Create</strong>.</p>
+<p><a href="Images/create-vision-api.png" target="_blank"><img src="Images/create-vision-api.png" alt="Subcribing to the Computer Vision API" style="max-width:100%;"></a></p>
+<p><em>Subcribing to the Computer Vision API</em></p>
+</li>
+<li>
+<p>Return to the blade for the "FunctionsLabResourceGroup" resource group and click the Computer Vision API subscription that you just created.</p>
+<p><a href="Images/open-vision-api.png" target="_blank"><img src="Images/open-vision-api.png" alt="Opening the Computer Vision API subscription" style="max-width:100%;"></a></p>
+<p><em>Opening the Computer Vision API subscription</em></p>
+</li>
+<li>
+<p>Click <strong>Show access keys</strong>.</p>
+<p><a href="Images/show-access-keys.png" target="_blank"><img src="Images/show-access-keys.png" alt="Viewing the access keys" style="max-width:100%;"></a></p>
+<p><em>Viewing the access keys</em></p>
+</li>
+<li>
+<p>Click the <strong>Copy</strong> button to the right of <strong>KEY 1</strong> to copy the access key to the clipboard.</p>
+<p><a href="Images/copy-access-key.png" target="_blank"><img src="Images/copy-access-key.png" alt="Copying the access key" style="max-width:100%;"></a></p>
+<p><em>Copying the access key</em></p>
 </li>
 <li>
 <p>Return to the Function App in the Azure Portal and click the function name in the ribbon on the left. Then click <strong>Platform features</strong>, followed by <strong>Application settings</strong>.</p>
