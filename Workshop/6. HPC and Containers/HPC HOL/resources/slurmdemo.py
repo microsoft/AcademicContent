@@ -21,8 +21,8 @@ from azure.storage.blob import BlobService
 #######################################################
 # Update these two variables to those for your account.
 #######################################################
-ACCOUNT_NAME = 'account_name'
-ACCOUNT_KEY = 'account_key'
+ACCOUNT_NAME = ''
+ACCOUNT_KEY = ''
 #######################################################
 
 INPUT_CONTAINER = 'input'
@@ -99,7 +99,7 @@ def submit():
     os.environ[SLURMDEMO_OUTPUTACCOUNT] = ACCOUNT_NAME
 
     # Call sbatch
-    cli = "sbatch --array=0-{nb} slurmdemo.sh".format(nb=len(bloblist))
+    cli = "sbatch -N 2 -n 2 --array=0-{nb} slurmdemo.sh".format(nb=len(bloblist))
     run(cli, showoutput=True)
 
 def run(cli, showoutput=False):
