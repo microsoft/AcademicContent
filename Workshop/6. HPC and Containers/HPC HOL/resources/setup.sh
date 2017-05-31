@@ -24,8 +24,8 @@
 #
 #
 
-# Install the python package manager.
-sudo apt-get install -y python-pip
+# Install the python package manager and other dependecies.
+sudo apt-get install -y python-pip build-essential libssl-dev libffi-dev python-dev
 # Install image conversion utility.
 sudo apt-get install -y imagemagick
 # install the azure package for Python.
@@ -36,7 +36,7 @@ wget 'https://raw.githubusercontent.com/Wintellect/blobxfer/master/blobxfer-0.9.
 for node in $(sinfo -o "%n" -h|grep -v `hostname`)
 do
 
-  ssh azureuser@$node sudo apt-get -y install python-pip
+  ssh azureuser@$node sudo apt-get -y install python-pip build-essential libssl-dev libffi-dev python-dev
   ssh azureuser@$node sudo apt-get -y install imagemagick
   ssh azureuser@$node pip install azure
 
