@@ -798,48 +798,49 @@ Eclipse has the ability to integrate with many popular servers for running web s
 Now that the app has been tested locally, it's time to deploy it to Azure. You can do that directly from Eclipse since the Azure Toolkit for Eclipse is installed.
 
 <a name="Exercise6"></a>
-## Exercise 6: Deploy the App to Azure
+## Exercise 6: Deploy the app to Azure
 
-The Azure Toolkit for Eclipse has integrated support for deploying Dynamic Web Site projects as Web Apps on Azure. In this exercise, you will use the Azure Toolkit to deploy the Intellipix app to Azure.
+The Azure Toolkit for Eclipse has integrated support for deploying Dynamic Web Site projects as Web Apps on Azure. In this exercise, you will use the Azure Toolkit to deploy Intellipix to Azure.
 
-1. Right click on the Intellipix project, and select **Azure**, then **Publish as Azure Web App**. 
+1. Right-click the Intellipix project in Project Explorer and select **Azure** > **Publish as Azure Web App** from the context menu. 
 
-	![Publish as Azure Web App](Images/publish-to-webapp.png)
+1. Make sure **Interactive** is selected as the authentication method, and then click **Sign in**. When prompted, sign in with your Microsoft account.
 
-	_Publish as Azure Web App_
+	![Signing in to Azure](Images/sign-in.png)
 
-1. On the **Azure Sign In** window, select **Interactive**, then select **Sign in**. This will launch the familiar Azure Logon dialog. Logon with your account.
+	_Signing in to Azure_
 
-	![Sign in to Azure](Images/sign-in.png)
+1. Next, select the Azure subscription that you want to use for the Azure Web App, and click **Select**. 
 
-	_Sign in to Azure_
+1. In the "Deploy Web App" dialog, click the **Create** button to create a new Azure App Service.
 
-1. Next, select the subscription or subscriptions your want to use with Azure, then click **Select**. 
+1. In the "Create App Service" window, select **Create new**. Set **Location** to the same location that you selected for the storage account you created in Exercise 1. Select **Free_F1** for the **Pricing tier**, but *do not* click the **Create** button just yet.
 
-	![Select subscriptions](Images/select-subscriptions.png)
+	![Creating an Azure App Service](Images/create-app-service-1.png)
 
-	_Select subscriptions_
+	_Creating an Azure App Service_
 
-1. On the **Deploy Web App** window, click **Create**.
+1. Click the **Resource group** tab, select **Use existing**, and select the resource group that you created in Exercise 1.
 
-	![Create a deployment](Images/create-deployment.png)
+	![Specifying the resource group](Images/create-app-service-2.png)
 
-	_Create a deployment_
+	_Specifying the resource group_
 
-1. On the **Create App Service** window, Select Create new, then set **Location** to the same location as your storage account and the Vision API for best performance. Select **Free_F1** for the **Pricing tier**, then click **Create**. This will take a moment to deploy.
+1. In the "Deploy Web App" dialog, copy the Web site URL to the clipboard. Then check the **Deploy to root** box and click **Deploy**.
 
-	![Create an app service](Images/create-app-service-java.png)
+	![Deploying the Web app](Images/deploy-web-app.png)
 
-	_Create an app service_
+	_Deploying the Web app_
 
-1. Back on the **Deploy Web App** window, copy the **URL** next to link to the clipboard, then check the box next to **Deploy to root**. Lastly, click **Deploy**.
+1. Wait until Eclipse indicates that the app has been published. Then open a browser and paste the URL that is on the clipboard into the browser's address bar. Confirm that Intellipix appears as before, but this time hosted in Azure.
 
-	![Deploy web app](Images/deploy-web-app.png)
+	![Intellipix hosted in Azure](Images/java-intellipix-on-azure.png)
 
-	_Deploy web app_
+	_Intellipix hosted in Azure_
 
+If you make changes to the app and want to push the changes out to the Web, simply deploy it again from Eclipse. Of course, you can still test your changes locally before publishing to the Web.
 
-1. In a browser, paste the link into the URL, and launch the app. The app should pull up Intellipix in the browser, this time running on Azure.
+When you're finished using the site, it is recommended that you delete the resource group containing it. Deleting the resource group deletes all of the resources inside it (including the storage account, the blobs uploaded to it, and the App Service), removes all traces of this lab from your account, and prevents any further charges from being incurred for it. To delete the resource group, simply open the resource-group blade in the portal and click **Delete** at the top of the blade. You will be asked to type the resource group's name to confirm that you want to delete it, because once deleted, a resource group can't be recovered.
 
 <a name="Exercise7"></a>
 ## Exercise 7: Cleaning up Azure Explorer
