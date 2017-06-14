@@ -201,117 +201,558 @@ In this exercise, you will set up Java, Eclipse, and the Azure Toolkit for Eclip
 
 	_Updating Maven settings_
 
-Eclipse is now configured to do Azure development. The next step is to begin a new project and create an Azure Web App.
+Eclipse is now configured to do Azure development. The next step is to use it to begin a new project and create an Azure Web App.
 
 <a name="Exercise4"></a>
 ## Exercise 4: Create a new project
 
-Like most IDE's, Eclipse provides a number of templates for common project types. The Dynamic Web Project in Eclipse uses server-side Java code for building things like web services and web pages. The two most common technologies for this are Java Server Pages (JSP's) and servlets. These pages can be mapped to URL endpoints so that particular routes will be passed to the appropriate servlet.
+Like most IDEs, Eclipse provides templates for common project types. The Dynamic Web Project in Eclipse uses server-side Java code to build Web services, Web pages, and the like. The two most common technologies for this are Java Server Pages (JSP's) and servlets. These pages can be mapped to URL endpoints so that particular routes will be passed to the appropriate servlet.
 
-In this exercise, you'll create a Dynamic Web Project and use some Azure API's in a servlet. Then you'll add a web page to the project to interact with the servlet through AJAX calls.
+In this exercise, you will create a Dynamic Web Project and use some Azure APIs in a servlet. Then you'll add a Web page to the project that interacts with the servlet using AJAX calls.
 
-1. From the **File** menu, select **New**, then select **Dynamic Web Project**. Set **Project Name** to "Intellipix" without the quotes, then click **New Runtime**.  
+1. Use the **File** > **New** > **Dynamic Web Project** command to create a new project. Set **Project name** to "Intellipix," and then click the **New Runtime...** button.  
 
-	![Create a new project](Images/new-project-1.png)
+	![Creating a new project](Images/new-project-1.png)
 
-	_Create a new project_
+	_Creating a new project_
 
-1. Select **Apache Tomcat v7.0** from the menu, then click the box next to **Create a new local server**, then click **Next**.
+1. Select **Apache Tomcat v7.0**. Then check the **Create a new local server** box and click **Next**.
 
-	![Create a runtime](Images/new-project-2.png)
+	![Selecting a runtime](Images/new-project-2.png)
 
-	_Create a runtime_
+	_Selecting a runtime_
 
-1. Select a directory to use as the run time directory by click **Browse**. It can be any directory so long as it is writable. After selecting a directory, click **Download and Install** next. This will start the Tomcat install.
+1. Click the **Browse...** button and a select a Tomcat installation directory. (Any writable directory will do.) Then click **Download and Install...** to start the Tomcat install. Accept the license agreement presented to you. When installation is complete, click **Finish** in the "New Server Runtime Environment" dialog, followed by **Finish** in the "New Dynamic Web Project" dialog.
 
-1. Select **I accept the terms of the license agreement**, then click **Finish**. 
+	![Installing Tomcat](Images/new-project-3.png)
 
-	![Accept Tomcat license](Images/accept-tomcat-license.png)
+	_Installing Tomcat_
 
-	_Accept Tomcat license_
+1. Close the "Welcome" tab in Eclipse to switch to the Java EE view.
 
-1. Wait for the install to finish, then click **Finish** on the **New Server Runtime Environment** window.
+1. Right-click (On a Mac, Control-click) the Intellipix project in Project Explorer. Then select **Configure** > **Convert to Maven Project** from the context menu. In the "Create new POM" dialog that ensues, accept the defaults and click **Finish**.
 
-	![Finish Tomcat install](Images/finish-tomcat-install.png)
+	> Maven is a package manager for Java. This action will add a **pom.xml** file to the project which can be used to install dependencies from Maven repositories.
 
-	_Finish Tomcat install_
-	
-1. Now click **Finish** on the **New Dynamic Web Project** window.
+1. Right-click the Intellipix project again, and this time select **Maven** > **Add Dependency**. In the "Add Dependency" dialog, set **Group Id** to "com.microsoft.azure," **Artifact Id** to "azure-storage," and **Version** to "5.1.1." Then click **OK** to add Azure Storage libraries to the project.
 
-	![Finish creating a new project](Images/finish-new-project.png)
+	![Adding Azure Storage libraries](Images/add-maven-dependency-1.png)
 
-	_Finish creating a new project_
+	_Adding Azure Storage libraries_
 
-1. Close the **Welcome** tab by click in the **X** icon. This will switch to the Java EE view.
+1. Repeat Step 6, but enter the values shown below into the "Add Dependency" dialog. This adds Java servlet libraries to the project.
 
-	![Close Welcome](Images/close-welcome.png)
+	![Adding servlet libraries](Images/add-maven-dependency-2.png)
 
-	_Close Welcome_
+	_Adding servlet libraries_
 
-1. Right click (or Control + Click on a Mac) on the Intellipix project, then select **Configure** from the menu, then **Convert to Maven Project**. Maven is a package manager for many projects in Java. This will add a **pom.xml** to the project which can be used to install dependencies from Maven repositories.
+1. Repeat Step 6, but enter the values shown below into the "Add Dependency" dialog. This adds some common I/O utility libraries to the project.
 
-	![Convert to a Maven project](Images/convert-to-maven.png)
+	![Adding I/O utility libraries](Images/add-maven-dependency-3.png)
 
-	_Convert to a Maven project_
+	_Adding I/O utility libraries_
 
-1. On the **Maven POM** window, take the defaults and click **Finish**.
+1. Repeat Step 6 one last time, but enter the values shown below into the "Add Dependency" dialog. This adds JSON libraries to the project. Many of the Azure APIs send and receive data in JSON format.
 
-	![Maven POM](Images/maven-config.png)
+	![Adding JSON libraries](Images/add-maven-dependency-4.png)
 
-	_Maven POM_
+	_Adding JSON libraries_
 
-1. Right click on the Intellipix project, then select **Maven**, then **Add Dependency**.
-
-	![Add Maven Dependency](Images/add-maven-dependencies.png)
-
-	_Add Maven Dependency_
-
-1. On the **Add Dependency** window, set **Group ID** to "com.microsoft.azure" without the quotes, set **Artifact ID** to "azure-storage" without quotes, then **Version** to "5.1.1" without quotes. Then click **OK**. This adds the Azure Storage libraries.
-
-	![Add a dependency](Images/add-maven-dependecy.png)
-
-	_Add a dependency_
-
-1. Repeat steps 10 and 11, except use "javax.servlet" for **Group ID**, "javax.servlet-api" for **Artifact ID**, and "4.0.0-b05" for **Version**. This adds the servlet libraries.
-
-1. Repeat steps 10 and 11 again, except use "commons-io" for **Group ID**, "commons-io" for **Artifact ID**, and "2.5" for **Version**. This adds some common IO utility libraries to the project.
-
-1. Repeat steps 10 and 11 one last time, except use "org.json" for **Group ID**, "json" for **Artifact ID**, and "20170516" for **Version**. This adds JSON support to the project. Many of the Azure API serve up data in the JSON format.
-
-1. Expand the Intellipix project, then expand **Java Resources**. Right click (or control click on a Mac) the **src** folder and select **New**, then **Servlet**.
+1. Expand the Intellipix project in Project Explorer. Right-click the "src" folder under **Java Resources** and select **New** > **Servlet**.
 
 	![Add a servlet](Images/new-servlet.png)
 
 	_Add a servlet_
 
-1. On the **Create Servlet** window, set **Java package** to "intellipix" without quotation marks, and likewise set **Class name** to "Api" without quotes. Then click **Finish**.
+1. In the "Create Servlet" dialog, set **Java package** to "intellipix" and **Class name** to "Api." Then click **Finish**.
 
-	![Create a servlet](Images/new-servlet-2.png)
+	![Create a servlet](Images/create-servlet.png)
 
 	_Create a servlet_
+
+1. Open **Api.java** in the "intellipix" folder created under the "src" folder, and replace its contents with the code below. Then save the modified file.
+
+	```java
+	package intellipix;
 	
-1. Expand the newly created Intellipix folder, then open **Api**. Next, open **Api.java** in the **resource/java** folder for the lab in a text editor. Copy the entire contents of the file and paste it over the the automatically generated code in Eclipse.
+	import java.awt.Graphics2D;
+	import java.awt.GraphicsConfiguration;
+	import java.awt.GraphicsDevice;
+	import java.awt.GraphicsEnvironment;
+	import java.awt.geom.AffineTransform;
+	import java.awt.image.BufferedImage;
+	import java.io.*;
+	import java.net.HttpURLConnection;
+	
+	import java.net.URL;
+	import java.nio.file.Paths;
+	import java.util.HashMap;
+	import java.util.List;
+	import java.util.stream.Collectors;
+	
+	import javax.imageio.ImageIO;
+	import javax.imageio.stream.ImageOutputStream;
+	import javax.servlet.ServletException;
+	import javax.servlet.annotation.MultipartConfig;
+	import javax.servlet.annotation.WebServlet;
+	import javax.servlet.http.*;
+	
+	import org.apache.commons.io.IOUtils;
+	import org.json.JSONArray;
+	import org.json.JSONObject;
+	
+	import com.microsoft.azure.storage.*;
+	import com.microsoft.azure.storage.blob.*;
+	
+	@WebServlet("/api")
+	@MultipartConfig
+	public class Api extends HttpServlet {
+	    private static final long serialVersionUID = 1L;
+	    private String connectionString = "connection_string";
+	    private String visionAPIKey = "vision_api_key";
+	    private String visionEndpoint = "vision_api_endpoint";
+	    
+	    
+	    public Api() {
+	        super();
+	    }
+	
+	    // This method handles GET requests for images 
+	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	        CloudBlobContainer images = getContainer("photos");
+	        response.setContentType("application/json");  
+	        PrintWriter out = response.getWriter();
+	
+	        // look for a search parameter in the query string
+	        String search = request.getParameter("search");
+	        JSONArray azureImages = new JSONArray();
+			
+	        // get a list of images from Azure Storage
+	        for (ListBlobItem photo: images.listBlobs()) {
+	            boolean match = false;
+	            JSONObject azureImage = new JSONObject();
+	            CloudBlob imageBlob = (CloudBlob)photo;
 
-1. On **line 40**, replace the value of **connectionString** with the Connection String for storage you copied in Exercise 1 step 10. On **line 41**, replace the **visionAPIKey** with the key you copied in Exercise 2 step 5 from the portal. Lastly, on **line 42** replace the value for **visionEndpoint** with the endpoint from the Azure portal you copied Exercise 2 step 4.
+	            try {
+	                imageBlob.downloadAttributes();
+	            }
+	            catch (StorageException e) {
+	                e.printStackTrace();
+	            }
+				
+	            // get the blob URL
+	            azureImage.put("url", imageBlob.getUri().toString().replace(".blob.core.windows.net/photos/", ".blob.core.windows.net/thumbnails/"));
+	            azureImage.put("fullUrl", imageBlob.getUri().toString());
+				
+	            HashMap<String, String> metadata = imageBlob.getMetadata();
+				
+	            if (!metadata.isEmpty()) {
+	                JSONObject imageMetadata = new JSONObject();
 
-	![Set variables](Images/variables.png)
+	                // get the caption from blob metadata
+	                if (metadata.containsKey("caption")) {
+	                    imageMetadata.put("caption", metadata.get("caption"));
+	                    if (search != null && imageMetadata.getString("caption").toLowerCase().contains(search.toLowerCase())) {
+	                        match = true;
+	                    }
+	                }
 
-	_Set variables_
+	                // get tags from blob metadata	
+	                if (metadata.containsKey("tags")) {
+	                    JSONArray tags = new JSONArray(metadata.get("tags"));
+	                    imageMetadata.put("tags", tags);
+	                    if (search != null) {
+	                        for (Object tag: imageMetadata.getJSONArray("tags")) {
+	                            if (((String)tag).toLowerCase().equals(search.toLowerCase())) {match = true; break;}
+	                        }								
+	                    }
+	                }
+							
+	                azureImage.put("metadata", imageMetadata);	
+					
+	                if (search != null && match) {
+	                    azureImages.put(azureImage);				
+	                }
+	                else if (search == null) {
+	                    azureImages.put(azureImage);	
+	                }
+	            }
+	            else if (search == null) {
+	                azureImages.put(azureImage);								
+	            }
+	        };
+			
+	        // write the list back as JSON
+	        out.print(azureImages.toString());
+	        out.flush();
+	    }
+	
+	    // This method handles image uploads
+	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	        // parse uploaded content for uploaded files
+	        List<Part> fileParts = request.getParts().stream().filter(part -> "photos".equals(part.getName())).collect(Collectors.toList()); // Retrieves <input type="file" name="file" multiple="true">
+	
+	        for (Part filePart : fileParts) {
+	            String fileName = Paths.get(getSubmittedFileName(filePart)).getFileName().toString(); 
+	            InputStream fileContent = filePart.getInputStream();
+	            byte[] imageBuffer = IOUtils.toByteArray(fileContent); // raw byte data for the image
+		                
+	            // create a thumbnail for the uploaded image and convert it into a ByteArrayInputStream
+	            ByteArrayInputStream inputStream = new ByteArrayInputStream(imageBuffer);
+	            BufferedImage img = ImageIO.read(inputStream);
+	            BufferedImage thumbnail = scale (img, 200.0 / img.getWidth()); //scale to 200  pixels wide
+		        
+	            // write the thumbnail as a PNG to an input stream
+	            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+	            ImageOutputStream thumbnailData = ImageIO.createImageOutputStream(bytes);
+	            ImageIO.write(thumbnail, "png", thumbnailData);
+	            ByteArrayInputStream thumbnailContent = new ByteArrayInputStream(bytes.toByteArray()); 
+	
+	            // upload the original image to Azure Storage
+	            inputStream = new ByteArrayInputStream(imageBuffer);
+	            CloudBlob imgBlob = uploadBlob("photos", fileName, inputStream, null);
+		        
+	            try {
+	                // send the image to the Computer Vision API for analysis
+	                JSONObject analysis = new JSONObject(analyzeImage(imgBlob.getUri().toString()));
+	                HashMap<String, String> metadata = new HashMap<String,String>();
+			        
+	                // extract analysis data and stores it in blob metadata
+	                if (analysis.has("description")) {
+	                    if (analysis.getJSONObject("description").has("captions") && analysis.getJSONObject("description").getJSONArray("captions").length() != 0) {
+		                    metadata.put("caption", analysis.getJSONObject("description").getJSONArray("captions").getJSONObject(0).getString("text"));
+	                    }
+	                    else {
+	                        metadata.put("caption", "Unknown");
+	                    }
+	
+	                    if (analysis.getJSONObject("description").has("tags") && analysis.getJSONObject("description").getJSONArray("tags").length() != 0) {
+	                        metadata.put("tags", analysis.getJSONObject("description").getJSONArray("tags").toString());
+	                    }
+	                    else {
+	                        metadata.put("caption", new JSONArray().toString());
+	                    }
+	                }
+	
+	                imgBlob.setMetadata(metadata);
+	                imgBlob.uploadMetadata();
+			        
+	                // upload the thumbnail to Azure Storage
+	                uploadBlob("thumbnails", fileName, thumbnailContent, metadata);	
+	            }
+	            catch (Exception e) {
+	                e.printStackTrace();
+	            }
+	        }
+		    
+	        response.getWriter().append("");
+	    }
+	
+	    // Utility method for storing blobs on Azure
+	    private CloudBlockBlob uploadBlob(String containerName, String fileName, InputStream blobData, HashMap<String,String> metadata) {
+	        try  {
+	            CloudBlobContainer container = getContainer(containerName);
+	            CloudBlockBlob blob = container.getBlockBlobReference(fileName);
+	            blob.upload(blobData, blobData.available());
 
-1. Right click on WebContent, then select **New** on the menu, then **HTML file**.
+	            if (metadata != null) {
+	                blob.setMetadata(metadata);
+	                blob.uploadMetadata();				
+	            }
+	            return blob;
+	        }
+	        catch(Exception e) {
+	            return null;
+	        }
+	    }
+		
+	    // Helper method to extract file names
+	    private static String getSubmittedFileName(Part part) {
+	        for (String cd : part.getHeader("content-disposition").split(";")) {
+	            if (cd.trim().startsWith("filename")) {
+	                String fileName = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
+	                return fileName.substring(fileName.lastIndexOf('/') + 1).substring(fileName.lastIndexOf('\\') + 1); // MSIE fix.
+	            }
+	        }
+	        return null;
+	    }
+		
+	    // Helper method to get blob containers
+	    private CloudBlobContainer getContainer(String containerName) {
+	        try {
+	            CloudStorageAccount account = CloudStorageAccount.parse(connectionString);
+	            CloudBlobClient serviceClient = account.createCloudBlobClient();
+	            return serviceClient.getContainerReference(containerName);
+	        }
+	        catch (Exception e) {
+	            System.out.print("Exception encountered: ");
+	            System.out.println(e.getMessage());
+	        }
+	        return null;
+	    }
+		
+	    // Helper method to scale an image	
+	    private BufferedImage scale(BufferedImage source, double ratio) {
+	        int w = (int) (source.getWidth() * ratio);
+	        int h = (int) (source.getHeight() * ratio);
+	        BufferedImage bi = getCompatibleImage(w, h);
+	        Graphics2D g2d = bi.createGraphics();
+	        double xScale = (double) w / source.getWidth();
+	        double yScale = (double) h / source.getHeight();
+	        AffineTransform at = AffineTransform.getScaleInstance(xScale,yScale);
+	        g2d.drawRenderedImage(source, at);
+	        g2d.dispose();
+	        return bi;
+	    }
+	
+	    private BufferedImage getCompatibleImage(int w, int h) 
+	    {
+	        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+	        GraphicsDevice gd = ge.getDefaultScreenDevice();
+	        GraphicsConfiguration gc = gd.getDefaultConfiguration();
+	        BufferedImage image = gc.createCompatibleImage(w, h);
+	        return image;
+	    }
+		
+	    // Utility method for handling requests to the Computer Vision API
+	    private String analyzeImage(String blobUrl) throws Exception {
+	        URL obj = new URL(visionEndpoint +  "/analyze?visualFeatures=description");
+	        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+	        con.setRequestMethod("POST");
+	
+	        // add request header
+	        con.setRequestProperty("Ocp-Apim-Subscription-Key", visionAPIKey);
+	        con.setRequestProperty("Content-Type", "application/json");
+			
+	        con.setUseCaches (false);
+	        con.setDoInput(true);
+	        con.setDoOutput(true);
+			
+	        // prepare the HTTP POST body
+	        JSONObject url = new JSONObject();
+	        url.put("url", blobUrl);
+			
+	        con.setDoOutput(true);
+	        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+	        wr.writeBytes(url.toString());
+	        wr.flush();
+	        wr.close();
+			
+	        int responseCode = con.getResponseCode();
+	        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+	        String inputLine;
+	        StringBuffer response = new StringBuffer();
+	
+	        // read the response as a string
+	        while ((inputLine = in.readLine()) != null) {
+	            response.append(inputLine);
+	        }
 
-	![New HTML file](Images/new-html.png)
+	        in.close();
+	        return response.toString();
+	    }
+	}
+	```
 
-	_New HTML file_
+1. On line 36, replace *connection_string* with the connection string that you saved in Exercise 1, Step 9.
 
-1. Set the **File name** to "index.html" (witout the quotation marks), then click **Finish**.
+1. On line 37, replace *vision_api_key* with the Computer Vision API key that you saved in Exercise 2, Step 5.
 
-	![New HTML file](Images/new-html-2.png)
+1. On line 38, replace *vision_api_endpoint* with the Computer Vision API endpoint that you saved in Exercise 2, Step 4.
 
-	_Create an HTML file_
+1. Right-click **WebContent** in Project Explorer and use the **New** > **HTML file** command to add an HTML file named "index.html" to the project.
 
+1. Replace the contents of **index.html** with the statements below. Then save the modified file.
 
-1. Open the **index.html** file in the **resources/java** folder for the lab in a text editor. Copy all the contents and paste over the generated content for **index.html** in Eclipse.
+	```html
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="ISO-8859-1">
+	<title>Intellipix</title>
+	</head>
+	<body onload="searchPics()">
+	
+	<style>
+	body {
+	    background-color:#444;
+	    color:#FFF;
+	    font-family:tahoma;
+	}
+	
+	input {
+	    background-color:#555;
+	    border:1px solid #666;
+	    color:#fff;
+	}
+	
+	#modal{
+	    max-height: calc(100% - 100px);
+	    position: fixed;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    display:none;
+	    background-color:#555;
+	    border:1px solid #666;
+	    padding:3px;
+	    text-align:center;
+	}
+	
+	#modalimage{
+	    max-height: calc(100% - 100px);
+	    max-width: 100%;
+	}
+	
+	#controls{
+	    background-color:#555;
+	    border:1px solid #666;
+	    padding:5px;
+	}
+	
+	#gallery span {
+	    display:inline-block;
+	}
+	
+	#gallery img {
+	    border:1px solid #000;
+	    padding:5px;
+	    background-color:#fff;
+	    margin:3px;
+	}
+	
+	#search {
+	    width:45%;
+	    float:left;
+	}
+	
+	#upload {
+	    width:45%;
+	    margin-left:45%;
+	}
+	</style>
+	
+	<script type="text/javascript">
+	function uploadPics() {
+	    var form = document.getElementById('uploader');
+	    var message = document.getElementById('uploadmessage');
+		
+	    form.enabled = false;
+	    message.innerHTML = 'Uploading and Processing...';
+	
+	    // get file references from the form and then uploads the files
+	    var formData = new FormData();
+	    var fileSelect = document.getElementById('file-select');
+	    var files = fileSelect.files;
+		
+	    for (var i = 0; i < files.length; i++) {
+	        var file = files[i];
+	        formData.append('photos', file, file.name);
+	    }		
+		
+	    // pure AJAX; no jQuery
+	    var xhr = new XMLHttpRequest();
+	    xhr.open('POST', 'api', true);
+	    xhr.onload = function () {
+	        if (xhr.status === 200) {
+	            message.innerHTML = (files.length) + ' file(s) uploaded.';
+	            reset();
+	        }
+            else {
+	            message.innerHTML = 'An error occurred!';
+	        }
+	        form.reset();
+	    };
+	    xhr.send(formData);
+	}
+		
+	function searchPics(search) {
+	    var xhr = new XMLHttpRequest();
+	    var url = "api"
+		
+	    if (search && search != ""){
+	        url += "?search=" + search;
+	    }
+		
+	    xhr.open('GET', url, true);
+	    xhr.onload = function () {
+	        if (xhr.status === 200) {
+	            htmlStr = "";
+	            var images = JSON.parse(xhr.responseText);
+				
+	            // create HTML from JSON data and append it to the DOM
+	            for (var i = 0; i < images.length; i++) {
+	                var image = images[i];
+	                htmlStr += "<span class='imgwrapper'><img onclick='showImage(\"" + image.fullUrl + "\", \"" + image.metadata.caption + "\")' src='" + image.url + "' title='" + image.metadata.caption + "' alt='" + image.metadata.caption + "'></span>"
+	            }
+				
+	            if (htmlStr == "") {
+	                htmlStr = "No images found."
+	            }
+				
+	            var gallery = document.getElementById("gallery");
+	            gallery.innerHTML = htmlStr;
+			}
+            else {
+	            gallery.innerHTML = 'An error occurred!';
+	        }
+	    };
+	    xhr.send();
+	}
+	
+	// resets the search form
+	function reset(){
+	    document.getElementById('searchTerm').value = "";
+	    searchPics();
+	}
+	
+	// shows the modal dialog for an image
+	function showImage(url, caption){
+	    document.getElementById('modalimage').src = url;
+	    document.getElementById('modaltext').innerHTML = caption;
+	    document.getElementById('modal').style.display = "block";
+	}
+	
+	// closes the modal dialog
+	function closeImage(){
+	    document.getElementById('modal').style.display = "none";
+	}
+	</script>
+	
+	<h1 id="title">Intellipix</h1>
+	
+	<div id="controls">
+	<div id="search">
+	<div>Search</div>
+	<input type="text" value="" id="searchTerm" placeholder="Enter a search term">
+	<input type="button" onclick="searchPics(document.getElementById('searchTerm').value)" value="Search">
+	<input type="button" onclick="reset()" value="Reset Search">
+	</div>
+	
+	<div id="upload">
+	<form id="uploader" >
+	<div id="uploadmessage">Select image to upload:</div>
+	<input type="file" name="file-select" id="file-select" multiple>
+	<input type="button" value="Upload" onclick="uploadPics()">
+	</form>
+	</div>
+	</div>
+	<div id="message"></div>
+	
+	<div id="gallery">
+	</div>
+	
+	<div id="modal">
+	<img src="" id="modalimage">
+	<p id="modaltext"></p>
+	<input type="button" value="close" onclick="closeImage()">
+	</div>
+	
+	</body>
+	</html>
+	```
+
+With the app complete, the next step is to run it locally and make sure it works as intended before deploying it to Azure.
 
 <a name="Exercise5"></a>
 ## Exercise 5: Run the App
