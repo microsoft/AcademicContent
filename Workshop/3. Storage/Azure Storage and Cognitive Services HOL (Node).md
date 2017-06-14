@@ -35,6 +35,7 @@ The following are required to complete this hands-on lab:
 - [Node.js](https://nodejs.org/en/download/) version 4 or higher
 
 ---
+
 <a name="Exercises"></a>
 ## Exercises ##
 
@@ -102,6 +103,12 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
     _The new containers_
 
+1. Click **Access keys** in the menu on the left side of the storage-account blade, and then click the **Copy** button next to **KEY** for **key1**. Paste this access key into your favorite text editor for later use.
+
+    ![Copying the access key](Images/copy-storage-account-access-key.png)
+
+    _Copying the access key_
+
 You have now created a storage account to hold images uploaded to the app you're going to build, and containers to store the images in. Note that you *could* create these containers from within the app. Whether to create them programmatically or create them as part of the provisioning process is a choice that's left up to app developers.
 
 <a name="Exercise2"></a>
@@ -126,9 +133,9 @@ The containers are currently empty, but that will change once your app is deploy
 <a name="Exercise3"></a>
 ## Exercise 3: Get a subscription key for the Computer Vision API
 
-[Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/) is a set of intelligence APIs that you can call from your apps. Among the more than 20 APIs it offers are the [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) for distilling actionable information from images, the [Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api) for recognizing emotion in images and video, and the [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api) for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available in for you to begin using today.
+[Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/) is a set of intelligence APIs that you can call from your apps. Among the more than 25 APIs it offers are the [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) for distilling actionable information from images, the [Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api) for recognizing emotion in images and video, and the [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api) for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available for you to begin using today.
 
-In this exercise, you will acquire a subscription key allowing you to call the Computer Vision API from your code. You'll use this key in Exercise 4 to generate thumbnails from the images uploaded to the Web site, and to generate captions and search keywords for the images.
+In this exercise, you will acquire a subscription key allowing you to call the Computer Vision API from your code. You'll use this key in a later exercise to generate thumbnails from the images uploaded to the Web site, and to generate captions and search keywords for the images.
 
 1. In the Azure Portal, click **+ New**, followed by **AI + Cognitive Services** and **Computer Vision API**.
 
@@ -144,23 +151,23 @@ In this exercise, you will acquire a subscription key allowing you to call the C
 
 1. Return to the blade for the "IntellipixResourceGroup" resource group and click the Computer Vision API subscription that you just created.
 
-    ![Opening the Computer Vision API subscription](Images/open-vision-api.png)
+    ![Opening the Computer Vision API subscription](Images/open-vision-api-2.png)
 
     _Opening the Computer Vision API subscription_
 
-1. Click **Show access keys**.
+1. Copy the URL under **Endpoint** into your favorite text editor so you can easily retrieve it later. Then click **Show access keys**.
 
     ![Viewing the access keys](Images/show-access-keys.png)
 
     _Viewing the access keys_
 
-1. Click the **Copy** button to the right of **KEY 1** to copy the access key to the clipboard.
+1. Click the **Copy** button to the right of **KEY 1** to copy the access key to the clipboard. Then paste the key into your favorite text editor so you can retrieve it later.
 
     ![Copying the access key](Images/copy-vision-key.png)
 
     _Copying the access key_
 
-Copy the access key that's on the clipboard into your favorite text editor so you can retrieve it again later. You will need it in the next exercise, and you will need it again in Exercise 6.
+The access key that you just copied will be included in each HTTPS request sent to the Computer Vision API so Azure can verify that the caller is authorized. You should protect this access key the same way you protect access keys for storage accounts and other Azure resources.
 
 <a name="Exercise4"></a>
 ## Exercise 4: Write the app in Visual Studio Code

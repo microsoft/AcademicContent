@@ -10,7 +10,7 @@ Microsoft Azure Storage is a set of services that allows you to store large volu
 
 Data stored in Microsoft Azure Storage can be accessed over HTTP or HTTPS using straightforward REST APIs, or it can be accessed using rich client libraries available for many popular languages and platforms, including .NET, Java, Android, Node.js, PHP, Ruby, and Python. The [Azure Portal](https://portal.azure.com) includes features for working with Azure Storage, but richer functionality is available from third-party tools, many of which are free and some of which work cross-platform.
 
-In this lab, you will use Eclipse to write a Java app that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in Java, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/), a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) to generate a caption for the image as well as search metadata describing the contents of the image and an image thumbnail. And you will discover how easy it is to deploy apps to the cloud using the Azure Toolkit and Eclipse.
+In this lab, you will use Eclipse to write a Java app that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in Java, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/), a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) to generate a caption for the image as well as search metadata describing the contents of the image and an image thumbnail. And you will discover how easy it is to deploy apps to the cloud using Eclipse and the Azure Toolkit for Eclipse.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -18,7 +18,7 @@ In this lab, you will use Eclipse to write a Java app that accepts images upload
 In this hands-on lab, you will learn how to:
 
 - Create a storage account and storage containers using the Azure Portal
-- Create a Web app in Visual Studio and deploy it to Azure
+- Create a Web app in Eclipse and deploy it to Azure
 - Read and write blobs and attach metadata to them
 - Use the Computer Vision API to extract information from images
 - Use the cross-platform [Microsoft Azure Storage Explorer](http://storageexplorer.com/) to work with Azure Storage
@@ -29,6 +29,11 @@ In this hands-on lab, you will learn how to:
 The following are required to complete this hands-on lab:
 
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- [Java SE Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+- [Eclipse](https://www.eclipse.org/downloads/)
+- Azure Toolkit for Eclipse
+
+---
 
 <a name="Exercises"></a>
 ## Exercises ##
@@ -37,7 +42,7 @@ This hands-on lab includes the following exercises:
 
 - [Exercise 1: Create a storage account](#Exercise1)
 - [Exercise 2: Get a subscription key for the Computer Vision API](#Exercise2)
-- [Exercise 3: Setup Java and Eclipse](#Exercise3)
+- [Exercise 3: Set up Java and Eclipse](#Exercise3)
 - [Exercise 4: Create a new project](#Exercise4)
 - [Exercise 5: Run the app](#Exercise5)
 - [Exercise 6: Deploy the app to Azure](#Exercise6)
@@ -49,6 +54,7 @@ Estimated time to complete this lab: **75** minutes.
 
 ---
 
+<a name="Exercise1"></a>
 ## Exercise 1: Create a storage account
 
 The [Azure Portal](https://portal.azure.com) allows you to perform basic storage operations such as creating storage accounts, creating containers, and managing access keys. In this exercise, you will use the portal to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.
@@ -83,13 +89,7 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
     _Viewing blob containers_
 
-1. The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click **+ Container** to create a new container.
-
-    ![Adding a container](Images/add-container.png)
-
-    _Adding a container_
-
-1. Type "photos" (without quotation marks) into the **Name** field and select **Blob** as the **Access type**. Then click **Create** to create a container named "photos."
+1. The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click **+ Container** to create a new container. Type "photos" (without quotation marks) into the **Name** field and select **Blob** as the **Access type**. Then click **OK** to create a container named "photos."
 
 	> By default, containers and their contents are private. Selecting **Blob** as the access type makes the blobs in the "photos" container publicly accessible, but doesn't make the container itself public. This is what you want since the images stored in the "photos" container will be linked to from a Web app. 
 
@@ -105,122 +105,103 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
     _The new containers_
 
-1. Once the containers are created, select **Access Keys** in the menu for the Storage Account blade, then click the **Copy** button next to the **Connection String** for **key1**. Paste this key into a text editor for later use.
+1. Click **Access keys** in the menu on the left side of the storage-account blade, and then click the **Copy** button next to **CONNECTION STRING** for **key1**. Paste this connection string into your favorite text editor for later use.
 
-    ![Get the connection string](Images/get-connection-string.png)
+    ![Copying the connection string](Images/copy-storage-account-connection-string.png)
 
-    _Get the connection string_
+    _Copying the connection string_
 
 You have now created a storage account to hold images uploaded to the app you're going to build, and containers to store the images in. Note that you *could* create these containers from within the app. Whether to create them programmatically or create them as part of the provisioning process is a choice that's left up to app developers.
-
-
 
 <a name="Exercise2"></a>
 ## Exercise 2: Get a subscription key for the Computer Vision API
 
-[Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/) is a set of intelligence APIs that you can call from your apps. Among the more than 20 APIs it offers are the [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) for distilling actionable information from images, the [Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api) for recognizing emotion in images and video, and the [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api) for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available in preview form for you to begin using today.
+[Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/) is a set of intelligence APIs that you can call from your apps. Among the more than 25 APIs it offers are the [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) for distilling actionable information from images, the [Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api) for recognizing emotion in images and video, and the [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api) for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available for you to begin using today.
 
-In this exercise, you will acquire a subscription key allowing you to call the Computer Vision API from your code. You'll use this key in Exercise 4 to generate thumbnails from the images uploaded to the Web site, and to generate captions and search keywords for the images.
+In this exercise, you will acquire a subscription key allowing you to call the Computer Vision API from your code. You'll use this key in a later exercise to generate thumbnails from the images uploaded to the Web site, and to generate captions and search keywords for the images.
 
-1. In the Azure Portal, Select the **+ New** icon, then choose **AI + Cognitive Services**, then select **Computer Vision API**.
+1. In the Azure Portal, click **+ New**, followed by **AI + Cognitive Services** and **Computer Vision API**.
 
-    ![Add a new Computer Vision API](Images/new-computer-vision-api.png)
+    ![Creating a new Computer Vision API subscription](Images/new-vision-api.png)
 
-    _Add a new Computer Vision API_
+    _Creating a new Computer Vision API subscription_
 
-1. In the configuration blade for the Computer Vision API, set **Name** to "Intellipix" (without quotation marks), Select the region nearest you for the **Location**, then choose **F0 (20 Calls per minute, 5k calls per month)** for the **Pricing Tier**. For the Resource Group, select **Use Existing**, then choose **IntellipixResourceGroup** that you created in Exercise 1. Check the box next to **I confirm I have read and understood the notice below**. Lastly, click **Create**. Give Azure a few moments to provision the Computer Vision API.
+1. Enter "VisionAPI" into the **Name** box and select **F0** as the **Pricing tier**. Under **Resource Group**, select **Use existing** and select the "IntellipixResourceGroup" that you created in Exercise 1. Check the **I confirm** box, and then click **Create**.
 
-    ![Configure a new Computer Vision API](Images/new-computer-vision-api-2.png)
+    ![Subcribing to the Computer Vision API](Images/create-vision-api.png)
 
-    _Configure a new Computer Vision API_
+    _Subcribing to the Computer Vision API_
 
-1. Next, choose the **Resource Group** icon, then click on the **IntellipixResourceGroup**, then select the **intellipix** Computer Vision API.
+1. Return to the blade for the "IntellipixResourceGroup" resource group and click the Computer Vision API subscription that you just created.
 
-    ![Select the Computer Vision API](Images/select-computer-vision-resource.png)
+    ![Opening the Computer Vision API subscription](Images/open-vision-api-2.png)
 
-    _Select the Computer Vision API_
+    _Opening the Computer Vision API subscription_
 
-1. In the **Essentials** block, copy the **Endpoint** by clicking on the **Copy** button. If the Copy icon is not showing, move your cursor over the URL and it will appear. Paste the Endpoint URL into a text editor for later use. Then click on the **Show access keys** link.
+1. Copy the URL under **Endpoint** into your favorite text editor so you can easily retrieve it later. Then click **Show access keys**.
 
-    ![Copy the computer vision endpoint URL](Images/copy-vision-endpoint.png)
+    ![Viewing the access keys](Images/show-access-keys.png)
 
-    _Copy the computer vision endpoint URL_
+    _Viewing the access keys_
 
-1. On the **Manage keys** blade, click the **Copy** button next to **Key 1**. Paste this key into a text editor for later use.
+1. Click the **Copy** button to the right of **KEY 1** to copy the access key to the clipboard. Then paste the key into your favorite text editor so you can retrieve it later.
 
-    ![Copy access keys](Images/copy-access-key.png)
+    ![Copying the access key](Images/copy-vision-key.png)
 
-    _Copy access keys_
+    _Copying the access key_
+
+The access key that you just copied will be included in each HTTPS request sent to the Computer Vision API so Azure can verify that the caller is authorized. You should protect this access key the same way you protect access keys for storage accounts and other Azure resources.
 
 <a name="Exercise3"></a>
-## Exercise 3: Setup Java and Eclipse
+## Exercise 3: Set up Java and Eclipse
 
-[Eclipse](https://eclipse.org/) for the longest time has been one of the most popular IDE's for developing Java Apps. A rich ecosystem of components, plug-ins, and integrations have grown around it making it a very capable IDE for doing just about all things related to Java in the IDE. [Microsoft's Java group](https://azure.microsoft.com/en-us/develop/java/) has has provided tools for integrating Eclipse with Azure using the [Azure Toolkit](https://docs.microsoft.com/en-us/azure/azure-toolkit-for-eclipse). It comes with the ability to deploy apps to Azure either as Web Apps or Docker containers as well as tools for managing assets on Azure including Azure Storage, Web Apps, Redis Cache, HDI Insight, and Virtual Machines.
+[Eclipse](https://eclipse.org/) has long been one of the most popular IDEs for developing Java apps. A rich ecosystem of components and plug-ins has grown up around it, making it a very capable IDE for doing all things Java. [Microsoft's Java group](https://azure.microsoft.com/en-us/develop/java/) has has provided tools for integrating Eclipse with Azure using the [Azure Toolkit for Eclipse](https://docs.microsoft.com/en-us/azure/azure-toolkit-for-eclipse). It comes with the ability to deploy apps to Azure either as Azure Web Apps or in Docker containers, and it contains tools for managing Azure resources such as Azure Storage, Azure Web Apps, Redis Cache, HDInsight, and Azure virtual machines.
 
-In this exercise, you will setup Java, Eclipse, and lastly the Azure Toolkit for Eclipse.
+In this exercise, you will set up Java, Eclipse, and the Azure Toolkit for Eclipse.
 
-1. If you don't already have the JDK (Java Development Kit) installed, [download Java SE Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/index.html) from Oracle's website and install it. 
+1. If you don't already have the Java Development Kit (JDK) installed, go to http://www.oracle.com/technetwork/java/javase/downloads/index.html and click the **JDK Download** button. 
 
-	![Download the JDK](Images/download-java.png)
+	![Downloading the JDK](Images/download-java.png)
 
-	_Download the JDK_
+	_Downloading the JDK_
 
-	First, agree to the license, then select the installer to match your system (Mac, Linux, or Windows) as well as the bit length (32-bit or 64-bit). The installers for each platform are self-contained and will setup everything you need to run and compile Java. Once the installer downloads, run it and it will install the Java Development kit on your computer. The installation for each system will be slightly different, but they are all pretty straight forward.
+1. Click **Accept License Agreement**, and then click the installer that matches your system. The installers for each platform are self-contained and will install and configure everything you need to run and compile Java. Once the installer downloads, run it and follow the prompts to install the JDK.
 
-	![Select the JDK](Images/download-java-2.png)
+	![Installing the JDK](Images/download-java-2.png)
 
-	_Select the JDK_
+	_Installing the JDK_
 
-1. Download the [Eclipse Installer](https://www.eclipse.org/downloads/). Eclipse is perhaps the most widely used IDE for doing Java Development, and it comes with a variety of tailor made installations depending on the nature of the development being done. In this case, you'll be doing web development with servlets, so you'll install the environment to support this kind of development.
+1. If Eclipse is not installed on your system. go to https://www.eclipse.org/downloads/ and click the **Download** button. Then click the **Download** button that appears on the next page to download the Eclipse installer.
 
-	![Download Eclipse](Images/download-eclipse.png)
+	![Downloading Eclipse](Images/download-eclipse.png)
 
-	_Download Eclipse_
+	_Downloading Eclipse_
 
-1. When the download completes, launch the installer. The installer will start the installation wizard. On the first screen, select **Eclipse IDE for Java EE Developers**.
+1. When the download completes, launch the installer. When prompted to choose an Eclipse configuration, select **Eclipse IDE for Java EE Developers**. Then click the **Install** button and follow the prompts to install Eclipse.
 
-	![Select IDE Environments](Images/eclipse-installer.png)
+	![Specifying the Eclipse configuration](Images/eclipse-installer.png)
 
-	_Select IDE Environments_
+	_Specifying the Eclipse configuration_
 
-1. On the second screen of the install wizard, select the installation location for Eclipse. Eclipse is a self-contained application, so if you have other instances of Eclipse, you can install it along side these other instances. After you select a location, click **Install**. The installer will take a few moments to complete so sit back while the installer finishes.
+1. Launch Eclipse. When prompted to create a workspace, enter "intellipix" as the workspace folder name.
 
-	![Install Eclipse](Images/eclipse-installer-2.png)
+	![Creating a workspace](Images/create-workspace.png)
 
-	_Install Eclipse_
+	_Creating a workspace_
 
-1. After installation completes, launch Eclipse. Eclipse will ask you to create a **workspace**. A workspace contains a set of related projects. For the lab, create a workspace in your user colder called **intellipix**, then click **OK**.
+1. Select **Eclipse Marketplace** from Eclipse's **Help** menu. Type "azure toolkit" into the **Find** box and click **Go**. Then click the **Install** button under **Azure Toolkit for Eclipse** to install the toolkit. Accept any licenses presented to you and allow Eclipse to restart if it prompts you to allow a restart. 
 
-	![Install Eclipse](Images/create-workspace.png)
+	![Installing the Azure Toolkit for Eclipse](Images/install-azure-toolkit.png)
 
-	_Create a workspace_
+	_Installing the Azure Toolkit for Eclipse_
 
-1. From the **Help** menu, select **Eclipse Marketplace**. In the **Find** box, type in "Azure Toolkit" without the quotes and then click **Go**. After the search completes, click the **Install** button for the **Azure Toolkit for Eclipse**. 
+1. Select **Preferences** from Eclipse's **Window** menu. Click **Maven** in the preferences list on the left and uncheck the **Do not automatically update dependencies from remote repositories** box. Then click **OK**.
 
-	![Install Azure Toolkit](Images/install-azure-toolkit.png)
+	![Updating Maven settings](Images/change-maven-updates.png)
 
-	_Install the Azure Toolkit_
+	_Updating Maven settings_
 
-1. Review the license, then click the box next to **I accept the terms of the license agreement**. Then click **Finish**. This will then install the Azure Toolkit for Eclipse. Wait for the install to finish. 
-
-	![Accept the license](Images/install-azure-toolkit-2.png)
-
-	_Accept the license_
-
-	
-1. After the install finishes, you'll be prompted to restart. Select **Yes**.
-
-	![Restart Eclipse](Images/restart-eclipse.png)
-
-	_Restart Eclipse_
-
-1. From the **Window** menu, select **Preferences**, then select Maven. Uncheck the box next to **Do not automatically update dependencies from remote sites**. Then click **OK**.
-
-	![Change Maven updates](Images/change-maven-updates.png)
-
-	_Change Maven updates_
-
-Now Eclipse is setup so you can start creating projects.
+Eclipse is now configured to do Azure development. The next step is to begin a new project and create an Azure Web App.
 
 <a name="Exercise4"></a>
 ## Exercise 4: Create a new project
