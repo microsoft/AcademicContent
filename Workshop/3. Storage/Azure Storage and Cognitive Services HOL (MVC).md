@@ -100,6 +100,12 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
     _The new containers_
 
+1. Click **Access keys** in the menu on the left side of the storage-account blade, and then click the **Copy** button next to **KEY** for **key1**. Paste this access key into your favorite text editor for later use.
+
+    ![Copying the access key](Images/copy-storage-account-access-key.png)
+
+    _Copying the access key_
+
 You have now created a storage account to hold images uploaded to the app you're going to build, and containers to store the images in. Note that you *could* create these containers from within the app. Whether to create them programmatically or create them as part of the provisioning process is a choice that's left up to app developers.
 
 <a name="Exercise2"></a>
@@ -158,7 +164,7 @@ In this exercise, you will create a new Web app in Visual Studio and add code to
 
 1. Finish up by clicking the **Create** button in the lower-right corner of the "Create App Service" dialog.
 
-1. Take a moment to review the project structure in the Solution Explorer window. Among other things, there's a folder named "Controllers" that holds the project's MVC controllers, and a folder named "View" that holds the project's views. You'll be working with assets in these folders and others as you implement the application.
+1. Take a moment to review the project structure in the Solution Explorer window. Among other things, there's a folder named "Controllers" that holds the project's MVC controllers, and a folder named "Views" that holds the project's views. You'll be working with assets in these folders and others as you implement the application.
 
 1. Now use Visual Studio's **Debug -> Start Without Debugging** command (or simply press **Ctrl+F5**) to launch the application in your browser. Here's how the application looks in its present state:
 
@@ -198,19 +204,7 @@ In this exercise, you will create a new Web app in Visual Studio and add code to
 
     _Opening Web.config_
 
-1. Return to the Azure Portal for a moment and open the blade for the storage account you created in Exercise 1. Then click **Access keys** to view the storage account's access keys. 
-
-    ![Viewing the storage account's access keys](Images/view-access-keys.png)
-
-    _Viewing the storage account's access keys_
-
-1. Click the **Copy** button to the right of **key1** to copy the access key to the clipboard.
-
-    ![Copying the storage account's access key](Images/copy-access-key.png)
-
-    _Copying the storage account's access key_
-
-1. Return to Visual Studio. In **Web.config**, add the following statement to the \<appSettings\> section, replacing *account_name* with the name of the storage account you created in Exercise 1, and *account_key* with the access key you copied to the clipboard in the previous step.
+1. In **Web.config**, add the following statement to the ```<appSettings>``` section, replacing *account_name* with the name of the storage account you created in Exercise 1, and *account_key* with the access key you saved in Exercise 1, Step 9.
 
 	```C#
 	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account_name;AccountKey=account_key" />
@@ -218,13 +212,13 @@ In this exercise, you will create a new Web app in Visual Studio and add code to
 
 	Now save your changes and close **Web.config**.
 
-1. In the Solution Explorer window, find the file named **_Layout.cshtml** in the Views/Shared folder. Double-click the file to open it.
+1. In the Solution Explorer window, find the file named **_Layout.cshtml** in the "Views/Shared" folder. Double-click the file to open it.
 
 	> In an ASP.NET MVC project, _Layout.cshtml is a special view that serves as a template for other views. You typically define header and footer content that is common to all views in _Layout.cshtml.
 
     ![Opening _Layout.cshtml](Images/open-layout-cshtml.png)
 
-    _Opening _Layout.cshtml_
+    _Opening \_Layout.cshtml_
 
 1. On line 19, change "Application name" to "Intellipix." Here is the edited line of code:
 
@@ -234,19 +228,19 @@ In this exercise, you will create a new Web app in Visual Studio and add code to
 
 	Save your changes and close **_Layout.cshtml**.
 
-1. In Solution Explorer, right-click the project's Models folder and select **Add -> Class**:
+1. In Solution Explorer, right-click the project's Models folder and select **Add -> Class...**:
 
     ![Adding a class to the Models folder](Images/add-class-to-models-folder.png)
 
     _Adding a class to the Models folder_
 
-1. Type "BlobInfo.cs" (without quotation marks) into the **Name** box, and then click **OK**.
+1. Type "BlobInfo.cs" (without quotation marks) into the **Name** box, and then click **Add**.
 
     ![Naming the new class](Images/add-blobinfo-class.png)
 
     _Naming the new class_
 
-1. Replace the empty BlobInfo class with the following class definition, and note that you are making the class public rather than private:
+1. Replace the empty ```BlobInfo``` class with the following class definition, and note that you are making the class public rather than private:
 
 	```C#
 	public class BlobInfo
@@ -256,15 +250,15 @@ In this exercise, you will create a new Web app in Visual Studio and add code to
 	    public string Caption { get; set; }
 	}
 	```
-	Now save your changes and close BlobInfo.cs.
+	Now save your changes and close **BlobInfo.cs**.
 
-1. In Solution Explorer, find **HomeController.cs** in the Controllers folder and double-click it to open it.
+1. In Solution Explorer, find **HomeController.cs** in the "Controllers" folder and double-click it to open it.
 
     ![Opening HomeController.cs](Images/open-home-controller.png)
 
     _Opening HomeController.cs_
 
-1. Add the following using statements to the top of the file:
+1. Add the following ```using``` statements to the top of the file:
 
 	```C#
 	using ImageResizer;
@@ -276,7 +270,7 @@ In this exercise, you will create a new Web app in Visual Studio and add code to
 	using System.IO;
 	```
 
-1. Replace the *Index* method in **HomeController.cs** with the following implementation:
+1. Replace the ```Index``` method in **HomeController.cs** with the following implementation:
 
 	```C#
 	public ActionResult Index()
@@ -306,9 +300,9 @@ In this exercise, you will create a new Web app in Visual Studio and add code to
 	}
 	```
 
-	The modified *Index* method enumerates the blobs in the "photos" container and passes an array of BlobInfo objects representing those blobs to the view through ASP.NET MVC's ViewBag property. In a moment, you will modify the view to enumerate these objects and display a collection of photo thumbnails. The classes used to access your storage account and enumerate the blobs — CloudStorageAccount, CloudBlobClient, and CloudBlobContainer — come from the WindowsAzure.Storage package you installed from NuGet.
+	The modified ```Index``` method enumerates the blobs in the "photos" container and passes an array of ```BlobInfo``` objects representing those blobs to the view through ASP.NET MVC's ```ViewBag``` property. In a moment, you will modify the view to enumerate these objects and display a collection of photo thumbnails. The classes used to access your storage account and enumerate the blobs — ```CloudStorageAccount```, ```CloudBlobClient```, and ```CloudBlobContainer``` — come from the **WindowsAzure.Storage** package you installed from NuGet.
 
-1. Add the following method to the HomeController class in **HomeController.cs**:
+1. Add the following method to the ```HomeController``` class in **HomeController.cs**:
 
 	```C#
 	[HttpPost]
@@ -349,11 +343,9 @@ In this exercise, you will create a new Web app in Visual Studio and add code to
 	}
 	```
 
-	This is the method that's called when you upload a photo. It stores each uploaded image as a blob in the "photos" container, creates a thumbnail image from the original image using the ImageResizer packager you installed from NuGet, and stores the thumbnail image as a blob in the "thumbnails" container.
+	This is the method that's called when you upload a photo. It stores each uploaded image as a blob in the "photos" container, creates a thumbnail image from the original image using the **ImageResizer** package you installed from NuGet, and stores the thumbnail image as a blob in the "thumbnails" container.
 
-1. In Solution Explorer, find **Index.cshmtl** in the Views/Home folder and double-click it to open it. This is the view that serves as the application's home page.
-
-1. Replace the contents of **Index.cshtml** with the following code and markup:
+1. Open **Index.cshmtl** in the "Views/Home" folder and replace its contents with the following code and markup:
 
 	```HTML
 	@{
@@ -398,7 +390,7 @@ In this exercise, you will create a new Web app in Visual Studio and add code to
 	}
 	```
 
-	The language used here is [Razor](http://www.asp.net/web-pages/overview/getting-started/introducing-razor-syntax-c), which lets you embed executable code in HTML markup. The @foreach statement in the middle of the file enumerates the BlobInfo objects passed from the controller in ViewBag and creates HTML \<img\> elements from them. The src property of each element is initialized with the URI of the blob containing the image thumbnail.
+	The language used here is [Razor](http://www.asp.net/web-pages/overview/getting-started/introducing-razor-syntax-c), which lets you embed executable code in HTML markup. The ```@foreach``` statement in the middle of the file enumerates the ```BlobInfo``` objects passed from the controller in ```ViewBag``` and creates HTML ```<img>``` elements from them. The ```src``` property of each element is initialized with the URI of the blob containing the image thumbnail.
 
 1. Use Visual Studio's **Debug -> Start Without Debugging** command (or press **Ctrl+F5**) to launch the application in your browser. Then click the **Upload a Photo** button and upload one of the images found in the "resources/photos" folder of this lab. After a few seconds, a thumbnail version of the photo appears on the page:
 
@@ -412,7 +404,7 @@ In this exercise, you will create a new Web app in Visual Studio and add code to
 
     _Intellipix with three photos uploaded_
 
-1. Do a **View Source** in your browser to view the source for the page. Find the \<img\> elements representing the image thumbnails. Observe that the URLs assigned to the images refer **directly to blobs in blob storage**. This is possible because you set the containers' **Access type** to **Blob**, which makes the blobs inside them publicly accessible.
+1. Do a **View Source** in your browser to view the source for the page. Find the ```<img>``` elements representing the image thumbnails. Observe that the URLs assigned to the images refer **directly to blobs in blob storage**. This is possible because you set the containers' **Access type** to **Blob**, which makes the blobs inside them publicly accessible.
 
 	> What would happen if the containers were private? If you're not sure, try it and see. Temporaily change the "thumbnails" container's **Access type** to **Private** in the Azure Portal. Then refresh the Intellipix page in your browser and see what happens.
 
@@ -424,50 +416,48 @@ In this exercise, you will create a new Web app in Visual Studio and add code to
 
 1. Open the "thumbnails" container in Storage Explorer. How many blobs do you see there? Open one of the blobs to see what's inside. These are the thumbnail images generated from the image uploads.
 
-The app doesn't yet offer a way to view the original images that you uploaded. Ideally, clicking an image thumbnail should display the original image. Let's implement that before proceeding further. 
+The app doesn't yet offer a way to view the original images that you uploaded. Ideally, clicking an image thumbnail should display the original image. Let's add that feature before proceeding further. 
 
 <a name="Exercise4"></a>
 ## Exercise 4: Add a lightbox for viewing photos
 
-In this exercise, you will use a free, open-source JavaScript library to add a lightbox viewer enabling users to see the original images that they uploaded (rather than just the image thumbnails). The files are provided for you in subfolders of this lab's "resources" folder. All you have to do is integrate them into the project and make a minor modification to Index.cshtml.
+In this exercise, you will use a free, open-source JavaScript library to add a lightbox viewer enabling users to see the original images that they uploaded (rather than just the image thumbnails). The files are provided for you in subfolders of this lab's "resources" folder. All you have to do is integrate them into the project and make a minor modification to **Index.cshtml**.
 
-1. In Visual Studio's Solution Explorer window, right-click the Scripts folder and use the **Add -> Existing Item** command to add **lightbox.js**, found in this lab's "resources/scripts" folder, to the project's Scripts folder.
+1. In Visual Studio's Solution Explorer window, right-click the "Scripts" folder and use the **Add -> Existing Item...** command to import **lightbox.js** from this lab's "resources/scripts" folder.
 
-1. Right-click the Content folder and use the **Add -> Existing Item** command to add **lightbox.css**, found in this lab's "resources/css" folder, to the project's Content folder.
+1. Right-click the "Content" folder and use the **Add -> Existing Item...** command to import **lightbox.css** from this lab's "resources/css" folder.
 
 1. Right-click the Intellipix project in Solution Explorer and use the **Add -> New Folder** command to add a folder named "Images" to the project.
 
-1. Right-click the Images folder and use the **Add -> Existing Item** command to add the four images found in this lab's "resources/images" folder to the project's Images folder.
+1. Right-click the "Images" folder and use the **Add -> Existing Item...** command to import the four images found in this lab's "resources/images" folder.
 
-1. Open the project's App_Start folder and double-click **BundleConfig.cs** to open the file for editing.
-
-1. Add the following statement to the *RegisterBundles* method in **BundleConfig.cs**:
+1. Open **BundleConfig.cs** in the project's "App_Start" folder. Add the following statement to the ```RegisterBundles``` method in **BundleConfig.cs**:
 
 	```C#
 	bundles.Add(new ScriptBundle("~/bundles/lightbox").Include(
-    			"~/Scripts/lightbox.js"));
-	````
+              "~/Scripts/lightbox.js"));
+	```
 
-1. In the same method, find the statement that defines a StyleBundle named "~/Content/css" and add lightbox.css to the list of style sheets in the bundle. Here is the modified statement:
+1. In the same method, find the statement that defines a ```StyleBundle``` named "~/Content/css" and add **lightbox.css** to the list of style sheets in the bundle. Here is the modified statement:
 
 	```C#
 	bundles.Add(new StyleBundle("~/Content/css").Include(
-            	"~/Content/bootstrap.css",
-            	"~/Content/site.css",
-            	"~/Content/lightbox.css"));
-	````
+              "~/Content/bootstrap.css",
+              "~/Content/site.css",
+              "~/Content/lightbox.css"));
+	```
 
 	Now save your changes and close **BundleConfig.cs**.
 
-1. Open **_Layout.cshtml** in the project's Views/Shared folder and add the following statement just before the @RenderSection statement near the bottom:
+1. Open **_Layout.cshtml** in the project's "Views/Shared" folder and add the following statement just before the ```@RenderSection``` statement near the bottom:
 
 	```C#
 	@Scripts.Render("~/bundles/lightbox")
-	````
+	```
 
 	Save your changes and close **_Layout.cshtml**.
 
-1. You're almost there. The final task is to incorporate the lightbox viewer into the home page. To do that, open **Index.cshtml** (it's in the project's Views/Home folder) and replace the @foreach loop with the following code:
+1. You're almost there. The final task is to incorporate the lightbox viewer into the home page. To do that, open **Index.cshtml** (it's in the project's "Views/Home" folder) and replace the ```@foreach``` loop with the following statements:
 
 	```HTML
 	@foreach (BlobInfo blob in ViewBag.Blobs)
@@ -476,9 +466,9 @@ In this exercise, you will use a free, open-source JavaScript library to add a l
 	        <img src="@blob.ThumbnailUri" width="192" title="@blob.Caption" style="padding-right: 16px; padding-bottom: 16px" />
 	    </a>
 	}
-	````
+	```
 
-	Save your changes and close Index.cshtml.
+	Save your changes and close **Index.cshtml**.
 
 1. Use Visual Studio's **Debug -> Start Without Debugging** command (or press **Ctrl+F5**) to launch the application in your browser. Then click one of the images you uploaded earlier. Confirm that a lightbox appears showing an enlarged view of the image.
 
@@ -493,7 +483,7 @@ Now you have a way to view the images you uploaded. The next step is to do more 
 <a name="Exercise5"></a>
 ## Exercise 5: Use Cognitive Services to generate metadata
 
-Now comes the fun part: using [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/) to generate captions and search keywords for the photos you upload. Cognitive Services is a set of intelligence APIs that you can call from your apps. Among the more than 20 APIs it offers are the [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) for distilling actionable information from images, the [Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api) for recognizing emotion in images and video, and the [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api) for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available for you to begin using today.
+Now comes the fun part: using [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/) to generate captions and search keywords for the photos you upload. Cognitive Services is a set of intelligence APIs that you can call from your apps. Among the more than 25 APIs it offers are the [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) for distilling actionable information from images, the [Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api) for recognizing emotion in images and video, and the [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api) for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available for you to begin using today.
 
 In this exercise, you will use the Computer Vision API to generate a caption for each image that is uploaded, as well as keywords describing the contents of the image. You will store this data in metadata attached to each blob in the "photos" container.
 
@@ -517,7 +507,7 @@ In this exercise, you will use the Computer Vision API to generate a caption for
 
     _Opening the Computer Vision API subscription_
 
-1. Click **Show access keys**.
+1. Copy the URL under **Endpoint** into your favorite text editor so you can easily retrieve it in a moment. Then click **Show access keys**.
 
     ![Viewing the access keys](Images/show-access-keys.png)
 
@@ -529,13 +519,14 @@ In this exercise, you will use the Computer Vision API to generate a caption for
 
     _Copying the access key_
 
-1. Return to Visual Studio. Open the **Web.config** file at the root of the project and add the following statement to the \<appSettings\> section of the file, replacing *subscription_key* with the key you copied to the clipboard in the previous step:
+1. Return to Visual Studio. Open the **Web.config** file at the root of the project and add the following statements to the ```<appSettings>``` section of the file, replacing *subscription_key* with the key you copied to the clipboard in the previous step, and *vision_endpoint* with the URL you saved in the step before that:
 
 	```xml
     <add key="SubscriptionKey" value="subscription_key" />
+	<add key="VisionEndpoint" value="vision_endpoint" />
 	```
 
-	Save your changes and close Web.config.
+	Save your changes and close **Web.config**.
 
 1. In Solution Explorer, right-click the project and use the **Manage NuGet Packages...** command to install a package named **Microsoft.ProjectOxford.Vision** from NuGet. This package contains types for calling the Computer Vision API. As usual, approve any changes and licenses that are presented to you.
 
@@ -543,17 +534,21 @@ In this exercise, you will use the Computer Vision API to generate a caption for
 
     _Installing Microsoft.ProjectOxford.Vision_
 
-1. Open **HomeController.cs** in the project's Controllers folder and add the following using statement at the top of the file:
+1. Open **HomeController.cs** in the project's "Controllers" folder and add the following ```using``` statement at the top of the file:
 
 	```C#
 	using Microsoft.ProjectOxford.Vision;
 	```
 
-1. Add the following statements to the *Upload* method, immediately after the block of code that begins with the comment "Generate a thumbnail and save it in the thumbnails container." This code passes the URL of the blob containing the image that was uploaded to the Computer Vision API, and requests that Computer Vision generate a description for the image. In addition to generating a description, the Computer Vision API also generates a list of keywords describing what it sees in the image. Your code stores the computer-generated description and the keywords in the blob's metadata so they can be retrieved later on.
+1. Add the following statements to the ```Upload``` method, immediately after the block of code that begins with the comment "Generate a thumbnail and save it in the thumbnails container." This code passes the URL of the blob containing the image that was uploaded to the Computer Vision API, and requests that Computer Vision generate a description for the image. In addition to generating a description, the Computer Vision API also generates a list of keywords describing what it sees in the image. Your code stores the computer-generated description and the keywords in the blob's metadata so they can be retrieved later on.
 
-	````C#
+	```C#
     // Submit the image to Azure's Computer Vision API
-    VisionServiceClient vision = new VisionServiceClient(CloudConfigurationManager.GetSetting("SubscriptionKey"));
+	VisionServiceClient vision = new VisionServiceClient(
+	    CloudConfigurationManager.GetSetting("SubscriptionKey"),
+	    CloudConfigurationManager.GetSetting("VisionEndpoint")
+	);
+
     VisualFeature[] features = new VisualFeature[] { VisualFeature.Description };
     var result = await vision.AnalyzeImageAsync(photo.Uri.ToString(), features);
 
@@ -567,11 +562,11 @@ In this exercise, you will use the Computer Vision API to generate a caption for
     }
 
     await photo.SetMetadataAsync();
-	````
+	```
 
-1. Replace the foreach block in the *Index* method with the following statements:
+1. Replace the ```foreach``` block in the ```Index``` method with the following statements:
 
-	````C#
+	```C#
     foreach (IListBlobItem item in container.ListBlobs())
     {
         var blob = item as CloudBlockBlob;
@@ -589,9 +584,9 @@ In this exercise, you will use the Computer Vision API to generate a caption for
             });
         }
     }
-	````
+	```
 
-	The modified foreach block calls *FetchAttributes* to fetch the metadata for the blob. Then it extracts the computer-generated description from the metadata and adds it to the BlobInfo object passed to the view.
+	The modified ```foreach``` block calls ```FetchAttributes``` to fetch the metadata for the blob. Then it extracts the computer-generated description from the metadata and adds it to the ```BlobInfo``` object passed to the view.
 
 	Now save your changes and close **HomeController.cs**.
 
@@ -624,25 +619,25 @@ In the next exercise, you'll put the extra keywords to work by adding a search f
 
 In this exercise, you will add a search box to the home page enabling users to do keyword searches on the images that they have uploaded. The keywords are the ones generated by the Computer Vision API and stored in blob metadata.
 
-1. Open **Index.cshtml** in the project's Views/Home folder and add the following statements to the empty \<div\> element with the class="col-sm-4 pull-right" attribute:
+1. Open **Index.cshtml** in the project's "Views/Home folder" and add the following statements to the empty ```<div>``` element with the ```class="col-sm-4 pull-right"``` attribute:
 
 	```HTML
     @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "navbar-form" }))
     {
 	    <div class="input-group">
-		    <input type="text" class="form-control" placeholder="Search photos" name="term" value="@ViewBag.Search" style="max-width: 800px">
-		    <span class="input-group-btn">
-			    <button class="btn btn-primary" type="submit">
-				    <i class="glyphicon glyphicon-search"></i>
-			    </button>
-		    </span>
+	        <input type="text" class="form-control" placeholder="Search photos" name="term" value="@ViewBag.Search" style="max-width: 800px">
+	        <span class="input-group-btn">
+	            <button class="btn btn-primary" type="submit">
+	                <i class="glyphicon glyphicon-search"></i>
+	            </button>
+	        </span>
 	    </div>
 	}
-	````
+	```
 
 	This code and markup adds a search box and a **Search** button to the home page.
 
-1. Open **HomeController.cs** in the project's Controllers folder and add the following method to the HomeController class:
+1. Open **HomeController.cs** in the project's "Controllers" folder and add the following method to the ```HomeController``` class:
 
 	```C#
     [HttpPost]
@@ -654,7 +649,7 @@ In this exercise, you will add a search box to the home page enabling users to d
 
 	This is the method that's called when the user clicks the **Search** button added in the previous step. It refreshes the page and includes a search parameter in the URL.
 
-1. Replace the *Index* method with the following implementation:
+1. Replace the ```Index``` method with the following implementation:
 
 	```C#
     public ActionResult Index(string id)
@@ -693,9 +688,9 @@ In this exercise, you will add a search box to the home page enabling users to d
     }
 	```
 
-	Observe that the *Index* method now accepts a parameter ("id") that contains the value the user typed into the search box. An empty or missing "id" parameter indicates that all the photos should be displayed.
+	Observe that the ```Index``` method now accepts a parameter ("id") that contains the value the user typed into the search box. An empty or missing "id" parameter indicates that all the photos should be displayed.
 
-1. Add the following helper method to the HomeController class:
+1. Add the following helper method to the ```HomeController``` class:
 
 	```C#
     private bool HasMatchingMetadata(CloudBlockBlob blob, string term)
@@ -710,7 +705,7 @@ In this exercise, you will add a search box to the home page enabling users to d
     }
 	```
 
-	This method is called by the *Index* method to determine whether the metadata keywords attached to a given image blob contain the search term that the user entered.
+	This method is called by the ```Index``` method to determine whether the metadata keywords attached to a given image blob contain the search term that the user entered.
 
 1. Launch the application again and upload several photos. **Feel free to upload photos of your own**, not just the ones provided with the lab.
 
@@ -720,7 +715,7 @@ In this exercise, you will add a search box to the home page enabling users to d
 
     _Performing a search_
 
-1. Search results will vary depending on what you typed and what images you uploaded. But the result should be a list of matching images:
+1. Search results will vary depending on what you typed and what images you uploaded. But the result should be a filtered list of images — images whose metadata keywords include all or part of the keyword that you typed.
 
     ![Search results](Images/search-results.png)
 
@@ -753,22 +748,15 @@ In this exercise, you will deploy the app to Azure using Visual Studio's Web Dep
 
     _The finished product!_
 
-If you make changes to the app and want to push the changes out to the Web, simply go through the Publish process again. Of course, you can still test your changes locally before publishing to the Web.
+If you make changes to the app and want to push the changes out to the Web, simply go through the publish process again. Of course, you can still test your changes locally before publishing to the Web.
 
-When you're finished using the site, it is recommended that you delete the resource group containing it. Deleting the resource group deletes all of the resources inside it (including the storage account, the blobs uploaded to it, and the App Service), removes all traces of this lab from your account, and prevents any further charges from being incurred for it. To delete the resource group, simply open the resource-group blade in the portal and click **Delete** at the top of the blade. You will be asked to type the resource group's name to confirm that you want to delete it, because once deleted, a resource group can't be recovered.
-
+<a name="Summary"></a>
 ## Summary
 
-In this hands-on lab, you learned how to:
-
-- Create an Azure storage account and use it as a backing store for an app
-- Create a Web app in Visual Studio, test it locally, and deploy it to Azure
-- Write code that uploads blobs to blob storage and attaches metadata to them
-- Consume blob metadata to implement search
-- Use Microsoft's Computer Vision API to generate metadata from images
+When you're finished using the site, you should delete the resource group containing it. Deleting the resource group deletes all of the resources inside it (including the storage account, the blobs uploaded to it, and the App Service), removes all traces of this lab from your account, and prevents any further charges from being incurred for it. To delete the resource group, simply open the resource-group blade in the portal and click **Delete** at the top of the blade. You will be asked to type the resource group's name to confirm that you want to delete it, because once deleted, a resource group can't be recovered.
 
 There is much more that you could do to develop Intellipix and to leverage Azure even further. For example, you could add support for authenticating users and deleting photos, and rather than force the user to wait for Cognitive Services to process a photo following an upload, you could use [Azure Functions](https://azure.microsoft.com/en-us/services/functions/) to call the Computer Vision API asynchronously each time an image is added to blob storage. You could even use Cognitive Services to detect faces in the photos and analyze the emotions depicted by those faces. With the cloud as your platform, the sky is the limit (pun intended).
 
 ----
 
-Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
+Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
