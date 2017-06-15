@@ -174,17 +174,13 @@ The access key that you just copied will be included in each HTTPS request sent 
 
 In this exercise, you will create a new Web app in Visual Studio Code and add code to upload images, write them to blob storage, display them in a Web page, generate thumbnails, captions, and keywords using the Computer Vision API, and perform keyword searches on uploaded images. The app will be named Intellipix (for "Intelligent Pictures") and will be accessed through your browser. The server-side code will be written in JavaScript and Node.js. The code that runs in the browser will be written in JavaScript and will leverage two of the most popular class libraries on the planet: [AngularJS](https://angularjs.org/) and [Bootstrap](http://getbootstrap.com/). 
 
-1. Create a project directory named "Intellipix" in the location of your choice — for example, "C:\DXLabs\Intellipix."
-
-1. Click the **Windows** button (also known as the Start button) in the lower-left corner of the desktop and type "cmd" (without quotation marks). Then press **Enter** to open a Command Prompt window.
- 
-1. In the Command Prompt window, execute the following command, substituting the Computer Vision API key you copied to the clipboard in the previous exercise for *vision_api_key*:
+1. Open a Command Prompt window if you're using Windows, or a Terminal window if you're using macOS or Linux. Then execute the following command, substituting the Computer Vision API key you copied to the clipboard in the previous exercise for *vision_api_key*:
 
 	Windows:
 	<pre>
 	set AZURE_VISION_API_KEY=<i>vision_api_key</i></pre>
 
-	Mac:
+	Mac or Linux:
 	<pre>
 	export AZURE_VISION_API_KEY=<i>vision_api_key</i></pre>
 	
@@ -196,50 +192,38 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 	<pre>
 	set AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i></pre>
 	
-	Mac:
+	Mac or Linux:
 	<pre>
 	export AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i></pre>
 
-1. Return to the Azure Portal for a moment and open the blade for the storage account you created in Exercise 1. Then click **Access keys** to view the storage account's access keys. 
-
-    ![Viewing the storage account's access keys](Images/view-access-keys.png)
-
-    _Viewing the storage account's access keys_
-
-1. Click the **Copy** button to the right of **key1** to copy the access key to the clipboard.
-
-    ![Copying the storage account's access key](Images/copy-access-key.png)
-
-    _Copying the storage account's access key_
-
-1. Return to the Command Prompt window and type the following command, replacing *storage_account_key* with the access key on the clipboard:
+1. Now type the following command, replacing *storage_account_key* with the access key that you saved in Exercise 1, Step 9:
 	
 	Windows:
 	<pre>
 	set AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i></pre>
 	
-	Mac:
+	Mac or Linux:
 	<pre>
 	export AZURE_STORAGE_ACCESS_KEY=<i>storage_account_key</i></pre>
 
-1. In the Command Prompt window, navigate to the Intellipix directory you created in Step 1 and execute the following command (note the space and the period at the end of the command) to start Visual Studio Code in that directory:
+1. Create a project directory named "Intellipix" in the location of your choice. In the Command Prompt or Terminal window, navigate to that directory and execute the following command (note the space and the period at the end of the command) to start Visual Studio Code in that directory:
 
 	<pre>
 	code .</pre>
 
-1. In Visual Studio Code, click the **Git** button in the ribbon on the left.
+1. In Visual Studio Code, click the **Source Control** button in the activity bar on the left.
 
     ![The Git button in Visual Studio Code](Images/node-git-button.png)
 
     _The Git button in Visual Studio Code_
 
-1. Click **Initialize git repository** to initialize a Git repository in the working directory and place the directory under source control.
+1. Click **Initialize Repository** to initialize a Git repository in the working directory and place the directory under source control.
 
     ![Initializing a Git repository](Images/node-initialize-git-repository.png)
 
     _Initializing a Git repository_
 
-1. Return to the Command Prompt window and make sure you're still in the "Intellipix" directory that you created for the project (the directory that was just placed under source control). Then execute the following command to initialize the project. When prompted for an author name, enter your name.
+1. Return to the Command Prompt or Terminal window and make sure you're still in the "Intellipix" directory that you created for the project (the directory that was just placed under source control). Then execute the following command to initialize the project. If prompted for an author name, enter your name.
 
 	<pre>
 	npm init -y</pre> 
@@ -265,7 +249,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 	},
 	```
 
-1. Place the mouse cursor over "INTELLIPIX" in the Explorer window and click the **New File** button that appears. Name the new file ".gitignore" (without quotation marks). Be sure to include the leading period in the file name.
+1. Place the mouse cursor over "INTELLIPIX" in the Explorer window and click the **New File** button to add a file to the project root. Name the new file **.gitignore**. Be sure to include the leading period in the file name.
 
     ![Adding a file](Images/node-add-file.png)
 
@@ -273,11 +257,12 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
 1. Add the following statements to **.gitignore** to exclude the specified directories from source control:
 
-    <pre>
+    ```
 	.vscode/
-	node_modules/</pre>
+	node_modules/
+	```
 
-1. Add a file named **server.js** to the project and insert the following statements:
+1. Add a file named **server.js** to the root of the project and insert the following statements:
 
 	```javascript
 	var express = require('express');
@@ -287,6 +272,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
     var request = require('request');
 
     var portNum = process.env.PORT || 9898;
+	var endpoint = 'vision_api_endpoint';
 
     var app = express();
     var storage = multer.memoryStorage();
@@ -322,7 +308,6 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
     function imageHandlerMiddleware(req, res) {
 
         // Note, all of this work is done in memory!!
-
         var cfg = req.appConfig;
         var uploadFile = req.file;
         var blobService = azureStorage.createBlobService(cfg.storageAccount, cfg.storageAccountAccessKey);
@@ -354,7 +339,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
     function createThumbnailOfImage(){
         var options = {
-            url: "https://westus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail",
+            url: endpoint + "/generateThumbnail",
             qs: {
                 width: 192,
                 height: 128,
@@ -394,7 +379,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
         function analyzeImage() {
             var options = {
-                url: "https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze",
+                url: endpoint + "/analyze",
                 qs: {
                     visualFeatures: "Description"
                 },
@@ -499,13 +484,15 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 	
 	> This is the code that executes in Node.js on the server. Points of interest include the *saveImageToAzure* function, which saves an uploaded image in blob storage using APIs in the Azure Storage Client Library for Node.js, the *createThumbnailFromImage* function, which uses the Computer Vision API to generate an image thumbnail, and the *analyzeImage* function, which uses the Computer Vision API to generate a caption and a list of keywords describing the image. Another function you might care to inspect is *saveAnalysisResults*, which writes the caption and keywords to blob metadata. Finally, take a moment to examine the *listBlobsMiddleware* function, which enumerates the photos uploaded to the site by enumerating the blobs in the "photos" container. 
 
+1. Replace *vision_api_endpoint* on line 8 with the Computer Vision API endpoint that you saved in Exercise 3, Step 4.
+
 1. Place the mouse cursor over "INTELLIPIX" in Visual Studio Code's Explorer window and click the **New Folder** button that appears. Name the new folder "src" (without quotation marks).
 
     ![Adding a folder](Images/node-add-folder.png)
 
     _Adding a folder_
 
-1. Add a file named **index.html** to the "src" folder and insert the following statements:
+1. Right-click (on a Mac, Command-click) the "src" folder and use the **New File** command to add a file named **index.html** to the "src" folder. Then insert the following statements into **index.html**:
 
 	```html
 	<!DOCTYPE html>
@@ -723,20 +710,20 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 
 1. Use Visual Studio Code's **File -> Save All** command to save all of your changes.
 
-1. Click the **Git** button in the ribbon on the left. Type "First commit" (without quotation marks) into the message box, and then click the **Commit All** button (the check mark) to commit all changes to the local Git repository. 
+1. Click the **Source Control** button in the activity bar. Type "First commit" (without quotation marks) into the message box, and then click the **Commit** button (the check mark) to commit all changes to the local Git repository. 
 
     ![Committing changes to the project](Images/node-commit-changes.png)
 
     _Committing changes to the project_
 
-With the code that comprises the app in place and key environment variables initialized with "secrets" such as your storage account key, the next task is to run the app and test it in your browser.
+With the code that comprises the app in place and key environment variables initialized with "secrets" such as your storage account key, the next task is to run the app locally and test it in your browser.
 
 <a name="Exercise5"></a>
 ## Exercise 5: Test the app locally
 
 In this exercise, you will run the app locally in order to test it and familiarize yourself with its features. Running it locally is a simple matter of firing up a Node.js server process to host your server components (in this case, **server.js**) and pointing your browser to http://localhost:*port*, where *port* is the port number on which the server process is listening for HTTP requests. **server.js** listens on port 9898. You can modify that if you would like by changing line 7 in the code.
 
-1. Return to the Command Prompt window and, once more, make sure you're in the "Intellipix" directory that you created for the project. Then execute the following command to start **server.js**:
+1. Return to the Command Prompt or Terminal window and, once more, make sure you're in the "Intellipix" directory that you created for the project. Then execute the following command to start **server.js**:
 
 	<pre>
 	node server.js</pre>
@@ -782,6 +769,8 @@ In this exercise, you will run the app locally in order to test it and familiari
 1. Do a **View Source** in your browser to view the source for the page. Find the \<img\> elements representing the image thumbnails. Observe that the URLs assigned to the images refer **directly to blobs in blob storage**. This is possible because you set the containers' **Access type** to **Blob**, which makes the blobs inside them publicly accessible.
 
 	> What would happen if the containers were private? If you're not sure, try it and see. Temporaily change the "thumbnails" container's **Access type** to **Private** in the Azure Portal. Then refresh the Intellipix page in your browser and see what happens.
+
+1. Return to the Command Prompt or Terminal window and press **Ctrl+C** to stop the Node server.
 
 1. Return to the Microsoft Azure Storage Explorer (or restart if it you didn't leave it running) and click the "photos" container under the storage account you created in Exercise 1. The number of blobs in the container should equal the number of photos you uploaded. Double-click one of the blobs to download it and see the image stored in the blob.
 
@@ -859,8 +848,8 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 1. Scroll down to the "App settings" section of the blade and add the following key-value pairs:
 
 	- AZURE_STORAGE_ACCOUNT – Name of the storage account you created in Exercise 1
-	- AZURE_STORAGE_ACCESS_KEY – Access key for the storage account
-	- AZURE_VISION_API_KEY – Subscription key you obtained in Exercise 3 for the Computer Vision API
+	- AZURE_STORAGE_ACCESS_KEY – Access key for the storage account (Exercise 1, Step 9)
+	- AZURE_VISION_API_KEY – Subscription key for the Computer Vision API (Exercise 3, Step 5)
 
 	Once the settings are entered, click the **Save** button at the top of the blade to save them.
 
@@ -874,13 +863,13 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
     _Selecting the deployment source_
 
-1. In the "Deployment source" blade, click **Choose Source**.
+1. In the "Deployment option" blade, click **Choose Source**.
 
     ![Choosing the deployment source](Images/node-choose-source.png)
 
     _Choosing the deployment source_
 
-1. In the "Choose source" blade, click **Local Git Repository**. Then click **OK** at the bottom of the "Deployment source" blade.
+1. In the "Choose source" blade, click **Local Git Repository**. Then click **OK** at the bottom of the "Deployment option" blade.
 
     ![Choosing a deployment source](Images/node-select-local-git-repository.png)
 
@@ -910,7 +899,7 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
     _Copying the Git URL_
 
-1. Return to the Command Prompt window (or open a new one if you closed the last one) and execute the following command to add "azure" as a remote name. Substitute the Git URL on the clipboard for *git_url*.
+1. Return to the Command Prompt or Terminal window (or open a new one if you closed the last one) and execute the following command to add "azure" as a remote name. Substitute the Git URL on the clipboard for *git_url*.
 
 	<pre>
 	git remote add azure <i>git_url</i></pre>
