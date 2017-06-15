@@ -10,7 +10,7 @@ Microsoft Azure Storage is a set of services that allows you to store large volu
 
 Data stored in Microsoft Azure Storage can be accessed over HTTP or HTTPS using straightforward REST APIs, or it can be accessed using rich client libraries available for many popular languages and platforms, including .NET, Java, Android, Node.js, PHP, Ruby, and Python. The [Azure Portal](https://portal.azure.com) includes features for working with Azure Storage, but richer functionality is available from third-party tools, many of which are free and some of which work cross-platform.
 
-In this lab, you will use Eclipse to write a Java app that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in Java, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/), a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) to generate a caption for the image as well as search metadata describing the contents of the image and an image thumbnail. And you will discover how easy it is to deploy apps to the cloud using Eclipse and the Azure Toolkit for Eclipse.
+In this lab, you will use Eclipse to write a Java app that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in Java, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/), a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) to generate a caption for the image as well as search metadata describing the contents of the image. And you will discover how easy it is to deploy apps to the cloud using Eclipse and the Azure Toolkit for Eclipse.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -48,7 +48,6 @@ This hands-on lab includes the following exercises:
 - [Exercise 5: Create a photo-upload app](#Exercise5)
 - [Exercise 6: Test the app locally](#Exercise6)
 - [Exercise 7: Deploy the app to Azure](#Exercise7)
-- [Exercise 8: Clean up with Azure Explorer](#Exercise8)
 
 <a name="Exercise1"></a>
 
@@ -836,6 +835,12 @@ Eclipse has the ability to integrate with many popular servers for running web s
 
 	When you're finished, click **Cancel** to close the Properties dialog.
 
+1. Did you know that the Azure Toolkit for Eclipse contains an Azure Explorer of its own? Use Eclipse's **Windows** > **Show View** > **Other...** command to list all the different views Eclipse supports, and select **Azure Explorer** from the "Azure" folder. When the Azure Explorer opens, find the storage account that you created in Exercise 1 and click any of the containers in it to view the blobs in that container. You can also use the Azure Explorer to manage Azure Web Apps, Docker hosts, virtual machines, and other Azure resources.
+
+    ![Viewing blob storage with the Azure Explorer](Images/java-azure-explorer.png)
+
+    _Viewing blob storage with the Azure Explorer_
+
 You're almost finished, but the final and most important step remains. It is time to deploy the app to the cloud.
 
 <a name="Exercise7"></a>
@@ -875,76 +880,19 @@ The Azure Toolkit for Eclipse has integrated support for deploying Dynamic Web S
 
 1. Wait until Eclipse indicates that the app has been published. Then open a browser and paste the URL that is on the clipboard into the browser's address bar. Confirm that Intellipix appears as before, but this time hosted in Azure.
 
-	![Intellipix hosted in Azure](Images/java-intellipix-on-azure.png)
+	![The finished product!](Images/java-intellipix-on-azure.png)
 
-	_Intellipix hosted in Azure_
+	_The finished product!_
 
 If you make changes to the app and want to push the changes out to the Web, simply deploy it again from Eclipse. Of course, you can still test your changes locally before publishing to the Web.
 
-When you're finished using the site, it is recommended that you delete the resource group containing it. Deleting the resource group deletes all of the resources inside it (including the storage account, the blobs uploaded to it, and the App Service), removes all traces of this lab from your account, and prevents any further charges from being incurred for it. To delete the resource group, simply open the resource-group blade in the portal and click **Delete** at the top of the blade. You will be asked to type the resource group's name to confirm that you want to delete it, because once deleted, a resource group can't be recovered.
-
-<a name="Exercise8"></a>
-## Exercise 8: Clean up with Azure Explorer
-
-The Azure Toolkit also comes with the ability to do some basic management of resources on Azure. It can view, upload, and download contents from Blob Storage as well as manage Virtual Machines, HDInsight, Redis, and Web Apps, and Docker.
-
-1. If the **Azure Explorer** tab is not already open in Eclipse, you can open it by selecting the **Window** Menu, then **Show View**, then click **Other**. Expand **Azure**, highlight **Azure Explorer**, then click **OK**.
-
-	![Open Azure Explorer](Images/open-azure-explorer.png)
-
-	_Open Azure Explorer_
-
-1. Now that **Azure Explorer** is open, expand **Azure**, then **Storage Accounts** to show your accounts. One should be the storage account your created for the lab. Select **photos**. You can also expand Web Apps to see the Web App you created for when deploying the app to Azure.
-
-	![Azure Explorer](Images/azure-explorer.png)
-
-	_Browsing Azure Explorer_
-
-1. Selecting **photos** will show the blobs that were uploaded to the **photos** storage container.
-
-	![Browse photos](Images/azure-explorer-1.png)
-
-	_Browse photos_
-
-1. Right click on the storage account and select **Delete** to delete the storage account.
-
-	![Delete a storage account](Images/delete-storage-account.png)
-
-	_Delete a storage account_
-
-1. When prompted to confirm the deletion, click **OK**.
-
-	![Delete a storage account](Images/delete-storage-account-1.png)
-
-	_Delete a storage account confirmation_
-
-1. Now, right click on the web app you created and select **Delete** to delete it. 
-
-
-	![Delete a web app](Images/delete-web-app.png)
-
-	_Delete a web app_
-
-1. A confirmation will appear. Click **OK** to delete the web app.
-
-	![Delete a web app](Images/conform-delete-web-app.png)
-
-	_Confirm a web app deletion_
-
-The Azure Toolkit for Eclipse is under active development, so new features are coming out all the time. It cannot delete everything that needs to be deleted as of right now.  Deleting the resource groups in Azure Portal deletes all of the resources inside it (including the storage account, the blobs uploaded to it, and the App Service), removes all traces of this lab from your account, and prevents any further charges from being incurred for it. To delete the resource group, simply open the resource-group blade in the portal and click **Delete** at the top of the blade. You will be asked to type the resource group's name to confirm that you want to delete it, because once deleted, a resource group can't be recovered.
-
+<a name="Summary"></a>
 ## Summary
 
-In this hands-on lab, you learned how to:
-
-- Create an Azure storage account and use it as a backing store for an app
-- Create a web app in Eclipse, test it locally, and deploy it to Azure
-- Write code that uploads blobs to blob storage and attaches metadata to them
-- Consume blob metadata to implement search
-- Use Microsoft's Computer Vision API to generate metadata from images
+When you're finished using the site, you should delete the resource group containing it. Deleting the resource group deletes all of the resources inside it (including the storage account, the blobs uploaded to it, and the Azure Web App), removes all traces of this lab from your account, and prevents any further charges from being incurred for it. To delete the resource group, simply open the resource-group blade in the portal and click **Delete** at the top of the blade. You will be asked to type the resource group's name to confirm that you want to delete it, because once deleted, a resource group can't be recovered.
 
 There is much more that you could do to develop Intellipix and to leverage Azure even further. For example, you could add support for authenticating users and deleting photos, and rather than force the user to wait for Cognitive Services to process a photo following an upload, you could use [Azure Functions](https://azure.microsoft.com/en-us/services/functions/) to call the Computer Vision API asynchronously each time an image is added to blob storage. You could even use Cognitive Services to detect faces in the photos and analyze the emotions depicted by those faces. With the cloud as your platform, the sky is the limit (pun intended).
 
 ----
 
-Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
+Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.

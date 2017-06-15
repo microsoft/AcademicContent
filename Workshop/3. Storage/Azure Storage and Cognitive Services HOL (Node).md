@@ -934,21 +934,13 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
 If you make changes to the app and want to push the changes out to the Web, simply commit the changes in Visual Studio Code and execute a **git push azure master** command again. Of course, you can still test your changes locally before publishing to the Web.
 
-When you're finished using the site, it is recommended that you delete the resource group containing it. Deleting the resource group deletes all of the resources inside it (including the storage account, the blobs uploaded to it, and the App Service), removes all traces of this lab from your account, and prevents any further charges from being incurred for it. To delete the resource group, simply open the resource-group blade in the portal and click **Delete** at the top of the blade. You will be asked to type the resource group's name to confirm that you want to delete it, because once deleted, a resource group can't be recovered.
-
+<a name="Summary"></a>
 ## Summary
 
-In this hands-on lab, you learned how to:
-
-- Create an Azure storage account and use it as a backing store for an app
-- Write a Node.js app in Visual Studio Code and test it locally
-- Write code that uploads blobs to blob storage and attaches metadata to them
-- Consume blob metadata to implement search
-- Use Microsoft's Computer Vision API to generate image metadata and thumbnails
-- Use Git to deploy a Node.js app from a local repository to Azure
+When you're finished using the site, you should delete the resource group containing it. Deleting the resource group deletes all of the resources inside it (including the storage account, the blobs uploaded to it, and the App Service), removes all traces of this lab from your account, and prevents any further charges from being incurred for it. To delete the resource group, simply open the resource-group blade in the portal and click **Delete** at the top of the blade. You will be asked to type the resource group's name to confirm that you want to delete it, because once deleted, a resource group can't be recovered.
 
 There is much more that you could do to develop Intellipix and to leverage Azure even further. For example, you could add support for authenticating users and deleting photos, and rather than force the user to wait for Cognitive Services to process a photo following an upload, you could use [Azure Functions](https://azure.microsoft.com/en-us/services/functions/) to call the Computer Vision API asynchronously each time an image is added to blob storage. You could even use Cognitive Services to detect faces in the photos and analyze the emotions depicted by those faces. With the cloud as your platform, the sky is the limit (pun intended).
 
 ----
 
-Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
+Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
