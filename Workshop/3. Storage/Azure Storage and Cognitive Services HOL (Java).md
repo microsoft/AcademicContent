@@ -10,7 +10,7 @@ Microsoft Azure Storage is a set of services that allows you to store large volu
 
 Data stored in Microsoft Azure Storage can be accessed over HTTP or HTTPS using straightforward REST APIs, or it can be accessed using rich client libraries available for many popular languages and platforms, including .NET, Java, Android, Node.js, PHP, Ruby, and Python. The [Azure Portal](https://portal.azure.com) includes features for working with Azure Storage, but richer functionality is available from third-party tools, many of which are free and some of which work cross-platform.
 
-In this lab, you will use Eclipse to write a Java app that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in Java, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/), a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) to generate a caption for the image as well as search metadata describing the contents of the image. And you will discover how easy it is to deploy apps to the cloud using Eclipse and the Azure Toolkit for Eclipse.
+In this lab, you will use Eclipse to write a Java Web site that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in Java, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/), a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) to generate a caption for the image as well as search metadata describing the contents of the image. And you will discover how easy it is to deploy apps to the cloud using Eclipse and the Azure Toolkit for Eclipse.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -138,7 +138,7 @@ The containers are currently empty, but that will change once your app is deploy
 
 [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/) is a set of intelligence APIs that you can call from your apps. Among the more than 25 APIs it offers are the [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) for distilling actionable information from images, the [Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api) for recognizing emotion in images and video, and the [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api) for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available for you to begin using today.
 
-In this exercise, you will acquire a subscription key allowing you to call the Computer Vision API from your code. You'll use this key in a later exercise to generate thumbnails from the images uploaded to the Web site, and to generate captions and search keywords for the images.
+In this exercise, you will acquire a subscription key allowing you to call the Computer Vision API from your code. You'll use this key in a later exercise to generate captions and search keywords for images uploaded to the Web site.
 
 1. In the Azure Portal, click **+ New**, followed by **AI + Cognitive Services** and **Computer Vision API**.
 
@@ -181,70 +181,68 @@ In this exercise, you will set up Java, Eclipse, and the Azure Toolkit for Eclip
 
 1. If you don't already have the Java Development Kit (JDK) installed, go to http://www.oracle.com/technetwork/java/javase/downloads/index.html and click the **JDK Download** button. 
 
-	![Downloading the JDK](Images/download-java.png)
+	![Downloading the JDK](Images/java-download-java.png)
 
 	_Downloading the JDK_
 
-1. Click **Accept License Agreement**, and then click the installer that matches your system. The installers for each platform are self-contained and will install and configure everything you need to run and compile Java. Once the installer downloads, run it and follow the prompts to install the JDK.
+1. Click **Accept License Agreement**, and then click the installer that matches your system. The installers are self-contained and will install and configure everything you need to run and compile Java. Once the installer downloads, run it and follow the prompts to install the JDK.
 
-	![Installing the JDK](Images/download-java-2.png)
+	![Installing the JDK](Images/java-download-java-2.png)
 
 	_Installing the JDK_
 
 1. If Eclipse is not installed on your system. go to https://www.eclipse.org/downloads/ and click the **Download** button. Then click the **Download** button that appears on the next page to download the Eclipse installer.
 
-	![Downloading Eclipse](Images/download-eclipse.png)
+	![Downloading Eclipse](Images/java-download-eclipse.png)
 
 	_Downloading Eclipse_
 
 1. When the download completes, launch the installer. When prompted to choose an Eclipse configuration, select **Eclipse IDE for Java EE Developers**. Then click the **Install** button and follow the prompts to install Eclipse.
 
-	![Specifying the Eclipse configuration](Images/eclipse-installer.png)
+	![Specifying the Eclipse configuration](Images/java-eclipse-installer.png)
 
 	_Specifying the Eclipse configuration_
 
 1. Launch Eclipse. When prompted to create a workspace, enter "intellipix" as the workspace folder name.
 
-	![Creating a workspace](Images/create-workspace.png)
+	![Creating a workspace](Images/java-create-workspace.png)
 
 	_Creating a workspace_
 
-1. Select **Eclipse Marketplace** from Eclipse's **Help** menu. Type "azure toolkit" into the **Find** box and click **Go**. Then click the **Install** button under **Azure Toolkit for Eclipse** to install the toolkit. Accept any licenses presented to you and allow Eclipse to restart if it prompts you to allow a restart. 
+1. Select **Eclipse Marketplace** from Eclipse's **Help** menu. Type "azure toolkit" into the **Find** box and click **Go**. Then click the **Install** button under **Azure Toolkit for Eclipse** to install the toolkit. Accept any licenses presented to you and allow Eclipse to restart if needed. 
 
-	![Installing the Azure Toolkit for Eclipse](Images/install-azure-toolkit.png)
+	![Installing the Azure Toolkit for Eclipse](Images/java-install-azure-toolkit.png)
 
 	_Installing the Azure Toolkit for Eclipse_
 
 1. Select **Preferences** from Eclipse's **Window** menu. Click **Maven** in the preferences list on the left and uncheck the **Do not automatically update dependencies from remote repositories** box. Then click **OK**.
 
-	![Updating Maven settings](Images/change-maven-updates.png)
+	![Updating Maven settings](Images/java-change-maven-updates.png)
 
 	_Updating Maven settings_
 
-Eclipse is now configured to do Azure development. The next step is to use it to begin a new project and create an Azure Web App.
+Eclipse is now configured for Azure development. The next step is to use it to begin a new project and create a Web app that can be tested locally and then deployed to Azure.
 
 <a name="Exercise5"></a>
 ## Exercise 5: Create a photo-upload app
 
-Like most IDEs, Eclipse provides templates for common project types. The Dynamic Web Project in Eclipse uses server-side Java code to build Web services, Web pages, and the like. The two most common technologies for this are Java Server Pages (JSP's) and servlets. These pages can be mapped to URL endpoints so that particular routes will be passed to the appropriate servlet.
-
-In this exercise, you will create a Dynamic Web Project and use some Azure APIs in a servlet. Then you'll add a Web page to the project that interacts with the servlet using AJAX calls.
+In this exercise, you will create a new Web app in Eclipse and add code to upload images, write them to blob storage, display them in a Web page, generate captions and keywords using the Computer Vision API, and perform keyword searches on uploaded images. The app will be named Intellipix (for "Intelligent Pictures") and will be accessed through your browser. The server-side code will be written in Java and will utilize [Java servlets](https://en.wikipedia.org/wiki/Java_servlet). The client side will be implemented in HTML, CSS, and JavaScript.
 
 1. Use the **File** > **New** > **Dynamic Web Project** command to create a new project. Set **Project name** to "Intellipix," and then click the **New Runtime...** button.  
 
-	![Creating a new project](Images/new-project-1.png)
+	![Creating a new project](Images/java-new-project-1.png)
 
 	_Creating a new project_
 
 1. Select **Apache Tomcat v7.0**. Then check the **Create a new local server** box and click **Next**.
 
-	![Selecting a runtime](Images/new-project-2.png)
+	![Selecting a runtime](Images/java-new-project-2.png)
 
 	_Selecting a runtime_
 
 1. Click the **Browse...** button and a select a Tomcat installation directory. (Any writable directory will do.) Then click **Download and Install...** to start the Tomcat install. Accept the license agreement presented to you. When installation is complete, click **Finish** in the "New Server Runtime Environment" dialog, followed by **Finish** in the "New Dynamic Web Project" dialog.
 
-	![Installing Tomcat](Images/new-project-3.png)
+	![Installing Tomcat](Images/java-new-project-3.png)
 
 	_Installing Tomcat_
 
@@ -252,43 +250,43 @@ In this exercise, you will create a Dynamic Web Project and use some Azure APIs 
 
 1. Right-click (On a Mac, Control-click) the Intellipix project in Project Explorer. Then select **Configure** > **Convert to Maven Project** from the context menu. In the "Create new POM" dialog that ensues, accept the defaults and click **Finish**.
 
-	> Maven is a package manager for Java. This action will add a **pom.xml** file to the project which can be used to install dependencies from Maven repositories.
+	> Maven is a package manager for Java. This action adds a **pom.xml** file to the project which is used to install dependencies from Maven repositories.
 
 1. Right-click the Intellipix project again, and this time select **Maven** > **Add Dependency**. In the "Add Dependency" dialog, set **Group Id** to "com.microsoft.azure," **Artifact Id** to "azure-storage," and **Version** to "5.1.1." Then click **OK** to add Azure Storage libraries to the project.
 
-	![Adding Azure Storage libraries](Images/add-maven-dependency-1.png)
+	![Adding Azure Storage libraries](Images/java-add-maven-dependency-1.png)
 
 	_Adding Azure Storage libraries_
 
 1. Repeat Step 6, but enter the values shown below into the "Add Dependency" dialog. This adds Java servlet libraries to the project.
 
-	![Adding servlet libraries](Images/add-maven-dependency-2.png)
+	![Adding servlet libraries](Images/java-add-maven-dependency-2.png)
 
 	_Adding servlet libraries_
 
 1. Repeat Step 6, but enter the values shown below into the "Add Dependency" dialog. This adds some common I/O utility libraries to the project.
 
-	![Adding I/O utility libraries](Images/add-maven-dependency-3.png)
+	![Adding I/O utility libraries](Images/java-add-maven-dependency-3.png)
 
 	_Adding I/O utility libraries_
 
 1. Repeat Step 6 one last time, but enter the values shown below into the "Add Dependency" dialog. This adds JSON libraries to the project. Many of the Azure APIs send and receive data in JSON format.
 
-	![Adding JSON libraries](Images/add-maven-dependency-4.png)
+	![Adding JSON libraries](Images/java-add-maven-dependency-4.png)
 
 	_Adding JSON libraries_
 
 1. Expand the Intellipix project in Project Explorer. Right-click the "src" folder under **Java Resources** and select **New** > **Servlet**.
 
-	![Add a servlet](Images/new-servlet.png)
+	![Adding a servlet](Images/java-new-servlet.png)
 
-	_Add a servlet_
+	_Adding a servlet_
 
 1. In the "Create Servlet" dialog, set **Java package** to "intellipix" and **Class name** to "Api." Then click **Finish**.
 
-	![Create a servlet](Images/create-servlet.png)
+	![Creating a servlet](Images/java-create-servlet.png)
 
-	_Create a servlet_
+	_Creating a servlet_
 
 1. Open **Api.java** in the "intellipix" folder created under the "src" folder, and replace its contents with the code below. Then save the modified file.
 
@@ -576,9 +574,9 @@ In this exercise, you will create a Dynamic Web Project and use some Azure APIs 
 
 1. On line 36, replace *connection_string* with the connection string that you saved in Exercise 1, Step 9.
 
-1. On line 37, replace *vision_api_key* with the Computer Vision API key that you saved in Exercise 2, Step 5.
+1. On line 37, replace *vision_api_key* with the Computer Vision API key that you saved in Exercise 3, Step 5.
 
-1. On line 38, replace *vision_api_endpoint* with the Computer Vision API endpoint that you saved in Exercise 2, Step 4.
+1. On line 38, replace *vision_api_endpoint* with the Computer Vision API endpoint that you saved in Exercise 3, Step 4.
 
 1. Right-click **WebContent** in Project Explorer and use the **New** > **HTML file** command to add an HTML file named "index.html" to the project.
 
@@ -712,7 +710,7 @@ In this exercise, you will create a Dynamic Web Project and use some Azure APIs 
 				
 	            var gallery = document.getElementById("gallery");
 	            gallery.innerHTML = htmlStr;
-			}
+	        }
             else {
 	            gallery.innerHTML = 'An error occurred!';
 	        }
@@ -777,43 +775,43 @@ With the app complete, the next step is to run it locally and make sure it works
 <a name="Exercise6"></a>
 ## Exercise 6: Test the app locally
 
-Eclipse has the ability to integrate with many popular servers for running web sites written in Java. One of the most common servers is Tomcat from Apache. Tomcat provides the hooks needed to run servlets as well as static content such as HTML. Azure can also uses Tomcat to host Java apps on the Web Apps service, so Tomcat is a good deployment choice for web apps targeting Azure and for debugging apps locally.
+Eclipse supports many popular servers for running Web sites written in Java, including [Apache Tomcat](http://tomcat.apache.org/). Tomcat provides the hooks needed to run servlets and is also capable of serving up static content such as HTML. Moreover, Azure can use Tomcat to host Java apps. In this exercise, you will run the app in a local Tomcat server in order to test it and familiarize yourself with its features.
 
 1. Use the **Run** > **Debug** command to launch the app in the debugger. In the "Debug As" dialog that opens, select **Run on Server**, and then click **OK**.
 
-	![Launching the app in the debugger](Images/debug-as.png)
+	![Launching the app in the debugger](Images/java-debug-as.png)
 
 	_Launching the app in the debugger_
 
 1. In the "Debug on Server" dialog, select **Choose an existing server**, select **Tomcat v7.0 Server at localhost** as the server, and click **Finish**.
 
-1. Wait for the app to appear in your browser, either inside or outside Eclipse. Then click the **Browse...** button, select all of the files in this lab's "resources\photos" folder, and click the **Upload** button to upload them to the Web site.
+1. Wait for the app to appear in your browser, either inside or outside Eclipse. Then click the **Browse...** button, select all of the files in this lab's "resources/photos" folder, and click the **Upload** button to upload them to the Web site.
 
 	> Each image uploaded to the Web site is written to Azure blob storage and then passed to the Computer Vision API, which analyzes the image and returns a caption and a set of tags. Captions and tags are stored in blob metadata.
 
 1. Wait for the upload to complete. Then confirm that the uploaded images appear in the Web page. These are the thumbnails generated from the uploaded images. They are stored as blobs in the "thumbnails" container that you created in Exercise 1. 
 
-	![The uploaded images](Images/intellipix-0.png)
+	![The uploaded images](Images/java-intellipix-0.png)
 
 	_The uploaded images_
 
-1. Hover the cursor over one of the images and confirm that a tooltip window appears showing the caption generated by the Computer Vision API. 
+1. Hover the cursor over one of the image thumbnails. Confirm that a tooltip window appears containing a caption for the image. *This is the caption that was generated by the Computer Vision API and stored in blob metadata*.
 
-	![Viewing a computer-generated caption](Images/intellipix-1.png)
+	![The computer-generated caption](Images/java-intellipix-1.png)
 
-	_Viewing a computer-generated caption_
+	_The computer-generated caption_
 
 1. Click an image and confirm that an enlarged version appears. This is the full-size image stored in blob storage in the "photos" container that you created in Exercise 1.
 
-	![Enlarging an image](Images/intellipix-2.png)
+	![Enlarging an image](Images/java-intellipix-2.png)
 
 	_Enlarging an image_
 
-1. Close the enlarged image. Then type "river" into the search box and click the **Search** button. Confirm that two images are shown, each containing a river. This image-search feature uses the tags generated for the images by the Computer Vision API. 
+1. Type a keyword describing something you see in the images — for example, "river" — into the search box. Search results will vary depending on what you typed and what images you uploaded. But the result should be a filtered list of images — images whose metadata keywords include all or part of the keyword that you typed.
 
-	![Searching for images containing a river](Images/intellipix-3.png)
+	![Performing a search](Images/java-intellipix-3.png)
 
-	_Searching for images containing a river_
+	_Performing a search_
 
 1. Do a **View Source** in your browser to view the source for the page. Find the \<img\> elements representing the image thumbnails. Observe that the URLs assigned to the images refer **directly to blobs in blob storage**. This is possible because you set the containers' **Access type** to **Blob**, which makes the blobs inside them publicly accessible.
 
@@ -846,13 +844,13 @@ You're almost finished, but the final and most important step remains. It is tim
 <a name="Exercise7"></a>
 ## Exercise 7: Deploy the app to Azure
 
-The Azure Toolkit for Eclipse has integrated support for deploying Dynamic Web Site projects as Web Apps on Azure. In this exercise, you will use the Azure Toolkit to deploy Intellipix to Azure.
+The Azure Toolkit for Eclipse has integrated support for deploying Dynamic Web Site projects to Azure as [Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview). In this exercise, you will use the Azure Toolkit to deploy Intellipix to Azure.
 
 1. Right-click the Intellipix project in Project Explorer and select **Azure** > **Publish as Azure Web App** from the context menu. 
 
-1. Make sure **Interactive** is selected as the authentication method, and then click **Sign in**. When prompted, sign in with your Microsoft account.
+1. Make sure **Interactive** is selected as the authentication method, and click **Sign in**. When prompted, sign in with your Microsoft account.
 
-	![Signing in to Azure](Images/sign-in.png)
+	![Signing in to Azure](Images/java-sign-in.png)
 
 	_Signing in to Azure_
 
@@ -860,21 +858,23 @@ The Azure Toolkit for Eclipse has integrated support for deploying Dynamic Web S
 
 1. In the "Deploy Web App" dialog, click the **Create** button to create a new Azure App Service.
 
-1. In the "Create App Service" window, select **Create new**. Set **Location** to the same location that you selected for the storage account you created in Exercise 1. Select **Free_F1** for the **Pricing tier**, but *do not* click the **Create** button just yet.
+	> Azure App Service is the family of services that Azure Web Apps belong to. Other types of Azure App Services include Azure API Apps and Azure Logic Apps.
 
-	![Creating an Azure App Service](Images/create-app-service-1.png)
+1. In the "Create App Service" dialog, select **Create new**. Set **Location** to the same location that you selected for the storage account in Exercise 1. Select **Free_F1** for the **Pricing tier**, but *do not* click the **Create** button just yet.
+
+	![Creating an Azure App Service](Images/java-create-app-service-1.png)
 
 	_Creating an Azure App Service_
 
-1. Click the **Resource group** tab, select **Use existing**, and select the resource group that you created in Exercise 1.
+1. Click the **Resource group** tab, select **Use existing**, and select the resource group that you created in Exercise 1. Then click the **Create** button. This will place the Azure Web App in the same resource group as the storage account and other resources you created in this lab so they can be managed as a unit.
 
-	![Specifying the resource group](Images/create-app-service-2.png)
+	![Specifying the resource group](Images/java-create-app-service-2.png)
 
 	_Specifying the resource group_
 
 1. In the "Deploy Web App" dialog, copy the Web site URL to the clipboard. Then check the **Deploy to root** box and click **Deploy**.
 
-	![Deploying the Web app](Images/deploy-web-app.png)
+	![Deploying the Web app](Images/java-deploy-web-app.png)
 
 	_Deploying the Web app_
 
