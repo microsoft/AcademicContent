@@ -44,8 +44,8 @@ This hands-on lab includes the following exercises:
 - [Exercise 1: Create a storage account](#Exercise1)
 - [Exercise 2: Run the Microsoft Azure Storage Explorer](#Exercise2)
 - [Exercise 3: Get a subscription key for the Computer Vision API](#Exercise3)
-- [Exercise 4: Write the app in Visual Studio Code](#Exercise4)
-- [Exercise 5: Test the app in your browser](#Exercise5)
+- [Exercise 4: Create a photo-upload app](#Exercise4)
+- [Exercise 5: Test the app locally](#Exercise5)
 - [Exercise 6: Deploy the app to Azure](#Exercise6)
 
 Estimated time to complete this lab: **60** minutes.
@@ -170,7 +170,7 @@ In this exercise, you will acquire a subscription key allowing you to call the C
 The access key that you just copied will be included in each HTTPS request sent to the Computer Vision API so Azure can verify that the caller is authorized. You should protect this access key the same way you protect access keys for storage accounts and other Azure resources.
 
 <a name="Exercise4"></a>
-## Exercise 4: Write the app in Visual Studio Code
+## Exercise 4: Create a photo-upload app
 
 In this exercise, you will create a new Web app in Visual Studio Code and add code to upload images, write them to blob storage, display them in a Web page, generate thumbnails, captions, and keywords using the Computer Vision API, and perform keyword searches on uploaded images. The app will be named Intellipix (for "Intelligent Pictures") and will be accessed through your browser. The server-side code will be written in JavaScript and Node.js. The code that runs in the browser will be written in JavaScript and will leverage two of the most popular class libraries on the planet: [AngularJS](https://angularjs.org/) and [Bootstrap](http://getbootstrap.com/). 
 
@@ -732,7 +732,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 With the code that comprises the app in place and key environment variables initialized with "secrets" such as your storage account key, the next task is to run the app and test it in your browser.
 
 <a name="Exercise5"></a>
-## Exercise 5: Test the app in your browser
+## Exercise 5: Test the app locally
 
 In this exercise, you will run the app locally in order to test it and familiarize yourself with its features. Running it locally is a simple matter of firing up a Node.js server process to host your server components (in this case, **server.js**) and pointing your browser to http://localhost:*port*, where *port* is the port number on which the server process is listening for HTTP requests. **server.js** listens on port 9898. You can modify that if you would like by changing line 7 in the code.
 
