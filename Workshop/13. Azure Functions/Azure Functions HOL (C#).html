@@ -530,7 +530,7 @@ vertical-align:1px;
 </li>
 <li>
 <p>Periodically click the <strong>Refresh</strong> button at the top of the blade until "Deploying" changes to "Succeeded," indicating that the Function App has been deployed. Then click the storage account that was created for the Function App.</p>
-<p><a href="Images/open-storage-account-after-deployment.png" target="_blank"><img src="Images/open-storage-account-after-deployment.png" alt="Opening the storage account" style="max-width:100%;"></a></p>
+<p><a href="Images/open-storage-account.png" target="_blank"><img src="Images/open-storage-account.png" alt="Opening the storage account" style="max-width:100%;"></a></p>
 <p><em>Opening the storage account</em></p>
 </li>
 <li>
@@ -612,13 +612,14 @@ vertical-align:1px;
 {
     <span class="pl-en">HttpClient</span> <span class="pl-en">client</span> = <span class="pl-k">new</span> <span class="pl-en">HttpClient</span>();
 
-    <span class="pl-k">var</span> <span class="pl-en">key </span>= ConfigurationManager.AppSettings[<span class="pl-s"><span class="pl-pds">"</span>SubscriptionKey<span class="pl-pds">"</span></span>].ToString();
+    <span class="pl-k">var</span> <span class="pl-en">key </span>= ConfigurationManager.AppSettings[<span class="pl-s"><span class="pl-pds">"</span>SubscriptionKey<span class="pl-pds">"</span></span>];
     client.DefaultRequestHeaders.Add(<span class="pl-s"><span class="pl-pds">"</span>Ocp-Apim-Subscription-Key<span class="pl-pds">"</span></span>, key);
 
     <span class="pl-en">HttpContent</span> <span class="pl-en">payload</span> = <span class="pl-k">new</span> <span class="pl-en">ByteArrayContent</span>(<span class="pl-en">bytes</span>);
     payload.Headers.ContentType = <span class="pl-k">new</span> <span class="pl-en">MediaTypeWithQualityHeaderValue</span>(<span class="pl-s"><span class="pl-pds">"</span>application/octet-stream<span class="pl-pds">"</span></span>);
     
-    <span class="pl-k">var</span> <span class="pl-en">results </span>= <span class="pl-k">await</span> client.PostAsync(<span class="pl-s"><span class="pl-pds">"</span>https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Adult<span class="pl-pds">"</span></span>, payload);
+    <span class="pl-k">var</span> <span class="pl-en">endpoint </span>= ConfigurationManager.AppSettings[<span class="pl-s"><span class="pl-pds">"</span>VisionEndpoint<span class="pl-pds">"</span></span>];
+    <span class="pl-k">var</span> <span class="pl-en">results </span>= <span class="pl-k">await</span> client.PostAsync(endpoint + <span class="pl-s"><span class="pl-pds">"</span>/analyze?visualFeatures=Adult<span class="pl-pds">"</span></span>, payload);
     <span class="pl-k">var</span> <span class="pl-en">result </span>= <span class="pl-k">await</span> results.Content.ReadAsAsync&lt;ImageAnalysisInfo&gt;();
     <span class="pl-k">return</span> result;
 }
@@ -719,7 +720,7 @@ vertical-align:1px;
 <p>An Azure Function written in C# has been created, complete with a JSON project file containing information regarding project dependencies. The next step is to add an application setting that the Azure Function relies on.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Add a subscription key to application settings</h2>
-<p>The Azure Function you created in <a href="#Exercise2">Exercise 2</a> loads a subscription key for the Microsoft Cognitive Services Computer Vision API from application settings. This key is required in order for your code to call the Computer Vision API, and is transmitted in an HTTP header in each call. In this exercise, you will subscribe to the Computer Vision API, and then add an access key for the subscription to application settings.</p>
+<p>The Azure Function you created in <a href="#Exercise2">Exercise 2</a> loads a subscription key for the Microsoft Cognitive Services Computer Vision API from application settings. This key is required in order for your code to call the Computer Vision API, and is transmitted in an HTTP header in each call. It also loads the base URL for the Computer Vision API (which varies by data center) from application settings. In this exercise, you will subscribe to the Computer Vision API, and then add an access key and a base URL to application settings.</p>
 <ol>
 <li>
 <p>In the Azure Portal, click <strong>+ New</strong>, followed by <strong>AI + Cognitive Services</strong> and <strong>Computer Vision API</strong>.</p>
@@ -727,17 +728,17 @@ vertical-align:1px;
 <p><em>Creating a new Computer Vision API subscription</em></p>
 </li>
 <li>
-<p>Enter "VisionAPI" into the <strong>Name</strong> box and select <strong>F0</strong> as the <strong>Pricing tier</strong>. Under <strong>Resource Group</strong>, select <strong>Use existing</strong> and select the "FunctionsLabResourceGroup" that you created for the Function App in Exercise 1. Check the <strong>I confirm</strong> box, and then click <strong>Create</strong>.</p>
+<p>Enter "VisionAPI" into the <strong>Name</strong> box and select <strong>F0</strong> as the <strong>Pricing tier</strong>. Under <strong>Resource Group</strong>, select <strong>Use existing</strong> and select the "FunctionsLabResourceGroup" resource group that you created for the Function App in Exercise 1. Check the <strong>I confirm</strong> box, and then click <strong>Create</strong>.</p>
 <p><a href="Images/create-vision-api.png" target="_blank"><img src="Images/create-vision-api.png" alt="Subcribing to the Computer Vision API" style="max-width:100%;"></a></p>
 <p><em>Subcribing to the Computer Vision API</em></p>
 </li>
 <li>
-<p>Return to the blade for the "FunctionsLabResourceGroup" resource group and click the Computer Vision API subscription that you just created.</p>
+<p>Return to the blade for "FunctionsLabResourceGroup" and click the Computer Vision API subscription that you just created.</p>
 <p><a href="Images/open-vision-api.png" target="_blank"><img src="Images/open-vision-api.png" alt="Opening the Computer Vision API subscription" style="max-width:100%;"></a></p>
 <p><em>Opening the Computer Vision API subscription</em></p>
 </li>
 <li>
-<p>Click <strong>Show access keys</strong>.</p>
+<p>Copy the URL under <strong>Endpoint</strong> into your favorite text editor so you can easily retrieve it in a moment. Then click <strong>Show access keys</strong>.</p>
 <p><a href="Images/show-access-keys.png" target="_blank"><img src="Images/show-access-keys.png" alt="Viewing the access keys" style="max-width:100%;"></a></p>
 <p><em>Viewing the access keys</em></p>
 </li>
@@ -752,12 +753,12 @@ vertical-align:1px;
 <p><em>Viewing application settings</em></p>
 </li>
 <li>
-<p>Scroll down to the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the <strong>Value</strong> box. Then click <strong>Save</strong> at the top of the blade.</p>
-<p><a href="Images/add-key.png" target="_blank"><img src="Images/add-key.png" alt="Adding a subscription key" style="max-width:100%;"></a></p>
-<p><em>Adding a subscription key</em></p>
+<p>Scroll down to the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the <strong>Value</strong> box. Then add a setting named "VisionEndpoint" and set its value to the endpoint URL you saved in Step 4. Finish up by clicking <strong>Save</strong> at the top of the blade.</p>
+<p><a href="Images/add-keys.png" target="_blank"><img src="Images/add-keys.png" alt="Adding application settings" style="max-width:100%;"></a></p>
+<p><em>Adding application settings</em></p>
 </li>
 <li>
-<p>The app settings are now configured for your Azure Function. It's a good idea to validate those settings by running the function and ensuring that it compiles without errors. Click <strong>BlobImageAnalysis</strong>. Then click <strong>Run</strong> to compile and run the function. Confirm that "Compilation succeeded" appears in the output log, and ignore any exceptions that are reported.</p>
+<p>The app settings are now configured for your Azure Function. It's a good idea to validate those settings by running the function and ensuring that it compiles without errors. Click <strong>BlobImageAnalysis</strong>. Then click <strong>Run</strong> to compile and run the function. Confirm that no compilation errors appear in the output log, and ignore any exceptions that are reported.</p>
 <p><a href="Images/cs-run-function.png" target="_blank"><img src="Images/cs-run-function.png" alt="Compiling the function" style="max-width:100%;"></a></p>
 <p><em>Compiling the function</em></p>
 </li>
@@ -769,7 +770,7 @@ vertical-align:1px;
 <ol>
 <li>
 <p>In the Azure Portal, go to the resource group created for your Function App. Then click the storage account that was created for it.</p>
-<p><a href="Images/open-storage-account.png" target="_blank"><img src="Images/open-storage-account.png" alt="Opening the storage account" style="max-width:100%;"></a></p>
+<p><a href="Images/open-storage-account-2.png" target="_blank"><img src="Images/open-storage-account-2.png" alt="Opening the storage account" style="max-width:100%;"></a></p>
 <p><em>Opening the storage account</em></p>
 </li>
 <li>

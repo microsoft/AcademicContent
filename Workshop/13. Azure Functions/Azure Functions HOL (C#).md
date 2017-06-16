@@ -72,7 +72,7 @@ The first step in writing an Azure Function is to create an Azure Function App. 
 
 1. Periodically click the **Refresh** button at the top of the blade until "Deploying" changes to "Succeeded," indicating that the Function App has been deployed. Then click the storage account that was created for the Function App.
 
-    ![Opening the storage account](Images/open-storage-account-after-deployment.png)
+    ![Opening the storage account](Images/open-storage-account.png)
 
     _Opening the storage account_
 
@@ -163,13 +163,14 @@ Once you have created an Azure Function App, you can add Azure Functions to it. 
 	{
 	    HttpClient client = new HttpClient();
 	
-	    var key = ConfigurationManager.AppSettings["SubscriptionKey"].ToString();
+	    var key = ConfigurationManager.AppSettings["SubscriptionKey"];
 	    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 	
 	    HttpContent payload = new ByteArrayContent(bytes);
 	    payload.Headers.ContentType = new MediaTypeWithQualityHeaderValue("application/octet-stream");
 	    
-	    var results = await client.PostAsync("https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Adult", payload);
+	    var endpoint = ConfigurationManager.AppSettings["VisionEndpoint"];
+	    var results = await client.PostAsync(endpoint + "/analyze?visualFeatures=Adult", payload);
 	    var result = await results.Content.ReadAsAsync<ImageAnalysisInfo>();
 	    return result;
 	}
@@ -276,7 +277,7 @@ An Azure Function written in C# has been created, complete with a JSON project f
 <a name="Exercise3"></a>
 ## Exercise 3: Add a subscription key to application settings ##
 
-The Azure Function you created in [Exercise 2](#Exercise2) loads a subscription key for the Microsoft Cognitive Services Computer Vision API from application settings. This key is required in order for your code to call the Computer Vision API, and is transmitted in an HTTP header in each call. In this exercise, you will subscribe to the Computer Vision API, and then add an access key for the subscription to application settings.
+The Azure Function you created in [Exercise 2](#Exercise2) loads a subscription key for the Microsoft Cognitive Services Computer Vision API from application settings. This key is required in order for your code to call the Computer Vision API, and is transmitted in an HTTP header in each call. It also loads the base URL for the Computer Vision API (which varies by data center) from application settings. In this exercise, you will subscribe to the Computer Vision API, and then add an access key and a base URL to application settings.
 
 1. In the Azure Portal, click **+ New**, followed by **AI + Cognitive Services** and **Computer Vision API**.
 
@@ -284,19 +285,19 @@ The Azure Function you created in [Exercise 2](#Exercise2) loads a subscription 
 
     _Creating a new Computer Vision API subscription_
 
-1. Enter "VisionAPI" into the **Name** box and select **F0** as the **Pricing tier**. Under **Resource Group**, select **Use existing** and select the "FunctionsLabResourceGroup" that you created for the Function App in Exercise 1. Check the **I confirm** box, and then click **Create**.
+1. Enter "VisionAPI" into the **Name** box and select **F0** as the **Pricing tier**. Under **Resource Group**, select **Use existing** and select the "FunctionsLabResourceGroup" resource group that you created for the Function App in Exercise 1. Check the **I confirm** box, and then click **Create**.
 
     ![Subcribing to the Computer Vision API](Images/create-vision-api.png)
 
     _Subcribing to the Computer Vision API_
 
-1. Return to the blade for the "FunctionsLabResourceGroup" resource group and click the Computer Vision API subscription that you just created.
+1. Return to the blade for "FunctionsLabResourceGroup" and click the Computer Vision API subscription that you just created.
 
     ![Opening the Computer Vision API subscription](Images/open-vision-api.png)
 
     _Opening the Computer Vision API subscription_
 
-1. Click **Show access keys**.
+1. Copy the URL under **Endpoint** into your favorite text editor so you can easily retrieve it in a moment. Then click **Show access keys**.
 
     ![Viewing the access keys](Images/show-access-keys.png)
 
@@ -314,13 +315,13 @@ The Azure Function you created in [Exercise 2](#Exercise2) loads a subscription 
 
     _Viewing application settings_
 
-1. Scroll down to the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the **Value** box. Then click **Save** at the top of the blade.
+1. Scroll down to the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the **Value** box. Then add a setting named "VisionEndpoint" and set its value to the endpoint URL you saved in Step 4. Finish up by clicking **Save** at the top of the blade.
 
-    ![Adding a subscription key](Images/add-key.png)
+    ![Adding application settings](Images/add-keys.png)
 
-    _Adding a subscription key_
+    _Adding application settings_
 
-1. The app settings are now configured for your Azure Function. It's a good idea to validate those settings by running the function and ensuring that it compiles without errors. Click **BlobImageAnalysis**. Then click **Run** to compile and run the function. Confirm that "Compilation succeeded" appears in the output log, and ignore any exceptions that are reported.
+1. The app settings are now configured for your Azure Function. It's a good idea to validate those settings by running the function and ensuring that it compiles without errors. Click **BlobImageAnalysis**. Then click **Run** to compile and run the function. Confirm that no compilation errors appear in the output log, and ignore any exceptions that are reported.
 	
     ![Compiling the function](Images/cs-run-function.png)
 
@@ -335,7 +336,7 @@ Your function is configured to listen for changes to the blob container named "u
 
 1. In the Azure Portal, go to the resource group created for your Function App. Then click the storage account that was created for it.
 
-    ![Opening the storage account](Images/open-storage-account.png)
+    ![Opening the storage account](Images/open-storage-account-2.png)
 
     _Opening the storage account_
 
