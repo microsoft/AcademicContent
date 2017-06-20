@@ -105,9 +105,9 @@ In the language of LUIS, *intents* represent actions such as "search" or "find,"
 
 1. Now you need to connect the NewsTopic entity to the SearchNews intent. To begin, return to the "Intents" page and click **SearchNews**.
  
-    ![Selecting the SearchNews intent](Images/luis-click-search-news.png)
+    ![Opening the SearchNews intent](Images/luis-click-search-news.png)
 
-    _Selecting the SearchNews intent_
+    _Opening the SearchNews intent_
 
 1. Type "get soccer news" into the utterance box and press **Enter** to add "get soccer news" as an utterance.
  
@@ -115,7 +115,7 @@ In the language of LUIS, *intents* represent actions such as "search" or "find,"
 
     _Entering a new utterance_
 
-1. Click "soccer" in the utterance (the square brackets will appear when you hover over the word), and then select **NewsTopic** from the ensuing menu to connect "soccer" to the NewsTopic entity. 
+1. Click "soccer" in the utterance (the square brackets will appear when you hover over the word), and then select **NewsTopic** from the ensuing menu to connect "soccer" to the NewsTopic entity. Then click **Save**.
 
     ![Connecting "soccer" to the NewsTopic entity](Images/luis-assign-entity.png)
 
@@ -129,7 +129,7 @@ In the language of LUIS, *intents* represent actions such as "search" or "find,"
 
     _Training a LUIS model_
 
-1. Click **Intents** in the menu on the left to return to the Intents page. Then repeat Step 6 to add the utterances "get hockey news" and "get golf news." Confirm that LUIS automatically labels "hockey" and "golf" as NewsTopics. (If it doesn't, then add the labels manually.) Then click **Save**.
+1. Click **Intents** in the menu on the left to return to the Intents page. Then click **SearchNews**, and repeat Step 6 to add the utterances "get hockey news" and "get golf news." Confirm that LUIS automatically labels "hockey" and "golf" as NewsTopics. (If it doesn't, then add the labels manually.) Then click **Save**.
 
 	> **Tip:** If you would like to see the original terms you entered in the utterances rather than [$NewsTopic], select **Tokens** from the drop-down list labeled "Labels view."
 
@@ -158,7 +158,7 @@ Now that LUIS understands some basic intents and phrases, it's time to make the 
 
     _Adding a prebuilt entity_ 
 
-1. Scroll down and select **encyclopedia**. Then click the **Save** button. A new prebuilt entity named "encyclopedia" will be added to the list.
+1. Scroll down and select **encyclopedia**. Then click the **Save** button. A new prebuilt entity named "encyclopedia" will be added to the list of entities.
  
     ![Selecting the encyclopedia entity](Images/luis-select-encycolpedia-entity.png)
 
@@ -168,7 +168,7 @@ Now that LUIS understands some basic intents and phrases, it's time to make the 
 
 1. Click **Intents** in the menu on the left. Then click the **SearchNews** intent.
 
-1. Type "get news about the seattle mariners" and press the **Enter** key to add a new utterance. Confirm that LUIS understands "Seattle Mariners" as a potential encyclopedia entry and automatically assigns it the prebuilt encyclopedia entity.
+1. Type "get news about the Seattle Mariners" and press the **Enter** key to add a new utterance. Confirm that LUIS understands "Seattle Mariners" as a potential encyclopedia entry and automatically assigns it the prebuilt encyclopedia entity.
 
 	> **Important:** If LUIS tags the word "get" as a NewsTopic entity, click "get" and select **Remove Label** from the drop-down menu. Then save your changes and retrain the model.
 
@@ -215,7 +215,7 @@ Now that LUIS understands some basic intents and phrases, it's time to make the 
 
 1. The next step is to connect the NewsCategory entity to an intent. Begin by clicking **Intents** in the menu on the left, and then clicking the **SearchNews** intent.
 
-1. Type "get news about health" into the utterance box and press the **Enter** key. Confirm that LUIS understands the term "health" as a NewsCategory entry and automatically assigns the NewsCategory intent.
+1. Type "get news about health" into the utterance box and press the **Enter** key. Confirm that LUIS understands the term "health" to be a news category and automatically assigns the NewsCategory intent.
 
 	> Once more, if LUIS tags the word "get" as a NewsTopic entity, click "get" and select **Remove Label** from the drop-down menu. Then save your changes and retrain the model.
 
@@ -540,7 +540,7 @@ The motivation for creating a bot is to have it carry on conversations with user
 
 1. Type "Hello" again and press **Enter**. Then type "get news about Microsoft" and press **Enter** again. What does the bot return this time? 
 
-Feel free to try other commands such as "Get the latest health news" and continue to converse with the bot. It understands a relatively narrow range of commands, but for those commands that it does understand, it almost seems to know what you're saying. Of course, you could expand the bot's vocabulary by adding to the LUIS model that you built. The only limit is how much time you're willing to spend refining and enhancing the model.
+Feel free to try other commands such as "Show me the latest health news" and continue to converse with the bot. It understands a relatively narrow range of commands, but for those commands that it does understand, it almost seems to know what you're saying. Of course, you could expand the bot's vocabulary by adding to the LUIS model that you built. The only limit is how much time you're willing to spend refining and enhancing the model.
 
 <a name="Summary"></a>
 ## Summary ##
