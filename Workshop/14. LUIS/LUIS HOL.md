@@ -31,7 +31,7 @@ In this hands-on lab, you will learn how to:
 The following are required to complete this hands-on lab:
 
 - A Microsoft account. If you don't have one, [sign up for free](https://account.microsoft.com/account).
-- Microsoft [Visual Studio Code](http://code.visualstudio.com) version 1.12.0 or higher
+- [Visual Studio Code](http://code.visualstudio.com)
 
 ---
 
@@ -54,13 +54,11 @@ Estimated time to complete this lab: **60** minutes.
 
 The first step in creating an intelligent language model with LUIS is to provision an application in the [LUIS portal](https://www.luis.ai/). In this exercise, you will create an application called "Newsy" whose purpose is to understand natural-language commands for retrieving news.
 
-1. Open the [LUIS portal](https://www.luis.ai/) in a browser. If you aren't already signed in, click **Sign in or create an account** and sign in with your Microsoft account. If you are prompted to "let this app access your info," review the permissions requested and click **Yes**. Additionally, if you are prompted to provide additional details such as the country you live in and the company you work for, fill in the information and click **Continue**.	
+1. Open the [LUIS portal](https://www.luis.ai/) in a browser. If you aren't already signed in, click **Sign in or create an account** and sign in with your Microsoft account. If you are prompted to "let this app access your info," review the permissions requested and click **Yes**. Additionally, if you are prompted to provide additional details such as the country you live in and the company you work for, fill in the information and click **Continue**. You can also skip over any welcome screens that are presented.
 
     ![Signing in to LUIS](Images/luis-click-login.png)
 
     _Signing in to LUIS_
-
-1. Read through or skip over any welcome screens that are presented.
 
 1. Click **New App**. 
 
@@ -79,7 +77,7 @@ Your LUIS application is now provisioned and you are ready to start configuring 
 <a name="Exercise2"></a>
 ## Exercise 2: Configure intents and entities ##
 
-In the language of LUIS, *intents* represent actions such as "search" or "find," while *entities* describe target for intents. In this exercise, you will create a simple intent for searching the news and an entity to specify the type of news to search for, such as "soccer" or "Microsoft Surface."
+In the language of LUIS, *intents* represent actions such as "search" or "find," while *entities* describe target for intents. In this exercise, you will create a simple intent for searching the news and an entity to specify the type of news to search for, such as "soccer" or "Azure."
 
 1. Click **Intents** in the menu on the left. Then click **Add Intent** to add an intent.
 
@@ -87,7 +85,7 @@ In the language of LUIS, *intents* represent actions such as "search" or "find,"
 
     _Adding an intent_
  
-1. Enter "SearchNews" (without quotation marks) for the intent name, and then click the **Save** button.
+1. Enter "SearchNews" (without quotation marks) for the intent name, and click the **Save** button.
 
     ![Defining an intent](Images/luis-save-new-intent-01.png)
 
@@ -111,7 +109,7 @@ In the language of LUIS, *intents* represent actions such as "search" or "find,"
 
     _Selecting the SearchNews intent_
 
-1. Type "soccer news" into the utterance box and press **Enter** to add "soccer news" as an utterance.
+1. Type "get soccer news" into the utterance box and press **Enter** to add "get soccer news" as an utterance.
  
     ![Entering a new utterance](Images/luis-type-get-soccer.png)
 
@@ -123,39 +121,36 @@ In the language of LUIS, *intents* represent actions such as "search" or "find,"
 
     _Connecting "soccer" to the NewsTopic entity_
 
-	The phrase "soccer news" is now associated with the SearchNews intent, and LUIS will understand the word “soccer” as the target of your action based on the NewsTopic entity. In order for LUIS to train the model successfully, it needs a few more sample utterances.
-	
-1. Repeat steps 6 and 7, making certain you select **NewsTopic** from the entity drop-down, with the following utterances to populate the LUIS application with information for training the model:
+	The phrase "get soccer news" is now associated with the SearchNews intent, and LUIS will understand the word "soccer" as the target of your action based on the NewsTopic entity.
 
-	- "hockey news"
-	- "golf news"
-
-1. When all of the utterances have been added, click **Save**.
-
-    ![Saving the SearchNews utterances](Images/luis-click-save-utterances.png)
-
-    _Saving the SearchNews utterances_
-
-	> **Tip:** If you would like to see the original terms you entered in the utterances rather than [$NewsTopic], select **Tokens** from the drop-down list labeled "Labels view."
-
-1. The next step is to train the model with the utterances you entered. Click **Train & Test** in the menu on the left. Then click **Train Application** to train the model. Training should only take a few seconds. 
+1. Click **Train & Test** in the menu on the left. Then click **Train Application** to train the model. Training should only take a few seconds. 
  
     ![Training a LUIS model](Images/luis-click-train.png)
 
     _Training a LUIS model_
 
+1. Click **Intents** in the menu on the left to return to the Intents page. Then repeat Step 6 to add the utterances "get hockey news" and "get golf news." Confirm that LUIS automatically labels "hockey" and "golf" as NewsTopics. (If it doesn't, then add the labels manually.) Then click **Save**.
+
+	> **Tip:** If you would like to see the original terms you entered in the utterances rather than [$NewsTopic], select **Tokens** from the drop-down list labeled "Labels view."
+
+    ![Adding more NewsTopic utterances](Images/luis-more-utterances.png)
+
+    _Adding more NewsTopic utterances_
+
+1. Click **Train & Test** in the menu on the left. Then click **Train Application** to train the model again. 
+ 
 1. Test the model by typing "Find baseball news" into the test-utterance field and pressing **Enter**. Confirm that SearchNews is the top-scoring intent.
 
     ![Testing an utterance](Images/luis-interactive-test-01.png)
 
     _Testing an utterance_ 
 
-Your LUIS application is now configured to understand phrases such as "find soccer news" and to discern that the user wants to search news for the term "soccer." LUIS is smart enough now to know that a phrase such as "Find baseball news" also represents an intent to search news, even though you haven't explicitly trained the model with the term "baseball." Your LUIS model is now ready to be configured to support more advanced scenarios, such as identifying terms from news categories.
+Your LUIS application is now configured to understand phrases such as "get soccer news" and to discern that the user wants to search news for the term "soccer." LUIS is smart enough now to know that a phrase such as "Find baseball news" also represents an intent to search news, even though you haven't explicitly trained the model with the term "baseball" or the verb "find." Your LUIS model is now ready to be configured to support more advanced scenarios, such as identifying terms from news categories.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Add prebuilt entities and entity lists ##
 
-Now that LUIS understands some basic intents and phrases, it's time to make the model even more intelligent by leveraging prebuilt entities and entity lists. Prebuilt entities allow a model to know, for example, that words such as "tomorrow" and "September 30" that appear in an entity represent dates and times, or that "20 years old" represents an age. A complete list of the prebuilt entities that LUIS supports can be found at https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/pre-builtentities. In this exercise, you will add the prebuilt *encyclopedia* entity to your model, and add an entity list for refining news results by category.
+Now that LUIS understands some basic intents and phrases, it's time to make the model even more intelligent by leveraging prebuilt entities and entity lists. Prebuilt entities allow a model to know, for example, that words such as "tomorrow" and "September 30" represent dates and times, or that "20 years old" represents an age. A complete list of the prebuilt entities that LUIS supports can be found at https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/pre-builtentities. In this exercise, you will add the prebuilt *encyclopedia* entity to your model, and add an entity list for searching for news by category.
 
 1. Click **Entities** in the menu on the left to display the Entities page. Then click **Add prebuilt entity**.
 
@@ -173,22 +168,26 @@ Now that LUIS understands some basic intents and phrases, it's time to make the 
 
 1. Click **Intents** in the menu on the left. Then click the **SearchNews** intent.
 
-1. Type "news about Seattle Mariners" and press the **Enter** key to add a new utterance. Confirm that LUIS understands "Seattle Mariners" as a potential encyclopedia entry and automatically assigns it the prebuilt encyclopedia entity.
+1. Type "get news about the seattle mariners" and press the **Enter** key to add a new utterance. Confirm that LUIS understands "Seattle Mariners" as a potential encyclopedia entry and automatically assigns it the prebuilt encyclopedia entity.
+
+	> **Important:** If LUIS tags the word "get" as a NewsTopic entity, click "get" and select **Remove Label** from the drop-down menu. Then save your changes and retrain the model.
 
     !["Seattle Mariners" recognized as an encyclopedia entry](Images/luis-encyclopedia-found.png)
 
     _"Seattle Mariners" recognized as an encyclopedia entry_ 
 
-1. Repeat step 4 to add the following utterances, and make sure the **encyclopedia** entity gets assigned to each.
+1. Repeat step 5 to add the following utterances, and make sure the encyclopedia entity gets assigned to each. Then click **Save** to save your changes.
 
-	- "news about Super Bowl"
-	- "news about Microsoft"
+	- "get news about the Super Bowl"
+	- "get news about Microsoft"
 
-	When you're finished, click the **Save** button to save your changes.
+    ![LUIS model after adding encyclopedia entries](Images/luis-encyclopedia-entries-added.png)
+
+    _LUIS model after adding encyclopedia entries_ 
 
 1. The SearchNews intent now supports generic terms and phrases, and it recognizes a variety of terms as potential encyclopedia entries. This works well if a user wants to get news related to a specific topic. However, LUIS also lets you create entities based on predefined lists such as news categories. To demonstrate, click **Entities** in the menu on the left, and then click **Add custom entity**.
 
-1. Enter "NewsCategory" as the entity name, select **List** as the entity type, and then click the **Save** button.
+1. Enter "NewsCategory" as the entity name, select **List** as the entity type, and click the **Save** button.
 
     ![Adding a custom list entity](Images/luis-add-list-entity.png)
 
@@ -216,16 +215,18 @@ Now that LUIS understands some basic intents and phrases, it's time to make the 
 
 1. The next step is to connect the NewsCategory entity to an intent. Begin by clicking **Intents** in the menu on the left, and then clicking the **SearchNews** intent.
 
-1. Type "news about health" into the utterance box and press the **Enter** key. Conform that LUIS understands the term "health" as a NewsCategory entry and automatically assigns the NewsCategory intent.
+1. Type "get news about health" into the utterance box and press the **Enter** key. Confirm that LUIS understands the term "health" as a NewsCategory entry and automatically assigns the NewsCategory intent.
 
-    !["health" token recognized as a news category](Images/luis-recognize-news-category.png)
+	> Once more, if LUIS tags the word "get" as a NewsTopic entity, click "get" and select **Remove Label** from the drop-down menu. Then save your changes and retrain the model.
 
-    _"health" token recognized as a news category_ 
+    !["health" recognized as a news category](Images/luis-recognize-news-category.png)
 
-1. Repeat the previous step, making certain the **NewsCategory** entity gets assigned, for the following sample phrases:	
+    _"health" recognized as a news category_ 
 
-	- "news about business"
-	- "news about the world"
+1. Repeat the previous step for the following phrases, making certain that the NewsCategory entity gets assigned to each:
+
+	- "get news about business"
+	- "get news about the world"
 	
 1. Click **Save** to save the utterances. Then click **Train & Test** in the menu on the left, and click **Train Application** to retrain the model.
  
@@ -254,7 +255,7 @@ In this exercise, you will publish the model as a Web service so that it's avail
 
     _Modifying the query_
 
-1. Confirm that the result is similar to the result below. Observe that LUIS identified "golden state warriors" as the entity and determined that "SearchNews" was the most likely intent. It also identified built-in encyclopedia entity types, such as 'builtin.encyclopedia.basketball.team" and "builtin.encyclopedia.sports.team" for the entity. And it expressed all of this in JSON.
+1. Confirm that the result is similar to the result below. Observe that LUIS identified "golden state warriors" as the entity and determined that SearchNews was the most likely intent. It also identified built-in encyclopedia entity types, such as 'builtin.encyclopedia.basketball.team" and "builtin.encyclopedia.sports.team" for the entity. And it expressed all of this in JSON.
 
 	```JSON
 	{
@@ -359,7 +360,7 @@ In this exercise, you will use the Microsoft Bot Framework to build a bot and co
 
     _Adding a launch file to the project_	
 
-1. Replace the contents of **launch.json** with the following JSON to make sure the debugger starts the **app.js** file and supports interaction via the integrated terminal:
+1. Replace the contents of **launch.json** with the following JSON to make sure that **app.js** is the startup file and that you can interact with the app in the integrated terminal:
 
 	```JSON
 	{
@@ -418,15 +419,16 @@ In this exercise, you will use the Microsoft Bot Framework to build a bot and co
 	
 	    var reqGet = https.request(optionsLuisGet, function (res) {
 	        res.on('data', function (luisResults) {
-	
 	            var luisResult = JSON.parse(luisResults.toString());
 	            session.userData.intent = luisResult.intents[0].intent.toString();
 	
 	            if (luisResult.topScoringIntent.intent == "None") {
 	                session.send("I'm not quite sure what you mean by '" + session.userData.searchQuery.toUpperCase() + "'");
 	            }
+	            else if (luisResult.entities.length == 0) {
+	                session.send("Sorry, but I couldn't identify an entity in that phrase");
+	            }
 	            else {
-	
 	                session.userData.entity = luisResult.entities[0].entity.toString();
 	                session.userData.entityType = luisResult.entities[0].type.toString()
 	
@@ -471,7 +473,6 @@ In this exercise, you will use the Microsoft Bot Framework to build a bot and co
 	
 	    var reqGet = https.request(optionsSearch, function (res) {
 	        res.on('data', function (newsResults) {
-	
 	            var newsResult = JSON.parse(newsResults.toString());
 	
 	            for (var result in newsResult) {
@@ -496,17 +497,17 @@ In this exercise, you will use the Microsoft Bot Framework to build a bot and co
 
 1. Before you can test the bot, you need to update your code with the application ID and subscription ID of your LUIS model. These values can be retrieved from the LUIS portal. Return to the Newsy application in the portal and click **Settings** in the menu on the left. Then copy the application ID to the clipboard.
  
-    ![Copying the Application ID](Images/luis-click-app-settings.png)
+    ![Copying the application ID](Images/luis-click-app-settings.png)
 
-    _Copying the Application ID_ 
+    _Copying the application ID_ 
  
 1. Return to **app.js** in Visual Studio Code and replace *LUIS_APP_ID* on line 8 with the application ID that is on the clipboard.
  
 1. Return to the LUIS portal and click **My Keys**. Then copy the programmatic API key to the clipboard. This is your LUIS subscription ID.
  
-    ![Copying the subscription Id](Images/luis-subscription-settings.png)
+    ![Copying the subscription ID](Images/luis-subscription-settings.png)
 
-    _Copying the subscription Id_
+    _Copying the subscription ID_
  
 1. Return to **app.js** in Visual Studio Code and replace *LUIS_SUBSCRIPTION_ID* on line 9 with the subscription ID that is on the clipboard.
 
@@ -531,13 +532,13 @@ The motivation for creating a bot is to have it carry on conversations with user
 
     _Waking up the bot_
 
-1. Type "find soccer news" and press **Enter**. Wait for the bot to respond. After a brief pause while the bot calls out to your LUIS model, up to five relevant news articles will appear.
+1. Type "Find soccer news" and press **Enter**. After a brief pause while the bot calls out to your LUIS model, up to five relevant news articles will appear.
  
     ![Communicating with the bot](Images/vs-start-search.png)
 
     _Communicating with the bot_
 
-1. Type "Hello" again and press **Enter**. Then type "get Microsoft news" and press **Enter** again. What does the bot return this time? 
+1. Type "Hello" again and press **Enter**. Then type "get news about Microsoft" and press **Enter** again. What does the bot return this time? 
 
 Feel free to try other commands such as "Get the latest health news" and continue to converse with the bot. It understands a relatively narrow range of commands, but for those commands that it does understand, it almost seems to know what you're saying. Of course, you could expand the bot's vocabulary by adding to the LUIS model that you built. The only limit is how much time you're willing to spend refining and enhancing the model.
 
