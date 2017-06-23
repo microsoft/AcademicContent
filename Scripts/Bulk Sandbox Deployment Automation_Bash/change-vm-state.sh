@@ -11,7 +11,7 @@
 # ------------------------------------------------------------------
 
 # Current Version
-version="1.0.0"
+version="3.0.0"
 
 #
 # Purpose: Print usage
@@ -24,18 +24,23 @@ usage() {
 	Options:
 	-id, --classid     CLASSID specify time-based GUID developed for the subscription
 	-a,  --action      ACTION specify the task describes the action
-
-	     Allowed actions:
+	  Actions related to the VMs:
 		 -start        The operation to power off (stop) a virtual machine.
 		 -stop         The operation to start a virtual machine.
 		 -restart      The operation to restart a virtual machine.
 		 -redeploy     The operation to redeploy a virtual machine.
-		 -delete       The operation to delete a resource groups
 
+	  Actions related to the RGs:
+	  	 -status       The operation provisioning State of deployment
+		 -delete       The operation deletes the resource group by ClassID tag.
+
+	--------------------------------------------------------
 	-h,  --help        Display this help and exit
 	-v,  --version     Output version information and exit
+	--------------------------------------------------------
 
-    Example: $0 -id a1bd73741dda -a start
+	Example for VMs: $0 -id aa371ce6-c555-4c21-88b6-246742b8c61d -a start
+	Example for RGs: $0 -id 25b5b6de-79f8-4131-90f1-1ab296ec3a7f -a delete
 
 	"
 }
@@ -53,10 +58,11 @@ manage() {
 		az account set --subscription "$sub"
 		resourceGroups=$(az vm list --query "[?tags.ClassID == '$classId'][resourceGroup,name]" --out tsv)
 		if [ ! -z "$resourceGroups" ]; then
-			echo start "$action"ing VMs: "$resourceGroups"
-			az vm list --query "[?tags.ClassID == '$classId'][resourceGroup,name]" --out tsv | xargs -L1 bash -c 'az vm '$action' --no-wait -g $0 -n $1'
+			echo running action: "$action"
+			az vm list --query "[?tags.ClassID == '$classId'][resourceGroup,name]" --out tsv | xargs -L1 bash -c 'az vm '$action' -g $0 -n $1 --no-wait'
 		fi
 	done
+	echo action "$action" in progress. Check Azure portal to verify the completion.
 }
 
 #
@@ -65,18 +71,26 @@ manage() {
 delete() {
 	local classId=$1
 	local subscriptions=$2
+	local state=0
 
 	for sub in $subscriptions; do
 		az account set --subscription "$sub"
 		local resourceGroups=""
 		resourceGroups=$(az group list --query "[?tags.ClassID == '$classId'].[name]" --output tsv)
 		if [ ! -z "$resourceGroups" ]; then
-			echo start deleting RGs: "$resourceGroups"
 			for rg in $resourceGroups; do
 				az group delete --no-wait --yes -n "$rg"
+				echo $rg deleting in progress...
 			done
+			state=1
 		fi
 	done
+
+	if [ $state == "1" ]; then
+		echo Check Azure portal to verify the completion.
+	else
+		echo No resource groups for deletion
+	fi
 }
 
 #
@@ -85,11 +99,26 @@ delete() {
 status() {
 	local classId=$1
 	local subscriptions=$2
+	local state=0
 
 	for sub in $subscriptions; do
 		az account set --subscription "$sub"
-		az group list --tag ClassID=$classId --query '[].{Name:name,Location:location,State:properties.provisioningState}' --out table
+		local resourceGroups=""
+		resourceGroups=$(az group list --query "[?tags.ClassID == '$classId'].[name]" --output tsv)
+		if [ ! -z "$resourceGroups" ]; then
+			echo ""
+			echo "ResourceGroup | State"
+			echo "-------------------------"
+			for rg in $resourceGroups; do
+				az group deployment list -g $rg --query '[].{ResourceGroup:resourceGroup,State:properties.provisioningState}' --out tsv
+			done
+			state=1
+		fi
 	done
+
+	if [ $state == "0" ]; then
+		echo "Resource Groups with ClassID: $classId not found"
+	fi
 }
 
 main() {
@@ -122,7 +151,7 @@ main() {
 					if test $# -gt 0; then
 						classId=$1
 					else
-						echo "no input file specified"
+						echo "no classId specified"
 						exit 1
 					fi
 					shift
@@ -153,7 +182,7 @@ main() {
 		az login
 	fi
 
-	local subscriptions=$(az account list --query [].[id] --output tsv)
+	local subscriptions=$(az account list --all --query [].[id] --output tsv)
 
 	case "$action" in
 		"delete")
