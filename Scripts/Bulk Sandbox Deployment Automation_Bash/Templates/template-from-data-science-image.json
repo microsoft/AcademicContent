@@ -1,0 +1,475 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachineName": {
+            "type": "string"
+        },
+        "virtualMachineSize": {
+            "type": "string"
+        },
+        "storageAccountName": {
+            "type": "string"
+        },
+        "storageAccountType": {
+            "type": "string"
+        },
+        "adminUsername": {
+            "type": "string"
+        },
+        "virtualNetworkName": {
+            "type": "string"
+        },
+        "networkInterfaceName": {
+            "type": "string"
+        },
+        "networkSecurityGroupName": {
+            "type": "string"
+        },
+        "adminPassword": {
+            "type": "securestring"
+        },
+        "studentPassword": {
+            "type": "securestring"
+        },
+        "addressPrefix": {
+            "type": "string"
+        },
+        "subnetName": {
+            "type": "string"
+        },
+        "subnetPrefix": {
+            "type": "string"
+        },
+        "publicIpAddressName": {
+            "type": "string"
+        },
+        "publicIpAddressType": {
+            "type": "string"
+        },
+        "dnsPrefix": {
+            "type": "string"
+        },
+        "className": {
+            "type": "string"
+        },
+        "classID": {
+            "type": "string"
+        },
+        "studentName": {
+            "type": "string"
+        },
+        "studentLogin": {
+            "type": "string"
+        },
+        "studentEmail": {
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "type": "string"
+        },
+        "downloadFileUrl": {
+            "type": "string"
+        },
+        "imageId": {
+            "type": "string"
+        },
+        "createOption": {
+            "type": "string"
+        },
+        "osType": {
+            "type": "string"
+        },
+        "diskType": {
+            "type": "string"
+        },
+        "vmType": {
+            "type": "string"
+        },
+        "dataDiskType": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "storageUri": "[concat('https://',parameters('storageAccountName'),'.blob.core.windows.net/')]",
+        "images": {
+            "ds-vm-ubuntu": {
+                "id": "[parameters('imageId')]"
+            },
+            "ds-vm-centos": {
+                "id": "[parameters('imageId')]"
+            },
+            "ds-vm-windows": {
+                "id": "[parameters('imageId')]"
+            }
+        },
+        "plans": {
+            "ds-vm-ubuntu": {
+                "name": "linuxdsvmubuntu",
+                "publisher": "microsoft-ads",
+                "product": "linux-data-science-vm-ubuntu"
+            },
+            "ds-vm-centos": {
+                "name": "linuxdsvm",
+                "publisher": "microsoft-ads",
+                "product": "linux-data-science-vm"
+            },
+            "ds-vm-windows": {
+                "name": "standard-data-science-vm",
+                "publisher": "microsoft-ads",
+                "product": "standard-data-science-vm"
+            }
+        },
+        "tagValues": {
+            "ClassName": "[parameters('className')]",
+            "ClassID": "[parameters('classID')]",
+            "StudentEmail": "[parameters('studentEmail')]",
+            "StudentLogin": "[parameters('studentLogin')]",
+            "StudentName": "[parameters('studentName')]"
+        },
+        "osDisks": {
+            "manage": {
+                "name": "[concat(parameters('virtualMachineName'),'-osdisk')]",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "[parameters('storageAccountType')]"
+                }
+            },
+            "unmanage": {
+                "name": "[concat(parameters('virtualMachineName'),'-osdisk')]",
+                "createOption": "FromImage",
+                "vhd": {
+                    "uri": "[concat(variables('storageUri'), 'vhds/', parameters('virtualMachineName'), '-osdisk' , '.vhd')]"
+                }
+            }
+        },
+        "dataDisks": {
+            "manage": [
+                {
+                    "name": "[concat(parameters('virtualMachineName'), '-disk-1')]",
+                    "createOption": "[parameters('createOption')]",
+                    "lun": 0,
+                    "diskSizeGB": 50,
+                    "managedDisk": {
+                        "storageAccountType": "[parameters('storageAccountType')]"
+                    }
+                }
+            ],
+            "unmanage": [
+                {
+                    "name": "[concat('data', parameters('virtualMachineName'), 'storage.vhd')]",
+                    "createOption": "[parameters('createOption')]",
+                    "lun": 0,
+                    "diskSizeGB": 50,
+                    "vhd": {
+                        "uri": "[concat(variables('storageUri'), 'vhds/', 'data', parameters('virtualMachineName'), 'storage.vhd')]"
+                    }
+                }
+            ],
+            "empty": []
+        },
+        "securityRules": {
+            "linux": [
+                {
+                    "name": "Jupyter",
+                    "properties": {
+                        "priority": 1010,
+                        "sourceAddressPrefix": "*",
+                        "protocol": "TCP",
+                        "destinationPortRange": "9999",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*"
+                    }
+                },
+                {
+                    "name": "JupyterHub",
+                    "properties": {
+                        "priority": 1020,
+                        "sourceAddressPrefix": "*",
+                        "protocol": "TCP",
+                        "destinationPortRange": "8000",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*"
+                    }
+                },
+                {
+                    "name": "RStudioServer",
+                    "properties": {
+                        "priority": 1030,
+                        "sourceAddressPrefix": "*",
+                        "protocol": "TCP",
+                        "destinationPortRange": "8787",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*"
+                    }
+                },
+                {
+                    "name": "default-allow-ssh",
+                    "properties": {
+                        "priority": 1040,
+                        "sourceAddressPrefix": "*",
+                        "protocol": "TCP",
+                        "destinationPortRange": "22",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*"
+                    }
+                }
+            ],
+            "windows": [
+                {
+                    "name": "winRM",
+                    "properties": {
+                        "priority": 1040,
+                        "sourceAddressPrefix": "*",
+                        "protocol": "TCP",
+                        "destinationPortRange": "5986",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*"
+                    }
+                },
+                {
+                    "name": "ssl",
+                    "properties": {
+                        "priority": 1050,
+                        "sourceAddressPrefix": "*",
+                        "protocol": "TCP",
+                        "destinationPortRange": "443",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*"
+                    }
+                },
+                {
+                    "name": "IPythonNB",
+                    "properties": {
+                        "priority": 1010,
+                        "sourceAddressPrefix": "*",
+                        "protocol": "TCP",
+                        "destinationPortRange": "9999",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*"
+                    }
+                },
+                {
+                    "name": "MSSQL",
+                    "properties": {
+                        "priority": 1020,
+                        "sourceAddressPrefix": "*",
+                        "protocol": "TCP",
+                        "destinationPortRange": "1433",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*"
+                    }
+                },
+                {
+                    "name": "default-allow-rdp",
+                    "properties": {
+                        "priority": 1030,
+                        "sourceAddressPrefix": "*",
+                        "protocol": "TCP",
+                        "destinationPortRange": "3389",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*"
+                    }
+                }
+            ]
+        },
+        "extensions": {
+            "windows": {
+                "publisher": "Microsoft.Compute",
+                "type": "CustomScriptExtension",
+                "typeHandlerVersion": "1.4",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "fileUris": [
+                        "https://<storagename>.blob.core.windows.net/scripts/extensions.ps1"
+                    ]
+                },
+                "protectedSettings": {
+                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File extensions.ps1 -userName ',parameters('studentLogin'),' -userPassword ',parameters('studentPassword'),' -url ',parameters('downloadFileUrl'))]"
+                }
+            },
+            "linux": {
+                "publisher": "Microsoft.Azure.Extensions",
+                "type": "CustomScript",
+                "typeHandlerVersion": "2.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "fileUris": [
+                        "https://<storagename>.blob.core.windows.net/scripts/extensions.sh"
+                    ],
+                    "commandToExecute": "[concat('bash extensions.sh -u ',parameters('downloadFileUrl'), ' -l ',parameters('studentLogin'),' -p ',parameters('studentPassword'))]"
+                }
+            }
+        },
+        "osProfiles": {
+            "windows": {
+                "computerName": "[parameters('virtualMachineName')]",
+                "adminUsername": "[parameters('adminUsername')]",
+                "adminPassword": "[parameters('adminPassword')]",
+                "windowsConfiguration": {
+                    "provisionVmAgent": "true"
+                }
+            },
+            "linux": {
+                "computerName": "[parameters('virtualMachineName')]",
+                "adminUsername": "[parameters('adminUsername')]",
+                "adminPassword": "[parameters('adminPassword')]"
+            }
+        },
+        "vnetId": "[resourceId(parameters('resourceGroupName'),'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
+        "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]"
+    },
+    "resources": [
+        {
+            "name": "[parameters('storageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2015-06-15",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "accountType": "[parameters('storageAccountType')]"
+            }
+        },
+        {
+            "name": "[parameters('virtualMachineName')]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2016-04-30-preview",
+            "location": "[resourceGroup().location]",
+            "tags": "[variables('tagValues')]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]",
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]"
+            ],
+            "properties": {
+                "osProfile": "[variables('osProfiles')[parameters('osType')]]",
+                "hardwareProfile": {
+                    "vmSize": "[parameters('virtualMachineSize')]"
+                },
+                "storageProfile": {
+                    "imageReference": "[variables('images')[parameters('vmType')]]",
+                    "osDisk": "[variables('osDisks')[parameters('diskType')]]",
+                    "dataDisks": "[variables('dataDisks')[parameters('dataDiskType')]]"
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaceName'))]"
+                        }
+                    ]
+                }
+            },
+            "plan": "[variables('plans')[parameters('vmType')]]",
+            "resources": [
+                {
+                    "apiVersion": "2015-06-15",
+                    "type": "extensions",
+                    "name": "extensions",
+                    "location": "[resourceGroup().location]",
+                    "dependsOn": [
+                        "[parameters('virtualMachineName')]"
+                    ],
+                    "properties": "[variables('extensions')[parameters('osType')]]"
+                }
+            ]
+        },
+        {
+            "name": "[parameters('virtualNetworkName')]",
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2016-12-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('addressPrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[parameters('subnetName')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnetPrefix')]"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[parameters('networkInterfaceName')]",
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2016-09-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]",
+                "[concat('Microsoft.Network/publicIpAddresses/', parameters('publicIpAddressName'))]",
+                "[concat('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "subnet": {
+                                "id": "[variables('subnetRef')]"
+                            },
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIpAddress": {
+                                "id": "[resourceId(parameters('resourceGroupName'),'Microsoft.Network/publicIpAddresses', parameters('publicIpAddressName'))]"
+                            }
+                        }
+                    }
+                ],
+                "networkSecurityGroup": {
+                    "id": "[resourceId(parameters('resourceGroupName'), 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
+                }
+            }
+        },
+        {
+            "name": "[parameters('publicIpAddressName')]",
+            "type": "Microsoft.Network/publicIpAddresses",
+            "apiVersion": "2016-09-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "publicIpAllocationMethod": "[parameters('publicIpAddressType')]",
+                "dnsSettings": {
+                    "domainNameLabel": "[parameters('dnsPrefix')]"
+                }
+            }
+        },
+        {
+            "name": "[parameters('networkSecurityGroupName')]",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "apiVersion": "2016-09-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "securityRules": "[variables('securityRules')[parameters('osType')]]"
+            }
+        }
+    ],
+    "outputs": {
+        "adminUsername": {
+            "type": "string",
+            "value": "[parameters('adminUsername')]"
+        },
+        "dnsPrefix": {
+            "type": "string",
+            "value": "[parameters('dnsPrefix')]"
+        }
+    }
+}
