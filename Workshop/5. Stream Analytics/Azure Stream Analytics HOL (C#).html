@@ -530,10 +530,7 @@ vertical-align:1px;
 <p><em>Opening the resource group</em></p>
 </li>
 <li>
-<p>Wait until "Deploying" changes to "Succeeded." Then click the namespace whose name you specified in Step 3.</p>
-<blockquote>
-<p>Click the browser's <strong>Refresh</strong> button occasionally to update the deployment status. Clicking the <strong>Refresh</strong> button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.</p>
-</blockquote>
+<p>Wait until "Deploying" changes to "Succeeded." (You can click the <strong>Refresh</strong> button at the top of the blade to refresh the deployment status.) Then click the namespace whose name you specified in Step 3.</p>
 <p><a href="Images/open-namespace.png" target="_blank"><img src="Images/open-namespace.png" alt="Opening the namespace" style="max-width:100%;"></a></p>
 <p><em>Opening the namespace</em></p>
 </li>
@@ -1155,7 +1152,7 @@ vertical-align:1px;
 &lt;/<span class="pl-ent">div</span>&gt;
 
 @section scripts {
-<span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;</span>
+&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;<span class="pl-s1"></span>
 <span class="pl-s1">    <span class="pl-en">$</span>(<span class="pl-k">function</span> () {</span>
 <span class="pl-s1">        <span class="pl-c"><span class="pl-c">//</span> Check for new events every 5 seconds</span></span>
 <span class="pl-s1">        <span class="pl-c1">window</span>.<span class="pl-en">setInterval</span>(<span class="pl-k">function</span> () {</span>
@@ -1175,7 +1172,7 @@ vertical-align:1px;
 <span class="pl-s1">            });</span>
 <span class="pl-s1">        }, <span class="pl-c1">5000</span>);</span>
 <span class="pl-s1">    });</span>
-<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1"></span><span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;
 }</pre></div>
 <blockquote>
 <p>See what's happening here? In addition to modifying the view's UI to include an HTML table in which ATM events can be displayed, you added a script block that uses jQuery's $.ajax method to call back to the server every 5 seconds. The endpoint for the call is the method you implemented in the Web API controller in the previous step. When that method returns one or more events, rows are added to the table to display them.</p>

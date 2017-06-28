@@ -72,9 +72,7 @@ The starting point for using Azure Data Lake is setting up an Azure Data Lake St
 
     _Opening the resource group_
 
-1. Wait until "Deploying" changes to "Succeeded," indicating that the Data Lake Store has been created. Deployment typically takes a minute or less.
-
-	> Click the browser's **Refresh** button occasionally to update the deployment status. Clicking the **Refresh** button in the resource-group blade refreshes the list of resources in the resource group, but does not reliably update the deployment status.
+1. Wait until "Deploying" changes to "Succeeded," indicating that the Data Lake Store has been created. Deployment typically takes a minute or less. You can click the **Refresh** button at the top of the blade to refresh the deployment status.
 
     ![Deployment succeeded](Images/successful-deployment-1.png)
 
@@ -101,7 +99,7 @@ Azure Data Lake formally separates the concepts of storing data and querying dat
 
     _Creating a Data Lake Analytics account_
 
-1. Return to the resource group that holds the Data Lake Store and the Data Lake Analytics account and wait for "Deploying" to change to "Succeeded." Once more, it helps to refresh the page every now and then to make sure the information displayed there is up to date.
+1. Return to the resource group that holds the Data Lake Store and the Data Lake Analytics account and wait for "Deploying" to change to "Succeeded." Once more, you can click the **Refresh** button at the top of the blade to refresh the deployment status.
 
     ![Deployment succeeded](Images/successful-deployment-2.png)
 
