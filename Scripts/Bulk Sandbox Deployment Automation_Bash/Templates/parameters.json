@@ -2,14 +2,17 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "location": {
-            "value": "locationValue"
-        },
         "virtualMachineName": {
             "value": "virtualMachineNameValue"
         },
         "virtualMachineSize": {
-            "value": "Standard_DS2_v2"
+            "value": "virtualMachineSizeValue"
+        },
+        "storageAccountName": {
+            "value": "storageAccountNameValue"
+        },
+        "storageAccountType": {
+            "value": "storageAccountTypeValue"
         },
         "adminUsername": {
             "value": "adminUsernameValue"
@@ -26,7 +29,7 @@
         "adminPassword": {
             "value": "adminPasswordValue"
         },
-		"studentPassword": {
+        "studentPassword": {
             "value": "studentPasswordValue"
         },
         "addressPrefix": {
@@ -44,26 +47,47 @@
         "publicIpAddressType": {
             "value": "Dynamic"
         },
-		"dnsPrefix": {
+        "dnsPrefix": {
             "value": "dnsprefixvalue"
         },
-		"className": {
+        "className": {
             "value": "classNameValue"
         },
-		"studentName": {
+        "studentName": {
             "value": "studentNameValue"
         },
-		"classID": {
+        "classID": {
             "value": "classIDValue"
         },
-		"studentEmail": {
+        "studentEmail": {
             "value": "studentEmailValue"
         },
-		"studentLogin": {
+        "studentLogin": {
             "value": "studentLoginValue"
         },
-		"resourceGroupName": {
-			"value": "resourcegroupnamevalue"
-		}		
+        "resourceGroupName": {
+            "value": "resourcegroupnamevalue"
+        },
+        "downloadFileUrl": {
+            "value": "downloadFileUrlValue"
+        },
+        "vmType": {
+            "value": "vmTypeValue"
+        },
+        "diskType": {
+            "value": "diskTypeValue"
+        },
+        "imageId": {
+            "value": "imageIdValue"
+        },
+        "createOption": {
+            "value": "createOptionValue"
+        },
+        "osType": {
+            "value": "osTypeValue"
+        },
+        "dataDiskType": {
+            "value": "dataDiskTypeValue"
+        }
     }
 }
