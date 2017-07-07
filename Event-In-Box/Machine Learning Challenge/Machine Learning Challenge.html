@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Machine Learning Challenge</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<p><a href="Images/ml-challenge.png" target="_blank"><img src="Images/ml-challenge.png" alt="" style="max-width:100%;"></a></p>
+<p><a name="Overview"></a></p>
+<h2>Overview</h2>
+<p>Machine learning, which facilitates predictive analytics using large volumes of data by employing algorithms that iteratively learn from that data, is one of the fastest growing areas of computer science. Its uses range from credit-card fraud detection and self-driving cars to optical character recognition (OCR) and online shopping recommendations. It makes us smarter by making computers smarter. And its usefulness will only increase as more and more data becomes available and the desire to perform predictive analytics from that data grows, too.</p>
+<p><a href="https://azure.microsoft.com/en-us/services/machine-learning/">Azure Machine Learning</a> is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It's accompanied by the Azure Machine Learning Studio (ML Studio), which is a browser-based tool that provides an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for <a href="https://www.r-project.org/">R</a> and <a href="https://www.python.org/">Python</a> means you can build custom scripts  to customize your model. Once you've built and trained your model in the ML Studio, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the <a href="https://gallery.cortanaintelligence.com/">Cortana Intelligence Gallery</a>.</p>
+<p>In the Machine Learning Challenge, you will use Azure Machine Learning to build a simple (and not terribly accurate) machine-learning model utilizing on-time arrival data for a major U.S. airline. Then, on your own, you will use "hints" we provide to tune the model and increase its accuracy. The goal is to create a model that might be useful in the real world for predicting, at booking time, whether a given flight is likely to arrive on time. It is precisely the kind of problem that machine learning is commonly used to solve. And it's a great way to increase your machine-learning chops while getting acquainted with Azure Machine Learning.</p>
+<p><a name="Prerequisites"></a></p>
+<h3>Prerequisites</h3>
+<p>The following are required to complete the challenge:</p>
+<ul>
+<li>A Microsoft account</li>
+<li>A modern browser such as Microsoft Edge or Google Chrome</li>
+</ul>
+<hr>
+<p><a name="Exercises"></a></p>
+<h2>Exercises</h2>
+<p>This challenge includes the following exercises:</p>
+<ul>
+<li><a href="#Exercise1">Exercise 1: Create an experiment and load a dataset</a></li>
+<li><a href="#Exercise3">Exercise 2: Train a classification model</a></li>
+<li><a href="#Exercise3">Exercise 3: Tune the model</a></li>
+<li><a href="#Exercise4">Exercise 4: Operationalize the model (optional)</a></li>
+</ul>
+<p><a name="Exercise1"></a></p>
+<h2>Exercise 1: Create an experiment and load a dataset</h2>
+<p>The first step in employing Azure Machine Learning is to create a new learning experiment. In this exercise, you'll get a Machine Learning experiment up and running in Azure ML Studio. You will also upload a dataset containing on-time arrival information for one of the United States' largest airlines. This data is a subset of a much larger <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time">dataset</a> that is publicly available from the Bureau of Transportation Statistics.</p>
+<ol>
+<li>
+<p>In your Web browser, navigate to <a href="http://studio.azureml.net">http://studio.azureml.net</a> and click the <strong>Sign Up</strong> button.</p>
+<p><a href="Images/sign-up.png" target="_blank"><img src="Images/sign-up.png" alt="Signing in to ML Studio" style="max-width:100%;"></a></p>
+<p><em>Signing in to ML Studio</em></p>
+</li>
+<li>
+<p>Click <strong>Sign In</strong> under Free Workspace. Then sign in using your Microsoft account.</p>
+<p><a href="Images/choose-workspace.png" target="_blank"><img src="Images/choose-workspace.png" alt="Choosing a workspace" style="max-width:100%;"></a></p>
+<p><em>Choosing a workspace</em></p>
+</li>
+<li>
+<p>Click <strong>+ NEW</strong> in the lower-left corner of the page, and then click <strong>Blank Experiment</strong> to start a new experiment.</p>
+<p><a href="Images/new-experiment.png" target="_blank"><img src="Images/new-experiment.png" alt="Creating a new experiment" style="max-width:100%;"></a></p>
+<p><em>Creating a new experiment</em></p>
+</li>
+<li>
+<p>Click the experiment title at the top of the page ("Experiment created on...") and type "ML Challenge" as the new experiment name.</p>
+<p><a href="Images/rename-experiment.png" target="_blank"><img src="Images/rename-experiment.png" alt="Naming the experiment" style="max-width:100%;"></a></p>
+<p><em>Naming the experiment</em></p>
+</li>
+<li>
+<p>Now that the experiment has been created, the next step is to import the data that you will use to train a model. Click <strong>+ NEW</strong> in the lower-left corner of ML Studio. Then click <strong>DATASET</strong>, followed by <strong>FROM LOCAL FILE</strong>.</p>
+<p><a href="Images/new-dataset.png" target="_blank"><img src="Images/new-dataset.png" alt="Creating a new dataset" style="max-width:100%;"></a></p>
+<p><em>Creating a new dataset</em></p>
+</li>
+<li>
+<p>Click the <strong>Browse</strong> button. Navigate to this lab's "Resources" subdirectory and select the file named <strong>FlightData.csv</strong>. Make sure <strong>Generic CSV File with a header (.csv)</strong> is selected as the dataset type. Optionally enter a friendly name for the dataset, and then click the check mark in the lower-right corner to begin uploading the dataset.</p>
+<blockquote>
+<p>The "Resources" folder also contains a larger dataset named <strong>BigFlightData.csv</strong> that will come in handy in <a href="#Exercise3">Exercise 3</a>. For now, use the smaller dataset to keep training time to a minimum.</p>
+</blockquote>
+<p><a href="Images/upload-dataset.png" target="_blank"><img src="Images/upload-dataset.png" alt="Uploading the dataset" style="max-width:100%;"></a></p>
+<p><em>Uploading the dataset</em></p>
+</li>
+<li>
+<p>Wait for the upload to finish. Then go to the modules palette on the left and find the dataset you just uploaded under <strong>Saved Datasets</strong>. Drag the dataset from the modules palette and drop it onto the canvas (the gray area to the right).</p>
+<p><a href="Images/add-dataset.png" target="_blank"><img src="Images/add-dataset.png" alt="Adding the dataset to the model" style="max-width:100%;"></a></p>
+<p><em>Adding the dataset to the model</em></p>
+</li>
+<li>
+<p>To see what this dataset looks like, click the output port (the circle with the "1" in it) at the bottom of the dataset and select <strong>Visualize</strong>.</p>
+<p><a href="Images/visualize-dataset-1.png" target="_blank"><img src="Images/visualize-dataset-1.png" alt="Visualizing the dataset" style="max-width:100%;"></a></p>
+<p><em>Visualizing the dataset</em></p>
+</li>
+<li>
+<p>Take a moment to examine the dataset. It contains 18,463 rows and 26 columns. Each row represents one flight and contains important information about that flight, including the date that the flight took place (YEAR, MONTH, and DAY_OF_MONTH), the origin and destination (ORIGIN and DEST), the scheduled departure and arrival times (CRS_DEP_TIME and CRS_ARR_TIME), the difference between the scheduled arrival time and the actual arrival time in minutes (ARR_DELAY), and whether the flight was late by 15 minutes or more (ARR_DEL15). The dataset includes a roughly even distribution of dates, which is important because a flight out of Minneapolis is less likely to be delayed due to winter storms in July than it is in January.</p>
+<p><a href="Images/visualize-dataset-2.png" target="_blank"><img src="Images/visualize-dataset-2.png" alt="Browsing the dataset" style="max-width:100%;"></a></p>
+<p><em>Browsing the dataset</em></p>
+<p>Here is a complete list of the columns in the dataset. Times such as departure times and arrival times are expressed in military time, where, for example, 1130 equals 11:30 a.m. and 1500 equals 3:00 p.m.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YEAR</td>
+<td>Year that the flight took place</td>
+</tr>
+<tr>
+<td>QUARTER</td>
+<td>Quarter that the flight took place (1-4)</td>
+</tr>
+<tr>
+<td>MONTH</td>
+<td>Month that the flight took place (1-12)</td>
+</tr>
+<tr>
+<td>DAY_OF_MONTH</td>
+<td>Day of the month that the flight took place (1-31)</td>
+</tr>
+<tr>
+<td>DAY_OF_WEEK</td>
+<td>Day of the week that the flight took place (1=Monday, 2=Tuesday, etc.)</td>
+</tr>
+<tr>
+<td>UNIQUE_CARRIER</td>
+<td>Airline carrier code (e.g., DL)</td>
+</tr>
+<tr>
+<td>TAIL_NUM</td>
+<td>Aircraft tail number</td>
+</tr>
+<tr>
+<td>FL_NUM</td>
+<td>Flight number</td>
+</tr>
+<tr>
+<td>ORIGIN_AIRPORT_ID</td>
+<td>ID of the airport of origin</td>
+</tr>
+<tr>
+<td>ORIGIN</td>
+<td>Origin airport code (ATL, DFW, SEA, etc.)</td>
+</tr>
+<tr>
+<td>DEST_AIRPORT_ID</td>
+<td>ID of the destination airport</td>
+</tr>
+<tr>
+<td>DEST</td>
+<td>Destination airport code (ATL, DFW, SEA, etc.)</td>
+</tr>
+<tr>
+<td>CRS_DEP_TIME</td>
+<td>Scheduled departure time</td>
+</tr>
+<tr>
+<td>DEP_TIME</td>
+<td>Actual departure time</td>
+</tr>
+<tr>
+<td>DEP_DELAY</td>
+<td>Number of minutes departure was delayed</td>
+</tr>
+<tr>
+<td>DEP_DEL15</td>
+<td>0=Departure delayed less than 15 minutes, 1=Departure delayed 15 minutes or more</td>
+</tr>
+<tr>
+<td>CRS_ARR_TIME</td>
+<td>Scheduled arrival time</td>
+</tr>
+<tr>
+<td>ARR_TIME</td>
+<td>Actual arrival time</td>
+</tr>
+<tr>
+<td>ARR_DELAY</td>
+<td>Number of minutes flight arrived late</td>
+</tr>
+<tr>
+<td>ARR_DEL15</td>
+<td>0=Arrived less than 15 minutes late, 1=Arrived 15 minutes or more late</td>
+</tr>
+<tr>
+<td>CANCELLED</td>
+<td>0=Flight was not cancelled, 1=Flight was cancelled</td>
+</tr>
+<tr>
+<td>DIVERTED</td>
+<td>0=Flight was not diverted, 1=Flight was diverted</td>
+</tr>
+<tr>
+<td>CRS_ELAPSED_TIME</td>
+<td>Scheduled flight time in minutes</td>
+</tr>
+<tr>
+<td>ACTUAL_ELAPSED_TIME</td>
+<td>Actual flight time in minutes</td>
+</tr>
+<tr>
+<td>DISTANCE</td>
+<td>Distance traveled in miles</td>
+</tr></tbody></table>
+<p>Not all of the columns are relevant to a predictive model. For example, the flight number probably has no bearing whatsoever on whether a flight will arrive on time, and at the time you book a ticket, you have no way of knowing whether a flight will be cancelled or diverted or its departure delayed. That's OK, because when you build a model in the next exercise, you will filter out such columns.</p>
+</li>
+<li>
+<p>Click any column in the dataset to see a detail of that column on the right.</p>
+<p><a href="Images/visualize-dataset-3.png" target="_blank"><img src="Images/visualize-dataset-3.png" alt="Viewing a column detail" style="max-width:100%;"></a></p>
+<p><em>Viewing a column detail</em></p>
+</li>
+<li>
+<p>Close the visualization window by clicking the "<strong>x</strong>" in the upper-right corner.</p>
+</li>
+</ol>
+<p>The data is loaded. Now it's time to do something with it.</p>
+<p><a name="Exercise2"></a></p>
+<h2>Exercise 2: Train a classification model</h2>
+<p>In this exercise, you will use ML Studio's drag-and-drop user interface to train an ML model. <em>Training</em> involves picking a machine-learning algorithm and feeding data into the model. During training, the computer looks for patterns in the data that it can use to predict values from future inputs.</p>
+<p>There are several types of machine-learning models. One of the most common is the regression model, which uses one of a number of regression algorithms to produce a numeric value — for example, a person's age or the probability that a credit-card transaction is fraudulent. You will be training a classification model, which seeks to resolve a set of inputs into one of a set of known outputs. A classic example of a classification model is one that examines e-mails and classifies them as "spam" or "not spam." Your model will use the dataset you uploaded in the previous exercise and predict whether a flight will arrive on-time or late.</p>
+<ol>
+<li>
+<p>At the top of the modules palette, type "select columns" (without quotation marks) into the search box to find the <a href="https://msdn.microsoft.com/library/azure/dn905883.aspx">Select Columns in Dataset</a> module. Drag the module to the experiment canvas and drop it underneath the dataset. Then connect the output port of the dataset to the input port of the Select Columns in Dataset module by dragging an arrow downward from the output port.</p>
+<p><a href="Images/add-select-columns.png" target="_blank"><img src="Images/add-select-columns.png" alt="Adding a Select Columns in Dataset module" style="max-width:100%;"></a></p>
+<p><em>Adding a Select Columns in Dataset module</em></p>
+<blockquote>
+<p>A key concept to understand in Azure ML Studio is that of ports and connectors. In this step, you connected the output port of the dataset to the input port of the Select Columns in Dataset module. The data flows from one module to the next through the connector. Some modules support multiple inputs and outputs and therefore have multiple input and output ports. If you want to know what a port does, hover over it with the mouse and a tooltip will pop up. If you want more information, right-click on the module and select <strong>Help</strong> from the popup menu.</p>
+</blockquote>
+</li>
+<li>
+<p>Click the Select Columns in Dataset module to select it. (When selected, it has a bold blue border.) Then click the <strong>Launch column selector</strong> button in the Properties pane on the right.</p>
+<p><a href="Images/launch-column-selector.png" target="_blank"><img src="Images/launch-column-selector.png" alt="Launching the column selector" style="max-width:100%;"></a></p>
+<p><em>Launching the column selector</em></p>
+</li>
+<li>
+<p>Select the following columns in the "Available Columns" box:</p>
+<ul>
+<li>MONTH</li>
+<li>DAY_OF_MONTH</li>
+<li>DAY_OF_WEEK</li>
+<li>ORIGIN</li>
+<li>DEST</li>
+<li>CRS_DEP_TIME</li>
+<li>ARR_DEL15</li>
+</ul>
+<p>Then click the right-arrow to move them to the "Selected Columns" box. These are the columns, or "features," upon which you will base your predictive model. When you're finished, click the check mark in the lower-right corner of the dialog.</p>
+<p><a href="Images/select-columns.png" target="_blank"><img src="Images/select-columns.png" alt="Selecting feature columns" style="max-width:100%;"></a></p>
+<p><em>Selecting feature columns</em></p>
+</li>
+<li>
+<p>Type "edit" into the search box at the top of the modules palette. Then add an <a href="https://msdn.microsoft.com/library/azure/dn905986.aspx">Edit Metadata</a> module to the canvas and connect it to the Select Columns in Dataset module.</p>
+<p><a href="Images/add-edit-metadata.png" target="_blank"><img src="Images/add-edit-metadata.png" alt="Adding an Edit Metadata module" style="max-width:100%;"></a></p>
+<p><em>Adding an Edit Metadata module</em></p>
+</li>
+<li>
+<p>Click the empty box to the right of <strong>column names</strong> and select <strong>ARR_DEL15</strong> from the drop-down list. Then click the check mark in the lower-right corner.</p>
+<p><a href="Images/select-arr-del15.png" target="_blank"><img src="Images/select-arr-del15.png" alt="Selecting the ARR_DEL15 column" style="max-width:100%;"></a></p>
+<p><em>Selecting the ARR_DEL15 column</em></p>
+</li>
+<li>
+<p>Go to the Properties pane and set <strong>Categorical</strong> to <strong>Make categorical</strong> and <strong>Fields</strong> to <strong>Label</strong>. This tells Azure Machine Learning that ARR_DEL15 is a categorical field rather than a numeric field, and that it is ultimately the value that the model will attempt to predict.</p>
+<p><a href="Images/make-categorical.png" target="_blank"><img src="Images/make-categorical.png" alt="Designating ARR_DEL15 as a categorical field" style="max-width:100%;"></a></p>
+<p><em>Designating ARR_DEL15 as a categorical field</em></p>
+</li>
+<li>
+<p>Add a <a href="https://msdn.microsoft.com/library/azure/dn905969.aspx">Split Data</a> module to the model and connect the output from Edit Metadata to the input of Split Data. The purpose of Split Data is to split a single dataset into one that can be used for training, and another that can be used for scoring. It's very useful when you have just one dataset to work with. With Split Data selected on the canvas, change <strong>Fraction of rows in the first output dataset</strong> to 0.8. This will perform an 80-20 split on the data, with 80% exiting the left output port of the module, and 20% exiting the right output port.</p>
+<p><a href="Images/split-data.png" target="_blank"><img src="Images/split-data.png" alt="Adding a Split Data module" style="max-width:100%;"></a></p>
+<p><em>Adding a Split Data module</em></p>
+</li>
+<li>
+<p>Add a <a href="https://msdn.microsoft.com/en-us/library/azure/dn906044.aspx">Train Model</a> module to the model and connect the output from Split Data to the right input of Train Model. Then add a <a href="https://msdn.microsoft.com/library/azure/dn905994.aspx">Two-Class Logistic Regression</a> module and connect its output to Train Model's left input.</p>
+<blockquote>
+<p><a href="http://machinelearningmastery.com/logistic-regression-for-machine-learning/">Logistic regression</a> is a well-known method in statistics that is used to predict the probability of an outcome, and is especially popular for classification tasks. By connecting Two-Class Logistic Regression to Train Model, you are specifying the learning algorithm that the model will use. This does not prevent you from experimenting with other algorithms later on.</p>
+</blockquote>
+<p><a href="Images/add-train-model.png" target="_blank"><img src="Images/add-train-model.png" alt="Specifying a learning algorithm" style="max-width:100%;"></a></p>
+<p><em>Specifying a learning algorithm</em></p>
+</li>
+<li>
+<p>Make sure Train Model is selected, and then click <strong>Launch column selector</strong> in the Properties pane. In the ensuing dialog, select the ARR_DEL15 column, and then click the check mark to dismiss the dialog. <em>This is important, because it identifies for the Train Model module the value that the model will predict</em>.</p>
+<p><a href="Images/specify-output-feature.png" target="_blank"><img src="Images/specify-output-feature.png" alt="Specifying the target feature" style="max-width:100%;"></a></p>
+<p><em>Specifying the target feature</em></p>
+</li>
+<li>
+<p>Complete the model by adding a <a href="https://msdn.microsoft.com/library/azure/dn905995.aspx">Score Model</a> module and an <a href="https://msdn.microsoft.com/library/azure/dn905915.aspx">Evaluate Model</a> module and connecting them as shown below.</p>
+<p><a href="Images/add-score-model.png" target="_blank"><img src="Images/add-score-model.png" alt="Completing the model" style="max-width:100%;"></a></p>
+<p><em>Completing the model</em></p>
+</li>
+<li>
+<p>Click <strong>Save</strong> in the ribbon at the bottom of the page to save the model. Then click <strong>Run</strong> to run the model and train it with the dataset you uploaded.</p>
+<p><a href="Images/save-and-run.png" target="_blank"><img src="Images/save-and-run.png" alt="Saving and running the model" style="max-width:100%;"></a></p>
+<p><em>Saving and running the model</em></p>
+</li>
+<li>
+<p>Wait for the model to finish running. (It should take a minute or less.) Then click the output port at the bottom of the Evaluate Model module and select <strong>Visualize</strong> to gauge the results. Scroll down until you see the panel below, which lists key metrics such as accuracy, precision, and AUC (Area Under Curve).</p>
+<p><a href="Images/results-1.png" target="_blank"><img src="Images/results-1.png" alt="Key metrics regarding the model" style="max-width:100%;"></a></p>
+<p><em>Key metrics regarding the model</em></p>
+<p>There are several ways to measure the "accuracy" of a binary classification model. Currently, your model has an accuracy of 87% and a precision of 1.000, which seem good taken at face value. However, it is not a very robust model. The <a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a>, which is a weighted average of precision and recall and a reasonable indicator of overall performance, is 0. And AUC is 0.621, which basically means that the model only makes an accurate prediction 62% of the time. In other words, you could get almost the same results by flipping a coin. For more information on the meaning of accuracy, precision, F1 score, AUC, and other metrics, see <a href="https://blogs.msdn.microsoft.com/andreasderuiter/2015/02/09/performance-measures-in-azure-ml-accuracy-precision-recall-and-f1-score/">https://blogs.msdn.microsoft.com/andreasderuiter/2015/02/09/performance-measures-in-azure-ml-accuracy-precision-recall-and-f1-score/</a>.</p>
+<p>For our purposes, we will use AUC to judge the quality of our model. At the top of the visualization window is a graphical depiction of AUC:</p>
+<p><a href="Images/results-2.png" target="_blank"><img src="Images/results-2.png" alt="" style="max-width:100%;"></a></p>
+<p>The diagonal line in the middle represents a 50-50 chance of obtaining a correct answer. The blue curve generated from your model isn't much better than that. What you <em>want</em> is something more like this, which represents an AUC of 0.92:</p>
+<p><a href="Images/results-4.png" target="_blank"><img src="Images/results-4.png" alt="" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>Close the visualization window by clicking the "<strong>x</strong>" in the upper-right corner.</p>
+</li>
+</ol>
+<p>In the following exercise, you will tune the model to make it more "accurate" using a variety of techniques that are common in data science.	We won't tell you exactly how to apply these techniques, but we will tell you what some of these techniques are and provide helpful hints regarding their use and implementation.</p>
+<p><a name="Exercise3"></a></p>
+<h2>Exercise 3: Tune the model</h2>
+<p>Now comes the fun part, where you put on your data-scientist hat and tune the model for higher accuracy. The goal is to increase AUC to 0.90 or more, as pictured above. It can be done — but it requires some expertise.</p>
+<p>To help, we have provided six hints suggesting techniques that a trained data scientist might use to produce a more robust model. These aren't the only ways to get AUC to 90%, but they're a good place to start.</p>
+<h3>Hint #1: Try different algorithms</h3>
+<p>ML Studio includes nine binary (two-class) classification algorithms that you can employ in a model. Even seasoned data scientists often don't know which algorithm will produce the best results until they try them out. That's one of the strengths of Azure Machine Learning: trying different algorithms is as simple as swapping one module for another.</p>
+<p>The model you built in <a href="#Exercise2">Exercise 2</a> uses <a href="https://msdn.microsoft.com/library/azure/dn905994.aspx">Two-Class Logistic Regression</a>, which is a popular algorithm that uses regression to compute the probability of each of two possible results. Experiment with different algorithms to see which produces the best result.</p>
+<h3>Hint #2: Tune the learning algorithm</h3>
+<p>Each algorithm in Azure Machine Learning exposes parameters that you can use to tune its performance. When an algorithmic module such as <a href="https://msdn.microsoft.com/library/azure/dn905994.aspx">Two-Class Logistic Regression</a> is selected on the canvas, its parameters appear in the Properties pane on the right.</p>
+<p><a href="Images/logistic-regression-parameters.png" target="_blank"><img src="Images/logistic-regression-parameters.png" alt="Parameters for Two-Class Logistic Regression" style="max-width:100%;"></a></p>
+<p><em>Parameters for Two-Class Logistic Regression</em></p>
+<p>Experimenting with different parameters frequently improves the accuracy of a model, but can also require a lot of time. That's why Azure Machine Learning offers a module named <a href="https://msdn.microsoft.com/library/azure/dn905810.aspx">Tune Model Hyperparameters</a>. Replacing <a href="https://msdn.microsoft.com/library/azure/dn906044.aspx">Train Model</a> with Tune Model Hyperparameters allows the latter to find the optimum combination of parameter values for you at the expense of increased training time.</p>
+<p><a href="Images/tune-model-hyperparameters.png" target="_blank"><img src="Images/tune-model-hyperparameters.png" alt="Using Tune Model Hyperparameters" style="max-width:100%;"></a></p>
+<p><em>Using Tune Model Hyperparameters</em></p>
+<p>Tune Model Hyperparameters isn't the only way to tune the learning algorithm. For additional ideas, see <a href="https://docs.microsoft.com/azure/machine-learning/machine-learning-algorithm-parameters-optimize">https://docs.microsoft.com/azure/machine-learning/machine-learning-algorithm-parameters-optimize</a>.</p>
+<h3>Hint #3: Mitigate the effect of cancelled flights</h3>
+<p>The dataset that you are using contains 80 rows representing cancelled flights. These flights are represented by 1s in the CANCELLED column, which you filtered out with the <a href="https://msdn.microsoft.com/library/azure/dn905883.aspx">Select Columns in Dataset</a> module in <a href="#Exercise2">Exercise 2</a>. Rows representing cancelled flights have no ARR_DEL15 values, which skews the dataset and therefore the results. Visualize the column and you'll note that it has 111 missing values and three unique values, when it should have just two (0 and 1). These are red flags to a data scientist.</p>
+<p><a href="Images/arr-del15.png" target="_blank"><img src="Images/arr-del15.png" alt="The ARR_DEL15 column" style="max-width:100%;"></a></p>
+<p><em>The ARR_DEL15 column</em></p>
+<p>There are multiple ways in which you can attack this. One is to write an R or Python script that removes rows with missing data (or simply rows where CANCELLED=1) and inject it into the model using an <a href="https://msdn.microsoft.com/library/azure/dn905952.aspx">Execute R Script</a> or <a href="https://msdn.microsoft.com/library/azure/dn913065.aspx">Execute Python Script</a> module. Alternatively, since each row representing a cancelled flight has at least one missing feature (a column with no data), you could use the <a href="https://msdn.microsoft.com/library/azure/dn906028.aspx">Clean Missing Data</a> module, which makes it very easy to remove rows with missing values.</p>
+<h3>Hint #4: Reduce imbalance in the dataset</h3>
+<p>In a perfect world, the data used to train a two-class classification model would contain a 50-50 split of positives and negatives. In the real world, it rarely does. Imbalanced datasets adversely affect a model's accuracy. And right now, the data in the ARR_DEL15 column of the dataset you are using — the feature whose value you are attempting to predict — exhibits significant imbalance. The ratio of on-time arrivals to late arrivals is more than 6 to 1.</p>
+<p><a href="Images/arr-del15.png" target="_blank"><img src="Images/arr-del15.png" alt="The ARR_DEL15 column" style="max-width:100%;"></a></p>
+<p><em>The ARR_DEL15 column</em></p>
+<p>Data scientists use two techniques to reduce imbalance. <em>Upsampling</em> increases the number of samples from the minority class — in this case, by adding more rows representing late arrivals. <em>Downsampling</em> does the opposite, reducing the number of samples from the majority class.</p>
+<p>There are three ways you can reduce imbalance in the datset you were given:</p>
+<ul>
+<li>Reduce the number of rows representing on-time arrivals</li>
+<li>Increase the number of rows representing late arrivals by importing rows from the larger dataset named <strong>BigFlightData.csv</strong> found in this lab's "Resources" folder (be careful not to duplicate rows that are already there, however, or use a <a href="https://msdn.microsoft.com/library/azure/dn905805.aspx">Remove Duplicate Rows</a> module to delete them)</li>
+<li>Increase the number of rows representing late arrivals using the <a href="https://www.jair.org/media/953/live-953-2037-jair.pdf">Synthetic Minority Oversampling Technique</a> (SMOTE)</li>
+</ul>
+<p>Azure Machine Learning's <a href="https://msdn.microsoft.com/library/azure/dn913076.aspx">SMOTE</a> module makes it easy to do the latter, synthetically increasing the number of minority samples using a nearest-neighbor approach. A model that uses SMOTE to reduce imbalance takes longer to train, but often produces better results than one that doesn't.</p>
+<h3>Hint #5: "Bin" scheduled departure times</h3>
+<p>The CRS_DEP_TIME column of the dataset you are using represents scheduled departure times. The granularity of the numbers in this column — it contains 1,070 unique values — could have a negative impact on accuracy. This can be resolved using a technique called <a href="http://data-informed.com/enhance-machine-learning-with-standardizing-binning-reducing/">binning</a> or quantization. What if you divided each number in this column by 100 and rounded down to the nearest integer? 1030 would become 10, 1925 would become 19, and so on, and you would be left with a maximum of 24 discrete values in this column. Intuitively, it makes sense, because it probably doesn't matter much whether a flight leaves at 10:30 a.m. or 10:40 a.m. It matters a great deal whether it leaves at 10:30 a.m. or 5:30 p.m.</p>
+<p><a href="Images/binning.png" target="_blank"><img src="Images/binning.png" alt="The CRS_DEP_TIME column" style="max-width:100%;"></a></p>
+<p><em>The CRS_DEP_TIME column</em></p>
+<p>There are several ways to accomplish binning in Azure Machine Learning. One of them is the <a href="https://msdn.microsoft.com/library/azure/dn913065.aspx">Group Data Into Bins</a> module. More often, data scientists prefer to write a few lines of R or Python code, which are easily incorporated into a model using <a href="https://msdn.microsoft.com/library/azure/dn905952.aspx">Execute R Script</a> or <a href="https://msdn.microsoft.com/library/azure/dn913065.aspx">Execute Python Script</a>. Here's a simple Python script that bins CRS_DEP_TIME values as described above:</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-c"><span class="pl-c">#</span> Assume df is the dataframe containing the data</span>
+<span class="pl-k">for</span> index, row <span class="pl-k">in</span> df.iterrows():
+    df.loc[index, <span class="pl-s"><span class="pl-pds">'</span>CRS_DEP_TIME<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> math.floor(row[<span class="pl-s"><span class="pl-pds">'</span>CRS_DEP_TIME<span class="pl-pds">'</span></span>] <span class="pl-k">/</span> <span class="pl-c1">100</span>)</pre></div>
+<p>If you bin departure times this way, you might experiment with different bin sizes as well.</p>
+<h3>Hint #6: Train with a larger dataset</h3>
+<p>The "Resources" folder accompanying this lab contains a larger version of the dataset you used in a file named <strong>BigFlightData.csv</strong>. It contains more than 92,000 rows. Training a model with a larger dataset often improves accuracy. Training will take longer, which is a good reason to tune the model to the extent possible with a smaller dataset, and <em>then</em> to introduce a larger dataset.</p>
+<p><a name="Exercise4"></a></p>
+<h2>Exercise 4: Operationalize the model (optional)</h2>
+<p>One of the strengths of Azure Machine Learning is that you can easily operationalize a model by deploying it as a Web service. Once a model is deployed in this manner, you can write client apps that leverage its intelligence by placing calls to the Web service's REST endpoint. Client apps can be written in Java, C#, JavaScript or just about any language you choose because REST calls travel over HTTP, and virtually all programming languages support HTTP.</p>
+<p>The "Client" folder that accompanies the challenge contains a desktop app written with <a href="https://nodejs.org/">Node.js</a> and <a href="https://electron.atom.io/">Electron</a> that runs on Windows, macOS, and Linux. If you would like to use the app to test the model that you built, simply follow the steps below.</p>
+<ol>
+<li>
+<p>In Azure ML Studio, click <strong>SET UP WEB SERVICE</strong> and select <strong>Predictive Web Service</strong>.</p>
+<p><a href="Images/set-up-web-service.png" target="_blank"><img src="Images/set-up-web-service.png" alt="Setting up a predictive Web service" style="max-width:100%;"></a></p>
+<p><em>Setting up a predictive Web service</em></p>
+</li>
+<li>
+<p>If you used the SMOTE module in your model, <strong>manually remove it from the predictive experiment</strong> or else calls to the Web service will fail. You can delete a module from the predictive experiment the same way you delete it from the training experiment: by right-clicking the module and selecting <strong>Delete</strong>. If you do this, be sure to wire the model back up by connecting the output from the module that formerly provided input to SMOTE to the input of the module that received output from SMOTE.</p>
+</li>
+<li>
+<p>Click <strong>RUN</strong> to run the experiment. When it has finished running, click <strong>DEPLOY WEB SERVICE</strong>.</p>
+<p><a href="Images/deploy-web-service.png" target="_blank"><img src="Images/deploy-web-service.png" alt="Deploying the Web service" style="max-width:100%;"></a></p>
+<p><em>Deploying the Web service</em></p>
+</li>
+<li>
+<p>Copy the API key into your favorite text editor so you can easily retrieve it in a moment. The API key is transmitted in an HTTP header in each call to the Web service and is used to reject unauthorized calls.</p>
+<p><a href="Images/copy-api-key.png" target="_blank"><img src="Images/copy-api-key.png" alt="Copying the API key" style="max-width:100%;"></a></p>
+<p><em>Copying the API key</em></p>
+</li>
+<li>
+<p>Click <strong>REQUEST/RESPONSE</strong> just below the API key. Then copy the Web-service URL into your favorite text editor so you can easily retrieve it.</p>
+<p><a href="Images/copy-url.png" target="_blank"><img src="Images/copy-url.png" alt="Copying the Web-service URL" style="max-width:100%;"></a></p>
+<p><em>Copying the Web-service URL</em></p>
+</li>
+<li>
+<p>Find the "Client" subdirectory that accompanies this lab and open the file named <strong>predict.js</strong> in your favorite text or code editor. Replace "api_key" on line 2 with the API key that you saved in Step 4. Replace "web_service_url" on line 3 with the Web-service URL that you saved in Step 5. Then save your changes to <strong>predict.js</strong>.</p>
+</li>
+<li>
+<p>Open a Command Prompt window (Windows) or a Terminal window (macOS and Linux) and type the following command to determine whether Node.js is installed on your system:</p>
+<pre><code>node -v
+</code></pre>
+<p>If Node is not installed (if you don't see a Node version number), then go to <a href="https://nodejs.org/">https://nodejs.org/</a> and install the version of Node that matches your operating system.</p>
+</li>
+<li>
+<p>In the Command Prompt or Terminal window, use a <code>cd</code> command to navigate to the "Client" directory accompanying this challenge. Then execute the following command:</p>
+<pre><code>npm install
+</code></pre>
+</li>
+<li>
+<p>Wait the command to finish. Then type the following command to start the application:</p>
+<pre><code>npm start
+</code></pre>
+</li>
+<li>
+<p>Confirm that the app starts and displays a window like this one:</p>
+<p><a href="Images/flightalysis-1.png" target="_blank"><img src="Images/flightalysis-1.png" alt="The Flightalysis app" style="max-width:100%;"></a></p>
+<p><em>The Flightalysis app</em></p>
+</li>
+<li>
+<p>Select an origin airport and a destination airport. Then select a date and a flight time and click the <strong>Analyze</strong> button. Confirm that after a brief pause, a message box appears indicating the probability that the flight will arrive late.</p>
+<p><a href="Images/flightalysis-2.png" target="_blank"><img src="Images/flightalysis-2.png" alt="Predicting whether a flight will be late" style="max-width:100%;"></a></p>
+<p><em>Predicting whether a flight will be late</em></p>
+</li>
+</ol>
+<p>Experiment with different origins, destinations, dates, and departure times and see how the results vary. You will probably experience a greater probability of delays with flights that leave later in the day because earlier flights tend to run more on time.</p>
+<hr>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
