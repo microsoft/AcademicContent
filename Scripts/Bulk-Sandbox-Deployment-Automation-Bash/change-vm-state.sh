@@ -11,38 +11,42 @@
 # ------------------------------------------------------------------
 
 # Current Version
-version="3.0.0"
+version="1.0.4"
 
 #
 # Purpose: Print usage
 #
 usage() {
-	echo -n "$0 managing Azure resources
+	echo -n "
+Usage: $0 [options...] [arguments...]
 
-	Script [options] application [arguments]
+This script allows you to manage the VM in Azure within different subscriptions
 
-	Options:
-	-id, --classid     CLASSID specify time-based GUID developed for the subscription
-	-a,  --action      ACTION specify the task describes the action
-	  Actions related to the VMs:
-		 -start        The operation to power off (stop) a virtual machine.
-		 -stop         The operation to start a virtual machine.
-		 -restart      The operation to restart a virtual machine.
-		 -redeploy     The operation to redeploy a virtual machine.
+Options:
+-id, --classid     CLASSID specify time-based GUID developed for the subscription
+-a,  --action      ACTION specify the task describes the action
+--------------------------------------------------------
+ Actions related to the VMs:
+ -start     The operation to power off (stop) a Virtual Machine
+ -stop      The operation to start a Virtual Machine
+ -restart   The operation to restart a Virtual Machine
+ -redeploy  The operation to redeploy a Virtual Machine
 
-	  Actions related to the RGs:
-	  	 -status       The operation provisioning State of deployment
-		 -delete       The operation deletes the resource group by ClassID tag.
+ Actions related to the RGs:
+ -status    The operation provisioning state of Deployment
+ -delete    The operation deletes the Resource Group by ClassID tag
+--------------------------------------------------------
+-h,  --help        Display this help and exit
+-v,  --version     Output version information and exit
+--------------------------------------------------------
 
-	--------------------------------------------------------
-	-h,  --help        Display this help and exit
-	-v,  --version     Output version information and exit
-	--------------------------------------------------------
-
-	Example for VMs: $0 -id aa371ce6-c555-4c21-88b6-246742b8c61d -a start
-	Example for RGs: $0 -id 25b5b6de-79f8-4131-90f1-1ab296ec3a7f -a delete
-
-	"
+Examples:
+- Manage VMs: 
+$(tput setaf 4)$0 -id aa371ce6-c555-4c21-88b6-246742b8c61d -a start$(tput sgr 0)
+- Manage RGs: 
+$(tput setaf 4)$0 -id 25b5b6de-79f8-4131-90f1-1ab296ec3a7f -a delete$(tput sgr 0)
+--------------------------------------------------------
+"
 }
 
 #

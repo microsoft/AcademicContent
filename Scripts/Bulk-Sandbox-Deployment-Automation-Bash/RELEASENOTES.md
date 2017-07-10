@@ -1,5 +1,35 @@
 # Release Notes - Azure CS University DS Sandboxes Project
 
+## Release 4: June 30, 2017
+### Summary
+
+The release focused on improvements to extensibility.
+
+### New Features
+
+**Extensible / Operations User Stories**
+
+* Ability to run scripts to modify VMs post deployment
+	* Ex. software configurations, etc
+
+**Bug Fix**
+* Resolved issue with VM being unusable after an image is created
+
+### File updates
+
+File Name							| Updates
+---------------------------			| --------- 
+README.md | Updated to include explanation of new features
+extensions.sh | Updated file to support executing script files
+post-install.sh | Sample script that before Python updates in post deployment
+parameters.json | Added placeholders for file URL and file name for post deployment script
+create-vm-image.sh | Updated to inlcude a working backup of the original VM that is created into an image
+deploy-vm.sh 	| Added functionality to reference a file URL and execute script in post deployment 
+ 				| Added references to new template folder for organizing scripts and files
+templates->template-data-science.json | Updated to include parameters for file URL and ability to process script
+templates->template-from-custom-image.json | Updated to include parameters for file URL and ability to process script
+templates->template-from-data-science-image.json | Updated to include parameters for file URL and ability to process script
+
 ## Release 3: June 19, 2017
 
 ### Summary

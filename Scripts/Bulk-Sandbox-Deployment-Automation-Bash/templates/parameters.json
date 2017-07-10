@@ -88,6 +88,12 @@
         },
         "dataDiskType": {
             "value": "dataDiskTypeValue"
+        },
+        "fileUris": {
+            "value": "fileUrisValue"
+        },
+        "postInstallFileName": {
+            "value": "postInstallFileNameValue"
         }
     }
 }

@@ -1,10 +1,22 @@
+##############################
+#.SYNOPSIS
+#Azure CS University DS Sandboxes Project
+#
+#.DESCRIPTION
+#This script is an addition to the templates.
+#Current functions:
+# 1. Create a new user
+# 2. Downloading the file to the user's desktop
+# 3. Execute other scripts
+#
+##############################
+
 Param (
     [string]$userName,
     [string]$userPassword,
-    [string]$url
+    [string]$url,
+    [string]$postInstallFileName
 )
-
-# prepare script for stud user and execute
 
 function CreateUser () {
 
@@ -39,4 +51,12 @@ if ($url -eq "none") {
 else {
     # download file
     Download | Out-Null
+}
+
+if ($postInstallFileName -eq "none") {
+    Write-Host "postInstallFileName is empty"
+}
+else {
+    #execute other script
+    & ((Split-Path $MyInvocation.InvocationName) + "\" + $postInstallFileName)
 }

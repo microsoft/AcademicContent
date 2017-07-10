@@ -5,15 +5,16 @@
 #
 # Description:
 #
-# 	  This script is an addition to the templates.
-# 	  Current functions:
+# This script is an addition to the templates.
+# Current functions:
 # 	   1. Create a new user
 # 	   2. Downloading the file to the user's desktop
+#      3. Execute other scripts
 #
 # ------------------------------------------------------------------
 
 # Current Version
-version="3.0.0"
+version="1.0.4"
 
 #
 # Purpose: Create new user
@@ -74,31 +75,28 @@ Required Parameters:
 
 Optional Parameters:
 	-u,  --url       URL specify the file
+	-f,  --filename	 FILENAME specify other script file name
 
 	-h,  --help      Display this help and exit
 	-v,  --version   Output version information and exit
 
-    Example: $0 -u http://www.example.com/data.zip -l martin -p WiS2AWqgG7BV
-
-	"
+    Example: 
+$0 -u http://www.example.com/data.zip -l <Login> -p <Password> -f http://www.example.com/script.sh
+$0 -l <Login> -p <Password>
+"
 }
 
 main() {
 
-	local url
+	local url="none"
 	local login
 	local password
+	local postInstallFileName="none"
 
 	#Check version
-	if [ $1 == '-v' ] || [ $1 == '--version' ]; then
+	if [[ $1 == "-v" || $1 == "--version" ]] ; then 
 		echo "$(basename $0) ${version}"
 		exit 0
-	fi
-
-	#Check root privilege
-	if [ "${UID}" -ne 0 ]; then
-		echo "You must be root to run this program." >&2
-		exit 3
 	fi
 
 	while test $# -gt 0; do
@@ -110,7 +108,7 @@ main() {
 			-u | --url)
 				shift
 				if test $# -gt 0; then
-					url=$1
+					url="$1"
 				fi
 				shift
 				;;
@@ -134,6 +132,13 @@ main() {
 				fi
 				shift
 				;;
+			-f | --filename)
+				shift
+				if test $# -gt 0; then
+					postInstallFileName="$1"
+				fi
+				shift
+				;;
 			*)
 				echo "Unknown parameter"
 				usage
@@ -142,13 +147,27 @@ main() {
 		esac
 	done
 
+	#Check root privilege
+	if [ "${UID}" -ne 0 ]; then
+		echo "You must be root to run this program." >&2
+		exit 3
+	fi
+
 	#create new user
 	createUser "$login" "$password"
 
 	if [ $url == "none" ]; then
 		echo "url is empty"
 	else
+		echo "url = $url"
 		downloadFile "$url" "$login"
+	fi
+
+	if [ $postInstallFileName == "none" ]; then
+		echo "postInstallFileName is empty"
+	else
+		echo "postInstallFileName = $postInstallFileName"
+		./$postInstallFileName
 	fi
 }
 
