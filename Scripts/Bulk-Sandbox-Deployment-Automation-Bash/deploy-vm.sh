@@ -12,13 +12,17 @@
 # ------------------------------------------------------------------
 
 # Current Version
-version="3.0.0"
+version="1.0.4"
+
+# Show or hide debug information
+debugMode=false
 
 #
 # Purpose: Deploys resource groups with one VM and all supporting infrastructure
 #
 deploy-vm() {
 
+	#arguments
 	#iteration
 	local i="$1"
 	local vmLocation="$2"
@@ -28,7 +32,7 @@ deploy-vm() {
 	local className="$6"
 	local vmNameTemplate="$6"
 	#replace spaces with - so we could construct resource names
-	vmNameTemplate=$(echo $vmNameTemplate | sed 's/ /-/g')
+	vmNameTemplate=$(echo $vmNameTemplate | sed 's/ /-/g' | sed 's/_/-/g')
 	local subscriptionName="$7"
 	local subscriptionID="$8"
 	local studentName="$9"
@@ -47,15 +51,21 @@ deploy-vm() {
 	#define VM size
 	local vmSize="${17}"
 	local storageType="${18}"
-	local url="${19}"
+	local downloadFileUrl="${19}"
 	local vmType="${20}"
 	local disk="${21}"
 	local mail="${22}"
 	local image="${23}"
+	local postInstallFileUri="${24}"
+	local templateFolder="${25}"
+	local templateFile="${26}"
+	local postInstallFileName="none"
 	local rand=$(uuidgen -t)
-	local storageName="$studentLogin"${rand:0:4}
+	local storageName="storage"${rand:0:8}
+	storageName="${storageName,,}"
 	#define VM name
 	local VmName=$vmNameTemplate-$i
+	VmName=${VmName:0:15}
 	local publicIpAddressNameValue=$vmNameTemplate-$i-ip
 	#define DNS prefix
 	local dnsprefix=data-science-${rand:0:6}
@@ -66,12 +76,25 @@ deploy-vm() {
 	local createOption="FromImage"
 	local osType="Unknown"
 	#define template type
-	local dsTemplate="./templates/template-data-science.json"	
-	local dsCustomTemplate="./templates/template-from-data-science-image.json"
-	local customTemplate="./templates/template-from-custom-image.json"
-	#set default template path
-	local templateFilePath=$dsTemplate;
+	local dsTemplate=$templateFolder"template-data-science.json"
+	local dsCustomTemplate=$templateFolder"template-from-data-science-image.json"
+	local customTemplate=$templateFolder"template-from-custom-image.json"
+	local templateFilePath=""
+	if [[ -z "$templateFile" ]]; then
+		templateFilePath=$dsTemplate
+	else
+		templateFilePath=$templateFile	
+	fi
 	local dataDiskType=$disk
+
+	# e.g: https://contoso.com/scripts/ (there are extensions script files)
+	local extensionsScriptPathUri="<extensions_script_path_uri>"
+	local fileUris=""
+
+	if [[ $extensionsScriptPathUri == "<extensions_script_path_uri>" ]]; then 
+		error "Deployment failed: please specify <extensions_path_uri>"
+		return 1
+	fi
 
 	#check image type and determine the OS type
 	if [[ $image != "none" ]]; then
@@ -90,7 +113,7 @@ deploy-vm() {
 			vmType="ds-vm-windows"
 			templateFilePath=$dsCustomTemplate
 		elif [[ $image =~ "Custom" ]]; then
-			dataDiskType="Empty"
+			dataDiskType="empty"
 			templateFilePath=$customTemplate
 			if [[ $image =~ "Linux" ]] ; then 
 				osType="linux"
@@ -100,12 +123,34 @@ deploy-vm() {
 		fi
 	else
 		#define os type from VM
-		if [[ $vmType =~ "ubuntu" || $vmType =~ "centos" ]] ; then 
+		if [[ $vmType =~ "ubuntu" || $vmType =~ "centos" || $vmType =~ "linux" ]] ; then 
 			osType="linux"
 		elif [[ $vmType =~ "windows" ]]; then
 			osType="windows"
 			createOption="Empty"
 		fi
+	fi
+
+	if [ $osType == "windows" ]; then
+		extensionsScriptPathUri=$extensionsScriptPathUri"extensions.ps1"
+	else
+		extensionsScriptPathUri=$extensionsScriptPathUri"extensions.sh"
+	fi
+
+	# validate URLs
+	validateUrl "$extensionsScriptPathUri"
+
+	if [[ $postInstallFileUri == "none" ]]; then
+		fileUris=$extensionsScriptPathUri
+		postInstallFileName="none"
+	else
+		postInstallFileName=$(basename "$postInstallFileUri")
+		validateUrl "$postInstallFileUri"
+		fileUris="$extensionsScriptPathUri $postInstallFileUri"
+	fi
+
+	if [[ $downloadFileUrl != "none" ]]; then
+		validateUrl "$downloadFileUrl"
 	fi
 
 	#check for template file
@@ -156,16 +201,18 @@ deploy-vm() {
 	#string with spaces is allowed
 	param=$(echo $param | sed s#studentNameValue#"$studentName"#g;)
 	param=$(echo $param | sed s#adminUsernameValue#$adminUsernameValue#g;)
-	param=$(echo $param | sed s#downloadFileUrlValue#$url#g;)
+	param=$(echo $param | sed s#downloadFileUrlValue#$downloadFileUrl#g;)
 	param=$(echo $param | sed s#vmTypeValue#$vmType#g;)
 	param=$(echo $param | sed s#diskTypeValue#$disk#g;)
 	param=$(echo $param | sed s#imageIdValue#$image#g;)
 	param=$(echo $param | sed s#createOptionValue#$createOption#g;)
 	param=$(echo $param | sed s#osTypeValue#$osType#g;)
 	param=$(echo $param | sed s#dataDiskTypeValue#$dataDiskType#g;)
+	param=$(echo $param | sed s#fileUrisValue#"$fileUris"#g;)
+	param=$(echo $param | sed s#postInstallFileNameValue#"$postInstallFileName"#g;)
 
 	if [ $? -ne 0 ]; then
-		echo "An error occurred during the deployment"
+		error "An error occurred during the deployment"
 		return 1
 	fi
 
@@ -183,6 +230,22 @@ deploy-vm() {
 	echo $outputString >>$outputfile
 }
 
+#
+# Purpose: Validates the url and checks the availability of the specified file
+#
+validateUrl(){
+	if [[ `wget -S --spider $1  2>&1 | grep 'HTTP/1.1 200 OK'` ]]; then
+		echo "" > /dev/null
+	else
+		local fileName=$(basename "$1")
+		error "Remote file $fileName does not exist!"
+		exit 0
+	fi
+}
+
+#
+# Purpose: Send e-mail using sendgrid api
+#
 sendEmail() {
 
 	echo Start sending email to $1
@@ -247,70 +310,79 @@ error() {
 #
 usage() {
 	echo -n "
-	$0 deploys multiple VMs
+Usage: $0 [options...] [arguments...]
 
-	Script [options] application [arguments]
+Sript is developed to allow the capability of spinning multiple VMs in Azure within different subscriptions.
 
-	Options:
+Options:
+$(tput setaf 3)Required Parameters:$(tput sgr 0)
+-in,   --input         INPUTFILE specify the input file in csv format (see example: input.csv)
+-out,  --output        OUTPUTFILE specify the output file in csv format (see example: output.csv)
+-l,    --location      LOCATION specify location for the Deployment, for example: westus
+-s,    --size          SIZE specify the size for the Virtual Machines, for example: Standard_DS3_v2
+---------------------------------------------------------------------
+Preferred machine sizes:
+  Linux + Windows:
+  - Standard_DS2_v2
+  - Standard_DS3_v2
+  - Standard_DS4_v2
+  Windows:
+  - Standard_DS11_v2
 
-Required Parameters:
-	-in, --input       INPUTFILE specify the input file in csv format (see example: input.csv)
-	-out,--output      OUTPUTFILE specify the output file in csv format (see example: output.csv)
-	-l,  --location    LOCATION specify location for the deployment, for example: uswest
-	-s,  --size        SIZE specify the size for the virtual machines, for example: Standard_DS3_v2
-	  Preferred machine sizes:
-	  	------------------------------
-		Linux + Windows		
-			  Standard_DS2_v2
-			  Standard_DS3_v2
-			  Standard_DS4_v2
-		------------------------------
-		Windows		
-			  Standard_DS11_v2
-		------------------------------
-	  Available sizes:
-			- Find out more on the available VM sizes in each region at https://aka.ms/azure-regions
+  Available sizes:
+  - Find out more on the available VM sizes in each region at https://aka.ms/azure-regions
+---------------------------------------------------------------------
 
-	-st, --storage     STORAGETYPE specify the storage type for the virtual machines, for example: premium
-		Available types:
-			- premium  (SSD-based)
-			- standard (HDD-based)
+-st, --storage          STORAGETYPE specify the storage type for the Virtual Machines, for example: premium
+Available types:
+- premium  (SSD-based)
+- standard (HDD-based)
 
-	-d,  --disk        DISK this feature to have Azure automatically manage the availability of disks to provide data redundancy and fault tolerance
-		Available types:
-			- manage
-			- unmanage
+-d,  --disk             DISK this feature to have Azure automatically manage the availability of disks to provide data redundancy and fault tolerance
+Available types:
+- manage
+- unmanage
 
-	-m,  --sendemail   SENDEMAIL specify send e-mails to every student with the corresponding NDS and other info about the machine
-		Available types:
-			- on
-			- off
+-m,  --sendemail        SENDEMAIL specify send e-mails to every student with the corresponding NDS and other info about the machine
+Available types:
+- on
+- off
 
-Deployment type (Marketplace VM or VM Image)
-	Marketplace VM:
-	-vm, --vmtype      VMTYPE Virtual machine with tools for the data science modeling and development
-		Available types:
-			- ds-vm-ubuntu    (based on Ubuntu)
-			- ds-vm-centos    (based on CentOS)
-			- ds-vm-windows   (based on Windows)
-	Image:
-	-i,  --image       IMAGE Create a VM from a custom image
+$(tput setaf 6)Deployment type (Marketplace VM or VM Image):$(tput sgr 0)
+---------------------------------------------------------------------
+Marketplace VM:
+-vm, --vmtype           VMTYPE Virtual Machine with tools for the data science modeling and development
+  Available types:
+  - ds-vm-ubuntu    (based on Ubuntu)
+  - ds-vm-centos    (based on CentOS)
+  - ds-vm-windows   (based on Windows)
 
-Optional Parameters:
-	-u,  --url         URL specify the url to the file will be copied to the VM	
+Image:
+-i,  --image           IMAGE Create & Deploy a VM from custom image
+---------------------------------------------------------------------
+
+$(tput setaf 3)Optional Parameters:$(tput sgr 0)
+-t,  --template         TEMPLATEFILE specify template file in json format
+-u,  --url              URL specify URL of file to send to desktop of VM
+-p,  --postinstall      POSTINSTALL specify other script file name
 $(tput setaf 4)
-	---------------------------------------------------------------------
-	-h,  --help        Display this help and exit
-	-v,  --version     Output version information and exit
-	---------------------------------------------------------------------
+---------------------------------------------------------------------
+-h,  --help        Display this help and exit
+-v,  --version     Output version information and exit
+---------------------------------------------------------------------
 $(tput sgr 0)
-Example:
-	- deploy VMs:
+Examples:
+---------------------------------------------------------------------
+- Deploy Data Science VMs:
 $(tput setaf 2)$0 -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -u http://www.example.com/data.zip -vm ds-vm-ubuntu -d manage -m on$(tput sgr 0)
-	- deploy VMs from image:
+- Deploy VMs from image:
 $(tput setaf 2)$0 -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -d manage -m off -i /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>providers/Microsoft.Compute/images/<imageName>$(tput sgr 0)
-
-	"
+- Deploy VMs from your template:
+$(tput setaf 2)$0 -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -d manage -m off -vm <your vm type> -t ./templates/template.json$(tput sgr 0)
+- Deploy VMs using post install script:
+$(tput setaf 2)$0 -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -d manage -m off -vm ds-vm-ubuntu -p http://www.example.com/post-install.sh$(tput sgr 0)
+---------------------------------------------------------------------
+"
 }
 
 #
@@ -319,15 +391,18 @@ $(tput setaf 2)$0 -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st
 main() {
 	local inputfile
 	local outputfile
-	local parameterfile="./templates/parameters.json"
 	local location
 	local size
 	local storage
 	local url="none"
-	local vmtype="fromImage"
+	local vmtype
 	local disk
 	local mail
 	local image="none"
+	local postInstallFileUri="none"
+	local templateFolder="./templates/"
+	local parameterfile=$templateFolder"parameters.json"
+	local templateFile
 
 	if [ $# -eq 0 ]; then
 		error "No arguments supplied"
@@ -346,6 +421,13 @@ main() {
 				shift
 				echo "$(basename $0) ${version}"
 				exit 0
+				shift
+				;;
+			-t | --template)
+				shift
+				if test $# -gt 0; then
+					templateFile=$1
+				fi
 				shift
 				;;
 			-in | --input)
@@ -447,6 +529,13 @@ main() {
 				fi
 				shift
 				;;
+			-p | --postinstall)
+				shift
+				if test $# -gt 0; then
+					postInstallFileUri=$1
+				fi
+				shift
+				;;
 			*)
 				error "Unknown parameter $1"
 				usage
@@ -456,19 +545,29 @@ main() {
 	done
 	
 	#Check for files
-	if [ ! -f "$parameterfile" ]; then
-		error "Parameter file: $parameterfile not found"
-		exit 1
-	fi
-
 	if [ ! -f "$inputfile" ]; then
 		error "Input file: $inputfile not found"
 		exit 1
 	fi
 
-	if [[ $vmtype == "fromImage" && $image == "none" ]]; then
-		error "VM type or Image parameters is missing or incorrect"
+	if [ ! -f "$parameterfile" ]; then
+		error "Parameter file: $parameterfile not found"
 		exit 1
+	fi
+
+	# if image contains data set vmtype = fromimage
+	if [[ $image != "none" ]]; then
+		vmtype="FromImage"
+	fi
+
+	# check 
+
+	if [[ -z "$templateFile" ]]; then
+		echo "" > /dev/null
+	else
+		if [[ ! -f "$templateFile" ]]; then
+			error "Template file: $templateFile not found"
+		fi
 	fi
 
 	#Check arguments
@@ -520,7 +619,7 @@ main() {
 				"$i" "$location" "$outputfile" "$parameterfile" "$classNameID" "$ClassName" \
 				"$SubscriptionName" "$SubscriptionID" "$StudentName" "$StudentEmailAddress" "$VMUserName" \
 				"$VMUserPassword" "$VMAdminUserName" "$VMAdminPassword" "$Comment" "$logFileName" "$size" \
-				"$storage" "$url" "$vmtype" "$disk" "$mail" "$image"
+				"$storage" "$url" "$vmtype" "$disk" "$mail" "$image" "$postInstallFileUri" "$templateFolder" "$templateFile"
 		fi
 		((i++))
 

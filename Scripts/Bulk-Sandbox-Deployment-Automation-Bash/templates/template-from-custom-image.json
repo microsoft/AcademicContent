@@ -3,121 +3,215 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualMachineName": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "This is the name of the your VM"
+            }
         },
         "virtualMachineSize": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "This is the size of your VM"
+            }
         },
         "storageAccountName": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "This is the name of the your storage account"
+            }
         },
         "storageAccountType": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "This is the type of the your storage account"
+            }
         },
         "adminUsername": {
-            "type": "string"
-        },
-        "virtualNetworkName": {
-            "type": "string"
-        },
-        "networkInterfaceName": {
-            "type": "string"
-        },
-        "networkSecurityGroupName": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "User Name for the Virtual Machine"
+            }
         },
         "adminPassword": {
-            "type": "securestring"
+            "type": "securestring",
+            "metadata": {
+                "description": "Password for the Virtual Machine"
+            }
         },
-        "studentPassword": {
-            "type": "securestring"
+        "virtualNetworkName": {
+            "type": "string",
+            "metadata": {
+                "description": "This is the name of your Virtual Network"
+            }
+        },
+        "networkInterfaceName": {
+            "type": "string",
+            "metadata": {
+                "description": "This is the name of your Network Interface"
+            }
+        },
+        "networkSecurityGroupName": {
+            "type": "string",
+            "metadata": {
+                "description": "This is the name of your Network Security Group"
+            }
         },
         "addressPrefix": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "Address prefix, or full IP address for the destination"
+            }
         },
         "subnetName": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "Subnet Name to be used within the Virtual Network"
+            }
         },
         "subnetPrefix": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "Used to create subnet. Must match in the case that the subnet does exist"
+            }
         },
         "publicIpAddressName": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "Public IP address name for VM"
+            }
         },
         "publicIpAddressType": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "Public IP address for VM"
+            }
         },
         "dnsPrefix": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine"
+            }
         },
         "className": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "Class Name for Tags"
+            }
         },
         "classID": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "Class ID for Tags"
+            }
         },
         "studentName": {
-            "type": "string"
-        },
-        "studentLogin": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "Student Name for Tags"
+            }
         },
         "studentEmail": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "Student Email for Tags"
+            }
+        },
+        "studentLogin": {
+            "type": "string",
+            "metadata": {
+                "description": "User Name for the Virtual Machine (student)"
+            }
+        },
+        "studentPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Password for the Virtual Machine (student)"
+            }
         },
         "resourceGroupName": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "The name of the resource group for your Virtual Machine"
+            }
         },
         "downloadFileUrl": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "This is the URL that will be uploaded to your Virtual Machine"
+            }
         },
         "imageId": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "This is the image id that your VM will be deployed"
+            }
         },
         "createOption": {
-            "type": "string"
+            "type": "string",
+            "allowedValues": [
+                "FromImage",
+                "Empty",
+                "Attach"
+            ],
+            "metadata": {
+                "description": "Specify this option to create a virtual machine from a specialized disk"
+            }
         },
         "osType": {
-            "type": "string"
+            "type": "string",
+            "allowedValues": [
+                "windows",
+                "linux"
+            ],
+            "metadata": {
+                "description": "This is the OS that your VM will be running"
+            }
         },
         "diskType": {
-            "type": "string"
+            "type": "string",
+            "allowedValues": [
+                "manage",
+                "unmanage"
+            ],
+            "metadata": {
+                "description": "This is the os disk type of your VM"
+            }
         },
         "vmType": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "Describes the VM type"
+            }
         },
         "dataDiskType": {
-            "type": "string"
+            "type": "string",
+            "allowedValues": [
+                "manage",
+                "unmanage",
+                "empty"
+            ],
+            "metadata": {
+                "description": "This is the data disk type of your VM"
+            }
+        },
+        "postInstallFileName": {
+            "type": "string",
+            "metadata": {
+                "description": "Script name for the Post Deployment"
+            }
+        },
+        "fileUris": {
+            "type": "string",
+            "metadata": {
+                "description": "The uri list of the scripts"
+            }
         }
     },
     "variables": {
         "storageUri": "[concat('https://',parameters('storageAccountName'),'.blob.core.windows.net/')]",
         "images": {
-            "ds-vm-ubuntu": {
+            "fromImage": {
                 "id": "[parameters('imageId')]"
-            },
-            "ds-vm-centos": {
-                "id": "[parameters('imageId')]"
-            },
-            "ds-vm-windows": {
-                "id": "[parameters('imageId')]"
-            }
-        },
-        "plans": {
-            "ds-vm-ubuntu": {
-                "name": "linuxdsvmubuntu",
-                "publisher": "microsoft-ads",
-                "product": "linux-data-science-vm-ubuntu"
-            },
-            "ds-vm-centos": {
-                "name": "linuxdsvm",
-                "publisher": "microsoft-ads",
-                "product": "linux-data-science-vm"
-            },
-            "ds-vm-windows": {
-                "name": "standard-data-science-vm",
-                "publisher": "microsoft-ads",
-                "product": "standard-data-science-vm"
             }
         },
         "tagValues": {
@@ -298,12 +392,10 @@
                 "typeHandlerVersion": "1.4",
                 "autoUpgradeMinorVersion": true,
                 "settings": {
-                    "fileUris": [
-                        "https://<storagename>.blob.core.windows.net/scripts/extensions.ps1"
-                    ]
+                    "fileUris": "[split(parameters('fileUris'), ' ')]"
                 },
                 "protectedSettings": {
-                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File extensions.ps1 -userName ',parameters('studentLogin'),' -userPassword ',parameters('studentPassword'),' -url ',parameters('downloadFileUrl'))]"
+                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File extensions.ps1 -userName ',parameters('studentLogin'),' -userPassword ',parameters('studentPassword'),' -url ',parameters('downloadFileUrl'), ' -postInstallFileName ', parameters('postInstallFileName'))]"
                 }
             },
             "linux": {
@@ -312,10 +404,8 @@
                 "typeHandlerVersion": "2.0",
                 "autoUpgradeMinorVersion": true,
                 "settings": {
-                    "fileUris": [
-                        "https://<storagename>.blob.core.windows.net/scripts/extensions.sh"
-                    ],
-                    "commandToExecute": "[concat('bash extensions.sh -u ',parameters('downloadFileUrl'), ' -l ',parameters('studentLogin'),' -p ',parameters('studentPassword'))]"
+                    "fileUris": "[split(parameters('fileUris'), ' ')]",
+                    "commandToExecute": "[concat('bash extensions.sh -u ',parameters('downloadFileUrl'), ' -l ',parameters('studentLogin'),' -p ',parameters('studentPassword'), ' -f ', parameters('postInstallFileName'))]"
                 }
             }
         },
@@ -339,6 +429,7 @@
     },
     "resources": [
         {
+            "comments": "https://docs.microsoft.com/en-us/azure/templates/microsoft.storage/storageaccounts",
             "name": "[parameters('storageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2015-06-15",
@@ -348,6 +439,7 @@
             }
         },
         {
+            "comments": "https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachines",
             "name": "[parameters('virtualMachineName')]",
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2016-04-30-preview",
@@ -375,12 +467,11 @@
                     ]
                 }
             },
-            "plan": "[variables('plans')[parameters('vmType')]]",
             "resources": [
                 {
                     "apiVersion": "2015-06-15",
                     "type": "extensions",
-                    "name": "extensions",
+                    "name": "CustomScript",
                     "location": "[resourceGroup().location]",
                     "dependsOn": [
                         "[parameters('virtualMachineName')]"
@@ -390,6 +481,7 @@
             ]
         },
         {
+            "comments": "https://docs.microsoft.com/en-us/azure/templates/microsoft.network/virtualnetworks",
             "name": "[parameters('virtualNetworkName')]",
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2016-12-01",
@@ -411,6 +503,7 @@
             }
         },
         {
+            "comments": "https://docs.microsoft.com/en-us/azure/templates/microsoft.network/networkinterfaces",
             "name": "[parameters('networkInterfaceName')]",
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2016-09-01",
@@ -441,6 +534,7 @@
             }
         },
         {
+            "comments": "https://docs.microsoft.com/en-us/azure/templates/microsoft.network/publicipaddresses",
             "name": "[parameters('publicIpAddressName')]",
             "type": "Microsoft.Network/publicIpAddresses",
             "apiVersion": "2016-09-01",
@@ -453,6 +547,7 @@
             }
         },
         {
+            "comments": "https://docs.microsoft.com/en-us/azure/templates/microsoft.network/networksecuritygroups",
             "name": "[parameters('networkSecurityGroupName')]",
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2016-09-01",

@@ -11,7 +11,7 @@
 # ------------------------------------------------------------------
 
 # Current Version
-version="3.0.0"
+version="1.0.4"
 
 #
 # Purpose: Create new image
@@ -34,9 +34,11 @@ createImage() {
 	local snapshotName=snap-$osType-$plan-$rand
 	local imageName=image-$osType-$plan-$rand
 
+	local defaultPassword=tS8QmuOZkwF7xzxdQ
+
 	if [[ $osType == "Linux" ]]; then
 		echo "Deprovision VM $vmName"
-		ssh -t $userName@$hostName 'sudo waagent -deprovision+user -force;exit'
+		ssh -t $userName@$hostName 'sudo waagent -deprovision -force;exit'
 	else
 		echo "For Windows OS, you must connect to the VM, run PowerShell as Administrator and execute:"
 		echo "$(tput setaf 3)Start-Process -FilePath C:\Windows\System32\Sysprep\Sysprep.exe -ArgumentList '/generalize /oobe /shutdown /quiet'$(tput sgr 0)"
@@ -73,6 +75,14 @@ createImage() {
 
 	imageId=$(az image show --name "$imageName" --resource-group "$imageResourceGroupName" --query [id] -o tsv)
 
+	echo "Deleting VM $vmName"
+	az vm delete -g $resourceGroupName -n $vmName --yes
+
+	if [[ $plan == "Custom" ]]; then
+		echo "Creating backup VM"
+		az vm create --resource-group $resourceGroupName --name $vmName --image $imageId --admin-username $userName --admin-password $defaultPassword --authentication-type password
+	fi
+
 	if [ $? -ne 0 ]; then
 		echo "An error occurred during the image preparation" >>$outputFile
 	else
@@ -90,28 +100,30 @@ $(tput setaf 2)./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standar
 # Purpose: Show help information
 #
 usage() {
-	echo -n "$0 prepare vm and create Azure custom image
-
-	Script [options] application [arguments]
+	echo -n "
+Usage: $0 [options...] [arguments...]
+	
+This script allows you to expand the capabilities of this script to any VM, not just DSVMs
 
 Options:
-	-vm, 	--vmname			The name of the Virtual Machine.
-	-g,  	--group				Name of resource group. 
-	-ht, 	--host				Public IP address or DNS url
-	-u,  	--username			Virtual Machine username
-	-subid, --subscriptionId	Subscription Id
-
-	-h,  	--help        		Display this help and exit
-	-v,  	--version     		Output version information and exit
-
-$(tput setaf 4)Important for Windows VM type!$(tput sgr 0)
-	To create an image of a virtual machine, you need to prepare the VM by generalizing the VM, deallocating, and then marking the source VM as generalized in Azure.
-	
-	Connect to the Windows VM, run PowerShell as Administrator and execute:
-	$(tput setaf 3)Start-Process -FilePath C:\Windows\System32\Sysprep\Sysprep.exe -ArgumentList '/generalize /oobe /shutdown /quiet'$(tput sgr 0)
-
-Example: 
-	$0 -vm <Virtual Machine Name> -g <Resource Group Name> -ht <DNS or IP address> -u <User Name> -subid <Subscription Id>
+-vm, 	--vmname          The name of the Virtual Machine
+-g,  	--group           Name of resource group
+-ht, 	--host            Public IP address or DNS url
+-u,  	--username        Virtual Machine username
+-subid, --subscriptionId  Subscription Id
+---------------------------------------------------------------------
+-h,  	--help            Display this help and exit
+-v,  	--version         Output version information and exit
+---------------------------------------------------------------------
+$(tput setaf 1)Important for Windows VM type!$(tput sgr 0)
+To create an image of a virtual machine, you need to prepare the VM by generalizing the VM, deallocating, and then marking the source VM as generalized in Azure.
+Connect to the Windows VM, run PowerShell as Administrator and execute:
+$(tput setaf 3)Start-Process -FilePath C:\Windows\System32\Sysprep\Sysprep.exe -ArgumentList '/generalize /oobe /shutdown /quiet'$(tput sgr 0)
+---------------------------------------------------------------------
+Examples: 
+- Create image from VM:
+$(tput setaf 4)$0 -vm <Virtual Machine Name> -g <Resource Group Name> -ht <DNS or IP address> -u <User Name> -subid <Subscription Id>$(tput sgr 0)
+---------------------------------------------------------------------
 "
 }
 

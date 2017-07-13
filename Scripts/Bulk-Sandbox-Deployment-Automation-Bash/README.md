@@ -21,6 +21,7 @@
     * [Known limitations](#known-limitations)
     * [Script Performance](#script-performance)
     * [Deploying different VM types](#deploying-different-vm-types)
+    * [Post-Deployment Scripts](#post-deploymnet-scripts)
     * [Email Server setup](#email-server-setup)
         * [Mail Service Provider](#mail-service-provider)
         * [Directions to set up Email](#directions-to-set-up-email)
@@ -58,6 +59,7 @@ These scripts achieve the following user stories:
 *	Ability to use a CSV file to configure a large number of DSVMs
 *	Ability to validate inputs at run time
 *	Ability to easily tag large numbers of resource groups & VMs (ex. to assign to a specific class)
+*   Ability to execute scripts post deployment to modify all VMs in the deployment
 
 **Data Storage Epic**
 *	Ability to load zip files to VMs during deployment
@@ -89,7 +91,7 @@ The following prerequisites must be met for the script to run appropriately:
 
 This only must be done once and can be done for all subscriptions in the same update.
 
-Currently you can deploy the following VM’s:
+Currently you can deploy the following Marketplace VM’s:
 
 * Data Science Virtual Machine for Linux (Ubuntu) ([link](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu))
 * Data Science Virtual Machine for Windows ([link](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm))
@@ -217,7 +219,7 @@ Comment                 |  | Inherited from input csv file
 
 ## Master Script
 
-The master script name is <kbd>deploy-vm.sh</kbd>
+The master script name is `deploy-vm.sh`
 
 You must chose to either deploy a DSVM or deploy from an image.
 
@@ -238,38 +240,58 @@ Argument        | Command       | Description | Example
 -in, --input    | Input file    | Specify the input file in csv format | input.csv
 -out, --output  | Output file   | Specify the output file in csv format | output.csv
 -l, --location  | Location file | Specify location for the deployment | uswest
--s, --size	    | VM Type	      | Specify the specific VM for the deployment (-h provides recommended versions) | Standard_DS2_V2
+-s, --size	    | VM size       | Specify the specific VM for the deployment (-h provides recommended versions) | Standard_DS2_V2
 -st, --storage	| Storage type  | Configure Premium (HHD) or standard hard drives (SSD) | premium
--vm, --vmtype	  | VM image      | Specify VM image for deployment | ds-vm-ubuntu
+-vm, --vmtype	| VM image      | Specify VM image for deployment | ds-vm-ubuntu
 -d, --disk      | Disk type	    | Select managed or unmanaged disc | manage
 -m, --sendemail	| Email toggle	| Email users following deployment with VM information | on
--u, --url	      | (Optional) Send | file |URL of file to send to desktop of VM | http://www.example.com/data.zip
--i, --image     | Image         | Specify the url to the file will be copied to the VM | /subscriptions/guid/resourceGroups/rgName/providers/Microsoft.Compute/images/imageName
+-u, --url	    | (Optional) Send | file |URL of file to send to desktop of VM | http://www.example.com/data.zip
+-p, --postinstall | (Optional) PostDeployment script | Specify URL of file to be executed in post-deployment | http://www.example.com/post-install.sh
+-t, --template  | (Optional) Template file | specify template file in json format | template.json
+-i, --image     | Image         | Specify the URL to the file will be copied to the VM | /subscriptions/guid/resourceGroups/rgName/providers/Microsoft.Compute/images/imageName
 
 ### Examples
 
-**Deploy a DSVM**
-
+**Deploy Data Science VMs**
 ```sh
 $ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -u http://www.example.com/data.zip -vm ds-vm-ubuntu -d manage -m on
 ```
 
-**Deploy from an image**
+**Deploy VMs from image**
 ```sh
-$ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -u http://www.example.com/data.zip  -d manage -m on -i /subscriptions/<guid>/resourceGroups/<Resource Group Name>/providers/Microsoft.Compute/images/<Image Name>
+$ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -d manage -m off -i /subscriptions/<guid>/resourceGroups/<Resource Group Name>/providers/Microsoft.Compute/images/<Image Name>
 ```
 
+**Deploy VMs using post install script**
+```sh
+$ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -d manage -m off -vm ds-vm-ubuntu -p http://www.example.com/post-install.sh
+```
+
+>**Important!**
+>Post-deployment has limited time to run scripts. This 1 hour 30 minutes. After we had error message: "Provisioning of VM extension 'CustomScript' has timed out. Extension installation may be taking too long, or extension status could not be obtained."
+
 Examples of files (input.csv, output.csv) are included in this repository.
+
+You can make a copy of the `template-data-science.json` template and add new VM types. Your template can be specified in the arguments to the script.
+
+**Deploy VMs from your template**
+```sh
+$ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -d manage -m off -vm <your vm type> -t ./templates/template.json
+```
+>**Important!**
+>It is not recommended to change the base templates, if you do not know.
+
 
 ## Logging
 
 The script creates a log file for each deployment. The file can be found in the same folder as output.scv file. The file name of the log file includes time-based GUID generated for the specific deployment.
 
-> **Example**: Deployment-c8f7dc5c-398e-11e7-a762-54ee759e9cc8.log
+**Example**: Deployment-c8f7dc5c-398e-11e7-a762-54ee759e9cc8.log
+
 
 ## Resource Tags
 
-Resource groups have the following tags added during deployment from the <kbd>input.CSV</kbd> file:
+Resource groups have the following tags added during deployment from the `input.CSV` file:
 
 * ClassID
 * StudentLogin
@@ -277,7 +299,7 @@ Resource groups have the following tags added during deployment from the <kbd>in
 * StudentName
 * ClassName
 
-Each VM has the following tags inherited from the <kbd>input.CSV</kbd> file:
+Each VM has the following tags inherited from the `input.CSV` file:
 
 ## Known limitations
 
@@ -304,6 +326,12 @@ The script is accompanied with JSON files configured to deploy multiple VMs with
 The existing JSON filess can be updated at your own risk. If any changes are made, it is recommended to keep a reference to parameters specified in `parameter.json`. 
 
 > **Example**: publicIpAddressName is defined in `parameters.json` and used in the `template-*.json` files. The value is assigned inside the script. If this value is removed from the `template-*.json` files, the IP name will be assigned automatically, potentially causing deployment issues.
+
+## Post-Deployment Scripts
+Post-Deployment scripts can either be hosted on an Azure storage account with an URL or posted in the GitHub "PostDeployment Scripts".
+If utilizing GitHub, select the "Raw" option and copy the URL to refer to in the deploy-vm.sh script.
+Use cases for this feature include ensuring that the most up to date software is installed or configuring variables, etc.  
+An alternative would be to do this in a custom VM, create an image, and deploy from the image.
 
 ## Email Server setup
 We recommend using SendGrid on Azure for email.
@@ -354,10 +382,10 @@ To send an email using SendGrid, you must supply your API Key.
 #### Configure script file
 Sending email requires that you supply your SendGrid API Key. If you need details about how to configure API Keys, please visit SendGrid's API Keys documentation.
 
-Open the <kbd>deploy-vm.sh</kbd> script, find apiKey section and replace value with your API key
+Open the `deploy-vm.sh` script, find apiKey section and replace value with your API key
 ```sh
-local apiKey="SENDGRID_APIKEY"
-local emailFrom="<email_from>"       
+local apiKey="sendgrid_api_key"
+local emailFrom="<email_from>"
 ```
 
 ## Helper scripts
@@ -372,7 +400,7 @@ local emailFrom="<email_from>"
 
 #### Script Usage
 
-The master script name is <kbd>change-vm-state.sh</kbd>.
+The master script name is `change-vm-state.sh`.
 
 The following are the different required arguments for the script: 
 
@@ -453,5 +481,6 @@ Start-Process -FilePath C:\Windows\System32\Sysprep\Sysprep.exe -ArgumentList '/
 
 >**Important!**
 >After running the script, the VM will no longer be available. The script is cleared of all sensitive information.
+>In the third version the script can create a backup only for virtual machines that do not have a plan information.
 
 ---
