@@ -61,10 +61,11 @@ deploy-vm() {
 	local templateFile="${26}"
 	local postInstallFileName="none"
 	local rand=$(uuidgen -t)
-	local storageName="storage"${rand:0:4}
+	local storageName="storage"${rand:0:8}
 	storageName="${storageName,,}"
 	#define VM name
 	local VmName=$vmNameTemplate-$i
+	VmName=${VmName:0:15}
 	local publicIpAddressNameValue=$vmNameTemplate-$i-ip
 	#define DNS prefix
 	local dnsprefix=data-science-${rand:0:6}
@@ -85,12 +86,13 @@ deploy-vm() {
 		templateFilePath=$templateFile	
 	fi
 	local dataDiskType=$disk
-	# replace extentions file uri
-	local extentionsFileUri="<extentions_file_uri>"
+
+	# e.g: https://contoso.com/scripts/ (there are extensions script files)
+	local extensionsScriptPathUri="<extensions_script_path_uri>"
 	local fileUris=""
 
-	if [[ $extentionsFileUri == "<extentions_file_uri>" ]]; then 
-		error "Deployment failed: please specify <extentions_file_uri>"
+	if [[ $extensionsScriptPathUri == "<extensions_script_path_uri>" ]]; then 
+		error "Deployment failed: please specify <extensions_path_uri>"
 		return 1
 	fi
 
@@ -130,21 +132,21 @@ deploy-vm() {
 	fi
 
 	if [ $osType == "windows" ]; then
-		extentionsFileUri="$extentionsFileUri.ps1"
+		extensionsScriptPathUri=$extensionsScriptPathUri"extensions.ps1"
 	else
-		extentionsFileUri="$extentionsFileUri.sh"
+		extensionsScriptPathUri=$extensionsScriptPathUri"extensions.sh"
 	fi
 
 	# validate URLs
-	validateUrl "$extentionsFileUri"
+	validateUrl "$extensionsScriptPathUri"
 
 	if [[ $postInstallFileUri == "none" ]]; then
-		fileUris=$extentionsFileUri
+		fileUris=$extensionsScriptPathUri
 		postInstallFileName="none"
 	else
 		postInstallFileName=$(basename "$postInstallFileUri")
 		validateUrl "$postInstallFileUri"
-		fileUris="$extentionsFileUri $postInstallFileUri"
+		fileUris="$extensionsScriptPathUri $postInstallFileUri"
 	fi
 
 	if [[ $downloadFileUrl != "none" ]]; then

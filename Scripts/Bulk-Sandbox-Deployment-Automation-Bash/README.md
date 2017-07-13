@@ -272,7 +272,7 @@ $ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st 
 
 Examples of files (input.csv, output.csv) are included in this repository.
 
-You can make a copy of the `template-data-science.json` template and add new VM types. Your template can be specified in the arguments to the script
+You can make a copy of the `template-data-science.json` template and add new VM types. Your template can be specified in the arguments to the script.
 
 **Deploy VMs from your template**
 ```sh

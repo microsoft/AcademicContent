@@ -24,5 +24,5 @@ Argument        | Command       | Description                                   
 To utilize this script, you will need to replace the fileUris section with the appropriate information:
 
 ```sh
-local extentionsFileUri="<extentions_file_uri>"
+local extensionsScriptPathUri="<extensions_script_path_uri>"
 ```
