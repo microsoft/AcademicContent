@@ -275,7 +275,7 @@ The dataset that you are using contains 80 rows representing cancelled flights. 
 
 _The ARR_DEL15 column_
 
-There are multiple ways in which you can attack this. One is to write an R or Python script that removes rows with missing data (or simply rows where CANCELLED=1) and inject it into the model using an [Execute R Script](https://msdn.microsoft.com/library/azure/dn905952.aspx) or [Execute Python Script](https://msdn.microsoft.com/library/azure/dn913065.aspx) module. Alternatively, since each row representing a cancelled flight has at least one missing feature (a column with no data), you could use the [Clean Missing Data](https://msdn.microsoft.com/library/azure/dn906028.aspx) module, which makes it very easy to remove rows with missing values.
+There are multiple ways in which you can attack this. One is to write an R or Python script that removes rows with missing data (or simply rows where CANCELLED=1) and inject it into the model using an [Execute R Script](https://msdn.microsoft.com/library/azure/dn905952.aspx) or [Execute Python Script](https://msdn.microsoft.com/library/azure/dn955437.aspx) module. Alternatively, since each row representing a cancelled flight has at least one missing feature (a column with no data), you could use the [Clean Missing Data](https://msdn.microsoft.com/library/azure/dn906028.aspx) module, which makes it very easy to remove rows with missing values.
 
 ### Hint #4: Reduce imbalance in the dataset ###
 
@@ -303,7 +303,7 @@ The CRS_DEP_TIME column of the dataset you are using represents scheduled depart
 
 _The CRS_DEP_TIME column_
 
-There are several ways to accomplish binning in Azure Machine Learning. One of them is the [Group Data Into Bins](https://msdn.microsoft.com/library/azure/dn913065.aspx) module. More often, data scientists prefer to write a few lines of R or Python code, which are easily incorporated into a model using [Execute R Script](https://msdn.microsoft.com/library/azure/dn905952.aspx) or [Execute Python Script](https://msdn.microsoft.com/library/azure/dn913065.aspx). Here's a simple Python script that bins CRS_DEP_TIME values as described above:
+There are several ways to accomplish binning in Azure Machine Learning. One of them is the [Group Data Into Bins](https://msdn.microsoft.com/library/azure/dn913065.aspx) module. More often, data scientists prefer to write a few lines of R or Python code, which are easily incorporated into a model using [Execute R Script](https://msdn.microsoft.com/library/azure/dn905952.aspx) or [Execute Python Script](https://msdn.microsoft.com/library/azure/dn955437.aspx). Here's a simple Python script that bins CRS_DEP_TIME values as described above:
 
 ```python
 # Assume df is the dataframe containing the data
