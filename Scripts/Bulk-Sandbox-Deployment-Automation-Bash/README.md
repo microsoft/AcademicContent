@@ -96,6 +96,7 @@ Currently you can deploy the following Marketplace VM’s:
 * Data Science Virtual Machine for Linux (Ubuntu) ([link](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu))
 * Data Science Virtual Machine for Windows ([link](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm))
 * Data Science Virtual Machine for Linux (Centos) ([link](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm))
+* Deep Learning toolkit for the DSVM ([link](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning))
 * Other types of VMs created using the `create-vm-image.sh` script.
 
 ## Installation
@@ -269,6 +270,20 @@ $ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st 
 
 >**Important!**
 >Post-deployment has limited time to run scripts. This 1 hour 30 minutes. After we had error message: "Provisioning of VM extension 'CustomScript' has timed out. Extension installation may be taking too long, or extension status could not be obtained."
+
+**Deploy Deep Learning toolkit for the DSVMs**  
+Deploying this toolkit requires access to Azure GPU NC-class instances.
+
+Allowed Locations:
+* Standard_NC6
+* Standard_NC12
+* Standard_NC24
+
+```sh
+./deploy-vm.sh -in input.csv -out output.csv -l eastus -s Standard_NC6 -st standard -d manage -m off -vm ds-vm-windows -p http://www.example.com/deep-learningtoolkit/install.ps1
+```
+
+After provisioning the deep learning toolkit, see the README file in C:\dsvm\deep-learning, or on the desktop, for more information.
 
 Examples of files (input.csv, output.csv) are included in this repository.
 
