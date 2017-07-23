@@ -23,8 +23,8 @@ $(function () {
         var departuretime = $("#departuretime").val();
 
         // Build JSON input
-        var columns = ["YEAR", "QUARTER", "MONTH", "DAY_OF_MONTH", "DAY_OF_WEEK", "UNIQUE_CARRIER", "TAIL_NUM", "FL_NUM", "ORIGIN_AIRPORT_ID", "ORIGIN", "DEST_AIRPORT_ID", "DEST", "CRS_DEP_TIME", "DEP_TIME", "DEP_DELAY", "DEP_DEL15", "CRS_ARR_TIME", "ARR_TIME", "ARR_DELAY", "ARR_DEL15", "CANCELLED", "DIVERTED", "CRS_ELAPSED_TIME", "ACTUAL_ELAPSED_TIME", "DISTANCE", "Column 25"];
-        var values = [0, 0, month, day, dayOfWeek, "", "", 0, 0, origin, 0, destination, departuretime, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ""];
+        var columns = ["YEAR", "QUARTER", "MONTH", "DAY_OF_MONTH", "DAY_OF_WEEK", "UNIQUE_CARRIER", "TAIL_NUM", "FL_NUM", "ORIGIN_AIRPORT_ID", "ORIGIN", "DEST_AIRPORT_ID", "DEST", "CRS_DEP_TIME", "DEP_TIME", "DEP_DELAY", "DEP_DEL15", "CRS_ARR_TIME", "ARR_TIME", "ARR_DELAY", "ARR_DEL15", "CANCELLED", "DIVERTED", "CRS_ELAPSED_TIME", "ACTUAL_ELAPSED_TIME", "DISTANCE"];
+        var values = [0, 0, month, day, dayOfWeek, "", "", 0, 0, origin, 0, destination, departuretime, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
         var input1 = new Object();
         input1.ColumnNames = columns;
@@ -49,7 +49,7 @@ $(function () {
         }).done(function (data) {
             showResults(data);
         }).fail(function(xhr, status, err) {
-            alert(status);
+            alert(status + " (" + err + ")");
         });
     });
 });
