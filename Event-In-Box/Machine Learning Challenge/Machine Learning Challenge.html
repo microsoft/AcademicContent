@@ -764,24 +764,13 @@ vertical-align:1px;
 <h3>Hint #1: Try different algorithms</h3>
 <p>ML Studio includes nine binary (two-class) classification algorithms that you can employ in a model. Even seasoned data scientists often don't know which algorithm will produce the best results until they try them out. That's one of the strengths of Azure Machine Learning: trying different algorithms is as simple as swapping one module for another.</p>
 <p>The model you built in <a href="#Exercise2">Exercise 2</a> uses <a href="https://msdn.microsoft.com/library/azure/dn905994.aspx">Two-Class Logistic Regression</a>, which is a popular algorithm that uses regression to compute the probability of each of two possible results. Experiment with different algorithms to see which produces the best result.</p>
-<h3>Hint #2: Tune the learning algorithm</h3>
-<p>Each algorithm in Azure Machine Learning exposes parameters that you can use to tune its performance. When an algorithmic module such as <a href="https://msdn.microsoft.com/library/azure/dn905994.aspx">Two-Class Logistic Regression</a> is selected on the canvas, its parameters appear in the Properties pane on the right.</p>
-<p><a href="Images/logistic-regression-parameters.png" target="_blank"><img src="Images/logistic-regression-parameters.png" alt="Parameters for Two-Class Logistic Regression" style="max-width:100%;"></a></p>
-<p><em>Parameters for Two-Class Logistic Regression</em></p>
-<p>Experimenting with different parameters frequently improves the accuracy of a model, but can also require a lot of time. That's why Azure Machine Learning offers a module named <a href="https://msdn.microsoft.com/library/azure/dn905810.aspx">Tune Model Hyperparameters</a>. Replacing <a href="https://msdn.microsoft.com/library/azure/dn906044.aspx">Train Model</a> with Tune Model Hyperparameters allows the latter to find the optimum combination of parameter values for you at the expense of increased training time.</p>
-<blockquote>
-<p>Training time can increase significantly when you use Tune Model Hyperparameters, especially if you set the parameter sweep mode to <strong>Entire grid</strong>.</p>
-</blockquote>
-<p><a href="Images/tune-model-hyperparameters.png" target="_blank"><img src="Images/tune-model-hyperparameters.png" alt="Using Tune Model Hyperparameters" style="max-width:100%;"></a></p>
-<p><em>Using Tune Model Hyperparameters</em></p>
-<p>Tune Model Hyperparameters isn't the only way to tune the learning algorithm. For additional ideas, see <a href="https://docs.microsoft.com/azure/machine-learning/machine-learning-algorithm-parameters-optimize">https://docs.microsoft.com/azure/machine-learning/machine-learning-algorithm-parameters-optimize</a>.</p>
-<h3>Hint #3: Mitigate the effect of cancelled and diverted flights</h3>
+<h3>Hint #2: Mitigate the effect of cancelled and diverted flights</h3>
 <p>The dataset that you are using contains almost 200 rows representing cancelled or diverted flights. These flights are represented by 1s in the CANCELLED or DIVERTED column, which you filtered out with the <a href="https://msdn.microsoft.com/library/azure/dn905883.aspx">Select Columns in Dataset</a> module in <a href="#Exercise2">Exercise 2</a>. Rows representing cancelled or diverted flights have no ARR_DEL15 values, which skews the dataset and therefore the results. Visualize the column and you'll note that it has 188 missing values and three unique values, when it should have just two (0 and 1). These are red flags to a data scientist.</p>
 <p><a href="Images/arr-del15.png" target="_blank"><img src="Images/arr-del15.png" alt="The ARR_DEL15 column" style="max-width:100%;"></a></p>
 <p><em>The ARR_DEL15 column</em></p>
 <p>There are multiple ways in which you can attack this. One is to write an R or Python script that removes rows with missing ARR_DEL15 values or simply replaces missing ARR_DEL15 values with 1 to indicate that the flight didn't arrive on time, and inject the script into the model using an <a href="https://msdn.microsoft.com/library/azure/dn905952.aspx">Execute R Script</a> or <a href="https://msdn.microsoft.com/library/azure/dn955437.aspx">Execute Python Script</a> module. Alternatively, since each row representing a cancelled or diverted flight has a missing feature (a column with no data), you could use the <a href="https://msdn.microsoft.com/library/azure/dn906028.aspx">Clean Missing Data</a> module, which makes it very easy to replace missing values or remove rows with missing values altogether.</p>
-<h3>Hint #4: Reduce imbalance in the dataset</h3>
-<p>In a perfect world, the data used to train a two-class classification model would contain a 50-50 split of positives and negatives. In the real world, it rarely does. Imbalanced datasets adversely affect a model's accuracy. And right now, the data in the ARR_DEL15 column of the dataset you are using — the feature whose value you are attempting to predict — exhibits significant imbalance. The ratio of on-time arrivals to late arrivals is more than 6 to 1.</p>
+<h3>Hint #3: Reduce imbalance in the dataset</h3>
+<p>In a perfect world, the data used to train a two-class classification model would contain a 50-50 split of positives and negatives. In the real world, it rarely does. Imbalanced datasets often (but not always) adversely affect a model's accuracy. And right now, the data in the ARR_DEL15 column of the dataset you are using — the feature whose value you are attempting to predict — exhibits significant imbalance. The ratio of on-time arrivals to late arrivals is more than 6 to 1.</p>
 <p><a href="Images/arr-del15.png" target="_blank"><img src="Images/arr-del15.png" alt="The ARR_DEL15 column" style="max-width:100%;"></a></p>
 <p><em>The ARR_DEL15 column</em></p>
 <p>Data scientists use two techniques to reduce imbalance. <em>Upsampling</em> increases the number of samples from the minority class — in this case, by adding more rows representing late arrivals. <em>Downsampling</em> does the opposite, reducing the number of samples from the majority class.</p>
@@ -792,7 +781,8 @@ vertical-align:1px;
 <li>Increase the number of rows representing late arrivals using the <a href="https://www.jair.org/media/953/live-953-2037-jair.pdf">Synthetic Minority Oversampling Technique</a> (SMOTE)</li>
 </ul>
 <p>Azure Machine Learning's <a href="https://msdn.microsoft.com/library/azure/dn913076.aspx">SMOTE</a> module makes it easy to do the latter, synthetically increasing the number of minority samples using a nearest-neighbor approach. A model that uses SMOTE to reduce imbalance takes longer to train, but often produces better results than one that doesn't.</p>
-<h3>Hint #5: "Bin" scheduled departure times</h3>
+<p>If you introduce SMOTE, be sure to add it to the model <em>after</em> the Split Data module so that it only affects the training data. Otherwise, the testing data will include synthesized rows, which could lead to misleading (and incorrect) AUC numbers.</p>
+<h3>Hint #4: "Bin" scheduled departure times</h3>
 <p>The CRS_DEP_TIME column of the dataset you are using represents scheduled departure times. The granularity of the numbers in this column — it contains 551 unique values — could have a negative impact on accuracy. This can be resolved using a technique called <a href="http://data-informed.com/enhance-machine-learning-with-standardizing-binning-reducing/">binning</a> or quantization. What if you divided each number in this column by 100 and rounded down to the nearest integer? 1030 would become 10, 1925 would become 19, and so on, and you would be left with a maximum of 24 discrete values in this column. Intuitively, it makes sense, because it probably doesn't matter much whether a flight leaves at 10:30 a.m. or 10:40 a.m. It matters a great deal whether it leaves at 10:30 a.m. or 5:30 p.m.</p>
 <p><a href="Images/binning.png" target="_blank"><img src="Images/binning.png" alt="The CRS_DEP_TIME column" style="max-width:100%;"></a></p>
 <p><em>The CRS_DEP_TIME column</em></p>
@@ -801,6 +791,17 @@ vertical-align:1px;
 <span class="pl-k">for</span> index, row <span class="pl-k">in</span> df.iterrows():
     df.loc[index, <span class="pl-s"><span class="pl-pds">'</span>CRS_DEP_TIME<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> math.floor(row[<span class="pl-s"><span class="pl-pds">'</span>CRS_DEP_TIME<span class="pl-pds">'</span></span>] <span class="pl-k">/</span> <span class="pl-c1">100</span>)</pre></div>
 <p>If binning departure times in this manner improves the accuracy of the model, you might experiment with different bin sizes as well.</p>
+<h3>Hint #5: Tune the learning algorithm</h3>
+<p>Each algorithm in Azure Machine Learning exposes parameters that you can use to tune its performance. When an algorithmic module such as <a href="https://msdn.microsoft.com/library/azure/dn905994.aspx">Two-Class Logistic Regression</a> is selected on the canvas, its parameters appear in the Properties pane on the right.</p>
+<p><a href="Images/logistic-regression-parameters.png" target="_blank"><img src="Images/logistic-regression-parameters.png" alt="Parameters for Two-Class Logistic Regression" style="max-width:100%;"></a></p>
+<p><em>Parameters for Two-Class Logistic Regression</em></p>
+<p>Experimenting with different parameters frequently improves the accuracy of a model, but can also require a lot of time. That's why Azure Machine Learning offers a module named <a href="https://msdn.microsoft.com/library/azure/dn905810.aspx">Tune Model Hyperparameters</a>. Replacing <a href="https://msdn.microsoft.com/library/azure/dn906044.aspx">Train Model</a> with Tune Model Hyperparameters allows the latter to find the optimum combination of parameter values for you at the expense of increased training time.</p>
+<blockquote>
+<p>Training time can increase significantly when you use Tune Model Hyperparameters, especially if you set the parameter sweep mode to <strong>Entire grid</strong>.</p>
+</blockquote>
+<p><a href="Images/tune-model-hyperparameters.png" target="_blank"><img src="Images/tune-model-hyperparameters.png" alt="Using Tune Model Hyperparameters" style="max-width:100%;"></a></p>
+<p><em>Using Tune Model Hyperparameters</em></p>
+<p>Tune Model Hyperparameters isn't the only way to tune the learning algorithm. For additional ideas, see <a href="https://docs.microsoft.com/azure/machine-learning/machine-learning-algorithm-parameters-optimize">https://docs.microsoft.com/azure/machine-learning/machine-learning-algorithm-parameters-optimize</a>.</p>
 <h3>Hint #6: Train with a larger dataset</h3>
 <p><strong>BigFlightData.csv</strong> contains a dataset that is roughly four times larger than the one you trained the model with. Training a model with a larger dataset often improves accuracy. Training will take longer, which is a good reason to tune the model to the extent possible with a smaller dataset, and <em>then</em> to introduce a larger dataset.</p>
 <p>Remember that the goal is to achieve an AUC value of <strong>0.75 or greater</strong>. If you can do that, then you have learned to think like a data scientist!</p>

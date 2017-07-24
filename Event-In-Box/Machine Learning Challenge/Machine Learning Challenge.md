@@ -254,25 +254,7 @@ ML Studio includes nine binary (two-class) classification algorithms that you ca
 
 The model you built in [Exercise 2](#Exercise2) uses [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx), which is a popular algorithm that uses regression to compute the probability of each of two possible results. Experiment with different algorithms to see which produces the best result.
 
-### Hint #2: Tune the learning algorithm ###
-
-Each algorithm in Azure Machine Learning exposes parameters that you can use to tune its performance. When an algorithmic module such as [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) is selected on the canvas, its parameters appear in the Properties pane on the right.
-
-![Parameters for Two-Class Logistic Regression](Images/logistic-regression-parameters.png)
-
-_Parameters for Two-Class Logistic Regression_
-
-Experimenting with different parameters frequently improves the accuracy of a model, but can also require a lot of time. That's why Azure Machine Learning offers a module named [Tune Model Hyperparameters](https://msdn.microsoft.com/library/azure/dn905810.aspx). Replacing [Train Model](https://msdn.microsoft.com/library/azure/dn906044.aspx) with Tune Model Hyperparameters allows the latter to find the optimum combination of parameter values for you at the expense of increased training time.
-
-> Training time can increase significantly when you use Tune Model Hyperparameters, especially if you set the parameter sweep mode to **Entire grid**.
-
-![Using Tune Model Hyperparameters](Images/tune-model-hyperparameters.png)
-
-_Using Tune Model Hyperparameters_
-
-Tune Model Hyperparameters isn't the only way to tune the learning algorithm. For additional ideas, see https://docs.microsoft.com/azure/machine-learning/machine-learning-algorithm-parameters-optimize.
-
-### Hint #3: Mitigate the effect of cancelled and diverted flights ###
+### Hint #2: Mitigate the effect of cancelled and diverted flights ###
 
 The dataset that you are using contains almost 200 rows representing cancelled or diverted flights. These flights are represented by 1s in the CANCELLED or DIVERTED column, which you filtered out with the [Select Columns in Dataset](https://msdn.microsoft.com/library/azure/dn905883.aspx) module in [Exercise 2](#Exercise2). Rows representing cancelled or diverted flights have no ARR_DEL15 values, which skews the dataset and therefore the results. Visualize the column and you'll note that it has 188 missing values and three unique values, when it should have just two (0 and 1). These are red flags to a data scientist.
 
@@ -282,9 +264,9 @@ _The ARR_DEL15 column_
 
 There are multiple ways in which you can attack this. One is to write an R or Python script that removes rows with missing ARR_DEL15 values or simply replaces missing ARR_DEL15 values with 1 to indicate that the flight didn't arrive on time, and inject the script into the model using an [Execute R Script](https://msdn.microsoft.com/library/azure/dn905952.aspx) or [Execute Python Script](https://msdn.microsoft.com/library/azure/dn955437.aspx) module. Alternatively, since each row representing a cancelled or diverted flight has a missing feature (a column with no data), you could use the [Clean Missing Data](https://msdn.microsoft.com/library/azure/dn906028.aspx) module, which makes it very easy to replace missing values or remove rows with missing values altogether.
 
-### Hint #4: Reduce imbalance in the dataset ###
+### Hint #3: Reduce imbalance in the dataset ###
 
-In a perfect world, the data used to train a two-class classification model would contain a 50-50 split of positives and negatives. In the real world, it rarely does. Imbalanced datasets adversely affect a model's accuracy. And right now, the data in the ARR_DEL15 column of the dataset you are using — the feature whose value you are attempting to predict — exhibits significant imbalance. The ratio of on-time arrivals to late arrivals is more than 6 to 1.
+In a perfect world, the data used to train a two-class classification model would contain a 50-50 split of positives and negatives. In the real world, it rarely does. Imbalanced datasets often (but not always) adversely affect a model's accuracy. And right now, the data in the ARR_DEL15 column of the dataset you are using — the feature whose value you are attempting to predict — exhibits significant imbalance. The ratio of on-time arrivals to late arrivals is more than 6 to 1.
 
 ![The ARR_DEL15 column](Images/arr-del15.png)
 
@@ -300,7 +282,9 @@ There are three ways you can reduce imbalance in the datset you were given:
 
 Azure Machine Learning's [SMOTE](https://msdn.microsoft.com/library/azure/dn913076.aspx) module makes it easy to do the latter, synthetically increasing the number of minority samples using a nearest-neighbor approach. A model that uses SMOTE to reduce imbalance takes longer to train, but often produces better results than one that doesn't.
 
-### Hint #5: "Bin" scheduled departure times ###
+If you introduce SMOTE, be sure to add it to the model *after* the Split Data module so that it only affects the training data. Otherwise, the testing data will include synthesized rows, which could lead to misleading (and incorrect) AUC numbers.
+
+### Hint #4: "Bin" scheduled departure times ###
 
 The CRS_DEP_TIME column of the dataset you are using represents scheduled departure times. The granularity of the numbers in this column — it contains 551 unique values — could have a negative impact on accuracy. This can be resolved using a technique called [binning](http://data-informed.com/enhance-machine-learning-with-standardizing-binning-reducing/) or quantization. What if you divided each number in this column by 100 and rounded down to the nearest integer? 1030 would become 10, 1925 would become 19, and so on, and you would be left with a maximum of 24 discrete values in this column. Intuitively, it makes sense, because it probably doesn't matter much whether a flight leaves at 10:30 a.m. or 10:40 a.m. It matters a great deal whether it leaves at 10:30 a.m. or 5:30 p.m.
 
@@ -317,6 +301,24 @@ for index, row in df.iterrows():
 ```
 
 If binning departure times in this manner improves the accuracy of the model, you might experiment with different bin sizes as well. 
+
+### Hint #5: Tune the learning algorithm ###
+
+Each algorithm in Azure Machine Learning exposes parameters that you can use to tune its performance. When an algorithmic module such as [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) is selected on the canvas, its parameters appear in the Properties pane on the right.
+
+![Parameters for Two-Class Logistic Regression](Images/logistic-regression-parameters.png)
+
+_Parameters for Two-Class Logistic Regression_
+
+Experimenting with different parameters frequently improves the accuracy of a model, but can also require a lot of time. That's why Azure Machine Learning offers a module named [Tune Model Hyperparameters](https://msdn.microsoft.com/library/azure/dn905810.aspx). Replacing [Train Model](https://msdn.microsoft.com/library/azure/dn906044.aspx) with Tune Model Hyperparameters allows the latter to find the optimum combination of parameter values for you at the expense of increased training time.
+
+> Training time can increase significantly when you use Tune Model Hyperparameters, especially if you set the parameter sweep mode to **Entire grid**.
+
+![Using Tune Model Hyperparameters](Images/tune-model-hyperparameters.png)
+
+_Using Tune Model Hyperparameters_
+
+Tune Model Hyperparameters isn't the only way to tune the learning algorithm. For additional ideas, see https://docs.microsoft.com/azure/machine-learning/machine-learning-algorithm-parameters-optimize.
 
 ### Hint #6: Train with a larger dataset ###
 
