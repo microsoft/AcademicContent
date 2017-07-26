@@ -514,7 +514,7 @@ vertical-align:1px;
 <p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
 </li>
 <li>
-<p>Click <strong>+ New</strong> in the upper-left corner of the portal. Then click <strong>Intelligence + analytics</strong> followed by <strong>HDInsight</strong>.</p>
+<p>Click <strong>+ New</strong> in the upper-left corner of the portal. Then click <strong>Data + Analytics</strong>, followed by <strong>HDInsight</strong>.</p>
 <p><a href="Images/new-hdinsight.png" target="_blank"><img src="Images/new-hdinsight.png" alt="Creating an HDInsight cluster" style="max-width:100%;"></a></p>
 <p><em>Creating an HDInsight cluster</em></p>
 </li>
@@ -523,7 +523,7 @@ vertical-align:1px;
 <blockquote>
 <p>In case someone else in the lab selects the same cluster name, make it as unique as possible by including birth dates, initials, and anything else you care to add. The name you entered may be unique right now, but it might NOT be unique a few minutes into the deployment.</p>
 </blockquote>
-<p>Enter "Azure4Research!" (without quotation marks) for <strong>Cluster login password</strong>. Select <strong>Create new</strong> under <strong>Resource group</strong> and enter the resource-group name "SparkLabResourceGroup" (once more, without quotation marks). Select the <strong>Location</strong> nearest you, and then click <strong>Cluster type</strong> to open a "Cluster configuration" blade.</p>
+<p>Enter "Azure4Research!" (without quotation marks) for <strong>Cluster login password</strong>. Select <strong>Create new</strong> under <strong>Resource group</strong> and enter the resource-group name "SparkLabResourceGroup." Select the <strong>Location</strong> nearest you, and then click <strong>Cluster type</strong> to open a "Cluster configuration" blade.</p>
 <p><a href="Images/spark-basic.png" target="_blank"><img src="Images/spark-basic.png" alt="Entering basic cluster settings" style="max-width:100%;"></a></p>
 <p><em>Entering basic cluster settings</em></p>
 </li>
@@ -533,7 +533,7 @@ vertical-align:1px;
 <p><em>Entering cluster-configuration settings</em></p>
 </li>
 <li>
-<p>Make sure <strong>Primary storage type</strong> is set to <strong>Azure Storage</strong> and <strong>Selection method</strong> is set to <strong>My subscriptions</strong>. Then enter a name for a new storage account in the <strong>Create a new Storage account</strong> box, once more making the name as unique as possible by including birth dates or other information. (If your subscription already contains one or more storage accounts, you will first have to click <strong>Create new</strong> to display the <strong>Create a new Storage account</strong> box.) Type "sparklab" into the <strong>Default container</strong> box, and then click <strong>Next</strong>.</p>
+<p>Make sure <strong>Primary storage type</strong> is set to <strong>Azure Storage</strong> and <strong>Selection method</strong> is set to <strong>My subscriptions</strong>. Then enter a unique storage account name, once more making it as unique as possible by including birth dates or other information. (If the portal selects an existing storage account by default, click <strong>Create new</strong> to create a new storage account.) Type "sparklab" into the <strong>Default container</strong> box, and then click <strong>Next</strong>.</p>
 <blockquote>
 <p>These settings apply to the storage account that is provisioned along with the cluster. The storage account contains the cluster's file system and the software installed inside.</p>
 </blockquote>
