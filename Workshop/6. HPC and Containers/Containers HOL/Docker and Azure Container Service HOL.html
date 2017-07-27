@@ -571,15 +571,16 @@ ls
 <p><em>Creating a container service</em></p>
 </li>
 <li>
-<p>Click the <strong>Create</strong> button at the bottom of the "Azure Container Service" blade. In the "Basics" blade, select <strong>Swarm</strong> as the orchestrator. Select <strong>Create new</strong> under <strong>Resource group</strong> and enter the resource-group name "ACSLabResourceGroup" (without quotation marks). Select the location nearest you under <strong>Location</strong>, and then click the <strong>OK</strong> button.</p>
-<blockquote>
-<p>Swarm, DC/OS, and Kubernetes are popular open-source orchestration tools that enable you to deploy clusters containing thousands or even tens of thousands of containers. (Think of a compute cluster consisting of containers rather than physical servers, all sharing a load and running code in parallel.)  All three are preinstalled in Azure Container Service, with the goal being that you can use the one you are most familiar with rather than learn a new tool. Swarm is Docker's own native clustering tool.</p>
-</blockquote>
+<p>In the "Basics" blade, enter a name for the service. Select <strong>Create new</strong> under <strong>Resource group</strong> and enter the resource-group name "ACSLabResourceGroup" (without quotation marks). Select the location nearest you under <strong>Location</strong>, and then click the <strong>OK</strong> button.</p>
 <p><a href="Images/docker-acs-basics.png" target="_blank"><img src="Images/docker-acs-basics.png" alt="Basic settings" style="max-width:100%;"></a></p>
 <p><em>Basic settings</em></p>
 </li>
 <li>
-<p>In the "Master configuration" blade, enter a DNS name prefix in the <strong>DNS name prefix</strong> box. (The prefix doesn't have to be unique across Azure, but it does have to be unique to a data center. To ensure uniqueness, you should <em>include birth dates or other personal information</em> that is unlikely to be used by other people working these exercises. Otherwise, you may see a green check mark in the <strong>DNS name prefix</strong> box but still suffer a deployment failure.) Enter "dockeruser" (without quotation marks) for <strong>User name</strong> and the public key that you generated in <a href="#Exercise1">Exercise 1</a> for <strong>SSH public key</strong>. Then set <strong>Master count</strong> to <strong>1</strong> and click <strong>OK</strong>.</p>
+<p>In the "Master configuration" blade, select <strong>Swarm</strong> as the orchestrator.</p>
+<blockquote>
+<p>Swarm, DC/OS, and Kubernetes are popular open-source orchestration tools that enable you to deploy clusters containing thousands or even tens of thousands of containers. (Think of a compute cluster consisting of containers rather than physical servers, all sharing a load and running code in parallel.)  All three are preinstalled in Azure Container Service, with the goal being that you can use the one you are most familiar with rather than learn a new tool. Swarm is Docker's own native clustering tool.</p>
+</blockquote>
+<p>Enter a DNS name prefix in the <strong>DNS name prefix</strong> box. (The prefix doesn't have to be unique across Azure, but it does have to be unique to a data center. To ensure uniqueness, you should <em>include birth dates or other personal information</em> that is unlikely to be used by other people working these exercises. Otherwise, you may see a green check mark in the <strong>DNS name prefix</strong> box but still suffer a deployment failure.) Enter "dockeruser" (without quotation marks) for <strong>User name</strong> and the public key that you generated in <a href="#Exercise1">Exercise 1</a> for <strong>SSH public key</strong>. Then set <strong>Master count</strong> to <strong>1</strong> and click <strong>OK</strong>.</p>
 <blockquote>
 <p>You can retrieve the public key from the <strong>id_rsa.pub</strong> or <strong>public.txt</strong> file that you generated in Exercise 1 and paste it into <strong>SSH public key</strong> box.</p>
 </blockquote>
@@ -617,7 +618,7 @@ ls
 <ol>
 <li>
 <p>After the container service finishes deploying, return to the blade for the "ACSLabResourceGroup" resource group. Then click the resource named <strong>swarm-master-lb-xxxxxxxx</strong>. This is the master load balancer for the swarm.</p>
-<p><a href="Images/docker-open-master-lb.png" target="_blank"><img src="Images/docker-open-master-lb.png" alt="Opening the master load balancer" style="max-width:100%;"></a></p>
+<p><a href="Images/open-master-lb.png" target="_blank"><img src="Images/open-master-lb.png" alt="Opening the master load balancer" style="max-width:100%;"></a></p>
 <p><em>Opening the master load balancer</em></p>
 </li>
 <li>
@@ -750,7 +751,7 @@ ls
 <ol>
 <li>
 <p>In the Azure Portal, open the blade for the "ACSLabResourceGroup" resource group. Click the virtual machine whose name begins with <strong>swarm-master</strong> to open a blade for the master VM.</p>
-<p><a href="Images/docker-open-vm.png" target="_blank"><img src="Images/docker-open-vm.png" alt="Opening a blade for the master VM" style="max-width:100%;"></a></p>
+<p><a href="Images/open-master-vm.png" target="_blank"><img src="Images/open-master-vm.png" alt="Opening a blade for the master VM" style="max-width:100%;"></a></p>
 <p><em>Opening a blade for the master VM</em></p>
 </li>
 <li>
@@ -767,7 +768,7 @@ ls
 <ol>
 <li>
 <p>In the Azure Portal, open the blade for the "ACSLabResourceGroup" resource group. Then click the <strong>Delete</strong> button at the top of the blade.</p>
-<p><a href="Images/docker-delete-resource-group.png" target="_blank"><img src="Images/docker-delete-resource-group.png" alt="Deleting a resource group" style="max-width:100%;"></a></p>
+<p><a href="Images/delete-resource-group.png" target="_blank"><img src="Images/delete-resource-group.png" alt="Deleting a resource group" style="max-width:100%;"></a></p>
 <p><em>Deleting a resource group</em></p>
 </li>
 <li>
@@ -775,10 +776,11 @@ ls
 </li>
 </ol>
 <p>After a few minutes, you will be notified that the resource group was deleted. If the deleted resource group still appears in the "Resource groups" blade, click that blade's <strong>Refresh</strong> button to update the list of resource groups. The deleted resource group should go away.</p>
+<p><a name="Summary"></a></p>
 <h2>Summary</h2>
 <p>The Azure Container Service makes it easy to run apps packaged in Docker containers in the cloud without having to manage servers or install a container stack yourself. Container images are smaller than VM images, they start faster, and they typically cost less since a single VM can host multiple container instances. More importantly, Docker containers can be hosted in other cloud platforms such as Amazon Web Services (AWS). If you want to avoid being tied to a single cloud platform, containers are a great way to achieve that independence.</p>
 <hr>
-<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
