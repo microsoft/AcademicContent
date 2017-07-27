@@ -1,9 +1,7 @@
-### Modules
+# Modules
 
----
-
-**Files:** extensions.sh, extensions.ps1
-
+## Extensions
+**Files:** `extensions.sh`, `extensions.ps1`  
 **Purpose:** Current functions:
 * Create a new user 
 * Upload the files to user's desktop.
@@ -26,3 +24,20 @@ To utilize this script, you will need to replace the fileUris section with the a
 ```sh
 local extensionsScriptPathUri="<extensions_script_path_uri>"
 ```
+
+## Post install  
+**Files:** `post-install.sh`, `post-install.ps1`  
+**Purpose:** Install packages  
+**Description:** Sample scripts that install packages after deployment.  
+
+## Tensorflow  
+**Files:** `tensorflow-setup.sh`, `tenserflow-test.py`  
+**Purpose:** Install [tensorflow](https://www.tensorflow.org/get_started/)  
+**Description:** Installing TensorFlow on Ubuntu. 
+
+## Send Email
+**Files:** `send-email.sh`
+**Purpose:** Install packages  
+**Description:** These scripts are used in `deploy-vm.sh`. See instructions for [reference](https://github.com/MSFTImagine/computerscience/tree/master/Scripts/Bulk-Sandbox-Deployment-Automation-Bash#email-server-setup).
+
+---

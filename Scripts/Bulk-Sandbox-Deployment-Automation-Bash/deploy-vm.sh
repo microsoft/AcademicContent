@@ -64,8 +64,8 @@ deploy-vm() {
 	local storageName="storage"${rand:0:8}
 	storageName="${storageName,,}"
 	#define VM name
-	local VmName=$vmNameTemplate-$i
-	VmName=${VmName:0:15}
+	local vmName=$vmNameTemplate-$i
+	vmName=${vmName:0:15}
 	local publicIpAddressNameValue=$vmNameTemplate-$i-ip
 	#define DNS prefix
 	local dnsprefix=data-science-${rand:0:6}
@@ -88,7 +88,7 @@ deploy-vm() {
 	local dataDiskType=$disk
 
 	# e.g: https://contoso.com/scripts/ (there are extensions script files)
-	local extensionsScriptPathUri="<extensions_script_path_uri>"
+	local extensionsScriptPathUri="https://raw.githubusercontent.com/MSFTImagine/computerscience/master/Scripts/Bulk-Sandbox-Deployment-Automation-Bash/modules/"
 	local fileUris=""
 
 	if [[ $extensionsScriptPathUri == "<extensions_script_path_uri>" ]]; then 
@@ -181,7 +181,7 @@ deploy-vm() {
 	fi
 
 	#generate parameters string using parameters.json file which was received as an input
-	param=$(cat $inputParameterFile | sed s#virtualMachineNameValue#"$VmName"#g;)
+	param=$(cat $inputParameterFile | sed s#virtualMachineNameValue#"$vmName"#g;)
 	param=$(echo $param | sed s#virtualMachineSizeValue#$vmSize#g;)
 	param=$(echo $param | sed s#storageAccountNameValue#$storageName#g;)
 	param=$(echo $param | sed s#storageAccountTypeValue#$storageType#g;)
@@ -219,11 +219,16 @@ deploy-vm() {
 	# Deploy VMs
 	az group deployment create -g $resourceGroupName --template-file $templateFilePath --parameters "$param" --no-wait >>$logFile #2>&1
 
-	outputString="$className","$classNameID","$subscriptionName","$subscriptionID","$studentName","$studentEmailAddress","$vmUserName","$vmAdminUserName","$vmLocation","$VmName","$dnsprefix","$resourceGroupName","$networkSecurityGroupNameValue","$comment"
+	outputString="$className","$classNameID","$subscriptionName","$subscriptionID","$studentName","$studentEmailAddress","$vmUserName","$vmAdminUserName","$vmLocation","$vmName","$dnsprefix","$resourceGroupName","$networkSecurityGroupNameValue","$comment"
 	
-	if [ $mail == "on" ]; then
-		#Send email to student
-		sendEmail "$studentEmailAddress" "$studentName" "$VmName" "$osType" "$dnsprefix" "$vmLocation" "$studentLogin" "$studentPassword"
+	if [ $mail == "on" ]; then		
+		#check for send email file
+		if [ ! -f "./modules/send-email.sh" ]; then
+			error "send-email.sh file not found"
+		else
+			#Send email to student
+			./modules/send-email.sh "$studentEmailAddress" "$studentName" "$vmName" "$osType" "$dnsprefix" "$vmLocation" "$studentLogin" "$studentPassword"
+		fi
 	fi
 
 	#Pass output parameters to output.csv file specifyed by user
@@ -241,61 +246,6 @@ validateUrl(){
 		error "Remote file $fileName does not exist!"
 		exit 0
 	fi
-}
-
-#
-# Purpose: Send e-mail using sendgrid api
-#
-sendEmail() {
-
-	echo Start sending email to $1
-
-	#https://app.sendgrid.com/settings/api_keys
-	local apiKey="<sendgrid_api_key>" 	# set your api key
-	local emailFrom="<email_from>"		# set email from
-	local emailTo=$1
-	local subject="VM Information"
-	local content="<html><h3>Hello, "$2"</h3><p>Computer: "$3"</p><p>OS type: "$4"</p><p>DNS: "$5"."$6".azure.cloudapp.com</p><p>User Name: "$7"</p><p>Password: "$8"</p></html>"
-
-	if [[ $apiKey == "<sendgrid_api_key>" ]]; then 
-		error "The message will not be sent. Please specify <sendgrid_api_key>"
-		return 1
-	fi
-
-	if [[ $emailFrom == "<email_from>" ]]; then 
-		error "The message will not be sent. Please specify <email_from>"
-		return 1
-	fi
-
-	#send post request to sendgrid api
-	curl --request POST \
-		--globoff \
-		--url https://api.sendgrid.com/v3/mail/send \
-		--header 'Authorization: Bearer '$apiKey \
-		--header 'Content-Type: application/json' \
-		--data \
-		@<(cat <<EOF
-{
-	"personalizations": [{
-			"to": [{
-					"email": "$emailTo"
-				}
-			]
-		}
-	],
-	"from": {
-		"email": "$emailFrom"
-	},
-	"subject": "$subject",
-	"content": [{
-			"type": "text/html",
-			"value": "$content"
-		}
-	]
-}
-EOF
-)
-	echo Email $emailTo sent successfully
 }
 
 #

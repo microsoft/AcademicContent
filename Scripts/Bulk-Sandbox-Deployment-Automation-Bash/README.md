@@ -353,7 +353,7 @@ We recommend using SendGrid on Azure for email.
 
 ### Mail Service Provider
 This example utilizes SendGrid as the email service provider.
-To send emails, you should set up a master script.
+To send emails, you should set up a `send-email.sh` script.
 
 SendGrid includes a free account for Azure customers that includes some free emails each month including access to advanced reporting, analytics, and all APIs (Web, SMTP, Event, Parse and more). See instructions for [reference](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SendGrid.SendGrid).
 
@@ -397,9 +397,9 @@ To send an email using SendGrid, you must supply your API Key.
 #### Configure script file
 Sending email requires that you supply your SendGrid API Key. If you need details about how to configure API Keys, please visit SendGrid's API Keys documentation.
 
-Open the `deploy-vm.sh` script, find apiKey section and replace value with your API key
+Open the `send-email.sh` script, find apiKey section and replace value with your API key. Specify the email address of the sender.
 ```sh
-local apiKey="sendgrid_api_key"
+local apiKey="<sendgrid_api_key>"
 local emailFrom="<email_from>"
 ```
 
