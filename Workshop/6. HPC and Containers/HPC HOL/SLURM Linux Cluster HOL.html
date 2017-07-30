@@ -469,7 +469,7 @@ vertical-align:1px;
 </head>
 <body>
 <p><a name="HOLTitle"></a></p>
-<h1>Creating and Using an HPC SLURM Cluster in Azure</h1>
+<h1>Creating and Using an HPC Cluster in Azure</h1>
 <hr>
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
@@ -491,7 +491,7 @@ vertical-align:1px;
 <h3>Prerequisites</h3>
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription, or <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a></li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
 <li><a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">PuTTY</a> (Windows users only)</li>
 </ul>
 <hr>
@@ -529,6 +529,16 @@ vertical-align:1px;
 <p><em>Deploying from GitHub</em></p>
 </li>
 <li>
+<p>Click <strong>Edit template</strong>.</p>
+<p><a href="Images/edit-template.png" target="_blank"><img src="Images/edit-template.png" alt="Editing the template" style="max-width:100%;"></a></p>
+<p><em>Editing the template</em></p>
+</li>
+<li>
+<p>On Line 50, change the Ubuntu version number to <strong>16.04-LTS</strong>. Then click the <strong>Save</strong> button to save the change.</p>
+<p><a href="Images/edit-ubuntu-version.png" target="_blank"><img src="Images/edit-ubuntu-version.png" alt="Modifying the Ubuntu version number" style="max-width:100%;"></a></p>
+<p><em>Modifying the Ubuntu version number</em></p>
+</li>
+<li>
 <p>Select <strong>Create new</strong> under <strong>Resource group</strong> and enter the resource-group name "ClusterResourceGroup" (without quotation marks). Under <strong>Location</strong>, select the location nearest you. Specify "azureuser" as the <strong>Admin User Name</strong> and "Azure4Research!" as the <strong>Admin Password</strong>. Leave <strong>Vm Size</strong> set to <strong>Standard_D1_v2</strong> and set <strong>Scale Number</strong> to <strong>2</strong> to create a cluster containing two worker nodes. Then check the <strong>I agree to the terms and conditions stated above</strong> box and click the <strong>Purchase</strong> button at the bottom of the blade.</p>
 <blockquote>
 <p>It is very important to specify "azureuser" as the admin user name, because the scripts that you will use to configure the cluster use that user name.</p>
@@ -538,7 +548,7 @@ vertical-align:1px;
 </li>
 <li>
 <p>Deploying the cluster can take 5 minutes or more. You can monitor the status of the deployment by opening the resource group's blade. Click <strong>Resource groups</strong> in the ribbon on the left. Then click the resource group created for the cluster.</p>
-<p><a href="Images/open-cluster-resource-group.png" target="_blank"><img src="Images/open-cluster-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
+<p><a href="Images/open-resource-group.png" target="_blank"><img src="Images/open-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
 <p><em>Opening the resource group</em></p>
 </li>
 <li>
@@ -555,28 +565,23 @@ vertical-align:1px;
 <li>
 <p>Return to the Azure Portal and the blade for the resource group containing the cluster. Then click the storage account created for the cluster.</p>
 <blockquote>
-<p>The storage-account name will vary each time you deploy a cluster. The deployment template generates a unique storage-account name each time it is run. This storage account holds the virtual hard disks (VHDs) and other resources used by the cluster.</p>
+<p>The storage-account name will vary for different users. This storage account holds the virtual hard disks (VHDs) and other resources used by the cluster.</p>
 </blockquote>
 <p><a href="Images/open-storage-account.png" target="_blank"><img src="Images/open-storage-account.png" alt="Opening the storage account" style="max-width:100%;"></a></p>
 <p><em>Opening the storage account</em></p>
 </li>
 <li>
 <p>Click <strong>Blobs</strong> to view a list of blob containers in the storage account.</p>
-<p><a href="Images/view-blob-containers.png" target="_blank"><img src="Images/view-blob-containers.png" alt="Viewing blob containers" style="max-width:100%;"></a></p>
+<p><a href="Images/view-containers.png" target="_blank"><img src="Images/view-containers.png" alt="Viewing blob containers" style="max-width:100%;"></a></p>
 <p><em>Viewing blob containers</em></p>
 </li>
 <li>
-<p>Click <strong>+ Container</strong> to create a new blob container.</p>
-<p><a href="Images/create-blob-container.png" target="_blank"><img src="Images/create-blob-container.png" alt="Creating a container" style="max-width:100%;"></a></p>
-<p><em>Creating a container</em></p>
-</li>
-<li>
-<p>Type "input" (without quotation marks) into the <strong>Name</strong> field and click the <strong>Create</strong> button to create a container named "input."</p>
-<p><a href="Images/create-input-container.png" target="_blank"><img src="Images/create-input-container.png" alt="Creating an &quot;input&quot; container" style="max-width:100%;"></a></p>
+<p>Click <strong>+ Container</strong>. Type "input" (without quotation marks) into the <strong>Name</strong> field and click the <strong>OK</strong> button to create a container named "input."</p>
+<p><a href="Images/create-container.png" target="_blank"><img src="Images/create-container.png" alt="Creating an &quot;input&quot; container" style="max-width:100%;"></a></p>
 <p><em>Creating an "input" container</em></p>
 </li>
 <li>
-<p>Repeat Steps 3 and 4 to create a container named "output."</p>
+<p>Repeat Step 3 to create a container named "output."</p>
 </li>
 <li>
 <p>Click <strong>input</strong> to open the "input" container.</p>
@@ -589,12 +594,12 @@ vertical-align:1px;
 <p><em>Uploading blobs to the "input" container</em></p>
 </li>
 <li>
-<p>Click the <strong>Open</strong> button to the right of the <strong>Files</strong> box. Select all of the files in this lab's "resources/ColorImages" folder. Then click the <strong>Upload</strong> button to upload color images to the "input" folder.</p>
+<p>Click the <strong>Open</strong> button to the right of the <strong>Files</strong> box. Select all of the files in this lab's "resources/ColorImages" folder. Then click the <strong>Upload</strong> button to upload color images to the "input" container.</p>
 <p><a href="Images/upload-blobs-2.png" target="_blank"><img src="Images/upload-blobs-2.png" alt="Uploading color images" style="max-width:100%;"></a></p>
 <p><em>Uploading color images</em></p>
 </li>
 <li>
-<p>Wait until all of the uploads have completed. Then close the "Upload blob" blade and return to the blade for the "input" container. Confirm that the "input" container now contains a collection of .jpg and .png blobs, and click the blob named "Consoles_superhero_1920x768.jpg."</p>
+<p>Wait until all of the uploads have completed. Then close the "Upload blob" blade and return to the blade for the "input" container. Confirm that the container now contains a collection of .jpg and .png blobs, and click the blob named <strong>Consoles_superhero_1920x768.jpg</strong>.</p>
 <p><a href="Images/open-color-image.png" target="_blank"><img src="Images/open-color-image.png" alt="Opening a blob in the &quot;input&quot; container" style="max-width:100%;"></a></p>
 <p><em>Opening a blob in the "input" container</em></p>
 </li>
@@ -609,7 +614,7 @@ vertical-align:1px;
 <p><em>The downloaded blob</em></p>
 </li>
 </ol>
-<p>You now have containers to hold input and output and a collection of color images in the input container. The next step is to update the Python script used to process the images.</p>
+<p>You now have containers to hold input and output and a collection of color images in the input container. The next step is to update the Python script that will be used to process the images.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Prepare the Python script</h2>
 <p>With the SLURM cluster up and running and the images uploaded to blob storage, you are now ready to modify the Python script that processes the images with information enabling it to access the storage account. The script is named <strong>slurmdemo.py</strong> and is located in this lab's "resources" directory. You can use any text editor that you're comfortable with. There is no need to be concerned about how line breaks are encoded, because after uploading these scripts to the cluster's master node, you will run a utility to insert Linux-style line breaks into each script.</p>
@@ -678,14 +683,14 @@ vertical-align:1px;
 <p>Open a terminal window and navigate to the directory containing the Python script you modified in <a href="#Exercise3">Exercise 3</a>.</p>
 </li>
 <li>
-<p>Execute the following command in the terminal window, replacing <em>masterDNS</em> with the DNS name on the clipboard. When prompted, enter the admin password for the cluster ("Azure4Research!").</p>
+<p>Execute the following command in the terminal window to copy the script files to the cluster, replacing <em>masterDNS</em> with the DNS name on the clipboard. When prompted, enter the admin password for the cluster ("Azure4Research!").</p>
  <pre> scp * azureuser@<i>masterDNS</i>:.</pre>
 <blockquote>
 <p>Because this is the first time you have connected to the master node, you will be prompted with a security warning asking if you want to update the cached key. Since the host is one you created, answer yes.</p>
 </blockquote>
 </li>
 <li>
-<p>The next step is to log into the master node. Execute the following command in the terminal window, replacing <em>masterDNS</em> with the DNS name on the clipboard. When prompted, enter the admin password for the cluster ("Azure4Research!").</p>
+<p>The next step is to establish an SSH connection to the master node. Execute the following command in the terminal window, replacing <em>masterDNS</em> with the DNS name on the clipboard. When prompted, enter the admin password for the cluster ("Azure4Research!").</p>
  <pre> ssh azureuser@<i>masterDNS</i></pre>
 </li>
 <li>
@@ -739,7 +744,7 @@ dos2unix *
 <p>A PuTTY terminal window will appear and you will be prompted to <strong>login as</strong>. Log in with the user name ("azureuser") and password ("Azure4Research!") you entered into the deployment template in <a href="#Exercise1">Exercise 1</a>.</p>
 </li>
 <li>
-<p>To be certain that the script files contain Linux-style line endings ("/r" rather than "/r/n"), return to the PuTTY terminal window and execute the following commands to install and run the dos2unix conversion program:</p>
+<p>To be certain that the script files contain Linux-style line endings ("/r" rather than "/r/n"), execute the following commands in the PuTTY terminal window to install and run the dos2unix conversion program:</p>
 <pre><code>sudo apt-get install dos2unix
 dos2unix *
 </code></pre>
@@ -767,7 +772,7 @@ dos2unix *
 </li>
 <li>
 <p>Click <strong>Blobs</strong> to view a list of blob containers in the storage account.</p>
-<p><a href="Images/view-blob-containers.png" target="_blank"><img src="Images/view-blob-containers.png" alt="Viewing blob containers" style="max-width:100%;"></a></p>
+<p><a href="Images/view-containers.png" target="_blank"><img src="Images/view-containers.png" alt="Viewing blob containers" style="max-width:100%;"></a></p>
 <p><em>Viewing blob containers</em></p>
 </li>
 <li>
@@ -797,12 +802,7 @@ dos2unix *
 <p>When virtual machines are running, you are being charged — even if the VMs are idle. Therefore, it's advisable to stop virtual machines when they are not in use. You will still be charged for storage, but that cost is typically insignificant compared to the cost of an active VM. The Azure Portal makes it easy to stop virtual machines. VMs that you stop are easily started again later so you can pick up right where you left off.</p>
 <ol>
 <li>
-<p>In the <a href="https://portal.azure.com">Azure Portal</a>, click <strong>Resource groups</strong> in the ribbon on the left. Then click the resource group created for the cluster.</p>
-<p><a href="Images/open-cluster-resource-group.png" target="_blank"><img src="Images/open-cluster-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
-<p><em>Opening the resource group</em></p>
-</li>
-<li>
-<p>Click <strong>worker0</strong> to open a blade for the virtual machine named "worker0."</p>
+<p>Return to the blade for the resource group containing the cluster. Then click <strong>worker0</strong> to open a blade for the virtual machine named "worker0."</p>
 <p><a href="Images/open-worker.png" target="_blank"><img src="Images/open-worker.png" alt="Opening a virtual machine" style="max-width:100%;"></a></p>
 <p><em>Opening a virtual machine</em></p>
 </li>
@@ -843,7 +843,7 @@ dos2unix *
 </ul>
 <p>It is <strong>much</strong> easier to deploy a SLURM cluster in Azure than to install and configure a physical SLURM cluster. This is one of the ways in which cloud computing benefits researchers: it allows you to quickly and easily deploy the resources you need, <em>when</em> you need them, pay only for the resources you use, and delete them when they are no longer necessary.</p>
 <hr>
-<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

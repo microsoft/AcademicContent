@@ -1,5 +1,5 @@
 <a name="HOLTitle"></a>
-# Creating and Using an HPC SLURM Cluster in Azure #
+# Creating and Using an HPC Cluster in Azure #
 
 ---
 
@@ -29,7 +29,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription, or [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) (Windows users only)
 
 ---
@@ -50,7 +50,7 @@ This hands-on lab includes the following exercises:
 Estimated time to complete this lab: **45** minutes.
 
 <a name="Exercise1"></a>
-## Exercise 1: Deploy a SLURM cluster
+## Exercise 1: Deploy a SLURM cluster ##
 
 The Azure Resource Manager allows you to provision complex groups of resources such as those comprising HPC clusters using declarative templates. A template contains a complete description of everything that makes up a resource group, including virtual machines, storage accounts, IP addresses, and other resources. Templates can include parameters that users are prompted to fill in each time a resource group is deployed. Templates can also invoke scripts to initialize resources to a known and consistent state. To learn more about Azure Resource Manager templates, refer to the [documentation](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/) online.
 
@@ -72,6 +72,18 @@ Let's get started!
 
 	_Deploying from GitHub_
 
+1. Click **Edit template**.
+
+    ![Editing the template](Images/edit-template.png)
+
+	_Editing the template_
+
+1. On Line 50, change the Ubuntu version number to **16.04-LTS**. Then click the **Save** button to save the change.
+
+    ![Modifying the Ubuntu version number](Images/edit-ubuntu-version.png)
+
+	_Modifying the Ubuntu version number_
+
 1. Select **Create new** under **Resource group** and enter the resource-group name "ClusterResourceGroup" (without quotation marks). Under **Location**, select the location nearest you. Specify "azureuser" as the **Admin User Name** and "Azure4Research!" as the **Admin Password**. Leave **Vm Size** set to **Standard_D1_v2** and set **Scale Number** to **2** to create a cluster containing two worker nodes. Then check the **I agree to the terms and conditions stated above** box and click the **Purchase** button at the bottom of the blade.
 
 	> It is very important to specify "azureuser" as the admin user name, because the scripts that you will use to configure the cluster use that user name.
@@ -82,7 +94,7 @@ Let's get started!
 
 1.  Deploying the cluster can take 5 minutes or more. You can monitor the status of the deployment by opening the resource group's blade. Click **Resource groups** in the ribbon on the left. Then click the resource group created for the cluster.
 
-    ![Opening the resource group](Images/open-cluster-resource-group.png)
+    ![Opening the resource group](Images/open-resource-group.png)
 
 	_Opening the resource group_
 
@@ -95,13 +107,13 @@ Let's get started!
 When the deployment completes successfully, you will see all the resources that comprise the cluster in the resource group. The next step is to create a couple of blob containers to hold the images that the cluster will process.
 
 <a name="Exercise2"></a>
-## Exercise 2: Create blob containers and upload images
+## Exercise 2: Create blob containers and upload images ##
 
 In a later exercise, you will run a Python script on the cluster to generate grayscale images from color images. That script requires a set of color images as well as two blob storage containers: one for input and one for output. In this exercise, you will use the Azure Portal to create the containers and upload the images.
 
 1. Return to the Azure Portal and the blade for the resource group containing the cluster. Then click the storage account created for the cluster.
 
-	> The storage-account name will vary each time you deploy a cluster. The deployment template generates a unique storage-account name each time it is run. This storage account holds the virtual hard disks (VHDs) and other resources used by the cluster.
+	> The storage-account name will vary for different users. This storage account holds the virtual hard disks (VHDs) and other resources used by the cluster.
 
     ![Opening the storage account](Images/open-storage-account.png)
 
@@ -109,23 +121,17 @@ In a later exercise, you will run a Python script on the cluster to generate gra
 
 1. Click **Blobs** to view a list of blob containers in the storage account.
 
-    ![Viewing blob containers](Images/view-blob-containers.png)
+    ![Viewing blob containers](Images/view-containers.png)
 
 	_Viewing blob containers_
 
-1. Click **+ Container** to create a new blob container.
+1. Click **+ Container**. Type "input" (without quotation marks) into the **Name** field and click the **OK** button to create a container named "input."
 
-    ![Creating a container](Images/create-blob-container.png)
-
-    _Creating a container_
-
-1. Type "input" (without quotation marks) into the **Name** field and click the **Create** button to create a container named "input."
-
-    ![Creating an "input" container](Images/create-input-container.png)
+    ![Creating an "input" container](Images/create-container.png)
 
     _Creating an "input" container_
 
-1. Repeat Steps 3 and 4 to create a container named "output."
+1. Repeat Step 3 to create a container named "output."
 
 1. Click **input** to open the "input" container.
 
@@ -139,13 +145,13 @@ In a later exercise, you will run a Python script on the cluster to generate gra
 
     _Uploading blobs to the "input" container_
 
-1. Click the **Open** button to the right of the **Files** box. Select all of the files in this lab's "resources/ColorImages" folder. Then click the **Upload** button to upload color images to the "input" folder.
+1. Click the **Open** button to the right of the **Files** box. Select all of the files in this lab's "resources/ColorImages" folder. Then click the **Upload** button to upload color images to the "input" container.
 
     ![Uploading color images](Images/upload-blobs-2.png)
 
     _Uploading color images_
 
-1. Wait until all of the uploads have completed. Then close the "Upload blob" blade and return to the blade for the "input" container. Confirm that the "input" container now contains a collection of .jpg and .png blobs, and click the blob named "Consoles_superhero_1920x768.jpg."
+1. Wait until all of the uploads have completed. Then close the "Upload blob" blade and return to the blade for the "input" container. Confirm that the container now contains a collection of .jpg and .png blobs, and click the blob named **Consoles_superhero_1920x768.jpg**.
 
     ![Opening a blob in the "input" container](Images/open-color-image.png)
 
@@ -163,10 +169,10 @@ In a later exercise, you will run a Python script on the cluster to generate gra
 
     _The downloaded blob_
 
-You now have containers to hold input and output and a collection of color images in the input container. The next step is to update the Python script used to process the images.
+You now have containers to hold input and output and a collection of color images in the input container. The next step is to update the Python script that will be used to process the images.
 
 <a name="Exercise3"></a>
-## Exercise 3: Prepare the Python script
+## Exercise 3: Prepare the Python script ##
 
 With the SLURM cluster up and running and the images uploaded to blob storage, you are now ready to modify the Python script that processes the images with information enabling it to access the storage account. The script is named **slurmdemo.py** and is located in this lab's "resources" directory. You can use any text editor that you're comfortable with. There is no need to be concerned about how line breaks are encoded, because after uploading these scripts to the cluster's master node, you will run a utility to insert Linux-style line breaks into each script.
 
@@ -223,7 +229,7 @@ With the SLURM cluster up and running and the images uploaded to blob storage, y
 You've updated the Python script with the necessary information. Now you're ready for the next step: configuring the SLURM cluster and using it to process the images. If you're running macOS or Linux, proceed to [Exercise 4](#Exercise4). If you are running Windows, skip to [Exercise 5](#Exercise5).
 
 <a name="Exercise4"></a>
-## Exercise 4 (macOS and Linux): Copy the job scripts, configure the nodes, and run the job
+## Exercise 4 (macOS and Linux): Copy the job scripts, configure the nodes, and run the job ##
 
 In this exercise, you will upload the Python script and a pair of setup scripts to the master node of the SLURM cluster and use them to configure the cluster and run the job.
 
@@ -241,14 +247,14 @@ In this exercise, you will upload the Python script and a pair of setup scripts 
 
 1. Open a terminal window and navigate to the directory containing the Python script you modified in [Exercise 3](#Exercise3).
 
-1. Execute the following command in the terminal window, replacing _masterDNS_ with the DNS name on the clipboard. When prompted, enter the admin password for the cluster ("Azure4Research!").
+1. Execute the following command in the terminal window to copy the script files to the cluster, replacing *masterDNS* with the DNS name on the clipboard. When prompted, enter the admin password for the cluster ("Azure4Research!").
 
     <pre>
     scp * azureuser@<i>masterDNS</i>:.</pre>
 
 	> Because this is the first time you have connected to the master node, you will be prompted with a security warning asking if you want to update the cached key. Since the host is one you created, answer yes.
 
-1. The next step is to log into the master node. Execute the following command in the terminal window, replacing _masterDNS_ with the DNS name on the clipboard. When prompted, enter the admin password for the cluster ("Azure4Research!").
+1. The next step is to establish an SSH connection to the master node. Execute the following command in the terminal window, replacing _masterDNS_ with the DNS name on the clipboard. When prompted, enter the admin password for the cluster ("Azure4Research!").
 
     <pre>
     ssh azureuser@<i>masterDNS</i></pre>
@@ -275,7 +281,7 @@ In this exercise, you will upload the Python script and a pair of setup scripts 
 Next, you'll check the output to verify that the job ran correctly. Since Exercise 5 is for Windows users only, proceed directly to [Exercise 6](#Exercise6).
 
 <a name="Exercise5"></a>
-## Exercise 5 (Windows): Copy the job scripts, configure the nodes, and run the job
+## Exercise 5 (Windows): Copy the job scripts, configure the nodes, and run the job ##
 
 In this exercise, you will upload the Python script and a pair of setup scripts to the master node of the SLURM cluster and use them to configure the cluster and run the job. To remote into the cluster, you'll use a popular Windows SSH client named PuTTY. If you haven't already installed PuTTY, [download the MSI](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and install it now.
 
@@ -308,7 +314,7 @@ In this exercise, you will upload the Python script and a pair of setup scripts 
 
 1. A PuTTY terminal window will appear and you will be prompted to **login as**. Log in with the user name ("azureuser") and password ("Azure4Research!") you entered into the deployment template in [Exercise 1](#Exercise1).
 
-1. To be certain that the script files contain Linux-style line endings ("/r" rather than "/r/n"), return to the PuTTY terminal window and execute the following commands to install and run the dos2unix conversion program:
+1. To be certain that the script files contain Linux-style line endings ("/r" rather than "/r/n"), execute the following commands in the PuTTY terminal window to install and run the dos2unix conversion program:
 
     ```
     sudo apt-get install dos2unix
@@ -330,7 +336,7 @@ In this exercise, you will upload the Python script and a pair of setup scripts 
 Next, you'll check the output to verify that the job ran correctly.
 
 <a name="Exercise6"></a>
-## Exercise 6: View the converted images
+## Exercise 6: View the converted images ##
 
 If the job ran successfully, the grayscale images generated from the color images in the input container will be in the output container you created in [Exercise 2](#Exercise2). In this exercise, you will check the contents of that container.
 
@@ -342,7 +348,7 @@ If the job ran successfully, the grayscale images generated from the color image
 
 1. Click **Blobs** to view a list of blob containers in the storage account.
 
-    ![Viewing blob containers](Images/view-blob-containers.png)
+    ![Viewing blob containers](Images/view-containers.png)
 
 	_Viewing blob containers_
 
@@ -373,17 +379,11 @@ If the job ran successfully, the grayscale images generated from the color image
 You now know how to deploy and configure SLURM clusters and run jobs on them. But when those clusters aren't being used, you should shut them down to avoid incurring unnecessary charges. The next exercise explains how.
 
 <a name="Exercise7"></a>
-## Exercise 7: Suspend the SLURM cluster
+## Exercise 7: Suspend the SLURM cluster ##
 
 When virtual machines are running, you are being charged — even if the VMs are idle. Therefore, it's advisable to stop virtual machines when they are not in use. You will still be charged for storage, but that cost is typically insignificant compared to the cost of an active VM. The Azure Portal makes it easy to stop virtual machines. VMs that you stop are easily started again later so you can pick up right where you left off.
 
-1. In the [Azure Portal](https://portal.azure.com), click **Resource groups** in the ribbon on the left. Then click the resource group created for the cluster.
-
-    ![Opening the resource group](Images/open-cluster-resource-group.png)
-
-	_Opening the resource group_
-
-1. Click **worker0** to open a blade for the virtual machine named "worker0."
+1. Return to the blade for the resource group containing the cluster. Then click **worker0** to open a blade for the virtual machine named "worker0."
 
     ![Opening a virtual machine](Images/open-worker.png)
 
@@ -400,7 +400,7 @@ When virtual machines are running, you are being charged — even if the VMs are
 You can stop and start virtual machines in the Azure portal, but if you have a lot of VMs, that's not very efficient. In the real world, you might prefer to use an Azure CLI or PowerShell script to enumerate all the VMs in a resource group and start or stop them all. For more information on scripting the Azure CLI, see the section entitled "How to script the Azure CLI for Mac, Linux, and Windows" in [Install and Configure the Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli/). If you prefer visual tools to command-line tools, you can use [Azure Automation](https://azure.microsoft.com/en-us/services/automation/) to automate VM operations.
 
 <a name="Exercise8"></a>
-## Exercise 8: Delete the SLURM cluster
+## Exercise 8: Delete the SLURM cluster ##
 
 Resource groups are a useful feature of Azure because they simplify the task of managing related resources. One of the most practical reasons to use resource groups is that deleting a resource group deletes all of the resources it contains. Rather than delete those resources one by one, you can delete them all at once.
 
@@ -431,4 +431,4 @@ It is **much** easier to deploy a SLURM cluster in Azure than to install and con
 
 ---
 
-Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
+Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
