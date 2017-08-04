@@ -36,21 +36,23 @@ createImage() {
 
 	local defaultPassword=tS8QmuOZkwF7xzxdQ
 
+	echo "Deprovision VM $vmName"
+
 	if [[ $osType == "Linux" ]]; then
-		echo "Deprovision VM $vmName"
 		ssh -t $userName@$hostName 'sudo waagent -deprovision -force;exit'
 	else
-		echo "For Windows OS, you must connect to the VM, run PowerShell as Administrator and execute:"
-		echo "$(tput setaf 3)Start-Process -FilePath C:\Windows\System32\Sysprep\Sysprep.exe -ArgumentList '/generalize /oobe /shutdown /quiet'$(tput sgr 0)"
+		az vm extension delete --name CustomScript --vm-name $vmName --resource-group $resourceGroupName
+		az vm extension set \
+			--publisher Microsoft.Compute \
+			--version 1.8 \
+			--name CustomScriptExtension \
+			--vm-name $vmName \
+			--resource-group $resourceGroupName \
+			--no-auto-upgrade \
+			--settings '{"fileUris": ["https://raw.githubusercontent.com/MSFTImagine/computerscience/master/Scripts/Bulk-Sandbox-Deployment-Automation-Bash/modules/sysprep.ps1"], "commandToExecute":"powershell -ExecutionPolicy Unrestricted -File sysprep.ps1"}' 1>/dev/null
 
-		read -p "Did you execute this command (y/n)? " answer
-
-		if [ "$answer" = "y" ]; then
-			echo
-		else
-			echo "Execute the required commands."
-			exit 1
-		fi
+		echo Waiting deprovision...
+		sleep 10m
 	fi
 
 	echo "Deallocating VM $vmName"
@@ -79,8 +81,15 @@ createImage() {
 	az vm delete -g $resourceGroupName -n $vmName --yes
 
 	if [[ $plan == "Custom" ]]; then
-		echo "Creating backup VM"
-		az vm create --resource-group $resourceGroupName --name $vmName --image $imageId --admin-username $userName --admin-password $defaultPassword --authentication-type password
+		echo "Restore VM..."
+		az vm create --resource-group $resourceGroupName \ 
+			--name $vmName \ 
+			--image $imageId \ 
+			--admin-username $userName \ 
+			--admin-password $defaultPassword \ 
+			--authentication-type password
+
+		echo "Restore VM successfully completed"
 	fi
 
 	if [ $? -ne 0 ]; then
@@ -114,11 +123,6 @@ Options:
 ---------------------------------------------------------------------
 -h,  	--help            Display this help and exit
 -v,  	--version         Output version information and exit
----------------------------------------------------------------------
-$(tput setaf 1)Important for Windows VM type!$(tput sgr 0)
-To create an image of a virtual machine, you need to prepare the VM by generalizing the VM, deallocating, and then marking the source VM as generalized in Azure.
-Connect to the Windows VM, run PowerShell as Administrator and execute:
-$(tput setaf 3)Start-Process -FilePath C:\Windows\System32\Sysprep\Sysprep.exe -ArgumentList '/generalize /oobe /shutdown /quiet'$(tput sgr 0)
 ---------------------------------------------------------------------
 Examples: 
 - Create image from VM:

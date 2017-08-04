@@ -486,15 +486,7 @@ The script processes following this direction:
 
 ![Design](images/process.png)
 
->**Important!**
->Note that if you are creating a Windows VM image, you will need to remote into the VM and execute a PowerShell script when prompted during the Bash script execution.
-
-Run PowerShell as Administrator and execute:
-```powershell
-Start-Process -FilePath C:\Windows\System32\Sysprep\Sysprep.exe -ArgumentList '/generalize /oobe /shutdown /quiet'
-```
-
->**Important!**
+>**Important!**  
 >After running the script, the VM will no longer be available. The script is cleared of all sensitive information.
 >In the third version the script can create a backup only for virtual machines that do not have a plan information.
 
