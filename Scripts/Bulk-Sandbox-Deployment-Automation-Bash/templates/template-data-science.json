@@ -2,7 +2,7 @@
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-       "virtualMachineName": {
+        "virtualMachineName": {
             "type": "string",
             "metadata": {
                 "description": "This is the name of the your VM"
@@ -227,6 +227,12 @@
                 "offer": "standard-data-science-vm",
                 "sku": "standard-data-science-vm",
                 "version": "latest"
+            },
+            "ds-vm-windows-2016": {
+                "publisher": "microsoft-ads",
+                "offer": "windows-data-science-vm",
+                "sku": "windows2016",
+                "version": "latest"
             }
         },
         "plans": {
@@ -244,6 +250,11 @@
                 "name": "standard-data-science-vm",
                 "publisher": "microsoft-ads",
                 "product": "standard-data-science-vm"
+            },
+            "ds-vm-windows-2016": {
+                "name": "windows2016",
+                "publisher": "microsoft-ads",
+                "product": "windows-data-science-vm"
             }
         },
         "tagValues": {

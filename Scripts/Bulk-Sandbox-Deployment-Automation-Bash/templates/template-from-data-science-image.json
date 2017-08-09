@@ -218,6 +218,9 @@
             },
             "ds-vm-windows": {
                 "id": "[parameters('imageId')]"
+            },
+            "ds-vm-windows-2016": {
+                "id": "[parameters('imageId')]"
             }
         },
         "plans": {
@@ -235,6 +238,11 @@
                 "name": "standard-data-science-vm",
                 "publisher": "microsoft-ads",
                 "product": "standard-data-science-vm"
+            },
+            "ds-vm-windows-2016": {
+                "name": "windows2016",
+                "publisher": "microsoft-ads",
+                "product": "windows-data-science-vm"
             }
         },
         "tagValues": {

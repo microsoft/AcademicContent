@@ -112,6 +112,10 @@ deploy-vm() {
 			osType="windows"
 			vmType="ds-vm-windows"
 			templateFilePath=$dsCustomTemplate
+		elif [[ $image =~ "windows2016" ]]; then
+			osType="windows"
+			vmType="ds-vm-windows-2016"
+			templateFilePath=$dsCustomTemplate
 		elif [[ $image =~ "Custom" ]]; then
 			dataDiskType="empty"
 			templateFilePath=$customTemplate
@@ -221,7 +225,7 @@ deploy-vm() {
 
 	outputString="$className","$classNameID","$subscriptionName","$subscriptionID","$studentName","$studentEmailAddress","$vmUserName","$vmAdminUserName","$vmLocation","$vmName","$dnsprefix","$resourceGroupName","$networkSecurityGroupNameValue","$comment"
 	
-	if [ $mail == "on" ]; then		
+	if [ $mail == "on" ]; then
 		#check for send email file
 		if [ ! -f "./modules/send-email.sh" ]; then
 			error "send-email.sh file not found"

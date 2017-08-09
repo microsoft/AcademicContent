@@ -94,7 +94,8 @@ This only must be done once and can be done for all subscriptions in the same up
 Currently you can deploy the following Marketplace VM’s:
 
 * Data Science Virtual Machine for Linux (Ubuntu) ([link](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu))
-* Data Science Virtual Machine for Windows ([link](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm))
+* Data Science Virtual Machine for Windows 2012 ([link](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm))
+* Data Science Virtual Machine for Windows 2016 ([link](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016))
 * Data Science Virtual Machine for Linux (Centos) ([link](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm))
 * Deep Learning toolkit for the DSVM ([link](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning))
 * Other types of VMs created using the `create-vm-image.sh` script.
@@ -136,7 +137,7 @@ Subscription ID 		| X | 	| Azure Subscription ID | Each line can use different s
 Student Name 			| 	| X | Name of the student who is working on the VM | May contain spaces.
 Student Email Address 	| 	| X | Valid student e-mail address | System does not test if valid
 VM User Name 			| X | 	| Login used by the student to access the VM | No spaces allowed
-MV User Password 		| X | 	| Password used by the student to login to the VM | No spaces allowed.
+VM User Password 		| X | 	| Password used by the student to login to the VM | No spaces allowed.
 VM Admin Username 		| X | 	|Login used to access the VM as administrator | No spaces allowed.
 VM Admin Password 		| X | 	| Password used by the student to login to the VM | No spaces allowed.
 Comment 				| 	| X | Additional details to make it easier to manage CSV |
@@ -159,7 +160,7 @@ Comment 				| 	| X | Additional details to make it easier to manage CSV |
 
 Currently we have the following types of DSVMs:
 
-* Data Science VM for Windows
+* Data Science VM for Windows (2012/2016)
 * Data Science VM for Ubuntu
 * Data Science VM for CentOS
 
@@ -171,7 +172,7 @@ Currently we have the following types of DSVMs:
 
 Currently we have the following types of DSVMs:
 
-* Data Science VM for Windows
+* Data Science VM for Windows (2012/2016)
 * Data Science VM for Ubuntu
 * Data Science VM for CentOS
 
