@@ -15,7 +15,7 @@
 version="1.0.4"
 
 # Show or hide debug information
-debugMode=false
+debugMode=""
 
 #
 # Purpose: Deploys resource groups with one VM and all supporting infrastructure
@@ -221,7 +221,7 @@ deploy-vm() {
 	fi
 
 	# Deploy VMs
-	az group deployment create -g $resourceGroupName --template-file $templateFilePath --parameters "$param" --no-wait >>$logFile #2>&1
+	az group deployment create -g $resourceGroupName --template-file $templateFilePath --parameters "$param" $debugMode --no-wait >>$logFile #2>&1
 
 	outputString="$className","$classNameID","$subscriptionName","$subscriptionID","$studentName","$studentEmailAddress","$vmUserName","$vmAdminUserName","$vmLocation","$vmName","$dnsprefix","$resourceGroupName","$networkSecurityGroupNameValue","$comment"
 	
@@ -307,9 +307,10 @@ $(tput setaf 6)Deployment type (Marketplace VM or VM Image):$(tput sgr 0)
 Marketplace VM:
 -vm, --vmtype           VMTYPE Virtual Machine with tools for the data science modeling and development
   Available types:
-  - ds-vm-ubuntu    (based on Ubuntu)
-  - ds-vm-centos    (based on CentOS)
-  - ds-vm-windows   (based on Windows)
+  - ds-vm-ubuntu       (based on Ubuntu)
+  - ds-vm-centos       (based on CentOS)
+  - ds-vm-windows      (based on Windows 2012)
+  - ds-vm-windows-2016 (based on Windows 2016)
 
 Image:
 -i,  --image           IMAGE Create & Deploy a VM from custom image
@@ -323,6 +324,7 @@ $(tput setaf 4)
 ---------------------------------------------------------------------
 -h,  --help        Display this help and exit
 -v,  --version     Output version information and exit
+     --debug       Enable debugging messages (for developers)
 ---------------------------------------------------------------------
 $(tput sgr 0)
 Examples:
@@ -488,6 +490,11 @@ main() {
 				if test $# -gt 0; then
 					postInstallFileUri=$1
 				fi
+				shift
+				;;
+			--debug)
+				shift
+				debugMode="--debug"
 				shift
 				;;
 			*)

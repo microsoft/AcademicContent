@@ -1,3 +1,3 @@
-Class Name,Subscription Name,Subscription ID,Student Name,Student Email Address,VM User Name,MV User Password,VM Admin Username,VM Admin Password,Comment
+Class Name,Subscription Name,Subscription ID,Student Name,Student Email Address,VM User Name,VM User Password,VM Admin Username,VM Admin Password,Comment
 DS101,Logic2020,d3b70cdf-78d7-45f7-9009-81a22a173bdf,Gordon Freeman1,GordonFreeman@contoso.com,gordon1,Logic2020!,vmadmin,Logic2020!,Note 1
 DS101,Logic2020,d3b70cdf-78d7-45f7-9009-81a22a173bdf,Gordon Freeman2,GordonFreeman@contoso.com,gordon2,Logic2020!,vmadmin,Logic2020!,Note 2
