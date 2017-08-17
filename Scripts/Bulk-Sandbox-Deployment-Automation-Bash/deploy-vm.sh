@@ -242,7 +242,7 @@ deploy-vm() {
 #
 # Purpose: Validates the url and checks the availability of the specified file
 #
-validateUrl(){
+validateUrl() {
 	if [[ `wget -S --spider $1  2>&1 | grep 'HTTP/1.1 200 OK'` ]]; then
 		echo "" > /dev/null
 	else
@@ -567,6 +567,15 @@ main() {
 	while IFS=, read $columnsInput; do
 		((numVMs++))
 	done <$inputfile
+
+	local validatorsFile="./modules/validators.sh"
+	if [ ! -f "$validatorsFile" ]; then
+		error "File $validatorsFile not found"
+		exit 0
+	fi
+	
+	source $validatorsFile
+	validateCores "$location" "$size" "$numVMs"
 
 	#deploy RG, VM's and all resources needed
 	local i=0

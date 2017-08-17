@@ -1,0 +1,252 @@
+[
+    {
+        "name": "Standard DSv2 Family Cores",
+        "properties": [
+            "Standard_DS1_v2",
+            "Standard_DS2_v2",
+            "Standard_DS3_v2",
+            "Standard_DS4_v2",
+            "Standard_DS5_v2",
+            "Standard_DS11_v2",
+            "Standard_DS12_v2",
+            "Standard_DS13_v2",
+            "Standard_DS14_v2",
+            "Standard_DS15_v2"
+        ]
+    },
+    {
+        "name": "Basic A Family Cores",
+        "properties": [
+            "Basic_A0",
+            "Basic_A1",
+            "Basic_A2",
+            "Basic_A3",
+            "Basic_A4"
+        ]
+    },
+    {
+        "name": "Standard A0-A7 Family Cores",
+        "properties": [
+            "Standard_A0",
+            "Standard_A1",
+            "Standard_A2",
+            "Standard_A3",
+            "Standard_A5",
+            "Standard_A4",
+            "Standard_A6",
+            "Standard_A7"
+        ]
+    },
+    {
+        "name": "Standard A8-A11 Family Cores",
+        "properties": [
+            "Standard_A8",
+            "Standard_A9",
+            "Standard_A10",
+            "Standard_A11"
+        ]
+    },
+    {
+        "name": "Standard D Family Cores",
+        "properties": [
+            "Standard_D1",
+            "Standard_D2",
+            "Standard_D3",
+            "Standard_D4",
+            "Standard_D11",
+            "Standard_D12",
+            "Standard_D13",
+            "Standard_D14"
+        ]
+    },
+    {
+        "name": "Standard Dv2 Family Cores",
+        "properties": [
+            "Standard_D1_v2",
+            "Standard_D2_v2",
+            "Standard_D3_v2",
+            "Standard_D4_v2",
+            "Standard_D5_v2",
+            "Standard_D11_v2",
+            "Standard_D12_v2",
+            "Standard_D13_v2",
+            "Standard_D14_v2",
+            "Standard_D15_v2"
+        ]
+    },
+    {
+        "name": "Standard G Family Cores",
+        "properties": [
+            "Standard_G1",
+            "Standard_G2",
+            "Standard_G3",
+            "Standard_G4",
+            "Standard_G5"
+        ]
+    },
+    {
+        "name": "Standard DS Family Cores",
+        "properties": [
+            "Standard_DS1",
+            "Standard_DS2",
+            "Standard_DS3",
+            "Standard_DS4",
+            "Standard_DS11",
+            "Standard_DS12",
+            "Standard_DS13",
+            "Standard_DS14"
+        ]
+    },
+    {
+        "name": "Standard GS Family Cores",
+        "properties": [
+            "Standard_GS1",
+            "Standard_GS2",
+            "Standard_GS3",
+            "Standard_GS4",
+            "Standard_GS5"
+        ]
+    },
+    {
+        "name": "Standard F Family Cores",
+        "properties": [
+            "Standard_F1",
+            "Standard_F2",
+            "Standard_F4",
+            "Standard_F8",
+            "Standard_F16"
+        ]
+    },
+    {
+        "name": "Standard FS Family Cores",
+        "properties": [
+            "Standard_F1s",
+            "Standard_F2s",
+            "Standard_F4s",
+            "Standard_F8s",
+            "Standard_F16s"
+        ]
+    },
+    {
+        "name": "Standard NV Family Cores",
+        "properties": [
+            "Standard_NV6",
+            "Standard_NV12",
+            "Standard_NV24"
+        ]
+    },
+    {
+        "name": "Standard NC Family Cores",
+        "properties": [
+            "Standard_NC6",
+            "Standard_NC12",
+            "Standard_NC24",
+            "Standard_NC24r"
+        ]
+    },
+    {
+        "name": "Standard H Family Cores",
+        "properties": [
+            "Standard_H8",
+            "Standard_H16",
+            "Standard_H8m",
+            "Standard_H16m",
+            "Standard_H16r",
+            "Standard_H16mr"
+        ]
+    },
+    {
+        "name": "Standard Av2 Family Cores",
+        "properties": [
+            "Standard_A1_v2",
+            "Standard_A2m_v2",
+            "Standard_A2_v2",
+            "Standard_A4m_v2",
+            "Standard_A4_v2",
+            "Standard_A8m_v2",
+            "Standard_A8_v2"
+        ]
+    },
+    {
+        "name": "Standard LS Family Cores",
+        "properties": [
+            "Standard_L4s",
+            "Standard_L8s",
+            "Standard_L16s",
+            "Standard_L32s"
+        ]
+    },
+    {
+        "name": "Standard Dv2 Promo Family Cores",
+        "properties": [
+            "Standard_D2_v2_Promo",
+            "Standard_D3_v2_Promo",
+            "Standard_D4_v2_Promo",
+            "Standard_D5_v2_Promo",
+            "Standard_D11_v2_Promo",
+            "Standard_D12_v2_Promo",
+            "Standard_D13_v2_Promo",
+            "Standard_D14_v2_Promo"
+        ]
+    },
+    {
+        "name": "Standard DSv2 Promo Family Cores",
+        "properties": [
+            "Standard_DS2_v2_Promo",
+            "Standard_DS3_v2_Promo",
+            "Standard_DS4_v2_Promo",
+            "Standard_DS5_v2_Promo",
+            "Standard_DS11_v2_Promo",
+            "Standard_DS12_v2_Promo",
+            "Standard_DS13_v2_Promo",
+            "Standard_DS14_v2_Promo"
+        ]
+    },
+    {
+        "name": "Standard MS Family Cores",
+        "properties": [
+            "Standard_M128s",
+            "Standard_M64ms"
+        ]
+    },
+    {
+        "name": "Standard Dv3 Family Cores",
+        "properties": [
+            "Standard_D2_v3",
+            "Standard_D4_v3",
+            "Standard_D8_v3",
+            "Standard_D16_v3"
+        ]
+    },
+    {
+        "name": "Standard DSv3 Family Cores",
+        "properties": [
+            "Standard_D2s_v3",
+            "Standard_D4s_v3",
+            "Standard_D8s_v3",
+            "Standard_D16s_v3"
+        ]
+    },
+    {
+        "name": "Standard Ev3 Family Cores",
+        "properties": [
+            "Standard_E2_v3",
+            "Standard_E4_v3",
+            "Standard_E8_v3",
+            "Standard_E16_v3",
+            "Standard_E32_v3",
+            "Standard_E64_v3"
+        ]
+    },
+    {
+        "name": "Standard ESv3 Family Cores",
+        "properties": [
+            "Standard_E2s_v3",
+            "Standard_E4s_v3",
+            "Standard_E8s_v3",
+            "Standard_E16s_v3",
+            "Standard_E32s_v3",
+            "Standard_E64s_v3"
+        ]
+    }
+]

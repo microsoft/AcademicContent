@@ -37,7 +37,12 @@ local extensionsScriptPathUri="<extensions_script_path_uri>"
 
 ## Send Email
 **Files:** `send-email.sh`
-**Purpose:** Install packages  
+**Purpose:** Used to send email
 **Description:** These scripts are used in `deploy-vm.sh`. See instructions for [reference](https://github.com/MSFTImagine/computerscience/tree/master/Scripts/Bulk-Sandbox-Deployment-Automation-Bash#email-server-setup).
+
+## Validators
+**Files:** `validators.sh`
+**Purpose:** Used for validation
+**Description:** These scripts are used in `deploy-vm.sh`. 
 
 ---
