@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# Purpose: validate available virtual machine cores for a subscription
+# Purpose: Validate available Virtual Machine Cores for a Subscription
 #
 validateCores() {
 	echo "Validating available cores for VMs"
@@ -41,6 +41,29 @@ Size: $size
 Your deployment will exceed allocated cores. Please ensure proper resource availability, then re-run script.$(tput sgr 0)
 
 "
+		exit 0
+	fi
+}
+
+#
+# Purpose: Validates the url and checks the availability of the specified file
+#
+validateUrl() {
+	if [[ $(wget -S --spider $1 2>&1 | grep 'HTTP/1.1 200 OK') ]]; then
+		echo "" >/dev/null
+	else
+		local fileName=$(basename "$1")
+		error "Remote file $fileName does not exist!"
+		exit 0
+	fi
+}
+
+#
+# Purpose: Validate for the existence of a file
+#
+validateFile() {
+	if [ ! -f "$1" ]; then
+		error "File $1 not found"
 		exit 0
 	fi
 }

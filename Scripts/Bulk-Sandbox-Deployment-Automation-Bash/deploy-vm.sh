@@ -17,6 +17,11 @@ version="1.0.4"
 # Show or hide debug information
 debugMode=""
 
+# Import modules
+import() {
+	source "./modules/validators.sh"
+}
+
 #
 # Purpose: Deploys resource groups with one VM and all supporting infrastructure
 #
@@ -158,10 +163,7 @@ deploy-vm() {
 	fi
 
 	#check for template file
-	if [ ! -f "$templateFilePath" ]; then
-		error "Template file: $templateFilePath not found"
-		exit 1
-	fi
+	validateFile "$templateFilePath"
 
 	echo Resource Group $resourceGroupName started to deploy
 
@@ -227,29 +229,13 @@ deploy-vm() {
 	
 	if [ $mail == "on" ]; then
 		#check for send email file
-		if [ ! -f "./modules/send-email.sh" ]; then
-			error "send-email.sh file not found"
-		else
-			#Send email to student
-			./modules/send-email.sh "$studentEmailAddress" "$studentName" "$vmName" "$osType" "$dnsprefix" "$vmLocation" "$studentLogin" "$studentPassword"
-		fi
+		validateFile "./modules/send-email.sh"
+		#Send email to student
+		./modules/send-email.sh "$studentEmailAddress" "$studentName" "$vmName" "$osType" "$dnsprefix" "$vmLocation" "$studentLogin" "$studentPassword"
 	fi
 
 	#Pass output parameters to output.csv file specifyed by user
 	echo $outputString >>$outputfile
-}
-
-#
-# Purpose: Validates the url and checks the availability of the specified file
-#
-validateUrl() {
-	if [[ `wget -S --spider $1  2>&1 | grep 'HTTP/1.1 200 OK'` ]]; then
-		echo "" > /dev/null
-	else
-		local fileName=$(basename "$1")
-		error "Remote file $fileName does not exist!"
-		exit 0
-	fi
 }
 
 #
@@ -345,6 +331,7 @@ $(tput setaf 2)$0 -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st
 # Purpose: Main function
 #
 main() {
+	
 	local inputfile
 	local outputfile
 	local location
@@ -359,6 +346,8 @@ main() {
 	local templateFolder="./templates/"
 	local parameterfile=$templateFolder"parameters.json"
 	local templateFile
+
+	import
 
 	if [ $# -eq 0 ]; then
 		error "No arguments supplied"
@@ -506,15 +495,8 @@ main() {
 	done
 	
 	#Check for files
-	if [ ! -f "$inputfile" ]; then
-		error "Input file: $inputfile not found"
-		exit 1
-	fi
-
-	if [ ! -f "$parameterfile" ]; then
-		error "Parameter file: $parameterfile not found"
-		exit 1
-	fi
+	validateFile "$inputfile"
+	validateFile "$parameterfile"
 
 	# if image contains data set vmtype = fromimage
 	if [[ $image != "none" ]]; then
@@ -526,9 +508,7 @@ main() {
 	if [[ -z "$templateFile" ]]; then
 		echo "" > /dev/null
 	else
-		if [[ ! -f "$templateFile" ]]; then
-			error "Template file: $templateFile not found"
-		fi
+		validateFile "$templateFile"
 	fi
 
 	#Check arguments
@@ -568,13 +548,6 @@ main() {
 		((numVMs++))
 	done <$inputfile
 
-	local validatorsFile="./modules/validators.sh"
-	if [ ! -f "$validatorsFile" ]; then
-		error "File $validatorsFile not found"
-		exit 0
-	fi
-	
-	source $validatorsFile
 	validateCores "$location" "$size" "$numVMs"
 
 	#deploy RG, VM's and all resources needed
