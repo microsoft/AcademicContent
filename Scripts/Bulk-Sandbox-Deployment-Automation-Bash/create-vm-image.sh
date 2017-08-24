@@ -35,7 +35,7 @@ createImage() {
 	local imageName=image-$osType-$plan-$rand
 
 	local defaultPassword=tS8QmuOZkwF7xzxdQ
-	local isActive=false;
+	local isActive=false
 
 	echo "Deprovision VM $vmName"
 
@@ -78,17 +78,17 @@ createImage() {
 
 	imageId=$(az image show --name "$imageName" --resource-group "$imageResourceGroupName" --query [id] -o tsv)
 
-	echo "Deleting VM $vmName"
-	az vm delete -g $resourceGroupName -n $vmName --yes
+	echo "Deleting VM $vmName and related resources"
+	deleteResources "$resourceGroupName" "$vmName"
 
 	if [[ $plan == "Custom" ]]; then
 		echo "Restore VM..."
 		az vm create --resource-group $resourceGroupName \ 
-			--name $vmName \ 
-			--image $imageId \ 
-			--admin-username $userName \ 
-			--admin-password $defaultPassword \ 
-			--authentication-type password
+		--name $vmName \ 
+		--image $imageId \ 
+		--admin-username $userName \ 
+		--admin-password $defaultPassword \ 
+		--authentication-type password
 
 		echo "Restore VM successfully completed"
 	elif [[ $isActive == true ]]; then
@@ -97,14 +97,14 @@ createImage() {
 		local planPublisher=$(az vm show -g $resourceGroupName -n $vmName --query "plan.publisher" -o tsv)
 
 		az vm create --resource-group $resourceGroupName \ 
-			--name $vmName \ 
-			--image $imageId \ 
-			--admin-username $userName \ 
-			--admin-password $defaultPassword \ 
-			--authentication-type password \ 
-			--plan-name $planName \  
-			--plan-product $planProduct \  
-			--plan-publisher $planPublisher
+		--name $vmName \ 
+		--image $imageId \ 
+		--admin-username $userName \ 
+		--admin-password $defaultPassword \ 
+		--authentication-type password \ 
+		--plan-name $planName \ 
+		--plan-product $planProduct \ 
+		--plan-publisher $planPublisher
 	fi
 
 	if [ $? -ne 0 ]; then
@@ -118,6 +118,20 @@ $(tput setaf 2)./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standar
 "
 		echo $imageId >>$outputFile
 	fi
+}
+
+#
+# Purpose: Delete unnecessary resources.
+#
+deleteResources() {
+	local rgName=$1
+	local name=$2
+
+	az vm delete -g $rgName -n $name --yes
+	az network nic delete -g $rgName -n "$name-net"
+	az network public-ip delete -g $rgName -n "$name-ip"
+	az network nsg delete -g $rgName -n "$name-nsg"
+	az network vnet delete -g $rgName -n "$name-vnet"
 }
 
 #
