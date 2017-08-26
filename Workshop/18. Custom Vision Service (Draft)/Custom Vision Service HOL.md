@@ -54,57 +54,31 @@ Estimated time to complete this lab: **60** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Create a Custom Vision Service project ##
 
-The first step is to create a Custom Vision Service project. Unlike other Cognitive Services, this step takes place in the Custom Vision Service portal.
+The first step is to buulding an image-classification model with the Custom Vision Service is to create a project in the Custom Vision Service portal.
 
-1. Open the [Custom Vision Service portal](https://www.customvision.ai/) in your browser.
-1. Click **Sign In**, on the portal landing page. 
+1. Open the [Custom Vision Service portal](https://www.customvision.ai/) in your browser. Then click **Sign In**. 
  
     ![Signing in to the Custom Vision Service portal](Images/portal-sign-in.png)
+
     _Signing in to the Custom Vision Service portal_
 
-1. Enter your Microsoft account email address, phone number, or Skype address, then click **Next**.
-  
-	![Entering your Microsoft account login information](Images/portal-enter-account.png)
-    _Entering your Microsoft account login information_
+1. If you are asked to sign in, do so using the credentials for your Microsoft account. If you are asked to let this app access your info, click **Yes**, and if prompted, agree to the terms of service.
 
-1. Enter your Microsoft account password then click **Sign in**.
-  
-	![Entering your Microsoft account login information](Images/portal-enter-password.png)
-    _Entering your Microsoft account login information_
-
-1. Review the permissions being requested by the Custom Vision Service, then click **Yes** to allow access to your Microsoft account information.
-  
-	![Allowing Custom Vision Service to access your Microsoft account information](Images/portal-allow-access.png)
-    _Allowing Custom Vision Service to access your Microsoft account information_
-
-1. After a short delay, you will be redirected to the Custom Vision Service "Terms of Service" dialog. Review the terms of service, check the appropriate boxes, then click **I agree**.
-  
-	![Accepting the Terms of Service](Images/portal-accept-terms.png)
-    _Accepting the Terms of Service_
-
-1. By default, your Custom Vision Service workspace will be named "My Projects". Click the **New Project tile** in your workspace to begin setting up a new project.
+1. Click **New Project** to create a new project.
   
 	![Creating a Custom Vision Service project](Images/portal-click-new-project.png)
+
     _Creating a Custom Vision Service project_
 
-1. In the "New project" dialog, name your project "Artworks" (without quotation marks), ensure the **General** domain is selected, then click **Create project**.
-  
+1. In the "New project" dialog, name the project "Artworks," ensure that **General** is selected as the domain, and click **Create project**.
+
+	> A domain optimizes a classifier for specific types of images. For example, if your goal is to classify food images by the types of food they contain or the ethnicity of the dishes, then it might be helpful to select the Food domain. For scenarios that don't match any of the offered domains, or if you are unsure of which domain to choose, select the General domain.
+
 	![Creating a Custom Vision Service project](Images/portal-create-project.png)
+
     _Creating a Custom Vision Service project_
 
-	>A domain optimizes a classifier for a specific type of object in your images. For example, if your scenario is to classify between images of pie versus images of cake, then it could be helpful to select the "Food" domain. When a scenario falls outside of these domains, or if you are unsure of which domain to choose, select the "Generic" domain.
-
-1. In the "New project" dialog, name your project "Artworks" (without quotation marks), ensure the **General** domain is selected, then click **Create project**.
-  
-	![Creating a Custom Vision Service project](Images/portal-create-project.png)
-    _Creating a Custom Vision Service project_
-
-1. After a short delay, you will be redirected to a new workspace named "Artworks" where you will be performing steps in the next exercise.
-  
-	![The newly created Artworks workspace](Images/portal-created-project.png)
-    _The newly created Artworks workspace_
-
-That’s it! Your Custom Vision Service project has been created and it's time to start populating your Artworks project with images of paintings, as well as adding tags to these images to help refine your classification.
+The next step is to train the model by uploading images to the project and providing tags for those images.
 
 <a name="Exercise2"></a>
 ## Exercise 2: Populate and tag images ##
