@@ -46,7 +46,7 @@ This hands-on lab includes the following exercises:
 - [Exercise 2: Upload tagged images](#Exercise2)
 - [Exercise 3: Train the model](#Exercise3)
 - [Exercise 4: Test the model](#Exercise4)
-- [Exercise 5: Create a Node.js app in Visual Studio Code](#Exercise5)
+- [Exercise 5: Create a Node.js app that uses the model](#Exercise5)
 - [Exercise 6: Upload painting images to perform and view predictions](#Exercise6)
 
 Estimated time to complete this lab: **60** minutes.
@@ -185,143 +185,110 @@ Noe let's test the model using the portal's Quick Test feature, which allows you
 <a name="Exercise4"></a>
 ## Exercise 4: Test the model ##
 
-Although you will be creating an app to perform predictions using the Custom Vision Service Prediction API in a later exercise, the Custom Vision Service portal makes it easy to test image prediction via the Quick Test feature. 
+In [Exercise 5](#Exercise5), you will create a Node.js app that uses the model to identify the artist of paintings presented to it. But you don't have to write an app to test the model; you can do your testing in the portal, and you can further refine the model using the images that you test with. In this exercise, you will test the model's ability to identify the artist of a painting using several test images. While you're at it, you will use the test images to make the model more intelligent.
 
-In this exercise, you'll be testing model predictions by uploading a few images using the Custom Vision Service Quick Test feature to review prediction results.
-
-1. In a browser, navigate to the [Custom Vision Service portal](https://www.customvision.ai/) and open your **Artworks** project, if not already open from the previous exercise.
-  
-1. In the Artworks workspace top menu, click **Quick Test** to view the "Quick Test" dialog.
+1. Click **Quick Test** at the top of the page.
  
-	![A successful model training](Images/portal-click-quick-test.png)
-    _A successful model training_ 
+	![Testing the model](Images/portal-click-quick-test.png)
 
-1. Click **Browse local files** and then browse to the **Quick Tests** folder located in the **Resources** folder included with this lab, select "PicassoTest_01.jpg", then click **Open**.
+    _Testing the model_ 
 
-	![Selecting to browse local files from the Quick Test dialog](Images/portal-quick-test-dialog.png)
-    _Selecting to browse local files from the Quick Test dialog_ 
+1. Click **Browse local files** and then browse to the "Quick Tests" folder in this lab's "Resources" folder. Select **PicassoTest_01.jpg**, and then click **Open**.
 
-	![Selecting a Picasso image for Quick Test](Images/portal-select-test-01.png)
-    _Selecting a Picasso image for Quick Test_ 
+	![Selecting a Picasso test image](Images/portal-select-test-01.png)
 
-1. After a short delay, the Custom Vision Service returns a prediction, based on your trained model, that determines the image is almost certainly (in the range of 99%) an "artist", "painting", and "famous", and is highly likely (in the range of over 70%) to be a "Picasso".
+    _Selecting a Picasso test image_ 
+
+1. Examine the results of the test in the "Quick Test" dialog. What is the probability that the painting is a Picasso? What is the probability that it is a Rembrandt or Pollock?
+
+1. Close the "Quick Test" dialog. Then click **Predictions** at the top of the page.
  
-	![A successful prediction of a Picasso painting images](Images/portal-test-results-01.png)
-    _A successful prediction of a Picasso painting images_ 
+	![Viewing the tests that have been performed](Images/portal-select-predictions.png)
 
-1. After reviewing the Quick Test prediction results, close the "Quick Test" dialog by clicking the **[x]** in the top-right corner of the dialog.
-1. Select the **Predictions** tab in the project workspace, then select the previously tested Picasso image from the workspace to view an image prediction detail dialog.
+    _Viewing the tests that have been performed_ 
+
+1. Click the test image that you uploaded to show a detail of it. Then tag the image as a "Picasso" by selecting **Picasso** from the drop-down list and clicking **Save and close**.
+
+	> By tagging test images this way, you can refine the model without uploading additional training images.
  
-	![The project Predictions tab](Images/portal-select-predictions.png)
-    _The project Predictions tab_ 
- 
-	![The image prediction detail dialog](Images/portal-prediction-detail.png)
-    _The image prediction detail dialog_ 
+	![Tagging the test image](Images/tag-test-image.png)
 
-	Since you already know the image is a Picasso, you can further refine the Custom Vision Service prediction by tagging the predicted image as a Picasso.
+    _Tagging the test image_ 
 
-1. Place your mouse cursor in the **tag entry** of the "My Tags" panel to view a list of previously defined tags, select the "Picasso" tag from the list, then click **Save and close**.
+1. Perform another quick test using the file named **FlowersTest.jpg** in the lab's "Resources\Quick Test" folder. Confirm that this image is assigned a low probability of being a Picasso, a Rembrandt, or a Pollock.
 
-	![Adding a Picasso tag to the predicted image](Images/portal-add-tag-01.png)
-    _Adding a Picasso tag to the predicted image_ 
+1. Perform additional tests on the model using other images in the lab's "Resources\Quick Test" folder, and after testing, use the Predictions panel to assign relevant tags to the test images to make the model smarter. For example, after testing with **PicassoTest_02.jpg**, assign the "Picasso" tag to the image.
 
-1. Perform another quick test on an additional image by repeating steps 3 and 4 using "FlowersTest.jpg". You’ll see the high prediction values for "artist", "famous", and "painting", and the extremely low likelihood (less than 1%) of the painting being a "Picasso", "Rembrandt", or "Pollock".
-
-	![The image prediction detail dialog](Images/portal-prediction-detail-lower.png)
-    _The image prediction detail dialog_ 
-
-By performing a Quick Test on these images you've been able to get a hint of how "smart" the Custom Vision Service can be via the portal; the Custom Vision Service via the REST-based Prediction API is even more powerful. 
-
-In the next exercise, you will be integrating the Prediction API into an app experience and prepare it for making predictions outside of the portal.
+Finish up by clicking the **Train** button at the top of the page to retrain the model using the test images that you tagged. Until you do this, the "smarts" gained from the additional tagged images aren't incorporated into the model.
 
 <a name="Exercise5"></a>
-## Exercise 5: Create a Node.js app in Visual Studio Code ##
+## Exercise 5: Create a Node.js app that uses the model ##
 
-The true power of Microsoft Custom Vision Services is in the ability for developers to easily integrate model training and image prediction into an app experience.
+The true power of the Microsoft Custom Vision Service is the ease with which developers can incorporate its intelligence into their own applications. In this exercise, you will use Visual Studio Code to modify an app named Artwork to use the model you built and trained in previous exercises. Then you will use the app to identify the artists of paintings.
 
-In this exercise, you will be using Visual Studio Code to configure a pre-built app named Artwork that can select and predict paintings from famous artists, similar to the features of Quick Test in the previous exercise.
+1. If Visual Studio Code isn't installed on your workstation, go to http://code.visualstudio.com and install it now.
 
-**If you have not installed Visual Studio Code on your local workstation, stop now and install it from the Microsoft [Visual Studio Code](http://code.visualstudio.com) portal.**
+1. Start Visual Studio Code and use the **File** > **Open Folder...** command to select the "Resources\Client\Artworks" folder included with this lab.
 
-1. Open Visual Studio Code and use the **File** > **Open Folder...** command to select the **Resources** > **Client** > **Artworks** folder included with this lab.
- 
-	![The Open Folder... menu in Visual Studio Code](Images/vs-open-folder.png)
-    _The Open Folder... menu in Visual Studio Code_ 
- 
-	![Selecting the Artworks folder from lab Resources](Images/fe-select-folder.png)
-    _Selecting the Artworks folder from lab Resources_ 
+	![Selecting the Artworks folder](Images/fe-select-folder.png)
 
-1. In Visual Studio Code, open the **Integrated Terminal** using the **View** > **Integrated Terminal** command. 
+    _Selecting the Artworks folder_ 
 
-	![The Open Folder... menu in Visual Studio Code](Images/vs-view-terminal.png)
-    _The Open Folder... menu in Visual Studio Code_ 
-
-1.  Using the **Integrated Terminal** window, type the following command to determine whether Node.js is installed on your system:
-
-	```	
-	node -v
-	```
-
-	If Node is not installed (you don't see a Node version number), then go to https://nodejs.org/ and install the version of Node that matches your operating system.
-
-1. Still in the **Integrated Terminal** window, execute the following command to restore any packages required by the app:
+1. Use the **View** > **Integrated Terminal** command to open an integrated terminal window in Visual Studio Code. Then execute the following command in the integrated terminal to load the packages required by the app:
 
 	```
 	npm install
 	```
-	
-	The Artworks app has been built to easily browse local images and send these images to the Custom Vision Service Prediction API; however the endpoint and authorization information will need to be added to a file in the project to access the project and model iteration created earlier in this lab.
 
-1. In a browser, navigate to the [Custom Vision Service portal](https://www.customvision.ai/) and open your **Artworks** project, if not already open from the previous exercise.
-
-1. Select the **Predictions** tab, then click **Make Default** from the actions panel. 
+1. Return to the Artwork project in the Custom Vision Service portal, click **Performance**, and then click **Make Default** to make sure the latest iteration of the model is the default iteration. 
 
 	![Setting an Iteration as the default](Images/portal-make-default.png)
+
     _Setting an Iteration as the default_ 
 
-	>Since Custom Vision Services support multiple iterations, the Predictions API requires a default iteration to be set or specified in the endpoint path.
+1. Before you can run the app and use it to call the Custom Vision Service, it needs to be modified to include endpoint and authorization information. To that end, click **Prediction URL**.
 
-1. Still on the **Predictions** tab, click **Prediction URL** to access the "How to use the Prediction API" panel.
+	![Viewing Prediction URL information](Images/portal-prediction-url.png)
 
-	![Accessing the Prediction URL information](Images/portal-prediction-url.png)
-    _Accessing the Prediction URL information_ 
+    _Viewing Prediction URL information_ 
 
-1. Note the "If you have an image file" section of the instructions. The information in this section will be required since the Artworks app send files to the API instead of URLs.
+1. The ensuing dialog lists two URLs: one for uploading images via URL, and another for uploading local images. Copy the Prediction API URL for image files to the clipboard. 
 
-	![Setting an Iteration as the default](Images/portal-prediction-url-panel.png)
-    _Setting an Iteration as the default_ 
+	![Copying the Prediction API URL](Images/copy-prediction-url.png)
 
-1. Copy the entire value of the Prediction API **endpoint** to the clipboard. 
+    _Copying the Prediction API URL_ 
 
-	![The Prediction API endpoint](Images/portal-endpoint.png)
-    _The Prediction API endpoint_ 
+1. Return to Visual Studio Code and click **predict.js** to open it in the code editor.
 
-1. Return to Visual Studio Code, then locate and open **predict.js** from the Explorer window.
+	![Opening predict.js](Images/vs-predict-file.png)
 
-	![The Artworks predict.js file](Images/vs-predict-file.png)
-    _The Artworks predict.js file_ 
+    _Opening predict.js_ 
 
-1. Locate the **url** variable on line 3, then paste to replace the value "PREDICTION_ENDPOINT" with the endpoint value contained in the clipboard.
- 
-	![The PREDICTION_ENDPOINT placeholder](Images/vs-prediction-endpoint.png)
-    _The PREDICTION_ENDPOINT placeholder_ 
+1. Replace "PREDICTION_ENDPOINT" in line 3 with the URL on the clipboard.
 
-1. Return to the "How to use the Prediction API" panel in the Custom Vision Service portal, then copy the entire value of the **Prediction-Key** to the clipboard. 
+	![Adding the Prediction API URL](Images/vs-prediction-endpoint.png)
 
-	![The Prediction API Prediction-Key value](Images/portal-prediction-key.png)
-    _The Prediction API Prediction-Key value_ 
+    _Adding the Prediction API URL_ 
 
-1. Locate the **predictionKey** variable on line 4, then paste to replace the value "PREDICTION_KEY" with the value contained in the clipboard.
+1. Return to the Custom Vision Service portal and copy the Predction API key to the clipboard. 
 
-	![The PREDICTION_KEY placeholder](Images/vs-prediction-key.png)
-    _The PREDICTION_KEY placeholder_ 
+	![Copying the Prediction API key](Images/copy-prediction-key.png)
 
-1. Look at the Prediction Endpoint (url) and Prediction Key (predictionKey) in the code block beginning on line 34 of the predict.js file. Using the Custom Vision Service Prediction API is as easy as making a simple, authenticated POST to an endpoint.
+    _Copying the Prediction API key_ 
 
-	![Making an authenticated POST to the Prediction API endpoint](Images/vs-code-block.png)
-    _Making an authenticated POST to the Prediction API endpoint_ 
+1. Return to Visual Studio Code and replace "PREDICTION_KEY" in line 4 of **predict.js** with the API key on the clipboard.
 
-1. Return to the **Integrated Terminal** window, then execute the following command to start the Artworks app:
+	![Adding the Prediction API key](Images/vs-prediction-key.png)
+
+    _Adding the Prediction API key_ 
+
+1. Scroll down in **predict.js** and examine block of code that begins on line 34. This is the code that calls out to the Custom Vision Service using AJAX. Using the Custom Vision Service Prediction API is as easy as making a simple, authenticated POST to a REST endpoint.
+
+	![Making a call to the Prediction API](Images/vs-code-block.png)
+
+    _Making a call to the Prediction API_ 
+
+1. Return to the integrated terminal in Visual Studio Code and execute the following command to start the app:
 
 	```
 	npm start
@@ -329,10 +296,11 @@ In this exercise, you will be using Visual Studio Code to configure a pre-built 
 
 1. Confirm that the Artworks app starts and displays a window like this one:
 
-	![The Artworks app running for the first time](Images/app-startup.png)
-    _The Artworks app running for the first time_ 
+	![The Artworks app](Images/app-startup.png)
 
-You're all set! With the Artworks app configured and ready to make predictions, the only thing left to do is to start using it.
+    _The Artworks app_ 
+
+Artworks is a cross-platform app written with Node.js and [Electron](https://electron.atom.io/). As such, it is equally capable of running on Windows, macOS, and Linux. In the next exercise, you will use to classify images by the artists who painted them.
 
 <a name="Exercise6"></a>
 ## Exercise 6: Upload painting images to perform and view predictions ##

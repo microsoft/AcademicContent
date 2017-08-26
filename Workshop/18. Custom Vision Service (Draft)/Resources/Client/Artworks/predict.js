@@ -1,7 +1,7 @@
 $(function () {
 
-    var url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/a999a3e5-e00b-4f6e-bbd2-045432d67e2f/image?iterationId=bbcf86b8-96b1-44b8-b9e9-97b5421a2fa1";
-    var predictionKey = "0c574fac4c3045ebb237164898240974";
+    var url = "PREDICTION_ENDPOINT";
+    var predictionKey = "PREDICTION_KEY";
     
     var fs = require("fs");
     var _ = require('underscore');
