@@ -83,119 +83,85 @@ The next step is to train the model by uploading images to the project and provi
 <a name="Exercise2"></a>
 ## Exercise 2: Populate and tag images ##
 
-Although many Custom Vision Service activities can be accomplished via the REST-based [Custom Vision Service Training API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3 "Custom Vision Service Training API") it's often easier and more instructive to perform these tasks directly in the portal. 
-
-In this exercise, you will be adding images of famous paintings by Pablo Picasso, Jackson Pollock, and Rembrandt to the Artworks project via the Custom Vision Service portal, and then tagging these images with terms to help when training and refining your prediction model.
-
-1. In a browser, navigate to the [Custom Vision Service portal](https://www.customvision.ai/) and open your **Artworks** project, if not already open from the previous exercise.
+In this exercise, you will add images of famous paintings by Pablo Picasso, Jackson Pollock, and Rembrandt to the Artworks project, and then tag the images so the Custom Vision Service can learn to differentiate one artist from another.
   
-1. In the main workspace, click **Add images** (either from the main workspace area, or the workspace menu at the top of the page) to begin the process of adding an image to your project.
+1. Click **Add images** to add an image to your project.
 
 	![Adding images to the Artworks project](Images/portal-click-add-images.png)
+
     _Adding images to the Artworks project_ 
  
-1. In the subsequent dialog, click **Browse local files** to locate local images for upload to your project.
+1. Click **Browse local files**.
 
 	![Browsing local files in the Artworks project](Images/portal-click-browse-local-files.png)
+
     _Browsing local files in the Artworks project_ 
  
-1. Browse to the **Picasso** folder located in the **Resources** > **Artists** folder included with this lab, then select "Picasso_01.jpg" and click **Open**.
+1. Browse to "Resources\Artists\Picasso" folder included with this lab, select **Picasso_01.jpg**, and click **Open**.
 
-	![Selecting the Picasso_01 image in lab resources](Images/fe-browse-picasso-01.png)
-    _Selecting the Picasso_01 image in lab resources_ 
+	![Selecting an image](Images/fe-browse-picasso-01.png)
+
+    _Selecting an image_ 
  
-1. On the "Add Tags" step, enter the term "painting" (without quotation marks) in the tag entry, then click the **plus sign (+)** to assign the tag to the image.
+1. Type "painting" (without quotation marks) into the **Add some tags** box. Then click **+** to assign the tag to the image.
 
-	![Adding a "painting" tag to an image](Images/portal-add-tags-01.png)
-    _Adding a "painting" tag to an image_ 
+	![Adding a "painting" tag to the image](Images/portal-add-tags-01.png)
 
-1. Repeat this process using the following additional tags to further classify this image:
+    _Adding a "painting" tag to the image_ 
+
+1. Repeat Step 4 to add the following tags to the image:
 
 	- artist
 	- famous
 	- Picasso
 
-1. Click **Upload 1 file** to confirm these tags and move to the "Uploading" step. 
+1. Click **Upload 1 file** to upload the image. Once the upload has completed, click **Done**.
 
-	![Uploading a tagged image to the Artworks project](Images/portal-click-upload-01.png)
-    _Uploading a tagged image to the Artworks project_ 
+	![Uploading a tagged image](Images/portal-click-upload-01.png)
 
-1. After a short delay you will be taken to the "Summary" step. Observe that your image has been uploaded successfully, then click **Done** to return to your workspace.
+    _Uploading a tagged image_ 
 
-	![A successful image upload to the Artworks project](Images/portal-confirm-upload-01.png)
-    _A successful image upload to the Artworks project_ 
+1. Confirm that the page you uploaded appears in the portal, along with the tags you added to it.
 
-1. Observe a thumbnail of the uploaded Picasso painting in the workspace "Training Images" tab, as well as the newly assigned tags and tag counts in the workspace "Tags" panel.
+	![The uploaded image](Images/portal-tagged-01.png)
 
-	![The updated Training Images tab with a tagged Picasso painting thumbnail](Images/portal-tagged-01.png)
-    _The updated Training Images tab with a tagged Picasso painting thumbnail_ 
+    _The uploaded image_ 
 
-	Training a Custom Vision Service model requires more than a single image. To "teach" the Custom Vision Service what a Picasso painting looks like, you need to upload images of more paintings.
+1. When training a Custom Vision Service model, the more tagged images you upload, the better. Click **Add images** in the workspace menu at the top of the page, and then click **Browse local files**. Browse to "Resources\Artists\Picasso" folder included with this lab and select all of the remaining Picasso images, **Picasso_02.jpg** through **Picasso_07.jpg**. Then click **Open**. 
 
-1. Once again, click **Add images** (this time from the workspace menu at the top of the page) then click **Browse local files** to add a few more Picasso images.
+	![Selecting the remaining Picasso images](Images/fe-browse-picasso-02.png)
 
-1. Browse to the **Picasso** folder located in the **Resources** > **Artists** folder included with this lab, then select "Picasso_02.jpg" through "Picasso_07.jpg" and click **Open**. 
-
-	![Selecting the remaining Picasso images in lab resources](Images/fe-browse-picasso-02.png)
-    _Selecting the remaining Picasso images in lab resources_ 
+    _Selecting the remaining Picasso images_ 
  
-1. On the "Add Tags" step, place your mouse cursor in the **tag entry**, and observe how previously assigned tags are automatically available when entering tags for new images.
+1. Add the tags "artist", "famous", "painting", and "Picasso" to the images by selecting them one by one from the drop-down list. Then click **Upload 6 files**. Once the uploads have completed, click **Done**.
 
-	![Viewing pre-populated tags available for entry](Images/portal-add-tags-02.png)
-    _Viewing pre-populated tags available for entry_ 
+	![Tagging the selected images](Images/portal-add-tags-03.png)
 
-1. Select each of the 4 tags individually ("artist", "famous", "painting", and "Picasso") to have them assigned to all the selected images, then click **Upload 6 files**.
+    _Tagging the selected images_ 
 
-	![Adding a "painting" tag to an image](Images/portal-add-tags-03.png)
-    _Adding a "painting" tag to an image_ 
+1. Confirm that all seven Picasso images appear in the workspace.
 
-1. After a short delay you will be taken to the "Summary" step. Once your images have been uploaded successfully, click **Done** to return to your workspace.
+	![Picasso images uploaded to the project](Images/portal-tagged-02.png)
 
-1. You’ll see a thumbnail of all uploaded Picasso painting in the workspace "Training Images" tab, as well as the updated assigned tag counts in the workspace "Tags" panel.
+    _Picasso images uploaded to the project_ 
 
-	![The updated Training Images tab with all tagged Picasso painting thumbnails](Images/portal-tagged-02.png)
-    _The updated Training Images tab with all tagged Picasso painting thumbnails_ 
+1. With seven Picasso images, the Custom Vision Service can do a decent job of identifying paintings by Picasso. But if you trained the model right now, it would only understand what a Picasso looks like, and it would not be able to identify paintings by other artists.
 
-	With at least three images uploaded and tagged, the Custom Vision Service can do a great job identifying and predicting images based on machine-learning prediction algorithms. But if you trained your model right now, it would only "understand" what a Picasso looks like, and it would also believe that only Picasso paintings are "paintings", "artists", and "famous". To further define and expand your classification you need to upload images of paintings from other famous artists.
+	The next step is to upload some paintings by another artist. Repeat Steps 8 and 9 to select all of the images in this lab's "Resources\Artists\Rembrandt" folder, tag them with the terms "painting," "artist," "famous," and "Rembrandt" (not "Picasso"), and upload them to the project.
 
-1. Once again, click **Add images** from the workspace menu at the top of the page, then click **Browse local files** to add images of Rembrandt paintings.
+	![Uploading Rembrandt images](Images/portal-upload-images.png)
 
-1. Browse to the **Rembrandt** folder located in the **Resources** > **Artists** folder included with this lab, select all the images in the folder, then click **Open**. 
+    _Uploading Rembrandt images_ 
 
-	![Selecting all the Rembrandt images in lab resources](Images/fe-browse-rembrandt-01.png)
-    _Selecting all the Rembrandt images in lab resources_  
+1. Confirm that the Rembrandt images appear alongside the Picasso images in the project, and that "Rembrandt" appears in the list of tags.
 
-1. On the "Add Tags" step, enter the term "Rembrandt" (without quotation marks) in the tag entry, then click the **plus sign (+)** to assign the tag to the image.
+	![Picasso and Rembrandt images](Images/portal-tagged-03.png)
 
-	![Adding a "Rembrandt" tag to an image](Images/portal-add-tags-04.png)
-    _Adding a "Rembrandt" tag to an image_ 
+    _Picasso and Rembrandt images_ 
 
-1. Place your mouse cursor in the **tag entry** to select each of the three (3) tags individually that apply to Rembrandt images ("artist", "famous", and "painting") to have them assigned to all the selected images, then click **Upload 6 files**.
+1. Now let's add a few paintings from the enigmatic Jackson Pollock to test the Custom Vision Service's ability to recognize Pollock paintings, too. Repeat Steps 8 and 9 to select all of the images in this lab's "Resources\Artists\Pollock" folder, tag them with the terms "painting," "artist," "famous," and "Pollock", and upload them to the project.
 
-	![Uploading tagged "Rembrandt" images](Images/portal-upload-images.png)
-    _Uploading tagged "Rembrandt" images_ 
-
-1. After a short delay you will be taken to the "Summary" step. Once your images have been uploaded successfully, click **Done** to return to your workspace.
-
-1. You’ll see a thumbnail of all uploaded Rembrandt paintings in the workspace "Training Images" tab, as well as the updated assigned tag counts in the workspace "Tags" panel.
-
-	![The updated Training Images tab with all tagged Rembrandt painting thumbnails](Images/portal-tagged-03.png)
-    _The updated Training Images tab with all tagged Rembrandt painting thumbnails_ 
-
-	You're almost there! To keep it interesting, let's add a few paintings from the enigmatic Jackson Pollock to give your Custom Vision Service a real challenge!
-
-1. Click **Add images** from the workspace menu at the top of the page, then click **Browse local files** to add images of Pollock paintings.
-
-1. Browse to the **Pollock** folder located in the **Resources** > **Artists** folder included with this lab, select all the images in the folder, then click **Open**. 
-
-1. Repeat steps 18 through 20, this time substituting the tag "Pollock" for "Rembrandt" and making sure your Pollock images also get the tags "artist", "famous", and "painting". When these steps are complete, your Artworks workspace "Training Images" tab should be getting pretty full, with updated tag breakdowns in the "Tags" panel.
-
-	![The updated Training Images tab with all tagged Pollock painting thumbnails](Images/portal-tagged-04.png)
-    _The updated Training Images tab with all tagged Pollock painting thumbnails_ 
-
-You did it! With images of famous paintings uploaded and tagged, the Custom Vision Service is almost ready to not only understand what a "painting" looks like, but also what a "Picasso", "Rembrandt", or "Pollock" looks like. 
-
-In the next exercise you will be training your project classification model to "teach" the Custom Vision Service what the similarities (and differences) are among these paintings to accurately predict the artist of paintings.
+With the tagged images uploaded, the next step is to train the model with these images so it can distinguish between paintings by Picasso, Rembrandt, and Pollock, as well as determine whether a painting is a work by one of these famous artists.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Train a classifier ##
