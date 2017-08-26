@@ -1,5 +1,5 @@
 <a name="HOLTitle"></a>
-# Using the Custom Vision Service to Perform Image Classification #
+# Using the Microsoft Custom Vision Service to Perform Image Classification #
 
 ---
 
@@ -31,6 +31,7 @@ The following are required to complete this hands-on lab:
 
 - A Microsoft account. If you don't have one, [sign up for free](https://account.microsoft.com/account).
 - Microsoft [Visual Studio Code](http://code.visualstudio.com) version 1.14.0 or higher
+- [Node.js](https://nodejs.org) version 6.0 or higher
 
 ---
 
@@ -44,14 +45,14 @@ This hands-on lab includes the following exercises:
 - [Exercise 3: Train the model](#Exercise3)
 - [Exercise 4: Test the model](#Exercise4)
 - [Exercise 5: Create a Node.js app that uses the model](#Exercise5)
-- [Exercise 6: Upload painting images to perform and view predictions](#Exercise6)
+- [Exercise 6: Use the app to classify images](#Exercise6)
 
-Estimated time to complete this lab: **60** minutes.
+Estimated time to complete this lab: **45** minutes.
 
 <a name="Exercise1"></a>
 ## Exercise 1: Create a Custom Vision Service project ##
 
-The first step is to buulding an image-classification model with the Custom Vision Service is to create a project in the Custom Vision Service portal.
+The first step in building an image-classification model with the Custom Vision Service is to create a project. You can do that in the Custom Vision Service portal, or by utilizing REST APIs that are part of the [Custom Vision Training API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3). In this exercise, you will use the portal to create a Custom Vision Service project.
 
 1. Open the [Custom Vision Service portal](https://www.customvision.ai/) in your browser. Then click **Sign In**. 
  
@@ -69,20 +70,20 @@ The first step is to buulding an image-classification model with the Custom Visi
 
 1. In the "New project" dialog, name the project "Artworks," ensure that **General** is selected as the domain, and click **Create project**.
 
-	> A domain optimizes a classifier for specific types of images. For example, if your goal is to classify food images by the types of food they contain or the ethnicity of the dishes, then it might be helpful to select the Food domain. For scenarios that don't match any of the offered domains, or if you are unsure of which domain to choose, select the General domain.
+	> A domain optimizes a model for specific types of images. For example, if your goal is to classify food images by the types of food they contain or the ethnicity of the dishes, then it might be helpful to select the Food domain. For scenarios that don't match any of the offered domains, or if you are unsure of which domain to choose, select the General domain.
 
 	![Creating a Custom Vision Service project](Images/portal-create-project.png)
 
     _Creating a Custom Vision Service project_
 
-The next step is to train the model by uploading images to the project and providing tags for those images.
+The next step is to upload images to the project and assign tags to those images to classify them.
 
 <a name="Exercise2"></a>
 ## Exercise 2: Upload tagged images ##
 
-In this exercise, you will add images of famous paintings by Pablo Picasso, Jackson Pollock, and Rembrandt to the Artworks project, and then tag the images so the Custom Vision Service can learn to differentiate one artist from another.
+In this exercise, you will add images of famous paintings by Picasso, Pollock, and Rembrandt to the Artworks project, and then tag the images so the Custom Vision Service can learn to differentiate one artist from another.
   
-1. Click **Add images** to add an image to your project.
+1. Click **Add images** to add an image to the project.
 
 	![Adding images to the Artworks project](Images/portal-click-add-images.png)
 
@@ -90,17 +91,17 @@ In this exercise, you will add images of famous paintings by Pablo Picasso, Jack
  
 1. Click **Browse local files**.
 
-	![Browsing local files in the Artworks project](Images/portal-click-browse-local-files.png)
+	![Browsing for local images](Images/portal-click-browse-local-files.png)
 
-    _Browsing local files in the Artworks project_ 
+    _Browsing for local images_ 
  
-1. Browse to "Resources\Artists\Picasso" folder included with this lab, select **Picasso_01.jpg**, and click **Open**.
+1. Browse to the "Resources\Artists\Picasso" folder included with this lab, select **Picasso_01.jpg**, and click **Open**.
 
 	![Selecting an image](Images/fe-browse-picasso-01.png)
 
     _Selecting an image_ 
  
-1. Type "painting" (without quotation marks) into the **Add some tags** box. Then click **+** to assign the tag to the image.
+1. Type "painting" (without quotation marks) into the **Add some tags...** box. Then click **+** to assign the tag to the image.
 
 	![Adding a "painting" tag to the image](Images/portal-add-tags-01.png)
 
@@ -118,13 +119,13 @@ In this exercise, you will add images of famous paintings by Pablo Picasso, Jack
 
     _Uploading a tagged image_ 
 
-1. Confirm that the page you uploaded appears in the portal, along with the tags you added to it.
+1. Confirm that the image you uploaded appears in the portal, along with the tags you added to it.
 
 	![The uploaded image](Images/portal-tagged-01.png)
 
     _The uploaded image_ 
 
-1. When training a Custom Vision Service model, the more tagged images you upload, the better. Click **Add images** in the workspace menu at the top of the page, and then click **Browse local files**. Browse to "Resources\Artists\Picasso" folder included with this lab and select all of the remaining Picasso images, **Picasso_02.jpg** through **Picasso_07.jpg**. Then click **Open**. 
+1. When creating a Custom Vision Service model, the more images you upload and tag, the better. Click **Add images** in the menu at the top of the page, and then click **Browse local files**. Browse to "Resources\Artists\Picasso" folder included with this lab and select all of the remaining Picasso images, **Picasso_02.jpg** through **Picasso_07.jpg**. Then click **Open**. 
 
 	![Selecting the remaining Picasso images](Images/fe-browse-picasso-02.png)
 
@@ -136,7 +137,7 @@ In this exercise, you will add images of famous paintings by Pablo Picasso, Jack
 
     _Tagging the selected images_ 
 
-1. Confirm that all seven Picasso images appear in the workspace.
+1. Confirm that all seven Picasso images appear in the project.
 
 	![Picasso images uploaded to the project](Images/portal-tagged-02.png)
 
@@ -156,14 +157,14 @@ In this exercise, you will add images of famous paintings by Pablo Picasso, Jack
 
     _Picasso and Rembrandt images_ 
 
-1. Now let's add a few paintings from the enigmatic Jackson Pollock to test the Custom Vision Service's ability to recognize Pollock paintings, too. Repeat Steps 8 and 9 to select all of the images in this lab's "Resources\Artists\Pollock" folder, tag them with the terms "painting," "artist," "famous," and "Pollock", and upload them to the project.
+1. Now add paintings by the enigmatic artist Jackson Pollock to enable the Custom Vision Service to recognize Pollock paintings, too. Repeat Steps 8 and 9 to select all of the images in this lab's "Resources\Artists\Pollock" folder, tag them with the terms "painting," "artist," "famous," and "Pollock", and upload them to the project.
 
 With the tagged images uploaded, the next step is to train the model with these images so it can distinguish between paintings by Picasso, Rembrandt, and Pollock, as well as determine whether a painting is a work by one of these famous artists.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Train the model ##
 
-In this exercise, you will train the model using the tagged images uploaded in the previous exercise. Training is accomplished with a simple button click in the Custom Vision Service portal, and you can refine a model at any time by uploading additional tagged images and retraining it.
+In this exercise, you will train the model using the images uploaded and tagged in the previous exercise. Training can be accomplished with a simple button click in the portal, or by calling the [TrainProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095bed) method in the [Custom Vision Training API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3). Once trained, a model can be refined by uploading additional tagged images and retraining it.
  
 1. Click **Train** at the top of the page to train the model. Each time you train the model, a new iteration is created. The Custom Vision Service maintains several iterations, allowing you to compare your progress over time.
 
@@ -171,18 +172,18 @@ In this exercise, you will train the model using the tagged images uploaded in t
 
     _Training the model_ 
 
-1. Wait for the training process to complete. (It should only take a few seconds.) Then review the training statistics presented to you for iteration 1. **Precision** and **recall** are separate but related  measures of the model's accuracy. Suppose that the model was presented with three Picassos and three Van Goghs, and that it correctly identified two of the Picassos as "Picasso" images, but incorrectly identified two of the Van Goghs as "Picasso" images. In this case, the precision would be 50% (two of the four images it classified as Picassos are actually Picassos), while its recall would be 67% (it correctly identified two of the three Picasso images as Picassos). You can learn more about precision and recall from https://en.wikipedia.org/wiki/Precision_and_recall.
+1. Wait for the training process to complete. (It should only take a few seconds.) Then review the training statistics presented to you for iteration 1. **Precision** and **recall** are separate but related  measures of the model's accuracy. Suppose the model was presented with three Picassos and three Van Goghs, and that it correctly identified two of the Picassos as "Picasso" images, but incorrectly identified two of the Van Goghs as Picassos. In this case, the precision would be 50% (two of the four images it classified as Picassos are actually Picassos), while its recall would be 67% (it correctly identified two of the three Picasso images as Picassos). You can learn more about precision and recall from https://en.wikipedia.org/wiki/Precision_and_recall.
 
 	![Results of training the model](Images/portal-train-complete.png)
 
     _Results of training the model_ 
 
-Noe let's test the model using the portal's Quick Test feature, which allows you to submit images to the model and see how it classifies them using the knowledge it gained from the training images.
+Now let's test the model using the portal's Quick Test feature, which allows you to submit images to the model and see how it classifies them using the knowledge acquired from the training images.
 
 <a name="Exercise4"></a>
 ## Exercise 4: Test the model ##
 
-In [Exercise 5](#Exercise5), you will create a Node.js app that uses the model to identify the artist of paintings presented to it. But you don't have to write an app to test the model; you can do your testing in the portal, and you can further refine the model using the images that you test with. In this exercise, you will test the model's ability to identify the artist of a painting using several test images. While you're at it, you will use the test images to make the model more intelligent.
+In [Exercise 5](#Exercise5), you will create a Node.js app that uses the model to identify the artist of paintings presented to it. But you don't have to write an app to test the model; you can do your testing in the portal, and you can further refine the model using the images that you test with. In this exercise, you will test the model's ability to identify the artist of a painting using test images provided for you.
 
 1. Click **Quick Test** at the top of the page.
  
@@ -190,7 +191,7 @@ In [Exercise 5](#Exercise5), you will create a Node.js app that uses the model t
 
     _Testing the model_ 
 
-1. Click **Browse local files** and then browse to the "Quick Tests" folder in this lab's "Resources" folder. Select **PicassoTest_01.jpg**, and then click **Open**.
+1. Click **Browse local files**, and then browse to the "Quick Tests" folder in this lab's "Resources" folder. Select **PicassoTest_01.jpg**, and then click **Open**.
 
 	![Selecting a Picasso test image](Images/portal-select-test-01.png)
 
@@ -214,16 +215,20 @@ In [Exercise 5](#Exercise5), you will create a Node.js app that uses the model t
 
 1. Perform another quick test using the file named **FlowersTest.jpg** in the lab's "Resources\Quick Test" folder. Confirm that this image is assigned a low probability of being a Picasso, a Rembrandt, or a Pollock.
 
-Finish up by clicking the **Train** button at the top of the page to retrain the model using the test images that you tagged. Until you do this, the "smarts" gained from the additional tagged images aren't incorporated into the model.
+Finish up by clicking the **Train** button at the top of the page to retrain the model using the test image that you tagged. Until you do this, the "smarts" gained from tagging additional images aren't incorporated into the model.
 
 <a name="Exercise5"></a>
 ## Exercise 5: Create a Node.js app that uses the model ##
 
-The true power of the Microsoft Custom Vision Service is the ease with which developers can incorporate its intelligence into their own applications. In this exercise, you will use Visual Studio Code to modify an app named Artwork to use the model you built and trained in previous exercises. Then you will use the app to identify the artists of paintings.
+The true power of the Microsoft Custom Vision Service is the ease with which developers can incorporate its intelligence into their own applications using the [Custom Vision Prediction API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814). In this exercise, you will use Visual Studio Code to modify an app named Artwork to use the model you built and trained in previous exercises.
+
+1. If Node.js isn't installed on your system, go to https://nodejs.org and install the latest LTS version for your operating system.
+
+	> If you aren't sure whether Node.js is installed, open a Command Prompt or terminal window and type **node -v**. If you don't see a Node.js version number, then Node.js isn't installed. If a version of Node.js older than 6.0 is installed, it is highly recommend that you download and install the latest version.
 
 1. If Visual Studio Code isn't installed on your workstation, go to http://code.visualstudio.com and install it now.
 
-1. Start Visual Studio Code and use the **File** > **Open Folder...** command to select the "Resources\Client\Artworks" folder included with this lab.
+1. Start Visual Studio Code and select **Open Folder...** from the **File** menu. In the ensuing dialog, select the "Resources\Client\Artworks" folder included with this lab.
 
 	![Selecting the Artworks folder](Images/fe-select-folder.png)
 
@@ -235,13 +240,13 @@ The true power of the Microsoft Custom Vision Service is the ease with which dev
 	npm install
 	```
 
-1. Return to the Artwork project in the Custom Vision Service portal, click **Performance**, and then click **Make Default** to make sure the latest iteration of the model is the default iteration. 
+1. Return to the Artwork project in the Custom Vision Service portal, click **Performance**, and then click **Make default** to make sure the latest iteration of the model is the default iteration. 
 
-	![Setting an Iteration as the default](Images/portal-make-default.png)
+	![Specifying the default iteration](Images/portal-make-default.png)
 
-    _Setting an Iteration as the default_ 
+    _Specifying the default iteration_ 
 
-1. Before you can run the app and use it to call the Custom Vision Service, it needs to be modified to include endpoint and authorization information. To that end, click **Prediction URL**.
+1. Before you can run the app and use it to call the Custom Vision Service, it must be modified to include endpoint and authorization information. To that end, click **Prediction URL**.
 
 	![Viewing Prediction URL information](Images/portal-prediction-url.png)
 
@@ -265,7 +270,7 @@ The true power of the Microsoft Custom Vision Service is the ease with which dev
 
     _Adding the Prediction API URL_ 
 
-1. Return to the Custom Vision Service portal and copy the Predction API key to the clipboard. 
+1. Return to the Custom Vision Service portal and copy the Prediction API key to the clipboard. 
 
 	![Copying the Prediction API key](Images/copy-prediction-key.png)
 
@@ -298,11 +303,9 @@ The true power of the Microsoft Custom Vision Service is the ease with which dev
 Artworks is a cross-platform app written with Node.js and [Electron](https://electron.atom.io/). As such, it is equally capable of running on Windows, macOS, and Linux. In the next exercise, you will use it to classify images by the artists who painted them.
 
 <a name="Exercise6"></a>
-## Exercise 6: Upload painting images to perform and view predictions ##
+## Exercise 6: Use the app to classify images ##
 
-Earlier in this lab you performed a few "Quick Tests" via the Custom Vision Service portal to predict the probability of a painting belonging to a specific famous artist. What you may not have realized is that the Custom Vision Service portal uses the exact same Training and Prediction APIs a developer would use in their own app. This means a developer could, with just a little effort, recreate the entire experience of the Custom Vision Service portal on their own.
-
-In this exercise, you will be using the Artworks app to upload images from your local computer and send them to the Prediction API for analysis: essentially creating your own Quick Test service. Instead of viewing a percentage breakdown of all predicted image tags and probabilities, Artworks streamlines the process by simply identifying the likely artist or returns the probability that an image is not a painting from a famous artist at all.
+In this exercise, you will use the Artworks app to submit images to the Custom Vision Service for classification. The app uses the JSON information returned from calls to the Custom Vision Prediction API's [PredictImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814) method to tell you whether an image represents a painting by Picasso, Rembrandt, Pollock, or none of the above. It also shows the probability that the classification assigned to the image is correct.
 
 1. Click the **Browse (...)** button in the Artworks app. 
 
@@ -336,21 +339,18 @@ In this exercise, you will be using the Artworks app to upload images from your 
 
     _Definitely not a Picasso_ 
 
-1. As you can see, using the Prediction API from an app is just as reliable as through the Custom Vision Service portal — and way more fun! What's more, if you go to the Predictions page in the portal, you'll find that each of the images uploaded via from the app is available there as well:
+1. As you can see, using the Prediction API from an app is just as reliable as through the Custom Vision Service portal — and way more fun! What's more, if you go to the Predictions page in the portal, you'll find that each of the images uploaded via the app is available there as well:
  
 	![Images submitted to the Custom Vision Service](Images/portal-all-predictions.png)
 
 	_Images submitted to the Custom Vision Service_ 
 
-Once the model is trained, a simple API call is all that's required to leverage its intelligence in an application. Feel fry to test with images of your own and gauge the model's adeptness at identifying artists or determining that an image is not a Picasso, Rembrandt, or Pollock. And if you'd like to train it to recognize Van Goghs, too, simply upload some Van Gogh paintings tagged with "Van Gogh" and retrain the model. There is no limit to the intelligence you can build if you're willing to do the training. And remember that in general, the more images you train it with, the smarter the model will be.
+Feel free to test with images of your own and gauge the model's adeptness at identifying artists or determining that an image is not a Picasso, Rembrandt, or Pollock. If you'd like to train it to recognize Van Goghs, too, simply upload some Van Gogh paintings, tag them with "Van Gogh," and retrain the model. There is no limit to the intelligence you can add if you're willing to do the training. And remember that in general, the more images you train with, the smarter the model will be.
 
 <a name="Summary"></a>
 ## Summary ##
 
-Image classification is playing an increasingly large role in industry as a means for automating such tasks as checking images uploaded to Web sites for offensive content and inspecting parts rolling off of assembly lines for defects. Building an image-classification model by hand requires no small amount of expertise, but the Custom Vision Service enables virtually anyone to build sophisticated image-classification models. And once a model is created, an app that uses it is only few lines of code away.
-
-You used the Custom Vision Service portal to create the model and train it with tagged images, but realize that everything you did in the portal can also be accomplished programmatically using the [Custom Vision Training API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3). This REST-based API contains methods for uploading images, tagging images, training the model, and much more, and it can be called from any language that supports REST calls over HTTPS.
-
+Image classification is playing an increasingly large role in industry as a means for automating such tasks as checking images uploaded to Web sites for offensive content and inspecting parts rolling off of assembly lines for defects. Building an image-classification model manually — that is, coding it from the ground up in Python, R, or another language — requires no small amount of expertise, but the Custom Vision Service enables virtually anyone to build sophisticated image-classification models. And once a model is built and trained, an app that uses it is only few lines of code away.
 
 ---
 
