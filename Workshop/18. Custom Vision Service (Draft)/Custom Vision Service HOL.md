@@ -1,5 +1,5 @@
 <a name="HOLTitle"></a>
-# Custom Vision Service #
+# Using the Custom Vision Service to Perform Image Classification #
 
 ---
 
@@ -20,12 +20,9 @@ In this lab, you will create a Custom Vision Service model, train it with images
 In this hands-on lab, you will learn how to:
 
 - Create a Custom Vision Service project 
-- Build and refine project classifiers
-- Populate and tag images 
-- Train a Custom Vision classifier  
-- Check predictions via the Quick Test 
-- Create a Node.js app to use the Custom Vision Service Prediction API 
-- Upload painting images to perform and view predictions
+- Train a Custom Vision Service model with tagged images  
+- Test a Custom Vision Service model 
+- Create apps that leverage Custom Vision Service models by calling REST APIs 
 
 <a name="Prerequisites"></a>
 ### Prerequisites ###
@@ -217,8 +214,6 @@ In [Exercise 5](#Exercise5), you will create a Node.js app that uses the model t
 
 1. Perform another quick test using the file named **FlowersTest.jpg** in the lab's "Resources\Quick Test" folder. Confirm that this image is assigned a low probability of being a Picasso, a Rembrandt, or a Pollock.
 
-1. Perform additional tests on the model using other images in the lab's "Resources\Quick Test" folder, and after testing, use the Predictions panel to assign relevant tags to the test images to make the model smarter. For example, after testing with **PicassoTest_02.jpg**, assign the "Picasso" tag to the image.
-
 Finish up by clicking the **Train** button at the top of the page to retrain the model using the test images that you tagged. Until you do this, the "smarts" gained from the additional tagged images aren't incorporated into the model.
 
 <a name="Exercise5"></a>
@@ -300,7 +295,7 @@ The true power of the Microsoft Custom Vision Service is the ease with which dev
 
     _The Artworks app_ 
 
-Artworks is a cross-platform app written with Node.js and [Electron](https://electron.atom.io/). As such, it is equally capable of running on Windows, macOS, and Linux. In the next exercise, you will use to classify images by the artists who painted them.
+Artworks is a cross-platform app written with Node.js and [Electron](https://electron.atom.io/). As such, it is equally capable of running on Windows, macOS, and Linux. In the next exercise, you will use it to classify images by the artists who painted them.
 
 <a name="Exercise6"></a>
 ## Exercise 6: Upload painting images to perform and view predictions ##
@@ -309,65 +304,53 @@ Earlier in this lab you performed a few "Quick Tests" via the Custom Vision Serv
 
 In this exercise, you will be using the Artworks app to upload images from your local computer and send them to the Prediction API for analysis: essentially creating your own Quick Test service. Instead of viewing a percentage breakdown of all predicted image tags and probabilities, Artworks streamlines the process by simply identifying the likely artist or returns the probability that an image is not a painting from a famous artist at all.
 
-1. In Visual Studio Code, return to the **Integrated Terminal** window, then execute the following command to start the Artworks app, if not already running from the previous exercise.
+1. Click the **Browse (...)** button in the Artworks app. 
 
-	```
-	npm start
-	```
-1. Click the **Browse (...)** button under "step one" to locate images on your local computer. 
+	![Browsing for local images in the Artworks app](Images/app-click-browse.png)
 
-	![Browsing local files in the Artworks app](Images/app-click-browse.png)
-    _Browsing local files in the Artworks app_ 
+    _Browsing for local images in the Artworks app_ 
 
-1. Browse to the **Quick Tests** folder located in the **Resources** folder included with this lab, select "PicassoTest_02.jpg", then click **Open**.
+1. Browse to the "Quick Tests" folder in the "Resources" folder accompanying this lab. Select the file named **PicassoTest_02.jpg**, and then click **Open**.
 
-1. After a short delay, "PicassoTest_02.jpg" will be displayed in the app, and the Prediction button will become enabled. Click **Predict** to begin the prediction process.
+1. Click the **Predict** button to submit the image to the Custom Vision Service.
 
-	![The Predict button in the Artworks app](Images/app-click-predict.png)
-    _The Predict button in the Artworks app_ 
+	![Submitting the image to the Custom Vision Service](Images/app-click-predict.png)
 
-1. After another short delay, the Custom Vision Service Prediction API will return predictions and probabilities from the service and display the most likely artist:
+    _Submitting the image to the Custom Vision Service_ 
 
-	![A successful prediction of a Picasso image](Images/app-prediction-01.png)
-    _A successful prediction of a Picasso image_ 
+1. Confirm that the app identifies the painting as a Picasso.
 
-1. **Repeat steps 2 and 3** for the following images and observe the changes to predictions:
+	![Classifying an image as a Picasso](Images/app-prediction-01.png)
 
-	- RembrandtTest_01.jpg
-	- PollockTest_01.jpg
+    _Classifying an image as a Picasso_ 
 
-	![A successful prediction of a Rembrandt image](Images/app-prediction-02.png)
-    _A successful prediction of a Rembrandt image_ 
+1. Repeat steps 1 through 3 for **RembrandtTest_01.jpg** and **PollockTest_01.jpg** and confirm that the app can identify paintings by Rembrandt and Pollock.
 
-1. **Repeat steps 2 and 3 again**, for images that are obviously not famous paintings:
+	![Classifying an image as a Rembrandt](Images/app-prediction-02.png)
 
-	- Chilidog.png
-	- ShoeTest.png
+    _Classifying an image as a Rembrandt_ 
 
-	![A successful prediction of a "not famous" image](Images/app-prediction-03.png)
-    _A successful prediction of a "not famous" image_ 
+1. Repeat steps 1 through 3 for **Chilidog.png** and **ShoeTest.png** and observe the results.
 
-	As you can see, using the Prediction API from an app is just as reliable as through the Custom Vision Service portal—and way more fun! What's more, if you view the Predictions tab at the portal you'll notice each of the images uploaded via Artworks is now available there as well:
+	![Definitely not a Picasso](Images/app-prediction-03.png)
+
+    _Definitely not a Picasso_ 
+
+1. As you can see, using the Prediction API from an app is just as reliable as through the Custom Vision Service portal — and way more fun! What's more, if you go to the Predictions page in the portal, you'll find that each of the images uploaded via from the app is available there as well:
  
-	![Images from Artworks displaying in the Predictions tab](Images/portal-all-predictions.png)
-	_Images from Artworks displaying in the Predictions tab_ 
+	![Images submitted to the Custom Vision Service](Images/portal-all-predictions.png)
 
-Although powerful, Artworks requires only a single API call to work its magic. The Microsoft Custom Vision Service provides many additional APIs, including methods to create and manage projects, upload images for tagging, and even model training and iteration management.
+	_Images submitted to the Custom Vision Service_ 
+
+Once the model is trained, a simple API call is all that's required to leverage its intelligence in an application. Feel fry to test with images of your own and gauge the model's adeptness at identifying artists or determining that an image is not a Picasso, Rembrandt, or Pollock. And if you'd like to train it to recognize Van Goghs, too, simply upload some Van Gogh paintings tagged with "Van Gogh" and retrain the model. There is no limit to the intelligence you can build if you're willing to do the training. And remember that in general, the more images you train it with, the smarter the model will be.
 
 <a name="Summary"></a>
 ## Summary ##
 
-In this hands-on lab you learned how to:
+Image classification is playing an increasingly large role in industry as a means for automating such tasks as checking images uploaded to Web sites for offensive content and inspecting parts rolling off of assembly lines for defects. Building an image-classification model by hand requires no small amount of expertise, but the Custom Vision Service enables virtually anyone to build sophisticated image-classification models. And once a model is created, an app that uses it is only few lines of code away.
 
-- Create a Custom Vision Service project 
-- Build and refine project classifiers
-- Populate and tag images 
-- Train a Custom Vision classifier  
-- Check predictions via the Quick Test 
-- Create a Node.js app to use the Custom Vision Service Prediction API 
-- Upload painting images to perform and view predictions
+You used the Custom Vision Service portal to create the model and train it with tagged images, but realize that everything you did in the portal can also be accomplished programmatically using the [Custom Vision Training API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3). This REST-based API contains methods for uploading images, tagging images, training the model, and much more, and it can be called from any language that supports REST calls over HTTPS.
 
-You've worked through a lot of great scenarios in this lab, but this is really just the beginning. The power of the Microsoft Computer Vision Service, especially when combined with your own services and user experiences, is only a few lines of code away.
 
 ---
 
