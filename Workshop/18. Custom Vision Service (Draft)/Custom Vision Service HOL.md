@@ -43,9 +43,9 @@ The following are required to complete this hands-on lab:
 This hands-on lab includes the following exercises:
 
 - [Exercise 1: Create a Custom Vision Service project](#Exercise1)
-- [Exercise 2: Populate and tag images](#Exercise2)
-- [Exercise 3: Train a classifier](#Exercise3)
-- [Exercise 4: Check predictions via Quick Test](#Exercise4)
+- [Exercise 2: Upload tagged images](#Exercise2)
+- [Exercise 3: Train the model](#Exercise3)
+- [Exercise 4: Test the model](#Exercise4)
 - [Exercise 5: Create a Node.js app in Visual Studio Code](#Exercise5)
 - [Exercise 6: Upload painting images to perform and view predictions](#Exercise6)
 
@@ -81,7 +81,7 @@ The first step is to buulding an image-classification model with the Custom Visi
 The next step is to train the model by uploading images to the project and providing tags for those images.
 
 <a name="Exercise2"></a>
-## Exercise 2: Populate and tag images ##
+## Exercise 2: Upload tagged images ##
 
 In this exercise, you will add images of famous paintings by Pablo Picasso, Jackson Pollock, and Rembrandt to the Artworks project, and then tag the images so the Custom Vision Service can learn to differentiate one artist from another.
   
@@ -164,39 +164,26 @@ In this exercise, you will add images of famous paintings by Pablo Picasso, Jack
 With the tagged images uploaded, the next step is to train the model with these images so it can distinguish between paintings by Picasso, Rembrandt, and Pollock, as well as determine whether a painting is a work by one of these famous artists.
 
 <a name="Exercise3"></a>
-## Exercise 3: Train a classifier ##
+## Exercise 3: Train the model ##
 
-In Custom Vision Service terminology, a classifier is a model using a few training images. The process of training a model is "teaching" the Custom Vision Service what to look for when making image predictions and assigning prediction precision.
-
-In this exercise you will be training the model, created in the previous exercise, via the Custom Vision Service portal. 
+In this exercise, you will train the model using the tagged images uploaded in the previous exercise. Training is accomplished with a simple button click in the Custom Vision Service portal, and you can refine a model at any time by uploading additional tagged images and retraining it.
  
-1. In a browser, navigate to the [Custom Vision Service portal](https://www.customvision.ai/) and open your **Artworks** project, if not already open from the previous exercise.
+1. Click **Train** at the top of the page to train the model. Each time you train the model, a new iteration is created. The Custom Vision Service maintains several iterations, allowing you to compare your progress over time.
 
-1. In the Artworks workspace top menu, click **Train** to begin training your model.
+	![Training the model](Images/portal-click-train.png)
 
-	![Initiating the Artworks project model training](Images/portal-click-train.png)
-    _Initiating the Artworks project model training_ 
+    _Training the model_ 
 
-1. During the training process, observe the creation of a model or classification iteration labeled "Iteration 1".
+1. Wait for the training process to complete. (It should only take a few seconds.) Then review the training statistics presented to you for iteration 1. **Precision** and **recall** are separate but related  measures of the model's accuracy. Suppose that the model was presented with three Picassos and three Van Goghs, and that it correctly identified two of the Picassos as "Picasso" images, but incorrectly identified two of the Van Goghs as "Picasso" images. In this case, the precision would be 50% (two of the four images it classified as Picassos are actually Picassos), while its recall would be 67% (it correctly identified two of the three Picasso images as Picassos). You can learn more about precision and recall from https://en.wikipedia.org/wiki/Precision_and_recall.
 
-	![A model training in process](Images/portal-train-01.png)
-    _A model training in process_ 
+	![Results of training the model](Images/portal-train-complete.png)
 
-	Every time you train or re-train your classification, you create a new iteration of your model. The Custom Vision Service maintains several iterations, allowing you to compare your progress over time. Although you can delete any iteration you no longer find useful, remember that deleting an iteration is permanent. 
+    _Results of training the model_ 
 
-1. After a short delay, the "Performance" tab will become available. Look at the breakdown of both the "Precision" and "Recall" statistics for the entire iteration, as well as performance information per tag.
-
-	![A successful model training](Images/portal-train-complete.png)
-    _A successful model training_ 
-
-	>Precision: When you classify an image, how likely is your classifier to correctly classify the image? Out of all images used to train the classifier (Picasso, Rembrandt, and Pollock), what percent did the model get correct? 99 correct tags out of 100 images gives a Precision of 99%.
-
-	>Recall: Out of all images that should have been classified correctly, how many did your classifier identify correctly? A Recall of 100% would mean if there were 12 Picasso paintings in the images used to train the classifier, 12 Picasso paintings were found by the classifier.
-
-With your model successfully trained, you're ready to start having a little more fun by "testing" a few images to see how well the Custom Vision Service predicts those images.
+Noe let's test the model using the portal's Quick Test feature, which allows you to submit images to the model and see how it classifies them using the knowledge it gained from the training images.
 
 <a name="Exercise4"></a>
-## Exercise 4: Check predictions via Quick Test ##
+## Exercise 4: Test the model ##
 
 Although you will be creating an app to perform predictions using the Custom Vision Service Prediction API in a later exercise, the Custom Vision Service portal makes it easy to test image prediction via the Quick Test feature. 
 
