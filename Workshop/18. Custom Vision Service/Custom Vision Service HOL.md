@@ -6,11 +6,13 @@
 <a name="Overview"></a>
 ## Overview ##
 
-[Microsoft Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/ "Microsoft Cognitive Services") is a suite of APIs and services backed by machine learning that enables developers to incorporate intelligent features such as facial recognition in photos and videos, sentiment analysis in text, and language understanding into their applications. Microsoft's [Custom Vision Service](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) is among the newest members of the Cognitive Services suite. Its purpose is to create image classification models that "learn" from labeled images you provide. Want to know if a photo contains a picture of a flower? Train the Custom Vision Service with a collection of flower images, and it can tell you whether the next image includes a flower — or even what type of flower it is.
+[Microsoft Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/ "Microsoft Cognitive Services") is a suite of services and APIs backed by machine learning that enables developers to incorporate intelligent features such as facial recognition in photos and videos, sentiment analysis in text, and language understanding into their applications. Microsoft's [Custom Vision Service](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) is among the newest members of the Cognitive Services suite. Its purpose is to create image classification models that "learn" from labeled images you provide. Want to know if a photo contains a picture of a flower? Train the Custom Vision Service with a collection of flower images, and it can tell you whether the next image includes a flower — or even what type of flower it is.
 
 ![](Images/custom-vision-details.jpg)
 
 The Custom Vision Service enables organizations to develop domain-specific image-classification models and use it to analyze image content. Examples include identifying a dog's breed from a picture of the dog, analyzing images for adult content, and identifying defective parts produced by manufacturing processes. It was recently used to [help search-and-rescue drones](https://blogs.technet.microsoft.com/canitpro/2017/05/10/teaching-drones-to-aid-search-and-rescue-efforts-via-cognitive-services/) identify objects such as boats and life vests in large bodies of water and recognize potential emergency situations in order to notify a rescue squad without waiting for human intervention.
+
+The Custom Vision Service exposes two APIs: the [Custom Vision Training API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3) and the [Custom Vision Prediction API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814). You can build, train, and test image-classification models using the [Custom Vision Service portal](https://www.customvision.ai/), or you can build, train, and test them using the Custom Vision Training API. Once a model is trained, you can use the Custom Vision Prediction API to build apps that utilize it. Both are REST APIs that are easily called from a variety of programming languages.
 
 In this lab, you will create a Custom Vision Service model, train it with images of famous paintings tagged with the artists' names, and utilize the model from a Node.js app to identify the artist of paintings that you upload. Along the way, you will learn how to train a Custom Vision Service model and leverage it from your apps using REST APIs.
 
@@ -52,7 +54,7 @@ Estimated time to complete this lab: **45** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Create a Custom Vision Service project ##
 
-The first step in building an image-classification model with the Custom Vision Service is to create a project. You can do that in the Custom Vision Service portal, or by utilizing REST APIs that are part of the [Custom Vision Training API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3). In this exercise, you will use the portal to create a Custom Vision Service project.
+The first step in building an image-classification model with the Custom Vision Service is to create a project. In this exercise, you will use the Custom Vision Service portal to create a Custom Vision Service project.
 
 1. Open the [Custom Vision Service portal](https://www.customvision.ai/) in your browser. Then click **Sign In**. 
  
@@ -81,9 +83,9 @@ The next step is to upload images to the project and assign tags to those images
 <a name="Exercise2"></a>
 ## Exercise 2: Upload tagged images ##
 
-In this exercise, you will add images of famous paintings by Picasso, Pollock, and Rembrandt to the Artworks project, and then tag the images so the Custom Vision Service can learn to differentiate one artist from another.
+In this exercise, you will add images of famous paintings by Picasso, Pollock, and Rembrandt to the Artworks project, and tag the images so the Custom Vision Service can learn to differentiate one artist from another.
   
-1. Click **Add images** to add an image to the project.
+1. Click **Add images** to add images to the project.
 
 	![Adding images to the Artworks project](Images/portal-click-add-images.png)
 
@@ -95,69 +97,49 @@ In this exercise, you will add images of famous paintings by Picasso, Pollock, a
 
     _Browsing for local images_ 
  
-1. Browse to the "Resources\Artists\Picasso" folder included with this lab, select **Picasso_01.jpg**, and click **Open**.
+1. Browse to the "Resources\Artists\Picasso" folder included with this lab, select all of the files in the folder, and click **Open**.
 
 	![Selecting an image](Images/fe-browse-picasso-01.png)
 
     _Selecting an image_ 
  
-1. Type "painting" (without quotation marks) into the **Add some tags...** box. Then click **+** to assign the tag to the image.
+1. Type "painting" (without quotation marks) into the **Add some tags...** box. Then click **+** to assign the tag to the images.
 
-	![Adding a "painting" tag to the image](Images/portal-add-tags-01.png)
+	![Adding a "painting" tag to the images](Images/portal-add-tags-01.png)
 
-    _Adding a "painting" tag to the image_ 
+    _Adding a "painting" tag to the images_ 
 
-1. Repeat Step 4 to add the following tags to the image:
+1. Repeat Step 4 to add a "Picasso" tag to the images.
 
-	- artist
-	- famous
-	- Picasso
+1. Click **Upload 7 files** to upload the images. Once the upload has completed, click **Done**.
 
-1. Click **Upload 1 file** to upload the image. Once the upload has completed, click **Done**.
+	![Uploading tagged images](Images/upload-picasso-images.png)
 
-	![Uploading a tagged image](Images/portal-click-upload-01.png)
+    _Uploading tagged images_ 
 
-    _Uploading a tagged image_ 
+1. Confirm that the images you uploaded appear in the portal, along with the tags assigned to them.
 
-1. Confirm that the image you uploaded appears in the portal, along with the tags you added to it.
+	![The uploaded images](Images/portal-tagged-01.png)
 
-	![The uploaded image](Images/portal-tagged-01.png)
-
-    _The uploaded image_ 
-
-1. When creating a Custom Vision Service model, the more images you upload and tag, the better. Click **Add images** in the menu at the top of the page, and then click **Browse local files**. Browse to "Resources\Artists\Picasso" folder included with this lab and select all of the remaining Picasso images, **Picasso_02.jpg** through **Picasso_07.jpg**. Then click **Open**. 
-
-	![Selecting the remaining Picasso images](Images/fe-browse-picasso-02.png)
-
-    _Selecting the remaining Picasso images_ 
- 
-1. Add the tags "artist", "famous", "painting", and "Picasso" to the images by selecting them one by one from the drop-down list. Then click **Upload 6 files**. Once the uploads have completed, click **Done**.
-
-	![Tagging the selected images](Images/portal-add-tags-03.png)
-
-    _Tagging the selected images_ 
-
-1. Confirm that all seven Picasso images appear in the project.
-
-	![Picasso images uploaded to the project](Images/portal-tagged-02.png)
-
-    _Picasso images uploaded to the project_ 
+    _The uploaded images_ 
 
 1. With seven Picasso images, the Custom Vision Service can do a decent job of identifying paintings by Picasso. But if you trained the model right now, it would only understand what a Picasso looks like, and it would not be able to identify paintings by other artists.
 
-	The next step is to upload some paintings by another artist. Repeat Steps 8 and 9 to select all of the images in this lab's "Resources\Artists\Rembrandt" folder, tag them with the terms "painting," "artist," "famous," and "Rembrandt" (not "Picasso"), and upload them to the project.
+	The next step is to upload some paintings by another artist. Click **Add images** and select all of the images in this lab's "Resources\Artists\Rembrandt" folder. Tag them with the labels "painting" and "Rembrandt" (not "Picasso"), and upload them to the project.
 
-	![Uploading Rembrandt images](Images/portal-upload-images.png)
+	> When you add the tag "painting," you don't have to type it in again. You can select it from the drop-down list attached to the **Add some tags...** box, as shown below. You **will** have to type "Rembrandt" and click **+** to add a "Rembrandt" tag.
 
-    _Uploading Rembrandt images_ 
+	![Selecting an existing tag](Images/select-painting-tag.png)
+
+    _Selecting an existing tag_ 
 
 1. Confirm that the Rembrandt images appear alongside the Picasso images in the project, and that "Rembrandt" appears in the list of tags.
 
-	![Picasso and Rembrandt images](Images/portal-tagged-03.png)
+	![Picasso and Rembrandt images](Images/portal-tagged-02.png)
 
     _Picasso and Rembrandt images_ 
 
-1. Now add paintings by the enigmatic artist Jackson Pollock to enable the Custom Vision Service to recognize Pollock paintings, too. Repeat Steps 8 and 9 to select all of the images in this lab's "Resources\Artists\Pollock" folder, tag them with the terms "painting," "artist," "famous," and "Pollock", and upload them to the project.
+1. Now add paintings by the enigmatic artist Jackson Pollock to enable the Custom Vision Service to recognize Pollock paintings, too. Select all of the images in this lab's "Resources\Artists\Pollock" folder, tag them with the terms "painting" and "Pollock", and upload them to the project.
 
 With the tagged images uploaded, the next step is to train the model with these images so it can distinguish between paintings by Picasso, Rembrandt, and Pollock, as well as determine whether a painting is a work by one of these famous artists.
 
@@ -178,7 +160,7 @@ In this exercise, you will train the model using the images uploaded and tagged 
 
     _Results of training the model_ 
 
-Now let's test the model using the portal's Quick Test feature, which allows you to submit images to the model and see how it classifies them using the knowledge acquired from the training images.
+Now let's test the model using the portal's Quick Test feature, which allows you to submit images to the model and see how it classifies them using the knowledge gained from the training images.
 
 <a name="Exercise4"></a>
 ## Exercise 4: Test the model ##
@@ -191,7 +173,7 @@ In [Exercise 5](#Exercise5), you will create a Node.js app that uses the model t
 
     _Testing the model_ 
 
-1. Click **Browse local files**, and then browse to the "Quick Tests" folder in this lab's "Resources" folder. Select **PicassoTest_01.jpg**, and then click **Open**.
+1. Click **Browse local files**, and then browse to the "Quick Tests" folder in this lab's "Resources" folder. Select **PicassoTest_01.jpg**, and click **Open**.
 
 	![Selecting a Picasso test image](Images/portal-select-test-01.png)
 
@@ -215,7 +197,7 @@ In [Exercise 5](#Exercise5), you will create a Node.js app that uses the model t
 
 1. Perform another quick test using the file named **FlowersTest.jpg** in the lab's "Resources\Quick Test" folder. Confirm that this image is assigned a low probability of being a Picasso, a Rembrandt, or a Pollock.
 
-Finish up by clicking the **Train** button at the top of the page to retrain the model using the test image that you tagged. Until you do this, the "smarts" gained from tagging additional images aren't incorporated into the model.
+The model is trained and ready to go and appears to be adept at identifying paintings by certain artists. Now let's go a step further and incorporate the model's intelligence into an app.
 
 <a name="Exercise5"></a>
 ## Exercise 5: Create a Node.js app that uses the model ##
@@ -282,7 +264,7 @@ The true power of the Microsoft Custom Vision Service is the ease with which dev
 
     _Adding the Prediction API key_ 
 
-1. Scroll down in **predict.js** and examine block of code that begins on line 34. This is the code that calls out to the Custom Vision Service using AJAX. Using the Custom Vision Service Prediction API is as easy as making a simple, authenticated POST to a REST endpoint.
+1. Scroll down in **predict.js** and examine the block of code that begins on line 34. This is the code that calls out to the Custom Vision Service using AJAX. Using the Custom Vision Prediction API is as easy as making a simple, authenticated POST to a REST endpoint.
 
 	![Making a call to the Prediction API](Images/vs-code-block.png)
 
@@ -333,13 +315,13 @@ In this exercise, you will use the Artworks app to submit images to the Custom V
 
     _Classifying an image as a Rembrandt_ 
 
-1. Repeat steps 1 through 3 for **Chilidog.png** and **ShoeTest.png** and observe the results.
+1. Repeat steps 1 through 3 for **VanGoghTest_01.png** and **VanGoghTest_02.png** and confirm that the app does not identify these Van Gogh masterworks as paintings by Picasso, Rembrandt, or Pollock.
 
-	![Definitely not a Picasso](Images/app-prediction-03.png)
+	![Not a Picasso, Rembrandt, or Pollock](Images/app-prediction-03.png)
 
-    _Definitely not a Picasso_ 
+    _Not a Picasso, Rembrandt, or Pollock_ 
 
-1. As you can see, using the Prediction API from an app is just as reliable as through the Custom Vision Service portal — and way more fun! What's more, if you go to the Predictions page in the portal, you'll find that each of the images uploaded via the app is available there as well:
+1. As you can see, using the Prediction API from an app is just as reliable as through the Custom Vision Service portal — and way more fun! What's more, if you go to the Predictions page in the portal, you'll find that each of the images uploaded via the app is shown there as well.
  
 	![Images submitted to the Custom Vision Service](Images/portal-all-predictions.png)
 

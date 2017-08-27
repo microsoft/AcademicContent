@@ -51,7 +51,7 @@ $(function () {
                 $('#analysisResults').html('<div class="matchLabel">' + possibleArtist.Tag + ' (' + (possibleArtist.Probability * 100).toFixed(0) + '%)' + '</div>');
             }
             else {
-                $('#analysisResults').html('<div class="noMatchLabel">NOT A FAMOUS PAINTING</div>');
+                $('#analysisResults').html('<div class="noMatchLabel">Unknown artist</div>');
             }
 
         }).fail(function (xhr, status, err) {
