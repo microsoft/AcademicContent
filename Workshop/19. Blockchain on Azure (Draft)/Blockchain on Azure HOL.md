@@ -277,41 +277,43 @@ The Ethereum network is established, a wallet has been created and seeded with c
 
 On your local machine, you can now start developing with the Ethereum blockchain. Blockchains use "smart contracts" to broker transactions. A smart contract is essentially a program that runs on blockchain transaction nodes. Ethereum developers often use [Truffle](http://truffleframework.com/), a popular framework that helps automate many of the processes used in developing smart contracts. In this exercise, you will set up a development environment and deploy some smart contracts to the blockchain with Truffle.
 
-1. On your local machine, install Node.js. You can download an installer for your platform from Node's website [here](https://nodejs.org/en/download/). Minimally, you'll need Node.JS version 6. 
+1. If Node.js isn't installed on your system, go to https://nodejs.org and install the latest LTS version for your operating system.
 
-1. On Mac or Linux, open a terminal. On Windows, open Powershell ISE.
+	> If you aren't sure whether Node.js is installed, open a Command Prompt or terminal window and type **node -v**. If you don't see a Node.js version number, then Node.js isn't installed. If a version of Node.js older than 6.0 is installed, it is highly recommend that you download and install the latest version.
 
-1. Create a directory called truffle.
+1. On Mac or Linux, open a terminal. On Windows, open a PowerShell window.
+
+1. In the terminal or PowerShell window, navigate to the directory you would like to use as a project directory. Then use the following command to create a directory named "truffle:"
 
 	```
 	mkdir truffle
 	```
 
-1. Change to that directory.
+1. Now change to the "truffle" directory:
 
 	```
 	cd truffle
 	```
 
-1. Install Truffle.
+1. Use the following command to install Truffle:
 
 	```
 	npm install -g truffle
 	```
 
-1. Smart contracts for Ethereum networks are written in a language called Solidity. We'll talk about this later but we'll install the Solidity compiler now.
+1. Smart contracts for Ethereum networks are written in a language called Solidity. Use the following command to install the Solidity compiler:
 
 	```
 	npm install -g solc
 	```
 
-1. Initialize the project with Truffle. This will download a few Solidity scripts and install them and create a scaffolding in the truffle folder you created.
+1. Use the following command to initialize a Truffle project. This will download a few Solidity scripts and install them, and create a scaffolding in the "truffle" folder.
 
 	```
 	truffle init
 	```
 
-1. Now, edit the **truffle.js** in the truffle folder. Get the Ethereum RPC Endpoint like you did in **Step 10** for **Setting up a Wallet**. Paste the endpoint over localhost in the truffle.js and remove the :8545 from the end of the line and the http:// from the front of the line. You should only have the domain portion. Your **truffle.js** should look like the following:
+1. Use your favorite text or program editor to open the file named **truffle.js** in the "truffle" folder. Copy the Ethereum RPC endpoint to the clipboard as you did in Exercise 2, Step 11. Replace "localhost" on line 4 of **truffle.js** with the URL on the clipboard, and remove the leading "http://" and the trailing ":8545," as shown below. Then save the modified file.
 
 	```javascript
 	module.exports = {
@@ -325,9 +327,7 @@ On your local machine, you can now start developing with the Ethereum blockchain
 	};
 	```
 
-1. Save the truffle.js file .
-
-1. In the **contracts** folder, create a new contract by creating a text file called **myCoin.sol**. Paste in the following code into the contract and save the file. This contract is written in a language called [Solidity](https://solidity.readthedocs.io/en/develop/), which is very similar to JavaScript. Solidity is the language the most Ethereum contracts are written in. They are compiled to a JSON file that also contains the interface definition for the contract as well as the bytecode that is used when the contract is deployed.
+1. Create a new contract in the subfolder named "contracts" by creating a text file named **myCoin.sol** in that folder, pasting in the following code, and then saving the file:
 
 	```javascript
 	pragma solidity ^0.4.4;
@@ -356,14 +356,16 @@ On your local machine, you can now start developing with the Ethereum blockchain
 	        return true;
 	    }
 
-	    // This method does not modify the blockchain, so it does not requires an account to fuel for the call.
+	    // This method does not modify the blockchain, so it does not require an account to fuel for the call.
 	    function getBalance(address addr) returns(uint) {
 	        return balances[addr];
 	    }
 	}
 	```
 
-1. In the migration folder, create a new file called 3_deploy_myCoin.js. Paste in the following code into the file.
+	This contract is written in [Solidity](https://solidity.readthedocs.io/en/develop/), which is similar to JavaScript. Solidity files are compiled to JSON files containing interface definitions for contracts as well as the bytecode that is used when the contracts are deployed.
+
+1. Create a new file in the "migrations" subfolder named **3_deploy_myCoin.js**. Paste the following code into the file and save it:
 
 	```javascript
 	var myCoin = artifacts.require("./myCoin.sol");
@@ -373,13 +375,13 @@ On your local machine, you can now start developing with the Ethereum blockchain
 	};
 	```
 
-1. Back in the terminal or PowerShell Window, compile the  contracts.
+1. Return to the terminal or PowerShell window and execute the following command to compile the  contracts:
 
 	```
 	truffle compile
 	```
 
-1. Deploy the contracts. This action will deploy the contracts the blockchain now that the contracts are compiled.
+1. Now use the following command to deploy the contracts to the blockchain:
 
 	```
 	truffle deploy
