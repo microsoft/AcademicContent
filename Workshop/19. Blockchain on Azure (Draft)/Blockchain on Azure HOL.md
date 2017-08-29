@@ -21,8 +21,9 @@ In this lab, you will set up an Ethereum network and create your own cryptocurre
 ### Prerequisites ###
 
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
-- [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) (Windows users only)
+- [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and PowerShell (Windows users only)
 - [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html)
+- [Node.js](https://nodejs.org)
 
 <a name="Exercises"></a>
 ## Exercises ##
@@ -35,7 +36,7 @@ This hands-on lab includes the following exercises:
 - [Exercise 4: Unlock the basecoin Account (macOS and Linux) ](#Exercise4)
 - [Exercise 5: Deploy smart contracts](#Exercise5)
 - [Exercise 6: Deploy an app that uses a contract](#Exercise6)
-- [Exercise 7: Clean up](#Exercise7)
+- [Exercise 7: Delete the Ethereum network](#Exercise7)
 
 Estimated time to complete this lab: **60** minutes.
 
@@ -200,7 +201,9 @@ You now have a virtual wallet as well as some virtual currency (Ethers) to work 
 <a name="Exercise3"></a>
 ## Exercise 3: Unlock the basecoin account (Windows) ##
 
-Before you can deploy anything to the Azure Ethereum Network, you need to unlock the basecoin account. To do this you'll need to connect to one of the RPC servers with SSH and unlock the account there. For Windows, you'll need to use Putty.
+Before you deploy an app to the Azure Ethereum Network, you need to unlock the basecoin account. To do that, you must connect to one of the Azure Ethereum servers with SSH. If you are running macOS or Linux, **skip to [Exercise 4](#Exercise4)** and use the built-in SSH client. If you are running Windows instead, proceed with this exercise.
+
+1. PuTTY is a popular (and free) SSH client for Windows. If PuTTY isn't installed on your computer, [download and install it](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) now.
 
 1. Return to the Azure Portal and click the **Copy** button next to ADMIN-SITE.
 
@@ -239,7 +242,7 @@ Now proceed to [Exercise 5](#Exercise5). Exercise 4 is for macOS and Linux users
 <a name="Exercise4"></a>
 ## Exercise 4: Unlock the basecoin account (macOS and Linux) ##
 
-Before you can deploy anything to the Azure Ethereum Network, you need to unlock the basecoin account. To do this you'll need to connect to one of the RPC severs with SSH and unlock the account there. For Mac and Linux, you can use the built in SSH client.
+Before you deploy an app to the Azure Ethereum Network, you need to unlock the basecoin account. To do that, you must connect to one of the Azure Ethereum servers with SSH. macOS and Linux users can use the built-in SSH client to connect.
 
 1. Return to the Azure Portal and click the **Copy** button next to SSH-TO-FIRST-TX-NODE.
 
@@ -267,14 +270,14 @@ Before you can deploy anything to the Azure Ethereum Network, you need to unlock
 
 1. Type **exit** into the terminal window to detach from Ethereum.
 
-TODO: Add closing paragraph.
+The Ethereum network is established, a wallet has been created and seeded with currency, and the account has been unlocked so apps can use it. Now it's time to have some fun. 
 
 <a name="Exercise5"></a>
 ## Exercise 5: Deploy smart contracts ##
 
-On your local machine, you can now start developing with the Ethereum blockchain. Blockchains will execute "smart contracts" to broker transactions on a blockchain. A smart contract is essentially a program that runs on a blockchain transaction nodes. Ethereum developers often use [Truffle](http://truffleframework.com/), a popular framework that helps automate many of the processes used in developing smart contracts. In this exercise, you'll se tup a development environment and deploy some smart contracts to the blockchain with Truffle.
+On your local machine, you can now start developing with the Ethereum blockchain. Blockchains use "smart contracts" to broker transactions. A smart contract is essentially a program that runs on blockchain transaction nodes. Ethereum developers often use [Truffle](http://truffleframework.com/), a popular framework that helps automate many of the processes used in developing smart contracts. In this exercise, you will set up a development environment and deploy some smart contracts to the blockchain with Truffle.
 
-1. On your local machine, install Node.JS. You can download an installer for your platform from Node's website [here](https://nodejs.org/en/download/). Minimally, you'll need Node.JS version 6. 
+1. On your local machine, install Node.js. You can download an installer for your platform from Node's website [here](https://nodejs.org/en/download/). Minimally, you'll need Node.JS version 6. 
 
 1. On Mac or Linux, open a terminal. On Windows, open Powershell ISE.
 
@@ -310,15 +313,15 @@ On your local machine, you can now start developing with the Ethereum blockchain
 
 1. Now, edit the **truffle.js** in the truffle folder. Get the Ethereum RPC Endpoint like you did in **Step 10** for **Setting up a Wallet**. Paste the endpoint over localhost in the truffle.js and remove the :8545 from the end of the line and the http:// from the front of the line. You should only have the domain portion. Your **truffle.js** should look like the following:
 
-	```
+	```javascript
 	module.exports = {
-  		networks: {
-    			development: {
-    				host: "blkchnhje.westus.cloudapp.azure.com",
-     				port: 8545,
-   			 		network_id: "*" // Match any network id
-   			 }
- 		}
+  	    networks: {
+            development: {
+                host: "blkchnhje.westus.cloudapp.azure.com",
+                port: 8545,
+   	            network_id: "*" // Match any network id
+   	        }
+ 	    }
 	};
 	```
 
@@ -326,50 +329,48 @@ On your local machine, you can now start developing with the Ethereum blockchain
 
 1. In the **contracts** folder, create a new contract by creating a text file called **myCoin.sol**. Paste in the following code into the contract and save the file. This contract is written in a language called [Solidity](https://solidity.readthedocs.io/en/develop/), which is very similar to JavaScript. Solidity is the language the most Ethereum contracts are written in. They are compiled to a JSON file that also contains the interface definition for the contract as well as the bytecode that is used when the contract is deployed.
 
-	```
+	```javascript
 	pragma solidity ^0.4.4;
 
-	//Declares the contract
+	// Declares the contract
 	contract myCoin {
 		
-		//This is a mapping that works like a dictionary or associated array in other languages.
-		mapping (address => uint) balances;
+	    // This is a mapping that works like a dictionary or associated array in other languages.
+	    mapping (address => uint) balances;
 
-		//This registers an event
-		event Transfer(address indexed _from, address indexed _to, uint256 _value);
+	    // This registers an event
+	    event Transfer(address indexed _from, address indexed _to, uint256 _value);
 
-		//The contract constructor, which is called when the contract is deployed to the blockchain
-		//The contract is persistent on the blockchain, so it remains until it is removed.
-		function myCoin() {
-			balances[tx.origin] = 100000;
-		}
+	    // The contract constructor, which is called when the contract is deployed to the blockchain.
+	    // The contract is persistent on the blockchain, so it remains until it is removed.
+	    function myCoin() {
+	        balances[tx.origin] = 100000;
+	    }
 
-		//This method modifies the blockchain. The msg.sender is required to fuel for the transaction in Ether.
-		function sendCoin(address receiver, uint amount) returns(bool sufficient) {
-			if (balances[msg.sender] < amount) return false;
-			balances[msg.sender] -= amount;
-			balances[receiver] += amount;
-			Transfer(msg.sender, receiver, amount);
-			return true;
-		}
+	    // This method modifies the blockchain. The msg.sender is required to fuel for the transaction in Ether.
+	    function sendCoin(address receiver, uint amount) returns(bool sufficient) {
+	        if (balances[msg.sender] < amount) return false;
+	        balances[msg.sender] -= amount;
+	        balances[receiver] += amount;
+	        Transfer(msg.sender, receiver, amount);
+	        return true;
+	    }
 
-		//This method does not modify the blockchain, so it does not requires an account to fuel for the call.
-		function getBalance(address addr) returns(uint) {
-			return balances[addr];
-		}
+	    // This method does not modify the blockchain, so it does not requires an account to fuel for the call.
+	    function getBalance(address addr) returns(uint) {
+	        return balances[addr];
+	    }
 	}
-
 	```
 
 1. In the migration folder, create a new file called 3_deploy_myCoin.js. Paste in the following code into the file.
 
-	```
+	```javascript
 	var myCoin = artifacts.require("./myCoin.sol");
 
 	module.exports = function(deployer) {
-	  deployer.deploy(myCoin);
+	    deployer.deploy(myCoin);
 	};
-
 	```
 
 1. Back in the terminal or PowerShell Window, compile the  contracts.
@@ -407,18 +408,17 @@ Smart contracts are designed for interaction with applications that use the bloc
 
 1. Create a new text file called **use-contract.js**, paste in the following code, then save the file.
 
-	```
+	```javascript
 	var Web3 = require("web3")
 
 	var AzureBlockchainRPC = "<AZURE RPC URL>"
 	var account1 = "<ACCOUNT1 ADDRESS>"
 	var contractAddress = "<CONTRACT ADDRESS>"
 
-
 	let web3 = new Web3();
 	web3.setProvider(new web3.providers.HttpProvider(AzureBlockchainRPC));
 
-	//The abi object defines the contract interface. Web3 uses this to build the contract interface.
+	// The abi object defines the contract interface. Web3 uses this to build the contract interface.
 	var abi = JSON.parse('[{"constant":false,"inputs":[{"name":"receiver","type":"address"},{"name":"amount","type":"uint256"}],"name":"sendCoin","outputs":[{"name":"sufficient","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"getBalance","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"}]');
 
 	let myCoinContract = web3.eth.contract(abi);
@@ -429,31 +429,29 @@ Smart contracts are designed for interaction with applications that use the bloc
 
 	// Watching for transfer.... 
 	transferEvent.watch(function(error, result){
-		if (!error){
-			console.log("Coin Sent! \n\n Checking balance for coin base...")
-			console.log(myCoinInstance.getBalance.call(web3.eth.coinbase));
-
-			console.log("Checking balance for account1...")
-			console.log(myCoinInstance.getBalance.call(account1));
-		}else{
-			console.log("An error occurred.")
-			console.log(error);
-		}
+	    if (!error){
+	        console.log("Coin Sent! \n\n Checking balance for coin base...")
+	        console.log(myCoinInstance.getBalance.call(web3.eth.coinbase));
+	        console.log("Checking balance for account1...")
+	        console.log(myCoinInstance.getBalance.call(account1));
+	    }
+	    else {
+	        console.log("An error occurred.")
+	        console.log(error);
+	    }
 	});
 
-
 	web3.eth.defaultAccount = web3.eth.coinbase;
-
 	console.log("Sending some coin...");
 
-	//Notice this method invocation does not use .call
-	//The invocation passes a from parameters in an object. 
-	//This is because transactions requires Ether to modify the blockchain.
+	// Notice that this method invocation does not use .call.
+	// The invocation passes a from parameters in an object. 
+	// This is because transactions require Ether to modify the blockchain.
 	console.log(myCoinInstance.sendCoin(account1, 1000, {from: web3.eth.coinbase}))
 
 	console.log("Checking balance for coin base...")
-	//Notice this method invocation does use .call
-	//This method is a read-only call, so it does not require ether.
+	// Notice this method invocation does use .call
+	// This method is a read-only call, so it does not require ether.
 	console.log(myCoinInstance.getBalance.call(web3.eth.coinbase));
 
 	console.log("Checking balance for account1...")
@@ -462,9 +460,9 @@ Smart contracts are designed for interaction with applications that use the bloc
 	console.log("Waiting for event to fire...");
 	```
 
-1.  Under **Outputs** on the **Deployment**, select the **Copy** button next to **ETHEREUM-RPC_ENDPOINT**.
+1.  Under **Outputs** on the **Deployment**, select the **Copy** button next to **ETHEREUM-RPC-ENDPOINT**.
 
-	![Copy RPC URL](Images/copy-rpc-url.png)
+	![Copy RPC URL](Images/copy-endpoint.png)
 
 	_Copy RPC URL_
  
@@ -492,7 +490,7 @@ Smart contracts are designed for interaction with applications that use the bloc
 
 1. Paste the copied address over **<ACCOUNT1 ADDRESS>** in **use_contract.js**. Your configuration for the **use-contract.js** should look something like this:
 
-	```
+	```javascript
 	var AzureBlockchainRPC = "http://blkchni7t.westus.cloudapp.azure.com:8545"
 	var account1 = "0x25F830d6096eBb97d1E175663E5E5f8Ad24e0be5"
 	var contractAddress = "0x79fcaebcc2de9457f9227ebbdd2494d55ac73bea"
@@ -500,13 +498,13 @@ Smart contracts are designed for interaction with applications that use the bloc
 
 1. Save the **use-contract.js** script.
 
-1. Back in the Powershell or Terminal session, run the script.
+1. Back in the PowerShell or Terminal session, run the script.
 
 	```
 	node use_constract.js
 	```
 
-1. Watch the output. Notice that before the event fired, the balances in the accounts were still at their pre-event values even though the **sendCoin** method had been invoked. This is because there is a delay between a transactions invocation and a transactions completion. The event though fires once the transaction is completed, the balances are changed and the blockchain is immutably modified. 
+1. Watch the output. Notice that before the event fired, the balances in the accounts were still at their pre-event values even though the ```sendCoin``` method had been invoked. This is because there is a delay between a transactions invocation and a transactions completion. The event though fires once the transaction is completed, the balances are changed and the blockchain is immutably modified. 
 
 	```	
 	Sending some coin...
@@ -525,23 +523,21 @@ Smart contracts are designed for interaction with applications that use the bloc
 	```
 
 <a name="Exercise7"></a>
-## Exercise 7: Clean up ##
+## Exercise 7: Delete the Ethereum network ##
 
-Cleaning up the lab is as simple as deleting the resource group.
+Resource groups are a useful feature of Azure because they simplify the task of managing related resources. One of the most practical reasons to use resource groups is that deleting a resource group deletes all of the resources it contains. Rather than delete those resources one by one, you can delete them all at once.
 
-1. Back on the Azure Portal, select the **Resource Group** icon, then click the ellipses **(...)** next to the **blockchain-lab** resource group, and then select **Delete**.
+In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Ethereum network. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.
 
-	![Delete Resource Group](Images/delete-resource-group.png)
+1. Return to the blade for the resource group you created in Exercise 1. Then click the **Delete** button at the top of the blade.
 
-	_Delete Resource Group_
+	![Deleting a resource group](Images/delete-resource-group.png)
 
-1. Type in **blockchain-lab** into the **Type in the Resource Group Name** field, then click **Delete**. This will remove all the resources created when you set up the lab.
+	_Deleting a resource group_
 
-	![Delete Resource Group](Images/delete-resource-group-2.png)
+1. For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group. Then click the **Delete** button to remove all traces of this lab from your Azure subscription.
 
-	_Delete Resource Group_
-
-TODO: Add closing paragraph.
+After a few minutes, the blockchain and all of the associated resources will be deleted. Billing stops when you click the **Delete** button, so you're not charged for the time required to delete the resources. Similarly, billing doesn't start until the resources are fully and successfully deployed.
 
 <a name="Summary"></a>
 ## Summary ##
@@ -550,7 +546,7 @@ In this lab, you set up an Ethereum Blockchain on Azure, created a wallet to sto
 
 Blockchains are typically used for cryptocurrencies but have many use cases beyond this, such as a voting operations for elections, public opinion polls, public ledgers between companies, score keeping for games, for token currencies on a web site, as a way to securely track expenses in a company, and many more. These applications are but one of the  uses for blockchains.
 
-You can explorer more about Ethereum networks on the [Ethereum](https://www.ethereum.org/) website and more about how to write smart contracts from [Solidity](https://solidity.readthedocs.io/en/develop/).
+You can learn more about Ethereum networks on the [Ethereum](https://www.ethereum.org/) Web site and more about smart contracts from [Solidity](https://solidity.readthedocs.io/en/develop/).
 
 ---
 
