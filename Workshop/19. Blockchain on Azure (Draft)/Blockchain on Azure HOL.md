@@ -180,9 +180,9 @@ The next thing to do with a blockchain network is to set up a wallet. For this, 
 
 1. Return to Chrome. Click the ellipsis (**...**) in the MetaMask window, and then select **Copy Address to clipboard**.
 
-	![Copying the address](Images/copy-address-to-clipboard.png)
+	![Copying the account address to the clipboard](Images/copy-address-to-clipboard.png)
 
-	_Copying the address_
+	_Copying the account address to the clipboard_
 
 1. Return to the admin site you open in Step 15 and paste the value on the clipboard into the **Address of Recipient** box. Then click **Submit**.
 
@@ -283,7 +283,7 @@ On your local machine, you can now start developing with the Ethereum blockchain
 
 1. On Mac or Linux, open a terminal. On Windows, open a PowerShell window.
 
-1. In the terminal or PowerShell window, navigate to the directory you would like to use as a project directory. Then use the following command to create a directory named "truffle:"
+1. In the terminal or PowerShell window, use the following command to create a directory named "truffle" in the location of your choice:
 
 	```
 	mkdir truffle
@@ -329,7 +329,7 @@ On your local machine, you can now start developing with the Ethereum blockchain
 
 1. Create a new contract in the subfolder named "contracts" by creating a text file named **myCoin.sol** in that folder, pasting in the following code, and then saving the file:
 
-	```javascript
+	```
 	pragma solidity ^0.4.4;
 
 	// Declares the contract
@@ -394,28 +394,32 @@ TODO: Add closing paragraph.
 
 Smart contracts are designed for interaction with applications that use the blockchain for secure transactions. In this case, you will deploy a node app that will use the myCoin contract, which brokers the exchanges of a virtual currency similar to real world cryptocurrencies. Node uses a library called [web3.js](https://github.com/ethereum/web3.js/), which is a wrapper around the Ethereum RPC. There are other available web3 libraries for other languages including Java and Python.
 
-1. Create a new folder called **use-contract**.
+1. In a terminal or PowerShell window, use the following command to create a directory named "use-contract" in the location of your choice:
 
-1. CD to the folder **use-contract**
+	```
+	mkdir use-contract
+	```
+
+1. Make "use-contract" the current directory:
 
 	```
 	cd use-contract
 	```
 
-1. Run npm to install web3
+1. Use the following command to install the NPM package named "web3:"
 
 	```
 	npm install web3@^0.20.0
 	```
 
-1. Create a new text file called **use-contract.js**, paste in the following code, then save the file.
+1. Create a new text file named **use-contract.js** in the "use-contract" folder. Then paste in the following code:
 
 	```javascript
-	var Web3 = require("web3")
+	var Web3 = require("web3");
 
-	var AzureBlockchainRPC = "<AZURE RPC URL>"
-	var account1 = "<ACCOUNT1 ADDRESS>"
-	var contractAddress = "<CONTRACT ADDRESS>"
+	var AzureBlockchainRPC = "AZURE_RPC_URL";
+	var account1 = "ACCOUNT1_ADDRESS";
+	var contractAddress = "CONTRACT_ADDRESS";
 
 	let web3 = new Web3();
 	web3.setProvider(new web3.providers.HttpProvider(AzureBlockchainRPC));
@@ -426,34 +430,29 @@ Smart contracts are designed for interaction with applications that use the bloc
 	let myCoinContract = web3.eth.contract(abi);
 	let myCoinInstance = myCoinContract.at(contractAddress);
 
-	// This sets up a listerner on the Transfer event.
-	var transferEvent = myCoinInstance.Transfer( {}, {fromBlock: 0, toBlock: 'latest'})
+	// This sets up a listener for the Transfer event.
+	var transferEvent = myCoinInstance.Transfer( {}, {fromBlock: 0, toBlock: 'latest'});
 
 	// Watching for transfer.... 
-	transferEvent.watch(function(error, result){
-	    if (!error){
-	        console.log("Coin Sent! \n\n Checking balance for coin base...")
+	transferEvent.watch(function(error, result) {
+	    if (!error) {
+	        console.log("Coin Sent!\n\nChecking balance for coin base...");
 	        console.log(myCoinInstance.getBalance.call(web3.eth.coinbase));
-	        console.log("Checking balance for account1...")
+	        console.log("Checking balance for account1...");
 	        console.log(myCoinInstance.getBalance.call(account1));
 	    }
 	    else {
-	        console.log("An error occurred.")
+	        console.log("An error occurred.");
 	        console.log(error);
 	    }
+	    process.exit();
 	});
 
 	web3.eth.defaultAccount = web3.eth.coinbase;
 	console.log("Sending some coin...");
-
-	// Notice that this method invocation does not use .call.
-	// The invocation passes a from parameters in an object. 
-	// This is because transactions require Ether to modify the blockchain.
-	console.log(myCoinInstance.sendCoin(account1, 1000, {from: web3.eth.coinbase}))
+	console.log(myCoinInstance.sendCoin(account1, 1000, {from: web3.eth.coinbase}));
 
 	console.log("Checking balance for coin base...")
-	// Notice this method invocation does use .call
-	// This method is a read-only call, so it does not require ether.
 	console.log(myCoinInstance.getBalance.call(web3.eth.coinbase));
 
 	console.log("Checking balance for account1...")
@@ -462,48 +461,30 @@ Smart contracts are designed for interaction with applications that use the bloc
 	console.log("Waiting for event to fire...");
 	```
 
-1.  Under **Outputs** on the **Deployment**, select the **Copy** button next to **ETHEREUM-RPC-ENDPOINT**.
+1. Replace AZURE_RPC_URL on line 3 of **use-contract.js** with the Ethereum RPC endpoint obtained from the Azure portal (see Exercise 2, Step 11).
 
-	![Copy RPC URL](Images/copy-endpoint.png)
-
-	_Copy RPC URL_
- 
-1. Paste the copied URL over **<AZURE RPC URL>** in the **use-contract.js**.
-
-1. Back in the PowerShell or Terminal session, use Truffle to get the address of the contract with **truffle networks**.
+1. In the PowerShell or terminal window, CD back to the "truffle" directory that you created in the previous exercise. Then use this command to get the address of the contract:
 
 	```
 	truffle networks
-	``` 
+	```
 
-	This command will write out a list of contracts that are being managed by Truffle. Copy the address next to myCoin.
+	Then replace CONTRACT_ADDRESS on line 5 of **use-contract.js** with the myCoin address in the output.
 
-	![Copy Contract Address](Images/copy-contracat-address.png)
+	![Retrieving the contract address](Images/copy-contracat-address.png)
 
-	_Copy Contract Address_
+	_Retrieving the contract address_
  
-1. Paste the copied contract address over **<CONTRACT ADDRESS>** in **use_contract.js**
-	
-1. Now in MetaMask, copy the address for **Account 1** like you did in **Step 14** in **Setting Up A Wallet**. Click on the ellipses (**...**) next to **Account 1**, and **Copy Address to Clipboard**.
+1. Return to the MetaMask window in Chrome and copy the address for **Account 1** to the clipboard as you did in Exercise 2, Step 16. Then replace ACCOUNT1_ADDRESS on line 4 of **use-contract.js** with the address on the clipboard and save your changes to **use-contract.js**.
 
-	![Copy Admin Site Link](Images/copy-address-to-clipboard.png)
+	![Copying the account address to the clipboard](Images/copy-address-to-clipboard.png)
 
-	_Copy Address to clipboard_
+	_Copying the account address to the clipboard_
 
-1. Paste the copied address over **<ACCOUNT1 ADDRESS>** in **use_contract.js**. Your configuration for the **use-contract.js** should look something like this:
-
-	```javascript
-	var AzureBlockchainRPC = "http://blkchni7t.westus.cloudapp.azure.com:8545"
-	var account1 = "0x25F830d6096eBb97d1E175663E5E5f8Ad24e0be5"
-	var contractAddress = "0x79fcaebcc2de9457f9227ebbdd2494d55ac73bea"
-	```
-
-1. Save the **use-contract.js** script.
-
-1. Back in the PowerShell or Terminal session, run the script.
+1. In the PowerShell or terminal window, CD back to the "use-contract" directory. Then execute the following command:
 
 	```
-	node use_constract.js
+	node use-contract.js
 	```
 
 1. Watch the output. Notice that before the event fired, the balances in the accounts were still at their pre-event values even though the ```sendCoin``` method had been invoked. This is because there is a delay between a transactions invocation and a transactions completion. The event though fires once the transaction is completed, the balances are changed and the blockchain is immutably modified. 
@@ -518,11 +499,13 @@ Smart contracts are designed for interaction with applications that use the bloc
 	Waiting for event to fire...
 	Coin Sent!
 
-	 Checking balance for coin base...
+	Checking balance for coin base...
 	{ [String: '99000'] s: 1, e: 4, c: [ 99000 ] }
 	Checking balance for account1...
 	{ [String: '1000'] s: 1, e: 3, c: [ 1000 ] }
 	```
+
+TODO: Add closing paragraph.
 
 <a name="Exercise7"></a>
 ## Exercise 7: Delete the Ethereum network ##
