@@ -45,7 +45,7 @@ This hands-on lab includes the following exercises:
 - [Exercise 3: Unlock the coinbase account (Windows)](#Exercise3)
 - [Exercise 4: Unlock the coinbase account (macOS and Linux) ](#Exercise4)
 - [Exercise 5: Deploy a smart contract](#Exercise5)
-- [Exercise 6: Deploy an app that uses the contract](#Exercise6)
+- [Exercise 6: Invoke the contract from an app](#Exercise6)
 - [Exercise 7: Delete the Ethereum network](#Exercise7)
 
 Estimated time to complete this lab: **60** minutes.
@@ -405,7 +405,7 @@ Ethereum blockchains use "smart contracts" to broker transactions. A smart contr
 The contract is now present in the blockchain and waiting for its ```sendCoin``` function to be called to transfer funds. All we lack is a mechanism for calling that function using RPC. In the next exercise, you will close the loop by using a Node.js app to invoke the contract.
 
 <a name="Exercise6"></a>
-## Exercise 6: Deploy an app that uses the contract ##
+## Exercise 6: Invoke the contract from an app ##
 
 Smart contracts are designed to be used by applications that use the blockchain for secure transactions. In this exercise, you will create a Node.js app that uses the "myCoin" contract and then run it to broker an exchange of My Coin currency — specifically, to transfer funds from the coinbase account to the account you created in [Exercise 2](#Exercise2) (Account 1). The app will use a library named [web3.js](https://github.com/ethereum/web3.js/), which wraps the Ethereum RPC API and dramatically simplifies code for interacting with smart contracts. Note that there are also web3 libraries available for other languages, including Java and Python.
 
