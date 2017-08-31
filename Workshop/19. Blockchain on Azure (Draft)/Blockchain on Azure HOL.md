@@ -1,16 +1,30 @@
 <a name="HOLTitle"></a>
 # Blockchain-as-a-Service on Azure #
 
+http://www.doc.ic.ac.uk/~ma7614/topics_website/tech.html
+https://blockgeeks.com/guides/what-is-blockchain-technology/
+https://www.ethereum.org/
+https://medium.com/@micheledaliessi/how-does-the-blockchain-work-98c8cd01d2ae
+https://www.oreilly.com/ideas/understanding-the-blockchain
+https://blog.passkit.com/10-ways-blockchain-technology-can-be-used-in-businesses/
+https://bitcoin.org/bitcoin.pdf
+http://www.huffingtonpost.com/ameer-rosic-/5-blockchain-applications_b_13279010.html
+
 ---
 
 <a name="Overview"></a>
 ## Overview ##
 
-When one hears the word "blockchain", probably the first thing to pop in one's head is cryptocurrecncy, more specifically Bitcoin. Undoubtedly, blockchain technology from its inception has been used to support cryptocurrecy, however the technology itself isn't restricted to cryptocurrecy. 
+[Blockchain](https://en.wikipedia.org/wiki/Blockchain) is one of the world's most talked-about technologies, and one that has the potential to fundamentally change the way we use the Internet. Originally designed for [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin), Blockchain remains the technology behind that digital currency but is not limited to applications involving virtual money. In the words of Dan Tapscott, author, TED speaker, and Executive Director of the [Blockchain Research Institute](https://www.blockchainresearchinstitute.org/), "The blockchain is an incorruptible digital ledger of economic transactions that can be programmed to record not just financial transactions, but virtually everything of value." One of the more inventive uses for Blockchain is to implement tamper-proof digital voting systems, a concept that is being actively explored [in the U.S. and abroad](https://venturebeat.com/2016/10/22/blockchain-tech-could-fight-voter-fraud-and-these-countries-are-testing-it/).
 
-[Blockchain](https://en.wikipedia.org/wiki/Blockchain) technology is more about creating a network of trust between multiple parties in a decentralized manner. In other word, a blockchain is meant to be shared with others, and the more it is shared, the more secure it becomes. By secure, we're not talking about data being kept from prying eyes, rather creating a network of immutable data that is tamper-proof and resistant to corruption. A great overview of Blockchain can be found at https://blockgeeks.com/guides/what-is-blockchain-technology/.
+Blockchain gets its name from the manner in which it stores data. Transactions such as a transfer of money from one party to another or a vote cast for a political candidate are stored in cryptographically sealed blocks. Blocks are joined together into chains ("blockchains"), with each block in the chain containing a cryptographic hash of the previous block. A blockchain serves as a digital ledger, and rather than be stored in one place, it is replicated across countless computers (nodes) in a Blockchain network. This decentralization means that a blockchain has no single point of failure and is controlled by no single entity. The latter is especially important for a system whose primary goal is to allow private transactions to take place between parties without intervention by a "trusted" third party such as a bank. In a Blockchain world, trust is placed in the technology and the mathematics behind it rather than in an individual or an institution.
 
-Azure offers [Ethereum](https://www.ethereum.org/) as Blockchain as a Service. Ethereum is one of the first general-purpose blockchains to be invented. It still functions with the same basic principals as a blockchain for cryptocurrencies -- there is the blockchain network itself and the mining nodes that do computationally complex algorithms to mine "Ether", which is the digital fuel on an Ethereum network. Ether is the "gas" for running "smart contracts" on a blockchain. A smart contract though is really nothing more than a program that executes on a blockchain. The nature of these smart contracts could be whatever the developer of the contract determines that to be. For an Ethereum network, this may be a particular kind of application for the industry in which the blockchain is being applied.
+Anyone can build a Blockchain network and use it to host blockchains. Microsoft Azure makes it incredibly simple to do both by supporting Blockchain-as-a-Service. A few button clicks in the Azure Portal are sufficient to deploy a network of virtual machines provisioned with popular Blockchain implementations such as [Ethereum](https://www.ethereum.org/), [Corda](https://www.corda.net/), or 
+[Hyperledger Fabric](https://www.hyperledger.org/projects/fabric).
+
+Ethereum was one of the first general-purpose blockchain implementations. The software is open-source and is the basis for Ethereum's own cryptocurrency known as Ether. You can deploy Ethereum networks of your own and use its Blockchain implementation however you wish. Among other things, Ethereum supports [smart contracts](https://en.wikipedia.org/wiki/Smart_contract) representing transactions to be performed. Smart contracts are written in languages such as [Solidity](https://en.wikipedia.org/wiki/Solidity), which is similar to JavaScript, and then compiled into bytecode and uploaded to the network for execution. Execution can be triggered manually, or when a specified condition is satisfied.
+
+In this lab, you will deploy an Ethereum network on Azure and create your own cryptocurrency named "My Coin" to run on it. The currency will be brokered by a smart contract that allows currency to be transferred from one user to another. Along the way, you will get first-hand experience running Blockchain networks on Azure, as well as writing smart contracts for Etheruem and deploying them to the network.
 
 <a name="Objectives"></a>
 ### Objectives ###
