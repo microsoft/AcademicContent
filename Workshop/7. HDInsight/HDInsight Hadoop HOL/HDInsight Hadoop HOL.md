@@ -137,7 +137,7 @@ Before you can run jobs on the Hadoop cluster, you need to open an SSH connectio
     <pre>
     ssh sshuser@<i>clustername</i>-ssh.azurehdinsight.net</pre>
 
-	Enter the SSH password ("Had00pdemo!") when prompted. **Now proceed to Exercise 3**. Step 2 is for Windows users only.
+	Enter the SSH password ("Azure4Research!") when prompted. **Now proceed to Exercise 3**. Step 2 is for Windows users only.
 
 1. **Windows users only**: Start PuTTY. In the **Host Name (or IP address)** field, type "sshuser@<i>clustername</i>-ssh.azurehdinsight.net" without quotation marks, replacing *clustername* with the cluster name you entered in Exercise 1, Step 3. Then click the **Open** button to open an SSH connection.
 
@@ -147,7 +147,7 @@ Before you can run jobs on the Hadoop cluster, you need to open an SSH connectio
 
     _Establishing a connection with PuTTY_
 
-	A PuTTY terminal window will appear and prompt you for a password. Enter the SSH password ("Had00pdemo!") you specified when you created the cluster and press **Enter**.
+	A PuTTY terminal window will appear and prompt you for a password. Enter the SSH password ("Azure4Research!") you specified when you created the cluster and press **Enter**.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Analyze an Apache log file with Hive ##
@@ -295,14 +295,14 @@ HDInsight, with its underlying Hadoop implementation, allows you to write MapRed
 
 1. The two Python scripts containing the mapper and the reducer are provided for you in the lab's "resources" directory, which is in the same directory as the document you're currently reading. The next step is to copy the two files, which are named **mapper.py** and **reducer.py**, from the "resources" directory on the local machine to the cluster. **If you're using Windows, skip to Step 5**. Otherwise, proceed to the next step.
 
-1. **Linux and macOS users only**: Open a terminal window and navigate to this lab's "resources" directory. Then execute the following command to copy **mapper.py** and **reduce.py** to the HDInsight cluster, replacing *clustername* with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Had00pdemo!").
+1. **Linux and macOS users only**: Open a terminal window and navigate to this lab's "resources" directory. Then execute the following command to copy **mapper.py** and **reduce.py** to the HDInsight cluster, replacing *clustername* with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Azure4Research!").
 
     <pre>
     scp *.py sshuser@<i>clustername</i>-ssh.azurehdinsight.net:</pre>
 
 	**Now skip to Step 6**. Step 5 is for Windows users only.
  
-1. **Windows users only**: Open a Command Prompt window and navigate to this lab's "resources" directory. Then execute the following command to copy **mapper.py** and **reduce.py** to the HDInsight cluster, replacing *clustername* with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Had00pdemo!").
+1. **Windows users only**: Open a Command Prompt window and navigate to this lab's "resources" directory. Then execute the following command to copy **mapper.py** and **reduce.py** to the HDInsight cluster, replacing *clustername* with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Azure4Research!").
 
     <pre>
     pscp *.py sshuser@<i>clustername</i>-ssh.azurehdinsight.net:</pre>

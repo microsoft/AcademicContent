@@ -583,7 +583,7 @@ vertical-align:1px;
 <li>
 <p><strong>Linux and macOS users only</strong>: Open a terminal window so you can use the <strong>ssh</strong> command to establish a connection. Execute the following command in the terminal window, replacing <em>clustername</em> with the cluster name you entered in Exercise 1, Step 3:</p>
  <pre> ssh sshuser@<i>clustername</i>-ssh.azurehdinsight.net</pre>
-<p>Enter the SSH password ("Had00pdemo!") when prompted. <strong>Now proceed to Exercise 3</strong>. Step 2 is for Windows users only.</p>
+<p>Enter the SSH password ("Azure4Research!") when prompted. <strong>Now proceed to Exercise 3</strong>. Step 2 is for Windows users only.</p>
 </li>
 <li>
 <p><strong>Windows users only</strong>: Start PuTTY. In the <strong>Host Name (or IP address)</strong> field, type "sshuser@<i>clustername</i>-ssh.azurehdinsight.net" without quotation marks, replacing <em>clustername</em> with the cluster name you entered in Exercise 1, Step 3. Then click the <strong>Open</strong> button to open an SSH connection.</p>
@@ -592,7 +592,7 @@ vertical-align:1px;
 </blockquote>
 <p><a href="Images/putty-1.png" target="_blank"><img src="Images/putty-1.png" alt="Establishing a connection with PuTTY" style="max-width:100%;"></a></p>
 <p><em>Establishing a connection with PuTTY</em></p>
-<p>A PuTTY terminal window will appear and prompt you for a password. Enter the SSH password ("Had00pdemo!") you specified when you created the cluster and press <strong>Enter</strong>.</p>
+<p>A PuTTY terminal window will appear and prompt you for a password. Enter the SSH password ("Azure4Research!") you specified when you created the cluster and press <strong>Enter</strong>.</p>
 </li>
 </ol>
 <p><a name="Exercise3"></a></p>
@@ -719,12 +719,12 @@ Time taken: 0.58 seconds, Fetched: 3 row(s)
 <p>The two Python scripts containing the mapper and the reducer are provided for you in the lab's "resources" directory, which is in the same directory as the document you're currently reading. The next step is to copy the two files, which are named <strong>mapper.py</strong> and <strong>reducer.py</strong>, from the "resources" directory on the local machine to the cluster. <strong>If you're using Windows, skip to Step 5</strong>. Otherwise, proceed to the next step.</p>
 </li>
 <li>
-<p><strong>Linux and macOS users only</strong>: Open a terminal window and navigate to this lab's "resources" directory. Then execute the following command to copy <strong>mapper.py</strong> and <strong>reduce.py</strong> to the HDInsight cluster, replacing <em>clustername</em> with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Had00pdemo!").</p>
+<p><strong>Linux and macOS users only</strong>: Open a terminal window and navigate to this lab's "resources" directory. Then execute the following command to copy <strong>mapper.py</strong> and <strong>reduce.py</strong> to the HDInsight cluster, replacing <em>clustername</em> with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Azure4Research!").</p>
  <pre> scp *.py sshuser@<i>clustername</i>-ssh.azurehdinsight.net:</pre>
 <p><strong>Now skip to Step 6</strong>. Step 5 is for Windows users only.</p>
 </li>
 <li>
-<p><strong>Windows users only</strong>: Open a Command Prompt window and navigate to this lab's "resources" directory. Then execute the following command to copy <strong>mapper.py</strong> and <strong>reduce.py</strong> to the HDInsight cluster, replacing <em>clustername</em> with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Had00pdemo!").</p>
+<p><strong>Windows users only</strong>: Open a Command Prompt window and navigate to this lab's "resources" directory. Then execute the following command to copy <strong>mapper.py</strong> and <strong>reduce.py</strong> to the HDInsight cluster, replacing <em>clustername</em> with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Azure4Research!").</p>
  <pre> pscp *.py sshuser@<i>clustername</i>-ssh.azurehdinsight.net:</pre>
 <blockquote>
 <p>pscp.exe is part of PuTTY. This command assumes that pscp.exe is in the PATH. If it's not, preface the command with the path to pscp.exe.</p>
