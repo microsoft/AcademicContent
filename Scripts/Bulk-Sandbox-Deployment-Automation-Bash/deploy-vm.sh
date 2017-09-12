@@ -65,7 +65,7 @@ deploy-vm() {
 	local templateFolder="${25}"
 	local templateFile="${26}"
 	local postInstallFileName="none"
-	local rand=$(uuidgen -t)
+	local rand=$(cat /proc/sys/kernel/random/uuid)
 	local storageName="storage"${rand:0:8}
 	storageName="${storageName,,}"
 	#define VM name
@@ -526,7 +526,7 @@ main() {
 	fi
 
 	#generate time based GUID
-	local classNameID=$(uuidgen -t)
+	local classNameID=$(cat /proc/sys/kernel/random/uuid)
 	echo Time-based generated GUID for deployment was created:$classNameID. This value will be included in tags of the resource groups and VMs.
 
 	local logFileName=""

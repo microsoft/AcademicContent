@@ -21,7 +21,7 @@ createImage() {
 	local resourceGroupName=$2
 	local hostName=$3
 	local userName=$4
-	local rand=$(uuidgen -t)
+	local rand=$(cat /proc/sys/kernel/random/uuid)
 	local outputFile=Image-$rand.log
 	local osType=$(az vm show -g $resourceGroupName -n $vmName --query "storageProfile.osDisk.osType" -o tsv)
 	local osDiskId=$(az vm show -g $resourceGroupName -n $vmName --query "storageProfile.osDisk.managedDisk.id" -o tsv)
