@@ -26,14 +26,6 @@
     - [Script Performance](#script-performance)
     - [Deploying different VM types](#deploying-different-vm-types)
     - [Post-Deployment Scripts](#post-deployment-scripts)
-    - [Email Server setup](#email-server-setup)
-        - [Mail Service Provider](#mail-service-provider)
-        - [Directions to set up Email](#directions-to-set-up-email)
-            - [To sign up for a SendGrid account](#to-sign-up-for-a-sendgrid-account)
-        - [Integrating Email with Deployments](#integrating-email-with-deployments)
-            - [To find your SendGrid API Key](#to-find-your-sendgrid-api-key)
-            - [To find your SendGrid credentials](#to-find-your-sendgrid-credentials)
-            - [Configure script file](#configure-script-file)
     - [Additional scripts](#additional-scripts)
         - [Change state of View Status](#change-state-of-view-status)
             - [Script Usage](#script-usage-1)
@@ -42,6 +34,14 @@
             - [Script Usage](#script-usage-2)
             - [Examples](#examples-2)
             - [Directions](#directions)
+    - [Email Server setup](#email-server-setup)
+        - [Mail Service Provider](#mail-service-provider)
+        - [Directions to set up Email](#directions-to-set-up-email)
+            - [To sign up for a SendGrid account](#to-sign-up-for-a-sendgrid-account)
+        - [Integrating Email with Deployments](#integrating-email-with-deployments)
+            - [To find your SendGrid API Key](#to-find-your-sendgrid-api-key)
+            - [To find your SendGrid credentials](#to-find-your-sendgrid-credentials)
+            - [Configure script file](#configure-script-file)
     - [Troubleshoot](#troubleshoot)
         - [Troubleshoot deploying Linux virtual machine issues in Azure](#troubleshoot-deploying-linux-virtual-machine-issues-in-azure)
             - [Top issues](#top-issues)
@@ -135,11 +135,12 @@ Currently you can deploy the following Marketplace VM’s:
     ```
     > Note: git is already installed on the your system
 
- 6.  Setting up a temporary VM in Azure in the same region will boost performance
+ 6. Setting up a temporary VM in Azure in the same region will boost performance
  7. Change permissions recursively of the bash script file to be executable by running command:  
     ```sh
     $ chmod -R +x *
     ```
+ 8. If you wish to set up email for post-deploy notifications, please see [Email Server Setup](#email-server-setup) near the end of this document.
 
 ## Input parameters
 
@@ -278,40 +279,130 @@ Argument        | Command       | Description | Example
 
 ### Examples
 
-**Deploy Data Science VMs**
+**Deploy Data Science Virtual Machine for Linux (Ubuntu)**
 ```sh
-$ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -u http://www.example.com/data.zip -vm ds-vm-ubuntu -d manage -m on
+$ ./deploy-vm.sh \
+    --input input.csv \
+    --output output.csv \
+    --location westus \
+    --size Standard_DS3_v2 \
+    --storage premium \
+    --vmtype ds-vm-ubuntu \
+    --disk manage \
+    --sendemail off
+```
+
+**Deploy Data Science Virtual Machine for Linux (Centos)**
+```sh
+$ ./deploy-vm.sh \
+    --input input.csv \
+    --output output.csv \
+    --location westus \
+    --size Standard_DS3_v2 \
+    --storage premium \
+    --vmtype ds-vm-centos \
+    --disk manage \
+    --sendemail off
+```
+
+**Deploy Data Science Virtual Machine for Windows 2012**
+```sh
+$ ./deploy-vm.sh \
+    --input input.csv \
+    --output output.csv \
+    --location westus \
+    --size Standard_DS3_v2 \
+    --storage premium \
+    --vmtype ds-vm-windows \
+    --disk manage \
+    --sendemail off
+```
+
+**Deploy Data Science Virtual Machine for Windows 2016**
+```sh
+$ ./deploy-vm.sh \
+    --input input.csv \
+    --output output.csv \
+    --location westus \
+    --size Standard_DS3_v2 \
+    --storage premium \
+    --vmtype ds-vm-windows-2016 \
+    --disk manage \
+    --sendemail off
 ```
 
 **Deploy VMs from image**
 ```sh
-$ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -d manage -m off -i /subscriptions/<guid>/resourceGroups/<Resource Group Name>/providers/Microsoft.Compute/images/<Image Name>
+$ ./deploy-vm.sh \
+    --input input.csv \
+    --output output.csv \
+    --location westus \
+    --size Standard_DS3_v2 \
+    --storage premium \
+    --disk manage \
+    --sendemail off \
+    --image "/subscriptions/<guid>/resourceGroups/<Resource Group Name>/providers/Microsoft.Compute/images/<Image Name>"
 ```
 
 **Deploy VMs using post install script**
 ```sh
-$ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -d manage -m off -vm ds-vm-ubuntu -p http://www.example.com/post-install.sh
+$ ./deploy-vm.sh \
+    --input input.csv \
+    --output output.csv \
+    --location westus \
+    --size Standard_DS3_v2 \
+    --storage premium \
+    --vmtype  ds-vm-ubuntu \
+    --disk manage \
+    --sendemail off \
+    --postinstall https://raw.githubusercontent.com/MSFTImagine/computerscience/master/Scripts/Bulk-Sandbox-Deployment-Automation-Bash/modules/post-install.sh
 ```
 
 >**Important!**
 >Post-deployment has limited time to run scripts. It takes 1 hour 30 minutes. After we had error message: "Provisioning of VM extension 'CustomScript' has timed out. Extension installation may be taking too long, or extension status could not be obtained."
 
-**Deploy Deep Learning toolkit for the DSVMs**  
+**Deploy Deep Learning toolkit for the DSVM**
 
 Deploying this toolkit requires access to Azure GPU NC-class instances. For availability of N-series VMs, see Products available by [region][region].
 
-Allowed Locations:
-* Standard_NC6
-* Standard_NC12
-* Standard_NC24
+**NV instances**
 
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NV6 |6 |56 |380 | 1 | 8 |
+| Standard_NV12 |12 |112 |680 | 2 | 16 |
+| Standard_NV24 |24 |224 |1440 | 4 | 32 |
+
+1 GPU = one-half M60 card.
+
+**NC instances**
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NC6 |6 |56 | 380 | 1 | 8 |
+| Standard_NC12 |12 |112 | 680 | 2 | 16 |
+| Standard_NC24 |24 |224 | 1440 | 4 | 32 |
+| Standard_NC24r* |24 |224 | 1440 | 4 | 32 |
+
+1 GPU = one-half K80 card.  
+*RDMA capable*  
+
+
+Deploy command:
 ```sh
-$ ./deploy-vm.sh -in input.csv -out output.csv -l eastus -s Standard_NC6 -st standard -d manage -m off -vm ds-vm-windows -p http://www.example.com/deep-learningtoolkit/install.ps1
+$ ./deploy-vm.sh \
+    --input input.csv \
+    --output output.csv \
+    --location eastus \
+    --size Standard_NC6 \
+    --storage premium \
+    --vmtype ds-vm-windows \
+    --disk manage \
+    --sendemail off \
+    --postinstall https://raw.githubusercontent.com/MSFTImagine/computerscience/master/Scripts/Bulk-Sandbox-Deployment-Automation-Bash/modules/deep-learningtoolkit/install.ps1
 ```
 
 After provisioning the deep learning toolkit, see the README file in C:\dsvm\deep-learning, or on the desktop, for more information.
-
-Examples of files (input.csv, output.csv) are included in this repository.
 
 **Deploy VMs from your template**
 
@@ -353,12 +444,22 @@ You can make a copy of the `template-data-science.json` template and add new VM 
     ```
 1. Save the modified file. You can deploy using the following parameters:
     ```sh
-    $ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -d manage -m off -vm <your vm type> -t ./templates/template.json
+    $ ./deploy-vm.sh \
+        --input input.csv \
+        --output output.csv \
+        --location westus \
+        --size Standard_DS3_v2 \
+        --storage premium \
+        --vmtype <your vm type> \
+        --disk manage \
+        --sendemail off \
+        --template ./templates/template.json
     ```
 
 >**Important!**
 >It is not recommended to change the base templates, if you do not know.
 
+Examples of files (input.csv, output.csv) are included in this repository.
 
 ## Logging
 
@@ -366,18 +467,15 @@ The script creates a log file for each deployment. The file can be found in the 
 
 **Example**: Deployment-c8f7dc5c-398e-11e7-a762-54ee759e9cc8.log
 
-
 ## Resource Tags
 
-Resource groups have the following tags added during deployment from the `input.CSV` file:
+Each Resource Groups and VMs have the following tags added during deployment from the `input.CSV` file:
 
 * ClassID
 * StudentLogin
 * StudentEmail
 * StudentName
 * ClassName
-
-Each VM has the following tags inherited from the `input.CSV` file:
 
 ## Known limitations
 
@@ -410,100 +508,6 @@ Post-Deployment scripts can either be hosted on an Azure storage account with an
 If utilizing GitHub, select the "Raw" option and copy the URL to refer to in the deploy-vm.sh script.
 Use cases for this feature include ensuring that the most up to date software is installed or configuring variables, etc.  
 An alternative would be to do this in a custom VM, create an image, and deploy from the image.
-
-## Email Server setup
-We recommend using SendGrid on Azure for email.
-
-Sequence of steps – high level
-* [To sign up for a SendGrid account](#to-sign-up-for-a-sendgrid-account)
-* [To find your SendGrid API Key](#to-find-your-sendgrid-api-key)
-* [To find your SendGrid credentials](#to-find-your-sendgrid-credentials)
-* [Configure script file](#configure-script-file)
-
-### Mail Service Provider
-This example utilizes SendGrid as the email service provider. To send emails, you should set up a `send-email.sh` script file.
-
-SendGrid includes a free account for Azure customers that includes some free emails each month including access to advanced reporting, analytics, and all APIs (Web, SMTP, Event, Parse and more). See instructions for [reference](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SendGrid.SendGrid).
-
-### Directions to set up Email 
-
-For information about additional services provided by SendGrid, visit the [SendGrid Solutions][SendGrid Solutions] page.
-
-#### To sign up for a SendGrid account
-1. Log in to the [Azure Portal][Azure Portal].
-2. In the menu on the left, click **New**.
-
-    ![command-bar-new][command-bar-new]
-3. Click **Add-ons** and then **SendGrid Email Delivery**.
-
-    ![sendgrid-store][sendgrid-store]
-4. Complete the signup form and select **Create**.
-
-    ![sendgrid-create][sendgrid-create]
-5. Enter a **Name** to identify your SendGrid service in your Azure settings. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
-6. Enter and confirm your **Password**.
-7. Choose your **Subscription**.
-8. Create a new **Resource group** or use an existing one.
-9. In the **Pricing tier** section select the SendGrid plan you want to sign up for.
-
-    ![sendgrid-pricing][sendgrid-pricing]
-10. Enter a **Promotion Code** if you have one.
-11. Enter your **Contact Information**.
-12. Review and accept the **Legal terms**.
-13. After confirming your purchase you will see a **Deployment Succeeded** pop-up and you will see your account listed in the **All resources** section.
-
-    ![all-resources][all-resources]
-
-    After you have completed your purchase and clicked the **Manage** button to initiate the email verification process, you will receive an email from SendGrid asking you to verify your account. If you do not receive this email, or have problems verifying your account, please see this FAQ.
-
-    ![manage][manage]
-
-    **You can only send up to 100 emails/day until you have verified your account.**
-
-    To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard.
-
-    ![settings][settings]
-
-    To send an email using SendGrid, you must supply your API Key.
-
-### Integrating Email with Deployments
-
-#### To find your SendGrid API Key
-
-1. Click **Manage**.
-
-    ![manage][manage]
-2. In your SendGrid dashboard, select **Settings** and then **API Keys** in the menu on the left.
-
-    ![api-keys][api-keys]
-
-3. Click the **Create API Key** dropdown and select **General API Key**.
-
-    ![general-api-key][general-api-key]
-4. Provide the **Name of this key** and provide full access to **Mail Send** and select **Save**.
-
-    ![access][access]
-5. Your API will be displayed at this point one time. Please be sure to store it safely.
-
-#### To find your SendGrid credentials
-1. Click the key icon to find your **Username**.
-
-    ![key][key]
-2. The password is the one you chose at setup. You can select **Change password** or **Reset password** to make any changes.
-
-    To manage your email deliverability settings, click the **Manage button**. This will redirect to your SendGrid dashboard.
-
-    ![manage][manage]
-
-
-#### Configure script file
-Sending email requires that you supply your SendGrid API Key. If you need details about how to configure API Keys, please visit SendGrid's API Keys documentation.
-
-Open the `./modules/send-email.sh` script file, find apiKey section and replace value with your API key. Specify the email address of the sender.
-```sh
-apiKey="<sendgrid_api_key>" # set your api key
-emailFrom="<email_from>"    # set email from
-```
 
 ## Additional scripts
 
@@ -592,10 +596,100 @@ The script processes following this direction:
 >After running the script, the VM will no longer be available. The script is cleared of all sensitive information.
 >In the third version the script can create a backup only for virtual machines that do not have a plan information.
 
+## Email Server setup
+We recommend using SendGrid on Azure for email.
 
+Sequence of steps – high level
+* [To sign up for a SendGrid account](#to-sign-up-for-a-sendgrid-account)
+* [To find your SendGrid API Key](#to-find-your-sendgrid-api-key)
+* [To find your SendGrid credentials](#to-find-your-sendgrid-credentials)
+* [Configure script file](#configure-script-file)
+
+### Mail Service Provider
+This example utilizes SendGrid as the email service provider. To send emails, you should set up a `send-email.sh` script file.
+
+SendGrid includes a free account for Azure customers that includes some free emails each month including access to advanced reporting, analytics, and all APIs (Web, SMTP, Event, Parse and more). See instructions for [reference](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SendGrid.SendGrid).
+
+### Directions to set up Email 
+
+For information about additional services provided by SendGrid, visit the [SendGrid Solutions][SendGrid Solutions] page.
+
+#### To sign up for a SendGrid account
+1. Log in to the [Azure Portal][Azure Portal].
+2. In the menu on the left, click **New**.
+
+    ![command-bar-new][command-bar-new]
+3. Click **Add-ons** and then **SendGrid Email Delivery**.
+
+    ![sendgrid-store][sendgrid-store]
+4. Complete the signup form and select **Create**.
+
+    ![sendgrid-create][sendgrid-create]
+5. Enter a **Name** to identify your SendGrid service in your Azure settings. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
+6. Enter and confirm your **Password**.
+7. Choose your **Subscription**.
+8. Create a new **Resource group** or use an existing one.
+9. In the **Pricing tier** section select the SendGrid plan you want to sign up for.
+
+    ![sendgrid-pricing][sendgrid-pricing]
+10. Enter a **Promotion Code** if you have one.
+11. Enter your **Contact Information**.
+12. Review and accept the **Legal terms**.
+13. After confirming your purchase you will see a **Deployment Succeeded** pop-up and you will see your account listed in the **All resources** section.
+
+    ![all-resources][all-resources]
+
+    After you have completed your purchase and clicked the **Manage** button to initiate the email verification process, you will receive an email from SendGrid asking you to verify your account. If you do not receive this email, or have problems verifying your account, please [see this FAQ][SendGrid FAQ].
+
+    ![manage][manage]
+
+    **You can only send up to 100 emails/day until you have verified your account.**
+
+    To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard.
+
+    ![settings][settings]
+
+    To send an email using SendGrid, you must supply your API Key.
+
+### Integrating Email with Deployments
+
+#### To find your SendGrid API Key
+
+1. Click **Manage**.
+
+    ![manage][manage]
+2. In your SendGrid dashboard, select **Settings** and then **API Keys** in the menu on the left.
+
+    ![api-keys][api-keys]
+3. Click the **Create API Key**.
+
+    ![general-api-key][general-api-key]    
+4. Provide the **Name of this key** and provide full access to **Mail Send** and select **Save & View**.
+
+    ![access][access]
+5. Your API will be displayed at this point one time. Please be sure to store it safely.
+
+#### To find your SendGrid credentials
+1. Click the key icon to find your **Username**.
+
+    ![key][key]
+2. The password is the one you chose at setup. You can select **Change password** or **Reset password** to make any changes.
+
+    To manage your email deliverability settings, click the **Manage button**. This will redirect to your SendGrid dashboard.
+
+    ![manage][manage]
+
+
+#### Configure script file
+Sending email requires that you supply your SendGrid API Key. If you need details about how to configure API Keys, please visit SendGrid's API Keys documentation.
+
+Open the `./modules/send-email.sh` script file, find apiKey section and replace value with your API key. Specify the email address of the sender.
+```sh
+apiKey="<sendgrid_api_key>" # set your api key
+emailFrom="<email_from>"    # set email from
+```
 
 ## Troubleshoot
-
 
 To troubleshoot virtual machine (VM) deployment issues in Azure, review the [top issues](#top-issues) for common failures and resolutions.
 
@@ -647,3 +741,4 @@ This article describes some of the most common error codes and messages you may 
 [SendGrid Solutions]: https://sendgrid.com/solutions
 [Azure Portal]: https://portal.azure.com
 [region]: https://azure.microsoft.com/en-us/regions/services
+[SendGrid FAQ]: https://sendgrid.com/docs/Classroom/Basics/Account/account_sign_up_faq.html#How-long-does-the-verification-process-take
