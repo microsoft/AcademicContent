@@ -29,7 +29,7 @@
                <h3 class="panel-title">Available academic resources</h3>
             </div>
             <div class="panel-body">
-            <h2>Content from DX Academic team</h2>
+            <h2></h2>
           <table class="table table-bordered table-striped table-hover">
 					<tr>
 					   <td><b>Complimentary Course Content</b></td>
