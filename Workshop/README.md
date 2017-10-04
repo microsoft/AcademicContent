@@ -57,7 +57,7 @@ If you want to report any issues we need to fix. Please log an <a href="https://
                      <td>Deploy a HDInsight Spark cluster in a Jupyter notebook or Hadoop cluster on Linux to train a machine-learning model</td>
                   </tr>
                    <tr>
-                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/9.%20PowerBI%20Dashboard/ReadMe.md">PowerBi and Data Visualisation</a></td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/9.%20PowerBI%20Dashboard/ReadMe.md">PowerBI and Data Visualisation</a></td>
                      <td>Build a PowerBI DashBoard </td>
                   </tr>
                   <tr>
@@ -73,8 +73,8 @@ If you want to report any issues we need to fix. Please log an <a href="https://
                      <td>Create a Data Lake Store and run Azure Data Lake Analytics with U-SQL to query your data</td>
                   </tr>
                   <tr>
-                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/12.%20Power%20BI/Power%20BI%20HOL.md">Connect PowerBI business data to run analytics, create reports and do advanced modeling</a></td>
-                     <td> </td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/12.%20Power%20BI/Power%20BI%20HOL.md">PowerBI</a></td>
+                     <td>Connect PowerBI business data to run analytics, create reports and do advanced modeling</td>
                   </tr>
                   <tr>
                      <td>Azure Functions with <a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/13.%20Azure%20Functions/Azure%20Functions%20HOL%20(JavaScript).md">Java</a> or <a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/13.%20Azure%20Functions/Azure%20Functions%20HOL%20(C%23).md">C#</a></td>
