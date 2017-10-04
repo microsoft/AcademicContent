@@ -35,8 +35,8 @@
 					   <td>Hands-on exercises using cross-platform technologies with Microsoft Azure.</td>
 					</tr>
           <tr>
-					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Scripts">Scripts</a></b></td>
-					   <td>Scripts to help set up your classroom environment.</td>
+					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Scripts">Scripts(preview)</a></b></td>
+					   <td>Scripts and templates to help set up your classroom environment.</td>
 					</tr>
           <tr>
 					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Azure%20Guides">Azure Guides</a></b></td>
