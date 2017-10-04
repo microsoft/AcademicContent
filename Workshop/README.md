@@ -33,11 +33,11 @@ If you want to report any issues we need to fix. Please log an <a href="https://
                     <td>Deploy a PHP/MySQL Web App to Azure</td>
                   </tr>
                   <tr>
-                     <td> Azure Storage and Cognitive Services using <a href=" https://github.com/MSFTImagine/computerscience/blob/master/Workshop/3.%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20HOL%20(Node).md">Node</a> or <a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/3.%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20HOL%20(MVC).md">MVC</a> or  <a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/3.%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20HOL%20(Java).md">Java</a></td>
+                     <td> Azure Storage and Cognitive Services using <a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/3.%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20HOL%20(Node).md">Node</a> or <a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/3.%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20HOL%20(MVC).md">MVC</a> or <a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/3.%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20HOL%20(Java).md">Java</a></td>
                     <td>Build an intelligent-pictures site with C# and ASP.NET MVC or with Node.js </td>
                   </tr>
                   <tr>
-                   <td>Azure Machine Learning using <a href=" https://github.com/MSFTImagine/computerscience/blob/master/Workshop/4.%20Machine%20Learning/Azure%20Machine%20Learning%20HOL%20(Node).md">Node.js</a> or <a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/4.%20Machine%20Learning/Azure%20Machine%20Learning%20HOL%20(UWP).md">UWP app</a></td>
+                   <td>Azure Machine Learning using <a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/4.%20Machine%20Learning/Azure%20Machine%20Learning%20HOL%20(Node).md">Node.js</a> or <a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/4.%20Machine%20Learning/Azure%20Machine%20Learning%20HOL%20(UWP).md">UWP app</a></td>
                    <td>Build a smart app that relies on machine learning</td>
                   </tr>
                   <tr>
@@ -48,9 +48,13 @@ If you want to report any issues we need to fix. Please log an <a href="https://
                      <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/6.%20HPC%20and%20Containers/HPC%20HOL/SLURM%20Linux%20Cluster%20HOL.md">High-Performance Computing with HPC cluster</a></td>
                    <td>Deploy an HPC cluster and process data in parallel using a Python script</td>
                   </tr>
-                                    <tr>
+                  <tr>
                      <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/6.%20HPC%20and%20Containers/Containers%20HOL/Docker%20and%20Azure%20Container%20Service%20HOL.md">High-Performance Computing with Docker swarm</a></td>
                    <td> Deploy a Docker container swarm and process data in parallel using a Python script</td>
+                  </tr>
+                  <tr>
+                     <td>HD Insight with <a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/7.%20HDInsight/HDInsight%20Hadoop%20HOL/HDInsight%20Hadoop%20HOL.md">Hadoop</a> or <a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/7.%20HDInsight/HDInsight%20Spark%20HOL/HDInsight%20Spark%20HOL.md">Spark</a></td>
+                     <td>Deploy a HDInsight Spark cluster in a Jupyter notebook or Hadoop cluster on Linux to train a machine-learning model</td>
                   </tr>
                    <tr>
                      <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/9.%20PowerBI%20Dashboard/ReadMe.md">PowerBi and Data Visualisation</a></td>
@@ -58,43 +62,47 @@ If you want to report any issues we need to fix. Please log an <a href="https://
                   </tr>
                   <tr>
                      <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/8.%20IoT/ReadMe.md">IoT</a></td>
-                     <td> </td>
+                     <td>Build a weather station using Microsoft Azure IoT Starter Kit</td>
                   </tr>
                   <tr>
                      <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/10.%20VM%20Scaling/VM%20Scaling.md">VM Scaling</a></td>
-                     <td> </td>
+                     <td>Run a compute-intensive job on three different Linux HPC clusters and compare performance</td>
                   </tr>
                   <tr>
                      <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/11.%20Data%20Lake/Azure%20Data%20Lake%20HOL.md">Data Lake</a></td>
+                     <td>Create a Data Lake Store and run Azure Data Lake Analytics with U-SQL to query your data</td>
+                  </tr>
+                  <tr>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/12.%20Power%20BI/Power%20BI%20HOL.md">Connect PowerBI business data to run analytics, create reports and do advanced modeling</a></td>
                      <td> </td>
                   </tr>
                   <tr>
-                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/12.%20Power%20BI/Power%20BI%20HOL.md">Power BI</a></td>
-                     <td> </td>
+                     <td>Azure Functions with <a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/13.%20Azure%20Functions/Azure%20Functions%20HOL%20(JavaScript).md">Java</a> or <a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/13.%20Azure%20Functions/Azure%20Functions%20HOL%20(C%23).md">C#</a></td>
+                     <td>Create an Azure Function App using a blob trigger to analyze images and store the results</td>
                   </tr>
                   <tr>
                      <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/14.%20LUIS/LUIS%20HOL.md">LUIS</a></td>
-                     <td> </td>
+                     <td>Use Microsoft’s Language Understanding Intelligent Service to train a computer to understand natural-language commands</td>
                   </tr>
                   <tr>
                      <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/15.%20Bots/Microsoft%20Bot%20Framework%20HOL.md">Bots</a></td>
-                     <td> </td>
+                     <td>Create your own personal bot and interact with it on Skype</td>
                   </tr>
                   <tr>
                      <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/16.%20Cognitive%20Toolkit/Microsoft%20Cognitive%20Toolkit%20HOL.md">Cognitive Toolkit</a></td>
-                     <td> </td>
+                     <td>Use Cognitive Toolkit to train and test neural networks</td>
                   </tr>
                   <tr>
-                     <td><a href=" https://github.com/MSFTImagine/computerscience/blob/master/Workshop/17.%20Azure%20Notebooks/Azure%20Notebooks%20HOL.md">Azure Notebooks</a></td>
-                     <td> </td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/17.%20Azure%20Notebooks/Azure%20Notebooks%20HOL.md">Azure Notebooks</a></td>
+                     <td>Run Jupyter Notebooks to upload, manipulate and visualize data</td>
                   </tr>
                   <tr>
-                     <td><a href=" https://github.com/MSFTImagine/computerscience/blob/master/Workshop/18.%20Custom%20Vision%20Service/Custom%20Vision%20Service%20HOL.md">Custom Vision Service</a></td>
-                     <td> </td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/18.%20Custom%20Vision%20Service/Custom%20Vision%20Service%20HOL.md">Custom Vision Service</a></td>
+                     <td>Create and train a Custom Vision Service to classify images</td>
                   </tr>
                   <tr>
-                     <td><a href=" https://github.com/MSFTImagine/computerscience/blob/master/Workshop/19.%20Blockchain%20on%20Azure/Blockchain%20on%20Azure%20HOL.md">Blockchain</a></td>
-                     <td> </td>
+                     <td><a href="https://github.com/MSFTImagine/computerscience/blob/master/Workshop/19.%20Blockchain%20on%20Azure/Blockchain%20on%20Azure%20HOL.md">Blockchain</a></td>
+                     <td>Deploy an Ethereum blockchain network on Azure</td>
                   </tr>
                    </table>
          </div>
