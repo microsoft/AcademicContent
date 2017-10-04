@@ -13,7 +13,7 @@
             <p><b>September 2017 release.</b> <i>The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under <a href="https://github.com/MSFTImagine/computerscience/blob/master/LICENSE.md">MIT license</a>. Please check back regularly for updated versions.</i> <b>Source:</b> <a href="https://github.com/MSFTImagine/computerscience">https://github.com/MSFTImagine/computerscience</a>.</p>
             <p>
                This repo provides technical resources for faculty, students, and Microsoft developer advocates for use in computer science learning. The modules cover common cross-platform scenarios including mobile app dev, web dev, internet of things, data science, machine learning, and devops. Content delivery is divided into four groups: complimentary course content, tech talks, events materials to support hackathons or coding challenges, and course labs.</p>
-               <p>Most hands-on learning focuses on how to deploy cross-platform technologies on Microsoft Azure although most of the concepts can be applied across many cloud platform solutions. Academic users can get free Azure from various programs like 
+               <p>Most hands-on learning focuses on how to deploy cross-platform technologies on Microsoft Azure although most of the concepts can be applied across many cloud platform solutions. Academic users can get free Azure from various programs including: 
             <a href="https://azure.microsoft.com/en-us/free/">Azure Free Account (requires credit card)</a> or 
             <a href="https://www.dreamspark.com/student/default.aspx">Microsoft Imagine (requires student verification but no credit card)</a>. 
             ,
@@ -32,56 +32,46 @@
             <h2></h2>
           <table class="table table-bordered table-striped table-hover">
 					<tr>
-					   <td><b>Complimentary Course Content</b></td>
-					   <td><a href="https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content">Complimentary Course Content</a></td>
+					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content">Complimentary Course Content</a></b></td>
 					   <td>Learning modules to complement existing course instruction. Includes presentations, speaker notes, and hands-on labs.</td>
 					</tr>
 					<tr>
-					   <td><b>Tech Talks</b></td>
-					   <td>[Link](https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks)</td>
+					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks"> Tech Talks</a></b></td>
 					   <td>Presentations on emerging or innovative tech topics with speakers notes and demos. </td>
 					</tr>
 					<tr>
-					   <td><b>Workshop</b></td>
-					   <td>[Link](https://github.com/MSFTImagine/computerscience/tree/master/Workshop)</td>
+					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Workshop"> Workshop</a></b></td>
 					   <td>1-day hands-on lab using cross-platform technologies with Microsoft Azure.</td>
 					</tr>
 				 </table>
          <h2>Content from other sources</h2>
          <table class="table table-bordered table-striped table-hover">
 					<tr>
-					   <td><b>Technical</b></td>
-					   <td>[Link](https://github.com/Microsoft/TechnicalCommunityContent)</td>
-					   <td>Hands on content from DX Community team, overlaps with workshop content here, but has some different modules.</td>
+					   <td><b><a href="https://github.com/Microsoft/TechnicalCommunityContent">Technical Community Content</a></b></td>
+					   <td>Workshops from the community team.</td>
 					</tr>
           <tr>
-					   <td><b>Technical</b></td>
-					   <td>[Link](http://aka.ms/NUSworkshop)</td>
-					   <td>Bots and LUIS workshop from TE in Singapore.</td>
+					   <td><b><a href="http://aka.ms/NUSworkshop">Bots workshop</a></b></td>
+					   <td>Bots and LUIS workshop from Singapore team.</td>
 					</tr>
           <tr>
-					   <td><b>Technical</b></td>
-					   <td>[Link](https://github.com/Microsoft/CNTK/wiki/Setup-Windows-Binary-Script)</td>
+					   <td><b><a href="https://github.com/Microsoft/CNTK/wiki/Setup-Windows-Binary-Script"> Cognitive Tookit</a></b></td>
 					   <td>Resources to set up Cognitive Toolkit using notebooks from product team. After installing tutorials will be in c:\repos\bindings\python\tutorials.</td>
 					</tr>
 					<tr>
-					   <td><b>Case Studies</b></td>
-					   <td>[Link](https://microsoft.github.io/techcasestudies/)</td>
-					   <td>Companies using Azure stories collected by the Ascend team.</td>
+					   <td><b><a href="https://microsoft.github.io/techcasestudies/"> Industry Case Studies</a></b></td>
+					   <td>Case studies of companies using Azure.</td>
 					</tr>
           <tr>
-					   <td><b>Case Studies</b></td>
-					   <td>[Link](https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/)</td>
-					   <td>Faculty using Azure for Research stories collected by Microsoft Research. Submit your own Azure research stories here too!</td>
+					   <td><b><a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/">Research case studies</a></b></td>
+					   <td>Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too!</td>
 					</tr>
           <tr>
-					   <td><b>Data Sets</b></td>
-					   <td>[Link](http://aka.ms/datascience)</td>
+					   <td><b><a href="http://aka.ms/datascience">Microsoft Research Data Sets</a></b></td>
 					   <td>Data sets shared by Microsoft Research for academic use.</td>
 					</tr>
           <tr>
-					   <td><b>Data Sets</b></td>
-					   <td>[Link](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-use-sample-datasets)</td>
+					   <td><b><a href="https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-use-sample-datasets">Machine Learning Data Sets</a></b></td>
 					   <td>Data sets shared by Azure Machine Learning team to help explore machine learning.</td>
 					</tr>
 				 </table>
