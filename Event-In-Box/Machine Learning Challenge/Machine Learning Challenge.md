@@ -27,6 +27,15 @@ This challenge includes the following exercises:
 - [Exercise 2: Train a classification model](#Exercise3)
 - [Exercise 3: Tune the model](#Exercise3)
 
+## Machine learning algorithm cheat sheet for Machine Learning Studio ##
+
+The Microsoft Azure Machine Learning Algorithm Cheat Sheet helps you choose the right algorithm for a predictive analytics model.
+Azure Machine Learning Studio has a large library of algorithms from the regression, classification, clustering, and anomaly detection families. Each is designed to address a different type of machine learning problem.
+
+[Download the cheat sheet here: Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-algorithm-cheat-sheet)
+
+![Azure ML cheat sheet](https://docs.microsoft.com/en-us/azure/machine-learning/media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png)
+
 <a name="Exercise1"></a>
 ## Exercise 1: Create an experiment and load a dataset ##
 
