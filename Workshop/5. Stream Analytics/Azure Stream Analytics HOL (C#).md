@@ -6,11 +6,11 @@
 <a name="Overview"></a>
 ## Overview ##
 
-Azure Stream Analytics is a cloud-based service for ingesting high-velocity data streaming from devices, sensors, applications, Web sites, and other data sources and analyzing that data in real time. It supports a SQL-like query language that works over dynamic data streams and makes analyzing constantly changing data no more difficult than performing queries on static data stored in traditional databases. With Azure Stream Analytics, you can set up jobs that analyze incoming data for anomalies or information of interest and record the results, present notifications on dashboards, or even fire off alerts to mobile devices. And all of it can be done at low cost and with a minimum of effort.
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is a cloud-based service for ingesting high-velocity data streaming from devices, sensors, applications, Web sites, and other data sources and analyzing that data in real time. It supports a [SQL-like query language](https://msdn.microsoft.com/library/azure/dn834998.aspx) that works over dynamic data streams and makes analyzing constantly changing data no more difficult than performing queries on static data stored in traditional databases. With Azure Stream Analytics, you can set up jobs that analyze incoming data for anomalies or information of interest and record the results, present notifications on dashboards, or even fire off alerts to mobile devices. And all of it can be done at low cost and with a minimum of effort.
 
 Scenarios for the application of real-time data analytics are legion and include fraud detection, identity-theft protection, optimizing the allocation of resources (think of an Uber-like transportation service that sends drivers to areas of increasing demand *before* that demand peaks), click-stream analysis on Web sites, shopping suggestions on retail-sales sites, and countless others. Having the ability to process data *as it comes in* rather than waiting until after it has been aggregated offers a competitive advantage to businesses that are agile enough to make adjustments on the fly.
 
-In this lab, you'll create an Azure Stream Analytics job and use it to analyze data streaming in from simulated Internet of Things (IoT) devices. And you'll see how simple it is to monitor real-time data streams for information of significance to your research or business .And at the end, you will build a Web app that shows output from the Stream Analytics job in real time.
+In this lab, you'll create an Azure Stream Analytics job and use it to analyze data streaming in from simulated Internet of Things (IoT) devices. You will see how simple it is to monitor real-time data streams for information of significance to your research or business .And at the end, you will build a Web app that shows output from the Stream Analytics job in real time.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -28,7 +28,7 @@ In this hands-on lab, you will learn how to:
 The following is required to complete this hands-on lab:
 
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
-- [Visual Studio 2015 Community edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) or higher 
+- [Visual Studio 2017 Community edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) or higher 
 
 ---
 <a name="Exercises"></a>
@@ -91,7 +91,7 @@ In this exercise, you'll create an Azure event hub to provide input to Azure Str
 
     _Creating an event hub_
 
-1. Wait for the event hub to be created. Then scroll to the bottom of the blade and click the event hub name.
+1. Wait for the event hub to be created. Then click the event-hub name.
 
     ![Opening the event hub](Images/open-event-hub.png)
 
@@ -115,7 +115,7 @@ In this exercise, you'll create an Azure event hub to provide input to Azure Str
 
     _Opening the policy_
 
-1. Click the **Copy** button to the right of the **CONNECTION STRING-PRIMARY KEY** box to copy the connection string containing the policy's shared-access key to the clipboard. Then temporarily save the connection string by pasting it into your favorite text editor. You'll need it in the next exercise.
+1. Click the **Copy** button to the right of the **Connection string—primary key** box to copy the connection string containing the policy's shared-access key to the clipboard. Then temporarily save the connection string by pasting it into your favorite text editor. You'll need it in the next exercise.
 
     ![Copying the connection string to the clipboard](Images/copy-connection-string.png)
 
@@ -125,41 +125,24 @@ You have created an event hub that can ingest events and be used as the source o
 
 <a name="Exercise2"></a>
 ## Exercise 2: Send events to the event hub ##
+
 Applications, devices, and gateways can send events to Azure event hubs using the [Azure Event Hubs REST API](https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx) or the [Advanced Message Queuing Protocol](https://www.amqp.org/), or AMQP for short. In this exercise, you will write a Windows console app that uses AMQP to send events to the event hub you created in [Exercise 1](#Exercise1). Each event will represent a withdrawal from an ATM machine, and will contain relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.
 
-1. Start Visual Studio 2015 and use the **File -> New -> Project** command to create a new Windows Console Application named "ATMEventGenerator."
+1. Start Visual Studio and use the **File -> New -> Project** command to create a new Windows Console App named "ATMEventGenerator."
 
     ![Creating a new console app](Images/mvc-new-console-app.png)
 
     _Creating a new console app_
 
-1. In the Solution Explorer window, right-click the **ATMEventGenerator** project and select **Manage NuGet Packages...**
+1. In the Solution Explorer window, right-click the **ATMEventGenerator** project and select **Manage NuGet Packages...**. Click **Browse**. Then type "windowsazure.servicebus" (without quotation marks) into the search box. Click **WindowsAzure.ServiceBus** to select the Azure service-bus package from NuGet. Finally, click **Install** to install the latest stable version of the package, and accept any licenses presented to you. This package contains the APIs that your app will use to send events to the event hub. 
 
-    ![Managing NuGet Packages for the project](Images/mvc-manage-nuget-packages.png)
-
-    _Managing NuGet Packages for the project_
-
-	> NuGet is a free and open-source package manager for Microsoft development platforms. It provides access to thousands of libraries, or *packages*, containing code to perform a variety of tasks. It is integrated into Visual Studio 2015, which makes it easy to add NuGet packages to your project and make a lot of things happen without writing a lot of code.
-
-1. Click **Browse**. Then type "azure" (without quotation marks) into the search box. Click **WindowsAzure.ServiceBus** to select the Azure service-bus package from NuGet. Finally, click **Install** to install the latest stable version of the package. This package contains the APIs that your app will use to send events to the event hub.
+	> NuGet is a free and open-source package manager for Microsoft development platforms. It provides access to thousands of libraries, or *packages*, containing code to perform a variety of tasks. It is integrated into Visual Studio, which makes it easy to add NuGet packages to your project and make a lot of things happen without writing a lot of code.
 
     ![Installing WindowsAzure.ServiceBus](Images/mvc-install-servicebus-package.png)
 
     _Installing WindowsAzure.ServiceBus_
 
-1. If prompted to review changes, click **OK**. Optionally check **Do not show this again** so you won't be prompted again.
-
-	![Reviewing changes](Images/mvc-review-changes.png)
-
-	_Reviewing changes_
-
-1. If prompted to accept a license for the package, click **I Accept**..
-
-	![Accepting the package license](Images/mvc-accept-license.png)
-
-	_Accepting the package license_
-
-1. Return to the search box and type "newtonsoft," again without quotation marks. Select **Newtonsoft.Json** and click **Install** to install the latest stable version of Json.NET. This package contains convenient APIs for generating and consuming JSON. If prompted to review changes, click **OK**.
+1. Return to the search box and type "newtonsoft," again without quotation marks. Select **Newtonsoft.Json** and click **Install** to install the latest stable version. This package contains convenient APIs for generating and consuming JSON.
 
     ![Installing Json.NET](Images/mvc-install-json.net-package.png)
 
@@ -172,7 +155,7 @@ Applications, devices, and gateways can send events to Azure event hubs using th
 	using Newtonsoft.Json;
 	```
 
-1. Replace the empty ```Program``` class with the following implementation:
+1. Replace the ```Program``` class with the following implementation:
 
 	```C#
 	class Program
@@ -180,7 +163,7 @@ Applications, devices, and gateways can send events to Azure event hubs using th
 	    static double _probability = 0.01;
 	    static int _transactions = 0;
 	    static int _cardNumber = -1;
-	    static string _connectionString = "connection_string";
+	    static string _connectionString = "CONNECTION_STRING";
 	
 	    static void Main(string[] args)
 	    {
@@ -222,12 +205,12 @@ Applications, devices, and gateways can send events to Azure event hubs using th
 	}
 	```
 
-1. Replace *connection_string* in line 6 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 1, Step 12.
+1. Replace CONNECTION_STRING on line 16 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 1, Step 12.
 
 1. Remove ";EntityPath=inputhub" from the end of the connection string. The ```_connectionString``` field should now look something like this:
 
 	```C#
-	static string _connectionString = "Endpoint=sb://streamanalytics-lab.servicebus.windows.net/;SharedAccessKeyName=SendPolicy;SharedAccessKey=Zx/fjB8kH3nuW789pUpXJ1S45FkCamJq9gYku6cRD3Y=";
+	static string _connectionString = "Endpoint=sb://stream-analytics-lab.servicebus.windows.net/;SharedAccessKeyName=SendPolicy;SharedAccessKey=Zx/fjB8kH3nuW789pUpXJ1S45FkMacJq9gYku6cRD3Y=";
 	```
 
 1. Press **Ctrl+F5** to run the program and confirm that you see output similar to the following. Each line represents one event sent to the event hub, and events will roll by at a rate of several per second. (Rates will vary depending on your connection speed.) **Confirm that no exceptions are reported in the output**.
@@ -281,7 +264,7 @@ In this exercise, you will use the Azure Portal to create a Stream Analytics job
 
     _Adding an input_
 
-1. Type "Withdrawals" (without quotation marks) into the **Input alias** box. Make sure **Source Type** is set to **Data stream** and **Source** is set to **Event hub**. Also make sure **Subscription** is set to **Use event hub from current subscription**, **Service bus namespace** is set to the namespace you specified in Exercise 1, Step 3, and the event hub you created in Exercise 1 ("inputhub") is selected under **Event hub name**. Then select **RootManageSharedAccessKey** from the **Event hub policy name** drop-down and click the **Create** button at the bottom of the blade.
+1. Type "Withdrawals" (without quotation marks) into the **Input alias** box. Make sure **Source Type** is set to **Data stream** and **Source** is set to **Event hub**. Select the service-bus namespace and event hub ("inputhub") you created in [Exercise 1](#Exercise1). Then select **RootManageSharedAccessKey** from the **Event hub policy name** drop-down and click the **Create** button at the bottom of the blade.
 
     ![Creating an input](Images/create-input.png)
 
@@ -307,7 +290,7 @@ In this exercise, you will use the Azure Portal to create a Stream Analytics job
 
 	_Specifying sampling parameters_
 
-1. Wait a few seconds for sampling to complete, and when you are notified that the sample data can be downloaded, click to download it.
+1. Wait for sampling to complete, and when you are notified that the sample data can be downloaded, click to download it.
 
 	![Data sampling completed](Images/sample-data-3.png)
 
@@ -330,7 +313,7 @@ You have connected a Stream Analytics job to an event hub and demonstrated that 
 <a name="Exercise4"></a>
 ## Exercise 4: Prepare queries and test with sample data ##
 
-Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query the data in real time. In this exercise, you'll use the [Stream Analytics Query Language](https://msdn.microsoft.com/en-us/library/azure/Dn834998.aspx) to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.
+Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query real-time data streams. In this exercise, you will use the [Stream Analytics Query Language](https://msdn.microsoft.com/en-us/library/azure/Dn834998.aspx) to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.
 
 To flag potentially fraudulent withdrawals from ATMs, you will query for transactions performed with the same ATM card at different ATM machines within a specified time window (60 seconds). In real life, you would probably use a larger time window and perhaps even factor in the distance between ATM machines. However, a narrower time window is useful in a lab environment because it allows you to perform meaningful experiments in minutes rather than hours.
 
@@ -448,7 +431,7 @@ In this exercise, you will create an event hub for output, and then configure th
 
 1. Click **+ Event Hub** to add an event hub to the namespace.
 
-    ![Adding an event hub](Images/add-event-hub.png)
+    ![Adding an event hub](Images/add-event-hub-2.png)
 
     _Adding an event hub_
 
@@ -458,7 +441,7 @@ In this exercise, you will create an event hub for output, and then configure th
 
     _Creating an event hub_
 
-1. Wait a moment for the event hub to be created. Then scroll to the bottom of the blade and click the event hub name.
+1. Wait a moment for the event hub to be created. Then click the event-hub name.
 
     ![Opening the event hub](Images/open-event-hub-2.png)
 
@@ -472,9 +455,9 @@ In this exercise, you will create an event hub for output, and then configure th
 
 1. Type "ReceivePolicy" (without quotation marks) into the **Policy name** box and check the **Listen** box. Then click the **Create** button to create the new policy.
 
-    ![Creating a send policy](Images/create-listen-policy.png)
+    ![Creating a receive policy](Images/create-listen-policy.png)
 
-    _Creating a send policy_
+    _Creating a receive policy_
 
 1. Wait a moment for **ReceivePolicy** to appear in the policies list, and then click it.
 
@@ -482,7 +465,7 @@ In this exercise, you will create an event hub for output, and then configure th
 
     _Opening the policy_
 
-1. Click the **Copy** button to the right of the **CONNECTION STRING-PRIMARY KEY** box to copy the connection string containing the policy's shared-access key to the clipboard. Then temporarily save the connection string by pasting it into your favorite text editor. You'll need it in the next exercise.
+1. Click the **Copy** button to the right of the **Connection string—primary key** box to copy the connection string containing the policy's shared-access key to the clipboard. Then temporarily save the connection string by pasting it into your favorite text editor. You'll need it in the next exercise.
 
     ![Copying the connection string to the clipboard](Images/copy-connection-string-2.png)
 
@@ -525,23 +508,15 @@ In this exercise, you will use Visual Studio to write an ASP.NET MVC Web app tha
 
     _Adding a storage account_
 
-1. In the ensuing blade, enter a name for the new storage account in **Name** field.
+1. In the ensuing blade, enter a unique name for the new storage account and make sure a green check mark appears next to it. Select **Use existing** under **Resource group** and select the resource group named "StreamAnalyticsResourceGroup" so the storage account will belong to the same resource group as the Stream Analytics job and the event hubs. Select the same **Location** you selected in previous exercises. Then click the **Create** button at the bottom of the blade.
 
 	> Storage account names must be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure.
-
-	Once you have a unique name that Azure will accept (as indicated by the green check mark in the **Name** field), select **Use existing** under **Resource group** and select the resource group named "StreamAnalyticsResourceGroup" so the storage account will belong to the same resource group as the Stream Analytics job and the event hub. Select the location nearest you (the same one you selected for the event hub in [Exercise 1](#Exercise1) and the Stream Analytics job in [Exercise 3](#Exercise3)) in the **Location** box. Then click the **Create** button at the bottom of the blade.
     
 	![Creating a storage account](Images/create-storage-account.png)
 
     _Creating a storage account_
 
-1. Click **Resource groups** in the ribbon on the left, and then click the "StreamAnalyticsResourceGroup" resource group.
-
-    ![Opening the resource group](Images/open-resource-group.png)
-
-    _Opening the resource group_
-
-1. Click the storage account you created in Step 2.
+1. Return to the "StreamAnalyticsResourceGroup" resource group and click the storage account you created in Step 2.
 
     ![Opening the storage account](Images/open-storage-account.png)
 
@@ -553,31 +528,25 @@ In this exercise, you will use Visual Studio to write an ASP.NET MVC Web app tha
 
     _Copying the access key_
 
-1. Start a new instance of Visual Studio 2015 and use the **File -> New -> Project** command to create a new ASP.NET Web Application named "ATMDashboard."
+1. Start a new instance of Visual Studio and use the **File -> New -> Project** command to create a new ASP.NET Web Application named "ATMDashboard."
 
     ![Creating a new Web app](Images/mvc-new-web-application.png)
 
     _Creating a new Web app_
 
-1. In the "New ASP.NET Project" dialog, select **MVC** and check the **Web API** box. If **Host in the cloud** is checked, uncheck it. (For testing purposes, you will run this Web app locally.) Then click **OK**.
+1. In the ensuing dialog, make sure **MVC** is selected and check the **Web API** box. Then click **OK**.
 
     ![Specifying parameters for the Web app](Images/mvc-new-web-application-2.png)
 
     _Specifying parameters for the Web app_
 
-1. In the Solution Explorer window, right-click the **ATMDashboard** project and select **Manage NuGet Packages...**
-
-    ![Managing NuGet Packages for the project](Images/mvc-manage-nuget-packages-2.png)
-
-    _Managing NuGet Packages for the project_
-
-1. Click **Browse**. Then type "eventprocessor" (without quotation marks) into the search box. Click **Microsoft.Azure.ServiceBus.EventProcessorHost** to select the Azure EventProcessorHost package from NuGet. Finally, click **Install** to install the latest stable version of the package. This package contains the APIs that your app will use to receive events from the output event hub. Click **OK** if you're prompted review changes, and **I Accept** when prompted to accept licenses for the downloaded packages.
+1. In the Solution Explorer window, right-click the **ATMDashboard** project and select **Manage NuGet Packages...**. Click **Browse**. Then type "eventprocessor" into the search box. Click **Microsoft.Azure.ServiceBus.EventProcessorHost** to select the Azure EventProcessorHost package from NuGet. Finally, click **Install** to install the latest stable version of the package. This package contains the APIs that your app will use to receive events from the output event hub.
 
     ![Installing EventProcessorHost](Images/mvc-install-eventprocessorhost.png)
 
     _Installing EventProcessorHost_
 
-1. Right-click the project in the Solution Explorer window and use the **Add -> Class** command to add a class file named **ATMEvent.cs** to the project.
+1. Right-click the project in the Solution Explorer window and use the **Add -> Class...** command to add a class file named **ATMEvent.cs** to the project.
 
     ![Adding the ATMEvent class](Images/mvc-add-atmevent-class.png)
 
@@ -589,7 +558,7 @@ In this exercise, you will use Visual Studio to write an ASP.NET MVC Web app tha
 	using Newtonsoft.Json;
 	```
 
-1. Implement the ```ATMEvent``` class as follows:
+1. Replace the ```ATMEvent``` class with the following implementation:
 
 	```C#
 	public class ATMEvent
@@ -607,13 +576,7 @@ In this exercise, you will use Visual Studio to write an ASP.NET MVC Web app tha
 	}
 	```
 
-1. Right-click the project in the Solution Explorer window and use the **Add -> Class** command to add a class file named **ATMEventAggregator.cs** to the project.
-
-    ![Adding the ATMEventAggregator class](Images/mvc-add-atmeventaggregator-class.png)
-
-    _Adding the ATMEventAggregator class_
-
-1. Implement the ```ATMEventAggregator``` class as follows:
+1. Right-click the project in Solution Explorer and use the **Add -> Class...** command to add a class file named **ATMEventAggregator.cs** to the project. Then replace the ```ATMEventAggregator``` class with the following implementation:
 
 	```C#
     public static class ATMEventAggregator
@@ -637,13 +600,7 @@ In this exercise, you will use Visual Studio to write an ASP.NET MVC Web app tha
     }
 	```
 
-1. Right-click the project in the Solution Explorer window and use the **Add -> Class** command to add a class file named **SimpleEventProcessor.cs** to the project.
-
-    ![Adding the SimpleEventProcessor class](Images/mvc-add-simpleventprocessor-class.png)
-
-    _Adding the SimpleEventProcessor class_
-
-1. Add the following ```using``` statements to the ones at the top of the file:
+1. Right-click the project in Solution Explorer and use the **Add -> Class...** command to add a class file named **SimpleEventProcessor.cs** to the project. Add the following ```using``` statements to the ones at the top of the file:
 
 	```C#
 	using Microsoft.ServiceBus.Messaging;
@@ -653,7 +610,7 @@ In this exercise, you will use Visual Studio to write an ASP.NET MVC Web app tha
 	using System.Text;
 	```
 
-1. Implement the ```SimpleEventProcessor``` class as follows:
+1. Replace the ```SimpleEventProcessor``` class with the following implementation:
 
 	```C#
 	class SimpleEventProcessor : IEventProcessor
@@ -710,10 +667,10 @@ In this exercise, you will use Visual Studio to write an ASP.NET MVC Web app tha
 1. In **Global.asax.cs**, add the following statements to the end of the ```Application_Start``` method:
 
 	```C#
-    string eventHubConnectionString = "connection_string";
+    string eventHubConnectionString = "CONNECTION_STRING";
     string eventHubName = "outputhub";
-    string storageAccountName = "storage_account_name";
-    string storageAccountKey = "storage_account_key";
+    string storageAccountName = "STORAGE_ACCOUNT_NAME";
+    string storageAccountKey = "STORAGE_ACCOUNT_KEY";
     string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
 
     string eventProcessorHostName = Guid.NewGuid().ToString();
@@ -726,19 +683,13 @@ In this exercise, you will use Visual Studio to write an ASP.NET MVC Web app tha
     Debug.WriteLine("Receiving...");
 	```
 
-1. Replace *connection_string* in line 1 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 5, Step 8.
+1. Replace CONNECTION_STRING with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 5, Step 8. Then remove ";EntityPath=outputhub" from the end of the connection string.
 
-1. Remove ";EntityPath=outputhub" from the end of the connection string. The ```eventHubConnectionString``` variable declaration should now look something like this:
-
-	```C#
-	string eventHubConnectionString = "Endpoint=sb://streamanalytics-lab.servicebus.windows.net/;SharedAccessKeyName=ReceivePolicy;SharedAccessKey=3XHaU3pm5t82WxA43hUM/bWa7kQmuAsqzJ1rVJq3Qv0=";
-	```
-
-1. Replace *storage_account_name* in line 3 with the the name of the storage account you created in Step 2 of this exercise, and *storage_account_key* in line 4 with the access key you saved in Step 5.
+1. Replace STORAGE_ACCOUNT_NAME with the the name of the storage account you created in Step 2 of this exercise, and STORAGE_ACCOUNT_KEY with the access key you saved in Step 4.
 
 	> This storage account has nothing to do with the Stream Analytics job; it's used by the EventProcessorHost class.
 
-1. In Solution Explorer, right-click the "Controllers" folder and use the **Add -> Controller** command to add an empty Web API 2 controller.
+1. In Solution Explorer, right-click the "Controllers" folder and use the **Add -> Controller...** command to add an empty Web API 2 controller.
 
     ![Adding a Web API Controller](Images/mvc-add-api-controller.png)
 
@@ -812,7 +763,7 @@ In this exercise, you will use Visual Studio to write an ASP.NET MVC Web app tha
 
 	> See what's happening here? In addition to modifying the view's UI to include an HTML table in which ATM events can be displayed, you added a script block that uses jQuery's $.ajax method to call back to the server every 5 seconds. The endpoint for the call is the method you implemented in the Web API controller in the previous step. When that method returns one or more events, rows are added to the table to display them.
 
-1. Go to the **Build** menu at the top of the Visual Studio window and use the **Build Solution** command to build the solution. Correct any build errors that are reported, and then press **Ctrl+F5** to launch the application in your browser. Confirm that the application looks like this:
+1. Save your changes. Then build the solution and confirm that it builds without error. Press **Ctrl+F5** to launch the application in your browser. Confirm that the application looks like this:
 
     ![The ATM dashboard](Images/mvc-atm-dashboard.png)
 
