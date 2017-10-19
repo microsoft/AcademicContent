@@ -469,18 +469,18 @@ vertical-align:1px;
 </head>
 <body>
 <p><a name="HOLTitle"></a></p>
-<h1>Building Smart Apps with Azure Machine Learning</h1>
+<h1>Building Smart Apps with Azure Machine Learning Studio</h1>
 <hr>
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
 <p>Machine learning, which facilitates predictive analytics using large volumes of data by employing algorithms that iteratively learn from that data, is one of the fastest growing areas of computer science. Its uses range from credit-card fraud detection and self-driving cars to optical character recognition (OCR) and online shopping recommendations. It makes us smarter by making computers smarter. And its usefulness will only increase as more and more data becomes available and the desire to perform predictive analysis from that data grows, too.</p>
-<p><a href="https://azure.microsoft.com/en-us/services/machine-learning/">Azure Machine Learning</a> is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It's accompanied by the Azure Machine Learning Studio (ML Studio), which is a browser-based tool that provides an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for <a href="https://www.r-project.org/">R</a> and <a href="https://www.python.org/">Python</a> means you can build custom scripts  to customize your model. Once you've built and trained your model in the ML Studio, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the <a href="https://gallery.cortanaintelligence.com/">Cortana Intelligence Gallery</a>.</p>
-<p>In this lab, you will use Azure Machine Learning to build, train, and score a model that recognizes hand-written numeric digits. You will use a real OCR data set published for academic research. After deploying the model as a Web service, you will write a <a href="https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp">Universal Windows Platform</a> (UWP) client for it that lets you sketch digits on the screen and then consult Azure Machine Learning to see if it can identify the digits you sketched. You'll learn how to build and train a model, as well as how to write code that leverages the model.</p>
+<p><a href="https://azure.microsoft.com/en-us/services/machine-learning/">Azure Machine Learning Studio</a> is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It features an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for <a href="https://www.r-project.org/">R</a> and <a href="https://www.python.org/">Python</a> means you can build custom scripts  to customize your model. Once you've built and trained your model, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the <a href="https://gallery.cortanaintelligence.com/">Cortana Intelligence Gallery</a>.</p>
+<p>In this lab, you will use Azure Machine Learning Studio to build, train, and score a model that recognizes hand-written numeric digits. You will use a real OCR data set published for academic research. After deploying the model as a Web service, you will write a <a href="https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp">Universal Windows Platform</a> (UWP) client for it that lets you sketch digits on the screen and then consult Azure Machine Learning to see if it can identify the digits you sketched. You will learn how to build and train a model, as well as how to write code that leverages the model.</p>
 <p><a name="Objectives"></a></p>
 <h3>Objectives</h3>
 <p>In this hands-on lab, you will learn how to:</p>
 <ul>
-<li>Build, train, and score a model using the Azure Machine Learning Studio</li>
+<li>Build, train, and score a model using Azure Machine Learning Studio</li>
 <li>Deploy your model as a Web service so it can be accessed from code or scripts</li>
 <li>Call an ML Web service from the apps that you write</li>
 </ul>
@@ -489,7 +489,7 @@ vertical-align:1px;
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
 <li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li><a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio 2015 Community edition</a> or higher with the Windows 10 SDK installed</li>
+<li><a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio 2017 Community edition</a> or higher with the Windows 10 SDK installed</li>
 </ul>
 <hr>
 <p><a name="Exercises"></a></p>
@@ -507,7 +507,7 @@ vertical-align:1px;
 <p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
 <p><a name="Exercise1"></a></p>
 <h2>Exercise1: Create a Machine Learning experiment</h2>
-<p>The first step in employing Azure Machine Learning is to create an ML workspace and an experiment to go in it. In this exercise, you'll get a Machine Learning experiment up and running in the Azure ML Studio.</p>
+<p>The first step in employing Azure Machine Learning Studio is to create an ML workspace and an experiment to go in it. In this exercise, you'll get a Machine Learning experiment up and running in the Azure ML Studio.</p>
 <ol>
 <li>
 <p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If asked to log in, do so using your Microsoft account.</p>
@@ -794,7 +794,7 @@ vertical-align:1px;
 <p>A common question regarding Azure ML Web services is: how much do they cost? You can find the current pricing information in the <a href="https://azure.microsoft.com/en-us/pricing/details/machine-learning/">Machine Learning Pricing</a> page.</p>
 <p><a name="Exercise6"></a></p>
 <h2>Exercise 6: Build a universal Windows client</h2>
-<p>The whole reason for deploying an Azure ML model as a Web service is so you can build smart apps that utilize the model. There are a variety of ways to build such apps. You could call the service from a Web app using JavaScript and AJAX, for example, or you could use Visual Studio to write a <a href="https://www.xamarin.com/">Xamarin</a> app that runs on iOS, Android, and Windows and places calls to the service using .NET's HttpClient class.</p>
+<p>The whole reason for deploying an Azure ML model as a Web service is so you can build smart apps that utilize the model. There are many ways to build such apps. You could call the service from a Web app using JavaScript and AJAX, for example, or you could use Visual Studio to write a <a href="https://www.xamarin.com/">Xamarin</a> app that runs on iOS, Android, and Windows and places calls to the service using .NET's HttpClient class.</p>
 <p>In this exercise, you will write a client app that targets the <a href="https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp">Universal Windows Platform</a>, or UWP. The beauty of such apps is that they run on a variety of Windows devices, including PCs, tablets, phones, and even on Xbox One. The app you will write enables you to draw digits into an onscreen grid. Then it calls your ML Web service and tells you what digit you drew.</p>
 <ol>
 <li>
@@ -803,35 +803,20 @@ vertical-align:1px;
 <p><em>Enabling developer mode in Windows 10</em></p>
 </li>
 <li>
-<p>Start Visual Studio 2015 and use the <strong>File -&gt; New -&gt; Project</strong> command to create a new <strong>Blank App (Universal Windows)</strong> project named "MLClient."</p>
+<p>Start Visual Studio and use the <strong>File -&gt; New -&gt; Project</strong> command to create a new <strong>Blank App (Universal Windows)</strong> project named "DigitRecognizer." After clicking <strong>OK</strong>, accept the default target version and minimum version presented to you.</p>
 <p><a href="Images/new-universal-app.png" target="_blank"><img src="Images/new-universal-app.png" alt="Creating a new UWP project" style="max-width:100%;"></a></p>
 <p><em>Creating a new UWP project</em></p>
 </li>
 <li>
-<p>Click <strong>OK</strong> to accept the default target version and minimum version.</p>
-<p><a href="Images/specify-uwp-version.png" target="_blank"><img src="Images/specify-uwp-version.png" alt="Selecting UWP versions" style="max-width:100%;"></a></p>
-<p><em>Selecting UWP versions</em></p>
-</li>
-<li>
-<p>In the Solution Explorer window, right-click the <strong>MLClient</strong> project and select <strong>Manage NuGet Packages...</strong></p>
-<p><a href="Images/manage-nuget-packages.png" target="_blank"><img src="Images/manage-nuget-packages.png" alt="Managing NuGet Packages for the project" style="max-width:100%;"></a></p>
-<p><em>Managing NuGet Packages for the project</em></p>
+<p>In the Solution Explorer window, right-click the <strong>DigitRecognizer</strong> project and select <strong>Manage NuGet Packages...</strong>. Click <strong>Browse</strong>. Then type "webapi.client" (without quotation marks) into the search box. Click <strong>Microsoft.AspNet.WebApi.Client</strong> to select the Web API client package from NuGet. Finally, click <strong>Install</strong> to install the latest stable version of the package. This package contains helper APIs that your app will use to communicate with the Web service. OK any changes and accept any licenses presented to you.</p>
 <blockquote>
-<p>NuGet is a free and open-source package manager for Microsoft development platforms. It provides access to thousands of libraries, or <em>packages</em>, containing code to perform a variety of tasks. It is integrated into Visual Studio 2015, which makes it easy to add NuGet packages to your project and make a lot of things happen without writing a lot of code.</p>
+<p>NuGet is a free and open-source package manager for Microsoft development platforms. It provides access to thousands of libraries, or <em>packages</em>, containing code to perform a variety of tasks. It is integrated into Visual Studio, which makes it easy to add NuGet packages to your project and make a lot of things happen without writing a lot of code.</p>
 </blockquote>
-</li>
-<li>
-<p>Click <strong>Browse</strong>. Then type "webapi.client" (without quotation marks) into the search box. Click <strong>Microsoft.AspNet.WebApi.Client</strong> to select the Web API client package from NuGet. Finally, click <strong>Install</strong> to install the latest stable version of the package. This package contains helper APIs that your app will use to communicate with the Web service. Click <strong>OK</strong> if you're prompted to review changes, and <strong>I Accept</strong> when prompted to accept licenses for the downloaded packages.</p>
 <p><a href="Images/install-webapi-client.png" target="_blank"><img src="Images/install-webapi-client.png" alt="Installing the Web API Client" style="max-width:100%;"></a></p>
 <p><em>Installing the Web API Client</em></p>
 </li>
 <li>
-<p>Right-click the <strong>MLClient</strong> project in the Solution Explorer window and select <strong>Add -&gt; Class</strong> to add a class to the project. In the ensuing dialog, type "StringTable.cs" (without quotation marks) into the <strong>Name</strong> box and click <strong>Add</strong>.</p>
-<p><a href="Images/add-stringtable-class.png" target="_blank"><img src="Images/add-stringtable-class.png" alt="Adding a StringTable class" style="max-width:100%;"></a></p>
-<p><em>Adding a StringTable class</em></p>
-</li>
-<li>
-<p>Implement the StringTable class as follows:</p>
+<p>Right-click the project in Solution Explorer and use the <strong>Add -&gt; Class...</strong> command to add a class file named <strong>StringTable.cs</strong>. Then replace the <code>StringTable</code> class in the file with this one:</p>
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">class</span> <span class="pl-en">StringTable</span>
 {
     <span class="pl-k">public </span><span class="pl-k">string</span>[] <span class="pl-en">ColumnNames</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
@@ -839,12 +824,12 @@ vertical-align:1px;
 }</pre></div>
 </li>
 <li>
-<p>Open <strong>MainPage.xaml</strong> and find the empty Grid element highlighted below.</p>
+<p>Open <strong>MainPage.xaml</strong> and find the empty <code>Grid</code> element highlighted below.</p>
 <p><a href="Images/empty-grid-element.png" target="_blank"><img src="Images/empty-grid-element.png" alt="The empty Grid element" style="max-width:100%;"></a></p>
 <p><em>The empty Grid element</em></p>
 </li>
 <li>
-<p>Replace the empty Grid with the following markup:</p>
+<p>Replace the empty <code>Grid</code> element with the following markup:</p>
 <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">StackPanel</span> <span class="pl-e">VerticalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Center<span class="pl-pds">"</span></span>&gt;
     &lt;<span class="pl-ent">TextBlock</span> <span class="pl-e">Text</span>=<span class="pl-s"><span class="pl-pds">"</span>Draw a digit from 0 to 9<span class="pl-pds">"</span></span> <span class="pl-e">FontSize</span>=<span class="pl-s"><span class="pl-pds">"</span>28<span class="pl-pds">"</span></span> <span class="pl-e">Margin</span>=<span class="pl-s"><span class="pl-pds">"</span>0,0,0,8<span class="pl-pds">"</span></span> <span class="pl-e">HorizontalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Center<span class="pl-pds">"</span></span> /&gt;
     &lt;<span class="pl-ent">Grid</span> <span class="pl-e">x</span><span class="pl-e">:</span><span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>Cells<span class="pl-pds">"</span></span> <span class="pl-e">Width</span>=<span class="pl-s"><span class="pl-pds">"</span>400<span class="pl-pds">"</span></span> <span class="pl-e">Height</span>=<span class="pl-s"><span class="pl-pds">"</span>400<span class="pl-pds">"</span></span>&gt;
@@ -853,12 +838,10 @@ vertical-align:1px;
     &lt;<span class="pl-ent">Button</span> <span class="pl-e">Content</span>=<span class="pl-s"><span class="pl-pds">"</span>Submit<span class="pl-pds">"</span></span> <span class="pl-e">Width</span>=<span class="pl-s"><span class="pl-pds">"</span>400<span class="pl-pds">"</span></span> <span class="pl-e">Height</span>=<span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span> <span class="pl-e">FontSize</span>=<span class="pl-s"><span class="pl-pds">"</span>32<span class="pl-pds">"</span></span> <span class="pl-e">Margin</span>=<span class="pl-s"><span class="pl-pds">"</span>0,16,0,0<span class="pl-pds">"</span></span> <span class="pl-e">HorizontalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Center<span class="pl-pds">"</span></span> <span class="pl-e">Click</span>=<span class="pl-s"><span class="pl-pds">"</span>OnSubmit<span class="pl-pds">"</span></span> /&gt;
     &lt;<span class="pl-ent">Button</span> <span class="pl-e">Content</span>=<span class="pl-s"><span class="pl-pds">"</span>Clear<span class="pl-pds">"</span></span> <span class="pl-e">Width</span>=<span class="pl-s"><span class="pl-pds">"</span>400<span class="pl-pds">"</span></span> <span class="pl-e">Height</span>=<span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span> <span class="pl-e">FontSize</span>=<span class="pl-s"><span class="pl-pds">"</span>32<span class="pl-pds">"</span></span> <span class="pl-e">Margin</span>=<span class="pl-s"><span class="pl-pds">"</span>0,16,0,0<span class="pl-pds">"</span></span> <span class="pl-e">HorizontalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Center<span class="pl-pds">"</span></span> <span class="pl-e">Click</span>=<span class="pl-s"><span class="pl-pds">"</span>OnClear<span class="pl-pds">"</span></span> /&gt;
 &lt;/<span class="pl-ent">StackPanel</span>&gt;</pre></div>
-<blockquote>
 <p>The markup that you just inserted is <a href="https://msdn.microsoft.com/en-us/library/cc189036(VS.95).aspx">Extensible Application Markup Language</a>, or XAML. XAML is a language created by Microsoft for building user interfaces. It was originally created for WPF, but has since been repurposed for universal Windows apps. Combined with <a href="https://www.xamarin.com/forms">Xamarin Forms</a>, it can even be used to build user interfaces for iOS and Android. It is an extremely expressive language that enjoys designer support in Visual Studio and other popular tools.</p>
-</blockquote>
 </li>
 <li>
-<p>Now open <strong>MainPage.xaml.cs</strong> and add the following using statements to those already at the top of the page:</p>
+<p>Now open <strong>MainPage.xaml.cs</strong> and add the following <code>using</code> statements to those already at the top of the file:</p>
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">Windows.UI.Xaml.Shapes</span>;
 <span class="pl-k">using</span> <span class="pl-en">Windows.UI</span>;
 <span class="pl-k">using</span> <span class="pl-en">Windows.Devices.Input</span>;
@@ -870,7 +853,7 @@ vertical-align:1px;
 <span class="pl-k">using</span> <span class="pl-en">Newtonsoft.Json</span>;</pre></div>
 </li>
 <li>
-<p>Still in <strong>MainPage.xaml.cs</strong>, replace everything inside the MainPage class with the following code:</p>
+<p>Still in <strong>MainPage.xaml.cs</strong>, replace everything inside the <code>MainPage</code> class with the following code:</p>
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">private</span> <span class="pl-en">const</span> double _margin = 2.0;  <span class="pl-c">// Margin around each cell</span>
 <span class="pl-k">private</span> <span class="pl-en">const</span> double _opacity = 0.2; <span class="pl-c">// Opacity of empty cells</span>
 <span class="pl-k">private</span> <span class="pl-en">Rectangle</span> <span class="pl-en">_last</span>;
@@ -1024,9 +1007,9 @@ vertical-align:1px;
             GlobalParameters = <span class="pl-k">new</span> <span class="pl-en">Dictionary</span>&lt;<span class="pl-k">string</span>, <span class="pl-k">string</span>&gt;() { }
         };
 
-        const <span class="pl-k">string</span> <span class="pl-en">key</span> = <span class="pl-s"><span class="pl-pds">"</span>api_key<span class="pl-pds">"</span></span>;
+        const <span class="pl-k">string</span> <span class="pl-en">key</span> = <span class="pl-s"><span class="pl-pds">"</span>API_KEY<span class="pl-pds">"</span></span>;
         client.DefaultRequestHeaders.Authorization = <span class="pl-k">new</span> <span class="pl-en">AuthenticationHeaderValue</span>(<span class="pl-s"><span class="pl-pds">"</span>Bearer<span class="pl-pds">"</span></span>, key);
-        client.BaseAddress = <span class="pl-k">new</span> <span class="pl-en">Uri</span>(<span class="pl-s"><span class="pl-pds">"</span>web_service_url<span class="pl-pds">"</span></span>);
+        client.BaseAddress = <span class="pl-k">new</span> <span class="pl-en">Uri</span>(<span class="pl-s"><span class="pl-pds">"</span>WEB_SERVICE_URL<span class="pl-pds">"</span></span>);
 
         <span class="pl-en">HttpResponseMessage</span> <span class="pl-en">response</span> = <span class="pl-k">await</span> client.PostAsJsonAsync(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>, request).ConfigureAwait(<span class="pl-c1">false</span>);
 
@@ -1051,28 +1034,28 @@ vertical-align:1px;
 }</pre></div>
 <p>Admittedly, that's a lot of code. But it packs a lot of punch, too. Here are a few parts of it that you may care to examine more closely:</p>
 <ul>
-<li>MainPage's class constructor fills the Grid element declared in MainPage.xaml with XAML Rectangles to form an 8x8 grid. XAML elements such as this are normally created declaratively, but in this case, creating them in code prevents MainPage.xaml from being filled with row after row of nearly identical Rectangle elements.</li>
-<li>OnCellEntered is the method called when a finger, pen, or mouse (in UWP parlance, a "pointing device") makes contact with any of the 64 Rectangles. Its job: toggle the Rectangle "on" or "off" by changing its opacity.</li>
-<li>The OnSubmit method is called when you click the Submit button. It scans the 8x8 grid to determine which squares are "on," and then passes the data to MLSubmit.</li>
-<li>MLSubmitAsync is where the magic happens. It uses UWP's HttpClient class to place a REST call to the Web service. It is closely patterned after the C# sample code presented on the Web service's dashboard.</li>
+<li><code>MainPage</code>'s class constructor fills the <code>Grid</code> element declared in <strong>MainPage.xaml</strong> with XAML Rectangles to form an 8x8 grid. XAML elements such as this are normally created declaratively, but in this case, creating them in code prevents <strong>MainPage.xaml</strong> from being filled with row after row of nearly identical Rectangle elements.</li>
+<li><code>OnCellEntered</code> is the method called when a finger, pen, or mouse (in UWP parlance, a "pointing device") makes contact with any of the 64 Rectangles. Its job: toggle the Rectangle "on" or "off" by changing its opacity.</li>
+<li>The <code>OnSubmit</code> method is called when you click the <strong>Submit</strong> button. It scans the 8x8 grid to determine which squares are "on," and then passes the data to <code>MLSubmit</code>.</li>
+<li><code>MLSubmitAsync</code> is where the magic happens. It uses UWP's <code>HttpClient</code> class to place a REST call to the Web service. It is closely patterned after the C# sample code presented on the Web service's dashboard.</li>
 </ul>
 </li>
 <li>
-<p>In the source code you just inserted, replace <em>api_key</em> with the API key for your Web service obtained in Exercise 5, Step 5.</p>
+<p>In the source code you just inserted, replace API_KEY with the API key obtained in Exercise 5, Step 5.</p>
 </li>
 <li>
-<p>Next, replace <em>web_service_url</em> with the URL of your Web service obtained in Exercise 5, Step 7.</p>
+<p>Next, replace WEB_SERVICE_URL with the URL of your Web service obtained in Exercise 5, Step 7.</p>
 </li>
 <li>
-<p>Go to the <strong>Build</strong> menu at the top of the Visual Studio window and use the <strong>Build Solution</strong> command to build the solution. Correct any build errors that are reported, and then press <strong>Ctrl+F5</strong> to launch the app. Confirm that it looks like this:</p>
-<p><a href="Images/mlclient-app-1.png" target="_blank"><img src="Images/mlclient-app-1.png" alt="The MLClient app" style="max-width:100%;"></a></p>
-<p><em>The MLClient app</em></p>
+<p>Use the <strong>Build -&gt; Build Solution</strong> command to build the solution. Correct any build errors that are reported, and then press <strong>Ctrl+F5</strong> to launch the app. Confirm that it looks like this:</p>
+<p><a href="Images/mlclient-app-1.png" target="_blank"><img src="Images/mlclient-app-1.png" alt="The DigitRecognizer app" style="max-width:100%;"></a></p>
+<p><em>The DigitRecognizer app</em></p>
 </li>
 </ol>
 <p>Congratulations! You just built a universal Windows app that relies on Azure Machine Learning for intelligence. The final task is to try it out and see how intelligent the app really is.</p>
 <p><a name="Exercise7"></a></p>
 <h2>Exercise 7: Test the model</h2>
-<p>MLClient puts a graphical front end on Web-service calls. You draw a digit into the grid of squares by dragging a finger, pen, or mouse over the squares. Clicking the <strong>Submit</strong> button creates an array of 64 values (one per square, and one for each of the 64 feature columns in the training dataset), serializes it into JSON, and passes it to the Web service. The app deserializes the JSON that comes back and displays the result. In essence, MLClient provides a highly visual way to gauge the accuracy of your ML model.</p>
+<p>DigitRecognizer puts a graphical front end on Web-service calls. You draw a digit into the grid of squares by dragging a finger, pen, or mouse over the squares. Clicking the <strong>Submit</strong> button creates an array of 64 values (one per square, and one for each of the 64 feature columns in the training dataset), serializes it into JSON, and passes it to the Web service. The app deserializes the JSON that comes back and displays the result. In essence, DigitRecognizer provides a highly visual way to gauge the accuracy of your ML model.</p>
 <ol>
 <li>
 <p>Use your mouse to sketch a "7" into the grid, similar to the one shown below. Then click the <strong>Submit</strong> button.</p>
@@ -1086,22 +1069,9 @@ vertical-align:1px;
 </li>
 <li>
 <p>Click the <strong>Clear</strong> button to clear the grid and try a few other digits. You'll probably find that the model you built is better at identifying some digits than others, and that you get the best results when the digits you draw fill the expanse of the grid as much as possible.</p>
-<blockquote>
-<p>The incorrect answers are partly the result of the relatively small dataset you trained the model with (the dataset was roughly 0.5 MB, which is small by big-data standards), and partly due to the fact that the onscreen grid MLClient displays uses only 1/16th the resolution of the scans that the model was trained with. Nonetheless, it's a pretty impressive feat for an app to perform basic OCR in this manner. And it's indicative of the kinds of apps you can build when you have Azure Machine Learning doing the heavy lifting.</p>
-</blockquote>
-</li>
-<li>
-<p>Recall that one of the benefits of the Universal Windows Platform is that apps can run on a variety of devices. To see how MLClient would look on a tablet, select <strong>Simulator</strong> from the drop-down list of devices under the menu bar.</p>
-<p><a href="Images/switch-to-simulator.png" target="_blank"><img src="Images/switch-to-simulator.png" alt="Selecting simulator output" style="max-width:100%;"></a></p>
-<p><em>Switching from Local Machine to the Windows Simulator</em></p>
-</li>
-<li>
-<p>Now press <strong>Ctrl+F5</strong> to launch the app in the simulator.</p>
-<p><a href="Images/simulator.png" target="_blank"><img src="Images/simulator.png" alt="MLClient on a tablet" style="max-width:100%;"></a></p>
-<p><em>MLClient on a tablet</em></p>
 </li>
 </ol>
-<p>Typically, a developer does a little extra work to optimize the way a UWP app is displayed on different devices. That's beyond the scope of this lab, but something to be aware of if you plan to use UWP apps in your work or business. <a href="https://channel9.msdn.com/Series/Windows-10-development-for-absolute-beginners/UWP-038-Working-with-Adaptive-Layout">Here's a video</a> with information about using adaptive layouts to make a UWP app look great on a wide range of devices.</p>
+<p>The incorrect answers are partly the result of the relatively small dataset you trained the model with (the dataset was roughly 0.5 MB, which is small by big-data standards), and partly due to the fact that the onscreen grid DigitRecognizer displays uses only 1/16th the resolution of the scans that the model was trained with. Nonetheless, it's a pretty impressive feat for an app to perform basic OCR in this manner. And it's indicative of the kinds of apps you can build when you have Azure Machine Learning doing the heavy lifting.</p>
 <h2>Summary</h2>
 <p>In this hands-on lab, you learned how to:</p>
 <ul>
@@ -1113,7 +1083,7 @@ vertical-align:1px;
 </ul>
 <p>There's much more than you can do with Azure Machine Learning, but this is a start. Feel free to experiment with it on your own and explore the exciting world of predictive analysis with a tool that is not only productive, but fun!</p>
 <hr>
-<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

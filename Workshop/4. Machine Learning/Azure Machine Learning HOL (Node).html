@@ -469,18 +469,18 @@ vertical-align:1px;
 </head>
 <body>
 <p><a name="HOLTitle"></a></p>
-<h1>Building Smart Apps with Azure Machine Learning</h1>
+<h1>Building Smart Apps with Azure Machine Learning Studio</h1>
 <hr>
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
 <p>Machine learning, which facilitates predictive analytics using large volumes of data by employing algorithms that iteratively learn from that data, is one of the fastest growing areas of computer science. Its uses range from credit-card fraud detection and self-driving cars to optical character recognition (OCR) and online shopping recommendations. It makes us smarter by making computers smarter. And its usefulness will only increase as more and more data becomes available and the desire to perform predictive analysis from that data grows, too.</p>
-<p><a href="https://azure.microsoft.com/en-us/services/machine-learning/">Azure Machine Learning</a> is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It's accompanied by the Azure Machine Learning Studio (ML Studio), which is a browser-based tool that provides an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for <a href="https://www.r-project.org/">R</a> and <a href="https://www.python.org/">Python</a> means you can build custom scripts  to customize your model. Once you've built and trained your model in the ML Studio, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the <a href="https://gallery.cortanaintelligence.com/">Cortana Intelligence Gallery</a>.</p>
-<p>In this lab, you will use Azure Machine Learning to build, train, and score a model that recognizes hand-written numeric digits. You will use a real OCR data set published for academic research. After deploying the model as a Web service, you will write an <a href="http://electron.atom.io/">Electron</a> client for it that lets you sketch digits on the screen and then consult Azure Machine Learning to see if it can identify the digits you sketched. You'll learn how to build and train a model, as well as how to write code that leverages the model.</p>
+<p><a href="https://azure.microsoft.com/en-us/services/machine-learning/">Azure Machine Learning Studio</a> is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It features an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for <a href="https://www.r-project.org/">R</a> and <a href="https://www.python.org/">Python</a> means you can build custom scripts  to customize your model. Once you've built and trained your model, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the <a href="https://gallery.cortanaintelligence.com/">Cortana Intelligence Gallery</a>.</p>
+<p>In this lab, you will use Azure Machine Learning Studio to build, train, and score a model that recognizes hand-written numeric digits. You will use a real OCR data set published for academic research. After deploying the model as a Web service, you will write an <a href="http://electron.atom.io/">Electron</a> client for it that lets you sketch digits on the screen and then consult Azure Machine Learning to see if it can identify the digits you sketched. You will learn how to build and train a model, as well as how to write code that leverages the model.</p>
 <p><a name="Objectives"></a></p>
 <h3>Objectives</h3>
 <p>In this hands-on lab, you will learn how to:</p>
 <ul>
-<li>Build, train, and score a model using the Azure Machine Learning Studio</li>
+<li>Build, train, and score a model using Azure Machine Learning Studio</li>
 <li>Deploy your model as a Web service so it can be accessed from code or scripts</li>
 <li>Call an ML Web service from the apps that you write</li>
 </ul>
@@ -907,17 +907,17 @@ vertical-align:1px;
     &lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>viewport<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>width=device-width, initial-scale=1<span class="pl-pds">"</span></span>&gt;
     &lt;<span class="pl-ent">title</span>&gt;DX Machine Learning Lab&lt;/<span class="pl-ent">title</span>&gt;
     &lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>main.css<span class="pl-pds">"</span></span>&gt;
-<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>node_modules/core-js/client/shim.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
-<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>node_modules/zone.js/dist/zone.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
-<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>node_modules/reflect-metadata/Reflect.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
-<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>node_modules/systemjs/dist/system.src.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
-<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>system.config.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
-<span class="pl-s1">    &lt;<span class="pl-ent">script</span>&gt;</span>
+    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>node_modules/core-js/client/shim.min.js<span class="pl-pds">"</span></span>&gt;<span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;
+    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>node_modules/zone.js/dist/zone.js<span class="pl-pds">"</span></span>&gt;<span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;
+    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>node_modules/reflect-metadata/Reflect.js<span class="pl-pds">"</span></span>&gt;<span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;
+    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>node_modules/systemjs/dist/system.src.js<span class="pl-pds">"</span></span>&gt;<span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;
+    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>system.config.js<span class="pl-pds">"</span></span>&gt;<span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;
+    &lt;<span class="pl-ent">script</span>&gt;<span class="pl-s1"></span>
 <span class="pl-s1">        <span class="pl-smi">System</span>.<span class="pl-en">import</span>(<span class="pl-s"><span class="pl-pds">'</span>app<span class="pl-pds">'</span></span>).<span class="pl-en">catch</span>(<span class="pl-k">function</span>(<span class="pl-smi">err</span>){ <span class="pl-en">console</span>.<span class="pl-c1">error</span>(err); });</span>
-<span class="pl-s1">    &lt;/<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">    </span><span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;
 &lt;/<span class="pl-ent">head</span>&gt;
 &lt;<span class="pl-ent">body</span>&gt;
-&lt;<span class="pl-ent">my</span><span class="pl-e">-app</span>&gt;Loading ...&lt;/<span class="pl-ent">my</span><span class="pl-e">-app</span>&gt;
+&lt;<span class="pl-ent">my-app</span>&gt;Loading ...&lt;/<span class="pl-ent">my-app</span>&gt;
 &lt;/<span class="pl-ent">body</span>&gt;
 &lt;/<span class="pl-ent">html</span>&gt;</pre></div>
 </li>
@@ -1009,7 +1009,7 @@ vertical-align:1px;
     });
 
     <span class="pl-c"><span class="pl-c">//</span>win.webContents.openDevTools();</span>
-}</pre></div>
+<span class="pl-c"></span>}</pre></div>
 <blockquote>
 <p>You can uncomment the call to <em>win.webContents.openDevTools()</em> if you want the <a href="https://developer.chrome.com/devtools">Chrome Developer Tools</a> to be opened automatically when you start the application.  This is helpful for debugging if things go wrong with your application.</p>
 </blockquote>
@@ -1155,7 +1155,7 @@ vertical-align:1px;
         <span class="pl-c1">this</span>.<span class="pl-smi">result</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>;
         <span class="pl-c1">this</span>.<span class="pl-smi">requestError</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>;
         <span class="pl-c1">this</span>.<span class="pl-smi">http</span>
-            .<span class="pl-en">post</span>(<span class="pl-c1">url</span>, <span class="pl-smi">body</span>, <span class="pl-smi">options</span>)
+            .<span class="pl-en">post</span>(<span class="pl-smi">url</span>, <span class="pl-smi">body</span>, <span class="pl-smi">options</span>)
             .<span class="pl-en">map</span>(<span class="pl-v">res</span> <span class="pl-k">=&gt;</span> <span class="pl-smi">res</span>.<span class="pl-en">json</span>())
             .<span class="pl-en">subscribe</span>({
                 <span class="pl-en">next</span>: (<span class="pl-v">value</span>) <span class="pl-k">=&gt;</span> {
@@ -1242,7 +1242,7 @@ vertical-align:1px;
 </ul>
 <p>There's much more than you can do with Azure Machine Learning, but this is a start. Feel free to experiment with it on your own and explore the exciting world of predictive analysis with a tool that is not only productive, but fun!</p>
 <hr>
-<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
