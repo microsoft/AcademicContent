@@ -85,6 +85,11 @@
 					   <td><b><a href="https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-use-sample-datasets">Machine Learning Data Sets</a></b></td>
 					   <td>Data sets shared by Azure Machine Learning team to help explore machine learning.</td>
 					</tr>
+		 
+	<tr>
+					   <td><b><a href="https://www.w3schools.com">W3Schools</a></b></td>
+					   <td>For students interested in practical help for programming and coding languages, w3schools.com offers easy-to-understand examples and in-depth tutorials on AJAX, SQL, ASP, CSS, JavaScript and HTML markup code.</td>
+					</tr>	 
 				 </table>
 			</div>
       </div>
