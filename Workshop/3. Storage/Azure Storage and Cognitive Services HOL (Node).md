@@ -55,11 +55,11 @@ Estimated time to complete this lab: **60** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Create a storage account
 
-The [Azure Portal](https://portal.azure.com) allows you to perform basic storage operations such as creating storage accounts, creating containers, and managing access keys. In this exercise, you will use the portal to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.
+The [Azure Portal](https://portal.azure.com) allows you to perform basic storage operations such as creating storage accounts, creating containers, uploading and downloading blobs, and managing access keys. In this exercise, you will use the portal to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
  
-1. The first step in using Azure Storage is to create a storage account. To create a storage account, click **+ New** in the ribbon on the left. Then click **Storage**, followed by **Storage account**.
+1. To create a storage account, click **+ New** in the ribbon on the left. Then click **Storage**, followed by **Storage account**.
 
     ![Creating a storage account](Images/new-storage-account.png)
 
@@ -69,13 +69,19 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
 	> Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure. If someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the **Name** field.
 
-	Once you have a name that Azure will accept (as indicated by the green check mark in the **Name** field), make sure **Resource manager** is selected as the deployment model and **General purpose** is selected as the account kind. Then select **Create new** under **Resource group** and type "IntellipixResourceGroup" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the **Location** box, and clicking the **Create** button at the bottom of the blade to create the new storage account.
+	Once you have a name that Azure will accept, make sure **Resource manager** is selected as the deployment model and **General purpose** is selected as the account type. Then select **Create new** under **Resource group** and enter "IntellipixResources" as the resource-group name. Select the **Location** nearest you, and finish up by clicking the **Create** button at the bottom of the blade to create the new storage account.
     
 	![Specifying parameters for a new storage account](Images/create-storage-account.png)
 
     _Specifying parameters for a new storage account_
 
-1. Once the storage account has been created, click **Resource groups** in the ribbon on the left. Then click the "IntellipixResourceGroup" resource group, and in the blade that opens for the resource group, click the storage account you just created.
+1. Click **Resource groups** in the ribbon on the left. Then click the "IntellipixResources" resource group.
+
+    ![Opening the resource group](Images/open-resource-group.png)
+
+    _Opening the resource group_
+
+1. In the blade that opens for the resource group, click the storage account you just created. If the storage account isn't there yet, you can click **Refresh** at the top of the blade until it appears.
  
     ![Opening the new storage account](Images/open-storage-account.png)
 
@@ -87,15 +93,15 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
     _Viewing blob containers_
 
-1. The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click **+ Container** to create a new container. Type "photos" (without quotation marks) into the **Name** field and select **Blob** as the **Access type**. Then click **OK** to create a container named "photos."
+1. The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click **+ Container** to create a new container. Type "photos" (without quotation marks) into the **Name** field and select **Blob** as the **Public access level**. Then click **OK** to create a container named "photos."
 
-	> By default, containers and their contents are private. Selecting **Blob** as the access type makes the blobs in the "photos" container publicly accessible, but doesn't make the container itself public. This is what you want since the images stored in the "photos" container will be linked to from a Web app. 
+	> By default, containers and their contents are private. Selecting **Blob** as the access level makes the blobs in the "photos" container publicly accessible, but doesn't make the container itself public. This is what you want since the images stored in the "photos" container will be linked to from a Web app. 
 
     ![Creating a "photos" container](Images/create-photos-container.png)
 
     _Creating a "photos" container_
 
-1. Repeat this process to create a container named "thumbnails," once more ensuring that the container's **Access type** is set to **Blob**.
+1. Repeat the previous step to create a container named "thumbnails," once more ensuring that the container's **Public access level** is set to **Blob**.
 
 1. Confirm that both containers appear in the list of containers for this storage account, and that the names are spelled correctly.
 
@@ -103,7 +109,7 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
     _The new containers_
 
-1. Click **Access keys** in the menu on the left side of the storage-account blade, and then click the **Copy** button next to **KEY** for **key1**. Paste this access key into your favorite text editor for later use.
+1. Close the "Blob service" blade. Click **Access keys** in the menu on the left side of the storage-account blade, and then click the **Copy** button next to **KEY** for **key1**. Paste this access key into your favorite text editor for later use.
 
     ![Copying the access key](Images/copy-storage-account-access-key.png)
 
@@ -116,24 +122,26 @@ You have now created a storage account to hold images uploaded to the app you're
 
 The [Microsoft Azure Storage Explorer](http://storageexplorer.com/) is a free tool that provides a graphical interface for working with Azure Storage on PCs running Windows, macOS, and Linux. It provides most of the same functionality as the Azure Portal. It also offers features the portal does not, such as the ability to view blob metadata. In this exercise, you will use the Microsoft Azure Storage Explorer to view the containers you created in Exercise 1.
 
-1. Start Storage Explorer. If you are asked to log in, do so using your Microsoft account — the same one that you used to log in to the Azure Portal. If you are *not* asked to log in and don't see the storage account you created in the previous exercise in Storage Explorer's left pane, click the **Azure Accounts settings** button highlighted below, click **Add an account**, and log in with your Microsoft account.
+1. If you haven't installed Storage Explorer or would like to make sure you're running the latest version, go to http://storageexplorer.com/ and download and install it.
 
-    ![Adding an account to Storage Explorer](Images/add-account.png)
+1. Start Storage Explorer. If you are asked to log in, do so using your Microsoft account — the same one that you used to log in to the Azure Portal. If you don't see the storage account created in the previous exercise in Storage Explorer's left pane, click the **Manage Accounts** button highlighted below and ensure that your Microsoft account *and* the subscription used to create the storage account have been added to Storage Explorer.
 
-    _Adding an account to Storage Explorer_
+    ![Managing accounts in Storage Explorer](Images/add-account.png)
 
-1. Confirm that the storage account you created in Exercise 1 appears in the list of storage accounts shown in Storage Explorer. Click the small arrow next to the storage account to display its contents, and then click the arrow next to **Blob Containers**. Confirm that the containers you created in Exercise 1 appear in the list of containers.
+    _Managing accounts in Storage Explorer_
 
-    ![Blob containers in the Microsoft Azure Storage Explorer](Images/storage-explorer.png)
+1. Click the small arrow next to the storage account you created in Exercise 1 to display its contents, and then click the arrow next to **Blob Containers**. Confirm that the containers you created in Exercise 1 appear in the list.
 
-    _Blob containers in the Microsoft Azure Storage Explorer_
+    ![Viewing blob containers](Images/storage-explorer.png)
+
+    _Viewing blob containers_
 
 The containers are currently empty, but that will change once your app is deployed and you start uploading photos. Having Storage Explorer installed will make it easy for you to see what your app writes to blob storage.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Get a subscription key for the Computer Vision API
 
-[Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/) is a set of intelligence APIs that you can call from your apps. Among the more than 25 APIs it offers are the [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) for distilling actionable information from images, the [Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api) for recognizing emotion in images and video, and the [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api) for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available for you to begin using today.
+[Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/) is a set of intelligence APIs that you can call from your apps. Among the more than 25 APIs it offers are the [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) for distilling actionable information from images, and the [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api) for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available for you to begin using today.
 
 In this exercise, you will acquire a subscription key allowing you to call the Computer Vision API from your code. You'll use this key in a later exercise to generate thumbnails from the images uploaded to the Web site, and to generate captions and search keywords for the images.
 
@@ -143,21 +151,21 @@ In this exercise, you will acquire a subscription key allowing you to call the C
 
     _Creating a new Computer Vision API subscription_
 
-1. Enter "VisionAPI" into the **Name** box and select **F0** as the **Pricing tier**. Under **Resource Group**, select **Use existing** and select the "IntellipixResourceGroup" that you created in Exercise 1. Check the **I confirm** box, and then click **Create**.
+1. Type "vision-api-key" into the **Name** box and select **F0** as the **Pricing tier**. Select the same **Location** that you selected for the storage account in [Exercise 1](#Exercise1). Under **Resource group**, select **Use existing** and select the "IntellipixResources" resource group. Check the **I confirm** box, and then click **Create**.
 
     ![Subcribing to the Computer Vision API](Images/create-vision-api.png)
 
     _Subcribing to the Computer Vision API_
 
-1. Return to the blade for the "IntellipixResourceGroup" resource group and click the Computer Vision API subscription that you just created.
+1. Return to the blade for the "IntellipixResources" resource group and click the Computer Vision API subscription that you just created.
 
-    ![Opening the Computer Vision API subscription](Images/open-vision-api-2.png)
+    ![Opening the Computer Vision API subscription](Images/open-vision-api.png)
 
     _Opening the Computer Vision API subscription_
 
 1. Copy the URL under **Endpoint** into your favorite text editor so you can easily retrieve it later. Then click **Show access keys**.
 
-    ![Viewing the access keys](Images/show-access-keys.png)
+    ![Viewing the access keys](Images/copy-vision-endpoint.png)
 
     _Viewing the access keys_
 
@@ -184,7 +192,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 	<pre>
 	export AZURE_VISION_API_KEY=<i>vision_api_key</i></pre>
 	
-	> Storing sensitive values such as API keys in environment variables prevents you from having to embed them in your code, where a determined intruder could find them and use them. When you deploy the app to the cloud, these values will be stored in Azure and never exposed to the end user or transmitted over the wire.
+	Storing sensitive values such as API keys in environment variables prevents you from having to embed them in your code, where a determined intruder could find them and use them. When you deploy the app to the cloud, these values will be stored in Azure and never exposed to the end user or transmitted over the wire.
 
 1. Next, execute the following command, substituting the name of the storage account you created in Exercise 1 for *storage_account_name*:
 
@@ -196,7 +204,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 	<pre>
 	export AZURE_STORAGE_ACCOUNT=<i>storage_account_name</i></pre>
 
-1. Now type the following command, replacing *storage_account_key* with the access key that you saved in Exercise 1, Step 9:
+1. Now type the following command, replacing *storage_account_key* with the access key that you saved in Exercise 1, Step 10:
 	
 	Windows:
 	<pre>
@@ -233,7 +241,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 	<pre>
     npm install -save azure-storage express multer request streamifier</pre> 
 
-	> [azure-storage](https://www.npmjs.com/package/azure-storage) is Microsoft's Azure Storage Client Library for Node.js. It provides convenient JavaScript APIs for accessing blob storage, table storage, and more.
+	[azure-storage](https://www.npmjs.com/package/azure-storage) is Microsoft's Azure Storage Client Library for Node.js. It provides convenient JavaScript APIs for accessing blob storage, table storage, and more.
 
 1. Return to Visual Studio Code and click the **Explorer** button in the upper-left corner. Then click **package.json** to open that file for editing.
 
@@ -482,7 +490,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
     }
 	```
 	
-	> This is the code that executes in Node.js on the server. Points of interest include the *saveImageToAzure* function, which saves an uploaded image in blob storage using APIs in the Azure Storage Client Library for Node.js, the *createThumbnailFromImage* function, which uses the Computer Vision API to generate an image thumbnail, and the *analyzeImage* function, which uses the Computer Vision API to generate a caption and a list of keywords describing the image. Another function you might care to inspect is *saveAnalysisResults*, which writes the caption and keywords to blob metadata. Finally, take a moment to examine the *listBlobsMiddleware* function, which enumerates the photos uploaded to the site by enumerating the blobs in the "photos" container. 
+	This is the code that executes in Node.js on the server. Points of interest include the *saveImageToAzure* function, which saves an uploaded image in blob storage using APIs in the Azure Storage Client Library for Node.js, the *createThumbnailFromImage* function, which uses the Computer Vision API to generate an image thumbnail, and the *analyzeImage* function, which uses the Computer Vision API to generate a caption and a list of keywords describing the image. Another function you might care to inspect is *saveAnalysisResults*, which writes the caption and keywords to blob metadata. Finally, take a moment to examine the *listBlobsMiddleware* function, which enumerates the photos uploaded to the site by enumerating the blobs in the "photos" container. 
 
 1. Replace *vision_api_endpoint* on line 8 with the Computer Vision API endpoint that you saved in Exercise 3, Step 4.
 
@@ -591,7 +599,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
     </html>
 	```
 
-	> This is the HTML file containing the site's one and only page. It uses Bootstrap's [grid layout system](http://v4-alpha.getbootstrap.com/layout/grid/) to align elements on the page, and it uses AngularJS to make the page dynamic. Notice the ng- attributes such as ng-click and ng-src attached to some of the page's elements, as well as the "mustache" expressions in double curly braces (for example, {{ctrl.current.metadata.caption}}). These attributes and expressions are part of AngularJS and are frequently found in pages that use it.
+	This is the HTML file containing the site's one and only page. It uses Bootstrap's [grid layout system](http://v4-alpha.getbootstrap.com/layout/grid/) to align elements on the page, and it uses AngularJS to make the page dynamic. Notice the ng- attributes such as ng-click and ng-src attached to some of the page's elements, as well as the "mustache" expressions in double curly braces (for example, {{ctrl.current.metadata.caption}}). These attributes and expressions are part of AngularJS and are frequently found in pages that use it.
 
 1. Add a file named **index.js** to the "src" folder and insert the following statements:
 
@@ -706,7 +714,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
     }());
 	```
 
-	> This file contains JavaScript code that runs on the client. Among other things, it provides support for uploading images from the browser, displaying an enlarged version of an image when the image thumbnail is clicked, and filtering the thumbnails shown on the page when the user types in the search box. Much of this is wrapped in an AngularJS controller, which manages the flow of data in an AngularJS application.
+	This file contains JavaScript code that runs on the client. Among other things, it provides support for uploading images from the browser, displaying an enlarged version of an image when the image thumbnail is clicked, and filtering the thumbnails shown on the page when the user types in the search box. Much of this is wrapped in an AngularJS controller, which manages the flow of data in an AngularJS application.
 
 1. Use Visual Studio Code's **File -> Save All** command to save all of your changes.
 
@@ -721,7 +729,7 @@ With the code that comprises the app in place and key environment variables init
 <a name="Exercise5"></a>
 ## Exercise 5: Test the app locally
 
-In this exercise, you will run the app locally in order to test it and familiarize yourself with its features. Running it locally is a simple matter of firing up a Node.js server process to host your server components (in this case, **server.js**) and pointing your browser to http://localhost:*port*, where *port* is the port number on which the server process is listening for HTTP requests. **server.js** listens on port 9898. You can modify that if you would like by changing line 7 in the code.
+In this exercise, you will run the app locally in order to test it and familiarize yourself with its features. Running it locally is a simple matter of firing up a Node.js server process to host your server components (in this case, **server.js**) and pointing your browser to http://localhost:port, where *port* is the port number on which the server process is listening for HTTP requests. **server.js** listens on port 9898. You can modify that if you would like by changing line 7 in the code.
 
 1. Return to the Command Prompt or Terminal window and, once more, make sure you're in the "Intellipix" directory that you created for the project. Then execute the following command to start **server.js**:
 
@@ -805,7 +813,7 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
     _Creating a new Azure Web App_
 
-1. In the "Web App" blade, enter a name for the Azure Web App. The name must be unique within Azure since it ultimately becomes part of a DNS name, so you will probably need to enter something other than "Intellipix." Select **Use existing** under **Resource Group** and select the "IntellipixResourceGroup" resource group that you created for the storage account in Exercise 1. Then click **App service plan/Location**.
+1. In the "Web App" blade, enter a name for the Azure Web App. The name must be unique within Azure since it ultimately becomes part of a DNS name, so you will probably need to enter something other than "Intellipix." Select **Use existing** under **Resource Group** and select the "IntellipixResources" resource group that you created for the storage account in Exercise 1. Then click **App service plan/Location**.
 
     ![Naming the Azure Web App](Images/node-web-app-parameters.png)
 
@@ -833,7 +841,7 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
     _Creating the Azure Web App_
 
-1. Once the app has deployed (it generally only takes a few seconds), click **Resource groups** in the ribbon on the left side of the portal, and click the "IntellipixResourceGroup" resource group. Then click the Azure Web App in that resource group (the Web App that you just created).
+1. Once the app has deployed (it generally only takes a few seconds), click **Resource groups** in the ribbon on the left side of the portal, and click the "IntellipixResources" resource group. Then click the Azure Web App in that resource group (the Web App that you just created).
 
     ![Selecting the Azure Web App](Images/node-select-azure-web-app.png)
 
@@ -926,7 +934,7 @@ If you make changes to the app and want to push the changes out to the Web, simp
 <a name="Summary"></a>
 ## Summary
 
-When you're finished using the site, you should delete the resource group containing it. Deleting the resource group deletes all of the resources inside it (including the storage account, the blobs uploaded to it, and the App Service), removes all traces of this lab from your account, and prevents any further charges from being incurred for it. To delete the resource group, simply open the resource-group blade in the portal and click **Delete** at the top of the blade. You will be asked to type the resource group's name to confirm that you want to delete it, because once deleted, a resource group can't be recovered.
+When you're finished using the site, you should delete the resource group containing it. Deleting the resource group deletes all of the resources inside it (including the storage account, the blobs uploaded to it, and the App Service), removes all traces of this lab from your account, and prevents any further charges from being incurred for it. To delete the resource group, simply open the resource-group blade in the portal and click **Delete resource group** at the top of the blade. You will be asked to type the resource group's name to confirm that you want to delete it, because once deleted, a resource group can't be recovered.
 
 There is much more that you could do to develop Intellipix and to leverage Azure even further. For example, you could add support for authenticating users and deleting photos, and rather than force the user to wait for Cognitive Services to process a photo following an upload, you could use [Azure Functions](https://azure.microsoft.com/en-us/services/functions/) to call the Computer Vision API asynchronously each time an image is added to blob storage. You could even use Cognitive Services to detect faces in the photos and analyze the emotions depicted by those faces. With the cloud as your platform, the sky is the limit (pun intended).
 
