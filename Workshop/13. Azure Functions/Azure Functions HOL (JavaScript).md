@@ -82,7 +82,7 @@ The first step in writing an Azure Function is to create an Azure Function App. 
 
     _Opening blob storage_
 
-1. Click **+ Container**. Type "uploaded" into the **Name** box and set **Access type** to **Private**. Then click the **OK** button to create a new container.
+1. Click **+ Container**. Type "uploaded" into the **Name** box and set **Public access level** to **Private**. Then click the **OK** button to create a new container.
 
     ![Adding a container](Images/add-container.png)
 
@@ -109,9 +109,9 @@ Once you have created an Azure Function App, you can add Azure Functions to it. 
 
     _Opening the Function App_
 
-1. Click the **+** sign to the right of **Functions**. Then click **Custom function**.
+1. Click the **+** sign to the right of **Functions**. Set the language to **JavaScript**, and then click **Custom function**.
 
-    ![Adding a function](Images/add-function.png)
+    ![Adding a function](Images/js-add-function.png)
 
     _Adding a function_
 
