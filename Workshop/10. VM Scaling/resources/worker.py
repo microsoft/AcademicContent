@@ -9,7 +9,7 @@ from azure.storage.blob import AppendBlobService
 
 # Configure account name with the Azure Storage Account Name and the account Key from Storage Explorer
 append_blob_service = AppendBlobService(
-    account_name=cfg.storage['account_name'],
+    account_name=cfg.storage['storage_account_name'],
     account_key=cfg.storage['storage_account_key'])
 
 
