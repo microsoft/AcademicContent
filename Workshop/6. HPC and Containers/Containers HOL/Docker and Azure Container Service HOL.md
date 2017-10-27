@@ -12,7 +12,7 @@ Containers, which allow software and files to be bundled up into neat packages t
 
 Containers are similar to virtual machines (VMs) in that they provide a predictable and isolated environment in which software can run. Because containers are smaller than VMs, they start almost instantly and use less RAM. Moreover, multiple containers running on a single machine share the same operating system kernel. Docker is based on open standards, enabling Docker containers to run on all major Linux distributions as well as Windows Server 2016.
 
-To simplify the use of Docker containers, Azure offers the [Azure Container Service](https://azure.microsoft.com/en-us/services/container-service/) (ACS), which hosts Docker containers in the cloud and provides an optimized configuration of popular open-source scheduling and orchestration tools, including [DC/OS](https://dcos.io/) and [Docker Swarm](https://www.docker.com/products/docker-swarm). The latter uses native clustering capabilities to turn a group of Docker engines into a single virtual Docker engine using the configuration shown below and is a handy tool for executing CPU-intensive jobs in parallel. In essence, one or more master VMs control a "swarm" of agent VMs created from an [Azure Virtual Machine Scale Set](https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/). The agent VMs host Docker containers that execute your code.
+To simplify the use of Docker containers, Azure offers the [Azure Container Service](https://azure.microsoft.com/en-us/services/container-service/) (ACS), which hosts Docker containers in the cloud and provides an optimized configuration of popular open-source scheduling and orchestration tools, including [DC/OS](https://dcos.io/), [Kubernetes](https://kubernetes.io/), and [Docker Swarm](https://www.docker.com/products/docker-swarm). The latter uses native clustering capabilities to turn a group of Docker engines into a single virtual Docker engine using the configuration shown below and is a handy tool for executing CPU-intensive jobs in parallel. In essence, one or more master VMs control a "swarm" of agent VMs created from an [Azure Virtual Machine Scale Set](https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/). The agent VMs host Docker containers that execute your code.
 
 ![Docker Swarm configuration in the Azure Container Service](Images/docker-swarm.png)
 
@@ -246,9 +246,11 @@ Now that you're connected, you can run the Docker client on your local machine a
 
 Now comes the fun part: creating a Docker image and running it inside a container in Azure. If you haven't already installed the Docker client, refer to the instructions at the beginning of this lab to download and install the Docker client for your operating system. 
 
-1. Open a terminal window (macOS or Linux) or a Command Prompt window (Windows) and navigate to the "resources" subdirectory of this lab. It contains the files that you will build into a container image.
+1. Open a terminal window (macOS or Linux) or a Command Prompt window (Windows) and navigate to the "resources" subdirectory of this lab. It contains the files that you will build into a container image. If the "resources" subdirectory doesn't already contain a subdirectory named "output," use the following command to create one:
 
-	Take a moment to examine the contents of the "resources" subdirectory. It contains a file named **Dockerfile**, which contains the commands Docker will use to build a container image. It also contains a Python script named **convertimages.py**, a subdirectory named "input," and a subdirectory named "output." The latter subdirectory is empty. The "input" subdirectory contains several color JPG images. The Python script enumerates the files in the "input" subdirectory, converts them to grayscale, and writes the grayscale images to the "output" subdirectory.
+	<pre>mkdir output</pre>
+
+1. Take a moment to examine the contents of the "resources" subdirectory. It contains a file named **Dockerfile**, which contains the commands Docker will use to build a container image. It also contains a Python script named **convertimages.py**, a subdirectory named "input," and a subdirectory named "output." The "input" subdirectory contains several color JPG images. The Python script enumerates the files in the "input" subdirectory, converts them to grayscale, and writes the grayscale images to the "output" subdirectory.
 
 1. If you are running macOS or Linux, execute the following command in the terminal window:
 
@@ -258,9 +260,9 @@ Now comes the fun part: creating a Docker image and running it inside a containe
 
 	<pre>set DOCKER_HOST=tcp://127.0.0.1:22375</pre>
 
-	> This command directs the Docker client to send output to localhost port 22375, which you redirected to port 2375 in the Azure Container Service in the previous exercise. Remember that port 2375 is the one Docker Swarm listens on. The commands that you execute in the next few steps are typed into a local terminal window, but they are **executed in the container service you deployed to the cloud** using the SSH tunnel that you established in the previous exercise.
+	This command directs the Docker client to send output to localhost port 22375, which you redirected to port 2375 in the Azure Container Service in the previous exercise. Remember that port 2375 is the one Docker Swarm listens on. The commands that you execute in the next few steps are typed into a local terminal window, but they are **executed in the container service you deployed to the cloud** using the SSH tunnel that you established in the previous exercise.
 
-1. Be sure you're in the "resources" subdirectory. Then execute the following command to create a container image named "ubuntu-convert" containing the Python script as well as the "input" and "output" subdirectories and their contents. Be sure to include the period at the end of the command:
+1. Still in the "resources" subdirectory, execute the following command to create a container image named "ubuntu-convert" containing the Python script as well as the "input" and "output" subdirectories and their contents. Be sure to include the period at the end of the command:
 
 	<pre>docker build --no-cache --tag ubuntu-convert .</pre>
 
@@ -280,7 +282,7 @@ Now comes the fun part: creating a Docker image and running it inside a containe
 
 	<pre>docker cp acslab:/output .</pre>
 
-	> Because you are still in the lab's "resources" subdirectory, this command will copy the grayscale images to the "resources" subdirectory's "output" subdirectory.
+	> Because you are still in the "resources" subdirectory, this command will copy the grayscale images to that directory's "output" subdirectory.
 
 1. Stop the running container by executing the following command:
 
@@ -328,7 +330,7 @@ Resource groups are a useful feature of Azure because they simplify the task of 
 
 In this exercise, you will delete the resource group created in [Exercise 2](#Exercise2) when you created the container service. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.
 
-1. In the Azure Portal, open the blade for the "ACSLabResourceGroup" resource group. Then click the **Delete** button at the top of the blade.
+1. In the Azure Portal, open the blade for the "ACSLabResourceGroup" resource group. Then click the **Delete resource group** button at the top of the blade.
 
 	![Deleting a resource group](Images/delete-resource-group.png)
 

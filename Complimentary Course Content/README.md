@@ -10,7 +10,7 @@
       <div class="container">
          <div class="jumbotron">
             <h1>Complimentary Course Content</h1>
-            <p><b>June 2016 release.</b> Source: 
+            <p><b>September 2017 release.</b> Source: 
             <a href="https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content">https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content</a> 
             </p>
             <p>

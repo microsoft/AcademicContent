@@ -2,42 +2,53 @@
 
 ## Table of Contents
 
-* [Readme file - Azure CS University DS Sandboxes Project](#readme-file---azure-cs-university-ds-sandboxes-project)
-    * [Description](#description)
-    * [Prerequisites](#prerequisites)
-    * [Installation](#installation)
-    * [Input parameters](#input-parameters)
-        * [Class &amp; User Information](#class--user-information)
-        * [Deployment](#deployment)
-        * [VM Details](#vm-details)
-    * [Output file](#output-file)
-        * [Deployment Results](#deployment-results)
-    * [Master Script](#master-script)
-        * [Script Design](#script-design)
-        * [Script Usage](#script-usage)
-        * [Examples](#examples)
-    * [Logging](#logging)
-    * [Resource Tags](#resource-tags)
-    * [Known limitations](#known-limitations)
-    * [Script Performance](#script-performance)
-    * [Deploying different VM types](#deploying-different-vm-types)
-    * [Post-Deployment Scripts](#post-deploymnet-scripts)
-    * [Email Server setup](#email-server-setup)
-        * [Mail Service Provider](#mail-service-provider)
-        * [Directions to set up Email](#directions-to-set-up-email)
-        * [Sign up for a SendGrid account](#sign-up-for-a-sendgrid-account)
-        * [Integrating Email with Deployments](#integrating-email-with-deployments)
-        * [Find your SendGrid API Key](#find-your-sendgrid-api-key)
-        * [Configure script file](#configure-script-file)
-    * [Helper scripts](#helper-scripts)
-        * [View VM Status or change state](#change-state-of-view-status)
-            * [Script Usage](#script-usage-1)
-            * [Examples](#examples-1)
-        * [Create Image from Virtual Machines](#create-image-from-virtual-machines)
-            * [Script Usage](#script-usage-2)
-            * [Examples](#examples-2)
-            * [Directions](#directions)
+<!-- TOC -->
 
+- [Readme file - Azure CS University DS Sandboxes Project](#readme-file---azure-cs-university-ds-sandboxes-project)
+    - [Table of Contents](#table-of-contents)
+    - [Description](#description)
+    - [Prerequisites](#prerequisites)
+        - [To enable programmatic deployment](#to-enable-programmatic-deployment)
+    - [Installation](#installation)
+    - [Input parameters](#input-parameters)
+        - [Class & User Information](#class--user-information)
+        - [Deployment](#deployment)
+        - [VM Details](#vm-details)
+    - [Output file](#output-file)
+        - [Deployment Results](#deployment-results)
+    - [Master Script](#master-script)
+        - [Script Design](#script-design)
+        - [Script Usage](#script-usage)
+        - [Examples](#examples)
+    - [Logging](#logging)
+    - [Resource Tags](#resource-tags)
+    - [Known limitations](#known-limitations)
+    - [Script Performance](#script-performance)
+    - [Deploying different VM types](#deploying-different-vm-types)
+    - [Post-Deployment Scripts](#post-deployment-scripts)
+    - [Additional scripts](#additional-scripts)
+        - [Change state of View Status](#change-state-of-view-status)
+            - [Script Usage](#script-usage-1)
+            - [Examples](#examples-1)
+        - [Create Image from Virtual Machines](#create-image-from-virtual-machines)
+            - [Script Usage](#script-usage-2)
+            - [Examples](#examples-2)
+            - [Directions](#directions)
+    - [Email Server setup](#email-server-setup)
+        - [Mail Service Provider](#mail-service-provider)
+        - [Directions to set up Email](#directions-to-set-up-email)
+            - [To sign up for a SendGrid account](#to-sign-up-for-a-sendgrid-account)
+        - [Integrating Email with Deployments](#integrating-email-with-deployments)
+            - [To find your SendGrid API Key](#to-find-your-sendgrid-api-key)
+            - [To find your SendGrid credentials](#to-find-your-sendgrid-credentials)
+            - [Configure script file](#configure-script-file)
+    - [Troubleshoot](#troubleshoot)
+        - [Troubleshoot deploying Linux virtual machine issues in Azure](#troubleshoot-deploying-linux-virtual-machine-issues-in-azure)
+            - [Top issues](#top-issues)
+        - [Troubleshoot deployment issues when creating a new Windows VM in Azure](#troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure)
+            - [Top issues](#top-issues-1)
+
+<!-- /TOC -->
 
 ## Description
 
@@ -50,7 +61,7 @@ These scripts achieve the following user stories:
 
 *	Ability to deploy 300 DSVMs (Data Science Virtual Machine) in either Windows, Ubuntu, of Linux CentOS
 *   Ability to deploy VMs from marketplace image, custom image, or DSVM
-*	Ability to deploy VMs across one or multiple subscriptions (ie. Each VM can be in its own subscription)
+*	Ability to deploy VMs across one or multiple subscriptions (i.e. Each VM can be in its own subscription)
 *	Ability for each VM to have its own Resource Group 
 *   Ability to create a clean VM image from a VM  
 
@@ -75,47 +86,61 @@ Each VM is deployed in a separate resource group; all supporting infrastructure 
 
 The following prerequisites must be met for the script to run appropriately:
 
-* Bash script should be run on Linux terminal or Bash on Ubuntu on Windows
-	* Instructions on how to install Bash for Windows can be found [here](https://msdn.microsoft.com/en-us/commandline/wsl/about).
-  * At this time the scripts won’t run on [Bash Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) due to a few functions not being compatible.  Resolving these incompatibilities will be considered for future updates.
-* Azure CLI 2.0 installed. 
-	* Instructions on how to install Azure CLI 2.0 can be found [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
-* User must have an active Azure account. 
-* Subscription(s) should have sufficient budget allowing VMs to run.
+* Bash script should be run on Linux terminal or on [Bash Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) or Bash on Ubuntu on Windows
+	* Instructions on how to install Bash for Windows can be found [here](https://msdn.microsoft.com/en-us/commandline/wsl/about)
+* Azure CLI 2.0 installed (Bash Azure Cloud Shell already contains Azure CLI)
+	* Instructions on how to install Azure CLI 2.0 can be found [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* User must have an active Azure account
+* Subscription(s) should have sufficient budget allowing VMs to run
 * User needs to ensure no subscription / region component limits will be exceeded
-	* Typically, public IDs, cores, NICs, and VMs soft limits need to be increased via a service desk request if trying to deploy 300 VMs. 
-	* [Information about Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). 
+	* Typically, public IDs, cores, NICs, and VMs soft limits need to be increased via a service desk request if trying to deploy 300 VMs
+	* [Information about Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits)
 
 > **IMPORTANT NOTE:** 
 > Before you proceed to use the script, you must accept the terms for the VM image (ex. Data Science Virtual Machine for Ubuntu) for every subscription utilized in the deployment. You can do this  by going to the VM you want to add and click the link about deploying the VM programmatically. See instructions for [reference](https://azure.microsoft.com/en-us/blog/working-with-marketplace-images-on-azure-resource-manager/).
+
+### To enable programmatic deployment
+1. Log in to the [Azure Portal][Azure Portal].
+1. In the menu on the left, click **New** and find Data Science VM.
+
+    ![select-data-science-vm][select-data-science-vm]
+
+1.  Select VM and click the **`Want to deploy programmatically? Get started ➔`**, choose subscription, change status to `Enable` and click `Save` button.
+
+    ![enable-programmatic-deployment][enable-programmatic-deployment]
 
 This only must be done once and can be done for all subscriptions in the same update.
 
 Currently you can deploy the following Marketplace VM’s:
 
-* Data Science Virtual Machine for Linux (Ubuntu) ([link](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu))
-* Data Science Virtual Machine for Windows 2012 ([link](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm))
-* Data Science Virtual Machine for Windows 2016 ([link](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016))
-* Data Science Virtual Machine for Linux (Centos) ([link](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm))
-* Deep Learning toolkit for the DSVM ([link](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning))
-* Other types of VMs created using the `create-vm-image.sh` script.
+* Data Science Virtual Machine for Linux (Ubuntu) ([link to VM description](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu))
+* Data Science Virtual Machine for Windows 2012 ([link to VM description](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm))
+* Data Science Virtual Machine for Windows 2016 ([link to VM description](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016))
+* Data Science Virtual Machine for Linux (Centos) ([link to VM description](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm))
+* Deep Learning toolkit for the DSVM ([link to toolkit description](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning))
+* Other types of VMs created using the `create-vm-image.sh` script file
 
 ## Installation
 
- 1. Make sure all prerequisites are met.
- 2. Make sure you restarted the terminal after installing Azure CLI. You
-    can do it by running  `exec` bash command.
- 3. Log in to Azure from the Azure CLI by following the instructions
-    from [here](https://docs.microsoft.com/en-us/azure/xplat-cli-connect).
- 4. Copy files from the repository to the computer where you would like
-    to run the script.
- 5.  Setting up a temporary VM in Azure in the same region will boost
-    performance.
- 6. Change permissions of the bash script file to be executable by
-    running command:  
-```sh
-$ chmod +x deploy-vm.sh
-```
+ 1. Make sure all prerequisites are met
+ 2. Make sure you restarted the terminal after installing Azure CLI. You can do it by running `exec` bash command
+ 3. Log in to Azure from the Azure CLI by following the instructions from [here](https://docs.microsoft.com/en-us/azure/xplat-cli-connect)
+ 4. Copy files from the repository to the computer where you would like to run the script by running command:  
+    ```sh
+    $ git clone https://github.com/MSFTImagine/computerscience.git
+    ```
+ 5. To change directories, use the cd command:
+    ```sh
+    $ cd computerscience/Scripts/Bulk-Sandbox-Deployment-Automation-Bash
+    ```
+    > Note: git is already installed on the your system
+
+ 6. Setting up a temporary VM in Azure in the same region will boost performance
+ 7. Change permissions recursively of the bash script file to be executable by running command:  
+    ```sh
+    $ chmod -R +x *
+    ```
+ 8. If you wish to set up email for post-deploy notifications, please see [Email Server Setup](#email-server-setup) near the end of this document.
 
 ## Input parameters
 
@@ -123,32 +148,32 @@ $ chmod +x deploy-vm.sh
 
 **File:** Input.csv 
 
-**Purpose:** Allows for easy configuration of a massive deployment.  Example. One script can be used to deploy against multiple subscriptions, and users.
+**Purpose:** VMs are configured by input CSV files including subscription mapping, user and metadata. Example. One script can be used to deploy against multiple subscriptions, and users.
 
 **Description:** Contains metadata about class and user information. Each line corresponds to one deployed VM.
 
 **Field description:**
 
 Field					| Required 	| Optional	| Description | Comments
------------------------ | --------- | --------- | ----------- | --------
+----------------------- | :-------: | :-------: | ----------- | --------
 Class Name 				| X | 	| Name of the class, (ex.  Computer Science 101) | May contain spaces. Just used to populate metadata tags
-Subscription Name 		| 	| X | Name of the subscription to be used for deployment | Metadata to describe subscription ID. 
-Subscription ID 		| X | 	| Azure Subscription ID | Each line can use different subscriptions which must be created beforehand. Subscription ID is on the Azure portal. 
-Student Name 			| 	| X | Name of the student who is working on the VM | May contain spaces.
+Subscription Name 		| 	| X | Name of the subscription to be used for deployment | Metadata to describe subscription ID
+Subscription ID 		| X | 	| Azure Subscription ID | Each line can use different subscriptions which must be created beforehand. Subscription ID is on the Azure portal
+Student Name 			| 	| X | Name of the student who is working on the VM | May contain spaces
 Student Email Address 	| 	| X | Valid student e-mail address | System does not test if valid
 VM User Name 			| X | 	| Login used by the student to access the VM | No spaces allowed
-VM User Password 		| X | 	| Password used by the student to login to the VM | No spaces allowed.
-VM Admin Username 		| X | 	|Login used to access the VM as administrator | No spaces allowed.
-VM Admin Password 		| X | 	| Password used by the student to login to the VM | No spaces allowed.
+VM User Password 		| X | 	| Password used by the student to login to the VM | No spaces allowed
+VM Admin Username 		| X | 	|Login used to access the VM as administrator | No spaces allowed
+VM Admin Password 		| X | 	| Password used by the student to login to the VM | No spaces allowed
 Comment 				| 	| X | Additional details to make it easier to manage CSV |
 
 ### Deployment
 
 **File:** parameters.json 
 
-**Purpose:** Pass parameters values required for deployment. 
+**Purpose:** Passes parameters values required for deployment. 
 
-**Description:** The file contains placeholders which will be replaced by exact values for each deployment and passed as a sting within az group deploy command. 
+**Description:** The file contains placeholders which will be replaced by exact values for each deployment and passed as a sting within az group deploy command.   
 
 ### VM Details
 
@@ -162,7 +187,7 @@ Currently we have the following types of DSVMs:
 
 * Data Science VM for Windows (2012/2016)
 * Data Science VM for Ubuntu
-* Data Science VM for CentOS
+* Data Science VM for CentOS   
 
 **File:** template-from-data-science-image.json
 
@@ -221,15 +246,15 @@ Comment                 |  | Inherited from input csv file
 
 ## Master Script
 
-The master script name is `deploy-vm.sh`
+The master script file is `deploy-vm.sh`
 
-You must chose to either deploy a DSVM or deploy from an image.
+You must choose to either deploy a Data Science VM or deploy from a custom image.
 
 ### Script Design
 
 The script runs az group deployment create command with --no-wait option. This means that once the script is finished, the deployment will still be in process.  You can visit Azure portal and use ClassID tag to determine when all VMs were deployed. This approach is used to minimize the time for the deployment.
 
-![Design](images/design.png)
+![design][design]
 
 ### Script Usage
 
@@ -254,49 +279,187 @@ Argument        | Command       | Description | Example
 
 ### Examples
 
-**Deploy Data Science VMs**
+**Deploy Data Science Virtual Machine for Linux (Ubuntu)**
 ```sh
-$ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -u http://www.example.com/data.zip -vm ds-vm-ubuntu -d manage -m on
+$ ./deploy-vm.sh \
+    --input input.csv \
+    --output output.csv \
+    --location westus \
+    --size Standard_DS3_v2 \
+    --storage premium \
+    --vmtype ds-vm-ubuntu \
+    --disk manage \
+    --sendemail off
+```
+
+**Deploy Data Science Virtual Machine for Linux (Centos)**
+```sh
+$ ./deploy-vm.sh \
+    --input input.csv \
+    --output output.csv \
+    --location westus \
+    --size Standard_DS3_v2 \
+    --storage premium \
+    --vmtype ds-vm-centos \
+    --disk manage \
+    --sendemail off
+```
+
+**Deploy Data Science Virtual Machine for Windows 2012**
+```sh
+$ ./deploy-vm.sh \
+    --input input.csv \
+    --output output.csv \
+    --location westus \
+    --size Standard_DS3_v2 \
+    --storage premium \
+    --vmtype ds-vm-windows \
+    --disk manage \
+    --sendemail off
+```
+
+**Deploy Data Science Virtual Machine for Windows 2016**
+```sh
+$ ./deploy-vm.sh \
+    --input input.csv \
+    --output output.csv \
+    --location westus \
+    --size Standard_DS3_v2 \
+    --storage premium \
+    --vmtype ds-vm-windows-2016 \
+    --disk manage \
+    --sendemail off
 ```
 
 **Deploy VMs from image**
 ```sh
-$ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -d manage -m off -i /subscriptions/<guid>/resourceGroups/<Resource Group Name>/providers/Microsoft.Compute/images/<Image Name>
+$ ./deploy-vm.sh \
+    --input input.csv \
+    --output output.csv \
+    --location westus \
+    --size Standard_DS3_v2 \
+    --storage premium \
+    --disk manage \
+    --sendemail off \
+    --image "/subscriptions/<guid>/resourceGroups/<Resource Group Name>/providers/Microsoft.Compute/images/<Image Name>"
 ```
 
 **Deploy VMs using post install script**
 ```sh
-$ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -d manage -m off -vm ds-vm-ubuntu -p http://www.example.com/post-install.sh
+$ ./deploy-vm.sh \
+    --input input.csv \
+    --output output.csv \
+    --location westus \
+    --size Standard_DS3_v2 \
+    --storage premium \
+    --vmtype  ds-vm-ubuntu \
+    --disk manage \
+    --sendemail off \
+    --postinstall https://raw.githubusercontent.com/MSFTImagine/computerscience/master/Scripts/Bulk-Sandbox-Deployment-Automation-Bash/modules/post-install.sh
 ```
 
 >**Important!**
->Post-deployment has limited time to run scripts. This 1 hour 30 minutes. After we had error message: "Provisioning of VM extension 'CustomScript' has timed out. Extension installation may be taking too long, or extension status could not be obtained."
+>Post-deployment has limited time to run scripts. It takes 1 hour 30 minutes. After we had error message: "Provisioning of VM extension 'CustomScript' has timed out. Extension installation may be taking too long, or extension status could not be obtained."
 
-**Deploy Deep Learning toolkit for the DSVMs**  
-Deploying this toolkit requires access to Azure GPU NC-class instances.
+**Deploy Deep Learning toolkit for the DSVM**
 
-Allowed Locations:
-* Standard_NC6
-* Standard_NC12
-* Standard_NC24
+Deploying this toolkit requires access to Azure GPU NC-class instances. For availability of N-series VMs, see Products available by [region][region].
 
+**NV instances**
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NV6 |6 |56 |380 | 1 | 8 |
+| Standard_NV12 |12 |112 |680 | 2 | 16 |
+| Standard_NV24 |24 |224 |1440 | 4 | 32 |
+
+1 GPU = one-half M60 card.
+
+**NC instances**
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NC6 |6 |56 | 380 | 1 | 8 |
+| Standard_NC12 |12 |112 | 680 | 2 | 16 |
+| Standard_NC24 |24 |224 | 1440 | 4 | 32 |
+| Standard_NC24r* |24 |224 | 1440 | 4 | 32 |
+
+1 GPU = one-half K80 card.  
+*RDMA capable*  
+
+
+Deploy command:
 ```sh
-./deploy-vm.sh -in input.csv -out output.csv -l eastus -s Standard_NC6 -st standard -d manage -m off -vm ds-vm-windows -p http://www.example.com/deep-learningtoolkit/install.ps1
+$ ./deploy-vm.sh \
+    --input input.csv \
+    --output output.csv \
+    --location eastus \
+    --size Standard_NC6 \
+    --storage premium \
+    --vmtype ds-vm-windows \
+    --disk manage \
+    --sendemail off \
+    --postinstall https://raw.githubusercontent.com/MSFTImagine/computerscience/master/Scripts/Bulk-Sandbox-Deployment-Automation-Bash/modules/deep-learningtoolkit/install.ps1
 ```
 
 After provisioning the deep learning toolkit, see the README file in C:\dsvm\deep-learning, or on the desktop, for more information.
 
-Examples of files (input.csv, output.csv) are included in this repository.
+**Deploy VMs from your template**
 
 You can make a copy of the `template-data-science.json` template and add new VM types. Your template can be specified in the arguments to the script.
 
-**Deploy VMs from your template**
-```sh
-$ ./deploy-vm.sh -in input.csv -out output.csv -l westus -s Standard_DS3_v2 -st premium -d manage -m off -vm <your vm type> -t ./templates/template.json
-```
+1. Make a copy of the template file:
+
+    ```sh
+    $ cp template-data-science.json template-copy.json
+    ```
+1. Open the copied file and find the `variables` node: 
+
+    ```json
+    "variables": {
+        "storageUri": "[concat('https://',parameters('storageAccountName'),'.blob.core.windows.net/')]",
+        "images": {
+            //elements....
+        }
+    ```
+1. Add a new section to the `images` node:
+
+    ```json
+    "images": {
+        "new-vm-type": {
+            "publisher": "new-publisher",
+            "offer": "new-offer",
+            "sku": "new-sku",
+            "version": "latest"
+        },
+    ```
+1. Find the `plans` section in `variables` node and add new plan information:
+
+    ```json
+    "ds-vm-ubuntu": {
+        "name": "new-name",
+        "publisher": "new-publisher",
+        "product": "new-product"
+    },
+    ```
+1. Save the modified file. You can deploy using the following parameters:
+    ```sh
+    $ ./deploy-vm.sh \
+        --input input.csv \
+        --output output.csv \
+        --location westus \
+        --size Standard_DS3_v2 \
+        --storage premium \
+        --vmtype <your vm type> \
+        --disk manage \
+        --sendemail off \
+        --template ./templates/template.json
+    ```
+
 >**Important!**
 >It is not recommended to change the base templates, if you do not know.
 
+Examples of files (input.csv, output.csv) are included in this repository.
 
 ## Logging
 
@@ -304,10 +467,9 @@ The script creates a log file for each deployment. The file can be found in the 
 
 **Example**: Deployment-c8f7dc5c-398e-11e7-a762-54ee759e9cc8.log
 
-
 ## Resource Tags
 
-Resource groups have the following tags added during deployment from the `input.CSV` file:
+Each Resource Groups and VMs have the following tags added during deployment from the `input.CSV` file:
 
 * ClassID
 * StudentLogin
@@ -315,17 +477,15 @@ Resource groups have the following tags added during deployment from the `input.
 * StudentName
 * ClassName
 
-Each VM has the following tags inherited from the `input.CSV` file:
-
 ## Known limitations
 
  * The script can only use existing subscriptions. It does not programmatically create new subscriptions based on subscription names/IDs in the input file.
  * Script does not verify infrastructure element availability before the deployment; deployment will partially succeed if limits are hit.
-	* If the deployment requires infrastructure beyond the current subscription / region limit, the deployment will fail. User must ensure deployment infrastructure elements have not exceeded existingquota in the region of the deployment.
+	* If the deployment requires infrastructure beyond the current subscription / region limit, the deployment will cancel. The script will validate existing quota in the region of the deployment.
 	* Typically, public IDs, cores, NICs, and VMs soft limits need to be increased via a service desk request if trying to deploy large amount of VMs.
 
 ## Script Performance
-We recommend to spinning up a VM in Azure in the same region where you plan to do the deployement to use as a terminal to run the script. This accelerates script execution significantly.
+We recommend to spinning up a VM in Azure in the same region where you plan to do the deployment to use as a terminal to run the script. This accelerates script execution significantly.
 
 Results of the performance testing (only one deployment were done per testing):
 
@@ -339,7 +499,7 @@ Please note that the performance of the execution depends on multiple factors in
 ## Deploying different VM types
 
 The script is accompanied with JSON files configured to deploy multiple VMs with Windows Data Science VM, Ubuntu Data Science VM or CentOS Data Science VM.
-The existing JSON filess can be updated at your own risk. If any changes are made, it is recommended to keep a reference to parameters specified in `parameter.json`. 
+The existing JSON files can be updated at your own risk. If any changes are made, it is recommended to keep a reference to parameters specified in `parameter.json`. 
 
 > **Example**: publicIpAddressName is defined in `parameters.json` and used in the `template-*.json` files. The value is assigned inside the script. If this value is removed from the `template-*.json` files, the IP name will be assigned automatically, potentially causing deployment issues.
 
@@ -349,62 +509,7 @@ If utilizing GitHub, select the "Raw" option and copy the URL to refer to in the
 Use cases for this feature include ensuring that the most up to date software is installed or configuring variables, etc.  
 An alternative would be to do this in a custom VM, create an image, and deploy from the image.
 
-## Email Server setup
-We recommend using SendGrid on Azure for email.
-
-### Mail Service Provider
-This example utilizes SendGrid as the email service provider.
-To send emails, you should set up a `send-email.sh` script.
-
-SendGrid includes a free account for Azure customers that includes some free emails each month including access to advanced reporting, analytics, and all APIs (Web, SMTP, Event, Parse and more). See instructions for [reference](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SendGrid.SendGrid).
-
-### Directions to set up Email
-
-#### Sign up for a SendGrid account
-1.	Log in to the Azure Management Portal.
-1.	In the menu on the left, click New.
-1.	Click Add-ons and then SendGrid Email Delivery.
-1.	Complete the signup form and select Create.
-1.	Enter a Name to identify your SendGrid service in your Azure settings. 
-    * Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. 
-    * The name must be unique in your list of subscribed Azure Store Items.
-1.	Enter and confirm your Password.
-1.	Choose your Subscription.
-1.	Create a new Resource group or use an existing one.
-1.	Select the appropriate SendGrid plan In the Pricing tier section.
-    * Enter a Promotion Code if you have one.
-1.	Enter your Contact Information.
-1.	Review and accept the Legal terms.
-1.	After confirming your purchase, you will see a Deployment Succeeded pop-up and you will see your account listed in the All Resources section.
-
-After you have completed your purchase and clicked the Manage button to initiate the email verification process, you will receive an email from SendGrid asking you to verify your account. If you do not receive this email, or have problems verifying your account, please see the FAQ.
-
-> **NOTE:** 
-> You can only send up to 100 emails/day until you have verified your account.
-
-To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard.
-
-To send an email using SendGrid, you must supply your API Key.
-
-### Integrating Email with Deployments
-
-#### Find your SendGrid API Key
-1. Click Manage.
-1. In your SendGrid dashboard, select Settings and then API Keys in the menu on the left.
-1. Click the Create API Key dropdown and select General API Key.
-1. At a minimum, provide the Name of this key and provide full access to Mail Send and select Save. 
-1. Your API key will be displayed at this point one time. Please be sure to store it safely.
-
-#### Configure script file
-Sending email requires that you supply your SendGrid API Key. If you need details about how to configure API Keys, please visit SendGrid's API Keys documentation.
-
-Open the `send-email.sh` script, find apiKey section and replace value with your API key. Specify the email address of the sender.
-```sh
-local apiKey="<sendgrid_api_key>"
-local emailFrom="<email_from>"
-```
-
-## Helper scripts
+## Additional scripts
 
 ### Change state of View Status
 
@@ -416,7 +521,7 @@ local emailFrom="<email_from>"
 
 #### Script Usage
 
-The master script name is `change-vm-state.sh`.
+The master script file is `change-vm-state.sh`.
 
 The following are the different required arguments for the script: 
 
@@ -485,10 +590,155 @@ $ ./create-vm-image.sh -vm <Virtual Machine Name> -g <Resource Group Name> -ht <
 
 The script processes following this direction:
 
-![Design](images/process.png)
+![direction][direction]
 
 >**Important!**  
 >After running the script, the VM will no longer be available. The script is cleared of all sensitive information.
 >In the third version the script can create a backup only for virtual machines that do not have a plan information.
 
+## Email Server setup
+We recommend using SendGrid on Azure for email.
+
+Sequence of steps – high level
+* [To sign up for a SendGrid account](#to-sign-up-for-a-sendgrid-account)
+* [To find your SendGrid API Key](#to-find-your-sendgrid-api-key)
+* [To find your SendGrid credentials](#to-find-your-sendgrid-credentials)
+* [Configure script file](#configure-script-file)
+
+### Mail Service Provider
+This example utilizes SendGrid as the email service provider. To send emails, you should set up a `send-email.sh` script file.
+
+SendGrid includes a free account for Azure customers that includes some free emails each month including access to advanced reporting, analytics, and all APIs (Web, SMTP, Event, Parse and more). See instructions for [reference](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SendGrid.SendGrid).
+
+### Directions to set up Email 
+
+For information about additional services provided by SendGrid, visit the [SendGrid Solutions][SendGrid Solutions] page.
+
+#### To sign up for a SendGrid account
+1. Log in to the [Azure Portal][Azure Portal].
+2. In the menu on the left, click **New**.
+
+    ![command-bar-new][command-bar-new]
+3. Click **Add-ons** and then **SendGrid Email Delivery**.
+
+    ![sendgrid-store][sendgrid-store]
+4. Complete the signup form and select **Create**.
+
+    ![sendgrid-create][sendgrid-create]
+5. Enter a **Name** to identify your SendGrid service in your Azure settings. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
+6. Enter and confirm your **Password**.
+7. Choose your **Subscription**.
+8. Create a new **Resource group** or use an existing one.
+9. In the **Pricing tier** section select the SendGrid plan you want to sign up for.
+
+    ![sendgrid-pricing][sendgrid-pricing]
+10. Enter a **Promotion Code** if you have one.
+11. Enter your **Contact Information**.
+12. Review and accept the **Legal terms**.
+13. After confirming your purchase you will see a **Deployment Succeeded** pop-up and you will see your account listed in the **All resources** section.
+
+    ![all-resources][all-resources]
+
+    After you have completed your purchase and clicked the **Manage** button to initiate the email verification process, you will receive an email from SendGrid asking you to verify your account. If you do not receive this email, or have problems verifying your account, please [see this FAQ][SendGrid FAQ].
+
+    ![manage][manage]
+
+    **You can only send up to 100 emails/day until you have verified your account.**
+
+    To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard.
+
+    ![settings][settings]
+
+    To send an email using SendGrid, you must supply your API Key.
+
+### Integrating Email with Deployments
+
+#### To find your SendGrid API Key
+
+1. Click **Manage**.
+
+    ![manage][manage]
+2. In your SendGrid dashboard, select **Settings** and then **API Keys** in the menu on the left.
+
+    ![api-keys][api-keys]
+3. Click the **Create API Key**.
+
+    ![general-api-key][general-api-key]    
+4. Provide the **Name of this key** and provide full access to **Mail Send** and select **Save & View**.
+
+    ![access][access]
+5. Your API will be displayed at this point one time. Please be sure to store it safely.
+
+#### To find your SendGrid credentials
+1. Click the key icon to find your **Username**.
+
+    ![key][key]
+2. The password is the one you chose at setup. You can select **Change password** or **Reset password** to make any changes.
+
+    To manage your email deliverability settings, click the **Manage button**. This will redirect to your SendGrid dashboard.
+
+    ![manage][manage]
+
+
+#### Configure script file
+Sending email requires that you supply your SendGrid API Key. If you need details about how to configure API Keys, please visit SendGrid's API Keys documentation.
+
+Open the `./modules/send-email.sh` script file, find apiKey section and replace value with your API key. Specify the email address of the sender.
+```sh
+apiKey="<sendgrid_api_key>" # set your api key
+emailFrom="<email_from>"    # set email from
+```
+
+## Troubleshoot
+
+To troubleshoot virtual machine (VM) deployment issues in Azure, review the [top issues](#top-issues) for common failures and resolutions.
+
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
+
+### Troubleshoot deploying Linux virtual machine issues in Azure
+
+
+When you try to create a new Azure Virtual Machine (VM), the common errors you encounter are provisioning failures or allocation failures.. To start troubleshooting, review these steps:
+
+#### Top issues
+
+- [What Linux distributions/versions are supported on Azure?](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/troubleshoot-deploy-vm#what-linux-distributionsversions-are-supported-on-azure)
+- [Is N-Series VMs available in my region?](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/troubleshoot-deploy-vm#is-n-series-vms-available-in-my-region)
+
+### Troubleshoot deployment issues when creating a new Windows VM in Azure
+
+#### Top issues
+
+This article describes some of the most common error codes and messages you may encounter when you create or manage Windows virtual machines (VMs) in Azure. To start troubleshooting, review these steps:
+
+- [Common virtual machine management errors](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/error-messages#common-virtual-machine-management-errors)
+- [Are client images supported for N-Series?](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/troubleshoot-deploy-vm#are-client-images-supported-for-n-series)
+
 ---
+
+<!--images-->
+
+[command-bar-new]: ./images/sendgrid-sign-up/new-addon.png
+[sendgrid-store]: ./images/sendgrid-sign-up/sendgrid-store.png
+[sendgrid-create]: ./images/sendgrid-sign-up/sendgrid-create.png
+[sendgrid-pricing]: ./images/sendgrid-sign-up/sendgrid-pricing.png
+[all-resources]: ./images/sendgrid-sign-up/all-resources.png
+[manage]: ./images/sendgrid-sign-up/manage.png
+[settings]: ./images/sendgrid-sign-up/settings.png
+[api-keys]: ./images/sendgrid-sign-up/api-keys.png
+[general-api-key]: ./images/sendgrid-sign-up/general-api-key.png
+[access]: ./images/sendgrid-sign-up/access.png
+[key]: ./images/sendgrid-sign-up/key.png
+
+[design]: ./images/design.png
+[direction]: ./images/process.png
+
+[enable-programmatic-deployment]: ./images/configure-programmatic-deployment/enable-programmatic-deployment.png
+[select-data-science-vm]: ./images/configure-programmatic-deployment/select-data-science-vm.png
+
+<!--Links-->
+
+[SendGrid Solutions]: https://sendgrid.com/solutions
+[Azure Portal]: https://portal.azure.com
+[region]: https://azure.microsoft.com/en-us/regions/services
+[SendGrid FAQ]: https://sendgrid.com/docs/Classroom/Basics/Account/account_sign_up_faq.html#How-long-does-the-verification-process-take

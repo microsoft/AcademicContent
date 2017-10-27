@@ -21,7 +21,7 @@ createImage() {
 	local resourceGroupName=$2
 	local hostName=$3
 	local userName=$4
-	local rand=$(uuidgen -t)
+	local rand=$(cat /proc/sys/kernel/random/uuid)
 	local outputFile=Image-$rand.log
 	local osType=$(az vm show -g $resourceGroupName -n $vmName --query "storageProfile.osDisk.osType" -o tsv)
 	local osDiskId=$(az vm show -g $resourceGroupName -n $vmName --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -83,28 +83,8 @@ createImage() {
 
 	if [[ $plan == "Custom" ]]; then
 		echo "Restore VM..."
-		az vm create --resource-group $resourceGroupName \ 
-		--name $vmName \ 
-		--image $imageId \ 
-		--admin-username $userName \ 
-		--admin-password $defaultPassword \ 
-		--authentication-type password
-
+		az vm create --resource-group $resourceGroupName --name $vmName --image $imageId --admin-username $userName --admin-password $defaultPassword --authentication-type password
 		echo "Restore VM successfully completed"
-	elif [[ $isActive == true ]]; then
-		local planName=$(az vm show -g $resourceGroupName -n $vmName --query "plan.name" -o tsv)
-		local planProduct=$(az vm show -g $resourceGroupName -n $vmName --query "plan.product" -o tsv)
-		local planPublisher=$(az vm show -g $resourceGroupName -n $vmName --query "plan.publisher" -o tsv)
-
-		az vm create --resource-group $resourceGroupName \ 
-		--name $vmName \ 
-		--image $imageId \ 
-		--admin-username $userName \ 
-		--admin-password $defaultPassword \ 
-		--authentication-type password \ 
-		--plan-name $planName \ 
-		--plan-product $planProduct \ 
-		--plan-publisher $planPublisher
 	fi
 
 	if [ $? -ne 0 ]; then

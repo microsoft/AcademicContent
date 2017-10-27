@@ -6,11 +6,11 @@
 <a name="Overview"></a>
 ## Overview ##
 
-Azure Stream Analytics is a cloud-based service for ingesting high-velocity data streaming from devices, sensors, applications, Web sites, and other data sources and analyzing that data in real time. It supports a SQL-like query language that works over dynamic data streams and makes analyzing constantly changing data no more difficult than performing queries on static data stored in traditional databases. With Azure Stream Analytics, you can set up jobs that analyze incoming data for anomalies or information of interest and record the results, present notifications on dashboards, or even fire off alerts to mobile devices. And all of it can be done at low cost and with a minimum of effort.
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is a cloud-based service for ingesting high-velocity data streaming from devices, sensors, applications, Web sites, and other data sources and analyzing that data in real time. It supports a [SQL-like query language](https://msdn.microsoft.com/library/azure/dn834998.aspx) that works over dynamic data streams and makes analyzing constantly changing data no more difficult than performing queries on static data stored in traditional databases. With Azure Stream Analytics, you can set up jobs that analyze incoming data for anomalies or information of interest and record the results, present notifications on dashboards, or even fire off alerts to mobile devices. And all of it can be done at low cost and with a minimum of effort.
 
 Scenarios for the application of real-time data analytics are legion and include fraud detection, identity-theft protection, optimizing the allocation of resources (think of an Uber-like transportation service that sends drivers to areas of increasing demand *before* that demand peaks), click-stream analysis on Web sites, shopping suggestions on retail-sales sites, and countless others. Having the ability to process data *as it comes in* rather than waiting until after it has been aggregated offers a competitive advantage to businesses that are agile enough to make adjustments on the fly.
 
-In this lab, you'll create an Azure Stream Analytics job and use it to analyze data streaming in from simulated Internet of Things (IoT) devices. And you'll see how simple it is to monitor real-time data streams for information of significance to your research or business.
+In this lab, you'll create an Azure Stream Analytics job and use it to analyze data streaming in from simulated Internet of Things (IoT) devices. And you will see how simple it is to monitor real-time data streams for information of significance to your research or business.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -114,7 +114,7 @@ In this exercise, you'll create an Azure event hub to provide input to Azure Str
 
     _Opening the policy_
 
-1. Click the **Copy** button to the right of the **PRIMARY KEY** box to copy the policy's shared-access key to the clipboard. Then temporarily save the key by pasting it into your favorite text editor. You'll need this key in the next exercise.
+1. Click the **Copy** button to the right of the **Primary key** box to copy the policy's shared-access key to the clipboard. Then temporarily save the key by pasting it into your favorite text editor. You'll need it in the next exercise.
 
     ![Copying the primary key to the clipboard](Images/copy-access-key.png)
 
@@ -182,8 +182,8 @@ In this exercise, you will generate a shared-access signature token for the even
 
 	```JavaScript
 	///////////////// KEY VARS /////////////////
-	var sas = "SharedAccessSignature sr=https%3A%2F%2Fstreamanalytics-lab.servicebus.windows.net%2Finputhub&sig=Rz5dVs73XQkUU8KUcrLivDU4Q7%2Bg8zogdApBZHak480%3D&se=1515170996.004&skn=SendPolicy";
-	var uri = "https://streamanalytics-lab.servicebus.windows.net/inputhub";
+	var sas = "SharedAccessSignature sr=https%3A%2F%2Fstream-analytics-lab.servicebus.windows.net%2Finputhub&sig=Rz5dVs73XQkUU8KUcrLivDU4Q7%2Bg8zogdApBZHak480%3D&se=1515170996.004&skn=SendPolicy";
+	var uri = "https://stream-analytics-lab.servicebus.windows.net/inputhub";
 	///////////////////////////////////////////
 	```
 
@@ -260,7 +260,7 @@ In this exercise, you will use the Azure Portal to create a Stream Analytics job
 
     _Adding an input_
 
-1. Type "Withdrawals" (without quotation marks) into the **Input alias** box. Make sure **Source Type** is set to **Data stream** and **Source** is set to **Event hub**. Also make sure **Subscription** is set to **Use event hub from current subscription**, **Service bus namespace** is set to the namespace you specified in Exercise 1, Step 3, and the event hub you created in Exercise 1 ("inputhub") is selected under **Event hub name**. Then select **RootManageSharedAccessKey** from the **Event hub policy name** drop-down and click the **Create** button at the bottom of the blade.
+1. Type "Withdrawals" (without quotation marks) into the **Input alias** box. Make sure **Source Type** is set to **Data stream** and **Source** is set to **Event hub**. Select the service-bus namespace and event hub ("inputhub") you created in [Exercise 1](#Exercise1). Then select **RootManageSharedAccessKey** from the **Event hub policy name** drop-down and click the **Create** button at the bottom of the blade.
 
     ![Creating an input](Images/create-input.png)
 
@@ -313,7 +313,7 @@ You have connected a Stream Analytics job to an event hub and demonstrated that 
 <a name="Exercise5"></a>
 ## Exercise 5: Prepare queries and test with sample data ##
 
-Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query the data in real time. In this exercise, you'll use the [Stream Analytics Query Language](https://msdn.microsoft.com/en-us/library/azure/Dn834998.aspx) to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.
+Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query real-time data streams. In this exercise, you will use the [Stream Analytics Query Language](https://msdn.microsoft.com/en-us/library/azure/Dn834998.aspx) to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.
 
 To flag potentially fraudulent withdrawals from ATMs, you will query for transactions performed with the same ATM card at different ATM machines within a specified time window (60 seconds). In real life, you would probably use a larger time window and perhaps even factor in the distance between ATM machines. However, a narrower time window is useful in a lab environment because it allows you to perform meaningful experiments in minutes rather than hours.
 
@@ -431,12 +431,10 @@ In this exercise, you will create a storage account and configure the Stream Ana
 
     _Adding a storage account_
 
-1. In the ensuing blade, enter a name for the new storage account in **Name** field.
+1. In the ensuing blade, enter a unique name for the new storage account and make sure a green check mark appears next to it. Select **Use existing** under **Resource group** and select the resource group named "StreamAnalyticsResourceGroup" so the storage account will belong to the same resource group as the Stream Analytics job and the event hub. Select the same **Location** you selected in previous exercises. Then click the **Create** button at the bottom of the blade.
 
 	> Storage account names must be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure.
 
-	Once you have a unique name that Azure will accept (as indicated by the green check mark in the **Name** field), select **Use existing** under **Resource group** and select the resource group named "StreamAnalyticsResourceGroup" so the storage account will belong to the same resource group as the Stream Analytics job and the event hub. Select the location nearest you (the same one you selected for the event hub in [Exercise 1](#Exercise1) and the Stream Analytics job in [Exercise 4](#Exercise4)) in the **Location** box. Then click the **Create** button at the bottom of the blade.
-    
 	![Creating a storage account](Images/create-storage-account.png)
 
     _Creating a storage account_

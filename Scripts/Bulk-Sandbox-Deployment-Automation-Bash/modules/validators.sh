@@ -17,13 +17,13 @@ validateCores() {
 
 	#$(cat $usageListFile | jq '.[] | select(.properties[] == "'$size'").name' --raw-output) 
 	local familyName=$(cat $usageListFile \
-		| python -c '
+		| python3 -c '
 import json,sys
 obj=json.load(sys.stdin)
 for i in obj: 
     for s in i["properties"]: 
         if s == "'$size'": 
-            print i["name"];break')
+            print(i["name"]);break')
 	#Gets, for the specified location, the current compute resource usage information as well as the limits for compute resources under the subscription.
 	local currentValue=$(az vm list-usage --location $location --query "[?localName == '$familyName'].currentValue" -o tsv)
 	local limit=$(az vm list-usage --location $location --query "[?localName == '$familyName'].limit" -o tsv)

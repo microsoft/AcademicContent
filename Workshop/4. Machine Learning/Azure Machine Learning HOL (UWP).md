@@ -1,5 +1,5 @@
 <a name="HOLTitle"></a>
-# Building Smart Apps with Azure Machine Learning #
+# Building Smart Apps with Azure Machine Learning Studio #
 
 ---
 
@@ -8,16 +8,16 @@
 
 Machine learning, which facilitates predictive analytics using large volumes of data by employing algorithms that iteratively learn from that data, is one of the fastest growing areas of computer science. Its uses range from credit-card fraud detection and self-driving cars to optical character recognition (OCR) and online shopping recommendations. It makes us smarter by making computers smarter. And its usefulness will only increase as more and more data becomes available and the desire to perform predictive analysis from that data grows, too.
 
-[Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/) is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It's accompanied by the Azure Machine Learning Studio (ML Studio), which is a browser-based tool that provides an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for [R](https://www.r-project.org/) and [Python](https://www.python.org/) means you can build custom scripts  to customize your model. Once you've built and trained your model in the ML Studio, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
+[Azure Machine Learning Studio](https://azure.microsoft.com/en-us/services/machine-learning/) is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It features an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for [R](https://www.r-project.org/) and [Python](https://www.python.org/) means you can build custom scripts  to customize your model. Once you've built and trained your model, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
 
-In this lab, you will use Azure Machine Learning to build, train, and score a model that recognizes hand-written numeric digits. You will use a real OCR data set published for academic research. After deploying the model as a Web service, you will write a [Universal Windows Platform](https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp) (UWP) client for it that lets you sketch digits on the screen and then consult Azure Machine Learning to see if it can identify the digits you sketched. You'll learn how to build and train a model, as well as how to write code that leverages the model.
+In this lab, you will use Azure Machine Learning Studio to build, train, and score a model that recognizes hand-written numeric digits. You will use a real OCR data set published for academic research. After deploying the model as a Web service, you will write a [Universal Windows Platform](https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp) (UWP) client for it that lets you sketch digits on the screen and then consult Azure Machine Learning to see if it can identify the digits you sketched. You will learn how to build and train a model, as well as how to write code that leverages the model.
 
 <a name="Objectives"></a>
 ### Objectives ###
 
 In this hands-on lab, you will learn how to:
 
-- Build, train, and score a model using the Azure Machine Learning Studio
+- Build, train, and score a model using Azure Machine Learning Studio
 - Deploy your model as a Web service so it can be accessed from code or scripts
 - Call an ML Web service from the apps that you write
 
@@ -27,7 +27,7 @@ In this hands-on lab, you will learn how to:
 The following are required to complete this hands-on lab:
 
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
-- [Visual Studio 2015 Community edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) or higher with the Windows 10 SDK installed
+- [Visual Studio 2017 Community edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) or higher with the Windows 10 SDK installed
 
 ---
 <a name="Exercises"></a>
@@ -48,7 +48,7 @@ Estimated time to complete this lab: **60** minutes.
 <a name="Exercise1"></a>
 ## Exercise1: Create a Machine Learning experiment
 
-The first step in employing Azure Machine Learning is to create an ML workspace and an experiment to go in it. In this exercise, you'll get a Machine Learning experiment up and running in the Azure ML Studio.
+The first step in employing Azure Machine Learning Studio is to create an ML workspace and an experiment to go in it. In this exercise, you'll get a Machine Learning experiment up and running in the Azure ML Studio.
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
@@ -366,7 +366,7 @@ A common question regarding Azure ML Web services is: how much do they cost? You
 <a name="Exercise6"></a>
 ## Exercise 6: Build a universal Windows client
 
-The whole reason for deploying an Azure ML model as a Web service is so you can build smart apps that utilize the model. There are a variety of ways to build such apps. You could call the service from a Web app using JavaScript and AJAX, for example, or you could use Visual Studio to write a [Xamarin](https://www.xamarin.com/) app that runs on iOS, Android, and Windows and places calls to the service using .NET's HttpClient class.
+The whole reason for deploying an Azure ML model as a Web service is so you can build smart apps that utilize the model. There are many ways to build such apps. You could call the service from a Web app using JavaScript and AJAX, for example, or you could use Visual Studio to write a [Xamarin](https://www.xamarin.com/) app that runs on iOS, Android, and Windows and places calls to the service using .NET's HttpClient class.
 
 In this exercise, you will write a client app that targets the [Universal Windows Platform](https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp), or UWP. The beauty of such apps is that they run on a variety of Windows devices, including PCs, tablets, phones, and even on Xbox One. The app you will write enables you to draw digits into an onscreen grid. Then it calls your ML Web service and tells you what digit you drew.
 
@@ -376,39 +376,21 @@ In this exercise, you will write a client app that targets the [Universal Window
 
     _Enabling developer mode in Windows 10_
 
-1. Start Visual Studio 2015 and use the **File -> New -> Project** command to create a new **Blank App (Universal Windows)** project named "MLClient."
+1. Start Visual Studio and use the **File -> New -> Project** command to create a new **Blank App (Universal Windows)** project named "DigitRecognizer." After clicking **OK**, accept the default target version and minimum version presented to you.
 
     ![Creating a new UWP project](Images/new-universal-app.png)
 
     _Creating a new UWP project_
 
-1. Click **OK** to accept the default target version and minimum version.
+1. In the Solution Explorer window, right-click the **DigitRecognizer** project and select **Manage NuGet Packages...**. Click **Browse**. Then type "webapi.client" (without quotation marks) into the search box. Click **Microsoft.AspNet.WebApi.Client** to select the Web API client package from NuGet. Finally, click **Install** to install the latest stable version of the package. This package contains helper APIs that your app will use to communicate with the Web service. OK any changes and accept any licenses presented to you.
 
-    ![Selecting UWP versions](Images/specify-uwp-version.png)
-
-    _Selecting UWP versions_
-
-1. In the Solution Explorer window, right-click the **MLClient** project and select **Manage NuGet Packages...**
-
-    ![Managing NuGet Packages for the project](Images/manage-nuget-packages.png)
-
-    _Managing NuGet Packages for the project_
-
-	> NuGet is a free and open-source package manager for Microsoft development platforms. It provides access to thousands of libraries, or *packages*, containing code to perform a variety of tasks. It is integrated into Visual Studio 2015, which makes it easy to add NuGet packages to your project and make a lot of things happen without writing a lot of code.
-
-1. Click **Browse**. Then type "webapi.client" (without quotation marks) into the search box. Click **Microsoft.AspNet.WebApi.Client** to select the Web API client package from NuGet. Finally, click **Install** to install the latest stable version of the package. This package contains helper APIs that your app will use to communicate with the Web service. Click **OK** if you're prompted to review changes, and **I Accept** when prompted to accept licenses for the downloaded packages.
+	> NuGet is a free and open-source package manager for Microsoft development platforms. It provides access to thousands of libraries, or *packages*, containing code to perform a variety of tasks. It is integrated into Visual Studio, which makes it easy to add NuGet packages to your project and make a lot of things happen without writing a lot of code.
 
     ![Installing the Web API Client](Images/install-webapi-client.png)
 
     _Installing the Web API Client_
 
-1. Right-click the **MLClient** project in the Solution Explorer window and select **Add -> Class** to add a class to the project. In the ensuing dialog, type "StringTable.cs" (without quotation marks) into the **Name** box and click **Add**.
-
-    ![Adding a StringTable class](Images/add-stringtable-class.png)
-
-    _Adding a StringTable class_
-
-1. Implement the StringTable class as follows:
+1. Right-click the project in Solution Explorer and use the **Add -> Class...** command to add a class file named **StringTable.cs**. Then replace the ```StringTable``` class in the file with this one:
 
 	```C#
 	class StringTable
@@ -418,13 +400,13 @@ In this exercise, you will write a client app that targets the [Universal Window
 	}
 	```
 
-1. Open **MainPage.xaml** and find the empty Grid element highlighted below.
+1. Open **MainPage.xaml** and find the empty ```Grid``` element highlighted below.
 
     ![The empty Grid element](Images/empty-grid-element.png)
 
     _The empty Grid element_
 
-1. Replace the empty Grid with the following markup:
+1. Replace the empty ```Grid``` element with the following markup:
 
 	```xaml
 	<StackPanel VerticalAlignment="Center">
@@ -437,9 +419,9 @@ In this exercise, you will write a client app that targets the [Universal Window
 	</StackPanel>
 	```
 
-	> The markup that you just inserted is [Extensible Application Markup Language](https://msdn.microsoft.com/en-us/library/cc189036(VS.95).aspx), or XAML. XAML is a language created by Microsoft for building user interfaces. It was originally created for WPF, but has since been repurposed for universal Windows apps. Combined with [Xamarin Forms](https://www.xamarin.com/forms), it can even be used to build user interfaces for iOS and Android. It is an extremely expressive language that enjoys designer support in Visual Studio and other popular tools.
+	The markup that you just inserted is [Extensible Application Markup Language](https://msdn.microsoft.com/en-us/library/cc189036(VS.95).aspx), or XAML. XAML is a language created by Microsoft for building user interfaces. It was originally created for WPF, but has since been repurposed for universal Windows apps. Combined with [Xamarin Forms](https://www.xamarin.com/forms), it can even be used to build user interfaces for iOS and Android. It is an extremely expressive language that enjoys designer support in Visual Studio and other popular tools.
 
-1. Now open **MainPage.xaml.cs** and add the following using statements to those already at the top of the page:
+1. Now open **MainPage.xaml.cs** and add the following ```using``` statements to those already at the top of the file:
 
 	```C#
 	using Windows.UI.Xaml.Shapes;
@@ -453,7 +435,7 @@ In this exercise, you will write a client app that targets the [Universal Window
 	using Newtonsoft.Json;
 	```
 
-1. Still in **MainPage.xaml.cs**, replace everything inside the MainPage class with the following code:
+1. Still in **MainPage.xaml.cs**, replace everything inside the ```MainPage``` class with the following code:
 
 	```C#
 	private const double _margin = 2.0;  // Margin around each cell
@@ -609,9 +591,9 @@ In this exercise, you will write a client app that targets the [Universal Window
 	            GlobalParameters = new Dictionary<string, string>() { }
 	        };
 	
-	        const string key = "api_key";
+	        const string key = "API_KEY";
 	        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", key);
-	        client.BaseAddress = new Uri("web_service_url");
+	        client.BaseAddress = new Uri("WEB_SERVICE_URL");
 	
 	        HttpResponseMessage response = await client.PostAsJsonAsync("", request).ConfigureAwait(false);
 	
@@ -638,27 +620,27 @@ In this exercise, you will write a client app that targets the [Universal Window
 
 	Admittedly, that's a lot of code. But it packs a lot of punch, too. Here are a few parts of it that you may care to examine more closely:
 
-	- MainPage's class constructor fills the Grid element declared in MainPage.xaml with XAML Rectangles to form an 8x8 grid. XAML elements such as this are normally created declaratively, but in this case, creating them in code prevents MainPage.xaml from being filled with row after row of nearly identical Rectangle elements.
-	- OnCellEntered is the method called when a finger, pen, or mouse (in UWP parlance, a "pointing device") makes contact with any of the 64 Rectangles. Its job: toggle the Rectangle "on" or "off" by changing its opacity.
-	- The OnSubmit method is called when you click the Submit button. It scans the 8x8 grid to determine which squares are "on," and then passes the data to MLSubmit.
-	- MLSubmitAsync is where the magic happens. It uses UWP's HttpClient class to place a REST call to the Web service. It is closely patterned after the C# sample code presented on the Web service's dashboard.
+	- ```MainPage```'s class constructor fills the ```Grid``` element declared in **MainPage.xaml** with XAML Rectangles to form an 8x8 grid. XAML elements such as this are normally created declaratively, but in this case, creating them in code prevents **MainPage.xaml** from being filled with row after row of nearly identical Rectangle elements.
+	- ```OnCellEntered``` is the method called when a finger, pen, or mouse (in UWP parlance, a "pointing device") makes contact with any of the 64 Rectangles. Its job: toggle the Rectangle "on" or "off" by changing its opacity.
+	- The ```OnSubmit``` method is called when you click the **Submit** button. It scans the 8x8 grid to determine which squares are "on," and then passes the data to ```MLSubmit```.
+	- ```MLSubmitAsync``` is where the magic happens. It uses UWP's ```HttpClient``` class to place a REST call to the Web service. It is closely patterned after the C# sample code presented on the Web service's dashboard.
 	
-1. In the source code you just inserted, replace *api_key* with the API key for your Web service obtained in Exercise 5, Step 5.
+1. In the source code you just inserted, replace API_KEY with the API key obtained in Exercise 5, Step 5.
 
-1. Next, replace *web\_service\_url* with the URL of your Web service obtained in Exercise 5, Step 7.
+1. Next, replace WEB_SERVICE_URL with the URL of your Web service obtained in Exercise 5, Step 7.
 
-1. Go to the **Build** menu at the top of the Visual Studio window and use the **Build Solution** command to build the solution. Correct any build errors that are reported, and then press **Ctrl+F5** to launch the app. Confirm that it looks like this:
+1. Use the **Build -> Build Solution** command to build the solution. Correct any build errors that are reported, and then press **Ctrl+F5** to launch the app. Confirm that it looks like this:
 
-    ![The MLClient app](Images/mlclient-app-1.png)
+    ![The DigitRecognizer app](Images/mlclient-app-1.png)
 
-    _The MLClient app_
+    _The DigitRecognizer app_
 
 Congratulations! You just built a universal Windows app that relies on Azure Machine Learning for intelligence. The final task is to try it out and see how intelligent the app really is.
 
 <a name="Exercise7"></a>
 ## Exercise 7: Test the model
 
-MLClient puts a graphical front end on Web-service calls. You draw a digit into the grid of squares by dragging a finger, pen, or mouse over the squares. Clicking the **Submit** button creates an array of 64 values (one per square, and one for each of the 64 feature columns in the training dataset), serializes it into JSON, and passes it to the Web service. The app deserializes the JSON that comes back and displays the result. In essence, MLClient provides a highly visual way to gauge the accuracy of your ML model.
+DigitRecognizer puts a graphical front end on Web-service calls. You draw a digit into the grid of squares by dragging a finger, pen, or mouse over the squares. Clicking the **Submit** button creates an array of 64 values (one per square, and one for each of the 64 feature columns in the training dataset), serializes it into JSON, and passes it to the Web service. The app deserializes the JSON that comes back and displays the result. In essence, DigitRecognizer provides a highly visual way to gauge the accuracy of your ML model.
 
 1. Use your mouse to sketch a "7" into the grid, similar to the one shown below. Then click the **Submit** button.
 
@@ -674,21 +656,7 @@ MLClient puts a graphical front end on Web-service calls. You draw a digit into 
 
 1. Click the **Clear** button to clear the grid and try a few other digits. You'll probably find that the model you built is better at identifying some digits than others, and that you get the best results when the digits you draw fill the expanse of the grid as much as possible.
 
-	> The incorrect answers are partly the result of the relatively small dataset you trained the model with (the dataset was roughly 0.5 MB, which is small by big-data standards), and partly due to the fact that the onscreen grid MLClient displays uses only 1/16th the resolution of the scans that the model was trained with. Nonetheless, it's a pretty impressive feat for an app to perform basic OCR in this manner. And it's indicative of the kinds of apps you can build when you have Azure Machine Learning doing the heavy lifting.
-
-1. Recall that one of the benefits of the Universal Windows Platform is that apps can run on a variety of devices. To see how MLClient would look on a tablet, select **Simulator** from the drop-down list of devices under the menu bar.
-
-    ![Selecting simulator output](Images/switch-to-simulator.png)
-
-    _Switching from Local Machine to the Windows Simulator_
-
-1. Now press **Ctrl+F5** to launch the app in the simulator.
-
-    ![MLClient on a tablet](Images/simulator.png)
-
-    _MLClient on a tablet_
-
-Typically, a developer does a little extra work to optimize the way a UWP app is displayed on different devices. That's beyond the scope of this lab, but something to be aware of if you plan to use UWP apps in your work or business. [Here's a video](https://channel9.msdn.com/Series/Windows-10-development-for-absolute-beginners/UWP-038-Working-with-Adaptive-Layout) with information about using adaptive layouts to make a UWP app look great on a wide range of devices.
+The incorrect answers are partly the result of the relatively small dataset you trained the model with (the dataset was roughly 0.5 MB, which is small by big-data standards), and partly due to the fact that the onscreen grid DigitRecognizer displays uses only 1/16th the resolution of the scans that the model was trained with. Nonetheless, it's a pretty impressive feat for an app to perform basic OCR in this manner. And it's indicative of the kinds of apps you can build when you have Azure Machine Learning doing the heavy lifting.
 
 ## Summary
 
@@ -704,4 +672,4 @@ There's much more than you can do with Azure Machine Learning, but this is a sta
 
 ----
 
-Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
+Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.

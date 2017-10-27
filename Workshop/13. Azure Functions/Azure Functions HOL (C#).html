@@ -539,7 +539,7 @@ vertical-align:1px;
 <p><em>Opening blob storage</em></p>
 </li>
 <li>
-<p>Click <strong>+ Container</strong>. Type "uploaded" into the <strong>Name</strong> box and set <strong>Access type</strong> to <strong>Private</strong>. Then click the <strong>OK</strong> button to create a new container.</p>
+<p>Click <strong>+ Container</strong>. Type "uploaded" into the <strong>Name</strong> box and set <strong>Public access level</strong> to <strong>Private</strong>. Then click the <strong>OK</strong> button to create a new container.</p>
 <p><a href="Images/add-container.png" target="_blank"><img src="Images/add-container.png" alt="Adding a container" style="max-width:100%;"></a></p>
 <p><em>Adding a container</em></p>
 </li>
@@ -563,12 +563,12 @@ vertical-align:1px;
 <p><em>Opening the Function App</em></p>
 </li>
 <li>
-<p>Click the <strong>+</strong> sign to the right of <strong>Functions</strong>. Then click <strong>Custom function</strong>.</p>
+<p>Click the <strong>+</strong> sign to the right of <strong>Functions</strong>. Set the language to <strong>CSharp</strong>, and then click <strong>Custom function</strong>.</p>
 <p><a href="Images/add-function.png" target="_blank"><img src="Images/add-function.png" alt="Adding a function" style="max-width:100%;"></a></p>
 <p><em>Adding a function</em></p>
 </li>
 <li>
-<p>Set <strong>Language</strong> to <strong>C#</strong>. Then click <strong>BlobTrigger-CSharp</strong>.</p>
+<p>Set <strong>Language</strong> to <strong>C#</strong>. Then click <strong>BlobTrigger - C#</strong>.</p>
 <p><a href="Images/cs-select-template.png" target="_blank"><img src="Images/cs-select-template.png" alt="Selecting a function template" style="max-width:100%;"></a></p>
 <p><em>Selecting a function template</em></p>
 </li>
@@ -685,9 +685,7 @@ vertical-align:1px;
     <span class="pl-k">public </span><span class="pl-k">float</span> <span class="pl-en">adultScore</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
     <span class="pl-k">public </span><span class="pl-k">float</span> <span class="pl-en">racyScore</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }</pre></div>
-<blockquote>
-<p><strong>Run</strong> is the method called each time the function is executed. The <strong>Run</strong> method uses a helper method named <strong>AnalyzeImageAsync</strong> to pass each blob added to the "uploaded" container to the Computer Vision API for analysis. Then it calls a helper method named <strong>StoreBlobWithMetadata</strong> to create a copy of the blob in either the "accepted" container or the "rejected" container, depending on the scores returned by <strong>AnalyzeImageAsync</strong>.</p>
-</blockquote>
+<p><code>Run</code> is the method called each time the function is executed. The <code>Run</code> method uses a helper method named <code>AnalyzeImageAsync</code> to pass each blob added to the "uploaded" container to the Computer Vision API for analysis. Then it calls a helper method named <code>StoreBlobWithMetadata</code> to create a copy of the blob in either the "accepted" container or the "rejected" container, depending on the scores returned by <code>AnalyzeImageAsync</code>.</p>
 </li>
 <li>
 <p>Click the <strong>Save</strong> button at the top of the code editor to save your changes. Then click <strong>View files</strong>.</p>
@@ -748,12 +746,12 @@ vertical-align:1px;
 <p><em>Copying the access key</em></p>
 </li>
 <li>
-<p>Return to the Function App in the Azure Portal and click the function name in the ribbon on the left. Then click <strong>Platform features</strong>, followed by <strong>Application settings</strong>.</p>
+<p>Return to the Function App in the Azure Portal and click the app name in the ribbon on the left. Then click <strong>Application settings</strong>.</p>
 <p><a href="Images/open-app-settings.png" target="_blank"><img src="Images/open-app-settings.png" alt="Viewing application settings" style="max-width:100%;"></a></p>
 <p><em>Viewing application settings</em></p>
 </li>
 <li>
-<p>Scroll down to the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the <strong>Value</strong> box. Then add a setting named "VisionEndpoint" and set its value to the endpoint URL you saved in Step 4. Finish up by clicking <strong>Save</strong> at the top of the blade.</p>
+<p>Scroll down to the "Application settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the <strong>Value</strong> box. Then add a setting named "VisionEndpoint" and set its value to the endpoint URL you saved in Step 4. Finish up by clicking <strong>Save</strong> at the top of the blade.</p>
 <p><a href="Images/add-keys.png" target="_blank"><img src="Images/add-keys.png" alt="Adding application settings" style="max-width:100%;"></a></p>
 <p><em>Adding application settings</em></p>
 </li>
@@ -806,7 +804,7 @@ vertical-align:1px;
 <li>
 <p>Verify that the "accepted" container holds seven images. <strong>These are the images that were classified as neither adult nor racy by the Computer Vision API</strong>.</p>
 <blockquote>
-<p>It may take a minute or more for all of the images to appear in the container. If necessary, click <strong>Refresh</strong> every few seconds until you see all seven images.</p>
+<p>Because you chose "Consumption Plan" when creating the Function App, it may take a few minutes for all of the images to appear in the container. If necessary, click <strong>Refresh</strong> periodically until you see all seven images.</p>
 </blockquote>
 <p><a href="Images/accepted-images.png" target="_blank"><img src="Images/accepted-images.png" alt="Images in the &quot;accepted&quot; container" style="max-width:100%;"></a></p>
 <p><em>Images in the "accepted" container</em></p>
@@ -831,9 +829,6 @@ vertical-align:1px;
 </li>
 <li>
 <p>Find the storage account that was created for your Azure Function App in <a href="#Exercise1">Exercise 1</a> and expand the list of blob containers underneath it. Then click the container named "rejected."</p>
-<blockquote>
-<p>If this is the first time you have run Storage Explorer, you may have to click the person icon and tell it which Azure subscription or subscriptions you want it to display.</p>
-</blockquote>
 <p><a href="Images/explorer-open-rejected-container.png" target="_blank"><img src="Images/explorer-open-rejected-container.png" alt="Opening the &quot;rejected&quot; container" style="max-width:100%;"></a></p>
 <p><em>Opening the "rejected" container</em></p>
 </li>
@@ -863,7 +858,7 @@ vertical-align:1px;
 </ul>
 <p>This is just one example of how you can leverage Azure Functions to automate repetitive tasks. Experiment with other Azure Function templates to learn more about Azure Functions and to identify additional ways in which they can aid your research or business.</p>
 <hr>
-<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

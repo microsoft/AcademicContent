@@ -4,6 +4,15 @@ This folder contains scripts that complement the functionality of the Azure Educ
 <td>Task</td>   <td>Script</td>   <td> Documentation </td>
 </tr>
 <tr>
+<td>Bulk Sandbox Deployment Automation</td>
+<td>change-vm-state.sh</p>create-vm-image.sh</p> deploy-vm.sh</td>
+<td>Educators want a simple way to provide students with VMs based on a specific VM image (for example, Data Science VM), so students can learn the fundamentals of data science. These scripts achieve the following user stories:</p>
+Ability to deploy multiple DSVMs (Data Science Virtual Machine) in either Windows, Ubuntu, of Linux CentOS</p>
+Ability to deploy VMs from marketplace image, custom image, or DSVM</p>
+Ability to deploy VMs across one or multiple subscriptions (i.e. Each VM can be in its own subscription)</p>
+Ability for each VM to have its own Resource Group</p>
+Ability to create a clean VM image from a VM</td>
+</tr>
 <td>Create bulk accounts </td>
 <td>createstudents.sh and Students.csv</td>
 <td>This bash script will read a list of accounts to create from a csv to bulk create email adresses for students taking a course. It will assign an Azure subscription to each of the students.
@@ -22,7 +31,6 @@ a website and PowerBI dashboard to visualize Azure service billing and usage det
 Portal subscriptions or through Azure passes. You set up the solution for the faculty member. The students register their Azure subscription wih the system and the professor is able to
 view usage and billing for each registered user. Full documentation on how to install and use the tool is available on Github <a href="https://github.com/Microsoft/AzureUsageAndBillingPortal">Azure Billing Portal GitHub</a>
 </tr>
-
 </td>
 <tr>
 <td> Powershell Function for creating Azure Resource Groups and signing user access perfect solution for Group projects</td>

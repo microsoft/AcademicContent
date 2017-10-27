@@ -473,9 +473,9 @@ vertical-align:1px;
 <hr>
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
-<p>Azure Stream Analytics is a cloud-based service for ingesting high-velocity data streaming from devices, sensors, applications, Web sites, and other data sources and analyzing that data in real time. It supports a SQL-like query language that works over dynamic data streams and makes analyzing constantly changing data no more difficult than performing queries on static data stored in traditional databases. With Azure Stream Analytics, you can set up jobs that analyze incoming data for anomalies or information of interest and record the results, present notifications on dashboards, or even fire off alerts to mobile devices. And all of it can be done at low cost and with a minimum of effort.</p>
+<p><a href="https://azure.microsoft.com/services/stream-analytics/">Azure Stream Analytics</a> is a cloud-based service for ingesting high-velocity data streaming from devices, sensors, applications, Web sites, and other data sources and analyzing that data in real time. It supports a <a href="https://msdn.microsoft.com/library/azure/dn834998.aspx">SQL-like query language</a> that works over dynamic data streams and makes analyzing constantly changing data no more difficult than performing queries on static data stored in traditional databases. With Azure Stream Analytics, you can set up jobs that analyze incoming data for anomalies or information of interest and record the results, present notifications on dashboards, or even fire off alerts to mobile devices. And all of it can be done at low cost and with a minimum of effort.</p>
 <p>Scenarios for the application of real-time data analytics are legion and include fraud detection, identity-theft protection, optimizing the allocation of resources (think of an Uber-like transportation service that sends drivers to areas of increasing demand <em>before</em> that demand peaks), click-stream analysis on Web sites, shopping suggestions on retail-sales sites, and countless others. Having the ability to process data <em>as it comes in</em> rather than waiting until after it has been aggregated offers a competitive advantage to businesses that are agile enough to make adjustments on the fly.</p>
-<p>In this lab, you'll create an Azure Stream Analytics job and use it to analyze data streaming in from simulated Internet of Things (IoT) devices. And you'll see how simple it is to monitor real-time data streams for information of significance to your research or business .And at the end, you will build a Web app that shows output from the Stream Analytics job in real time.</p>
+<p>In this lab, you'll create an Azure Stream Analytics job and use it to analyze data streaming in from simulated Internet of Things (IoT) devices. You will see how simple it is to monitor real-time data streams for information of significance to your research or business .And at the end, you will build a Web app that shows output from the Stream Analytics job in real time.</p>
 <p><a name="Objectives"></a></p>
 <h3>Objectives</h3>
 <p>In this hands-on lab, you will learn how to:</p>
@@ -490,7 +490,7 @@ vertical-align:1px;
 <p>The following is required to complete this hands-on lab:</p>
 <ul>
 <li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li><a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio 2015 Community edition</a> or higher</li>
+<li><a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio 2017 Community edition</a> or higher</li>
 </ul>
 <hr>
 <p><a name="Exercises"></a></p>
@@ -545,7 +545,7 @@ vertical-align:1px;
 <p><em>Creating an event hub</em></p>
 </li>
 <li>
-<p>Wait for the event hub to be created. Then scroll to the bottom of the blade and click the event hub name.</p>
+<p>Wait for the event hub to be created. Then click the event-hub name.</p>
 <p><a href="Images/open-event-hub.png" target="_blank"><img src="Images/open-event-hub.png" alt="Opening the event hub" style="max-width:100%;"></a></p>
 <p><em>Opening the event hub</em></p>
 </li>
@@ -565,7 +565,7 @@ vertical-align:1px;
 <p><em>Opening the policy</em></p>
 </li>
 <li>
-<p>Click the <strong>Copy</strong> button to the right of the <strong>CONNECTION STRING-PRIMARY KEY</strong> box to copy the connection string containing the policy's shared-access key to the clipboard. Then temporarily save the connection string by pasting it into your favorite text editor. You'll need it in the next exercise.</p>
+<p>Click the <strong>Copy</strong> button to the right of the <strong>Connection string—primary key</strong> box to copy the connection string containing the policy's shared-access key to the clipboard. Then temporarily save the connection string by pasting it into your favorite text editor. You'll need it in the next exercise.</p>
 <p><a href="Images/copy-connection-string.png" target="_blank"><img src="Images/copy-connection-string.png" alt="Copying the connection string to the clipboard" style="max-width:100%;"></a></p>
 <p><em>Copying the connection string to the clipboard</em></p>
 </li>
@@ -576,35 +576,20 @@ vertical-align:1px;
 <p>Applications, devices, and gateways can send events to Azure event hubs using the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx">Azure Event Hubs REST API</a> or the <a href="https://www.amqp.org/">Advanced Message Queuing Protocol</a>, or AMQP for short. In this exercise, you will write a Windows console app that uses AMQP to send events to the event hub you created in <a href="#Exercise1">Exercise 1</a>. Each event will represent a withdrawal from an ATM machine, and will contain relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.</p>
 <ol>
 <li>
-<p>Start Visual Studio 2015 and use the <strong>File -&gt; New -&gt; Project</strong> command to create a new Windows Console Application named "ATMEventGenerator."</p>
+<p>Start Visual Studio and use the <strong>File -&gt; New -&gt; Project</strong> command to create a new Windows Console App named "ATMEventGenerator."</p>
 <p><a href="Images/mvc-new-console-app.png" target="_blank"><img src="Images/mvc-new-console-app.png" alt="Creating a new console app" style="max-width:100%;"></a></p>
 <p><em>Creating a new console app</em></p>
 </li>
 <li>
-<p>In the Solution Explorer window, right-click the <strong>ATMEventGenerator</strong> project and select <strong>Manage NuGet Packages...</strong></p>
-<p><a href="Images/mvc-manage-nuget-packages.png" target="_blank"><img src="Images/mvc-manage-nuget-packages.png" alt="Managing NuGet Packages for the project" style="max-width:100%;"></a></p>
-<p><em>Managing NuGet Packages for the project</em></p>
+<p>In the Solution Explorer window, right-click the <strong>ATMEventGenerator</strong> project and select <strong>Manage NuGet Packages...</strong>. Click <strong>Browse</strong>. Then type "windowsazure.servicebus" (without quotation marks) into the search box. Click <strong>WindowsAzure.ServiceBus</strong> to select the Azure service-bus package from NuGet. Finally, click <strong>Install</strong> to install the latest stable version of the package, and accept any licenses presented to you. This package contains the APIs that your app will use to send events to the event hub.</p>
 <blockquote>
-<p>NuGet is a free and open-source package manager for Microsoft development platforms. It provides access to thousands of libraries, or <em>packages</em>, containing code to perform a variety of tasks. It is integrated into Visual Studio 2015, which makes it easy to add NuGet packages to your project and make a lot of things happen without writing a lot of code.</p>
+<p>NuGet is a free and open-source package manager for Microsoft development platforms. It provides access to thousands of libraries, or <em>packages</em>, containing code to perform a variety of tasks. It is integrated into Visual Studio, which makes it easy to add NuGet packages to your project and make a lot of things happen without writing a lot of code.</p>
 </blockquote>
-</li>
-<li>
-<p>Click <strong>Browse</strong>. Then type "azure" (without quotation marks) into the search box. Click <strong>WindowsAzure.ServiceBus</strong> to select the Azure service-bus package from NuGet. Finally, click <strong>Install</strong> to install the latest stable version of the package. This package contains the APIs that your app will use to send events to the event hub.</p>
 <p><a href="Images/mvc-install-servicebus-package.png" target="_blank"><img src="Images/mvc-install-servicebus-package.png" alt="Installing WindowsAzure.ServiceBus" style="max-width:100%;"></a></p>
 <p><em>Installing WindowsAzure.ServiceBus</em></p>
 </li>
 <li>
-<p>If prompted to review changes, click <strong>OK</strong>. Optionally check <strong>Do not show this again</strong> so you won't be prompted again.</p>
-<p><a href="Images/mvc-review-changes.png" target="_blank"><img src="Images/mvc-review-changes.png" alt="Reviewing changes" style="max-width:100%;"></a></p>
-<p><em>Reviewing changes</em></p>
-</li>
-<li>
-<p>If prompted to accept a license for the package, click <strong>I Accept</strong>..</p>
-<p><a href="Images/mvc-accept-license.png" target="_blank"><img src="Images/mvc-accept-license.png" alt="Accepting the package license" style="max-width:100%;"></a></p>
-<p><em>Accepting the package license</em></p>
-</li>
-<li>
-<p>Return to the search box and type "newtonsoft," again without quotation marks. Select <strong>Newtonsoft.Json</strong> and click <strong>Install</strong> to install the latest stable version of Json.NET. This package contains convenient APIs for generating and consuming JSON. If prompted to review changes, click <strong>OK</strong>.</p>
+<p>Return to the search box and type "newtonsoft," again without quotation marks. Select <strong>Newtonsoft.Json</strong> and click <strong>Install</strong> to install the latest stable version. This package contains convenient APIs for generating and consuming JSON.</p>
 <p><a href="Images/mvc-install-json.net-package.png" target="_blank"><img src="Images/mvc-install-json.net-package.png" alt="Installing Json.NET" style="max-width:100%;"></a></p>
 <p><em>Installing Json.NET</em></p>
 </li>
@@ -614,13 +599,13 @@ vertical-align:1px;
 <span class="pl-k">using</span> <span class="pl-en">Newtonsoft.Json</span>;</pre></div>
 </li>
 <li>
-<p>Replace the empty <code>Program</code> class with the following implementation:</p>
+<p>Replace the <code>Program</code> class with the following implementation:</p>
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">class</span> <span class="pl-en">Program</span>
 {
     <span class="pl-k">static </span><span class="pl-k">double</span> <span class="pl-en">_probability</span> = <span class="pl-c1">0.01</span>;
     <span class="pl-k">static </span><span class="pl-k">int</span> <span class="pl-en">_transactions</span> = <span class="pl-c1">0</span>;
     <span class="pl-k">static </span><span class="pl-k">int</span> <span class="pl-en">_cardNumber</span> = -<span class="pl-c1">1</span>;
-    <span class="pl-k">static </span><span class="pl-k">string</span> <span class="pl-en">_connectionString</span> = <span class="pl-s"><span class="pl-pds">"</span>connection_string<span class="pl-pds">"</span></span>;
+    <span class="pl-k">static </span><span class="pl-k">string</span> <span class="pl-en">_connectionString</span> = <span class="pl-s"><span class="pl-pds">"</span>CONNECTION_STRING<span class="pl-pds">"</span></span>;
 
     <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">Main</span>(<span class="pl-k">string</span>[] <span class="pl-smi">args</span>)
     {
@@ -662,11 +647,11 @@ vertical-align:1px;
 }</pre></div>
 </li>
 <li>
-<p>Replace <em>connection_string</em> in line 6 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 1, Step 12.</p>
+<p>Replace CONNECTION_STRING on line 16 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 1, Step 12.</p>
 </li>
 <li>
 <p>Remove ";EntityPath=inputhub" from the end of the connection string. The <code>_connectionString</code> field should now look something like this:</p>
-<div class="highlight highlight-source-cs"><pre><span class="pl-k">static</span> <span class="pl-k">string</span> <span class="pl-en">_connectionString</span> = <span class="pl-s"><span class="pl-pds">"</span>Endpoint=sb://streamanalytics-lab.servicebus.windows.net/;SharedAccessKeyName=SendPolicy;SharedAccessKey=Zx/fjB8kH3nuW789pUpXJ1S45FkCamJq9gYku6cRD3Y=<span class="pl-pds">"</span></span>;</pre></div>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">static</span> <span class="pl-k">string</span> <span class="pl-en">_connectionString</span> = <span class="pl-s"><span class="pl-pds">"</span>Endpoint=sb://stream-analytics-lab.servicebus.windows.net/;SharedAccessKeyName=SendPolicy;SharedAccessKey=Zx/fjB8kH3nuW789pUpXJ1S45FkMacJq9gYku6cRD3Y=<span class="pl-pds">"</span></span>;</pre></div>
 </li>
 <li>
 <p>Press <strong>Ctrl+F5</strong> to run the program and confirm that you see output similar to the following. Each line represents one event sent to the event hub, and events will roll by at a rate of several per second. (Rates will vary depending on your connection speed.) <strong>Confirm that no exceptions are reported in the output</strong>.</p>
@@ -713,7 +698,7 @@ vertical-align:1px;
 <p><em>Adding an input</em></p>
 </li>
 <li>
-<p>Type "Withdrawals" (without quotation marks) into the <strong>Input alias</strong> box. Make sure <strong>Source Type</strong> is set to <strong>Data stream</strong> and <strong>Source</strong> is set to <strong>Event hub</strong>. Also make sure <strong>Subscription</strong> is set to <strong>Use event hub from current subscription</strong>, <strong>Service bus namespace</strong> is set to the namespace you specified in Exercise 1, Step 3, and the event hub you created in Exercise 1 ("inputhub") is selected under <strong>Event hub name</strong>. Then select <strong>RootManageSharedAccessKey</strong> from the <strong>Event hub policy name</strong> drop-down and click the <strong>Create</strong> button at the bottom of the blade.</p>
+<p>Type "Withdrawals" (without quotation marks) into the <strong>Input alias</strong> box. Make sure <strong>Source Type</strong> is set to <strong>Data stream</strong> and <strong>Source</strong> is set to <strong>Event hub</strong>. Select the service-bus namespace and event hub ("inputhub") you created in <a href="#Exercise1">Exercise 1</a>. Then select <strong>RootManageSharedAccessKey</strong> from the <strong>Event hub policy name</strong> drop-down and click the <strong>Create</strong> button at the bottom of the blade.</p>
 <p><a href="Images/create-input.png" target="_blank"><img src="Images/create-input.png" alt="Creating an input" style="max-width:100%;"></a></p>
 <p><em>Creating an input</em></p>
 </li>
@@ -736,7 +721,7 @@ vertical-align:1px;
 <p><em>Specifying sampling parameters</em></p>
 </li>
 <li>
-<p>Wait a few seconds for sampling to complete, and when you are notified that the sample data can be downloaded, click to download it.</p>
+<p>Wait for sampling to complete, and when you are notified that the sample data can be downloaded, click to download it.</p>
 <p><a href="Images/sample-data-3.png" target="_blank"><img src="Images/sample-data-3.png" alt="Data sampling completed" style="max-width:100%;"></a></p>
 <p><em>Data sampling completed</em></p>
 </li>
@@ -758,7 +743,7 @@ vertical-align:1px;
 <p>You have connected a Stream Analytics job to an event hub and demonstrated that data is passed from one to the other. You have also sampled the data input to the Stream Analytics job and examined its structure. The next step is to do something with it — specifically, to bring the power of Azure Stream Analytics to bear on the data.</p>
 <p><a name="Exercise4"></a></p>
 <h2>Exercise 4: Prepare queries and test with sample data</h2>
-<p>Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query the data in real time. In this exercise, you'll use the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn834998.aspx">Stream Analytics Query Language</a> to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.</p>
+<p>Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query real-time data streams. In this exercise, you will use the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn834998.aspx">Stream Analytics Query Language</a> to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.</p>
 <p>To flag potentially fraudulent withdrawals from ATMs, you will query for transactions performed with the same ATM card at different ATM machines within a specified time window (60 seconds). In real life, you would probably use a larger time window and perhaps even factor in the distance between ATM machines. However, a narrower time window is useful in a lab environment because it allows you to perform meaningful experiments in minutes rather than hours.</p>
 <ol>
 <li>
@@ -855,7 +840,7 @@ vertical-align:1px;
 </li>
 <li>
 <p>Click <strong>+ Event Hub</strong> to add an event hub to the namespace.</p>
-<p><a href="Images/add-event-hub.png" target="_blank"><img src="Images/add-event-hub.png" alt="Adding an event hub" style="max-width:100%;"></a></p>
+<p><a href="Images/add-event-hub-2.png" target="_blank"><img src="Images/add-event-hub-2.png" alt="Adding an event hub" style="max-width:100%;"></a></p>
 <p><em>Adding an event hub</em></p>
 </li>
 <li>
@@ -864,7 +849,7 @@ vertical-align:1px;
 <p><em>Creating an event hub</em></p>
 </li>
 <li>
-<p>Wait a moment for the event hub to be created. Then scroll to the bottom of the blade and click the event hub name.</p>
+<p>Wait a moment for the event hub to be created. Then click the event-hub name.</p>
 <p><a href="Images/open-event-hub-2.png" target="_blank"><img src="Images/open-event-hub-2.png" alt="Opening the event hub" style="max-width:100%;"></a></p>
 <p><em>Opening the event hub</em></p>
 </li>
@@ -875,8 +860,8 @@ vertical-align:1px;
 </li>
 <li>
 <p>Type "ReceivePolicy" (without quotation marks) into the <strong>Policy name</strong> box and check the <strong>Listen</strong> box. Then click the <strong>Create</strong> button to create the new policy.</p>
-<p><a href="Images/create-listen-policy.png" target="_blank"><img src="Images/create-listen-policy.png" alt="Creating a send policy" style="max-width:100%;"></a></p>
-<p><em>Creating a send policy</em></p>
+<p><a href="Images/create-listen-policy.png" target="_blank"><img src="Images/create-listen-policy.png" alt="Creating a receive policy" style="max-width:100%;"></a></p>
+<p><em>Creating a receive policy</em></p>
 </li>
 <li>
 <p>Wait a moment for <strong>ReceivePolicy</strong> to appear in the policies list, and then click it.</p>
@@ -884,7 +869,7 @@ vertical-align:1px;
 <p><em>Opening the policy</em></p>
 </li>
 <li>
-<p>Click the <strong>Copy</strong> button to the right of the <strong>CONNECTION STRING-PRIMARY KEY</strong> box to copy the connection string containing the policy's shared-access key to the clipboard. Then temporarily save the connection string by pasting it into your favorite text editor. You'll need it in the next exercise.</p>
+<p>Click the <strong>Copy</strong> button to the right of the <strong>Connection string—primary key</strong> box to copy the connection string containing the policy's shared-access key to the clipboard. Then temporarily save the connection string by pasting it into your favorite text editor. You'll need it in the next exercise.</p>
 <p><a href="Images/copy-connection-string-2.png" target="_blank"><img src="Images/copy-connection-string-2.png" alt="Copying the connection string to the clipboard" style="max-width:100%;"></a></p>
 <p><em>Copying the connection string to the clipboard</em></p>
 </li>
@@ -920,21 +905,15 @@ vertical-align:1px;
 <p><em>Adding a storage account</em></p>
 </li>
 <li>
-<p>In the ensuing blade, enter a name for the new storage account in <strong>Name</strong> field.</p>
+<p>In the ensuing blade, enter a unique name for the new storage account and make sure a green check mark appears next to it. Select <strong>Use existing</strong> under <strong>Resource group</strong> and select the resource group named "StreamAnalyticsResourceGroup" so the storage account will belong to the same resource group as the Stream Analytics job and the event hubs. Select the same <strong>Location</strong> you selected in previous exercises. Then click the <strong>Create</strong> button at the bottom of the blade.</p>
 <blockquote>
 <p>Storage account names must be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure.</p>
 </blockquote>
-<p>Once you have a unique name that Azure will accept (as indicated by the green check mark in the <strong>Name</strong> field), select <strong>Use existing</strong> under <strong>Resource group</strong> and select the resource group named "StreamAnalyticsResourceGroup" so the storage account will belong to the same resource group as the Stream Analytics job and the event hub. Select the location nearest you (the same one you selected for the event hub in <a href="#Exercise1">Exercise 1</a> and the Stream Analytics job in <a href="#Exercise3">Exercise 3</a>) in the <strong>Location</strong> box. Then click the <strong>Create</strong> button at the bottom of the blade.</p>
 <p><a href="Images/create-storage-account.png" target="_blank"><img src="Images/create-storage-account.png" alt="Creating a storage account" style="max-width:100%;"></a></p>
 <p><em>Creating a storage account</em></p>
 </li>
 <li>
-<p>Click <strong>Resource groups</strong> in the ribbon on the left, and then click the "StreamAnalyticsResourceGroup" resource group.</p>
-<p><a href="Images/open-resource-group.png" target="_blank"><img src="Images/open-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
-<p><em>Opening the resource group</em></p>
-</li>
-<li>
-<p>Click the storage account you created in Step 2.</p>
+<p>Return to the "StreamAnalyticsResourceGroup" resource group and click the storage account you created in Step 2.</p>
 <p><a href="Images/open-storage-account.png" target="_blank"><img src="Images/open-storage-account.png" alt="Opening the storage account" style="max-width:100%;"></a></p>
 <p><em>Opening the storage account</em></p>
 </li>
@@ -944,27 +923,22 @@ vertical-align:1px;
 <p><em>Copying the access key</em></p>
 </li>
 <li>
-<p>Start a new instance of Visual Studio 2015 and use the <strong>File -&gt; New -&gt; Project</strong> command to create a new ASP.NET Web Application named "ATMDashboard."</p>
+<p>Start a new instance of Visual Studio and use the <strong>File -&gt; New -&gt; Project</strong> command to create a new ASP.NET Web Application named "ATMDashboard."</p>
 <p><a href="Images/mvc-new-web-application.png" target="_blank"><img src="Images/mvc-new-web-application.png" alt="Creating a new Web app" style="max-width:100%;"></a></p>
 <p><em>Creating a new Web app</em></p>
 </li>
 <li>
-<p>In the "New ASP.NET Project" dialog, select <strong>MVC</strong> and check the <strong>Web API</strong> box. If <strong>Host in the cloud</strong> is checked, uncheck it. (For testing purposes, you will run this Web app locally.) Then click <strong>OK</strong>.</p>
+<p>In the ensuing dialog, make sure <strong>MVC</strong> is selected and check the <strong>Web API</strong> box. Then click <strong>OK</strong>.</p>
 <p><a href="Images/mvc-new-web-application-2.png" target="_blank"><img src="Images/mvc-new-web-application-2.png" alt="Specifying parameters for the Web app" style="max-width:100%;"></a></p>
 <p><em>Specifying parameters for the Web app</em></p>
 </li>
 <li>
-<p>In the Solution Explorer window, right-click the <strong>ATMDashboard</strong> project and select <strong>Manage NuGet Packages...</strong></p>
-<p><a href="Images/mvc-manage-nuget-packages-2.png" target="_blank"><img src="Images/mvc-manage-nuget-packages-2.png" alt="Managing NuGet Packages for the project" style="max-width:100%;"></a></p>
-<p><em>Managing NuGet Packages for the project</em></p>
-</li>
-<li>
-<p>Click <strong>Browse</strong>. Then type "eventprocessor" (without quotation marks) into the search box. Click <strong>Microsoft.Azure.ServiceBus.EventProcessorHost</strong> to select the Azure EventProcessorHost package from NuGet. Finally, click <strong>Install</strong> to install the latest stable version of the package. This package contains the APIs that your app will use to receive events from the output event hub. Click <strong>OK</strong> if you're prompted review changes, and <strong>I Accept</strong> when prompted to accept licenses for the downloaded packages.</p>
+<p>In the Solution Explorer window, right-click the <strong>ATMDashboard</strong> project and select <strong>Manage NuGet Packages...</strong>. Click <strong>Browse</strong>. Then type "eventprocessor" into the search box. Click <strong>Microsoft.Azure.ServiceBus.EventProcessorHost</strong> to select the Azure EventProcessorHost package from NuGet. Finally, click <strong>Install</strong> to install the latest stable version of the package. This package contains the APIs that your app will use to receive events from the output event hub.</p>
 <p><a href="Images/mvc-install-eventprocessorhost.png" target="_blank"><img src="Images/mvc-install-eventprocessorhost.png" alt="Installing EventProcessorHost" style="max-width:100%;"></a></p>
 <p><em>Installing EventProcessorHost</em></p>
 </li>
 <li>
-<p>Right-click the project in the Solution Explorer window and use the <strong>Add -&gt; Class</strong> command to add a class file named <strong>ATMEvent.cs</strong> to the project.</p>
+<p>Right-click the project in the Solution Explorer window and use the <strong>Add -&gt; Class...</strong> command to add a class file named <strong>ATMEvent.cs</strong> to the project.</p>
 <p><a href="Images/mvc-add-atmevent-class.png" target="_blank"><img src="Images/mvc-add-atmevent-class.png" alt="Adding the ATMEvent class" style="max-width:100%;"></a></p>
 <p><em>Adding the ATMEvent class</em></p>
 </li>
@@ -973,7 +947,7 @@ vertical-align:1px;
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">Newtonsoft.Json</span>;</pre></div>
 </li>
 <li>
-<p>Implement the <code>ATMEvent</code> class as follows:</p>
+<p>Replace the <code>ATMEvent</code> class with the following implementation:</p>
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">ATMEvent</span>
 {
     [JsonProperty(PropertyName = <span class="pl-s"><span class="pl-pds">"</span>card number<span class="pl-pds">"</span></span>)]
@@ -989,12 +963,7 @@ vertical-align:1px;
 }</pre></div>
 </li>
 <li>
-<p>Right-click the project in the Solution Explorer window and use the <strong>Add -&gt; Class</strong> command to add a class file named <strong>ATMEventAggregator.cs</strong> to the project.</p>
-<p><a href="Images/mvc-add-atmeventaggregator-class.png" target="_blank"><img src="Images/mvc-add-atmeventaggregator-class.png" alt="Adding the ATMEventAggregator class" style="max-width:100%;"></a></p>
-<p><em>Adding the ATMEventAggregator class</em></p>
-</li>
-<li>
-<p>Implement the <code>ATMEventAggregator</code> class as follows:</p>
+<p>Right-click the project in Solution Explorer and use the <strong>Add -&gt; Class...</strong> command to add a class file named <strong>ATMEventAggregator.cs</strong> to the project. Then replace the <code>ATMEventAggregator</code> class with the following implementation:</p>
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">class</span> <span class="pl-en">ATMEventAggregator</span>
 {
     <span class="pl-k">private static </span><span class="pl-en">List</span>&lt;<span class="pl-en">ATMEvent</span>&gt; <span class="pl-en">_events</span> = <span class="pl-k">new</span> <span class="pl-en">List</span>&lt;ATMEvent&gt;();
@@ -1016,12 +985,7 @@ vertical-align:1px;
 }</pre></div>
 </li>
 <li>
-<p>Right-click the project in the Solution Explorer window and use the <strong>Add -&gt; Class</strong> command to add a class file named <strong>SimpleEventProcessor.cs</strong> to the project.</p>
-<p><a href="Images/mvc-add-simpleventprocessor-class.png" target="_blank"><img src="Images/mvc-add-simpleventprocessor-class.png" alt="Adding the SimpleEventProcessor class" style="max-width:100%;"></a></p>
-<p><em>Adding the SimpleEventProcessor class</em></p>
-</li>
-<li>
-<p>Add the following <code>using</code> statements to the ones at the top of the file:</p>
+<p>Right-click the project in Solution Explorer and use the <strong>Add -&gt; Class...</strong> command to add a class file named <strong>SimpleEventProcessor.cs</strong> to the project. Add the following <code>using</code> statements to the ones at the top of the file:</p>
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> <span class="pl-en">Microsoft.ServiceBus.Messaging</span>;
 <span class="pl-k">using</span> <span class="pl-en">System.Diagnostics</span>;
 <span class="pl-k">using</span> <span class="pl-en">System.Threading.Tasks</span>;
@@ -1029,7 +993,7 @@ vertical-align:1px;
 <span class="pl-k">using</span> <span class="pl-en">System.Text</span>;</pre></div>
 </li>
 <li>
-<p>Implement the <code>SimpleEventProcessor</code> class as follows:</p>
+<p>Replace the <code>SimpleEventProcessor</code> class with the following implementation:</p>
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">class</span> <span class="pl-en">SimpleEventProcessor</span> : <span class="pl-en">IEventProcessor</span>
 {
     <span class="pl-en">Stopwatch</span> <span class="pl-en">checkpointStopWatch</span>;
@@ -1080,10 +1044,10 @@ vertical-align:1px;
 </li>
 <li>
 <p>In <strong>Global.asax.cs</strong>, add the following statements to the end of the <code>Application_Start</code> method:</p>
-<div class="highlight highlight-source-cs"><pre><span class="pl-k">string</span> <span class="pl-en">eventHubConnectionString</span> = <span class="pl-s"><span class="pl-pds">"</span>connection_string<span class="pl-pds">"</span></span>;
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">string</span> <span class="pl-en">eventHubConnectionString</span> = <span class="pl-s"><span class="pl-pds">"</span>CONNECTION_STRING<span class="pl-pds">"</span></span>;
 <span class="pl-k">string</span> <span class="pl-en">eventHubName</span> = <span class="pl-s"><span class="pl-pds">"</span>outputhub<span class="pl-pds">"</span></span>;
-<span class="pl-k">string</span> <span class="pl-en">storageAccountName</span> = <span class="pl-s"><span class="pl-pds">"</span>storage_account_name<span class="pl-pds">"</span></span>;
-<span class="pl-k">string</span> <span class="pl-en">storageAccountKey</span> = <span class="pl-s"><span class="pl-pds">"</span>storage_account_key<span class="pl-pds">"</span></span>;
+<span class="pl-k">string</span> <span class="pl-en">storageAccountName</span> = <span class="pl-s"><span class="pl-pds">"</span>STORAGE_ACCOUNT_NAME<span class="pl-pds">"</span></span>;
+<span class="pl-k">string</span> <span class="pl-en">storageAccountKey</span> = <span class="pl-s"><span class="pl-pds">"</span>STORAGE_ACCOUNT_KEY<span class="pl-pds">"</span></span>;
 <span class="pl-k">string</span> <span class="pl-en">storageConnectionString</span> = <span class="pl-k">string</span>.<span class="pl-en">Format</span>("DefaultEndpointsProtocol=https;<span class="pl-en">AccountName</span>={<span class="pl-c1">0</span>};<span class="pl-en">AccountKey</span>={<span class="pl-c1">1</span>}<span class="pl-s"><span class="pl-pds">"</span>, storageAccountName, storageAccountKey);</span>
 <span class="pl-s"></span>
 <span class="pl-s">string eventProcessorHostName = Guid.NewGuid().ToString();</span>
@@ -1096,20 +1060,16 @@ vertical-align:1px;
 <span class="pl-en">Debug.WriteLine</span>("Receiving...");</pre></div>
 </li>
 <li>
-<p>Replace <em>connection_string</em> in line 1 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 5, Step 8.</p>
+<p>Replace CONNECTION_STRING with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 5, Step 8. Then remove ";EntityPath=outputhub" from the end of the connection string.</p>
 </li>
 <li>
-<p>Remove ";EntityPath=outputhub" from the end of the connection string. The <code>eventHubConnectionString</code> variable declaration should now look something like this:</p>
-<div class="highlight highlight-source-cs"><pre><span class="pl-k">string</span> <span class="pl-en">eventHubConnectionString</span> = <span class="pl-s"><span class="pl-pds">"</span>Endpoint=sb://streamanalytics-lab.servicebus.windows.net/;SharedAccessKeyName=ReceivePolicy;SharedAccessKey=3XHaU3pm5t82WxA43hUM/bWa7kQmuAsqzJ1rVJq3Qv0=<span class="pl-pds">"</span></span>;</pre></div>
-</li>
-<li>
-<p>Replace <em>storage_account_name</em> in line 3 with the the name of the storage account you created in Step 2 of this exercise, and <em>storage_account_key</em> in line 4 with the access key you saved in Step 5.</p>
+<p>Replace STORAGE_ACCOUNT_NAME with the the name of the storage account you created in Step 2 of this exercise, and STORAGE_ACCOUNT_KEY with the access key you saved in Step 4.</p>
 <blockquote>
 <p>This storage account has nothing to do with the Stream Analytics job; it's used by the EventProcessorHost class.</p>
 </blockquote>
 </li>
 <li>
-<p>In Solution Explorer, right-click the "Controllers" folder and use the <strong>Add -&gt; Controller</strong> command to add an empty Web API 2 controller.</p>
+<p>In Solution Explorer, right-click the "Controllers" folder and use the <strong>Add -&gt; Controller...</strong> command to add an empty Web API 2 controller.</p>
 <p><a href="Images/mvc-add-api-controller.png" target="_blank"><img src="Images/mvc-add-api-controller.png" alt="Adding a Web API Controller" style="max-width:100%;"></a></p>
 <p><em>Adding a Web API Controller</em></p>
 </li>
@@ -1179,7 +1139,7 @@ vertical-align:1px;
 </blockquote>
 </li>
 <li>
-<p>Go to the <strong>Build</strong> menu at the top of the Visual Studio window and use the <strong>Build Solution</strong> command to build the solution. Correct any build errors that are reported, and then press <strong>Ctrl+F5</strong> to launch the application in your browser. Confirm that the application looks like this:</p>
+<p>Save your changes. Then build the solution and confirm that it builds without error. Press <strong>Ctrl+F5</strong> to launch the application in your browser. Confirm that the application looks like this:</p>
 <p><a href="Images/mvc-atm-dashboard.png" target="_blank"><img src="Images/mvc-atm-dashboard.png" alt="The ATM dashboard" style="max-width:100%;"></a></p>
 <p><em>The ATM dashboard</em></p>
 </li>

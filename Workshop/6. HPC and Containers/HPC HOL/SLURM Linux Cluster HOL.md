@@ -78,7 +78,7 @@ Let's get started!
 
 	_Editing the template_
 
-1. On Line 50, change the Ubuntu version number to **16.04-LTS**. Then click the **Save** button to save the change.
+1. On Line 50, change the Ubuntu version number to **16.04-LTS** if that isn't the version that's currently referenced. Then click the **Save** button to save the change.
 
     ![Modifying the Ubuntu version number](Images/edit-ubuntu-version.png)
 
@@ -358,7 +358,7 @@ If the job ran successfully, the grayscale images generated from the color image
 
     _Opening the "output" container_
 
-1. Click the blob named "Consoles_superhero_1920x768.2.jpg."
+1. Click the blob named **Consoles_superhero_1920x768.2.jpg**.
 
     ![Opening a converted image](Images/open-converted-image.png)
 
@@ -406,7 +406,7 @@ Resource groups are a useful feature of Azure because they simplify the task of 
 
 In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the SLURM cluster. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.
 
-1. Return to the blade for the cluster's resource group. Then click the **Delete** button at the top of the blade.
+1. Return to the blade for the cluster's resource group. Then click the **Delete resource group** button at the top of the blade.
 
 	![Deleting a resource group](Images/delete-resource-group.png)
 

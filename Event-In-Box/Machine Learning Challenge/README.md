@@ -6,17 +6,17 @@ The purpose of the Machine Learning Challenge is to acquaint students with [Azur
 
 Here is a suggested itinerary if you are leading a Machine Learning Challenge event:
 
-- Begin by using the first 16 slides of the accompanying slide deck (**Machine Learning Challenge.pptx**) to introduce students to machine learning
+- Begin by using the Speakers slides (**Machine Learning Challenge.pptx**) to introduce students to machine learning
 	 - In the first demo (slide 8), work Exercise 1 of the challenge and invite students to follow along with you
-	 - In the second demo (slide 15), work Exercise 2 of the challenge and invite students to follow along with you
+	 - In the second demo (slide 16), work Exercise 2 of the challenge and invite students to follow along with you
 - When you reach slide 17 ("Take the challenge!"), turn it over to the students and invite them to open **Machine Learning Challenge.html** and work Exercise 3 on their own. Challenge them to build a better model *without* adding features to the model or changing the 80-20 split of training data and scoring data.
 	- Give students an hour or more to work the challenge, and invite them to raise a hand when they improve the model's accuracy. Check out the work that they did and make sure it's "legal" — for example, that they didn't increase accuracy by introducing additional features to the model that positively bias the results.
-	- Optionally maintain a leaderboard at the front of the room that shows the highest AUC achieved to this point, and use it to engender friendly competition among the students
+	- JUDGING THE CHALLENGE: Enlist about 1 additional helper-judge per 30 or so students. Be sure to have each helper-judge go through the lab themselves using the various data science techniques. This helps ensure students get assistance when they need. In the 2nd half of the challenge, student teams will need to validate their score with a judge. Judges should check for obvious restrictions like deleting rows of data or using data that couldn't otherwise be inputted by a user (like ARR_DEL15,  DEP_DEL15, and DEP_DELAY) during the use case for prediction (that is, a person booking the flight weeks in advance doesn't know if the plane will be delayed...) Maintain a leaderboard at the front of the room that shows the highest AUC achieved to this point and use it to engender friendly competition among the students. Award prizes as desired. Note: Be sure to set a hard cut off time on when the challenge ends so that students understand when they can no longer enter a score. You should build-in time for judges to validate those scores.
 - Once the challenge is complete, use slides 18-20 in the slide deck to introduce the concept of operationalizing a model by deploying it as a Web service
-	- In the third demo (slide 20), run the Flightalysis app found in the "Client" folder of the Machine Learning Challenge. The next section explains how to configure it to run on your PC or laptop.
-- Use slides 21-24 to introduce Microsoft Cognitive Services, positioning it as a cool set of APIs that utilize sophisticated machine-learning models built by researchers as Microsoft
+	- In the third demo (slide 21), run the Flightalysis app found in the "Client" folder of the Machine Learning Challenge. The next section explains how to configure it to run on your PC or laptop.
+- Use slides 22-25 to introduce Microsoft Cognitive Services, positioning it as a cool set of APIs that utilize sophisticated machine-learning models built by researchers as Microsoft. There are also alternative slides in the Appendix originally used in the 2017 Imagine Cup version of the ML Challenge.
 
-Finish up by recognizing the student who achieved the highest AUC, discussing some of the techniques he or she used to do it, and giving out prizes. Make it fun, because learning should always be fun!
+Finish up by recognizing the student who achieved the highest AUC, discussing some of the techniques he or she used to do it, and giving out prizes. Make it fun, because learning should always be fun! 
 
 ## Demoing the Flightalysis app
 
