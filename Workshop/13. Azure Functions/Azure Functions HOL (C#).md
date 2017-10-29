@@ -259,7 +259,7 @@ Once you have created an Azure Function App, you can add Azure Functions to it. 
 	    "frameworks": {
 	        "net46": {
 	            "dependencies": {
-	                "WindowsAzure.Storage": "7.2.0"
+	                "WindowsAzure.Storage": "8.5.0"
 	            }
 	        }
 	    }
