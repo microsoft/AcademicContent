@@ -610,7 +610,7 @@ vertical-align:1px;
     <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">Main</span>(<span class="pl-k">string</span>[] <span class="pl-smi">args</span>)
     {
         <span class="pl-k">var</span> <span class="pl-en">rand </span>= <span class="pl-k">new</span> <span class="pl-en">Random</span>();
-        <span class="pl-k">var</span> <span class="pl-en">client </span>= EventHubClient.CreateFromConnectionString(_connectionString, <span class="pl-s"><span class="pl-pds">"</span>inputhub<span class="pl-pds">"</span></span>);
+        <span class="pl-k">var</span> <span class="pl-en">client </span>= EventHubClient.CreateFromConnectionString(_connectionString);
 
         <span class="pl-k">while</span> (<span class="pl-en">true</span>)
         {
@@ -648,10 +648,6 @@ vertical-align:1px;
 </li>
 <li>
 <p>Replace CONNECTION_STRING on line 16 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 1, Step 12.</p>
-</li>
-<li>
-<p>Remove ";EntityPath=inputhub" from the end of the connection string. The <code>_connectionString</code> field should now look something like this:</p>
-<div class="highlight highlight-source-cs"><pre><span class="pl-k">static</span> <span class="pl-k">string</span> <span class="pl-en">_connectionString</span> = <span class="pl-s"><span class="pl-pds">"</span>Endpoint=sb://stream-analytics-lab.servicebus.windows.net/;SharedAccessKeyName=SendPolicy;SharedAccessKey=Zx/fjB8kH3nuW789pUpXJ1S45FkMacJq9gYku6cRD3Y=<span class="pl-pds">"</span></span>;</pre></div>
 </li>
 <li>
 <p>Press <strong>Ctrl+F5</strong> to run the program and confirm that you see output similar to the following. Each line represents one event sent to the event hub, and events will roll by at a rate of several per second. (Rates will vary depending on your connection speed.) <strong>Confirm that no exceptions are reported in the output</strong>.</p>

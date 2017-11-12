@@ -168,7 +168,7 @@ Applications, devices, and gateways can send events to Azure event hubs using th
 	    static void Main(string[] args)
 	    {
 	        var rand = new Random();
-	        var client = EventHubClient.CreateFromConnectionString(_connectionString, "inputhub");
+	        var client = EventHubClient.CreateFromConnectionString(_connectionString);
 	
 	        while (true)
 	        {
@@ -206,12 +206,6 @@ Applications, devices, and gateways can send events to Azure event hubs using th
 	```
 
 1. Replace CONNECTION_STRING on line 16 with the connection string you copied to the clipboard (and hopefully into your favorite text editor) in Exercise 1, Step 12.
-
-1. Remove ";EntityPath=inputhub" from the end of the connection string. The ```_connectionString``` field should now look something like this:
-
-	```C#
-	static string _connectionString = "Endpoint=sb://stream-analytics-lab.servicebus.windows.net/;SharedAccessKeyName=SendPolicy;SharedAccessKey=Zx/fjB8kH3nuW789pUpXJ1S45FkMacJq9gYku6cRD3Y=";
-	```
 
 1. Press **Ctrl+F5** to run the program and confirm that you see output similar to the following. Each line represents one event sent to the event hub, and events will roll by at a rate of several per second. (Rates will vary depending on your connection speed.) **Confirm that no exceptions are reported in the output**.
 
