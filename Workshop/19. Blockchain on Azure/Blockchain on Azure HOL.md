@@ -421,9 +421,10 @@ Smart contracts are designed to be used by applications that use the blockchain 
 	cd use-contract
 	```
 
-1. Use the following command to install the NPM package named "web3:"
+1. Use the following commands to install the NPM package named "web3:"
 
 	```
+	npm init
 	npm install web3@^0.20.0
 	```
 
