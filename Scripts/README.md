@@ -1,4 +1,4 @@
-This folder contains scripts that complement the functionality of the Azure Education portal
+This folder contains scripts that complement the functionality of the [Azure Education portal](https://azure.microsoft.com/en-gb/community/education/).
 <table>
 <tr>
 <td>Task</td>   <td>Script</td>   <td> Documentation </td>
