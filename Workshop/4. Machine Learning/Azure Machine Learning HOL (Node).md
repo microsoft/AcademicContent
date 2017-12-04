@@ -31,6 +31,7 @@ The following are required to complete this hands-on lab:
 - [Node.js](https://nodejs.org/en/)
 
 ---
+
 <a name="Exercises"></a>
 ## Exercises ##
 
@@ -49,45 +50,39 @@ Estimated time to complete this lab: **60** minutes.
 <a name="Exercise1"></a>
 ## Exercise1: Create a Machine Learning experiment
 
-The first step in employing Azure Machine Learning is to create an ML workspace and an experiment to go in it. In this exercise, you'll get a Machine Learning experiment up and running in the Azure ML Studio.
+The first step in employing Azure Machine Learning Studio is to create a Machine Learning Studio workspace and an experiment to go in it. In this exercise, you'll get a machine-learning experiment up and running in Azure Machine Learning Studio.
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
-1. Click **+ New**, followed by **Intelligence + analytics**. Then click **See all**.
+1. Click **+ New**. Then type "machine learning" (without quotation marks) into the search box and select **Machine Learning Studio Workspace** from the search results.
 
-    ![Creating an ML workspace](Images/new-ml-workspace-1.png)
+    ![Creating a workspace](Images/new-ml-workspace-1.png)
 
-    _Creating an ML workspace_
+    _Creating a workspace_
 
-1. Click **Machine Learning Workspace**. (If this option doesn't appear, type "workspace" without quotation marks into the search box at the top of the page, and then select **Machine Learning Workspace** from the search results.) 
+1. Click the **Create** button at the bottom of the "Machine Learning Studio Workspace" blade.
 
-    ![Creating an ML workspace](Images/new-ml-workspace-2.png)
+    ![Creating a workspace](Images/new-ml-workspace-3.png)
 
-    _Creating an ML workspace_
+    _Creating a workspace_
 
-1. Click the **Create** button at the bottom of the "Machine Learning Workspace" blade.
-
-    ![Creating an ML workspace](Images/new-ml-workspace-3.png)
-
-    _Creating an ML workspace_
-
-1. The next step is to enter the parameters for the workspace you wish to create. In the "Machine Learning Workspace" blade, enter a workspace name such as "DXLabs" and make sure a green check mark appears next to it. Select **Create new** under **Resource group** and enter a resource-group name such as "MachineLearningResourceGroup." Select the location nearest you under **Location**. Then enter a storage-account name, making it as unique as possible, and make sure a green check mark appears next to it, too.
+1. In the "Machine Learning Studio workspace" blade, enter a workspace name such as "DXLabs" and make sure a green check mark appears next to it. Select **Create new** under **Resource group** and enter a resource-group name such as "MachineLearningResourceGroup." Select the location nearest you under **Location**. Then enter a storage-account name, making it as unique as possible, and make sure a green check mark appears next to it, too.
 
 	> Storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.
 
-	Now click **Web service plan pricing tier** and select **DEVTEST Standard** in the "Choose your pricing tier blade." Finish up by clicking **Select** at the bottom of that blade, and clicking **Create** at the bottom of the "Machine Learning Workspace" blade.
+	Now click **Web service plan pricing tier** and select **S1 Standard** in the "Choose your pricing tier blade." Finish up by clicking **Select** at the bottom of that blade, and clicking **Create** at the bottom of the "Machine Learning Studio workspace" blade.
 
-    ![Creating an ML workspace](Images/new-ml-workspace-4.png)
+    ![Creating a workspace](Images/new-ml-workspace-4.png)
 
-    _Creating an ML workspace_
+    _Creating a workspace_
 
-1. Click **Resource groups** in the ribbon on the left side of the portal, and then click the resource group created for the Machine Learning workspace.
+1. Click **Resource groups** in the ribbon on the left side of the portal, and then click the resource group created for the Machine Learning Studio workspace.
 
     ![Opening the resource group](Images/open-resource-group.png)
 
     _Opening the resource group_
 
-1. If the text under "Deployments" says "1 Deploying," refresh the page in your browser every few seconds until it changes to "1 Succeeded." Then click the Machine Learning workspace in the resource group.
+1. Wait until "Deploying" changes to "Succeeded," indicating that the workspace has been created. (You can click **Refresh** at the top of the blade to refresh the deployment status.) Then click the Machine Learning Studio workspace in the resource group.
 
     ![Opening the workspace](Images/open-workspace.png)
 
@@ -99,13 +94,13 @@ The first step in employing Azure Machine Learning is to create an ML workspace 
 
     _Launching ML Studio_
 
-1. Click **Sign In** to sign in to ML Studio with your Microsoft account.
+1. Click **Sign In** to sign in to Machine Learning Studio with your Microsoft account.
 
     ![Signing in to ML Studio](Images/sign-in.png)
 
     _Signing in to ML Studio_
 
-1. In ML Studio, click **+ NEW** in the lower-left corner. Then start a new experiment by clicking **Blank Experiment**.
+1. In Machine Learning Studio, click **+ NEW** in the lower-left corner. Then start a new experiment by clicking **Blank Experiment**.
 
     ![Creating a blank experiment](Images/create-blank-experiment.png)
 
