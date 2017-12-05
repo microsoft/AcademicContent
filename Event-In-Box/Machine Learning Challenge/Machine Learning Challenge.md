@@ -5,41 +5,89 @@
 
 Machine learning, which facilitates predictive analytics using large volumes of data by employing algorithms that iteratively learn from that data, is one of the fastest growing areas of computer science. Its uses range from credit-card fraud detection and self-driving cars to optical character recognition (OCR) and online shopping recommendations. It makes us smarter by making computers smarter. And its usefulness will only increase as more and more data becomes available and the desire to perform predictive analytics from that data grows, too.
 
-[Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/) is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It's accompanied by the Azure Machine Learning Studio (ML Studio), which is a browser-based tool that provides an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for [R](https://www.r-project.org/) and [Python](https://www.python.org/) means you can build custom scripts  to customize your model. Once you've built and trained your model in the ML Studio, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
+[Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It features an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for [R](https://www.r-project.org/) and [Python](https://www.python.org/) means you can build custom scripts  to customize your model. Once you've built and trained your model, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
 
-In the Machine Learning Challenge, you will use Azure Machine Learning to build a simple (and not terribly accurate) machine-learning model utilizing on-time arrival data for a major U.S. airline. Then, on your own, you will use "hints" we provide to tune the model and increase its accuracy. The goal is to create a model that might be useful in the real world for predicting, at booking time, whether a given flight is likely to arrive on time. It is precisely the kind of problem that machine learning is commonly used to solve. And it's a great way to increase your machine-learning chops while getting acquainted with Azure Machine Learning.
+In the Machine Learning Challenge, you will use Azure Machine Learning Studio to build a simple (and not terribly accurate) machine-learning model utilizing on-time arrival data for a major U.S. airline. Then, on your own, you will use "hints" we provide to tune the model and increase its accuracy. The goal is to create a model that might be useful in the real world for predicting, at booking time, whether a given flight is likely to arrive on time. It is precisely the kind of problem that machine learning is commonly used to solve. And it's a great way to increase your machine-learning chops while getting acquainted with Azure Machine Learning Studio.
 
 <a name="Prerequisites"></a>
 ### Prerequisites ###
 
 The following are required to complete the challenge:
 
-- A Microsoft account
+- A Microsoft account. If you don't have one, [click here](https://account.microsoft.com/account) to create one.
+- An active Azure subscription (recommended but not required)
 - A modern browser such as Microsoft Edge or Google Chrome
 
+If you don't have an Azure subscription, you can [sign up for a free trial](http://aka.ms/WATK-FreeTrial). Or, if you are a college student, you may qualify for a free subscription through the [Microsoft Imagine](https://imagine.microsoft.com) program. To enroll in the program and claim your Azure subscription, go to https://imagine.microsoft.com/Catalog/Product/99.
+
 ---
+
 <a name="Exercises"></a>
 ## Exercises ##
 
 This challenge includes the following exercises:
 
-- [Exercise 1: Create an experiment and load a dataset](#Exercise1)
-- [Exercise 2: Train a classification model](#Exercise3)
-- [Exercise 3: Tune the model](#Exercise3)
-
-## Machine learning algorithm cheat sheet for Machine Learning Studio ##
-
-The Microsoft Azure Machine Learning Algorithm Cheat Sheet helps you choose the right algorithm for a predictive analytics model.
-Azure Machine Learning Studio has a large library of algorithms from the regression, classification, clustering, and anomaly detection families. Each is designed to address a different type of machine learning problem.
-
-[Download the cheat sheet here: Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-algorithm-cheat-sheet)
-
-![Azure ML cheat sheet](https://docs.microsoft.com/en-us/azure/machine-learning/media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png)
+- [Exercise 1: Create a machine-learning experiment](#Exercise1)
+- [Exercise 2: Load a dataset](#Exercise2)
+- [Exercise 3: Train a classification model](#Exercise3)
+- [Exercise 4: Tune the model](#Exercise4)
 
 <a name="Exercise1"></a>
-## Exercise 1: Create an experiment and load a dataset ##
+## Exercise 1: Create a machine-learning experiment ##
 
-The first step in employing Azure Machine Learning is to create a new learning experiment. In this exercise, you'll get a Machine Learning experiment up and running in Azure ML Studio. You will also upload a dataset containing on-time arrival information for one of the United States' largest airlines. This data is a subset of a much larger [dataset](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time) that is publicly available from the Bureau of Transportation Statistics.
+The first step in employing Azure Machine Learning Studio is to create a machine-learning workspace and a learning experiment to go in it. In this exercise, you will get an experiment up and running in Azure Machine Learning Studio.
+
+1. If you have an active Azure subscription, proceed to Step 2. Otherwise, **skip to Step 11**.
+
+1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
+
+1. Click **+ New**. Then type "machine learning" (without quotation marks) into the search box and select **Machine Learning Studio Workspace** from the search results.
+
+    ![Creating a workspace](Images/new-ml-workspace-1.png)
+
+    _Creating a workspace_
+
+1. Click the **Create** button at the bottom of the "Machine Learning Studio Workspace" blade.
+
+    ![Creating a workspace](Images/new-ml-workspace-3.png)
+
+    _Creating a workspace_
+
+1. In the "Machine Learning Studio workspace" blade, enter a workspace name such as "DXLabs" and make sure a green check mark appears next to it. Select **Create new** under **Resource group** and enter a resource-group name such as "MachineLearningResourceGroup." Select the location nearest you under **Location**. Then enter a storage-account name, making it as unique as possible, and make sure a green check mark appears next to it, too.
+
+	> Storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.
+
+	Now click **Web service plan pricing tier** and select **S1 Standard** in the "Choose your pricing tier blade." Finish up by clicking **Select** at the bottom of that blade, and clicking **Create** at the bottom of the "Machine Learning Studio workspace" blade.
+
+    ![Creating a workspace](Images/new-ml-workspace-4.png)
+
+    _Creating a workspace_
+
+1. Click **Resource groups** in the ribbon on the left side of the portal, and then click the resource group created for the Machine Learning Studio workspace.
+
+    ![Opening the resource group](Images/open-resource-group.png)
+
+    _Opening the resource group_
+
+1. Wait until "Deploying" changes to "Succeeded," indicating that the workspace has been created. (You can click **Refresh** at the top of the blade to refresh the deployment status.) Then click the Machine Learning Studio workspace in the resource group.
+
+    ![Opening the workspace](Images/open-workspace.png)
+
+    _Opening the workspace_
+
+1. Click **Launch Machine Learning Studio**.
+
+    ![Launching ML Studio](Images/launch-ml-studio.png)
+
+    _Launching ML Studio_
+
+1. Click **Sign In** to sign in to Machine Learning Studio with your Microsoft account.
+
+    ![Signing in to ML Studio](Images/sign-in.png)
+
+    _Signing in to ML Studio_
+
+1. **Now skip to Step 13**. Steps 11 and 12 are only for participants who do not have an active Azure subscription.
 
 1. In your Web browser, navigate to http://studio.azureml.net and click the **Sign Up** button.
 
@@ -47,7 +95,7 @@ The first step in employing Azure Machine Learning is to create a new learning e
 
     _Signing in to ML Studio_
 
-1. Click **Sign In** under Free Workspace. Then sign in using your Microsoft account. If you don't have a Microsoft account, click **sign up here** in the Free Workspace box to create one.
+1. Click **Sign In** under Free Workspace. Then sign in using your Microsoft account.
 
     ![Choosing a workspace](Images/choose-workspace.png)
 
@@ -65,11 +113,18 @@ The first step in employing Azure Machine Learning is to create a new learning e
 
     _Naming the experiment_
 
+You now have a machine-learning experiment in which you can build, train, and test a machine-learning model. The next step is to upload a dataset to use for training and testing.
+
+<a name="Exercise2"></a>
+## Exercise 2: Load a dataset ##
+
+Azure Machine Learning Studio provides several mechanisms for importing data into a machine-learning experiment. In this exercise, you will download a pair of datasets from Azure blob storage, and then use Studio's **From Local File** option to upload one of them to the experiment created in [Exercise 1](#Exercise1). The datasets contain on-time arrival information for one of the United States' largest airlines. This data is a subset of a much larger [dataset](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time) that is publicly available from the [Bureau of Transportation Statistics](https://www.bts.gov/).
+
 1. [Download the zip file](https://mlchallenge.blob.core.windows.net/public/FlightData.zip) containing the two datasets you will use in this challenge. Open the zip file and make local copies of the files inside on your hard drive. The first file is named **FlightData.csv** and contains 11,231 rows of data. The second is named **BigFlightData.csv** and contains 44,360 rows of data. The former is a subset of the latter.
 
-	> In [Exercise 2](#Exercise2), you will use the smaller dataset to train a machine-learning model and keep training time to a minimum. You will have the option of using **BigFlightData.csv** in [Exercise 3](#Exercise3).
+	> In [Exercise 3](#Exercise3), you will use the smaller dataset to train a machine-learning model and keep training time to a minimum. You will have the option of using **BigFlightData.csv** in [Exercise 4](#Exercise4).
 
-1. The next step is to upload the first dataset to Azure ML Studio. Return to ML Studio and click **+ NEW** in the lower-left corner. Then click **DATASET**, followed by **FROM LOCAL FILE**.
+1. Return to Machine Learning Studio and click **+ NEW** in the lower-left corner. Then click **DATASET**, followed by **FROM LOCAL FILE**.
 
     ![Creating a new dataset](Images/new-dataset.png)
 
@@ -141,8 +196,8 @@ The first step in employing Azure Machine Learning is to create a new learning e
 
 The data is loaded. Now it's time to do something with it.
 
-<a name="Exercise2"></a>
-## Exercise 2: Train a classification model ##
+<a name="Exercise3"></a>
+## Exercise 3: Train a classification model ##
 
 In this exercise, you will use ML Studio's drag-and-drop user interface to build and train an ML model. *Training* involves picking a machine-learning algorithm and feeding data into the model. During training, the computer looks for patterns in the data that it can use to predict values from future inputs.
 
@@ -250,8 +305,8 @@ There are several types of machine-learning models. One of the most common is th
 
 In the following exercise, you will tune the model to make it more "accurate" using a variety of techniques that are common in data science.	We won't tell you exactly how to apply these techniques, but we will tell you what some of these techniques are and provide helpful hints regarding their use and implementation.
 
-<a name="Exercise3"></a>
-## Exercise 3: Tune the model ##
+<a name="Exercise4"></a>
+## Exercise 4: Tune the model ##
 
 Now comes the fun part, where you put on your data-scientist hat and tune the model for higher accuracy. The goal is to **increase AUC to 0.75 or more**. It can be done — but it requires some expertise.
 
@@ -261,11 +316,13 @@ To help, we have provided six hints suggesting techniques that a trained data sc
 
 ML Studio includes nine binary (two-class) classification algorithms that you can employ in a model. Even seasoned data scientists often don't know which algorithm will produce the best results until they try them out. That's one of the strengths of Azure Machine Learning: trying different algorithms is as simple as swapping one module for another.
 
-The model you built in [Exercise 2](#Exercise2) uses [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx), which is a popular algorithm that uses regression to compute the probability of each of two possible results. Experiment with different algorithms to see which produces the best result.
+The model you built in [Exercise 3](#Exercise3) uses [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx), which is a popular algorithm that uses regression to compute the probability of each of two possible results. Experiment with different algorithms to see which produces the best result. Microsoft provides an Algorithm Cheat Sheet to help you choose the right algorithm for a predictive model. [Click here](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf) to download it.
+
+![Azure ML cheat sheet](Images/cheat-sheet.png)
 
 ### Hint #2: Mitigate the effect of cancelled and diverted flights ###
 
-The dataset that you are using contains almost 200 rows representing cancelled or diverted flights. These flights are represented by 1s in the CANCELLED or DIVERTED column, which you filtered out with the [Select Columns in Dataset](https://msdn.microsoft.com/library/azure/dn905883.aspx) module in [Exercise 2](#Exercise2). Rows representing cancelled or diverted flights have no ARR_DEL15 values, which skews the dataset and therefore the results. Visualize the column and you'll note that it has 188 missing values and three unique values, when it should have just two (0 and 1). These are red flags to a data scientist.
+The dataset that you are using contains almost 200 rows representing cancelled or diverted flights. These flights are represented by 1s in the CANCELLED or DIVERTED column, which you filtered out with the [Select Columns in Dataset](https://msdn.microsoft.com/library/azure/dn905883.aspx) module in [Exercise 3](#Exercise3). Rows representing cancelled or diverted flights have no ARR_DEL15 values, which skews the dataset and therefore the results. Visualize the column and you'll note that it has 188 missing values and three unique values, when it should have just two (0 and 1). These are red flags to a data scientist.
 
 ![The ARR_DEL15 column](Images/arr-del15.png)
 

@@ -472,35 +472,86 @@ vertical-align:1px;
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
 <p>Machine learning, which facilitates predictive analytics using large volumes of data by employing algorithms that iteratively learn from that data, is one of the fastest growing areas of computer science. Its uses range from credit-card fraud detection and self-driving cars to optical character recognition (OCR) and online shopping recommendations. It makes us smarter by making computers smarter. And its usefulness will only increase as more and more data becomes available and the desire to perform predictive analytics from that data grows, too.</p>
-<p><a href="https://azure.microsoft.com/en-us/services/machine-learning/">Azure Machine Learning</a> is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It's accompanied by the Azure Machine Learning Studio (ML Studio), which is a browser-based tool that provides an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for <a href="https://www.r-project.org/">R</a> and <a href="https://www.python.org/">Python</a> means you can build custom scripts  to customize your model. Once you've built and trained your model in the ML Studio, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the <a href="https://gallery.cortanaintelligence.com/">Cortana Intelligence Gallery</a>.</p>
-<p>In the Machine Learning Challenge, you will use Azure Machine Learning to build a simple (and not terribly accurate) machine-learning model utilizing on-time arrival data for a major U.S. airline. Then, on your own, you will use "hints" we provide to tune the model and increase its accuracy. The goal is to create a model that might be useful in the real world for predicting, at booking time, whether a given flight is likely to arrive on time. It is precisely the kind of problem that machine learning is commonly used to solve. And it's a great way to increase your machine-learning chops while getting acquainted with Azure Machine Learning.</p>
+<p><a href="https://azure.microsoft.com/services/machine-learning-studio/" rel="nofollow">Azure Machine Learning Studio</a> is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It features an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for <a href="https://www.r-project.org/" rel="nofollow">R</a> and <a href="https://www.python.org/" rel="nofollow">Python</a> means you can build custom scripts  to customize your model. Once you've built and trained your model, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the <a href="https://gallery.cortanaintelligence.com/" rel="nofollow">Cortana Intelligence Gallery</a>.</p>
+<p>In the Machine Learning Challenge, you will use Azure Machine Learning Studio to build a simple (and not terribly accurate) machine-learning model utilizing on-time arrival data for a major U.S. airline. Then, on your own, you will use "hints" we provide to tune the model and increase its accuracy. The goal is to create a model that might be useful in the real world for predicting, at booking time, whether a given flight is likely to arrive on time. It is precisely the kind of problem that machine learning is commonly used to solve. And it's a great way to increase your machine-learning chops while getting acquainted with Azure Machine Learning Studio.</p>
 <p><a name="Prerequisites"></a></p>
 <h3>Prerequisites</h3>
 <p>The following are required to complete the challenge:</p>
 <ul>
-<li>A Microsoft account</li>
+<li>A Microsoft account. If you don't have one, <a href="https://account.microsoft.com/account" rel="nofollow">click here</a> to create one.</li>
+<li>An active Azure subscription (recommended but not required)</li>
 <li>A modern browser such as Microsoft Edge or Google Chrome</li>
 </ul>
+<p>If you don't have an Azure subscription, you can <a href="http://aka.ms/WATK-FreeTrial" rel="nofollow">sign up for a free trial</a>. Or, if you are a college student, you may qualify for a free subscription through the <a href="https://imagine.microsoft.com" rel="nofollow">Microsoft Imagine</a> program. To enroll in the program and claim your Azure subscription, go to <a href="https://imagine.microsoft.com/Catalog/Product/99" rel="nofollow">https://imagine.microsoft.com/Catalog/Product/99</a>.</p>
 <hr>
 <p><a name="Exercises"></a></p>
 <h2>Exercises</h2>
 <p>This challenge includes the following exercises:</p>
 <ul>
-<li><a href="#Exercise1">Exercise 1: Create an experiment and load a dataset</a></li>
-<li><a href="#Exercise3">Exercise 2: Train a classification model</a></li>
-<li><a href="#Exercise3">Exercise 3: Tune the model</a></li>
+<li><a href="#Exercise1">Exercise 1: Create a machine-learning experiment</a></li>
+<li><a href="#Exercise2">Exercise 2: Load a dataset</a></li>
+<li><a href="#Exercise3">Exercise 3: Train a classification model</a></li>
+<li><a href="#Exercise4">Exercise 4: Tune the model</a></li>
 </ul>
 <p><a name="Exercise1"></a></p>
-<h2>Exercise 1: Create an experiment and load a dataset</h2>
-<p>The first step in employing Azure Machine Learning is to create a new learning experiment. In this exercise, you'll get a Machine Learning experiment up and running in Azure ML Studio. You will also upload a dataset containing on-time arrival information for one of the United States' largest airlines. This data is a subset of a much larger <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time">dataset</a> that is publicly available from the Bureau of Transportation Statistics.</p>
+<h2>Exercise 1: Create a machine-learning experiment</h2>
+<p>The first step in employing Azure Machine Learning Studio is to create a machine-learning workspace and a learning experiment to go in it. In this exercise, you will get an experiment up and running in Azure Machine Learning Studio.</p>
 <ol>
 <li>
-<p>In your Web browser, navigate to <a href="http://studio.azureml.net">http://studio.azureml.net</a> and click the <strong>Sign Up</strong> button.</p>
+<p>If you have an active Azure subscription, proceed to Step 2. Otherwise, <strong>skip to Step 11</strong>.</p>
+</li>
+<li>
+<p>Open the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> in your browser. If asked to log in, do so using your Microsoft account.</p>
+</li>
+<li>
+<p>Click <strong>+ New</strong>. Then type "machine learning" (without quotation marks) into the search box and select <strong>Machine Learning Studio Workspace</strong> from the search results.</p>
+<p><a href="Images/new-ml-workspace-1.png" target="_blank"><img src="Images/new-ml-workspace-1.png" alt="Creating a workspace" style="max-width:100%;"></a></p>
+<p><em>Creating a workspace</em></p>
+</li>
+<li>
+<p>Click the <strong>Create</strong> button at the bottom of the "Machine Learning Studio Workspace" blade.</p>
+<p><a href="Images/new-ml-workspace-3.png" target="_blank"><img src="Images/new-ml-workspace-3.png" alt="Creating a workspace" style="max-width:100%;"></a></p>
+<p><em>Creating a workspace</em></p>
+</li>
+<li>
+<p>In the "Machine Learning Studio workspace" blade, enter a workspace name such as "DXLabs" and make sure a green check mark appears next to it. Select <strong>Create new</strong> under <strong>Resource group</strong> and enter a resource-group name such as "MachineLearningResourceGroup." Select the location nearest you under <strong>Location</strong>. Then enter a storage-account name, making it as unique as possible, and make sure a green check mark appears next to it, too.</p>
+<blockquote>
+<p>Storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.</p>
+</blockquote>
+<p>Now click <strong>Web service plan pricing tier</strong> and select <strong>S1 Standard</strong> in the "Choose your pricing tier blade." Finish up by clicking <strong>Select</strong> at the bottom of that blade, and clicking <strong>Create</strong> at the bottom of the "Machine Learning Studio workspace" blade.</p>
+<p><a href="Images/new-ml-workspace-4.png" target="_blank"><img src="Images/new-ml-workspace-4.png" alt="Creating a workspace" style="max-width:100%;"></a></p>
+<p><em>Creating a workspace</em></p>
+</li>
+<li>
+<p>Click <strong>Resource groups</strong> in the ribbon on the left side of the portal, and then click the resource group created for the Machine Learning Studio workspace.</p>
+<p><a href="Images/open-resource-group.png" target="_blank"><img src="Images/open-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
+<p><em>Opening the resource group</em></p>
+</li>
+<li>
+<p>Wait until "Deploying" changes to "Succeeded," indicating that the workspace has been created. (You can click <strong>Refresh</strong> at the top of the blade to refresh the deployment status.) Then click the Machine Learning Studio workspace in the resource group.</p>
+<p><a href="Images/open-workspace.png" target="_blank"><img src="Images/open-workspace.png" alt="Opening the workspace" style="max-width:100%;"></a></p>
+<p><em>Opening the workspace</em></p>
+</li>
+<li>
+<p>Click <strong>Launch Machine Learning Studio</strong>.</p>
+<p><a href="Images/launch-ml-studio.png" target="_blank"><img src="Images/launch-ml-studio.png" alt="Launching ML Studio" style="max-width:100%;"></a></p>
+<p><em>Launching ML Studio</em></p>
+</li>
+<li>
+<p>Click <strong>Sign In</strong> to sign in to Machine Learning Studio with your Microsoft account.</p>
+<p><a href="Images/sign-in.png" target="_blank"><img src="Images/sign-in.png" alt="Signing in to ML Studio" style="max-width:100%;"></a></p>
+<p><em>Signing in to ML Studio</em></p>
+</li>
+<li>
+<p><strong>Now skip to Step 13</strong>. Steps 11 and 12 are only for participants who do not have an active Azure subscription.</p>
+</li>
+<li>
+<p>In your Web browser, navigate to <a href="http://studio.azureml.net" rel="nofollow">http://studio.azureml.net</a> and click the <strong>Sign Up</strong> button.</p>
 <p><a href="Images/sign-up.png" target="_blank"><img src="Images/sign-up.png" alt="Signing in to ML Studio" style="max-width:100%;"></a></p>
 <p><em>Signing in to ML Studio</em></p>
 </li>
 <li>
-<p>Click <strong>Sign In</strong> under Free Workspace. Then sign in using your Microsoft account. If you don't have a Microsoft account, click <strong>sign up here</strong> in the Free Workspace box to create one.</p>
+<p>Click <strong>Sign In</strong> under Free Workspace. Then sign in using your Microsoft account.</p>
 <p><a href="Images/choose-workspace.png" target="_blank"><img src="Images/choose-workspace.png" alt="Choosing a workspace" style="max-width:100%;"></a></p>
 <p><em>Choosing a workspace</em></p>
 </li>
@@ -514,14 +565,20 @@ vertical-align:1px;
 <p><a href="Images/rename-experiment.png" target="_blank"><img src="Images/rename-experiment.png" alt="Naming the experiment" style="max-width:100%;"></a></p>
 <p><em>Naming the experiment</em></p>
 </li>
+</ol>
+<p>You now have a machine-learning experiment in which you can build, train, and test a machine-learning model. The next step is to upload a dataset to use for training and testing.</p>
+<p><a name="Exercise2"></a></p>
+<h2>Exercise 2: Load a dataset</h2>
+<p>Azure Machine Learning Studio provides several mechanisms for importing data into a machine-learning experiment. In this exercise, you will download a pair of datasets from Azure blob storage, and then use Studio's <strong>From Local File</strong> option to upload one of them to the experiment created in <a href="#Exercise1">Exercise 1</a>. The datasets contain on-time arrival information for one of the United States' largest airlines. This data is a subset of a much larger <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time" rel="nofollow">dataset</a> that is publicly available from the <a href="https://www.bts.gov/" rel="nofollow">Bureau of Transportation Statistics</a>.</p>
+<ol>
 <li>
-<p><a href="https://mlchallenge.blob.core.windows.net/public/FlightData.zip">Download the zip file</a> containing the two datasets you will use in this challenge. Open the zip file and make local copies of the files inside on your hard drive. The first file is named <strong>FlightData.csv</strong> and contains 11,231 rows of data. The second is named <strong>BigFlightData.csv</strong> and contains 44,360 rows of data. The former is a subset of the latter.</p>
+<p><a href="https://mlchallenge.blob.core.windows.net/public/FlightData.zip" rel="nofollow">Download the zip file</a> containing the two datasets you will use in this challenge. Open the zip file and make local copies of the files inside on your hard drive. The first file is named <strong>FlightData.csv</strong> and contains 11,231 rows of data. The second is named <strong>BigFlightData.csv</strong> and contains 44,360 rows of data. The former is a subset of the latter.</p>
 <blockquote>
-<p>In <a href="#Exercise2">Exercise 2</a>, you will use the smaller dataset to train a machine-learning model and keep training time to a minimum. You will have the option of using <strong>BigFlightData.csv</strong> in <a href="#Exercise3">Exercise 3</a>.</p>
+<p>In <a href="#Exercise3">Exercise 3</a>, you will use the smaller dataset to train a machine-learning model and keep training time to a minimum. You will have the option of using <strong>BigFlightData.csv</strong> in <a href="#Exercise4">Exercise 4</a>.</p>
 </blockquote>
 </li>
 <li>
-<p>The next step is to upload the first dataset to Azure ML Studio. Return to ML Studio and click <strong>+ NEW</strong> in the lower-left corner. Then click <strong>DATASET</strong>, followed by <strong>FROM LOCAL FILE</strong>.</p>
+<p>Return to Machine Learning Studio and click <strong>+ NEW</strong> in the lower-left corner. Then click <strong>DATASET</strong>, followed by <strong>FROM LOCAL FILE</strong>.</p>
 <p><a href="Images/new-dataset.png" target="_blank"><img src="Images/new-dataset.png" alt="Creating a new dataset" style="max-width:100%;"></a></p>
 <p><em>Creating a new dataset</em></p>
 </li>
@@ -665,13 +722,13 @@ vertical-align:1px;
 </li>
 </ol>
 <p>The data is loaded. Now it's time to do something with it.</p>
-<p><a name="Exercise2"></a></p>
-<h2>Exercise 2: Train a classification model</h2>
+<p><a name="Exercise3"></a></p>
+<h2>Exercise 3: Train a classification model</h2>
 <p>In this exercise, you will use ML Studio's drag-and-drop user interface to build and train an ML model. <em>Training</em> involves picking a machine-learning algorithm and feeding data into the model. During training, the computer looks for patterns in the data that it can use to predict values from future inputs.</p>
 <p>There are several types of machine-learning models. One of the most common is the regression model, which uses one of a number of regression algorithms to produce a numeric value — for example, a person's age or the probability that a credit-card transaction is fraudulent. You will be training a classification model, which seeks to resolve a set of inputs into one of a set of known outputs. A classic example of a classification model is one that examines e-mails and classifies them as "spam" or "not spam." Your model will use the dataset you uploaded in the previous exercise and predict whether a flight will arrive on-time or late.</p>
 <ol>
 <li>
-<p>At the top of the modules palette, type "select columns" (without quotation marks) into the search box to find the <a href="https://msdn.microsoft.com/library/azure/dn905883.aspx">Select Columns in Dataset</a> module. Drag the module to the experiment canvas and drop it underneath the dataset. Then connect the output port of the dataset to the input port of the Select Columns in Dataset module by dragging an arrow downward from the output port.</p>
+<p>At the top of the modules palette, type "select columns" (without quotation marks) into the search box to find the <a href="https://msdn.microsoft.com/library/azure/dn905883.aspx" rel="nofollow">Select Columns in Dataset</a> module. Drag the module to the experiment canvas and drop it underneath the dataset. Then connect the output port of the dataset to the input port of the Select Columns in Dataset module by dragging an arrow downward from the output port.</p>
 <blockquote>
 <p>A key concept to understand in Azure ML Studio is that of ports and connectors. In this step, you connected the output port of the dataset to the input port of the Select Columns in Dataset module. The data flows from one module to the next through the connector. Some modules support multiple inputs and outputs and therefore have multiple input and output ports. If you want to know what a port does, hover over it with the mouse and a tooltip will pop up. If you want more information, right-click on the module and select <strong>Help</strong> from the popup menu.</p>
 </blockquote>
@@ -699,7 +756,7 @@ vertical-align:1px;
 <p><em>Selecting feature columns</em></p>
 </li>
 <li>
-<p>Type "edit" into the search box at the top of the modules palette. Then add an <a href="https://msdn.microsoft.com/library/azure/dn905986.aspx">Edit Metadata</a> module to the canvas and connect it to the Select Columns in Dataset module.</p>
+<p>Type "edit" into the search box at the top of the modules palette. Then add an <a href="https://msdn.microsoft.com/library/azure/dn905986.aspx" rel="nofollow">Edit Metadata</a> module to the canvas and connect it to the Select Columns in Dataset module.</p>
 <p><a href="Images/add-edit-metadata.png" target="_blank"><img src="Images/add-edit-metadata.png" alt="Adding an Edit Metadata module" style="max-width:100%;"></a></p>
 <p><em>Adding an Edit Metadata module</em></p>
 </li>
@@ -714,14 +771,14 @@ vertical-align:1px;
 <p><em>Designating ARR_DEL15 as a categorical label</em></p>
 </li>
 <li>
-<p>Add a <a href="https://msdn.microsoft.com/library/azure/dn905969.aspx">Split Data</a> module to the model and connect the output from Edit Metadata to the input of Split Data. The purpose of Split Data is to split a single dataset into one that can be used for training, and another that can be used for scoring. It's very useful when you have just one dataset to work with. With Split Data selected on the canvas, change <strong>Fraction of rows in the first output dataset</strong> to 0.8. This will perform an 80-20 split on the data, with 80% exiting the left output port of the module, and 20% exiting the right output port.</p>
+<p>Add a <a href="https://msdn.microsoft.com/library/azure/dn905969.aspx" rel="nofollow">Split Data</a> module to the model and connect the output from Edit Metadata to the input of Split Data. The purpose of Split Data is to split a single dataset into one that can be used for training, and another that can be used for scoring. It's very useful when you have just one dataset to work with. With Split Data selected on the canvas, change <strong>Fraction of rows in the first output dataset</strong> to 0.8. This will perform an 80-20 split on the data, with 80% exiting the left output port of the module, and 20% exiting the right output port.</p>
 <p><a href="Images/split-data.png" target="_blank"><img src="Images/split-data.png" alt="Adding a Split Data module" style="max-width:100%;"></a></p>
 <p><em>Adding a Split Data module</em></p>
 </li>
 <li>
-<p>Add a <a href="https://msdn.microsoft.com/en-us/library/azure/dn906044.aspx">Train Model</a> module to the model and connect the output from Split Data to the right input of Train Model. Then add a <a href="https://msdn.microsoft.com/library/azure/dn905994.aspx">Two-Class Logistic Regression</a> module and connect its output to Train Model's left input.</p>
+<p>Add a <a href="https://msdn.microsoft.com/en-us/library/azure/dn906044.aspx" rel="nofollow">Train Model</a> module to the model and connect the output from Split Data to the right input of Train Model. Then add a <a href="https://msdn.microsoft.com/library/azure/dn905994.aspx" rel="nofollow">Two-Class Logistic Regression</a> module and connect its output to Train Model's left input.</p>
 <blockquote>
-<p><a href="http://machinelearningmastery.com/logistic-regression-for-machine-learning/">Logistic regression</a> is a well-known method in statistics that is used to predict the probability of an outcome, and is especially popular for classification tasks. By connecting Two-Class Logistic Regression to Train Model, you are specifying the learning algorithm that the model will use. This does not prevent you from experimenting with other algorithms later on.</p>
+<p><a href="http://machinelearningmastery.com/logistic-regression-for-machine-learning/" rel="nofollow">Logistic regression</a> is a well-known method in statistics that is used to predict the probability of an outcome, and is especially popular for classification tasks. By connecting Two-Class Logistic Regression to Train Model, you are specifying the learning algorithm that the model will use. This does not prevent you from experimenting with other algorithms later on.</p>
 </blockquote>
 <p><a href="Images/add-train-model.png" target="_blank"><img src="Images/add-train-model.png" alt="Specifying a learning algorithm" style="max-width:100%;"></a></p>
 <p><em>Specifying a learning algorithm</em></p>
@@ -732,7 +789,7 @@ vertical-align:1px;
 <p><em>Specifying the target feature</em></p>
 </li>
 <li>
-<p>Complete the model by adding a <a href="https://msdn.microsoft.com/library/azure/dn905995.aspx">Score Model</a> module and an <a href="https://msdn.microsoft.com/library/azure/dn905915.aspx">Evaluate Model</a> module and connecting them as shown below.</p>
+<p>Complete the model by adding a <a href="https://msdn.microsoft.com/library/azure/dn905995.aspx" rel="nofollow">Score Model</a> module and an <a href="https://msdn.microsoft.com/library/azure/dn905915.aspx" rel="nofollow">Evaluate Model</a> module and connecting them as shown below.</p>
 <p><a href="Images/add-score-model.png" target="_blank"><img src="Images/add-score-model.png" alt="Completing the model" style="max-width:100%;"></a></p>
 <p><em>Completing the model</em></p>
 </li>
@@ -745,7 +802,7 @@ vertical-align:1px;
 <p>Wait for the model to finish running. (It should take a minute or less.) Then click the output port at the bottom of the Evaluate Model module and select <strong>Visualize</strong> to gauge the results. Scroll down until you see the panel below, which lists key metrics such as accuracy, precision, and AUC (Area Under Curve).</p>
 <p><a href="Images/results-1.png" target="_blank"><img src="Images/results-1.png" alt="Key metrics regarding the model" style="max-width:100%;"></a></p>
 <p><em>Key metrics regarding the model</em></p>
-<p>There are several ways to measure the "accuracy" of a binary classification model. Currently, your model has an accuracy of 87% and a precision of 1.000, which seem good taken at face value. However, it is not a very robust model. The <a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a>, which is a weighted average of precision and recall and a reasonable indicator of overall performance, is 0. And AUC is 0.579, which basically means that the model only makes an accurate prediction 58% of the time. In other words, you could get almost the same results by flipping a coin. For more information on the meaning of accuracy, precision, F1 score, AUC, and other metrics, see <a href="https://blogs.msdn.microsoft.com/andreasderuiter/2015/02/09/performance-measures-in-azure-ml-accuracy-precision-recall-and-f1-score/">https://blogs.msdn.microsoft.com/andreasderuiter/2015/02/09/performance-measures-in-azure-ml-accuracy-precision-recall-and-f1-score/</a>.</p>
+<p>There are several ways to measure the "accuracy" of a binary classification model. Currently, your model has an accuracy of 87% and a precision of 1.000, which seem good taken at face value. However, it is not a very robust model. The <a href="https://en.wikipedia.org/wiki/F1_score" rel="nofollow">F1 score</a>, which is a weighted average of precision and recall and a reasonable indicator of overall performance, is 0. And AUC is 0.579, which basically means that the model only makes an accurate prediction 58% of the time. In other words, you could get almost the same results by flipping a coin. For more information on the meaning of accuracy, precision, F1 score, AUC, and other metrics, see <a href="https://blogs.msdn.microsoft.com/andreasderuiter/2015/02/09/performance-measures-in-azure-ml-accuracy-precision-recall-and-f1-score/" rel="nofollow">https://blogs.msdn.microsoft.com/andreasderuiter/2015/02/09/performance-measures-in-azure-ml-accuracy-precision-recall-and-f1-score/</a>.</p>
 <p>For our purposes, we will use AUC to judge the quality of our model. At the top of the visualization window is a graphical depiction of AUC:</p>
 <p><a href="Images/results-2.png" target="_blank"><img src="Images/results-2.png" alt="" style="max-width:100%;"></a></p>
 <p>The diagonal line in the middle represents a 50-50 chance of obtaining a correct answer. The blue curve generated from your model isn't much better than that. What you <em>want</em> is something more like this, which represents an AUC of 0.92:</p>
@@ -757,18 +814,19 @@ vertical-align:1px;
 </li>
 </ol>
 <p>In the following exercise, you will tune the model to make it more "accurate" using a variety of techniques that are common in data science.	We won't tell you exactly how to apply these techniques, but we will tell you what some of these techniques are and provide helpful hints regarding their use and implementation.</p>
-<p><a name="Exercise3"></a></p>
-<h2>Exercise 3: Tune the model</h2>
+<p><a name="Exercise4"></a></p>
+<h2>Exercise 4: Tune the model</h2>
 <p>Now comes the fun part, where you put on your data-scientist hat and tune the model for higher accuracy. The goal is to <strong>increase AUC to 0.75 or more</strong>. It can be done — but it requires some expertise.</p>
 <p>To help, we have provided six hints suggesting techniques that a trained data scientist might use to produce a more robust model. These aren't the only ways to get AUC to 0.75, but they're a good place to start.</p>
 <h3>Hint #1: Try different algorithms</h3>
 <p>ML Studio includes nine binary (two-class) classification algorithms that you can employ in a model. Even seasoned data scientists often don't know which algorithm will produce the best results until they try them out. That's one of the strengths of Azure Machine Learning: trying different algorithms is as simple as swapping one module for another.</p>
-<p>The model you built in <a href="#Exercise2">Exercise 2</a> uses <a href="https://msdn.microsoft.com/library/azure/dn905994.aspx">Two-Class Logistic Regression</a>, which is a popular algorithm that uses regression to compute the probability of each of two possible results. Experiment with different algorithms to see which produces the best result.</p>
+<p>The model you built in <a href="#Exercise3">Exercise 3</a> uses <a href="https://msdn.microsoft.com/library/azure/dn905994.aspx" rel="nofollow">Two-Class Logistic Regression</a>, which is a popular algorithm that uses regression to compute the probability of each of two possible results. Experiment with different algorithms to see which produces the best result. Microsoft provides an Algorithm Cheat Sheet to help you choose the right algorithm for a predictive model. <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf" rel="nofollow">Click here</a> to download it.</p>
+<p><a href="Images/cheat-sheet.png" target="_blank"><img src="Images/cheat-sheet.png" alt="Azure ML cheat sheet" style="max-width:100%;"></a></p>
 <h3>Hint #2: Mitigate the effect of cancelled and diverted flights</h3>
-<p>The dataset that you are using contains almost 200 rows representing cancelled or diverted flights. These flights are represented by 1s in the CANCELLED or DIVERTED column, which you filtered out with the <a href="https://msdn.microsoft.com/library/azure/dn905883.aspx">Select Columns in Dataset</a> module in <a href="#Exercise2">Exercise 2</a>. Rows representing cancelled or diverted flights have no ARR_DEL15 values, which skews the dataset and therefore the results. Visualize the column and you'll note that it has 188 missing values and three unique values, when it should have just two (0 and 1). These are red flags to a data scientist.</p>
+<p>The dataset that you are using contains almost 200 rows representing cancelled or diverted flights. These flights are represented by 1s in the CANCELLED or DIVERTED column, which you filtered out with the <a href="https://msdn.microsoft.com/library/azure/dn905883.aspx" rel="nofollow">Select Columns in Dataset</a> module in <a href="#Exercise3">Exercise 3</a>. Rows representing cancelled or diverted flights have no ARR_DEL15 values, which skews the dataset and therefore the results. Visualize the column and you'll note that it has 188 missing values and three unique values, when it should have just two (0 and 1). These are red flags to a data scientist.</p>
 <p><a href="Images/arr-del15.png" target="_blank"><img src="Images/arr-del15.png" alt="The ARR_DEL15 column" style="max-width:100%;"></a></p>
 <p><em>The ARR_DEL15 column</em></p>
-<p>There are multiple ways in which you can attack this. One is to write an R or Python script that removes rows with missing ARR_DEL15 values or simply replaces missing ARR_DEL15 values with 1 to indicate that the flight didn't arrive on time, and inject the script into the model using an <a href="https://msdn.microsoft.com/library/azure/dn905952.aspx">Execute R Script</a> or <a href="https://msdn.microsoft.com/library/azure/dn955437.aspx">Execute Python Script</a> module. Alternatively, since each row representing a cancelled or diverted flight has a missing feature (a column with no data), you could use the <a href="https://msdn.microsoft.com/library/azure/dn906028.aspx">Clean Missing Data</a> module, which makes it very easy to replace missing values or remove rows with missing values altogether.</p>
+<p>There are multiple ways in which you can attack this. One is to write an R or Python script that removes rows with missing ARR_DEL15 values or simply replaces missing ARR_DEL15 values with 1 to indicate that the flight didn't arrive on time, and inject the script into the model using an <a href="https://msdn.microsoft.com/library/azure/dn905952.aspx" rel="nofollow">Execute R Script</a> or <a href="https://msdn.microsoft.com/library/azure/dn955437.aspx" rel="nofollow">Execute Python Script</a> module. Alternatively, since each row representing a cancelled or diverted flight has a missing feature (a column with no data), you could use the <a href="https://msdn.microsoft.com/library/azure/dn906028.aspx" rel="nofollow">Clean Missing Data</a> module, which makes it very easy to replace missing values or remove rows with missing values altogether.</p>
 <h3>Hint #3: Reduce imbalance in the dataset</h3>
 <p>In a perfect world, the data used to train a two-class classification model would contain a 50-50 split of positives and negatives. In the real world, it rarely does. Imbalanced datasets often (but not always) adversely affect a model's accuracy. And right now, the data in the ARR_DEL15 column of the dataset you are using — the feature whose value you are attempting to predict — exhibits significant imbalance. The ratio of on-time arrivals to late arrivals is more than 6 to 1.</p>
 <p><a href="Images/arr-del15.png" target="_blank"><img src="Images/arr-del15.png" alt="The ARR_DEL15 column" style="max-width:100%;"></a></p>
@@ -777,36 +835,36 @@ vertical-align:1px;
 <p>There are three ways you can reduce imbalance in the datset you were given:</p>
 <ul>
 <li>Reduce the number of rows representing on-time arrivals</li>
-<li>Increase the number of rows representing late arrivals by importing rows from the larger dataset in <strong>BigFlightData.csv</strong> (be careful not to duplicate rows that are already there, however, or use a <a href="https://msdn.microsoft.com/library/azure/dn905805.aspx">Remove Duplicate Rows</a> module to delete them)</li>
-<li>Increase the number of rows representing late arrivals using the <a href="https://www.jair.org/media/953/live-953-2037-jair.pdf">Synthetic Minority Oversampling Technique</a> (SMOTE)</li>
+<li>Increase the number of rows representing late arrivals by importing rows from the larger dataset in <strong>BigFlightData.csv</strong> (be careful not to duplicate rows that are already there, however, or use a <a href="https://msdn.microsoft.com/library/azure/dn905805.aspx" rel="nofollow">Remove Duplicate Rows</a> module to delete them)</li>
+<li>Increase the number of rows representing late arrivals using the <a href="https://www.jair.org/media/953/live-953-2037-jair.pdf" rel="nofollow">Synthetic Minority Oversampling Technique</a> (SMOTE)</li>
 </ul>
-<p>Azure Machine Learning's <a href="https://msdn.microsoft.com/library/azure/dn913076.aspx">SMOTE</a> module makes it easy to do the latter, synthetically increasing the number of minority samples using a nearest-neighbor approach. A model that uses SMOTE to reduce imbalance takes longer to train, but often produces better results than one that doesn't.</p>
+<p>Azure Machine Learning's <a href="https://msdn.microsoft.com/library/azure/dn913076.aspx" rel="nofollow">SMOTE</a> module makes it easy to do the latter, synthetically increasing the number of minority samples using a nearest-neighbor approach. A model that uses SMOTE to reduce imbalance takes longer to train, but often produces better results than one that doesn't.</p>
 <p>If you introduce SMOTE, be sure to add it to the model <em>after</em> the Split Data module so that it only affects the training data. Otherwise, the testing data will include synthesized rows, which could lead to misleading (and incorrect) AUC numbers.</p>
 <h3>Hint #4: "Bin" scheduled departure times</h3>
-<p>The CRS_DEP_TIME column of the dataset you are using represents scheduled departure times. The granularity of the numbers in this column — it contains 551 unique values — could have a negative impact on accuracy. This can be resolved using a technique called <a href="http://data-informed.com/enhance-machine-learning-with-standardizing-binning-reducing/">binning</a> or quantization. What if you divided each number in this column by 100 and rounded down to the nearest integer? 1030 would become 10, 1925 would become 19, and so on, and you would be left with a maximum of 24 discrete values in this column. Intuitively, it makes sense, because it probably doesn't matter much whether a flight leaves at 10:30 a.m. or 10:40 a.m. It matters a great deal whether it leaves at 10:30 a.m. or 5:30 p.m.</p>
+<p>The CRS_DEP_TIME column of the dataset you are using represents scheduled departure times. The granularity of the numbers in this column — it contains 551 unique values — could have a negative impact on accuracy. This can be resolved using a technique called <a href="http://data-informed.com/enhance-machine-learning-with-standardizing-binning-reducing/" rel="nofollow">binning</a> or quantization. What if you divided each number in this column by 100 and rounded down to the nearest integer? 1030 would become 10, 1925 would become 19, and so on, and you would be left with a maximum of 24 discrete values in this column. Intuitively, it makes sense, because it probably doesn't matter much whether a flight leaves at 10:30 a.m. or 10:40 a.m. It matters a great deal whether it leaves at 10:30 a.m. or 5:30 p.m.</p>
 <p><a href="Images/binning.png" target="_blank"><img src="Images/binning.png" alt="The CRS_DEP_TIME column" style="max-width:100%;"></a></p>
 <p><em>The CRS_DEP_TIME column</em></p>
-<p>There are several ways to accomplish binning in Azure Machine Learning. One of them is the <a href="https://msdn.microsoft.com/library/azure/dn913065.aspx">Group Data Into Bins</a> module. More often, data scientists prefer to write a few lines of R or Python code, which are easily incorporated into a model using <a href="https://msdn.microsoft.com/library/azure/dn905952.aspx">Execute R Script</a> or <a href="https://msdn.microsoft.com/library/azure/dn955437.aspx">Execute Python Script</a>. Here's a simple Python script that bins CRS_DEP_TIME values as described above:</p>
+<p>There are several ways to accomplish binning in Azure Machine Learning. One of them is the <a href="https://msdn.microsoft.com/library/azure/dn913065.aspx" rel="nofollow">Group Data Into Bins</a> module. More often, data scientists prefer to write a few lines of R or Python code, which are easily incorporated into a model using <a href="https://msdn.microsoft.com/library/azure/dn905952.aspx" rel="nofollow">Execute R Script</a> or <a href="https://msdn.microsoft.com/library/azure/dn955437.aspx" rel="nofollow">Execute Python Script</a>. Here's a simple Python script that bins CRS_DEP_TIME values as described above:</p>
 <div class="highlight highlight-source-python"><pre><span class="pl-c"><span class="pl-c">#</span> Assume df is the dataframe containing the data</span>
 <span class="pl-k">for</span> index, row <span class="pl-k">in</span> df.iterrows():
     df.loc[index, <span class="pl-s"><span class="pl-pds">'</span>CRS_DEP_TIME<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> math.floor(row[<span class="pl-s"><span class="pl-pds">'</span>CRS_DEP_TIME<span class="pl-pds">'</span></span>] <span class="pl-k">/</span> <span class="pl-c1">100</span>)</pre></div>
 <p>If binning departure times in this manner improves the accuracy of the model, you might experiment with different bin sizes as well.</p>
 <h3>Hint #5: Tune the learning algorithm</h3>
-<p>Each algorithm in Azure Machine Learning exposes parameters that you can use to tune its performance. When an algorithmic module such as <a href="https://msdn.microsoft.com/library/azure/dn905994.aspx">Two-Class Logistic Regression</a> is selected on the canvas, its parameters appear in the Properties pane on the right.</p>
+<p>Each algorithm in Azure Machine Learning exposes parameters that you can use to tune its performance. When an algorithmic module such as <a href="https://msdn.microsoft.com/library/azure/dn905994.aspx" rel="nofollow">Two-Class Logistic Regression</a> is selected on the canvas, its parameters appear in the Properties pane on the right.</p>
 <p><a href="Images/logistic-regression-parameters.png" target="_blank"><img src="Images/logistic-regression-parameters.png" alt="Parameters for Two-Class Logistic Regression" style="max-width:100%;"></a></p>
 <p><em>Parameters for Two-Class Logistic Regression</em></p>
-<p>Experimenting with different parameters frequently improves the accuracy of a model, but can also require a lot of time. That's why Azure Machine Learning offers a module named <a href="https://msdn.microsoft.com/library/azure/dn905810.aspx">Tune Model Hyperparameters</a>. Replacing <a href="https://msdn.microsoft.com/library/azure/dn906044.aspx">Train Model</a> with Tune Model Hyperparameters allows the latter to find the optimum combination of parameter values for you at the expense of increased training time.</p>
+<p>Experimenting with different parameters frequently improves the accuracy of a model, but can also require a lot of time. That's why Azure Machine Learning offers a module named <a href="https://msdn.microsoft.com/library/azure/dn905810.aspx" rel="nofollow">Tune Model Hyperparameters</a>. Replacing <a href="https://msdn.microsoft.com/library/azure/dn906044.aspx" rel="nofollow">Train Model</a> with Tune Model Hyperparameters allows the latter to find the optimum combination of parameter values for you at the expense of increased training time.</p>
 <blockquote>
 <p>Training time can increase significantly when you use Tune Model Hyperparameters, especially if you set the parameter sweep mode to <strong>Entire grid</strong>.</p>
 </blockquote>
 <p><a href="Images/tune-model-hyperparameters.png" target="_blank"><img src="Images/tune-model-hyperparameters.png" alt="Using Tune Model Hyperparameters" style="max-width:100%;"></a></p>
 <p><em>Using Tune Model Hyperparameters</em></p>
-<p>Tune Model Hyperparameters isn't the only way to tune the learning algorithm. For additional ideas, see <a href="https://docs.microsoft.com/azure/machine-learning/machine-learning-algorithm-parameters-optimize">https://docs.microsoft.com/azure/machine-learning/machine-learning-algorithm-parameters-optimize</a>.</p>
+<p>Tune Model Hyperparameters isn't the only way to tune the learning algorithm. For additional ideas, see <a href="https://docs.microsoft.com/azure/machine-learning/machine-learning-algorithm-parameters-optimize" rel="nofollow">https://docs.microsoft.com/azure/machine-learning/machine-learning-algorithm-parameters-optimize</a>.</p>
 <h3>Hint #6: Train with a larger dataset</h3>
 <p><strong>BigFlightData.csv</strong> contains a dataset that is roughly four times larger than the one you trained the model with. Training a model with a larger dataset often improves accuracy. Training will take longer, which is a good reason to tune the model to the extent possible with a smaller dataset, and <em>then</em> to introduce a larger dataset.</p>
 <p>Remember that the goal is to achieve an AUC value of <strong>0.75 or greater</strong>. If you can do that, then you have learned to think like a data scientist!</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
