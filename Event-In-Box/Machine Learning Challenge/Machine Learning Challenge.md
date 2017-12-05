@@ -15,7 +15,7 @@ In the Machine Learning Challenge, you will use Azure Machine Learning Studio to
 The following are required to complete the challenge:
 
 - A Microsoft account. If you don't have one, [click here](https://account.microsoft.com/account) to create one.
-- An active Azure subscription (recommended but not required)
+- An active Azure subscription — for example, an Azure Pass (recommended but not required)
 - A modern browser such as Microsoft Edge or Google Chrome
 
 If you don't have an Azure subscription, you can [sign up for a free trial](http://aka.ms/WATK-FreeTrial). Or, if you are a college student, you may qualify for a free subscription through the [Microsoft Imagine](https://imagine.microsoft.com) program. To enroll in the program and claim your Azure subscription, go to https://imagine.microsoft.com/Catalog/Product/99.
@@ -37,7 +37,9 @@ This challenge includes the following exercises:
 
 The first step in employing Azure Machine Learning Studio is to create a machine-learning workspace and a learning experiment to go in it. In this exercise, you will get an experiment up and running in Azure Machine Learning Studio.
 
-1. If you have an active Azure subscription, proceed to Step 2. Otherwise, **skip to Step 11**.
+1. If you have an Azure Pass or another active Azure subscription, proceed to Step 2. Otherwise, **skip to Step 12**.
+
+1. If you have an Azure Pass but haven't yet activated it, go to https://www.microsoftazurepass.com/ and activate it now.
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
@@ -87,7 +89,7 @@ The first step in employing Azure Machine Learning Studio is to create a machine
 
     _Signing in to ML Studio_
 
-1. **Now skip to Step 13**. Steps 11 and 12 are only for participants who do not have an active Azure subscription.
+1. **Now skip to Step 14**. Steps 12 and 13 are only for participants who do not have an active Azure subscription.
 
 1. In your Web browser, navigate to http://studio.azureml.net and click the **Sign Up** button.
 
