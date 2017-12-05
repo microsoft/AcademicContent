@@ -474,8 +474,8 @@ vertical-align:1px;
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
 <p>Machine learning, which facilitates predictive analytics using large volumes of data by employing algorithms that iteratively learn from that data, is one of the fastest growing areas of computer science. Its uses range from credit-card fraud detection and self-driving cars to optical character recognition (OCR) and online shopping recommendations. It makes us smarter by making computers smarter. And its usefulness will only increase as more and more data becomes available and the desire to perform predictive analysis from that data grows, too.</p>
-<p><a href="https://azure.microsoft.com/en-us/services/machine-learning/">Azure Machine Learning Studio</a> is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It features an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for <a href="https://www.r-project.org/">R</a> and <a href="https://www.python.org/">Python</a> means you can build custom scripts  to customize your model. Once you've built and trained your model, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the <a href="https://gallery.cortanaintelligence.com/">Cortana Intelligence Gallery</a>.</p>
-<p>In this lab, you will use Azure Machine Learning Studio to build, train, and score a model that recognizes hand-written numeric digits. You will use a real OCR data set published for academic research. After deploying the model as a Web service, you will write a <a href="https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp">Universal Windows Platform</a> (UWP) client for it that lets you sketch digits on the screen and then consult Azure Machine Learning to see if it can identify the digits you sketched. You will learn how to build and train a model, as well as how to write code that leverages the model.</p>
+<p><a href="https://azure.microsoft.com/en-us/services/machine-learning/" rel="nofollow">Azure Machine Learning Studio</a> is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It features an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for <a href="https://www.r-project.org/" rel="nofollow">R</a> and <a href="https://www.python.org/" rel="nofollow">Python</a> means you can build custom scripts  to customize your model. Once you've built and trained your model, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the <a href="https://gallery.cortanaintelligence.com/" rel="nofollow">Cortana Intelligence Gallery</a>.</p>
+<p>In this lab, you will use Azure Machine Learning Studio to build, train, and score a model that recognizes hand-written numeric digits. You will use a real OCR data set published for academic research. After deploying the model as a Web service, you will write a <a href="https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp" rel="nofollow">Universal Windows Platform</a> (UWP) client for it that lets you sketch digits on the screen and then consult Azure Machine Learning to see if it can identify the digits you sketched. You will learn how to build and train a model, as well as how to write code that leverages the model.</p>
 <p><a name="Objectives"></a></p>
 <h3>Objectives</h3>
 <p>In this hands-on lab, you will learn how to:</p>
@@ -488,8 +488,8 @@ vertical-align:1px;
 <h3>Prerequisites</h3>
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li><a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio 2017 Community edition</a> or higher with the Windows 10 SDK installed</li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial" rel="nofollow">sign up for a free trial</a>.</li>
+<li><a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx" rel="nofollow">Visual Studio 2017 Community edition</a> or higher with the "Universal Windows Platform development" and "Azure development" workloads installed</li>
 </ul>
 <hr>
 <p><a name="Exercises"></a></p>
@@ -507,42 +507,37 @@ vertical-align:1px;
 <p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
 <p><a name="Exercise1"></a></p>
 <h2>Exercise1: Create a Machine Learning experiment</h2>
-<p>The first step in employing Azure Machine Learning Studio is to create an ML workspace and an experiment to go in it. In this exercise, you'll get a Machine Learning experiment up and running in the Azure ML Studio.</p>
+<p>The first step in employing Azure Machine Learning Studio is to create a Machine Learning Studio workspace and an experiment to go in it. In this exercise, you'll get a machine-learning experiment up and running in Azure Machine Learning Studio.</p>
 <ol>
 <li>
-<p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If asked to log in, do so using your Microsoft account.</p>
+<p>Open the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> in your browser. If asked to log in, do so using your Microsoft account.</p>
 </li>
 <li>
-<p>Click <strong>+ New</strong>, followed by <strong>Intelligence + analytics</strong>. Then click <strong>See all</strong>.</p>
-<p><a href="Images/new-ml-workspace-1.png" target="_blank"><img src="Images/new-ml-workspace-1.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
-<p><em>Creating an ML workspace</em></p>
+<p>Click <strong>+ New</strong>. Then type "machine learning" (without quotation marks) into the search box and select <strong>Machine Learning Studio Workspace</strong> from the search results.</p>
+<p><a href="Images/new-ml-workspace-1.png" target="_blank"><img src="Images/new-ml-workspace-1.png" alt="Creating a workspace" style="max-width:100%;"></a></p>
+<p><em>Creating a workspace</em></p>
 </li>
 <li>
-<p>Click <strong>Machine Learning Workspace</strong>. (If this option doesn't appear, type "workspace" without quotation marks into the search box at the top of the page, and then select <strong>Machine Learning Workspace</strong> from the search results.)</p>
-<p><a href="Images/new-ml-workspace-2.png" target="_blank"><img src="Images/new-ml-workspace-2.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
-<p><em>Creating an ML workspace</em></p>
+<p>Click the <strong>Create</strong> button at the bottom of the "Machine Learning Studio Workspace" blade.</p>
+<p><a href="Images/new-ml-workspace-3.png" target="_blank"><img src="Images/new-ml-workspace-3.png" alt="Creating a workspace" style="max-width:100%;"></a></p>
+<p><em>Creating a workspace</em></p>
 </li>
 <li>
-<p>Click the <strong>Create</strong> button at the bottom of the "Machine Learning Workspace" blade.</p>
-<p><a href="Images/new-ml-workspace-3.png" target="_blank"><img src="Images/new-ml-workspace-3.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
-<p><em>Creating an ML workspace</em></p>
-</li>
-<li>
-<p>The next step is to enter the parameters for the workspace you wish to create. In the "Machine Learning Workspace" blade, enter a workspace name such as "DXLabs" and make sure a green check mark appears next to it. Select <strong>Create new</strong> under <strong>Resource group</strong> and enter a resource-group name such as "MachineLearningResourceGroup." Select the location nearest you under <strong>Location</strong>. Then enter a storage-account name, making it as unique as possible, and make sure a green check mark appears next to it, too.</p>
+<p>In the "Machine Learning Studio workspace" blade, enter a workspace name such as "DXLabs" and make sure a green check mark appears next to it. Select <strong>Create new</strong> under <strong>Resource group</strong> and enter a resource-group name such as "MachineLearningResourceGroup." Select the location nearest you under <strong>Location</strong>. Then enter a storage-account name, making it as unique as possible, and make sure a green check mark appears next to it, too.</p>
 <blockquote>
 <p>Storage-account names can be 3 to 24 characters in length, can only contain numbers and lowercase letters, and must be unique within Azure. A green check mark next to the name indicates that it meets all these criteria.</p>
 </blockquote>
-<p>Now click <strong>Web service plan pricing tier</strong> and select <strong>DEVTEST Standard</strong> in the "Choose your pricing tier blade." Finish up by clicking <strong>Select</strong> at the bottom of that blade, and clicking <strong>Create</strong> at the bottom of the "Machine Learning Workspace" blade.</p>
-<p><a href="Images/new-ml-workspace-4.png" target="_blank"><img src="Images/new-ml-workspace-4.png" alt="Creating an ML workspace" style="max-width:100%;"></a></p>
-<p><em>Creating an ML workspace</em></p>
+<p>Now click <strong>Web service plan pricing tier</strong> and select <strong>S1 Standard</strong> in the "Choose your pricing tier blade." Finish up by clicking <strong>Select</strong> at the bottom of that blade, and clicking <strong>Create</strong> at the bottom of the "Machine Learning Studio workspace" blade.</p>
+<p><a href="Images/new-ml-workspace-4.png" target="_blank"><img src="Images/new-ml-workspace-4.png" alt="Creating a workspace" style="max-width:100%;"></a></p>
+<p><em>Creating a workspace</em></p>
 </li>
 <li>
-<p>Click <strong>Resource groups</strong> in the ribbon on the left side of the portal, and then click the resource group created for the Machine Learning workspace.</p>
+<p>Click <strong>Resource groups</strong> in the ribbon on the left side of the portal, and then click the resource group created for the Machine Learning Studio workspace.</p>
 <p><a href="Images/open-resource-group.png" target="_blank"><img src="Images/open-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
 <p><em>Opening the resource group</em></p>
 </li>
 <li>
-<p>If the text under "Deployments" says "1 Deploying," refresh the page in your browser every few seconds until it changes to "1 Succeeded." Then click the Machine Learning workspace in the resource group.</p>
+<p>Wait until "Deploying" changes to "Succeeded," indicating that the workspace has been created. (You can click <strong>Refresh</strong> at the top of the blade to refresh the deployment status.) Then click the Machine Learning Studio workspace in the resource group.</p>
 <p><a href="Images/open-workspace.png" target="_blank"><img src="Images/open-workspace.png" alt="Opening the workspace" style="max-width:100%;"></a></p>
 <p><em>Opening the workspace</em></p>
 </li>
@@ -552,12 +547,12 @@ vertical-align:1px;
 <p><em>Launching ML Studio</em></p>
 </li>
 <li>
-<p>Click <strong>Sign In</strong> to sign in to ML Studio with your Microsoft account.</p>
+<p>Click <strong>Sign In</strong> to sign in to Machine Learning Studio with your Microsoft account.</p>
 <p><a href="Images/sign-in.png" target="_blank"><img src="Images/sign-in.png" alt="Signing in to ML Studio" style="max-width:100%;"></a></p>
 <p><em>Signing in to ML Studio</em></p>
 </li>
 <li>
-<p>In ML Studio, click <strong>+ NEW</strong> in the lower-left corner. Then start a new experiment by clicking <strong>Blank Experiment</strong>.</p>
+<p>In Machine Learning Studio, click <strong>+ NEW</strong> in the lower-left corner. Then start a new experiment by clicking <strong>Blank Experiment</strong>.</p>
 <p><a href="Images/create-blank-experiment.png" target="_blank"><img src="Images/create-blank-experiment.png" alt="Creating a blank experiment" style="max-width:100%;"></a></p>
 <p><em>Creating a blank experiment</em></p>
 </li>
@@ -570,7 +565,7 @@ vertical-align:1px;
 <p>Now that the experiment has been created, the next step is to import some data and build a model around it.</p>
 <p><a name="Exercise2"></a></p>
 <h2>Exercise 2: Upload a dataset</h2>
-<p>Azure Machine Learning Studio comes with several sample datasets. Additional datasets are available from a variety of sources, including <a href="http://www.data.gov/">Data.gov</a>, <a href="http://www.kaggle.com/">Kaggle</a>, and the University of California Irvine's <a href="http://archive.ics.uci.edu/ml/">Machine Learning Repository</a>. In this exercise, you will upload a public dataset containing data generated by scanning and digitizing handwritten digits (0 through 9) from a sample of 43 people. You will later use the dataset to train an ML model that can recognize handwritten digits with a high degree of accuracy.</p>
+<p>Azure Machine Learning Studio comes with several sample datasets. Additional datasets are available from a variety of sources, including <a href="http://www.data.gov/" rel="nofollow">Data.gov</a>, <a href="http://www.kaggle.com/" rel="nofollow">Kaggle</a>, and the University of California Irvine's <a href="http://archive.ics.uci.edu/ml/" rel="nofollow">Machine Learning Repository</a>. In this exercise, you will upload a public dataset containing data generated by scanning and digitizing handwritten digits (0 through 9) from a sample of 43 people. You will later use the dataset to train an ML model that can recognize handwritten digits with a high degree of accuracy.</p>
 <ol>
 <li>
 <p>Click <strong>+ NEW</strong> in the lower-left corner of ML Studio. Then click <strong>DATASET</strong>, followed by <strong>FROM LOCAL FILE</strong>.</p>
@@ -615,7 +610,7 @@ vertical-align:1px;
 <p>There are several types of machine-learning models. One of the most common is the regression model, which uses one of a number of regression algorithms to produce a numeric value — for example, a person's age or the probability that a credit-card transaction is fraudulent. You will be training a classification model, which seeks to resolve a set of inputs into one of a set of known outputs. A classic example of a classification model is one that examines e-mails and classifies them as "spam" or "not spam." Your model will examine a set of inputs representing pixel patterns and attempt to classify each as a digit from 0 to 9, inclusive.</p>
 <ol>
 <li>
-<p>At the top of the modules palette, type "metadata" (without quotation marks) into the search box to find the <a href="https://msdn.microsoft.com/en-us/library/azure/dn905986.aspx">Edit Metadata</a> module.</p>
+<p>At the top of the modules palette, type "metadata" (without quotation marks) into the search box to find the <a href="https://msdn.microsoft.com/en-us/library/azure/dn905986.aspx" rel="nofollow">Edit Metadata</a> module.</p>
 <p><a href="Images/find-metadata-editor.png" target="_blank"><img src="Images/find-metadata-editor.png" alt="Finding the Edit Metadata module" style="max-width:100%;"></a></p>
 <p><em>Finding the Edit Metadata module</em></p>
 </li>
@@ -651,7 +646,7 @@ vertical-align:1px;
 </blockquote>
 </li>
 <li>
-<p>Type "split" (without quotation marks) into the search box at the top of the modules palette. Then drag a <a href="https://msdn.microsoft.com/en-us/library/azure/dn905969.aspx">Split Data</a> module onto the canvas and connect the output port from the Edit Metadata module to the input port of the Split Data module. The purpose of the Split Data module is to split a dataset into two parts: one for training and one for scoring. It's useful when you don't have separate datasets for training and scoring.</p>
+<p>Type "split" (without quotation marks) into the search box at the top of the modules palette. Then drag a <a href="https://msdn.microsoft.com/en-us/library/azure/dn905969.aspx" rel="nofollow">Split Data</a> module onto the canvas and connect the output port from the Edit Metadata module to the input port of the Split Data module. The purpose of the Split Data module is to split a dataset into two parts: one for training and one for scoring. It's useful when you don't have separate datasets for training and scoring.</p>
 <p><a href="Images/add-split-data.png" target="_blank"><img src="Images/add-split-data.png" alt="Adding a Split Data module" style="max-width:100%;"></a></p>
 <p><em>Adding a Split Data module</em></p>
 </li>
@@ -667,7 +662,7 @@ vertical-align:1px;
 <p>Click the <strong>RUN</strong> button at the bottom of the page to run the experiment.</p>
 </li>
 <li>
-<p>Next, type "train model" (without quotation marks) into the search box at the top of the modules palette. Find the <a href="https://msdn.microsoft.com/en-us/library/azure/dn906044.aspx">Train Model</a> module and drag it onto the canvas. Connect the left output from the Split Data module to the right input of the Train Model module.</p>
+<p>Next, type "train model" (without quotation marks) into the search box at the top of the modules palette. Find the <a href="https://msdn.microsoft.com/en-us/library/azure/dn906044.aspx" rel="nofollow">Train Model</a> module and drag it onto the canvas. Connect the left output from the Split Data module to the right input of the Train Model module.</p>
 <p><a href="Images/add-train-model.png" target="_blank"><img src="Images/add-train-model.png" alt="Adding a Train Model module" style="max-width:100%;"></a></p>
 <p><em>Adding a Train Model module</em></p>
 </li>
@@ -684,9 +679,9 @@ vertical-align:1px;
 <li>
 <p>Now it's time to select a learning algorithm. Azure Machine Learning offers several kinds of classification and regression algorithms for you to choose from, as well as algorithms of other types. Each is represented by a module in the modules palette. You can always code your own algorithms in R or Python as well. Your model will employ an algorithm known as "Multiclass Logistic Regression." It's a classification algorithm that employs logistic regression, which is frequently used in statistics to predict the probability of an outcome.</p>
 <blockquote>
-<p>The Azure Machine Learning team has put together a "cheat sheet" to help you decide which algorithm to choose based on the intended purpose of your model. You can download it from <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf">here</a>.</p>
+<p>The Azure Machine Learning team has put together a "cheat sheet" to help you decide which algorithm to choose based on the intended purpose of your model. You can download it from <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf" rel="nofollow">here</a>.</p>
 </blockquote>
-<p>Type "multiclass" (without quotation marks) into the search box at the top of the modules palette. Find the <a href="https://msdn.microsoft.com/en-us/library/azure/dn905853.aspx">Multiclass Logistic Regression</a> module and drag it onto the canvas. Then connect the output from the Multiclass Logistic Regression module to the left input of the Train Model module, as shown below.</p>
+<p>Type "multiclass" (without quotation marks) into the search box at the top of the modules palette. Find the <a href="https://msdn.microsoft.com/en-us/library/azure/dn905853.aspx" rel="nofollow">Multiclass Logistic Regression</a> module and drag it onto the canvas. Then connect the output from the Multiclass Logistic Regression module to the left input of the Train Model module, as shown below.</p>
 <p><a href="Images/add-algorithm.png" target="_blank"><img src="Images/add-algorithm.png" alt="Specifying the learning algorithm" style="max-width:100%;"></a></p>
 <p><em>Specifying the learning algorithm</em></p>
 </li>
@@ -706,7 +701,7 @@ vertical-align:1px;
 <p>In this exercise, you will score the model you trained in the previous exercise. <em>Scoring</em> determines how well the model was trained — that is, how adept it is at predicting target values from variables presented to it. ML Studio makes the scoring process very easy. You used 80% of the dataset that you uploaded to train the model. You will use the remaining 20% to score it.</p>
 <ol>
 <li>
-<p>Add a <a href="https://msdn.microsoft.com/en-us/library/azure/dn905995.aspx">Score Model</a> module to the canvas. Connect the output of the Train Model module to the Score Model module's left input port. Then connect the right output port of the Split Data module to the right input port of the Score Model module. That connection represents the 20% of the data that was not used for training.</p>
+<p>Add a <a href="https://msdn.microsoft.com/en-us/library/azure/dn905995.aspx" rel="nofollow">Score Model</a> module to the canvas. Connect the output of the Train Model module to the Score Model module's left input port. Then connect the right output port of the Split Data module to the right input port of the Score Model module. That connection represents the 20% of the data that was not used for training.</p>
 <p><a href="Images/add-score-model.png" target="_blank"><img src="Images/add-score-model.png" alt="Adding the Score Model module" style="max-width:100%;"></a></p>
 <p><em>Adding the Score Model module</em></p>
 </li>
@@ -725,7 +720,7 @@ vertical-align:1px;
 <p>Close the visualization window by clicking the "<strong>x</strong>" in the upper-right corner.</p>
 </li>
 <li>
-<p>To evaluate the quality of the results without having to compare hundreds of values manually, add an <a href="https://msdn.microsoft.com/en-us/library/azure/dn905915.aspx">Evaluate Model</a> module to the experiment canvas. Connect the output port of the Score Model module to the left input port of the output of the Evaluate Model module. (There are two input ports because Evaluate Model can be used to compare two models.)</p>
+<p>To evaluate the quality of the results without having to compare hundreds of values manually, add an <a href="https://msdn.microsoft.com/en-us/library/azure/dn905915.aspx" rel="nofollow">Evaluate Model</a> module to the experiment canvas. Connect the output port of the Score Model module to the left input port of the output of the Evaluate Model module. (There are two input ports because Evaluate Model can be used to compare two models.)</p>
 <p><a href="Images/add-evaluate-model.png" target="_blank"><img src="Images/add-evaluate-model.png" alt="Adding the Evaluate Model module" style="max-width:100%;"></a></p>
 <p><em>Adding the Evaluate Model module</em></p>
 </li>
@@ -774,7 +769,7 @@ vertical-align:1px;
 <p><em>Copying the API key</em></p>
 </li>
 <li>
-<p>Now click <strong>REQUEST/RESPONSE</strong> to see useful information about calling the Web service over HTTPS using <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>.</p>
+<p>Now click <strong>REQUEST/RESPONSE</strong> to see useful information about calling the Web service over HTTPS using <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" rel="nofollow">REST</a>.</p>
 <p><a href="Images/web-service-dashboard-2.png" target="_blank"><img src="Images/web-service-dashboard-2.png" alt="Viewing Request/Response information" style="max-width:100%;"></a></p>
 <p><em>Viewing Request/Response information</em></p>
 </li>
@@ -791,11 +786,11 @@ vertical-align:1px;
 <p><em>The Web service URL</em></p>
 </li>
 </ol>
-<p>A common question regarding Azure ML Web services is: how much do they cost? You can find the current pricing information in the <a href="https://azure.microsoft.com/en-us/pricing/details/machine-learning/">Machine Learning Pricing</a> page.</p>
+<p>A common question regarding Azure ML Web services is: how much do they cost? You can find the current pricing information in the <a href="https://azure.microsoft.com/en-us/pricing/details/machine-learning/" rel="nofollow">Machine Learning Pricing</a> page.</p>
 <p><a name="Exercise6"></a></p>
 <h2>Exercise 6: Build a universal Windows client</h2>
-<p>The whole reason for deploying an Azure ML model as a Web service is so you can build smart apps that utilize the model. There are many ways to build such apps. You could call the service from a Web app using JavaScript and AJAX, for example, or you could use Visual Studio to write a <a href="https://www.xamarin.com/">Xamarin</a> app that runs on iOS, Android, and Windows and places calls to the service using .NET's HttpClient class.</p>
-<p>In this exercise, you will write a client app that targets the <a href="https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp">Universal Windows Platform</a>, or UWP. The beauty of such apps is that they run on a variety of Windows devices, including PCs, tablets, phones, and even on Xbox One. The app you will write enables you to draw digits into an onscreen grid. Then it calls your ML Web service and tells you what digit you drew.</p>
+<p>The whole reason for deploying an Azure ML model as a Web service is so you can build smart apps that utilize the model. There are many ways to build such apps. You could call the service from a Web app using JavaScript and AJAX, for example, or you could use Visual Studio to write a <a href="https://www.xamarin.com/" rel="nofollow">Xamarin</a> app that runs on iOS, Android, and Windows and places calls to the service using .NET's HttpClient class.</p>
+<p>In this exercise, you will write a client app that targets the <a href="https://msdn.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp" rel="nofollow">Universal Windows Platform</a>, or UWP. The beauty of such apps is that they run on a variety of Windows devices, including PCs, tablets, phones, and even on Xbox One. The app you will write enables you to draw digits into an onscreen grid. Then it calls your ML Web service and tells you what digit you drew.</p>
 <ol>
 <li>
 <p>In order to build and run UWP apps on a Windows 10 PC, you must enable developer mode on the device. To ensure that developer mode is enabled, click the <strong>Windows</strong> button (also known as the Start button) in the lower-left corner of the desktop. Then select <strong>Settings</strong> from the menu and click <strong>Update &amp; security</strong> in the "Settings" dialog. Now click <strong>For developers</strong> on the left and select <strong>Developer mode</strong> on the right, as shown below.</p>
@@ -838,7 +833,7 @@ vertical-align:1px;
     &lt;<span class="pl-ent">Button</span> <span class="pl-e">Content</span>=<span class="pl-s"><span class="pl-pds">"</span>Submit<span class="pl-pds">"</span></span> <span class="pl-e">Width</span>=<span class="pl-s"><span class="pl-pds">"</span>400<span class="pl-pds">"</span></span> <span class="pl-e">Height</span>=<span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span> <span class="pl-e">FontSize</span>=<span class="pl-s"><span class="pl-pds">"</span>32<span class="pl-pds">"</span></span> <span class="pl-e">Margin</span>=<span class="pl-s"><span class="pl-pds">"</span>0,16,0,0<span class="pl-pds">"</span></span> <span class="pl-e">HorizontalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Center<span class="pl-pds">"</span></span> <span class="pl-e">Click</span>=<span class="pl-s"><span class="pl-pds">"</span>OnSubmit<span class="pl-pds">"</span></span> /&gt;
     &lt;<span class="pl-ent">Button</span> <span class="pl-e">Content</span>=<span class="pl-s"><span class="pl-pds">"</span>Clear<span class="pl-pds">"</span></span> <span class="pl-e">Width</span>=<span class="pl-s"><span class="pl-pds">"</span>400<span class="pl-pds">"</span></span> <span class="pl-e">Height</span>=<span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span> <span class="pl-e">FontSize</span>=<span class="pl-s"><span class="pl-pds">"</span>32<span class="pl-pds">"</span></span> <span class="pl-e">Margin</span>=<span class="pl-s"><span class="pl-pds">"</span>0,16,0,0<span class="pl-pds">"</span></span> <span class="pl-e">HorizontalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Center<span class="pl-pds">"</span></span> <span class="pl-e">Click</span>=<span class="pl-s"><span class="pl-pds">"</span>OnClear<span class="pl-pds">"</span></span> /&gt;
 &lt;/<span class="pl-ent">StackPanel</span>&gt;</pre></div>
-<p>The markup that you just inserted is <a href="https://msdn.microsoft.com/en-us/library/cc189036(VS.95).aspx">Extensible Application Markup Language</a>, or XAML. XAML is a language created by Microsoft for building user interfaces. It was originally created for WPF, but has since been repurposed for universal Windows apps. Combined with <a href="https://www.xamarin.com/forms">Xamarin Forms</a>, it can even be used to build user interfaces for iOS and Android. It is an extremely expressive language that enjoys designer support in Visual Studio and other popular tools.</p>
+<p>The markup that you just inserted is <a href="https://msdn.microsoft.com/en-us/library/cc189036(VS.95).aspx" rel="nofollow">Extensible Application Markup Language</a>, or XAML. XAML is a language created by Microsoft for building user interfaces. It was originally created for WPF, but has since been repurposed for universal Windows apps. Combined with <a href="https://www.xamarin.com/forms" rel="nofollow">Xamarin Forms</a>, it can even be used to build user interfaces for iOS and Android. It is an extremely expressive language that enjoys designer support in Visual Studio and other popular tools.</p>
 </li>
 <li>
 <p>Now open <strong>MainPage.xaml.cs</strong> and add the following <code>using</code> statements to those already at the top of the file:</p>
@@ -1083,7 +1078,7 @@ vertical-align:1px;
 </ul>
 <p>There's much more than you can do with Azure Machine Learning, but this is a start. Feel free to experiment with it on your own and explore the exciting world of predictive analysis with a tool that is not only productive, but fun!</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
