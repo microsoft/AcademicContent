@@ -101,17 +101,13 @@ In this exercise, you will use the [Azure Portal](https://portal.azure.com) to c
 
     _Copying the access key_
  
-1. Find **controller.py** in this lab's "resources" folder and open it in the text or program editor of your choice.
+1. Find **storageconfig.py** in this lab's "resources" folder and open it in the text or program editor of your choice.
 
-1. In **controller.py**, replace *storage_account_name* on line 14 with the name of the storage account you created in Step 3, and replace *storage_account_key* on line 15 with the access key that is on the clipboard. Then save your changes and close the file.
+1. In **storageconfig.py**, replace *storage_account_name* on line 2 with the name of the storage account you created in Step 3, and replace *storage_account_key* on line 3 with the access key that is on the clipboard. Then save your changes and close the file.
 
-	![Modifying controller.py](Images/modify-script.png)
+	![Modifying storageconfig.py](Images/storage-configuration.png)
 
-    _Modifying controller.py_
-
-1. Find **worker.py** in this lab's "resources" folder and open it in the text or program editor of your choice.
-
-1. In **worker.py**, replace *storage_account_name* on line 11 with the name of the storage account you created in Step 3, and replace *storage_account_key* on line 12 with the access key that is on the clipboard. Then save your changes and close the file.
+    _Modifying storageconfig.py_
 
 You now have an Azure storage account that you can use in your tests as well as Python scripts that can access the storage account. The next step is to deploy your first HPC cluster for testing.
 
