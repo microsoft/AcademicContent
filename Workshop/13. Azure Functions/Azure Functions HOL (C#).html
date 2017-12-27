@@ -474,7 +474,7 @@ vertical-align:1px;
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
 <p>Functions have been the basic building blocks of software since the first lines of code were written and the need for code organization and reuse became a necessity. Azure Functions expand on these concepts by allowing developers to create "serverless", event-driven functions that run in the cloud and can be shared across a wide variety of services and systems, uniformly managed, and easily scaled based on demand. In addition, Azure Functions can be written in a variety of languages, including C#, JavaScript, Python, Bash, and PowerShell, and they're perfect for building apps and nanoservices that employ a compute-on-demand model.</p>
-<p>In this lab, you will create an Azure Function that monitors a blob container in Azure Storage for new images, and then performs automated analysis of the images using the Microsoft Cognitive Services <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a>. Specifically, The Azure Function will analyze each image that is uploaded to the container for adult or racy content and create a copy of the image in another container. Images that contain adult or racy content will be copied to one container, and images that do not contain adult or racy content will be copied to another. In addition, the scores returned by the Computer Vision API will be stored in blob metadata.</p>
+<p>In this lab, you will create an Azure Function that monitors a blob container in Azure Storage for new images, and then performs automated analysis of the images using the Microsoft Cognitive Services <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api" rel="nofollow">Computer Vision API</a>. Specifically, The Azure Function will analyze each image that is uploaded to the container for adult or racy content and create a copy of the image in another container. Images that contain adult or racy content will be copied to one container, and images that do not contain adult or racy content will be copied to another. In addition, the scores returned by the Computer Vision API will be stored in blob metadata.</p>
 <p><a name="Objectives"></a></p>
 <h3>Objectives</h3>
 <p>In this hands-on lab, you will learn how to:</p>
@@ -488,9 +488,12 @@ vertical-align:1px;
 <h3>Prerequisites</h3>
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li><a href="http://storageexplorer.com">Microsoft Azure Storage Explorer</a> (optional)</li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial" rel="nofollow">sign up for a free trial</a>.</li>
+<li><a href="http://storageexplorer.com" rel="nofollow">Microsoft Azure Storage Explorer</a> (optional)</li>
 </ul>
+<p><a name="Resources"></a></p>
+<h3>Resources</h3>
+<p><a href="https://a4r.blob.core.windows.net/public/functions-resources.zip" rel="nofollow">Click here</a> to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.</p>
 <hr>
 <p><a name="Exercises"></a></p>
 <h2>Exercises</h2>
@@ -508,7 +511,7 @@ vertical-align:1px;
 <p>The first step in writing an Azure Function is to create an Azure Function App. In this exercise, you will create an Azure Function App using the Azure Portal. Then you will add the three blob containers to the storage account that is created for the Function App: one to store uploaded images, a second to store images that do not contain adult or racy content, and a third to contain images that <em>do</em> contain adult or racy content.</p>
 <ol>
 <li>
-<p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If asked to log in, do so using your Microsoft account.</p>
+<p>Open the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> in your browser. If asked to log in, do so using your Microsoft account.</p>
 </li>
 <li>
 <p>Click <strong>+ New</strong>, followed by <strong>Compute</strong> and <strong>Function App</strong>.</p>
@@ -555,7 +558,7 @@ vertical-align:1px;
 <p>The Azure Function App has been created and you have added three containers to the storage account created for it. The next step is to add an Azure Function.</p>
 <p><a name="Exercise2"></a></p>
 <h2>Exercise 2: Add an Azure Function</h2>
-<p>Once you have created an Azure Function App, you can add Azure Functions to it. In this exercise, you will add a function to the Function App you created in <a href="#Exercise1">Exercise 1</a> and write C# code that uses the <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a> to analyze images added to the "uploaded" container for adult or racy content.</p>
+<p>Once you have created an Azure Function App, you can add Azure Functions to it. In this exercise, you will add a function to the Function App you created in <a href="#Exercise1">Exercise 1</a> and write C# code that uses the <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api" rel="nofollow">Computer Vision API</a> to analyze images added to the "uploaded" container for adult or racy content.</p>
 <ol>
 <li>
 <p>Return to the blade for the "FunctionsLabResourceGroup" resource group and click the Azure Function App that you created in <a href="#Exercise1">Exercise 1</a>.</p>
@@ -703,7 +706,7 @@ vertical-align:1px;
     <span class="pl-s"><span class="pl-pds">"</span>frameworks<span class="pl-pds">"</span></span>: {
         <span class="pl-s"><span class="pl-pds">"</span>net46<span class="pl-pds">"</span></span>: {
             <span class="pl-s"><span class="pl-pds">"</span>dependencies<span class="pl-pds">"</span></span>: {
-                <span class="pl-s"><span class="pl-pds">"</span>WindowsAzure.Storage<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>7.2.0<span class="pl-pds">"</span></span>
+                <span class="pl-s"><span class="pl-pds">"</span>WindowsAzure.Storage<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>8.5.0<span class="pl-pds">"</span></span>
             }
         }
     }
@@ -787,7 +790,7 @@ vertical-align:1px;
 <p><em>Uploading images to the "uploaded" container</em></p>
 </li>
 <li>
-<p>Click the button with the folder icon to the right of the <strong>Files</strong> box. Select all of the files in this lab's "Resources" folder. Then click the <strong>Upload</strong> button to upload the files to the "uploaded" container.</p>
+<p>Click the button with the folder icon to the right of the <strong>Files</strong> box. Select all of the files in the <a href="https://a4r.blob.core.windows.net/public/functions-resources.zip" rel="nofollow">resources that accompany this lab</a>. Then click the <strong>Upload</strong> button to upload the files to the "uploaded" container.</p>
 <p><a href="Images/upload-images-2.png" target="_blank"><img src="Images/upload-images-2.png" alt="Uploading images to the &quot;uploaded&quot; container" style="max-width:100%;"></a></p>
 <p><em>Uploading images to the "uploaded" container</em></p>
 </li>
@@ -819,10 +822,10 @@ vertical-align:1px;
 <p><a name="Exercise5"></a></p>
 <h2>Exercise 5: View blob metadata (optional)</h2>
 <p>What if you would like to view the scores for adult content and raciness returned by the Computer Vision API for each image uploaded to the "uploaded" container? The scores are stored in blob metadata for the images in the "accepted" and "rejected" containers, but blob metadata can't be viewed through the Azure Portal.</p>
-<p>In this exercise, you will use the cross-platform <a href="http://storageexplorer.com">Microsoft Azure Storage Explorer</a> to view blob metadata and see how the Computer Vision API scored the images you uploaded.</p>
+<p>In this exercise, you will use the cross-platform <a href="http://storageexplorer.com" rel="nofollow">Microsoft Azure Storage Explorer</a> to view blob metadata and see how the Computer Vision API scored the images you uploaded.</p>
 <ol>
 <li>
-<p>If you haven't installed the Microsoft Azure Storage Explorer, go to <a href="http://storageexplorer.com">http://storageexplorer.com</a> and install it now. Versions are available for Windows, macOS, and Linux.</p>
+<p>If you haven't installed the Microsoft Azure Storage Explorer, go to <a href="http://storageexplorer.com" rel="nofollow">http://storageexplorer.com</a> and install it now. Versions are available for Windows, macOS, and Linux.</p>
 </li>
 <li>
 <p>Start Storage Explorer. If you are asked to log in, do so using the same account you used to log in to the Azure Portal.</p>
@@ -858,7 +861,7 @@ vertical-align:1px;
 </ul>
 <p>This is just one example of how you can leverage Azure Functions to automate repetitive tasks. Experiment with other Azure Function templates to learn more about Azure Functions and to identify additional ways in which they can aid your research or business.</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

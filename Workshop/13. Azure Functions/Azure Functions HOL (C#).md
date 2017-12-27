@@ -28,6 +28,11 @@ The following are required to complete this hands-on lab:
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - [Microsoft Azure Storage Explorer](http://storageexplorer.com) (optional)
 
+<a name="Resources"></a>
+### Resources ###
+
+[Click here](https://a4r.blob.core.windows.net/public/functions-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
 ---
 
 <a name="Exercises"></a>
@@ -358,7 +363,7 @@ Your function is configured to listen for changes to the blob container named "u
 
     _Uploading images to the "uploaded" container_
 
-1. Click the button with the folder icon to the right of the **Files** box. Select all of the files in this lab's "Resources" folder. Then click the **Upload** button to upload the files to the "uploaded" container.
+1. Click the button with the folder icon to the right of the **Files** box. Select all of the files in the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/functions-resources.zip). Then click the **Upload** button to upload the files to the "uploaded" container.
 
     ![Uploading images to the "uploaded" container](Images/upload-images-2.png)
 
