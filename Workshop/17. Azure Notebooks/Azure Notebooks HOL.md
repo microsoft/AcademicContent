@@ -30,7 +30,13 @@ The following are required to complete this hands-on lab:
 - A Microsoft Account
 - A modern Web browser
 
+<a name="Resources"></a>
+### Resources ###
+
+[Click here](https://a4r.blob.core.windows.net/public/notebook-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
 ---
+
 <a name="Exercises"></a>
 ## Exercises ##
 
@@ -132,7 +138,7 @@ The notebook editor currently shows an empty cell. In this exercise, you will ad
 
 	_Running a code cell_
 
-1. Click **Data** in the menu at the top of the page, and select **Upload** from the drop-down menu. Then navigate to the "resources" folder of this lab and upload the files named **5-year-mean-1951-1980.csv** and **5-year-mean-1882-2014.csv**.
+1. Click **Data** in the menu at the top of the page, and select **Upload** from the drop-down menu. Then upload the files named **5-year-mean-1951-1980.csv** and **5-year-mean-1882-2014.csv** from the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/notebook-resources.zip).
 
 	![Uploading data to the notebook](Images/upload-data.png)
 

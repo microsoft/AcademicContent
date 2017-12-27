@@ -473,7 +473,7 @@ vertical-align:1px;
 <hr>
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
-<p><a href="https://notebooks.azure.com/">Azure Notebooks</a> provides a cloud-based solution for editing and running <a href="http://jupyter.org/">Jupyter</a> notebooks. Jupyter is an environment based on <a href="https://ipython.org/">IPython</a> that facilitates interactive programming and data analysis using a variety of programming languages. Jupyter notebooks enjoy widespread use in research and academia for mathematical modeling, machine learning, statistical analysis, and for teaching and learning how to code.</p>
+<p><a href="https://notebooks.azure.com/" rel="nofollow">Azure Notebooks</a> provides a cloud-based solution for editing and running <a href="http://jupyter.org/" rel="nofollow">Jupyter</a> notebooks. Jupyter is an environment based on <a href="https://ipython.org/" rel="nofollow">IPython</a> that facilitates interactive programming and data analysis using a variety of programming languages. Jupyter notebooks enjoy widespread use in research and academia for mathematical modeling, machine learning, statistical analysis, and for teaching and learning how to code.</p>
 <p>Notebooks are composed of <em>cells</em>, some of which contain code that runs interactively. Code is executed by a <em>kernel</em>, which provides an isolated environment for the notebook to run in. The popular IPython kernel supports code written in Python, but <a href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">dozens of other kernels</a> are available supporting other languages. Azure Notebooks support Python, R, and F# out of the box. They also support the installation of the numerous packages and libraries that are commonly used in research.</p>
 <p>Azure Notebooks provides Jupyter as a service for free, so anyone can use it. It's a convenient way to build notebooks and share them with others without having to install and manage a Jupyter server. And it's completely Web-based, making it an ideal solution for collaborating online.</p>
 <p><a name="Objectives"></a></p>
@@ -492,6 +492,9 @@ vertical-align:1px;
 <li>A Microsoft Account</li>
 <li>A modern Web browser</li>
 </ul>
+<p><a name="Resources"></a></p>
+<h3>Resources</h3>
+<p><a href="https://a4r.blob.core.windows.net/public/notebook-resources.zip" rel="nofollow">Click here</a> to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.</p>
 <hr>
 <p><a name="Exercises"></a></p>
 <h2>Exercises</h2>
@@ -510,7 +513,7 @@ vertical-align:1px;
 <p>The first order of business is to create a library and a notebook to go in it.</p>
 <ol>
 <li>
-<p>Navigate to <a href="https://notebooks.azure.com">https://notebooks.azure.com</a> in your browser and sign in using your Microsoft account. Then click <strong>Libraries</strong>.</p>
+<p>Navigate to <a href="https://notebooks.azure.com" rel="nofollow">https://notebooks.azure.com</a> in your browser and sign in using your Microsoft account. Then click <strong>Libraries</strong>.</p>
 <p><a href="Images/azure-notebooks-1.png" target="_blank"><img src="Images/azure-notebooks-1.png" alt="Navigating to the Libraries page" style="max-width:100%;"></a></p>
 <p><em>Navigating to the Libraries page</em></p>
 </li>
@@ -555,7 +558,7 @@ vertical-align:1px;
 <li><strong>Raw NBConvert</strong> for entering data inline</li>
 <li><strong>Heading</strong> for section headers</li>
 </ul>
-<p>The notebook editor currently shows an empty cell. In this exercise, you will add content to that cell and add other cells to import Python packages such as <a href="http://www.numpy.org/">NumPy</a>, load a pair of NASA data files containing <a href="https://data.giss.nasa.gov/gistemp/graphs_v3/">climate data</a>, and create a scatter plot from the data.</p>
+<p>The notebook editor currently shows an empty cell. In this exercise, you will add content to that cell and add other cells to import Python packages such as <a href="http://www.numpy.org/" rel="nofollow">NumPy</a>, load a pair of NASA data files containing <a href="https://data.giss.nasa.gov/gistemp/graphs_v3/" rel="nofollow">climate data</a>, and create a scatter plot from the data.</p>
 <ol>
 <li>
 <p>In the first cell, set the cell type to <strong>Markdown</strong> and enter the "Azure Notebook Hands On Lab" into the cell itself:</p>
@@ -580,7 +583,7 @@ vertical-align:1px;
 <p><em>Running a code cell</em></p>
 </li>
 <li>
-<p>Click <strong>Data</strong> in the menu at the top of the page, and select <strong>Upload</strong> from the drop-down menu. Then navigate to the "resources" folder of this lab and upload the files named <strong>5-year-mean-1951-1980.csv</strong> and <strong>5-year-mean-1882-2014.csv</strong>.</p>
+<p>Click <strong>Data</strong> in the menu at the top of the page, and select <strong>Upload</strong> from the drop-down menu. Then upload the files named <strong>5-year-mean-1951-1980.csv</strong> and <strong>5-year-mean-1882-2014.csv</strong> from the <a href="https://a4r.blob.core.windows.net/public/notebook-resources.zip" rel="nofollow">resources that accompany this lab</a>.</p>
 <p><a href="Images/upload-data.png" target="_blank"><img src="Images/upload-data.png" alt="Uploading data to the notebook" style="max-width:100%;"></a></p>
 <p><em>Uploading data to the notebook</em></p>
 </li>
@@ -601,7 +604,7 @@ years, mean <span class="pl-k">=</span> np.loadtxt(<span class="pl-s"><span clas
 <p>Place the cursor in the empty cell at the bottom of the notebook. Change the cell type to <strong>Markdown</strong> and enter "Create a scatter plot" as the text.</p>
 </li>
 <li>
-<p>Add a <strong>Code</strong> cell and paste in the following code, which uses <a href="http://matplotlib.org/">Mapplotlib</a> to create a scatter plot.</p>
+<p>Add a <strong>Code</strong> cell and paste in the following code, which uses <a href="http://matplotlib.org/" rel="nofollow">Mapplotlib</a> to create a scatter plot.</p>
 <div class="highlight highlight-source-python"><pre>plt.scatter(yearsBase, meanBase)
 plt.title(<span class="pl-s"><span class="pl-pds">'</span>scatter plot of mean temp difference vs year<span class="pl-pds">'</span></span>)
 plt.xlabel(<span class="pl-s"><span class="pl-pds">'</span>years<span class="pl-pds">'</span></span>, <span class="pl-v">fontsize</span><span class="pl-k">=</span><span class="pl-c1">12</span>)
@@ -617,7 +620,7 @@ plt.show()</pre></div>
 <p>The data set that you loaded uses a 30-year mean between 1951 and 1980 to calculate a base temperature for that period, and then uses 5-year mean temperatures to calculate the difference between the 5-year mean and the 30-year mean for each year. The scatter plot shows the annual temperature differences.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Perform linear regression with NumPy</h2>
-<p>Scatter plots offer a handy means for visualizing data, but suppose you wanted to overlay the scatter plot with a trend line showing how the data is trending over time. One way to compute such trend lines is <a href="https://en.wikipedia.org/wiki/Linear_regression">linear regression</a>. In this exercise, you will use NumPy to perform a linear regression and Matplotlib to draw a trend line from the data.</p>
+<p>Scatter plots offer a handy means for visualizing data, but suppose you wanted to overlay the scatter plot with a trend line showing how the data is trending over time. One way to compute such trend lines is <a href="https://en.wikipedia.org/wiki/Linear_regression" rel="nofollow">linear regression</a>. In this exercise, you will use NumPy to perform a linear regression and Matplotlib to draw a trend line from the data.</p>
 <ol>
 <li>
 <p>Place the cursor in the empty cell at the bottom of the notebook. Change the cell type to <strong>Markdown</strong> and enter "Perform linear regression" as the text.</p>
@@ -652,7 +655,7 @@ plt.show()</pre></div>
 <p>From the regression line, you can see that the difference between 30-year mean temperatures and 5-year mean temperatures is increasing over time.  Most of the computational work required to generate the regression line was performed by NumPy's <code>polyfit</code> function, which computed the values of <code>m</code> and <code>b</code> in the equation y = mx + b.</p>
 <p><a name="Exercise4"></a></p>
 <h2>Exercise 4: Perform linear regression with scikit-learn</h2>
-<p>Another popular Python library that is widely used in the research community is <a href="http://scikit-learn.org/stable/">scikit-learn</a>, which excels at building machine-learning models to help extract information from data. In this exercise, you will use scikit-learn (which was already imported in <a href="#Exercise2">Exercise 2</a>) to compute a trend line for the NASA climate data.</p>
+<p>Another popular Python library that is widely used in the research community is <a href="http://scikit-learn.org/stable/" rel="nofollow">scikit-learn</a>, which excels at building machine-learning models to help extract information from data. In this exercise, you will use scikit-learn (which was already imported in <a href="#Exercise2">Exercise 2</a>) to compute a trend line for the NASA climate data.</p>
 <ol>
 <li>
 <p>Place the cursor in the empty cell at the bottom of the notebook. Change the cell type to <strong>Markdown</strong> and enter "Perform linear regression with scikit-learn" as the text.</p>
@@ -685,7 +688,7 @@ plt.show()
 <p>The output is almost identical to the output in the previous exercise. The difference is that scikit-learn did more of the work for you. Specifically, you didn't have to code a line function as you did with NumPy; scikit-learn's <code>LinearRegression</code> function did it for you. scikit-learn supports <em>many</em> different types of regression, which comes in handy when building sophisticated machine-learning models.</p>
 <p><a name="Exercise5"></a></p>
 <h2>Exercise 5: Analyze the data with Seaborn</h2>
-<p>One of the cool things about Azure Notebooks — and Python in general — is that there are thousands of open-source libraries you can leverage to perform complex tasks without writing a lot of code. In this exercise, you will use <a href="https://seaborn.pydata.org/">Seaborn</a>, a library for statistical visualization, to plot the second of the two data sets you loaded, which covers the years 1882 to 2014. Seaborn can create a regression line accompanied by a projection showing where data points should fall based on the regression with one simple function call.</p>
+<p>One of the cool things about Azure Notebooks — and Python in general — is that there are thousands of open-source libraries you can leverage to perform complex tasks without writing a lot of code. In this exercise, you will use <a href="https://seaborn.pydata.org/" rel="nofollow">Seaborn</a>, a library for statistical visualization, to plot the second of the two data sets you loaded, which covers the years 1882 to 2014. Seaborn can create a regression line accompanied by a projection showing where data points should fall based on the regression with one simple function call.</p>
 <ol>
 <li>
 <p>Place the cursor in the empty cell at the bottom of the notebook. Change the cell type to <strong>Markdown</strong> and enter "Perform linear regression with Seaborn" as the text.</p>
@@ -773,9 +776,9 @@ plt.show()</pre></div>
 <p>Downloading .ipynb files is also useful for making local copies of your notebooks. You can even run them in other Jupyter environments if you would like because there is nothing proprietary about Azure Notebooks.</p>
 <p><a name="Summary"></a></p>
 <h2>Summary</h2>
-<p>The <a href="https://notebooks.azure.com/">Azure Notebooks Web site</a> contains several sample notebooks that you can experiment with and learn from. <a href="https://notebooks.azure.com/Microsoft/libraries/samples/html/Discover%20Sentiments%20in%20Tweets.ipynb">Discover Sentiments in Tweets</a> performs sentiment analysis on 160,000 tweets, and uses the <a href="https://github.com/amueller/word_cloud">word_cloud</a> package to generate word clouds from the tweets. <a href="https://notebooks.azure.com/cntk/libraries/tutorials">Introduction to Cognitive Toolkit</a> is a library of notebooks that demonstrate how to use the <a href="https://www.microsoft.com/en-us/research/product/cognitive-toolkit/">Microsoft Cognitive Toolkit</a> to build sophisticated machine-learning models. Check out the Azure Notebooks home page for additional sample notebooks, and use them to deepen your understanding of Jupyter and sharpen your data-science skills.</p>
+<p>The <a href="https://notebooks.azure.com/" rel="nofollow">Azure Notebooks Web site</a> contains several sample notebooks that you can experiment with and learn from. <a href="https://notebooks.azure.com/Microsoft/libraries/samples/html/Discover%20Sentiments%20in%20Tweets.ipynb" rel="nofollow">Discover Sentiments in Tweets</a> performs sentiment analysis on 160,000 tweets, and uses the <a href="https://github.com/amueller/word_cloud">word_cloud</a> package to generate word clouds from the tweets. <a href="https://notebooks.azure.com/cntk/libraries/tutorials" rel="nofollow">Introduction to Cognitive Toolkit</a> is a library of notebooks that demonstrate how to use the <a href="https://www.microsoft.com/en-us/research/product/cognitive-toolkit/" rel="nofollow">Microsoft Cognitive Toolkit</a> to build sophisticated machine-learning models. Check out the Azure Notebooks home page for additional sample notebooks, and use them to deepen your understanding of Jupyter and sharpen your data-science skills.</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
