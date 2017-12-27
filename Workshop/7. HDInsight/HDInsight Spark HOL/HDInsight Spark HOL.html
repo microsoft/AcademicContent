@@ -474,9 +474,9 @@ vertical-align:1px;
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
 <p>Today, data is being collected in ever-increasing amounts, at ever-increasing velocities, and in an ever-expanding variety of formats. This explosion of data is colloquially known as the Big Data phenomenon.</p>
-<p>In order to gain actionable insights into big-data sources, new tools need to be leveraged that allow the data to be cleaned, analyzed, and visualized quickly and efficiently. Azure HDInsight provides a solution to this problem by making it exceedingly simple to create high-performance computing clusters provisioned with <a href="http://spark.apache.org/">Apache Spark</a> and members of the Spark ecosystem. Rather than spend time deploying hardware and installing, configuring, and maintaining software, you can focus on your research and apply your expertise to the data rather than the resources required to analyze that data.</p>
-<p><a href="http://spark.apache.org/">Apache Spark</a> is an open-source parallel-processing platform that excels at running large-scale data analytics jobs. Spark’s combined use of in-memory and disk data storage delivers performance improvements that allow it to process some tasks up to 100 times faster than Hadoop. With Microsoft Azure, deploying Apache Spark clusters becomes significantly simpler and gets you working on your data analysis that much sooner.</p>
-<p>In this lab, you will experience <a href="https://azure.microsoft.com/en-us/services/hdinsight/apache-spark/">Apache Spark for Azure HDInsight</a> first-hand. After provisioning a Spark cluster, you will use the <a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a> to upload several Jupyter notebooks to the cluster. You will then use these notebooks to explore, visualize, and build a machine-learning model from food-inspection data — more than 100,000 rows of it — collected by the city of Chicago. The goal is to learn how to create and utilize your own Spark clusters, experience the ease with which they are provisioned in Azure, and, if you're new to Spark, get a working introduction to Spark data analytics.</p>
+<p>In order to gain actionable insights into big-data sources, new tools need to be leveraged that allow the data to be cleaned, analyzed, and visualized quickly and efficiently. Azure HDInsight provides a solution to this problem by making it exceedingly simple to create high-performance computing clusters provisioned with <a href="http://spark.apache.org/" rel="nofollow">Apache Spark</a> and members of the Spark ecosystem. Rather than spend time deploying hardware and installing, configuring, and maintaining software, you can focus on your research and apply your expertise to the data rather than the resources required to analyze that data.</p>
+<p><a href="http://spark.apache.org/" rel="nofollow">Apache Spark</a> is an open-source parallel-processing platform that excels at running large-scale data analytics jobs. Spark’s combined use of in-memory and disk data storage delivers performance improvements that allow it to process some tasks up to 100 times faster than Hadoop. With Microsoft Azure, deploying Apache Spark clusters becomes significantly simpler and gets you working on your data analysis that much sooner.</p>
+<p>In this lab, you will experience <a href="https://azure.microsoft.com/en-us/services/hdinsight/apache-spark/" rel="nofollow">Apache Spark for Azure HDInsight</a> first-hand. After provisioning a Spark cluster, you will use the <a href="http://storageexplorer.com/" rel="nofollow">Microsoft Azure Storage Explorer</a> to upload several Jupyter notebooks to the cluster. You will then use these notebooks to explore, visualize, and build a machine-learning model from food-inspection data — more than 100,000 rows of it — collected by the city of Chicago. The goal is to learn how to create and utilize your own Spark clusters, experience the ease with which they are provisioned in Azure, and, if you're new to Spark, get a working introduction to Spark data analytics.</p>
 <p><a name="Objectives"></a></p>
 <h3>Objectives</h3>
 <p>In this hands-on lab, you will learn how to:</p>
@@ -491,8 +491,11 @@ vertical-align:1px;
 <h3>Prerequisites</h3>
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial" rel="nofollow">sign up for a free trial</a>.</li>
 </ul>
+<p><a name="Resources"></a></p>
+<h3>Resources</h3>
+<p><a href="https://a4r.blob.core.windows.net/public/spark-resources.zip" rel="nofollow">Click here</a> to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.</p>
 <hr>
 <p><a name="Exercises"></a></p>
 <h2>Exercises</h2>
@@ -508,10 +511,10 @@ vertical-align:1px;
 <p>Estimated time to complete this lab: <strong>60</strong> minutes.</p>
 <p><a name="Exercise1"></a></p>
 <h2>Exercise 1: Create a Spark Cluster on HDInsight</h2>
-<p>In this exercise, you will create an HDInsight cluster running <a href="http://spark.apache.org/">Apache Spark</a>. Spark is renowned for its versatility and is built for speed, performing some operations 100 times faster than Hadoop.</p>
+<p>In this exercise, you will create an HDInsight cluster running <a href="http://spark.apache.org/" rel="nofollow">Apache Spark</a>. Spark is renowned for its versatility and is built for speed, performing some operations 100 times faster than Hadoop.</p>
 <ol>
 <li>
-<p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
+<p>Open the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
 </li>
 <li>
 <p>Click <strong>+ New</strong> in the upper-left corner of the portal. Then click <strong>Data + Analytics</strong>, followed by <strong>HDInsight</strong>.</p>
@@ -590,7 +593,7 @@ vertical-align:1px;
 <p><em>Uploading files to the "HdiNotebooks" folder</em></p>
 </li>
 <li>
-<p>Click the button with the folder icon to the right of the <strong>Files</strong> box. Navigate to this lab's "resources" directory and select the three <strong>.ipynb</strong> files in that directory. Then click the <strong>Upload</strong> button.</p>
+<p>Click the button with the folder icon to the right of the <strong>Files</strong> box. Select the three <strong>.ipynb</strong> files included in the <a href="https://a4r.blob.core.windows.net/public/spark-resources.zip" rel="nofollow">lab resources</a>. Then click the <strong>Upload</strong> button.</p>
 <p><a href="Images/upload-notebooks-2.png" target="_blank"><img src="Images/upload-notebooks-2.png" alt="Uploading Jupyter notebooks" style="max-width:100%;"></a></p>
 <p><em>Uploading Jupyter notebooks</em></p>
 </li>
@@ -603,7 +606,7 @@ vertical-align:1px;
 <p>The notebooks are uploaded and ready to go. Let's put them to work.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Work with Jupyter Notebooks</h2>
-<p><a href="http://jupyter.org/">Jupyter notebooks</a> are Web applications that allow you to create shareable, interactive documents containing text, equations, code, and data visualizations. Jupyter notebooks are proving to be extraordinarily useful for data scientists exploring and manipulating data sets in order to gain insights and share results. Jupyter supports several programming languages through the use of installable interpreters called <em>kernels</em>. Spark clusters on HDInsight include the Spark and PySpark kernels for Scala and Python, respectively. In this exercise, you will learn how to access Jupyter notebooks in your Spark cluster and acquire basic skills for using them.</p>
+<p><a href="http://jupyter.org/" rel="nofollow">Jupyter notebooks</a> are Web applications that allow you to create shareable, interactive documents containing text, equations, code, and data visualizations. Jupyter notebooks are proving to be extraordinarily useful for data scientists exploring and manipulating data sets in order to gain insights and share results. Jupyter supports several programming languages through the use of installable interpreters called <em>kernels</em>. Spark clusters on HDInsight include the Spark and PySpark kernels for Scala and Python, respectively. In this exercise, you will learn how to access Jupyter notebooks in your Spark cluster and acquire basic skills for using them.</p>
 <ol>
 <li>
 <p>In the Azure Portal, return to the blade for the resource group ("SparkLabResourceGroup") that contains the cluster. In the list of resources that belong to the resource group, click the HDInsight cluster.</p>
@@ -640,8 +643,8 @@ vertical-align:1px;
 <p>Once you have completed the steps in the notebook, close the browser window in which the notebook is displayed and return to the Azure Portal.</p>
 <p><a name="Exercise4"></a></p>
 <h2>Exercise 4: Interactively explore data in Spark</h2>
-<p>One of the ways in which researchers and data scientists use Jupyter notebooks in Spark is to explore datasets in order to understand their content and structure. Notebooks can be used to visualize data, as well as to apply structure to it. DataFrames are particularly helpful in this regard because they make it simple to apply schemas to raw data. DataFrames can also be used to create temporary tables that can be queried using <a href="http://hortonworks.com/blog/hive-cheat-sheet-for-sql-users/">Apache Hive SQL</a>, also known as HiveQL or simply HQL. Libraries such as <em>matplotlib</em>, which is already provisioned on your Spark cluster, provide support for graphing, charting, and visualizing datasets and query results. Put them all together and you have a powerful set of tools for exploring and analyzing datasets large and small.</p>
-<p>You have already learned how to access and run Spark notebooks on your Azure HDInsight Spark cluster. In this exercise, you will take the learning a level deeper by using DataFrames, HiveQL, and matplotlib to explore <a href="https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5">food-inspection data</a> from the city of Chicago. In addition to analyzing the contents of the data, you will apply structure to it, query it, and graph it to discover key relationships.</p>
+<p>One of the ways in which researchers and data scientists use Jupyter notebooks in Spark is to explore datasets in order to understand their content and structure. Notebooks can be used to visualize data, as well as to apply structure to it. DataFrames are particularly helpful in this regard because they make it simple to apply schemas to raw data. DataFrames can also be used to create temporary tables that can be queried using <a href="http://hortonworks.com/blog/hive-cheat-sheet-for-sql-users/" rel="nofollow">Apache Hive SQL</a>, also known as HiveQL or simply HQL. Libraries such as <em>matplotlib</em>, which is already provisioned on your Spark cluster, provide support for graphing, charting, and visualizing datasets and query results. Put them all together and you have a powerful set of tools for exploring and analyzing datasets large and small.</p>
+<p>You have already learned how to access and run Spark notebooks on your Azure HDInsight Spark cluster. In this exercise, you will take the learning a level deeper by using DataFrames, HiveQL, and matplotlib to explore <a href="https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5" rel="nofollow">food-inspection data</a> from the city of Chicago. In addition to analyzing the contents of the data, you will apply structure to it, query it, and graph it to discover key relationships.</p>
 <ol>
 <li>
 <p>Go back to the browser window showing the Jupyter notebooks in your cluster. If necessary, open the Azure Portal and follow the steps in the previous exercise to find the notebooks.</p>
@@ -694,7 +697,7 @@ vertical-align:1px;
 </ul>
 <p>With Apache Spark for Azure HDInsight, high-performance computing clusters with all the tools you need to handle big data are just a few button clicks away. It's just one example of why cloud computing is changing the face of research.</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

@@ -31,7 +31,13 @@ The following are required to complete this hands-on lab:
 
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 
+<a name="Resources"></a>
+### Resources ###
+
+[Click here](https://a4r.blob.core.windows.net/public/spark-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
 ---
+
 <a name="Exercises"></a>
 ## Exercises ##
 
@@ -140,7 +146,7 @@ You will be using Jupyter notebooks to do the data-exploration and machine-learn
 
     _Uploading files to the "HdiNotebooks" folder_
 
-1. Click the button with the folder icon to the right of the **Files** box. Navigate to this lab's "resources" directory and select the three **.ipynb** files in that directory. Then click the **Upload** button. 
+1. Click the button with the folder icon to the right of the **Files** box. Select the three **.ipynb** files included in the [lab resources](https://a4r.blob.core.windows.net/public/spark-resources.zip). Then click the **Upload** button. 
 
     ![Uploading Jupyter notebooks](Images/upload-notebooks-2.png)
 

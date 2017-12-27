@@ -30,7 +30,13 @@ The following are required to complete this hands-on lab:
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) (Windows users only). Install the latest full package using the MSI installer.
 
+<a name="Resources"></a>
+### Resources ###
+
+[Click here](https://a4r.blob.core.windows.net/public/hadoop-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
 ---
+
 <a name="Exercises"></a>
 ## Exercises ##
 
@@ -293,16 +299,16 @@ HDInsight, with its underlying Hadoop implementation, allows you to write MapRed
 
     The reducer reads each word output by the mapper, looks it up in the list of word groups it compiles, and adds the number of instances found to the total number of instances, writing the data to standard output (STDOUT).
 
-1. The two Python scripts containing the mapper and the reducer are provided for you in the lab's "resources" directory, which is in the same directory as the document you're currently reading. The next step is to copy the two files, which are named **mapper.py** and **reducer.py**, from the "resources" directory on the local machine to the cluster. **If you're using Windows, skip to Step 5**. Otherwise, proceed to the next step.
+1. The two Python scripts containing the mapper and the reducer are provided for you in the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/hadoop-resources.zip). The next step is to copy the two files, which are named **mapper.py** and **reducer.py**, to the cluster. **If you're using Windows, skip to Step 5**. Otherwise, proceed to the next step.
 
-1. **Linux and macOS users only**: Open a terminal window and navigate to this lab's "resources" directory. Then execute the following command to copy **mapper.py** and **reduce.py** to the HDInsight cluster, replacing *clustername* with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Azure4Research!").
+1. **Linux and macOS users only**: Open a terminal window and navigate to the directory where you copied the lab resources. Then execute the following command to copy **mapper.py** and **reduce.py** to the HDInsight cluster, replacing *clustername* with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Azure4Research!").
 
     <pre>
     scp *.py sshuser@<i>clustername</i>-ssh.azurehdinsight.net:</pre>
 
 	**Now skip to Step 6**. Step 5 is for Windows users only.
  
-1. **Windows users only**: Open a Command Prompt window and navigate to this lab's "resources" directory. Then execute the following command to copy **mapper.py** and **reduce.py** to the HDInsight cluster, replacing *clustername* with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Azure4Research!").
+1. **Windows users only**: Open a Command Prompt window and navigate to the directory where you copied the lab resources. Then execute the following command to copy **mapper.py** and **reduce.py** to the HDInsight cluster, replacing *clustername* with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Azure4Research!").
 
     <pre>
     pscp *.py sshuser@<i>clustername</i>-ssh.azurehdinsight.net:</pre>

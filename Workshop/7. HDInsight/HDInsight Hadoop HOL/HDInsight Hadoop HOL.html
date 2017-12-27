@@ -474,7 +474,7 @@ vertical-align:1px;
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
 <p>When you consider that there are more than 20 billion devices connected to the Internet today, most all of them generating data, and then think of the massive amounts of data being produced by Web sites, social networks, and other sources, you begin to understand the true implications of <strong>BIG DATA</strong>. Data is being collected in ever-escalating volumes, at increasingly high velocities, and in a widening variety of formats, and it's being used in increasingly diverse contexts. "Data" used to be something stored in a table in a database, but today it can be a sensor reading, a tweet, a GPS location, or almost anything else. The challenge for information scientists is to make sense of all that data.</p>
-<p>A popular tool for analyzing big data is <a href="https://hadoop.apache.org/">Apache Hadoop</a>. Hadoop is "a framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models." It is frequently combined with other open-source frameworks such as <a href="http://spark.apache.org/">Apache Spark</a>, <a href="http://hbase.apache.org/">Apache HBase</a>, and <a href="https://storm.apache.org/">Apache Storm</a> to increase its capabilities and performance. <a href="http://azure.microsoft.com/en-us/services/hdinsight/">Azure HDInsight</a> is the Azure implementation of Hadoop, Spark, HBase, and Storm, with other tools such as <a href="https://pig.apache.org/">Apache Pig</a> and <a href="https://hive.apache.org/">Apache Hive</a> thrown in to provide a comprehensive and high-performance solution for advanced analytics. HDInsight can spin up Hadoop clusters for you using either Linux or Windows as the underlying operating system, and it integrates with popular business-intelligence tools such as Microsoft Excel and SQL Server Analysis Services.</p>
+<p>A popular tool for analyzing big data is <a href="https://hadoop.apache.org/" rel="nofollow">Apache Hadoop</a>. Hadoop is "a framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models." It is frequently combined with other open-source frameworks such as <a href="http://spark.apache.org/" rel="nofollow">Apache Spark</a>, <a href="http://hbase.apache.org/" rel="nofollow">Apache HBase</a>, and <a href="https://storm.apache.org/" rel="nofollow">Apache Storm</a> to increase its capabilities and performance. <a href="http://azure.microsoft.com/en-us/services/hdinsight/" rel="nofollow">Azure HDInsight</a> is the Azure implementation of Hadoop, Spark, HBase, and Storm, with other tools such as <a href="https://pig.apache.org/" rel="nofollow">Apache Pig</a> and <a href="https://hive.apache.org/" rel="nofollow">Apache Hive</a> thrown in to provide a comprehensive and high-performance solution for advanced analytics. HDInsight can spin up Hadoop clusters for you using either Linux or Windows as the underlying operating system, and it integrates with popular business-intelligence tools such as Microsoft Excel and SQL Server Analysis Services.</p>
 <p>The purpose of this lab is to acquaint you with the process of deploying and running Hadoop clusters provisioned by HDInsight on Linux VMs. Once your Hadoop cluster is running, most of the operations you perform on it are identical to the ones you would perform on hardware clusters running Hadoop.</p>
 <p><a name="Objectives"></a></p>
 <h3>Objectives</h3>
@@ -489,9 +489,12 @@ vertical-align:1px;
 <h3>Prerequisites</h3>
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li><a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">PuTTY</a> (Windows users only). Install the latest full package using the MSI installer.</li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial" rel="nofollow">sign up for a free trial</a>.</li>
+<li><a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html" rel="nofollow">PuTTY</a> (Windows users only). Install the latest full package using the MSI installer.</li>
 </ul>
+<p><a name="Resources"></a></p>
+<h3>Resources</h3>
+<p><a href="https://a4r.blob.core.windows.net/public/hadoop-resources.zip" rel="nofollow">Click here</a> to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.</p>
 <hr>
 <p><a name="Exercises"></a></p>
 <h2>Exercises</h2>
@@ -509,7 +512,7 @@ vertical-align:1px;
 <p>In this exercise, you will use the Azure Portal to deploy an HDInsight Hadoop cluster with Linux installed on the cluster's nodes.</p>
 <ol>
 <li>
-<p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
+<p>Open the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
 </li>
 <li>
 <p>Click <strong>+ New</strong> in the upper-left corner of the portal. Then click <strong>Data + Analytics</strong>, followed by <strong>HDInsight</strong>.</p>
@@ -577,7 +580,7 @@ vertical-align:1px;
 <p>In this exercise, you learned how to provision an HDInsight Hadoop cluster on Azure, and about some of the options you can choose from when doing so. Wait for the deployment to finish, and then proceed to the next exercise.</p>
 <p><a name="Exercise2"></a></p>
 <h2>Exercise 2: Connect to the cluster via SSH</h2>
-<p>Before you can run jobs on the Hadoop cluster, you need to open an SSH connection to it so you can execute commands on the cluster. In this exercise, you will remote into the cluster via SSH using the <strong>ssh</strong> command if you are running macOS or Linux, or PuTTY if you are running Windows. If you are a Windows user and haven't installed PuTTY, take the time to <a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">install it now</a>.</p>
+<p>Before you can run jobs on the Hadoop cluster, you need to open an SSH connection to it so you can execute commands on the cluster. In this exercise, you will remote into the cluster via SSH using the <strong>ssh</strong> command if you are running macOS or Linux, or PuTTY if you are running Windows. If you are a Windows user and haven't installed PuTTY, take the time to <a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html" rel="nofollow">install it now</a>.</p>
 <p><strong>If you are running Windows, skip to Step 2</strong>. Otherwise, proceed to Step 1.</p>
 <ol>
 <li>
@@ -597,7 +600,7 @@ vertical-align:1px;
 </ol>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Analyze an Apache log file with Hive</h2>
-<p>In this exercise, you will use <a href="https://cwiki.apache.org/confluence/display/Hive?src=sidebar">Apache Hive</a> and the HiveQL query language to query a sample Apache log4j log file that was created along with the cluster. Apache Hive is a data-warehouse infrastructure built on top of Hadoop that facilitates summarizing, querying, and analyzing data. It supports a SQL-like interface for querying data stores that integrate with Hadoop, and it allows you to project structure onto data that lacks structure.</p>
+<p>In this exercise, you will use <a href="https://cwiki.apache.org/confluence/display/Hive?src=sidebar" rel="nofollow">Apache Hive</a> and the HiveQL query language to query a sample Apache log4j log file that was created along with the cluster. Apache Hive is a data-warehouse infrastructure built on top of Hadoop that facilitates summarizing, querying, and analyzing data. It supports a SQL-like interface for querying data stores that integrate with Hadoop, and it allows you to project structure onto data that lacks structure.</p>
 <ol>
 <li>
 <p>In the terminal window you opened in the previous exercise, start the Hive command-line interface by executing the following command:</p>
@@ -647,8 +650,8 @@ Time taken: 0.58 seconds, Fetched: 3 row(s)
 <p>Hive is useful, but executing Hive commands is not all you can do with a Hadoop cluster. In the next exercise, you will learn how to perform MapReduce operations using Python.</p>
 <p><a name="Exercise4"></a></p>
 <h2>Exercise 4: Use MapReduce to analyze a text file with Python</h2>
-<p>One of the most important algorithms introduced in recent years is Google's <a href="http://research.google.com/archive/mapreduce.html">MapReduce</a>, which facilitates the processing of very large data sets. MapReduce is a two-stage algorithm that relies on a pair of functions: the <em>map</em> function, which transforms a set of input data to produce a result, and the <em>reduce</em> function, which reduces the results of a map to a scalar value. What makes MapReduce so relevant for big data is that operations can be executed in parallel and independent of the data source. The parallelism facilitates handling massive amounts of data, and the data-source independence means you are not locked into a particular data store such as MySQL or Microsoft SQL Server.</p>
-<p>HDInsight, with its underlying Hadoop implementation, allows you to write MapReduce functions in Java, Python, C#, and even <a href="http://pig.apache.org/">Apache Pig</a>. In this exercise, you will use Python since it is widely used in the data-processing community. The Python code, which is based on a sample from<a href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/"> Michael Noll</a>, reads a text file and counts the frequency of the words in it.</p>
+<p>One of the most important algorithms introduced in recent years is Google's <a href="http://research.google.com/archive/mapreduce.html" rel="nofollow">MapReduce</a>, which facilitates the processing of very large data sets. MapReduce is a two-stage algorithm that relies on a pair of functions: the <em>map</em> function, which transforms a set of input data to produce a result, and the <em>reduce</em> function, which reduces the results of a map to a scalar value. What makes MapReduce so relevant for big data is that operations can be executed in parallel and independent of the data source. The parallelism facilitates handling massive amounts of data, and the data-source independence means you are not locked into a particular data store such as MySQL or Microsoft SQL Server.</p>
+<p>HDInsight, with its underlying Hadoop implementation, allows you to write MapReduce functions in Java, Python, C#, and even <a href="http://pig.apache.org/" rel="nofollow">Apache Pig</a>. In this exercise, you will use Python since it is widely used in the data-processing community. The Python code, which is based on a sample from<a href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/" rel="nofollow"> Michael Noll</a>, reads a text file and counts the frequency of the words in it.</p>
 <ol>
 <li>
 <p>Before you start, take a moment to read over the Python code for the mapper you will be using:</p>
@@ -716,15 +719,15 @@ Time taken: 0.58 seconds, Fetched: 3 row(s)
 <p>The reducer reads each word output by the mapper, looks it up in the list of word groups it compiles, and adds the number of instances found to the total number of instances, writing the data to standard output (STDOUT).</p>
 </li>
 <li>
-<p>The two Python scripts containing the mapper and the reducer are provided for you in the lab's "resources" directory, which is in the same directory as the document you're currently reading. The next step is to copy the two files, which are named <strong>mapper.py</strong> and <strong>reducer.py</strong>, from the "resources" directory on the local machine to the cluster. <strong>If you're using Windows, skip to Step 5</strong>. Otherwise, proceed to the next step.</p>
+<p>The two Python scripts containing the mapper and the reducer are provided for you in the <a href="https://a4r.blob.core.windows.net/public/hadoop-resources.zip" rel="nofollow">resources that accompany this lab</a>. The next step is to copy the two files, which are named <strong>mapper.py</strong> and <strong>reducer.py</strong>, to the cluster. <strong>If you're using Windows, skip to Step 5</strong>. Otherwise, proceed to the next step.</p>
 </li>
 <li>
-<p><strong>Linux and macOS users only</strong>: Open a terminal window and navigate to this lab's "resources" directory. Then execute the following command to copy <strong>mapper.py</strong> and <strong>reduce.py</strong> to the HDInsight cluster, replacing <em>clustername</em> with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Azure4Research!").</p>
+<p><strong>Linux and macOS users only</strong>: Open a terminal window and navigate to the directory where you copied the lab resources. Then execute the following command to copy <strong>mapper.py</strong> and <strong>reduce.py</strong> to the HDInsight cluster, replacing <em>clustername</em> with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Azure4Research!").</p>
  <pre> scp *.py sshuser@<i>clustername</i>-ssh.azurehdinsight.net:</pre>
 <p><strong>Now skip to Step 6</strong>. Step 5 is for Windows users only.</p>
 </li>
 <li>
-<p><strong>Windows users only</strong>: Open a Command Prompt window and navigate to this lab's "resources" directory. Then execute the following command to copy <strong>mapper.py</strong> and <strong>reduce.py</strong> to the HDInsight cluster, replacing <em>clustername</em> with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Azure4Research!").</p>
+<p><strong>Windows users only</strong>: Open a Command Prompt window and navigate to the directory where you copied the lab resources. Then execute the following command to copy <strong>mapper.py</strong> and <strong>reduce.py</strong> to the HDInsight cluster, replacing <em>clustername</em> with the cluster name you specified in Exercise 1, Step 3. When prompted for a password, enter the cluster's SSH password ("Azure4Research!").</p>
  <pre> pscp *.py sshuser@<i>clustername</i>-ssh.azurehdinsight.net:</pre>
 <blockquote>
 <p>pscp.exe is part of PuTTY. This command assumes that pscp.exe is in the PATH. If it's not, preface the command with the path to pscp.exe.</p>
@@ -828,7 +831,7 @@ youthful	3
 </ul>
 <p>If you have set up hardware clusters of your own and installed and configured Hadoop on them, you appreciate how easy Azure makes it to deploy Hadoop clusters. The provisioning is done for you, so you can spend your time crunching data rather than troubleshooting hardware and software installs. This is yet another example of how cloud computing is changing the face of data analytics, and just one example of the types of HDInsight clusters that Azure supports.</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
