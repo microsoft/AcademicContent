@@ -34,6 +34,11 @@ The following are required to complete this hands-on lab:
 - [Eclipse](https://www.eclipse.org/downloads/)
 - [Azure Toolkit for Eclipse](https://docs.microsoft.com/en-us/azure/azure-toolkit-for-eclipse)
 
+<a name="Resources"></a>
+### Resources ###
+
+[Click here](https://a4r.blob.core.windows.net/public/cs-storage-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
 ---
 
 <a name="Exercises"></a>
@@ -793,7 +798,7 @@ Eclipse supports many popular servers for running Web sites written in Java, inc
 
 1. In the "Debug on Server" dialog, select **Choose an existing server**, select **Tomcat v7.0 Server at localhost** as the server, and click **Finish**.
 
-1. Wait for the app to appear in your browser, either inside or outside Eclipse. Then click the **Browse...** button, select all of the files in this lab's "resources/photos" folder, and click the **Upload** button to upload them to the Web site.
+1. Wait for the app to appear in your browser, either inside or outside Eclipse. Then click the **Browse...** button, select all of the files in the "photos" folder of the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/cs-storage-resources.zip), and click the **Upload** button to upload them to the Web site.
 
 	> Each image uploaded to the Web site is written to Azure blob storage and then passed to the Computer Vision API, which analyzes the image and returns a caption and a set of tags. Captions and tags are stored in blob metadata.
 

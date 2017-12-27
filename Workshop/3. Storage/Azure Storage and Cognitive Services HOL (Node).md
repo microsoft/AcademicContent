@@ -34,6 +34,11 @@ The following are required to complete this hands-on lab:
 - [Git](https://git-scm.com/downloads) version 2.0 or higher. See https://git-scm.com/book/en/v2/Getting-Started-Installing-Git for instructions for installing it on Windows, macOS, and Linux.
 - [Node.js](https://nodejs.org/en/download/) version 4 or higher
 
+<a name="Resources"></a>
+### Resources ###
+
+[Click here](https://a4r.blob.core.windows.net/public/cs-storage-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
 ---
 
 <a name="Exercises"></a>
@@ -738,13 +743,13 @@ In this exercise, you will run the app locally in order to test it and familiari
 
 1. Open your browser and navigate to [http://localhost:9898](http://localhost:9898).
 
-1. Click the **Browse** button and upload one of the images found in the "resources/photos" directory of this lab. After a few seconds, a thumbnail version of the photo appears on the page:
+1. Click the **Browse** button and upload one of the images found in the "photos" folder of the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/cs-storage-resources.zip). After a few seconds, a thumbnail version of the photo appears on the page:
 
     ![Intellipix with one photo uploaded](Images/node-one-photo-uploaded.png)
 
     _Intellipix with one photo uploaded_
 
-1. Upload a few more images from this lab's "resources/photos" directory. Confirm that they appear on the page, too:
+1. Upload a few more images from the "photos" folder in the lab resources. Confirm that they appear on the page, too:
 
     ![Intellipix with three photos uploaded](Images/node-three-photos-uploaded.png)
 

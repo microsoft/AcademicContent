@@ -32,6 +32,11 @@ The following are required to complete this hands-on lab:
 - [Visual Studio 2017 Community edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) or higher with the "ASP.NET and web development" and "Azure development" workloads installed
 - [Microsoft Azure Storage Explorer](http://storageexplorer.com/)
 
+<a name="Resources"></a>
+### Resources ###
+
+[Click here](https://a4r.blob.core.windows.net/public/cs-storage-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
 ---
 
 <a name="Exercises"></a>
@@ -344,13 +349,13 @@ In this exercise, you will create a new Web app in Visual Studio and add code to
 
 	The language used here is [Razor](http://www.asp.net/web-pages/overview/getting-started/introducing-razor-syntax-c), which lets you embed executable code in HTML markup. The ```@foreach``` statement in the middle of the file enumerates the ```BlobInfo``` objects passed from the controller in ```ViewBag``` and creates HTML ```<img>``` elements from them. The ```src``` property of each element is initialized with the URI of the blob containing the image thumbnail.
 
-1. Save your changes and press **Ctrl+F5** to launch the application in your browser. Then click the **Upload a Photo** button and upload one of the images found in the "Resources/photos" folder of this lab. Confirm that a thumbnail version of the photo appears on the page:
+1. Save your changes and press **Ctrl+F5** to launch the application in your browser. Then click the **Upload a Photo** button and upload one of the images found in the "photos" folder of the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/cs-storage-resources.zip). Confirm that a thumbnail version of the photo appears on the page:
 
     ![Intellipix with one photo uploaded](Images/one-photo-uploaded.png)
 
     _Intellipix with one photo uploaded_
 
-1. Upload a few more images from this lab's "resources/photos" folder. Confirm that they appear on the page, too:
+1. Upload a few more images from the "photos" folder. Confirm that they appear on the page, too:
 
     ![Intellipix with three photos uploaded](Images/three-photos-uploaded.png)
 
@@ -373,15 +378,15 @@ The app doesn't yet offer a way to view the original images that you uploaded. I
 <a name="Exercise4"></a>
 ## Exercise 4: Add a lightbox for viewing photos
 
-In this exercise, you will use a free, open-source JavaScript library to add a lightbox viewer enabling users to see the original images that they uploaded (rather than just the image thumbnails). The files are provided for you in subfolders of this lab's "Resources" folder. All you have to do is integrate them into the project and make a minor modification to **Index.cshtml**.
+In this exercise, you will use a free, open-source JavaScript library to add a lightbox viewer enabling users to see the original images that they uploaded (rather than just the image thumbnails). The files are provided for you in the resources that accompany this lab. All you have to do is integrate them into the project and make a minor modification to **Index.cshtml**.
 
-1. In Solution Explorer, right-click the project's "Scripts" folder and use the **Add -> Existing Item...** command to import **lightbox.js** from this lab's "Resources/scripts" folder.
+1. In Solution Explorer, right-click the project's "Scripts" folder and use the **Add -> Existing Item...** command to import **lightbox.js** from the "scripts" folder in the lab resources.
 
-1. Right-click the project's "Content" folder and use the **Add -> Existing Item...** command to import **lightbox.css** from this lab's "Resources/css" folder.
+1. Right-click the project's "Content" folder and use the **Add -> Existing Item...** command to import **lightbox.css** from the "css" folder in the lab resources.
 
 1. Right-click the Intellipix project in Solution Explorer and use the **Add -> New Folder** command to add a folder named "Images" to the project.
 
-1. Right-click the "Images" folder and use the **Add -> Existing Item...** command to import the four images found in this lab's "Resources/images" folder.
+1. Right-click the "Images" folder and use the **Add -> Existing Item...** command to import the four images from the "images" folder in the lab resources.
 
 1. Open **BundleConfig.cs** in the project's "App_Start" folder. Add the following statement to the ```RegisterBundles``` method in **BundleConfig.cs**:
 
@@ -532,7 +537,7 @@ In this exercise, you will use the Computer Vision API to generate a caption for
 
 	The modified ```foreach``` block calls [CloudBlockBlob.FetchAttributes](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblockblob.fetchattributes(v=azure.10).aspx) to fetch the metadata for the blob. Then it extracts the computer-generated description from the metadata and adds it to the ```BlobInfo``` object passed to the view.
 
-1.  Save your changes and press **Ctrl+F5** to launch the application in your browser. Upload a few images from this lab's "Resources/photos" folder as you did before.
+1.  Save your changes and press **Ctrl+F5** to launch the application in your browser. Upload a few images from the "photos" folder in the lab resources.
 
 1. Hover the cursor over one of the thumbnails. Confirm that a tooltip window appears containing the computer-generated caption for the image.
 

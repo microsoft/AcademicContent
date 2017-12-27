@@ -473,9 +473,9 @@ vertical-align:1px;
 <hr>
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
-<p>Microsoft Azure Storage is a set of services that allows you to store large volumes of data in a cost-effective manner and in a way that makes the data readily and reliably available to services and applications that consume it. Data committed to Azure Storage can be stored in blobs, tables, queues, or files. <a href="http://azure.microsoft.com/en-us/services/storage/blobs/">Azure blobs</a> are ideal for storing images, videos, and other types of data, and are frequently used to provide input to and capture output from other Azure services such as <a href="http://azure.microsoft.com/en-us/services/stream-analytics/">Azure Stream Analytics</a>. <a href="http://azure.microsoft.com/en-us/services/storage/tables/">Azure tables</a> provide NoSQL storage for semi-structured data. <a href="http://azure.microsoft.com/en-us/services/storage/queues/">Azure queues</a> support queued message transfers between applications (or parts of applications) and can be used to make applications more scalable and robust by loosely coupling them together. Finally, <a href="http://azure.microsoft.com/en-us/services/storage/files">Azure Files</a> use the Server Message Block (SMB) protocol to share files through the cloud and access storage as network drives.</p>
-<p>Data stored in Microsoft Azure Storage can be accessed over HTTP or HTTPS using straightforward REST APIs, or it can be accessed using rich client libraries available for many popular languages and platforms, including .NET, Java, Android, Node.js, PHP, Ruby, and Python. The <a href="https://portal.azure.com">Azure Portal</a> includes features for working with Azure Storage, but richer functionality is available from third-party tools, many of which are free and some of which work cross-platform.</p>
-<p>In this lab, you will use Visual Studio Code to write a Node.js Web site that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in Node.js, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using <a href="https://www.microsoft.com/cognitive-services/">Microsoft Cognitive Services</a>, a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a> to generate a caption for the image as well as search metadata describing the contents of the image and an image thumbnail. And you will discover how easy it is to deploy apps to the cloud using Git and Visual Studio Code.</p>
+<p>Microsoft Azure Storage is a set of services that allows you to store large volumes of data in a cost-effective manner and in a way that makes the data readily and reliably available to services and applications that consume it. Data committed to Azure Storage can be stored in blobs, tables, queues, or files. <a href="http://azure.microsoft.com/en-us/services/storage/blobs/" rel="nofollow">Azure blobs</a> are ideal for storing images, videos, and other types of data, and are frequently used to provide input to and capture output from other Azure services such as <a href="http://azure.microsoft.com/en-us/services/stream-analytics/" rel="nofollow">Azure Stream Analytics</a>. <a href="http://azure.microsoft.com/en-us/services/storage/tables/" rel="nofollow">Azure tables</a> provide NoSQL storage for semi-structured data. <a href="http://azure.microsoft.com/en-us/services/storage/queues/" rel="nofollow">Azure queues</a> support queued message transfers between applications (or parts of applications) and can be used to make applications more scalable and robust by loosely coupling them together. Finally, <a href="http://azure.microsoft.com/en-us/services/storage/files" rel="nofollow">Azure Files</a> use the Server Message Block (SMB) protocol to share files through the cloud and access storage as network drives.</p>
+<p>Data stored in Microsoft Azure Storage can be accessed over HTTP or HTTPS using straightforward REST APIs, or it can be accessed using rich client libraries available for many popular languages and platforms, including .NET, Java, Android, Node.js, PHP, Ruby, and Python. The <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> includes features for working with Azure Storage, but richer functionality is available from third-party tools, many of which are free and some of which work cross-platform.</p>
+<p>In this lab, you will use Visual Studio Code to write a Node.js Web site that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in Node.js, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using <a href="https://www.microsoft.com/cognitive-services/" rel="nofollow">Microsoft Cognitive Services</a>, a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api" rel="nofollow">Computer Vision API</a> to generate a caption for the image as well as search metadata describing the contents of the image and an image thumbnail. And you will discover how easy it is to deploy apps to the cloud using Git and Visual Studio Code.</p>
 <p><a name="Objectives"></a></p>
 <h3>Objectives</h3>
 <p>In this hands-on lab, you will learn how to:</p>
@@ -484,18 +484,21 @@ vertical-align:1px;
 <li>Write a Node.js app in Visual Studio Code and deploy it to Azure using Git</li>
 <li>Read and write blobs and attach metadata to them</li>
 <li>Use the Computer Vision API to extract information from images and generate thumbnails</li>
-<li>Use the cross-platform <a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a> to work with Azure Storage</li>
+<li>Use the cross-platform <a href="http://storageexplorer.com/" rel="nofollow">Microsoft Azure Storage Explorer</a> to work with Azure Storage</li>
 </ul>
 <p><a name="Prerequisites"></a></p>
 <h3>Prerequisites</h3>
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li><a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a></li>
-<li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
-<li><a href="https://git-scm.com/downloads">Git</a> version 2.0 or higher. See <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a> for instructions for installing it on Windows, macOS, and Linux.</li>
-<li><a href="https://nodejs.org/en/download/">Node.js</a> version 4 or higher</li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial" rel="nofollow">sign up for a free trial</a>.</li>
+<li><a href="http://storageexplorer.com/" rel="nofollow">Microsoft Azure Storage Explorer</a></li>
+<li><a href="https://code.visualstudio.com/download" rel="nofollow">Visual Studio Code</a></li>
+<li><a href="https://git-scm.com/downloads" rel="nofollow">Git</a> version 2.0 or higher. See <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" rel="nofollow">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a> for instructions for installing it on Windows, macOS, and Linux.</li>
+<li><a href="https://nodejs.org/en/download/" rel="nofollow">Node.js</a> version 4 or higher</li>
 </ul>
+<p><a name="Resources"></a></p>
+<h3>Resources</h3>
+<p><a href="https://a4r.blob.core.windows.net/public/cs-storage-resources.zip" rel="nofollow">Click here</a> to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.</p>
 <hr>
 <p><a name="Exercises"></a></p>
 <h2>Exercises</h2>
@@ -512,10 +515,10 @@ vertical-align:1px;
 <hr>
 <p><a name="Exercise1"></a></p>
 <h2>Exercise 1: Create a storage account</h2>
-<p>The <a href="https://portal.azure.com">Azure Portal</a> allows you to perform basic storage operations such as creating storage accounts, creating containers, uploading and downloading blobs, and managing access keys. In this exercise, you will use the portal to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.</p>
+<p>The <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> allows you to perform basic storage operations such as creating storage accounts, creating containers, uploading and downloading blobs, and managing access keys. In this exercise, you will use the portal to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.</p>
 <ol>
 <li>
-<p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
+<p>Open the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
 </li>
 <li>
 <p>To create a storage account, click <strong>+ New</strong> in the ribbon on the left. Then click <strong>Storage</strong>, followed by <strong>Storage account</strong>.</p>
@@ -571,10 +574,10 @@ vertical-align:1px;
 <p>You have now created a storage account to hold images uploaded to the app you're going to build, and containers to store the images in. Note that you <em>could</em> create these containers from within the app. Whether to create them programmatically or create them as part of the provisioning process is a choice that's left up to app developers.</p>
 <p><a name="Exercise2"></a></p>
 <h2>Exercise 2: Run the Microsoft Azure Storage Explorer</h2>
-<p>The <a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a> is a free tool that provides a graphical interface for working with Azure Storage on PCs running Windows, macOS, and Linux. It provides most of the same functionality as the Azure Portal. It also offers features the portal does not, such as the ability to view blob metadata. In this exercise, you will use the Microsoft Azure Storage Explorer to view the containers you created in Exercise 1.</p>
+<p>The <a href="http://storageexplorer.com/" rel="nofollow">Microsoft Azure Storage Explorer</a> is a free tool that provides a graphical interface for working with Azure Storage on PCs running Windows, macOS, and Linux. It provides most of the same functionality as the Azure Portal. It also offers features the portal does not, such as the ability to view blob metadata. In this exercise, you will use the Microsoft Azure Storage Explorer to view the containers you created in Exercise 1.</p>
 <ol>
 <li>
-<p>If you haven't installed Storage Explorer or would like to make sure you're running the latest version, go to <a href="http://storageexplorer.com/">http://storageexplorer.com/</a> and download and install it.</p>
+<p>If you haven't installed Storage Explorer or would like to make sure you're running the latest version, go to <a href="http://storageexplorer.com/" rel="nofollow">http://storageexplorer.com/</a> and download and install it.</p>
 </li>
 <li>
 <p>Start Storage Explorer. If you are asked to log in, do so using your Microsoft account — the same one that you used to log in to the Azure Portal. If you don't see the storage account created in the previous exercise in Storage Explorer's left pane, click the <strong>Manage Accounts</strong> button highlighted below and ensure that your Microsoft account <em>and</em> the subscription used to create the storage account have been added to Storage Explorer.</p>
@@ -590,7 +593,7 @@ vertical-align:1px;
 <p>The containers are currently empty, but that will change once your app is deployed and you start uploading photos. Having Storage Explorer installed will make it easy for you to see what your app writes to blob storage.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Get a subscription key for the Computer Vision API</h2>
-<p><a href="https://www.microsoft.com/cognitive-services/">Microsoft Cognitive Services</a> is a set of intelligence APIs that you can call from your apps. Among the more than 25 APIs it offers are the <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a> for distilling actionable information from images, and the <a href="https://www.microsoft.com/cognitive-services/en-us/text-analytics-api">Text Analytics API</a> for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available for you to begin using today.</p>
+<p><a href="https://www.microsoft.com/cognitive-services/" rel="nofollow">Microsoft Cognitive Services</a> is a set of intelligence APIs that you can call from your apps. Among the more than 25 APIs it offers are the <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api" rel="nofollow">Computer Vision API</a> for distilling actionable information from images, and the <a href="https://www.microsoft.com/cognitive-services/en-us/text-analytics-api" rel="nofollow">Text Analytics API</a> for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available for you to begin using today.</p>
 <p>In this exercise, you will acquire a subscription key allowing you to call the Computer Vision API from your code. You'll use this key in a later exercise to generate thumbnails from the images uploaded to the Web site, and to generate captions and search keywords for the images.</p>
 <ol>
 <li>
@@ -622,7 +625,7 @@ vertical-align:1px;
 <p>The access key that you just copied will be included in each HTTPS request sent to the Computer Vision API so Azure can verify that the caller is authorized. You should protect this access key the same way you protect access keys for storage accounts and other Azure resources.</p>
 <p><a name="Exercise4"></a></p>
 <h2>Exercise 4: Create a photo-upload app</h2>
-<p>In this exercise, you will create a new Web app in Visual Studio Code and add code to upload images, write them to blob storage, display them in a Web page, generate thumbnails, captions, and keywords using the Computer Vision API, and perform keyword searches on uploaded images. The app will be named Intellipix (for "Intelligent Pictures") and will be accessed through your browser. The server-side code will be written in JavaScript and Node.js. The code that runs in the browser will be written in JavaScript and will leverage two of the most popular class libraries on the planet: <a href="https://angularjs.org/">AngularJS</a> and <a href="http://getbootstrap.com/">Bootstrap</a>.</p>
+<p>In this exercise, you will create a new Web app in Visual Studio Code and add code to upload images, write them to blob storage, display them in a Web page, generate thumbnails, captions, and keywords using the Computer Vision API, and perform keyword searches on uploaded images. The app will be named Intellipix (for "Intelligent Pictures") and will be accessed through your browser. The server-side code will be written in JavaScript and Node.js. The code that runs in the browser will be written in JavaScript and will leverage two of the most popular class libraries on the planet: <a href="https://angularjs.org/" rel="nofollow">AngularJS</a> and <a href="http://getbootstrap.com/" rel="nofollow">Bootstrap</a>.</p>
 <ol>
 <li>
 <p>Open a Command Prompt window if you're using Windows, or a Terminal window if you're using macOS or Linux. Then execute the following command, substituting the Computer Vision API key you copied to the clipboard in the previous exercise for <em>vision_api_key</em>:</p>
@@ -667,7 +670,7 @@ vertical-align:1px;
 <li>
 <p>Now execute the following command to install the NPM packages that the app will use:</p>
  <pre> npm install -save azure-storage express multer request streamifier</pre> 
-<p><a href="https://www.npmjs.com/package/azure-storage">azure-storage</a> is Microsoft's Azure Storage Client Library for Node.js. It provides convenient JavaScript APIs for accessing blob storage, table storage, and more.</p>
+<p><a href="https://www.npmjs.com/package/azure-storage" rel="nofollow">azure-storage</a> is Microsoft's Azure Storage Client Library for Node.js. It provides convenient JavaScript APIs for accessing blob storage, table storage, and more.</p>
 </li>
 <li>
 <p>Return to Visual Studio Code and click the <strong>Explorer</strong> button in the upper-left corner. Then click <strong>package.json</strong> to open that file for editing.</p>
@@ -1014,7 +1017,7 @@ node_modules/
 
 &lt;/<span class="pl-ent">body</span>&gt;
 &lt;/<span class="pl-ent">html</span>&gt;</pre></div>
-<p>This is the HTML file containing the site's one and only page. It uses Bootstrap's <a href="http://v4-alpha.getbootstrap.com/layout/grid/">grid layout system</a> to align elements on the page, and it uses AngularJS to make the page dynamic. Notice the ng- attributes such as ng-click and ng-src attached to some of the page's elements, as well as the "mustache" expressions in double curly braces (for example, {{ctrl.current.metadata.caption}}). These attributes and expressions are part of AngularJS and are frequently found in pages that use it.</p>
+<p>This is the HTML file containing the site's one and only page. It uses Bootstrap's <a href="http://v4-alpha.getbootstrap.com/layout/grid/" rel="nofollow">grid layout system</a> to align elements on the page, and it uses AngularJS to make the page dynamic. Notice the ng- attributes such as ng-click and ng-src attached to some of the page's elements, as well as the "mustache" expressions in double curly braces (for example, {{ctrl.current.metadata.caption}}). These attributes and expressions are part of AngularJS and are frequently found in pages that use it.</p>
 </li>
 <li>
 <p>Add a file named <strong>index.js</strong> to the "src" folder and insert the following statements:</p>
@@ -1140,22 +1143,22 @@ node_modules/
 <p>With the code that comprises the app in place and key environment variables initialized with "secrets" such as your storage account key, the next task is to run the app locally and test it in your browser.</p>
 <p><a name="Exercise5"></a></p>
 <h2>Exercise 5: Test the app locally</h2>
-<p>In this exercise, you will run the app locally in order to test it and familiarize yourself with its features. Running it locally is a simple matter of firing up a Node.js server process to host your server components (in this case, <strong>server.js</strong>) and pointing your browser to <a href="http://localhost:port">http://localhost:port</a>, where <em>port</em> is the port number on which the server process is listening for HTTP requests. <strong>server.js</strong> listens on port 9898. You can modify that if you would like by changing line 7 in the code.</p>
+<p>In this exercise, you will run the app locally in order to test it and familiarize yourself with its features. Running it locally is a simple matter of firing up a Node.js server process to host your server components (in this case, <strong>server.js</strong>) and pointing your browser to <a href="http://localhost:port" rel="nofollow">http://localhost:port</a>, where <em>port</em> is the port number on which the server process is listening for HTTP requests. <strong>server.js</strong> listens on port 9898. You can modify that if you would like by changing line 7 in the code.</p>
 <ol>
 <li>
 <p>Return to the Command Prompt or Terminal window and, once more, make sure you're in the "Intellipix" directory that you created for the project. Then execute the following command to start <strong>server.js</strong>:</p>
  <pre> node server.js</pre>
 </li>
 <li>
-<p>Open your browser and navigate to <a href="http://localhost:9898">http://localhost:9898</a>.</p>
+<p>Open your browser and navigate to <a href="http://localhost:9898" rel="nofollow">http://localhost:9898</a>.</p>
 </li>
 <li>
-<p>Click the <strong>Browse</strong> button and upload one of the images found in the "resources/photos" directory of this lab. After a few seconds, a thumbnail version of the photo appears on the page:</p>
+<p>Click the <strong>Browse</strong> button and upload one of the images found in the "photos" folder of the <a href="https://a4r.blob.core.windows.net/public/cs-storage-resources.zip" rel="nofollow">resources that accompany this lab</a>. After a few seconds, a thumbnail version of the photo appears on the page:</p>
 <p><a href="Images/node-one-photo-uploaded.png" target="_blank"><img src="Images/node-one-photo-uploaded.png" alt="Intellipix with one photo uploaded" style="max-width:100%;"></a></p>
 <p><em>Intellipix with one photo uploaded</em></p>
 </li>
 <li>
-<p>Upload a few more images from this lab's "resources/photos" directory. Confirm that they appear on the page, too:</p>
+<p>Upload a few more images from the "photos" folder in the lab resources. Confirm that they appear on the page, too:</p>
 <p><a href="Images/node-three-photos-uploaded.png" target="_blank"><img src="Images/node-three-photos-uploaded.png" alt="Intellipix with three photos uploaded" style="max-width:100%;"></a></p>
 <p><em>Intellipix with three photos uploaded</em></p>
 </li>
@@ -1206,13 +1209,13 @@ node_modules/
 <p>You're almost finished, but the final and most important step remains. It is time to deploy the app to the cloud.</p>
 <p><a name="Exercise6"></a></p>
 <h2>Exercise 6: Deploy the app to Azure</h2>
-<p>In this exercise, you will create an Azure Web App and deploy Intellipix to it using Git. Up to now, you have been running the app locally. Azure Web Apps support local Git repositories as deployment sources, which makes it incredibly easy to <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/">publish the contents of local Git repositories to Azure</a>. You already have the local repository; it was created in Exercise 4. Now it's just a matter of creating the Web App, providing a few key pieces of information to it, and executing a <strong>git push</strong> command.</p>
+<p>In this exercise, you will create an Azure Web App and deploy Intellipix to it using Git. Up to now, you have been running the app locally. Azure Web Apps support local Git repositories as deployment sources, which makes it incredibly easy to <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/" rel="nofollow">publish the contents of local Git repositories to Azure</a>. You already have the local repository; it was created in Exercise 4. Now it's just a matter of creating the Web App, providing a few key pieces of information to it, and executing a <strong>git push</strong> command.</p>
 <ol>
 <li>
 <p>If you have made any changes to the app since committing it at the end of Exercise 4, use Visual Studio Code to commit those changes now.</p>
 </li>
 <li>
-<p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
+<p>Open the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
 </li>
 <li>
 <p>Click <strong>+ New</strong>, followed by <strong>Web + Mobile</strong> and <strong>Web App</strong>.</p>
@@ -1324,9 +1327,9 @@ node_modules/
 <p><a name="Summary"></a></p>
 <h2>Summary</h2>
 <p>When you're finished using the site, you should delete the resource group containing it. Deleting the resource group deletes all of the resources inside it (including the storage account, the blobs uploaded to it, and the App Service), removes all traces of this lab from your account, and prevents any further charges from being incurred for it. To delete the resource group, simply open the resource-group blade in the portal and click <strong>Delete resource group</strong> at the top of the blade. You will be asked to type the resource group's name to confirm that you want to delete it, because once deleted, a resource group can't be recovered.</p>
-<p>There is much more that you could do to develop Intellipix and to leverage Azure even further. For example, you could add support for authenticating users and deleting photos, and rather than force the user to wait for Cognitive Services to process a photo following an upload, you could use <a href="https://azure.microsoft.com/en-us/services/functions/">Azure Functions</a> to call the Computer Vision API asynchronously each time an image is added to blob storage. You could even use Cognitive Services to detect faces in the photos and analyze the emotions depicted by those faces. With the cloud as your platform, the sky is the limit (pun intended).</p>
+<p>There is much more that you could do to develop Intellipix and to leverage Azure even further. For example, you could add support for authenticating users and deleting photos, and rather than force the user to wait for Cognitive Services to process a photo following an upload, you could use <a href="https://azure.microsoft.com/en-us/services/functions/" rel="nofollow">Azure Functions</a> to call the Computer Vision API asynchronously each time an image is added to blob storage. You could even use Cognitive Services to detect faces in the photos and analyze the emotions depicted by those faces. With the cloud as your platform, the sky is the limit (pun intended).</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

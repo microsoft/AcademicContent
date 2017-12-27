@@ -473,9 +473,9 @@ vertical-align:1px;
 <hr>
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
-<p>Microsoft Azure Storage is a set of services that allows you to store large volumes of data in a cost-effective manner and in a way that makes the data readily and reliably available to services and applications that consume it. Data committed to Azure Storage can be stored in blobs, tables, queues, or files. <a href="http://azure.microsoft.com/en-us/services/storage/blobs/">Azure blobs</a> are ideal for storing images, videos, and other types of data, and are frequently used to provide input to and capture output from other Azure services such as <a href="http://azure.microsoft.com/en-us/services/stream-analytics/">Azure Stream Analytics</a>. <a href="http://azure.microsoft.com/en-us/services/storage/tables/">Azure tables</a> provide NoSQL storage for semi-structured data. <a href="http://azure.microsoft.com/en-us/services/storage/queues/">Azure queues</a> support queued message transfers between applications (or parts of applications) and can be used to make applications more scalable and robust by loosely coupling them together. Finally, <a href="http://azure.microsoft.com/en-us/services/storage/files">Azure Files</a> use the Server Message Block (SMB) protocol to share files through the cloud and access storage as network drives.</p>
-<p>Data stored in Microsoft Azure Storage can be accessed over HTTP or HTTPS using straightforward REST APIs, or it can be accessed using rich client libraries available for many popular languages and platforms, including .NET, Java, Android, Node.js, PHP, Ruby, and Python. The <a href="https://portal.azure.com">Azure Portal</a> includes features for working with Azure Storage, but richer functionality is available from third-party tools, many of which are free and some of which work cross-platform.</p>
-<p>In this lab, you will use Eclipse to write a Java Web site that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in Java, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using <a href="https://www.microsoft.com/cognitive-services/">Microsoft Cognitive Services</a>, a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a> to generate a caption for the image as well as search metadata describing the contents of the image. And you will discover how easy it is to deploy apps to the cloud using Eclipse and the Azure Toolkit for Eclipse.</p>
+<p>Microsoft Azure Storage is a set of services that allows you to store large volumes of data in a cost-effective manner and in a way that makes the data readily and reliably available to services and applications that consume it. Data committed to Azure Storage can be stored in blobs, tables, queues, or files. <a href="http://azure.microsoft.com/en-us/services/storage/blobs/" rel="nofollow">Azure blobs</a> are ideal for storing images, videos, and other types of data, and are frequently used to provide input to and capture output from other Azure services such as <a href="http://azure.microsoft.com/en-us/services/stream-analytics/" rel="nofollow">Azure Stream Analytics</a>. <a href="http://azure.microsoft.com/en-us/services/storage/tables/" rel="nofollow">Azure tables</a> provide NoSQL storage for semi-structured data. <a href="http://azure.microsoft.com/en-us/services/storage/queues/" rel="nofollow">Azure queues</a> support queued message transfers between applications (or parts of applications) and can be used to make applications more scalable and robust by loosely coupling them together. Finally, <a href="http://azure.microsoft.com/en-us/services/storage/files" rel="nofollow">Azure Files</a> use the Server Message Block (SMB) protocol to share files through the cloud and access storage as network drives.</p>
+<p>Data stored in Microsoft Azure Storage can be accessed over HTTP or HTTPS using straightforward REST APIs, or it can be accessed using rich client libraries available for many popular languages and platforms, including .NET, Java, Android, Node.js, PHP, Ruby, and Python. The <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> includes features for working with Azure Storage, but richer functionality is available from third-party tools, many of which are free and some of which work cross-platform.</p>
+<p>In this lab, you will use Eclipse to write a Java Web site that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in Java, and how to use blob metadata to attach additional information to the blobs you create. You will also get first-hand experience using <a href="https://www.microsoft.com/cognitive-services/" rel="nofollow">Microsoft Cognitive Services</a>, a set of intelligence APIs for building smart applications. Specifically, you'll submit each image uploaded by the user to Cognitive Services' <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api" rel="nofollow">Computer Vision API</a> to generate a caption for the image as well as search metadata describing the contents of the image. And you will discover how easy it is to deploy apps to the cloud using Eclipse and the Azure Toolkit for Eclipse.</p>
 <p><a name="Objectives"></a></p>
 <h3>Objectives</h3>
 <p>In this hands-on lab, you will learn how to:</p>
@@ -484,18 +484,21 @@ vertical-align:1px;
 <li>Create a Web app in Eclipse and deploy it to Azure</li>
 <li>Read and write blobs and attach metadata to them</li>
 <li>Use the Computer Vision API to extract information from images</li>
-<li>Use the cross-platform <a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a> to work with Azure Storage</li>
+<li>Use the cross-platform <a href="http://storageexplorer.com/" rel="nofollow">Microsoft Azure Storage Explorer</a> to work with Azure Storage</li>
 </ul>
 <p><a name="Prerequisites"></a></p>
 <h3>Prerequisites</h3>
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li><a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a></li>
-<li><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java SE Development Kit</a></li>
-<li><a href="https://www.eclipse.org/downloads/">Eclipse</a></li>
-<li><a href="https://docs.microsoft.com/en-us/azure/azure-toolkit-for-eclipse">Azure Toolkit for Eclipse</a></li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial" rel="nofollow">sign up for a free trial</a>.</li>
+<li><a href="http://storageexplorer.com/" rel="nofollow">Microsoft Azure Storage Explorer</a></li>
+<li><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" rel="nofollow">Java SE Development Kit</a></li>
+<li><a href="https://www.eclipse.org/downloads/" rel="nofollow">Eclipse</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/azure-toolkit-for-eclipse" rel="nofollow">Azure Toolkit for Eclipse</a></li>
 </ul>
+<p><a name="Resources"></a></p>
+<h3>Resources</h3>
+<p><a href="https://a4r.blob.core.windows.net/public/cs-storage-resources.zip" rel="nofollow">Click here</a> to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.</p>
 <hr>
 <p><a name="Exercises"></a></p>
 <h2>Exercises</h2>
@@ -514,10 +517,10 @@ vertical-align:1px;
 <hr>
 <p><a name="Exercise1"></a></p>
 <h2>Exercise 1: Create a storage account</h2>
-<p>The <a href="https://portal.azure.com">Azure Portal</a> allows you to perform basic storage operations such as creating storage accounts, creating containers, uploading and downloading blobs, and managing access keys. In this exercise, you will use the portal to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.</p>
+<p>The <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> allows you to perform basic storage operations such as creating storage accounts, creating containers, uploading and downloading blobs, and managing access keys. In this exercise, you will use the portal to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.</p>
 <ol>
 <li>
-<p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
+<p>Open the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
 </li>
 <li>
 <p>To create a storage account, click <strong>+ New</strong> in the ribbon on the left. Then click <strong>Storage</strong>, followed by <strong>Storage account</strong>.</p>
@@ -573,10 +576,10 @@ vertical-align:1px;
 <p>You have now created a storage account to hold images uploaded to the app you're going to build, and containers to store the images in. Note that you <em>could</em> create these containers from within the app. Whether to create them programmatically or create them as part of the provisioning process is a choice that's left up to app developers.</p>
 <p><a name="Exercise2"></a></p>
 <h2>Exercise 2: Run the Microsoft Azure Storage Explorer</h2>
-<p>The <a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a> is a free tool that provides a graphical interface for working with Azure Storage on PCs running Windows, macOS, and Linux. It provides most of the same functionality as the Azure Portal. It also offers features the portal does not, such as the ability to view blob metadata. In this exercise, you will use the Microsoft Azure Storage Explorer to view the containers you created in Exercise 1.</p>
+<p>The <a href="http://storageexplorer.com/" rel="nofollow">Microsoft Azure Storage Explorer</a> is a free tool that provides a graphical interface for working with Azure Storage on PCs running Windows, macOS, and Linux. It provides most of the same functionality as the Azure Portal. It also offers features the portal does not, such as the ability to view blob metadata. In this exercise, you will use the Microsoft Azure Storage Explorer to view the containers you created in Exercise 1.</p>
 <ol>
 <li>
-<p>If you haven't installed Storage Explorer or would like to make sure you're running the latest version, go to <a href="http://storageexplorer.com/">http://storageexplorer.com/</a> and download and install it.</p>
+<p>If you haven't installed Storage Explorer or would like to make sure you're running the latest version, go to <a href="http://storageexplorer.com/" rel="nofollow">http://storageexplorer.com/</a> and download and install it.</p>
 </li>
 <li>
 <p>Start Storage Explorer. If you are asked to log in, do so using your Microsoft account — the same one that you used to log in to the Azure Portal. If you don't see the storage account created in the previous exercise in Storage Explorer's left pane, click the <strong>Manage Accounts</strong> button highlighted below and ensure that your Microsoft account <em>and</em> the subscription used to create the storage account have been added to Storage Explorer.</p>
@@ -592,7 +595,7 @@ vertical-align:1px;
 <p>The containers are currently empty, but that will change once your app is deployed and you start uploading photos. Having Storage Explorer installed will make it easy for you to see what your app writes to blob storage.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Get a subscription key for the Computer Vision API</h2>
-<p><a href="https://www.microsoft.com/cognitive-services/">Microsoft Cognitive Services</a> is a set of intelligence APIs that you can call from your apps. Among the more than 25 APIs it offers are the <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">Computer Vision API</a> for distilling actionable information from images, and the <a href="https://www.microsoft.com/cognitive-services/en-us/text-analytics-api">Text Analytics API</a> for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available for you to begin using today.</p>
+<p><a href="https://www.microsoft.com/cognitive-services/" rel="nofollow">Microsoft Cognitive Services</a> is a set of intelligence APIs that you can call from your apps. Among the more than 25 APIs it offers are the <a href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api" rel="nofollow">Computer Vision API</a> for distilling actionable information from images, and the <a href="https://www.microsoft.com/cognitive-services/en-us/text-analytics-api" rel="nofollow">Text Analytics API</a> for extracting sentiments and other information from text (for example, Twitter feeds). These APIs make it possible to build smart apps that would have been impossible just a few short years ago. And they're available for you to begin using today.</p>
 <p>In this exercise, you will acquire a subscription key allowing you to call the Computer Vision API from your code. You'll use this key in a later exercise to generate captions and search keywords for images uploaded to the Web site.</p>
 <ol>
 <li>
@@ -624,11 +627,11 @@ vertical-align:1px;
 <p>The access key that you just copied will be included in each HTTPS request sent to the Computer Vision API so Azure can verify that the caller is authorized. You should protect this access key the same way you protect access keys for storage accounts and other Azure resources.</p>
 <p><a name="Exercise4"></a></p>
 <h2>Exercise 4: Set up Java and Eclipse</h2>
-<p><a href="https://eclipse.org/">Eclipse</a> has long been one of the most popular IDEs for developing Java apps. A rich ecosystem of components and plug-ins has grown up around it, making it a very capable IDE for doing all things Java. <a href="https://azure.microsoft.com/en-us/develop/java/">Microsoft's Java group</a> has has provided tools for integrating Eclipse with Azure using the <a href="https://docs.microsoft.com/en-us/azure/azure-toolkit-for-eclipse">Azure Toolkit for Eclipse</a>. It comes with the ability to deploy apps to Azure either as Azure Web Apps or in Docker containers, and it contains tools for managing Azure resources such as Azure Storage, Azure Web Apps, Redis Cache, HDInsight, and Azure virtual machines.</p>
+<p><a href="https://eclipse.org/" rel="nofollow">Eclipse</a> has long been one of the most popular IDEs for developing Java apps. A rich ecosystem of components and plug-ins has grown up around it, making it a very capable IDE for doing all things Java. <a href="https://azure.microsoft.com/en-us/develop/java/" rel="nofollow">Microsoft's Java group</a> has has provided tools for integrating Eclipse with Azure using the <a href="https://docs.microsoft.com/en-us/azure/azure-toolkit-for-eclipse" rel="nofollow">Azure Toolkit for Eclipse</a>. It comes with the ability to deploy apps to Azure either as Azure Web Apps or in Docker containers, and it contains tools for managing Azure resources such as Azure Storage, Azure Web Apps, Redis Cache, HDInsight, and Azure virtual machines.</p>
 <p>In this exercise, you will set up Java, Eclipse, and the Azure Toolkit for Eclipse.</p>
 <ol>
 <li>
-<p>If you don't already have the Java Development Kit (JDK) installed, go to <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a> and click the <strong>JDK Download</strong> button.</p>
+<p>If you don't already have the Java Development Kit (JDK) installed, go to <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" rel="nofollow">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a> and click the <strong>JDK Download</strong> button.</p>
 <p><a href="Images/java-download-java.png" target="_blank"><img src="Images/java-download-java.png" alt="Downloading the JDK" style="max-width:100%;"></a></p>
 <p><em>Downloading the JDK</em></p>
 </li>
@@ -638,7 +641,7 @@ vertical-align:1px;
 <p><em>Installing the JDK</em></p>
 </li>
 <li>
-<p>If Eclipse is not installed on your system. go to <a href="https://www.eclipse.org/downloads/">https://www.eclipse.org/downloads/</a> and click the <strong>Download</strong> button. Then click the <strong>Download</strong> button that appears on the next page to download the Eclipse installer.</p>
+<p>If Eclipse is not installed on your system. go to <a href="https://www.eclipse.org/downloads/" rel="nofollow">https://www.eclipse.org/downloads/</a> and click the <strong>Download</strong> button. Then click the <strong>Download</strong> button that appears on the next page to download the Eclipse installer.</p>
 <p><a href="Images/java-download-eclipse.png" target="_blank"><img src="Images/java-download-eclipse.png" alt="Downloading Eclipse" style="max-width:100%;"></a></p>
 <p><em>Downloading Eclipse</em></p>
 </li>
@@ -666,7 +669,7 @@ vertical-align:1px;
 <p>Eclipse is now configured for Azure development. The next step is to use it to begin a new project and create a Web app that can be tested locally and then deployed to Azure.</p>
 <p><a name="Exercise5"></a></p>
 <h2>Exercise 5: Create a photo-upload app</h2>
-<p>In this exercise, you will create a new Web app in Eclipse and add code to upload images, write them to blob storage, display them in a Web page, generate captions and keywords using the Computer Vision API, and perform keyword searches on uploaded images. The app will be named Intellipix (for "Intelligent Pictures") and will be accessed through your browser. The server-side code will be written in Java and will utilize <a href="https://en.wikipedia.org/wiki/Java_servlet">Java servlets</a>. The client side will be implemented in HTML, CSS, and JavaScript.</p>
+<p>In this exercise, you will create a new Web app in Eclipse and add code to upload images, write them to blob storage, display them in a Web page, generate captions and keywords using the Computer Vision API, and perform keyword searches on uploaded images. The app will be named Intellipix (for "Intelligent Pictures") and will be accessed through your browser. The server-side code will be written in Java and will utilize <a href="https://en.wikipedia.org/wiki/Java_servlet" rel="nofollow">Java servlets</a>. The client side will be implemented in HTML, CSS, and JavaScript.</p>
 <ol>
 <li>
 <p>Use the <strong>File</strong> &gt; <strong>New</strong> &gt; <strong>Dynamic Web Project</strong> command to create a new project. Set <strong>Project name</strong> to "Intellipix," and then click the <strong>New Runtime...</strong> button.</p>
@@ -1208,7 +1211,7 @@ vertical-align:1px;
 <p>With the app complete, the next step is to run it locally and make sure it works as intended before deploying it to Azure.</p>
 <p><a name="Exercise6"></a></p>
 <h2>Exercise 6: Test the app locally</h2>
-<p>Eclipse supports many popular servers for running Web sites written in Java, including <a href="http://tomcat.apache.org/">Apache Tomcat</a>. Tomcat provides the hooks needed to run servlets and is also capable of serving up static content such as HTML. Moreover, Azure can use Tomcat to host Java apps. In this exercise, you will run the app in a local Tomcat server in order to test it and familiarize yourself with its features.</p>
+<p>Eclipse supports many popular servers for running Web sites written in Java, including <a href="http://tomcat.apache.org/" rel="nofollow">Apache Tomcat</a>. Tomcat provides the hooks needed to run servlets and is also capable of serving up static content such as HTML. Moreover, Azure can use Tomcat to host Java apps. In this exercise, you will run the app in a local Tomcat server in order to test it and familiarize yourself with its features.</p>
 <ol>
 <li>
 <p>Use the <strong>Run</strong> &gt; <strong>Debug</strong> command to launch the app in the debugger. In the "Debug As" dialog that opens, select <strong>Run on Server</strong>, and then click <strong>OK</strong>.</p>
@@ -1219,7 +1222,7 @@ vertical-align:1px;
 <p>In the "Debug on Server" dialog, select <strong>Choose an existing server</strong>, select <strong>Tomcat v7.0 Server at localhost</strong> as the server, and click <strong>Finish</strong>.</p>
 </li>
 <li>
-<p>Wait for the app to appear in your browser, either inside or outside Eclipse. Then click the <strong>Browse...</strong> button, select all of the files in this lab's "resources/photos" folder, and click the <strong>Upload</strong> button to upload them to the Web site.</p>
+<p>Wait for the app to appear in your browser, either inside or outside Eclipse. Then click the <strong>Browse...</strong> button, select all of the files in the "photos" folder of the <a href="https://a4r.blob.core.windows.net/public/cs-storage-resources.zip" rel="nofollow">resources that accompany this lab</a>, and click the <strong>Upload</strong> button to upload them to the Web site.</p>
 <blockquote>
 <p>Each image uploaded to the Web site is written to Azure blob storage and then passed to the Computer Vision API, which analyzes the image and returns a caption and a set of tags. Captions and tags are stored in blob metadata.</p>
 </blockquote>
@@ -1273,7 +1276,7 @@ vertical-align:1px;
 <p>You're almost finished, but the final and most important step remains. It is time to deploy the app to the cloud.</p>
 <p><a name="Exercise7"></a></p>
 <h2>Exercise 7: Deploy the app to Azure</h2>
-<p>The Azure Toolkit for Eclipse has integrated support for deploying Dynamic Web Site projects to Azure as <a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview">Azure Web Apps</a>. In this exercise, you will use the Azure Toolkit to deploy Intellipix to Azure.</p>
+<p>The Azure Toolkit for Eclipse has integrated support for deploying Dynamic Web Site projects to Azure as <a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview" rel="nofollow">Azure Web Apps</a>. In this exercise, you will use the Azure Toolkit to deploy Intellipix to Azure.</p>
 <ol>
 <li>
 <p>Right-click the Intellipix project in Project Explorer and select <strong>Azure</strong> &gt; <strong>Publish as Azure Web App</strong> from the context menu.</p>
@@ -1317,9 +1320,9 @@ vertical-align:1px;
 <p><a name="Summary"></a></p>
 <h2>Summary</h2>
 <p>When you're finished using the site, you should delete the resource group containing it. Deleting the resource group deletes all of the resources inside it (including the storage account, the blobs uploaded to it, and the Azure Web App), removes all traces of this lab from your account, and prevents any further charges from being incurred for it. To delete the resource group, simply open the resource-group blade in the portal and click <strong>Delete resource group</strong> at the top of the blade. You will be asked to type the resource group's name to confirm that you want to delete it, because once deleted, a resource group can't be recovered.</p>
-<p>There is much more that you could do to develop Intellipix and to leverage Azure even further. For example, you could add support for authenticating users and deleting photos, and rather than force the user to wait for Cognitive Services to process a photo following an upload, you could use <a href="https://azure.microsoft.com/en-us/services/functions/">Azure Functions</a> to call the Computer Vision API asynchronously each time an image is added to blob storage. You could even use Cognitive Services to detect faces in the photos and analyze the emotions depicted by those faces. With the cloud as your platform, the sky is the limit (pun intended).</p>
+<p>There is much more that you could do to develop Intellipix and to leverage Azure even further. For example, you could add support for authenticating users and deleting photos, and rather than force the user to wait for Cognitive Services to process a photo following an upload, you could use <a href="https://azure.microsoft.com/en-us/services/functions/" rel="nofollow">Azure Functions</a> to call the Computer Vision API asynchronously each time an image is added to blob storage. You could even use Cognitive Services to detect faces in the photos and analyze the emotions depicted by those faces. With the cloud as your platform, the sky is the limit (pun intended).</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
