@@ -30,6 +30,11 @@ The following are required to complete this hands-on lab:
 - [Visual Studio Code](http://code.visualstudio.com/)
 - [Node.js](https://nodejs.org/en/)
 
+<a name="Resources"></a>
+### Resources ###
+
+[Click here](https://a4r.blob.core.windows.net/public/cs-machine-learning-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
 ---
 
 <a name="Exercises"></a>
@@ -125,7 +130,7 @@ Azure Machine Learning Studio comes with several sample datasets. Additional dat
 
     _Creating a new dataset_
 
-1. Click the **Browse** button. Navigate to this lab's "resources" subdirectory and select the file named **digit-recognition.csv**. Make sure **Generic CSV File with a header (.csv)** is selected under **SELECT A TYPE FOR THE NEW DATASET**. Optionally enter a friendly name for the dataset in the **ENTER A NAME FOR THE NEW DATASET** box, and then click the check mark in the lower-right corner to begin uploading the dataset.
+1. Click the **Browse** button. Select the file named **digit-recognition.csv** from the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/cs-machine-learning-resources.zip). Make sure **Generic CSV File with a header (.csv)** is selected under **SELECT A TYPE FOR THE NEW DATASET**. Optionally enter a friendly name for the dataset in the **ENTER A NAME FOR THE NEW DATASET** box, and then click the check mark in the lower-right corner to begin uploading the dataset.
 
     ![Uploading the dataset](Images/upload-dataset.png)
 
