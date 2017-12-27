@@ -475,7 +475,7 @@ vertical-align:1px;
 <h2>Overview</h2>
 <p>One of the benefits of using the cloud to handle large computing workloads is virtually limitless scalability. In Microsoft Azure, you can create a cluster of virtual machines (VMs) networked to form a high-performance computing (HPC) cluster in a matter of minutes. If you need more computing power than the cluster can provide, you can <em>scale up</em> by creating a cluster with larger and more capable virtual machines (more cores, more RAM, etc.), or you can <em>scale out</em> by creating a cluster with more nodes.</p>
 <p>In this lab, you will create a Linux cluster consisting of three virtual machines, or nodes — one master node and two worker nodes — and run a Python script on it to convert a batch of color images to grayscale. You will get first-hand experience deploying HPC clusters in Azure as well as managing and using the nodes in a cluster. And you will learn how easy it is to bring massive computing power to bear on problems that require it when you use the cloud.</p>
-<p>To distribute the workload among all the nodes and cores in each cluster, the Python code that you will run to convert the images uses the <a href="https://slurm.schedmd.com/">Simple Linux Utility for Resource Management</a>, also known as the SLURM Workload Manager or simply SLURM. SLURM is a free and open-source job scheduler for Linux that excels at distributing heavy computing workloads across clusters of machines and processors. It is used on more than half of the world's largest supercomputers and HPC clusters, and it enjoys widespread use in the research community for jobs that require significant compute resources.</p>
+<p>To distribute the workload among all the nodes and cores in each cluster, the Python code that you will run to convert the images uses the <a href="https://slurm.schedmd.com/" rel="nofollow">Simple Linux Utility for Resource Management</a>, also known as the SLURM Workload Manager or simply SLURM. SLURM is a free and open-source job scheduler for Linux that excels at distributing heavy computing workloads across clusters of machines and processors. It is used on more than half of the world's largest supercomputers and HPC clusters, and it enjoys widespread use in the research community for jobs that require significant compute resources.</p>
 <p><a name="Objectives"></a></p>
 <h3>Objectives</h3>
 <p>In this hands-on lab, you will learn how to:</p>
@@ -491,9 +491,12 @@ vertical-align:1px;
 <h3>Prerequisites</h3>
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li><a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">PuTTY</a> (Windows users only)</li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial" rel="nofollow">sign up for a free trial</a>.</li>
+<li><a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html" rel="nofollow">PuTTY</a> (Windows users only)</li>
 </ul>
+<p><a name="Resources"></a></p>
+<h3>Resources</h3>
+<p><a href="https://a4r.blob.core.windows.net/public/hpc-resources.zip" rel="nofollow">Click here</a> to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.</p>
 <hr>
 <p><a name="Exercises"></a></p>
 <h2>Exercises</h2>
@@ -511,8 +514,8 @@ vertical-align:1px;
 <p>Estimated time to complete this lab: <strong>45</strong> minutes.</p>
 <p><a name="Exercise1"></a></p>
 <h2>Exercise 1: Deploy a SLURM cluster</h2>
-<p>The Azure Resource Manager allows you to provision complex groups of resources such as those comprising HPC clusters using declarative templates. A template contains a complete description of everything that makes up a resource group, including virtual machines, storage accounts, IP addresses, and other resources. Templates can include parameters that users are prompted to fill in each time a resource group is deployed. Templates can also invoke scripts to initialize resources to a known and consistent state. To learn more about Azure Resource Manager templates, refer to the <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/">documentation</a> online.</p>
-<p>In this exercise, you will use a deployment template built by the Azure team. This template creates a collection of virtual machines and all the resources required to form a SLURM HPC cluster from them. It is one of many useful templates on the <a href="http://azure.microsoft.com/en-us/documentation/templates/">Azure Quickstart Templates</a> page and in the Quickstart templates <a href="https://github.com/Azure/azure-quickstart-templates">GitHub repository</a>.</p>
+<p>The Azure Resource Manager allows you to provision complex groups of resources such as those comprising HPC clusters using declarative templates. A template contains a complete description of everything that makes up a resource group, including virtual machines, storage accounts, IP addresses, and other resources. Templates can include parameters that users are prompted to fill in each time a resource group is deployed. Templates can also invoke scripts to initialize resources to a known and consistent state. To learn more about Azure Resource Manager templates, refer to the <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/" rel="nofollow">documentation</a> online.</p>
+<p>In this exercise, you will use a deployment template built by the Azure team. This template creates a collection of virtual machines and all the resources required to form a SLURM HPC cluster from them. It is one of many useful templates on the <a href="http://azure.microsoft.com/en-us/documentation/templates/" rel="nofollow">Azure Quickstart Templates</a> page and in the Quickstart templates <a href="https://github.com/Azure/azure-quickstart-templates">GitHub repository</a>.</p>
 <p>The template you will use, which you can <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/slurm">view here</a> on GitHub, is titled "Deploy a slurm cluster." It performs the following steps:</p>
 <ul>
 <li>Deploys a master VM plus a specified number of worker VMs</li>
@@ -594,7 +597,7 @@ vertical-align:1px;
 <p><em>Uploading blobs to the "input" container</em></p>
 </li>
 <li>
-<p>Click the <strong>Open</strong> button to the right of the <strong>Files</strong> box. Select all of the files in this lab's "resources/ColorImages" folder. Then click the <strong>Upload</strong> button to upload color images to the "input" container.</p>
+<p>Click the <strong>Open</strong> button to the right of the <strong>Files</strong> box. Select all of the files in the "ColorImages" folder of the <a href="https://a4r.blob.core.windows.net/public/hpc-resources.zip" rel="nofollow">resources that accompany this lab</a>. Then click the <strong>Upload</strong> button to upload color images to the "input" container.</p>
 <p><a href="Images/upload-blobs-2.png" target="_blank"><img src="Images/upload-blobs-2.png" alt="Uploading color images" style="max-width:100%;"></a></p>
 <p><em>Uploading color images</em></p>
 </li>
@@ -617,7 +620,7 @@ vertical-align:1px;
 <p>You now have containers to hold input and output and a collection of color images in the input container. The next step is to update the Python script that will be used to process the images.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Prepare the Python script</h2>
-<p>With the SLURM cluster up and running and the images uploaded to blob storage, you are now ready to modify the Python script that processes the images with information enabling it to access the storage account. The script is named <strong>slurmdemo.py</strong> and is located in this lab's "resources" directory. You can use any text editor that you're comfortable with. There is no need to be concerned about how line breaks are encoded, because after uploading these scripts to the cluster's master node, you will run a utility to insert Linux-style line breaks into each script.</p>
+<p>With the SLURM cluster up and running and the images uploaded to blob storage, you are now ready to modify the Python script that processes the images with information enabling it to access the storage account. The script is named <strong>slurmdemo.py</strong> and is included in lab resources. You can use any text editor that you're comfortable with. There is no need to be concerned about how line breaks are encoded, because after uploading these scripts to the cluster's master node, you will run a utility to insert Linux-style line breaks into each script.</p>
 <ol>
 <li>
 <p>Return to the Azure Portal and to the resource group containing the cluster. In the resource group's blade, click the storage account to open a blade for the storage account.</p>
@@ -635,7 +638,7 @@ vertical-align:1px;
 <p><em>Copying the storage account's name</em></p>
 </li>
 <li>
-<p>Navigate to this lab's "resources" directory. Then open <strong>slurmdemo.py</strong> in a text editor and find the following section near the top of the file:</p>
+<p>Navigate to the directory where you copied the lab resources. Then open <strong>slurmdemo.py</strong> in a text editor and find the following section near the top of the file:</p>
 <div class="highlight highlight-source-python"><pre><span class="pl-c"><span class="pl-c">#</span>######################################################</span>
 <span class="pl-c"><span class="pl-c">#</span> Update these two variables to those for your account.</span>
 <span class="pl-c"><span class="pl-c">#</span>######################################################</span>
@@ -713,7 +716,7 @@ dos2unix *
 <p>Next, you'll check the output to verify that the job ran correctly. Since Exercise 5 is for Windows users only, proceed directly to <a href="#Exercise6">Exercise 6</a>.</p>
 <p><a name="Exercise5"></a></p>
 <h2>Exercise 5 (Windows): Copy the job scripts, configure the nodes, and run the job</h2>
-<p>In this exercise, you will upload the Python script and a pair of setup scripts to the master node of the SLURM cluster and use them to configure the cluster and run the job. To remote into the cluster, you'll use a popular Windows SSH client named PuTTY. If you haven't already installed PuTTY, <a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">download the MSI</a> and install it now.</p>
+<p>In this exercise, you will upload the Python script and a pair of setup scripts to the master node of the SLURM cluster and use them to configure the cluster and run the job. To remote into the cluster, you'll use a popular Windows SSH client named PuTTY. If you haven't already installed PuTTY, <a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html" rel="nofollow">download the MSI</a> and install it now.</p>
 <ol>
 <li>
 <p>The deployment template that you used to create the SLURM cluster created an IP address and a publicly addressable DNS name for the master node. To find the node's DNS name, open the blade for the resource group that holds the cluster. Then click <strong>publicip</strong>.</p>
@@ -815,7 +818,7 @@ dos2unix *
 <p>Repeat this process to stop the virtual machines named "worker1" and "master."</p>
 </li>
 </ol>
-<p>You can stop and start virtual machines in the Azure portal, but if you have a lot of VMs, that's not very efficient. In the real world, you might prefer to use an Azure CLI or PowerShell script to enumerate all the VMs in a resource group and start or stop them all. For more information on scripting the Azure CLI, see the section entitled "How to script the Azure CLI for Mac, Linux, and Windows" in <a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli/">Install and Configure the Azure CLI</a>. If you prefer visual tools to command-line tools, you can use <a href="https://azure.microsoft.com/en-us/services/automation/">Azure Automation</a> to automate VM operations.</p>
+<p>You can stop and start virtual machines in the Azure portal, but if you have a lot of VMs, that's not very efficient. In the real world, you might prefer to use an Azure CLI or PowerShell script to enumerate all the VMs in a resource group and start or stop them all. For more information on scripting the Azure CLI, see the section entitled "How to script the Azure CLI for Mac, Linux, and Windows" in <a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli/" rel="nofollow">Install and Configure the Azure CLI</a>. If you prefer visual tools to command-line tools, you can use <a href="https://azure.microsoft.com/en-us/services/automation/" rel="nofollow">Azure Automation</a> to automate VM operations.</p>
 <p><a name="Exercise8"></a></p>
 <h2>Exercise 8: Delete the SLURM cluster</h2>
 <p>Resource groups are a useful feature of Azure because they simplify the task of managing related resources. One of the most practical reasons to use resource groups is that deleting a resource group deletes all of the resources it contains. Rather than delete those resources one by one, you can delete them all at once.</p>
@@ -843,7 +846,7 @@ dos2unix *
 </ul>
 <p>It is <strong>much</strong> easier to deploy a SLURM cluster in Azure than to install and configure a physical SLURM cluster. This is one of the ways in which cloud computing benefits researchers: it allows you to quickly and easily deploy the resources you need, <em>when</em> you need them, pay only for the resources you use, and delete them when they are no longer necessary.</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

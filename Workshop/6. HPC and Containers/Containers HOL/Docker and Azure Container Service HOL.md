@@ -46,7 +46,13 @@ To install the Docker client for Windows, open https://get.docker.com/builds/Win
 
 You do not need to install the Docker client if you already have Docker (or Docker Toolbox) installed on your machine.
 
+<a name="Resources"></a>
+### Resources ###
+
+[Click here](https://a4r.blob.core.windows.net/public/container-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
 ---
+
 <a name="Exercises"></a>
 ## Exercises ##
 
@@ -246,11 +252,11 @@ Now that you're connected, you can run the Docker client on your local machine a
 
 Now comes the fun part: creating a Docker image and running it inside a container in Azure. If you haven't already installed the Docker client, refer to the instructions at the beginning of this lab to download and install the Docker client for your operating system. 
 
-1. Open a terminal window (macOS or Linux) or a Command Prompt window (Windows) and navigate to the "resources" subdirectory of this lab. It contains the files that you will build into a container image. If the "resources" subdirectory doesn't already contain a subdirectory named "output," use the following command to create one:
+1. Open a terminal window (macOS or Linux) or a Command Prompt window (Windows) and navigate to the directory where you copied the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/container-resources.zip). It contains the files that you will build into a container image. If that directory doesn't already contain a subdirectory named "output," use the following command to create one:
 
 	<pre>mkdir output</pre>
 
-1. Take a moment to examine the contents of the "resources" subdirectory. It contains a file named **Dockerfile**, which contains the commands Docker will use to build a container image. It also contains a Python script named **convertimages.py**, a subdirectory named "input," and a subdirectory named "output." The "input" subdirectory contains several color JPG images. The Python script enumerates the files in the "input" subdirectory, converts them to grayscale, and writes the grayscale images to the "output" subdirectory.
+1. Take a moment to examine the contents of the directory. It contains a file named **Dockerfile**, which contains the commands Docker will use to build a container image. It also contains a Python script named **convertimages.py**, a subdirectory named "input," and a subdirectory named "output." The "input" subdirectory contains several color JPG images. The Python script enumerates the files in the "input" subdirectory, converts them to grayscale, and writes the grayscale images to the "output" subdirectory.
 
 1. If you are running macOS or Linux, execute the following command in the terminal window:
 
@@ -262,7 +268,7 @@ Now comes the fun part: creating a Docker image and running it inside a containe
 
 	This command directs the Docker client to send output to localhost port 22375, which you redirected to port 2375 in the Azure Container Service in the previous exercise. Remember that port 2375 is the one Docker Swarm listens on. The commands that you execute in the next few steps are typed into a local terminal window, but they are **executed in the container service you deployed to the cloud** using the SSH tunnel that you established in the previous exercise.
 
-1. Still in the "resources" subdirectory, execute the following command to create a container image named "ubuntu-convert" containing the Python script as well as the "input" and "output" subdirectories and their contents. Be sure to include the period at the end of the command:
+1. Execute the following command to create a container image named "ubuntu-convert" containing the Python script as well as the "input" and "output" subdirectories and their contents. Be sure to include the period at the end of the command:
 
 	<pre>docker build --no-cache --tag ubuntu-convert .</pre>
 
@@ -282,8 +288,6 @@ Now comes the fun part: creating a Docker image and running it inside a containe
 
 	<pre>docker cp acslab:/output .</pre>
 
-	> Because you are still in the "resources" subdirectory, this command will copy the grayscale images to that directory's "output" subdirectory.
-
 1. Stop the running container by executing the following command:
 
 	<pre>docker stop acslab</pre>
@@ -292,7 +296,7 @@ Now comes the fun part: creating a Docker image and running it inside a containe
 
 	<pre>docker rm acslab</pre>
 
-1. List the contents of the "output" subdirectory under the "resources" subdirectory that you are currently in. Confirm that it contains eight JPG files copied from the container.
+1. List the contents of the "output" subdirectory. Confirm that it contains eight JPG files copied from the container.
 
 1. Open one of the JPG files and confirm that it contains a grayscale image like the one pictured below.
 

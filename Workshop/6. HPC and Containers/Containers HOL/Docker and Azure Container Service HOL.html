@@ -473,10 +473,10 @@ vertical-align:1px;
 <hr>
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
-<p>Containers, which allow software and files to be bundled up into neat packages that can be run on different computers and different operating systems, are earning a lot of attention these days. And almost synonymous with the term "container" is the term "Docker." <a href="http://www.docker.com">Docker</a> is the world's most popular containerization platform. This description of it comes from the Docker Web site:</p>
+<p>Containers, which allow software and files to be bundled up into neat packages that can be run on different computers and different operating systems, are earning a lot of attention these days. And almost synonymous with the term "container" is the term "Docker." <a href="http://www.docker.com" rel="nofollow">Docker</a> is the world's most popular containerization platform. This description of it comes from the Docker Web site:</p>
 <p><em>Docker containers wrap a piece of software in a complete filesystem that contains everything needed to run: code, runtime, system tools, system libraries – anything that can be installed on a server. This guarantees that the software will always run the same, regardless of its environment.</em></p>
 <p>Containers are similar to virtual machines (VMs) in that they provide a predictable and isolated environment in which software can run. Because containers are smaller than VMs, they start almost instantly and use less RAM. Moreover, multiple containers running on a single machine share the same operating system kernel. Docker is based on open standards, enabling Docker containers to run on all major Linux distributions as well as Windows Server 2016.</p>
-<p>To simplify the use of Docker containers, Azure offers the <a href="https://azure.microsoft.com/en-us/services/container-service/">Azure Container Service</a> (ACS), which hosts Docker containers in the cloud and provides an optimized configuration of popular open-source scheduling and orchestration tools, including <a href="https://dcos.io/">DC/OS</a>, <a href="https://kubernetes.io/">Kubernetes</a>, and <a href="https://www.docker.com/products/docker-swarm">Docker Swarm</a>. The latter uses native clustering capabilities to turn a group of Docker engines into a single virtual Docker engine using the configuration shown below and is a handy tool for executing CPU-intensive jobs in parallel. In essence, one or more master VMs control a "swarm" of agent VMs created from an <a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/">Azure Virtual Machine Scale Set</a>. The agent VMs host Docker containers that execute your code.</p>
+<p>To simplify the use of Docker containers, Azure offers the <a href="https://azure.microsoft.com/en-us/services/container-service/" rel="nofollow">Azure Container Service</a> (ACS), which hosts Docker containers in the cloud and provides an optimized configuration of popular open-source scheduling and orchestration tools, including <a href="https://dcos.io/" rel="nofollow">DC/OS</a>, <a href="https://kubernetes.io/" rel="nofollow">Kubernetes</a>, and <a href="https://www.docker.com/products/docker-swarm" rel="nofollow">Docker Swarm</a>. The latter uses native clustering capabilities to turn a group of Docker engines into a single virtual Docker engine using the configuration shown below and is a handy tool for executing CPU-intensive jobs in parallel. In essence, one or more master VMs control a "swarm" of agent VMs created from an <a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/" rel="nofollow">Azure Virtual Machine Scale Set</a>. The agent VMs host Docker containers that execute your code.</p>
 <p><a href="Images/docker-swarm.png" target="_blank"><img src="Images/docker-swarm.png" alt="Docker Swarm configuration in the Azure Container Service" style="max-width:100%;"></a></p>
 <p><em>Docker Swarm configuration in the Azure Container Service</em></p>
 <p>In this lab, you will package a Python app and a set of color images in a Docker container. Then you will run the container in Azure and run the Python app inside it to convert the color images to grayscale. You will get hands-on experience using the Azure Container Service and tunneling in to execute Docker commands and manipulate Docker containers.</p>
@@ -494,15 +494,18 @@ vertical-align:1px;
 <h3>Prerequisites</h3>
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li><a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">PuTTY</a> (Windows users only)</li>
-<li>Docker client (also known as the <em>Docker Engine CLI</em>) for <a href="https://get.docker.com/builds/Windows/x86_64/docker-latest.zip">Windows</a>, <a href="https://get.docker.com/builds/Darwin/x86_64/docker-latest.tgz">macOS</a>, or <a href="https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz">Linux</a></li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial" rel="nofollow">sign up for a free trial</a>.</li>
+<li><a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html" rel="nofollow">PuTTY</a> (Windows users only)</li>
+<li>Docker client (also known as the <em>Docker Engine CLI</em>) for <a href="https://get.docker.com/builds/Windows/x86_64/docker-latest.zip" rel="nofollow">Windows</a>, <a href="https://get.docker.com/builds/Darwin/x86_64/docker-latest.tgz" rel="nofollow">macOS</a>, or <a href="https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz" rel="nofollow">Linux</a></li>
 </ul>
-<p>To install the Docker client for Windows, open <a href="https://get.docker.com/builds/Windows/x86_64/docker-latest.zip">https://get.docker.com/builds/Windows/x86_64/docker-latest.zip</a> and copy the executable file named "docker.exe" from the "docker" subdirectory to a local folder. To install the Docker client for macOS, open <a href="https://get.docker.com/builds/Darwin/x86_64/docker-latest.tgz">https://get.docker.com/builds/Darwin/x86_64/docker-latest.tgz</a> and copy the executable file named "docker" from the "docker" subdirectory to a local folder. To install the Docker client for Linux, open <a href="https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz">https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz</a> and copy the executable file named "docker" from the "docker" subdirectory to a local folder. (You can ignore the other files in the "docker" subdirectory.)</p>
+<p>To install the Docker client for Windows, open <a href="https://get.docker.com/builds/Windows/x86_64/docker-latest.zip" rel="nofollow">https://get.docker.com/builds/Windows/x86_64/docker-latest.zip</a> and copy the executable file named "docker.exe" from the "docker" subdirectory to a local folder. To install the Docker client for macOS, open <a href="https://get.docker.com/builds/Darwin/x86_64/docker-latest.tgz" rel="nofollow">https://get.docker.com/builds/Darwin/x86_64/docker-latest.tgz</a> and copy the executable file named "docker" from the "docker" subdirectory to a local folder. To install the Docker client for Linux, open <a href="https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz" rel="nofollow">https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz</a> and copy the executable file named "docker" from the "docker" subdirectory to a local folder. (You can ignore the other files in the "docker" subdirectory.)</p>
 <blockquote>
 <p>After installing the Docker client, add the directory in which it was installed to the PATH environment variable so you can execute <strong>docker</strong> commands on the command line without prefacing them with path names.</p>
 </blockquote>
 <p>You do not need to install the Docker client if you already have Docker (or Docker Toolbox) installed on your machine.</p>
+<p><a name="Resources"></a></p>
+<h3>Resources</h3>
+<p><a href="https://a4r.blob.core.windows.net/public/container-resources.zip" rel="nofollow">Click here</a> to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.</p>
 <hr>
 <p><a name="Exercises"></a></p>
 <h2>Exercises</h2>
@@ -520,7 +523,7 @@ vertical-align:1px;
 <h2>Exercise 1: Create an SSH key pair</h2>
 <p>Before you can deploy Docker images to Azure, you must create an Azure Container Service. And in order to create an Azure Container Service, you need a public/private key pair for authenticating with that service over SSH. In this exercise, you will create an SSH key pair. If you are using macOS or Linux, you will create the key pair with ssh-keygen. If you are running Windows instead, you will use a third-party tool named PuTTYGen.</p>
 <blockquote>
-<p>Unlike macOS and Linux, Windows doesn't have an SSH key generator built in. PuTTYGen is a free key generator that is popular in the Windows community. It is part of an open-source toolset called <a href="http://www.putty.org/">PuTTY</a>, which provides the SSH support that Windows lacks.</p>
+<p>Unlike macOS and Linux, Windows doesn't have an SSH key generator built in. PuTTYGen is a free key generator that is popular in the Windows community. It is part of an open-source toolset called <a href="http://www.putty.org/" rel="nofollow">PuTTY</a>, which provides the SSH support that Windows lacks.</p>
 </blockquote>
 <ol>
 <li>
@@ -563,7 +566,7 @@ ls
 <p>Now that you have an SSH key pair, you can create and configure an Azure Container Service. In this exercise, you will use the Azure Portal to create an Azure Container Service for running Docker containers.</p>
 <ol>
 <li>
-<p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
+<p>Open the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
 </li>
 <li>
 <p>Click <strong>+ New</strong>, followed by <strong>Containers</strong> and <strong>Azure Container Service</strong>.</p>
@@ -590,7 +593,7 @@ ls
 <li>
 <p>In the "Agent configuration" blade, set <strong>Agent count</strong> to <strong>2</strong>. Then click <strong>OK</strong>.</p>
 <blockquote>
-<p>When you create an Azure Container Service, one or more master VMs are created to orchestrate the workload. In addition, an <a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/">Azure Virtual Machine Scale Set</a> is created to provide VMs for the "agents," or VMs that the master VMs delegate work to. Docker container instances are hosted in the agent VMs. By default, Azure uses a standard DS2 virtual machine for each agent. These are dual-core machines with 7 GB of RAM. Agent VMs are created as needed to handle the workload. In this example, there will be one master VM and up to two agent VMs.</p>
+<p>When you create an Azure Container Service, one or more master VMs are created to orchestrate the workload. In addition, an <a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/" rel="nofollow">Azure Virtual Machine Scale Set</a> is created to provide VMs for the "agents," or VMs that the master VMs delegate work to. Docker container instances are hosted in the agent VMs. By default, Azure uses a standard DS2 virtual machine for each agent. These are dual-core machines with 7 GB of RAM. Agent VMs are created as needed to handle the workload. In this example, there will be one master VM and up to two agent VMs.</p>
 </blockquote>
 <p><a href="Images/docker-acs-agent-configuration.png" target="_blank"><img src="Images/docker-acs-agent-configuration.png" alt="Agent configuration settings" style="max-width:100%;"></a></p>
 <p><em>Agent configuration settings</em></p>
@@ -691,11 +694,11 @@ ls
 <p>Now comes the fun part: creating a Docker image and running it inside a container in Azure. If you haven't already installed the Docker client, refer to the instructions at the beginning of this lab to download and install the Docker client for your operating system.</p>
 <ol>
 <li>
-<p>Open a terminal window (macOS or Linux) or a Command Prompt window (Windows) and navigate to the "resources" subdirectory of this lab. It contains the files that you will build into a container image. If the "resources" subdirectory doesn't already contain a subdirectory named "output," use the following command to create one:</p>
+<p>Open a terminal window (macOS or Linux) or a Command Prompt window (Windows) and navigate to the directory where you copied the <a href="https://a4r.blob.core.windows.net/public/container-resources.zip" rel="nofollow">resources that accompany this lab</a>. It contains the files that you will build into a container image. If that directory doesn't already contain a subdirectory named "output," use the following command to create one:</p>
  <pre>mkdir output</pre>
 </li>
 <li>
-<p>Take a moment to examine the contents of the "resources" subdirectory. It contains a file named <strong>Dockerfile</strong>, which contains the commands Docker will use to build a container image. It also contains a Python script named <strong>convertimages.py</strong>, a subdirectory named "input," and a subdirectory named "output." The "input" subdirectory contains several color JPG images. The Python script enumerates the files in the "input" subdirectory, converts them to grayscale, and writes the grayscale images to the "output" subdirectory.</p>
+<p>Take a moment to examine the contents of the directory. It contains a file named <strong>Dockerfile</strong>, which contains the commands Docker will use to build a container image. It also contains a Python script named <strong>convertimages.py</strong>, a subdirectory named "input," and a subdirectory named "output." The "input" subdirectory contains several color JPG images. The Python script enumerates the files in the "input" subdirectory, converts them to grayscale, and writes the grayscale images to the "output" subdirectory.</p>
 </li>
 <li>
 <p>If you are running macOS or Linux, execute the following command in the terminal window:</p>
@@ -705,7 +708,7 @@ ls
 <p>This command directs the Docker client to send output to localhost port 22375, which you redirected to port 2375 in the Azure Container Service in the previous exercise. Remember that port 2375 is the one Docker Swarm listens on. The commands that you execute in the next few steps are typed into a local terminal window, but they are <strong>executed in the container service you deployed to the cloud</strong> using the SSH tunnel that you established in the previous exercise.</p>
 </li>
 <li>
-<p>Still in the "resources" subdirectory, execute the following command to create a container image named "ubuntu-convert" containing the Python script as well as the "input" and "output" subdirectories and their contents. Be sure to include the period at the end of the command:</p>
+<p>Execute the following command to create a container image named "ubuntu-convert" containing the Python script as well as the "input" and "output" subdirectories and their contents. Be sure to include the period at the end of the command:</p>
  <pre>docker build --no-cache --tag ubuntu-convert .</pre>
 </li>
 <li>
@@ -723,9 +726,6 @@ ls
 <li>
 <p>If the Python script ran successfully, the "output" subdirectory in the container should contain grayscale versions of the JPG files in the "input" subdirectory. Use the following command to copy the files from the "output" subdirectory in the container to the "output" subdirectory on the local machine:</p>
  <pre>docker cp acslab:/output .</pre>
-<blockquote>
-<p>Because you are still in the "resources" subdirectory, this command will copy the grayscale images to that directory's "output" subdirectory.</p>
-</blockquote>
 </li>
 <li>
 <p>Stop the running container by executing the following command:</p>
@@ -736,7 +736,7 @@ ls
  <pre>docker rm acslab</pre>
 </li>
 <li>
-<p>List the contents of the "output" subdirectory under the "resources" subdirectory that you are currently in. Confirm that it contains eight JPG files copied from the container.</p>
+<p>List the contents of the "output" subdirectory. Confirm that it contains eight JPG files copied from the container.</p>
 </li>
 <li>
 <p>Open one of the JPG files and confirm that it contains a grayscale image like the one pictured below.</p>
@@ -761,7 +761,7 @@ ls
 <p><em>Stopping the master VM</em></p>
 </li>
 </ol>
-<p>There is no need to stop the agent VMs. They are part of an <a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/">Azure Virtual Machine Scale Set</a> and are automatically spun up and down as needed by the master VM. Note that if you wish to run containers again in this container service, you will need to restart the master VM.</p>
+<p>There is no need to stop the agent VMs. They are part of an <a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/" rel="nofollow">Azure Virtual Machine Scale Set</a> and are automatically spun up and down as needed by the master VM. Note that if you wish to run containers again in this container service, you will need to restart the master VM.</p>
 <p><a name="Exercise6"></a></p>
 <h2>Exercise 6: Delete the resource group</h2>
 <p>Resource groups are a useful feature of Azure because they simplify the task of managing related resources. One of the most practical reasons to use resource groups is that deleting a resource group deletes all the resources it contains. Rather than delete those resources one by one, you can delete them all at once.</p>
@@ -781,7 +781,7 @@ ls
 <h2>Summary</h2>
 <p>The Azure Container Service makes it easy to run apps packaged in Docker containers in the cloud without having to manage servers or install a container stack yourself. Container images are smaller than VM images, they start faster, and they typically cost less since a single VM can host multiple container instances. More importantly, Docker containers can be hosted in other cloud platforms such as Amazon Web Services (AWS). If you want to avoid being tied to a single cloud platform, containers are a great way to achieve that independence.</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
