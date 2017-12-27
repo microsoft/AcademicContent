@@ -480,10 +480,10 @@ vertical-align:1px;
 <li>One worker node with eight cores and 28 GB of RAM</li>
 <li>Eight worker nodes, each with one core and 3.5 GB of RAM</li>
 </ul>
-<p>The job that you will run is written in Python, and it involves using the latitudes and longitudes of more than 7,300 airports to build a distance table like the one below containing the distance between each airport. Since the number of distances is the square of the number of airports, the job computes more than 53 million distances, and the calculations are floating-point intensive as well as CPU-intensive because the distances are calculated over the <a href="https://en.wikipedia.org/wiki/Great-circle_distance">surface of a sphere</a>.</p>
+<p>The job that you will run is written in Python, and it involves using the latitudes and longitudes of more than 7,300 airports to build a distance table like the one below containing the distance between each airport. Since the number of distances is the square of the number of airports, the job computes more than 53 million distances, and the calculations are floating-point intensive as well as CPU-intensive because the distances are calculated over the <a href="https://en.wikipedia.org/wiki/Great-circle_distance" rel="nofollow">surface of a sphere</a>.</p>
 <p><a href="Images/disttabl.gif" target="_blank"><img src="Images/disttabl.gif" alt="Sample Distance Table" style="max-width:100%;"></a></p>
 <p><em>Sample distance table</em></p>
-<p>To distribute the workload among all the nodes and cores in each cluster, the Python code that you will run uses the <a href="https://slurm.schedmd.com/">Simple Linux Utility for Resource Management</a>, also known as the SLURM Workload Manager or simply SLURM. SLURM is a free and open-source job scheduler for Linux that excels at distributing heavy computing workloads across clusters of machines and processors. It is used on more than half of the world's largest supercomputers and HPC clusters, and it enjoys widespread use in the research community for jobs that require significant compute resources.</p>
+<p>To distribute the workload among all the nodes and cores in each cluster, the Python code that you will run uses the <a href="https://slurm.schedmd.com/" rel="nofollow">Simple Linux Utility for Resource Management</a>, also known as the SLURM Workload Manager or simply SLURM. SLURM is a free and open-source job scheduler for Linux that excels at distributing heavy computing workloads across clusters of machines and processors. It is used on more than half of the world's largest supercomputers and HPC clusters, and it enjoys widespread use in the research community for jobs that require significant compute resources.</p>
 <p>This lab normally requires 90 minutes or more to complete because it has you deploy and test three clusters sequentially. You can economize on time by deploying all three clusters in parallel, essentially working Exercises 2, 7, and 8 at the same time. Be aware, however, that some free Azure subscriptions limit the number of virtual-machine cores that can be extant at any one time, so depending on what type of subscription you have, you may or may not be able to deploy three clusters concurrently.</p>
 <p><a name="Objectives"></a></p>
 <h3>Objectives</h3>
@@ -500,9 +500,12 @@ vertical-align:1px;
 <h3>Prerequisites</h3>
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription, or <a href="https://azure.microsoft.com/en-us/free/">sign up for a free trial</a></li>
-<li><a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">PuTTY</a> (Windows users only)</li>
+<li>An active Microsoft Azure subscription, or <a href="https://azure.microsoft.com/en-us/free/" rel="nofollow">sign up for a free trial</a></li>
+<li><a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html" rel="nofollow">PuTTY</a> (Windows users only)</li>
 </ul>
+<p><a name="Resources"></a></p>
+<h3>Resources</h3>
+<p><a href="https://a4r.blob.core.windows.net/public/vm-scaling-resources.zip" rel="nofollow">Click here</a> to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.</p>
 <p><a name="Exercises"></a></p>
 <h2>Exercises</h2>
 <ul>
@@ -519,10 +522,10 @@ vertical-align:1px;
 <p>Estimated time to complete this lab: <strong>90 minutes</strong>.</p>
 <p><a name="Exercise1"></a></p>
 <h2>Exercise 1: Create a storage account and configure Python scripts</h2>
-<p>In this exercise, you will use the <a href="https://portal.azure.com">Azure Portal</a> to create a storage account. Then you will modify the job scripts used to compare the performance of various VM configurations so they can use this account to store data in blob storage.</p>
+<p>In this exercise, you will use the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> to create a storage account. Then you will modify the job scripts used to compare the performance of various VM configurations so they can use this account to store data in blob storage.</p>
 <ol>
 <li>
-<p>Open the <a href="https://portal.azure.com">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
+<p>Open the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> in your browser. If you are asked to log in, do so using your Microsoft account.</p>
 </li>
 <li>
 <p>Click <strong>+ New</strong> in the ribbon on the left. Then click <strong>Storage</strong>, followed by <strong>Storage account</strong>.</p>
@@ -554,7 +557,7 @@ vertical-align:1px;
 <p><em>Copying the access key</em></p>
 </li>
 <li>
-<p>Find <strong>controller.py</strong> in this lab's "resources" folder and open it in the text or program editor of your choice.</p>
+<p>Open the file named <strong>controller.py</strong>, which is included in the <a href="https://a4r.blob.core.windows.net/public/vm-scaling-resources.zip" rel="nofollow">resources that accompany this lab</a>, in the text or program editor of your choice.</p>
 </li>
 <li>
 <p>In <strong>controller.py</strong>, replace <em>storage_account_name</em> on line 14 with the name of the storage account you created in Step 3, and replace <em>storage_account_key</em> on line 15 with the access key that is on the clipboard. Then save your changes and close the file.</p>
@@ -562,7 +565,7 @@ vertical-align:1px;
 <p><em>Modifying controller.py</em></p>
 </li>
 <li>
-<p>Find <strong>worker.py</strong> in this lab's "resources" folder and open it in the text or program editor of your choice.</p>
+<p>Open <strong>worker.py</strong> from the lab resources in the text or program editor of your choice.</p>
 </li>
 <li>
 <p>In <strong>worker.py</strong>, replace <em>storage_account_name</em> on line 11 with the name of the storage account you created in Step 3, and replace <em>storage_account_key</em> on line 12 with the access key that is on the clipboard. Then save your changes and close the file.</p>
@@ -571,8 +574,8 @@ vertical-align:1px;
 <p>You now have an Azure storage account that you can use in your tests as well as Python scripts that can access the storage account. The next step is to deploy your first HPC cluster for testing.</p>
 <p><a name="Exercise2"></a></p>
 <h2>Exercise 2: Deploy an HPC cluster</h2>
-<p>The Azure Resource Manager allows you to provision applications using declarative templates. A template contains a complete description of everything that makes up the application, including virtual machines, databases, Web apps, IP addresses, and other resources. Templates can include parameters that users are prompted to fill in each time an application is deployed. Templates can also invoke scripts to initialize resources to a known and consistent state. To learn more about Azure Resource Manager templates, refer to the <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/">documentation</a> online.</p>
-<p>In this exercise, you will use a deployment template built by the Azure team. This template creates a collection of virtual machines and all the resources required to form a SLURM HPC cluster from them. It is one of many useful templates on the <a href="http://azure.microsoft.com/en-us/documentation/templates/">Azure Quickstart Templates</a> page and in the Quickstart templates <a href="https://github.com/Azure/azure-quickstart-templates">GitHub repository</a>.</p>
+<p>The Azure Resource Manager allows you to provision applications using declarative templates. A template contains a complete description of everything that makes up the application, including virtual machines, databases, Web apps, IP addresses, and other resources. Templates can include parameters that users are prompted to fill in each time an application is deployed. Templates can also invoke scripts to initialize resources to a known and consistent state. To learn more about Azure Resource Manager templates, refer to the <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/" rel="nofollow">documentation</a> online.</p>
+<p>In this exercise, you will use a deployment template built by the Azure team. This template creates a collection of virtual machines and all the resources required to form a SLURM HPC cluster from them. It is one of many useful templates on the <a href="http://azure.microsoft.com/en-us/documentation/templates/" rel="nofollow">Azure Quickstart Templates</a> page and in the Quickstart templates <a href="https://github.com/Azure/azure-quickstart-templates">GitHub repository</a>.</p>
 <p>The template you will use, which you can <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/slurm">view here</a> on GitHub, is titled "Deploy a slurm cluster." It performs the following steps:</p>
 <ul>
 <li>Deploys a master VM plus a specified number of worker VMs</li>
@@ -652,7 +655,7 @@ dos2unix *
 <p>The next task is to run a job on the cluster that you just configured. Since Exercise 4 is for Windows users only, proceed directly to <a href="#Exercise5">Exercise 5</a>.</p>
 <p><a name="Exercise4"></a></p>
 <h2>Exercise 4 (Windows): Connect to and configure the cluster</h2>
-<p>In this exercise, you will upload the Python scripts that you modified in Exercise 1 and a pair of shell scripts to the master node of the cluster and use the shell scripts to configure the cluster. To remote into the cluster, you'll use a popular Windows SSH client named PuTTY. If you haven't already installed PuTTY, <a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">download the MSI</a> and install it now.</p>
+<p>In this exercise, you will upload the Python scripts that you modified in Exercise 1 and a pair of shell scripts to the master node of the cluster and use the shell scripts to configure the cluster. To remote into the cluster, you'll use a popular Windows SSH client named PuTTY. If you haven't already installed PuTTY, <a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html" rel="nofollow">download the MSI</a> and install it now.</p>
 <ol>
 <li>
 <p>In the list of resources that comprise the cluster in the cluster's resource-group blade, click <strong>publicip</strong>.</p>
@@ -753,7 +756,7 @@ Finishing 0-7377:2016-12-16 13:19:55
 <p>When virtual machines are running, you are being charged — even if the VMs are idle. Therefore, it is advisable to delete virtual machines when they're not longer needed. In this exercise, you'll delete the cluster by deleting the resource group containing the cluster. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.</p>
 <ol>
 <li>
-<p>In the <a href="https://portal.azure.com">Azure Portal</a>, click <strong>Resource groups</strong> in the ribbon on the left. Then click the resource group created for the cluster.</p>
+<p>In the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a>, click <strong>Resource groups</strong> in the ribbon on the left. Then click the resource group created for the cluster.</p>
 <p><a href="Images/open-cluster-resource-group.png" target="_blank"><img src="Images/open-cluster-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
 <p><em>Opening the resource group</em></p>
 </li>
@@ -851,7 +854,7 @@ Finishing 1846-2768:2016-12-16 15:01:03
 <p>In this exercise, you will clean up the last of the lab's resources by deleting the resource group containing the storage account that you created in <a href="#Exercise1">Exercise1</a>.</p>
 <ol>
 <li>
-<p>In the <a href="https://portal.azure.com">Azure Portal</a>, click <strong>Resource groups</strong> in the ribbon on the left. Then click the resource group that you created in <a href="#Exercise1">Exercise1</a>.</p>
+<p>In the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a>, click <strong>Resource groups</strong> in the ribbon on the left. Then click the resource group that you created in <a href="#Exercise1">Exercise1</a>.</p>
 <p><a href="Images/open-resource-group.png" target="_blank"><img src="Images/open-resource-group.png" alt="Opening the resource group" style="max-width:100%;"></a></p>
 <p><em>Opening the resource group</em></p>
 </li>
@@ -867,10 +870,10 @@ Finishing 1846-2768:2016-12-16 15:01:03
 <p>After a few minutes, the resource group and all of its resources will be deleted.</p>
 <p><a name="Summary"></a></p>
 <h2>Summary</h2>
-<p>In this hands-on lab, you compared the performance of three HPC clusters running the same compute-intensive job. It's just one data point, but is indicative of the kinds of differences you can expect, especially when using SLURM to distribute the workload among nodes and cores. If you would like to go further in your experimentation, consider trying different types of Azure VMs such as the recently introduced <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-a8-a9-a10-a11-specs">H-series</a> of machines, which are designed for high-end computational needs such as molecular modeling and computational fluid dynamics and feature InfiniBand networking, as well as <a href="http://gpu.azure.com/">N-series</a> machines, which contain GPUs. The results will undoubtedly vary with these machines, and you would expect better performance given that the D1_v2 and D4_v2 VMs you used in these exercises are relatively modest machines.</p>
-<p>For more information on the numerous VM sizes available in Azure, refer to <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-sizes">https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-sizes</a> for Windows VMs and <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-sizes">https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-sizes</a> for Linux VMs.</p>
+<p>In this hands-on lab, you compared the performance of three HPC clusters running the same compute-intensive job. It's just one data point, but is indicative of the kinds of differences you can expect, especially when using SLURM to distribute the workload among nodes and cores. If you would like to go further in your experimentation, consider trying different types of Azure VMs such as the recently introduced <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-a8-a9-a10-a11-specs" rel="nofollow">H-series</a> of machines, which are designed for high-end computational needs such as molecular modeling and computational fluid dynamics and feature InfiniBand networking, as well as <a href="http://gpu.azure.com/" rel="nofollow">N-series</a> machines, which contain GPUs. The results will undoubtedly vary with these machines, and you would expect better performance given that the D1_v2 and D4_v2 VMs you used in these exercises are relatively modest machines.</p>
+<p>For more information on the numerous VM sizes available in Azure, refer to <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-sizes" rel="nofollow">https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-sizes</a> for Windows VMs and <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-sizes" rel="nofollow">https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-sizes</a> for Linux VMs.</p>
 <hr>
-<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2016 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

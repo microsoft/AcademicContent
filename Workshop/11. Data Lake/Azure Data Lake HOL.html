@@ -473,8 +473,8 @@ vertical-align:1px;
 <hr>
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
-<p><a href="https://azure.microsoft.com/en-us/solutions/data-lake/">Azure Data Lake</a> enables you to collect data of any size, type, and velocity in one place in order to explore, analyze, and process the data using tools and languages such as U-SQL, Apache Spark, Hive, HBase, and Storm. It works with existing IT investments for identity, management, and security for simplified handling and governance. It also integrates easily with operational stores and data warehouses.</p>
-<p>Data Lake consists of two primary elements: <a href="https://azure.microsoft.com/en-us/services/data-lake-store/">Azure Data Lake Store</a> and <a href="https://azure.microsoft.com/en-us/services/data-lake-analytics/">Azure Data Lake Analytics</a>. Data Lake Store is an enterprise-wide hyper-scale repository for big-data analytical workloads. It was built from the ground up to support massive throughput and integrates with Apache Hadoop by acting as an HDFS distributed file system. It also supports <a href="https://www.microsoft.com/en-us/cloud-platform/azure-active-directory">Azure Active Directory</a> for access control independent of Hadoop. Data Lake Analytics is an easy-to-learn query and analytics engine that features a new query language called U-SQL, which combines elements of traditional SQL syntax with powerful expression support and extensibility. It integrates seamlessly with Data Lake Store so you can execute queries against multiple disparate data sources as if they were one. This lab will introduce Data Lake Store and Data Lake Analytics and walk you through typical usage scenarios for each.</p>
+<p><a href="https://azure.microsoft.com/en-us/solutions/data-lake/" rel="nofollow">Azure Data Lake</a> enables you to collect data of any size, type, and velocity in one place in order to explore, analyze, and process the data using tools and languages such as U-SQL, Apache Spark, Hive, HBase, and Storm. It works with existing IT investments for identity, management, and security for simplified handling and governance. It also integrates easily with operational stores and data warehouses.</p>
+<p>Data Lake consists of two primary elements: <a href="https://azure.microsoft.com/en-us/services/data-lake-store/" rel="nofollow">Azure Data Lake Store</a> and <a href="https://azure.microsoft.com/en-us/services/data-lake-analytics/" rel="nofollow">Azure Data Lake Analytics</a>. Data Lake Store is an enterprise-wide hyper-scale repository for big-data analytical workloads. It was built from the ground up to support massive throughput and integrates with Apache Hadoop by acting as an HDFS distributed file system. It also supports <a href="https://www.microsoft.com/en-us/cloud-platform/azure-active-directory" rel="nofollow">Azure Active Directory</a> for access control independent of Hadoop. Data Lake Analytics is an easy-to-learn query and analytics engine that features a new query language called U-SQL, which combines elements of traditional SQL syntax with powerful expression support and extensibility. It integrates seamlessly with Data Lake Store so you can execute queries against multiple disparate data sources as if they were one. This lab will introduce Data Lake Store and Data Lake Analytics and walk you through typical usage scenarios for each.</p>
 <p><a name="Objectives"></a></p>
 <h3>Objectives</h3>
 <p>In this hands-on lab, you will learn how to:</p>
@@ -489,9 +489,12 @@ vertical-align:1px;
 <h3>Prerequisites</h3>
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li><a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/">Azure Command-Line Interface (CLI)</a></li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial" rel="nofollow">sign up for a free trial</a>.</li>
+<li><a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/" rel="nofollow">Azure Command-Line Interface (CLI)</a></li>
 </ul>
+<p><a name="Resources"></a></p>
+<h3>Resources</h3>
+<p><a href="https://a4r.blob.core.windows.net/public/data-lake-resources.zip" rel="nofollow">Click here</a> to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.</p>
 <hr>
 <p><a name="Exercises"></a></p>
 <h2>Exercises</h2>
@@ -510,7 +513,7 @@ vertical-align:1px;
 <p>The starting point for using Azure Data Lake is setting up an Azure Data Lake Store to serve as a repository for various data sources. In this exercise, you will create a new Azure Data Lake Store in your Azure subscription. Later, you will import data into the Data Lake Store and query it with U-SQL.</p>
 <ol>
 <li>
-<p>In your browser, navigate to the <a href="https://portal.azure.com">Azure Portal</a>. If you are asked to sign in, do so using your Microsoft account.</p>
+<p>In your browser, navigate to the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a>. If you are asked to sign in, do so using your Microsoft account.</p>
 </li>
 <li>
 <p>In the portal, click <strong>+ New</strong>, followed by <strong>Data + Analytics</strong> and <strong>Data Lake Store</strong>.</p>
@@ -558,7 +561,7 @@ vertical-align:1px;
 <p>You now have Azure Data Lake storage and query capability set up in your Azure subscription. The next task is to add some data to query.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Import data into Azure Data Lake Store</h2>
-<p>This lab's "resources" directory holds two tab-delimited TSV files containing sample data. The data comes from the public domain and consists of questions and answers from the popular site <a href="http://academia.stackexchange.com">http://academia.stackexchange.com</a>. In this exercise, you will import the sample data into your Azure Data Lake Store so you can execute queries against it.</p>
+<p>The <a href="https://a4r.blob.core.windows.net/public/data-lake-resources.zip" rel="nofollow">resources that accompany this lab</a> include two tab-delimited TSV files containing sample data. The data comes from the public domain and consists of questions and answers from the popular site <a href="http://academia.stackexchange.com" rel="nofollow">http://academia.stackexchange.com</a>. In this exercise, you will import the sample data into your Azure Data Lake Store so you can execute queries against it.</p>
 <ol>
 <li>
 <p>In the portal, open the Azure Data Lake Store that you created in <a href="#Exercise1">Exercise 1</a>. (An easy way to do that is to open the resource group and then click the Data Lake Store resource.) In the blade for the Data Lake Store, click <strong>Data Explorer</strong> near the top.</p>
@@ -571,7 +574,7 @@ vertical-align:1px;
 <p><em>Opening the "Upload files" blade</em></p>
 </li>
 <li>
-<p>In the "Upload files" blade, click the <strong>Open</strong> button and select the files named <strong>comments.tsv</strong> and <strong>posts.tsv</strong> in this lab's "resources" directory. Then click <strong>Add selected files</strong>. The combined file size file is more than 90 MB, so the upload might take a few minutes.</p>
+<p>In the "Upload files" blade, click the <strong>Open</strong> button and select the files named <strong>comments.tsv</strong> and <strong>posts.tsv</strong> in the directory containing the lab resources. Then click <strong>Add selected files</strong>. The combined file size file is more than 90 MB, so the upload might take a few minutes.</p>
 <p><a href="Images/data-explorer-upload-tsv.png" target="_blank"><img src="Images/data-explorer-upload-tsv.png" alt="Uploading TSV files" style="max-width:100%;"></a></p>
 <p><em>Uploading TSV files</em></p>
 </li>
@@ -589,7 +592,7 @@ vertical-align:1px;
 <p>The next step is to query the data to extract the information you want from it. For that, Azure Data Lake Analytics provides U-SQL.</p>
 <p><a name="Exercise4"></a></p>
 <h2>Exercise 4: Query a TSV file with U-SQL</h2>
-<p><a href="http://usql.io/">U-SQL</a> is a language created by Microsoft that combines traditional SQL Data Definition Language (DDL) and Data Manipulation Language (DML) constructs with expressions, functions, and operators based on the popular C# programming language. It marries the benefits of SQL with the power of expressive code. And it is supported natively in Azure Data Lake Analytics. In this exercise, you will use U-SQL to query the data you imported in <a href="#Exercise3">Exercise 3</a>.</p>
+<p><a href="http://usql.io/" rel="nofollow">U-SQL</a> is a language created by Microsoft that combines traditional SQL Data Definition Language (DDL) and Data Manipulation Language (DML) constructs with expressions, functions, and operators based on the popular C# programming language. It marries the benefits of SQL with the power of expressive code. And it is supported natively in Azure Data Lake Analytics. In this exercise, you will use U-SQL to query the data you imported in <a href="#Exercise3">Exercise 3</a>.</p>
 <ol>
 <li>
 <p>In the portal, open the Azure Data Lake Analytics account that you created in <a href="#Exercise2">Exercise 2</a>. In the ensuing blade, click <strong>+ New Job</strong> to create a new U-SQL job.</p>
@@ -698,7 +701,7 @@ OUTPUT @results
 <p><em>Uploading to the "bacpacs" container</em></p>
 </li>
 <li>
-<p>Click the <strong>Open</strong> button to the right of the <strong>Files</strong> box. Navigate to this lab's "resources" folder and select the file named <strong>academics-stackexchange-users.bacpac</strong>. Then click the <strong>Upload</strong> button to upload the file to the container.</p>
+<p>Click the <strong>Open</strong> button to the right of the <strong>Files</strong> box. Navigate to the directory containing the lab resources and select the file named <strong>academics-stackexchange-users.bacpac</strong>. Then click the <strong>Upload</strong> button to upload the file to the container.</p>
 <p><a href="Images/upload-blob-2.png" target="_blank"><img src="Images/upload-blob-2.png" alt="Uploading a file" style="max-width:100%;"></a></p>
 <p><em>Uploading a file</em></p>
 </li>
@@ -752,12 +755,12 @@ OUTPUT @results
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">CREATE</span> <span class="pl-k">DATABASE</span> <span class="pl-en">UserIntegration</span>;</pre></div>
 </li>
 <li>
-<p>If you haven't installed the <a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/">Azure CLI</a>, take a moment to install it now. Then open a command shell (Bash, Terminal, Command Prompt, etc.) and execute the following command:</p>
+<p>If you haven't installed the <a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/" rel="nofollow">Azure CLI</a>, take a moment to install it now. Then open a command shell (Bash, Terminal, Command Prompt, etc.) and execute the following command:</p>
 <pre><code>azure login
 </code></pre>
 </li>
 <li>
-<p>Copy the access code presented to you in the command shell to the clipboard. Then open a browser window and navigate to <a href="https://aka.ms/devicelogin">https://aka.ms/devicelogin</a> and enter the code. If prompted to sign in, do so using your Microsoft account. Upon successful authentication, your command-line session will be connected to your Azure subscription.</p>
+<p>Copy the access code presented to you in the command shell to the clipboard. Then open a browser window and navigate to <a href="https://aka.ms/devicelogin" rel="nofollow">https://aka.ms/devicelogin</a> and enter the code. If prompted to sign in, do so using your Microsoft account. Upon successful authentication, your command-line session will be connected to your Azure subscription.</p>
 </li>
 <li>
 <p>Assuming you are using the Azure Pass subscription provided to you for these labs, execute the following command to ensure that Azure Pass is the active subscription (the subscription that will be charged against) for operations performed with the CLI:</p>
@@ -853,10 +856,10 @@ OUTPUT @results
 </ol>
 <p>You just demonstrated that U-SQL can be used to query multiple data sources of different types. You also saw one example of how C# expressions can be used to richen queries in U-SQL.</p>
 <h2>Summary</h2>
-<p>Azure Data Lake provides a hyperscale, enterprise-wide repository in which different types of data can be collected without regard to size, structure, or velocity. Once aggregated in a Data Lake Store, data can be analyzed with Azure Data Lake Analytics, or processed with popular open-source tools such as Apache Hadoop and Apache Spark hosted in <a href="https://azure.microsoft.com/en-us/services/hdinsight/">Azure HDInsight</a>. In this lab, you learned how to import various types of data into a Data Lake Store and use Azure Data Lake Analytics to query the combined data with U-SQL.</p>
-<p>Azure Data Lake does not itself provide tools for visualizing query results, but other components of Azure and the Azure ecosystem do. For example, <a href="https://powerbi.microsoft.com/en-us/">Microsoft Power BI</a> can be used to visualize query results and can even be connected directly to a Data Lake Store. For more information about combining Azure Data Lake with Power BI and a tutorial to help guide the way, see <a href="https://azure.microsoft.com/en-us/documentation/articles/data-lake-store-power-bi/">Analyze data in Data Lake Store by using Power BI</a>.</p>
+<p>Azure Data Lake provides a hyperscale, enterprise-wide repository in which different types of data can be collected without regard to size, structure, or velocity. Once aggregated in a Data Lake Store, data can be analyzed with Azure Data Lake Analytics, or processed with popular open-source tools such as Apache Hadoop and Apache Spark hosted in <a href="https://azure.microsoft.com/en-us/services/hdinsight/" rel="nofollow">Azure HDInsight</a>. In this lab, you learned how to import various types of data into a Data Lake Store and use Azure Data Lake Analytics to query the combined data with U-SQL.</p>
+<p>Azure Data Lake does not itself provide tools for visualizing query results, but other components of Azure and the Azure ecosystem do. For example, <a href="https://powerbi.microsoft.com/en-us/" rel="nofollow">Microsoft Power BI</a> can be used to visualize query results and can even be connected directly to a Data Lake Store. For more information about combining Azure Data Lake with Power BI and a tutorial to help guide the way, see <a href="https://azure.microsoft.com/en-us/documentation/articles/data-lake-store-power-bi/" rel="nofollow">Analyze data in Data Lake Store by using Power BI</a>.</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

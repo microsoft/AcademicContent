@@ -45,6 +45,11 @@ The following are required to complete this hands-on lab:
 - An active Microsoft Azure subscription, or [sign up for a free trial](https://azure.microsoft.com/en-us/free/)
 - [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) (Windows users only)
 
+<a name="Resources"></a>
+### Resources ###
+
+[Click here](https://a4r.blob.core.windows.net/public/vm-scaling-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
 <a name="Exercises"></a>
 ## Exercises ##
 
@@ -101,7 +106,7 @@ In this exercise, you will use the [Azure Portal](https://portal.azure.com) to c
 
     _Copying the access key_
  
-1. Find **controller.py** in this lab's "resources" folder and open it in the text or program editor of your choice.
+1. Open the file named **controller.py**, which is included in the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/vm-scaling-resources.zip), in the text or program editor of your choice.
 
 1. In **controller.py**, replace *storage_account_name* on line 14 with the name of the storage account you created in Step 3, and replace *storage_account_key* on line 15 with the access key that is on the clipboard. Then save your changes and close the file.
 
@@ -109,7 +114,7 @@ In this exercise, you will use the [Azure Portal](https://portal.azure.com) to c
 
     _Modifying controller.py_
 
-1. Find **worker.py** in this lab's "resources" folder and open it in the text or program editor of your choice.
+1. Open **worker.py** from the lab resources in the text or program editor of your choice.
 
 1. In **worker.py**, replace *storage_account_name* on line 11 with the name of the storage account you created in Step 3, and replace *storage_account_key* on line 12 with the access key that is on the clipboard. Then save your changes and close the file.
 
