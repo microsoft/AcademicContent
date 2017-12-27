@@ -30,7 +30,13 @@ The following is required to complete this hands-on lab:
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - [Node.js](https://nodejs.org)
 
+<a name="Resources"></a>
+### Resources ###
+
+[Click here](https://a4r.blob.core.windows.net/public/stream-analytics-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
 ---
+
 <a name="Exercises"></a>
 ## Exercises ##
 
@@ -133,14 +139,14 @@ In this exercise, you will generate a shared-access signature token for the even
 
 	> You can find out whether Node.js is installed on your computer by executing a **node -v** command in a Command Prompt window or terminal window. If Node.js is installed, you will see the Node.js version number.
 
-1. Open a Command Prompt window or terminal window and in it, navigate to this lab's "resources" directory. Then execute the following commands to install the packages used by the Node.js apps in the "resources" directory:
+1. Open a Command Prompt window or terminal window and in it, navigate to the directory where you copied the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/stream-analytics-resources.zip). Then execute the following commands to install the packages used by the Node.js apps in that directory:
 
 	```
 	npm install shared-access-signature
 	npm install request
 	```
 
-	> It is very important that you run these commands from the lab's "resources" directory so the packages will be installed in the same directory as the apps that use them.
+	> It is very important that you run these commands in the directory that you copied the lab resources to so the packages will be installed in the same directory as the Node apps that use them.
 
 1. Now execute the following command to run sas.js:
 
@@ -165,7 +171,7 @@ In this exercise, you will generate a shared-access signature token for the even
 
     _Copying the SAS token_
 
-1. Find the file named eventgen.js in the "resources" directory of this lab and open it in your favorite text editor. Then find the section at the top of the file labeled "KEY VARS:"
+1. Find the file named **eventgen.js** in the directory containing the lab resources and open it in your favorite text editor. Then find the section at the top of the file labeled "KEY VARS:"
 
 	```JavaScript
 	///////////////// KEY VARS /////////////////
@@ -194,7 +200,7 @@ Now that you've modified eventgen.js with information specific to your event hub
 
 In this exercise, you will send events to the event hub you created in [Exercise 1](#Exercise1). To do that, you'll use Node.js to run eventgen.js, which in turn transmits secure requests to the event hub using the [Azure Event Hubs REST API](https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx). eventgen.js generates events representing withdrawals from simulated ATM machines. Each event contains relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.
 
-1. At the command prompt or in a terminal window, navigate to the "resources" directory of this lab if you aren't there already. Then execute the following command:
+1. At the command prompt or in a terminal window, navigate to the directory containing the lab resources. Then execute the following command:
 
 	```
 	node eventgen.js
@@ -329,7 +335,7 @@ To flag potentially fraudulent withdrawals from ATMs, you will query for transac
 
     _Uploading sample data for testing queries_
 
-1. Click the **folder** icon on the right and select the file named **Withdrawals.json** in this lab's "resources" directory. Then click **OK** to upload the file.
+1. Click the **folder** icon on the right and select the file named **Withdrawals.json** from the lab resources. Then click **OK** to upload the file.
 
 	> The reason you're using a file provided for you (rather than the one you captured in the previous exercise) is to make sure everyone gets the same results. eventgen.js uses JavaScript's Math.random() function to randomize results, and Math.random() does not produce repeatable sequences of pseudo-random numbers.
 

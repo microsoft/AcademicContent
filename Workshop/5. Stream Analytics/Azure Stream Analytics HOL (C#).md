@@ -30,7 +30,13 @@ The following is required to complete this hands-on lab:
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - [Visual Studio 2017 Community edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) or higher 
 
+<a name="Resources"></a>
+### Resources ###
+
+[Click here](https://a4r.blob.core.windows.net/public/stream-analytics-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
 ---
+
 <a name="Exercises"></a>
 ## Exercises ##
 
@@ -323,7 +329,7 @@ To flag potentially fraudulent withdrawals from ATMs, you will query for transac
 
     _Uploading sample data for testing queries_
 
-1. Click the **folder** icon on the right and select the file named **Withdrawals.json** in this lab's "resources" directory. Then click **OK** to upload the file.
+1. Click the **folder** icon on the right and select the file named **Withdrawals.json** from the lab resources. Then click **OK** to upload the file.
 
     ![Uploading Withdrawals.json](Images/upload-test-data-2.png)
 

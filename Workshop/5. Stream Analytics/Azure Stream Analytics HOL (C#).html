@@ -473,7 +473,7 @@ vertical-align:1px;
 <hr>
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
-<p><a href="https://azure.microsoft.com/services/stream-analytics/">Azure Stream Analytics</a> is a cloud-based service for ingesting high-velocity data streaming from devices, sensors, applications, Web sites, and other data sources and analyzing that data in real time. It supports a <a href="https://msdn.microsoft.com/library/azure/dn834998.aspx">SQL-like query language</a> that works over dynamic data streams and makes analyzing constantly changing data no more difficult than performing queries on static data stored in traditional databases. With Azure Stream Analytics, you can set up jobs that analyze incoming data for anomalies or information of interest and record the results, present notifications on dashboards, or even fire off alerts to mobile devices. And all of it can be done at low cost and with a minimum of effort.</p>
+<p><a href="https://azure.microsoft.com/services/stream-analytics/" rel="nofollow">Azure Stream Analytics</a> is a cloud-based service for ingesting high-velocity data streaming from devices, sensors, applications, Web sites, and other data sources and analyzing that data in real time. It supports a <a href="https://msdn.microsoft.com/library/azure/dn834998.aspx" rel="nofollow">SQL-like query language</a> that works over dynamic data streams and makes analyzing constantly changing data no more difficult than performing queries on static data stored in traditional databases. With Azure Stream Analytics, you can set up jobs that analyze incoming data for anomalies or information of interest and record the results, present notifications on dashboards, or even fire off alerts to mobile devices. And all of it can be done at low cost and with a minimum of effort.</p>
 <p>Scenarios for the application of real-time data analytics are legion and include fraud detection, identity-theft protection, optimizing the allocation of resources (think of an Uber-like transportation service that sends drivers to areas of increasing demand <em>before</em> that demand peaks), click-stream analysis on Web sites, shopping suggestions on retail-sales sites, and countless others. Having the ability to process data <em>as it comes in</em> rather than waiting until after it has been aggregated offers a competitive advantage to businesses that are agile enough to make adjustments on the fly.</p>
 <p>In this lab, you'll create an Azure Stream Analytics job and use it to analyze data streaming in from simulated Internet of Things (IoT) devices. You will see how simple it is to monitor real-time data streams for information of significance to your research or business .And at the end, you will build a Web app that shows output from the Stream Analytics job in real time.</p>
 <p><a name="Objectives"></a></p>
@@ -489,9 +489,12 @@ vertical-align:1px;
 <h3>Prerequisites</h3>
 <p>The following is required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li><a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio 2017 Community edition</a> or higher</li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial" rel="nofollow">sign up for a free trial</a>.</li>
+<li><a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx" rel="nofollow">Visual Studio 2017 Community edition</a> or higher</li>
 </ul>
+<p><a name="Resources"></a></p>
+<h3>Resources</h3>
+<p><a href="https://a4r.blob.core.windows.net/public/stream-analytics-resources.zip" rel="nofollow">Click here</a> to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.</p>
 <hr>
 <p><a name="Exercises"></a></p>
 <h2>Exercises</h2>
@@ -512,7 +515,7 @@ vertical-align:1px;
 <p>In this exercise, you'll create an Azure event hub to provide input to Azure Stream Analytics and configure it to so that it can be accessed safely and securely by IoT devices and gateways.</p>
 <ol>
 <li>
-<p>In your browser, navigate to the <a href="https://portal.azure.com">Azure Portal</a>. If you are asked to sign in, do so using your Microsoft account.</p>
+<p>In your browser, navigate to the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a>. If you are asked to sign in, do so using your Microsoft account.</p>
 </li>
 <li>
 <p>In the portal, click <strong>+ New</strong>, followed by <strong>Internet of Things</strong> and <strong>Event Hubs</strong>.</p>
@@ -573,7 +576,7 @@ vertical-align:1px;
 <p>You have created an event hub that can ingest events and be used as the source of input to a Stream Analytics job. You have also created a policy that allows holders of that policy to send events to the event hub, and a connection string that references that policy. The next step is to use the connection string to transmit events to the event hub.</p>
 <p><a name="Exercise2"></a></p>
 <h2>Exercise 2: Send events to the event hub</h2>
-<p>Applications, devices, and gateways can send events to Azure event hubs using the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx">Azure Event Hubs REST API</a> or the <a href="https://www.amqp.org/">Advanced Message Queuing Protocol</a>, or AMQP for short. In this exercise, you will write a Windows console app that uses AMQP to send events to the event hub you created in <a href="#Exercise1">Exercise 1</a>. Each event will represent a withdrawal from an ATM machine, and will contain relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.</p>
+<p>Applications, devices, and gateways can send events to Azure event hubs using the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx" rel="nofollow">Azure Event Hubs REST API</a> or the <a href="https://www.amqp.org/" rel="nofollow">Advanced Message Queuing Protocol</a>, or AMQP for short. In this exercise, you will write a Windows console app that uses AMQP to send events to the event hub you created in <a href="#Exercise1">Exercise 1</a>. Each event will represent a withdrawal from an ATM machine, and will contain relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.</p>
 <ol>
 <li>
 <p>Start Visual Studio and use the <strong>File -&gt; New -&gt; Project</strong> command to create a new Windows Console App named "ATMEventGenerator."</p>
@@ -664,7 +667,7 @@ vertical-align:1px;
 <p>In this exercise, you will use the Azure Portal to create a Stream Analytics job and connect it to the event hub you created in <a href="#Exercise1">Exercise 1</a>. You will also capture the raw data being passed to the Stream Analytics job from the event hub and examine its structure.</p>
 <ol>
 <li>
-<p>Return to the <a href="https://portal.azure.com">Azure Portal</a> and click <strong>+ New</strong>, followed by <strong>Internet of Things</strong> and <strong>Stream Analytics job</strong>.</p>
+<p>Return to the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> and click <strong>+ New</strong>, followed by <strong>Internet of Things</strong> and <strong>Stream Analytics job</strong>.</p>
 <p><a href="Images/new-stream-analytics-job.png" target="_blank"><img src="Images/new-stream-analytics-job.png" alt="Creating a Stream Analytics job" style="max-width:100%;"></a></p>
 <p><em>Creating a Stream Analytics job</em></p>
 </li>
@@ -729,7 +732,7 @@ vertical-align:1px;
 <li>
 <p>Save the JSON file that is downloaded to a location where you can easily find it. Then open the downloaded file in your favorite text editor and take a moment to examine its contents. How many rows (events) are represented in the sample data? What is the structure of each row — that is, what fields does each row contain?</p>
 <blockquote>
-<p>If you find the output hard to digest since there are no line breaks, try pasting it into an online JSON viewer such as the one at <a href="https://jsonformatter.curiousconcept.com/">https://jsonformatter.curiousconcept.com/</a>.</p>
+<p>If you find the output hard to digest since there are no line breaks, try pasting it into an online JSON viewer such as the one at <a href="https://jsonformatter.curiousconcept.com/" rel="nofollow">https://jsonformatter.curiousconcept.com/</a>.</p>
 </blockquote>
 </li>
 <li>
@@ -739,7 +742,7 @@ vertical-align:1px;
 <p>You have connected a Stream Analytics job to an event hub and demonstrated that data is passed from one to the other. You have also sampled the data input to the Stream Analytics job and examined its structure. The next step is to do something with it — specifically, to bring the power of Azure Stream Analytics to bear on the data.</p>
 <p><a name="Exercise4"></a></p>
 <h2>Exercise 4: Prepare queries and test with sample data</h2>
-<p>Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query real-time data streams. In this exercise, you will use the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn834998.aspx">Stream Analytics Query Language</a> to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.</p>
+<p>Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query real-time data streams. In this exercise, you will use the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn834998.aspx" rel="nofollow">Stream Analytics Query Language</a> to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.</p>
 <p>To flag potentially fraudulent withdrawals from ATMs, you will query for transactions performed with the same ATM card at different ATM machines within a specified time window (60 seconds). In real life, you would probably use a larger time window and perhaps even factor in the distance between ATM machines. However, a narrower time window is useful in a lab environment because it allows you to perform meaningful experiments in minutes rather than hours.</p>
 <ol>
 <li>
@@ -753,7 +756,7 @@ vertical-align:1px;
 <p><em>Uploading sample data for testing queries</em></p>
 </li>
 <li>
-<p>Click the <strong>folder</strong> icon on the right and select the file named <strong>Withdrawals.json</strong> in this lab's "resources" directory. Then click <strong>OK</strong> to upload the file.</p>
+<p>Click the <strong>folder</strong> icon on the right and select the file named <strong>Withdrawals.json</strong> from the lab resources. Then click <strong>OK</strong> to upload the file.</p>
 <p><a href="Images/upload-test-data-2.png" target="_blank"><img src="Images/upload-test-data-2.png" alt="Uploading Withdrawals.json" style="max-width:100%;"></a></p>
 <p><em>Uploading Withdrawals.json</em></p>
 </li>
@@ -1175,7 +1178,7 @@ vertical-align:1px;
 <p>Return to the console window in which ATMEventGenerator is running and press <strong>Ctrl+C</strong> to terminate it.</p>
 </li>
 </ol>
-<p>You now have a Web app that displays output from a Stream Analytics job in near real-time. There are other ways to build such dashboards, including <a href="https://powerbi.microsoft.com/">Microsoft Power BI</a>. With Power BI, you can create dashboards that render output from Stream Analytics jobs without writing any code. For more information, refer to <a href="https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-power-bi-dashboard/">Stream Analytics &amp; Power BI: A real-time analytics dashboard for streaming data</a>.</p>
+<p>You now have a Web app that displays output from a Stream Analytics job in near real-time. There are other ways to build such dashboards, including <a href="https://powerbi.microsoft.com/" rel="nofollow">Microsoft Power BI</a>. With Power BI, you can create dashboards that render output from Stream Analytics jobs without writing any code. For more information, refer to <a href="https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-power-bi-dashboard/" rel="nofollow">Stream Analytics &amp; Power BI: A real-time analytics dashboard for streaming data</a>.</p>
 <p><a name="Summary"></a></p>
 <h2>Summary</h2>
 <p>Azure Stream Analytics is a powerful tool for analyzing live data streams from IoT devices or anything else that's capable of transmitting data. In this lab, you got a first-hand look at Stream Analytics as well as Azure event hubs. Among other things, you learned how to:</p>
@@ -1187,9 +1190,9 @@ vertical-align:1px;
 <li>Create a rule (query) that detects anomalies in streaming data</li>
 <li>Display output from a Stream Analytics job in a Web app</li>
 </ul>
-<p>One drawback to hard-coding rules into Stream Analytics is that rules don't "learn" from the data streams, which can lead to false positives in anomaly detection. If this concerns you, read the article entitled <a href="http://blogs.technet.com/b/machinelearning/archive/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data.aspx">Anomaly Detection – Using Machine Learning to Detect Abnormalities in Time Series Data</a> in the Azure team's Machine Learning blog. In it, they present an anomaly detection service accessible through a REST API that uses Azure Machine Learning to learn from the data presented to it. Imagine combining the power of Stream Analytics to extract information from real-time data streams with the power of Azure Machine Learning to learn from that information and refine the analytics on the fly. This is precisely the type of solution that Microsoft Azure empowers you to build!</p>
+<p>One drawback to hard-coding rules into Stream Analytics is that rules don't "learn" from the data streams, which can lead to false positives in anomaly detection. If this concerns you, read the article entitled <a href="http://blogs.technet.com/b/machinelearning/archive/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data.aspx" rel="nofollow">Anomaly Detection – Using Machine Learning to Detect Abnormalities in Time Series Data</a> in the Azure team's Machine Learning blog. In it, they present an anomaly detection service accessible through a REST API that uses Azure Machine Learning to learn from the data presented to it. Imagine combining the power of Stream Analytics to extract information from real-time data streams with the power of Azure Machine Learning to learn from that information and refine the analytics on the fly. This is precisely the type of solution that Microsoft Azure empowers you to build!</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

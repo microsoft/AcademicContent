@@ -473,7 +473,7 @@ vertical-align:1px;
 <hr>
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
-<p><a href="https://azure.microsoft.com/services/stream-analytics/">Azure Stream Analytics</a> is a cloud-based service for ingesting high-velocity data streaming from devices, sensors, applications, Web sites, and other data sources and analyzing that data in real time. It supports a <a href="https://msdn.microsoft.com/library/azure/dn834998.aspx">SQL-like query language</a> that works over dynamic data streams and makes analyzing constantly changing data no more difficult than performing queries on static data stored in traditional databases. With Azure Stream Analytics, you can set up jobs that analyze incoming data for anomalies or information of interest and record the results, present notifications on dashboards, or even fire off alerts to mobile devices. And all of it can be done at low cost and with a minimum of effort.</p>
+<p><a href="https://azure.microsoft.com/services/stream-analytics/" rel="nofollow">Azure Stream Analytics</a> is a cloud-based service for ingesting high-velocity data streaming from devices, sensors, applications, Web sites, and other data sources and analyzing that data in real time. It supports a <a href="https://msdn.microsoft.com/library/azure/dn834998.aspx" rel="nofollow">SQL-like query language</a> that works over dynamic data streams and makes analyzing constantly changing data no more difficult than performing queries on static data stored in traditional databases. With Azure Stream Analytics, you can set up jobs that analyze incoming data for anomalies or information of interest and record the results, present notifications on dashboards, or even fire off alerts to mobile devices. And all of it can be done at low cost and with a minimum of effort.</p>
 <p>Scenarios for the application of real-time data analytics are legion and include fraud detection, identity-theft protection, optimizing the allocation of resources (think of an Uber-like transportation service that sends drivers to areas of increasing demand <em>before</em> that demand peaks), click-stream analysis on Web sites, shopping suggestions on retail-sales sites, and countless others. Having the ability to process data <em>as it comes in</em> rather than waiting until after it has been aggregated offers a competitive advantage to businesses that are agile enough to make adjustments on the fly.</p>
 <p>In this lab, you'll create an Azure Stream Analytics job and use it to analyze data streaming in from simulated Internet of Things (IoT) devices. And you will see how simple it is to monitor real-time data streams for information of significance to your research or business.</p>
 <p><a name="Objectives"></a></p>
@@ -489,9 +489,12 @@ vertical-align:1px;
 <h3>Prerequisites</h3>
 <p>The following is required to complete this hands-on lab:</p>
 <ul>
-<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a>.</li>
-<li><a href="https://nodejs.org">Node.js</a></li>
+<li>An active Microsoft Azure subscription. If you don't have one, <a href="http://aka.ms/WATK-FreeTrial" rel="nofollow">sign up for a free trial</a>.</li>
+<li><a href="https://nodejs.org" rel="nofollow">Node.js</a></li>
 </ul>
+<p><a name="Resources"></a></p>
+<h3>Resources</h3>
+<p><a href="https://a4r.blob.core.windows.net/public/stream-analytics-resources.zip" rel="nofollow">Click here</a> to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.</p>
 <hr>
 <p><a name="Exercises"></a></p>
 <h2>Exercises</h2>
@@ -511,7 +514,7 @@ vertical-align:1px;
 <p>In this exercise, you'll create an Azure event hub to provide input to Azure Stream Analytics and configure it to so that it can be accessed safely and securely by IoT devices and gateways.</p>
 <ol>
 <li>
-<p>In your browser, navigate to the <a href="https://portal.azure.com">Azure Portal</a>. If you are asked to sign in, do so using your Microsoft account.</p>
+<p>In your browser, navigate to the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a>. If you are asked to sign in, do so using your Microsoft account.</p>
 </li>
 <li>
 <p>In the portal, click <strong>+ New</strong>, followed by <strong>Internet of Things</strong> and <strong>Event Hubs</strong>.</p>
@@ -572,22 +575,22 @@ vertical-align:1px;
 <p>You have created an event hub that can ingest events and be used as the source of input to a Stream Analytics job. You have also created a policy that allows holders of that policy to send events to the event hub. The next step is to generate a security token that can be used to authenticate calls to the event hub.</p>
 <p><a name="Exercise2"></a></p>
 <h2>Exercise 2: Create a shared-access signature token</h2>
-<p>Applications, devices, or gateways can send events to event hubs using the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx">Azure Event Hubs REST API</a>. Each request transmitted via this API must include a valid <a href="https://azure.microsoft.com/en-us/documentation/articles/service-bus-shared-access-signature-authentication/">shared-access signature (SAS)</a> token in the HTTP Authorization header. SAS tokens are generated from the event hub's URL and the primary key for the policy used to communicate with the event hub — in this case, the policy named "SendPolicy" that you created in the previous exercise.</p>
+<p>Applications, devices, or gateways can send events to event hubs using the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx" rel="nofollow">Azure Event Hubs REST API</a>. Each request transmitted via this API must include a valid <a href="https://azure.microsoft.com/en-us/documentation/articles/service-bus-shared-access-signature-authentication/" rel="nofollow">shared-access signature (SAS)</a> token in the HTTP Authorization header. SAS tokens are generated from the event hub's URL and the primary key for the policy used to communicate with the event hub — in this case, the policy named "SendPolicy" that you created in the previous exercise.</p>
 <p>In this exercise, you will generate a shared-access signature token for the event hub created in <a href="#Exercise1">Exercise 1</a> and copy it, along with the event hub URL, into a Node.js application that will be used to send events to the event hub in Exercise 3. The Azure Portal doesn't provide an interface for generating SAS tokens, so you will generate a token using a Node.js app named sas.js provided with this lab.</p>
 <ol>
 <li>
-<p>If Node.js isn't installed on your computer, go to <a href="https://nodejs.org">https://nodejs.org</a> and install it now.</p>
+<p>If Node.js isn't installed on your computer, go to <a href="https://nodejs.org" rel="nofollow">https://nodejs.org</a> and install it now.</p>
 <blockquote>
 <p>You can find out whether Node.js is installed on your computer by executing a <strong>node -v</strong> command in a Command Prompt window or terminal window. If Node.js is installed, you will see the Node.js version number.</p>
 </blockquote>
 </li>
 <li>
-<p>Open a Command Prompt window or terminal window and in it, navigate to this lab's "resources" directory. Then execute the following commands to install the packages used by the Node.js apps in the "resources" directory:</p>
+<p>Open a Command Prompt window or terminal window and in it, navigate to the directory where you copied the <a href="https://a4r.blob.core.windows.net/public/stream-analytics-resources.zip" rel="nofollow">resources that accompany this lab</a>. Then execute the following commands to install the packages used by the Node.js apps in that directory:</p>
 <pre><code>npm install shared-access-signature
 npm install request
 </code></pre>
 <blockquote>
-<p>It is very important that you run these commands from the lab's "resources" directory so the packages will be installed in the same directory as the apps that use them.</p>
+<p>It is very important that you run these commands in the directory that you copied the lab resources to so the packages will be installed in the same directory as the Node apps that use them.</p>
 </blockquote>
 </li>
 <li>
@@ -614,7 +617,7 @@ npm install request
 <p><em>Copying the SAS token</em></p>
 </li>
 <li>
-<p>Find the file named eventgen.js in the "resources" directory of this lab and open it in your favorite text editor. Then find the section at the top of the file labeled "KEY VARS:"</p>
+<p>Find the file named <strong>eventgen.js</strong> in the directory containing the lab resources and open it in your favorite text editor. Then find the section at the top of the file labeled "KEY VARS:"</p>
 <div class="highlight highlight-source-js"><pre><span class="pl-c"><span class="pl-c">//</span>/////////////// KEY VARS /////////////////</span>
 <span class="pl-k">var</span> sas <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Token<span class="pl-pds">"</span></span>;
 <span class="pl-k">var</span> uri <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>URL<span class="pl-pds">"</span></span>;
@@ -637,10 +640,10 @@ npm install request
 <p>Now that you've modified eventgen.js with information specific to your event hub, it's time to generate some events.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Send events to the event hub</h2>
-<p>In this exercise, you will send events to the event hub you created in <a href="#Exercise1">Exercise 1</a>. To do that, you'll use Node.js to run eventgen.js, which in turn transmits secure requests to the event hub using the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx">Azure Event Hubs REST API</a>. eventgen.js generates events representing withdrawals from simulated ATM machines. Each event contains relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.</p>
+<p>In this exercise, you will send events to the event hub you created in <a href="#Exercise1">Exercise 1</a>. To do that, you'll use Node.js to run eventgen.js, which in turn transmits secure requests to the event hub using the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx" rel="nofollow">Azure Event Hubs REST API</a>. eventgen.js generates events representing withdrawals from simulated ATM machines. Each event contains relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.</p>
 <ol>
 <li>
-<p>At the command prompt or in a terminal window, navigate to the "resources" directory of this lab if you aren't there already. Then execute the following command:</p>
+<p>At the command prompt or in a terminal window, navigate to the directory containing the lab resources. Then execute the following command:</p>
 <pre><code>node eventgen.js
 </code></pre>
 <p>You should see output similar to the following. Each line represents one event sent to the event hub, and events will probably roll by at a rate of about 2 to 3 per second. (Rates will vary depending on your connection speed.) <strong>Confirm that each request returns the HTTP status code 201</strong>. This indicates that the event hub received and accepted the request. If you receive any other status code — for example, 401 — then the SAS token probably isn't valid and you need to repeat <a href="#Exercise2">Exercise 2</a>.</p>
@@ -666,7 +669,7 @@ npm install request
 <p>In this exercise, you will use the Azure Portal to create a Stream Analytics job and connect it to the event hub you created in <a href="#Exercise1">Exercise 1</a>. You will also capture the raw data being passed to the Stream Analytics job from the event hub and examine its structure.</p>
 <ol>
 <li>
-<p>Return to the <a href="https://portal.azure.com">Azure Portal</a> and click <strong>+ New</strong>, followed by <strong>Internet of Things</strong> and <strong>Stream Analytics job</strong>.</p>
+<p>Return to the <a href="https://portal.azure.com" rel="nofollow">Azure Portal</a> and click <strong>+ New</strong>, followed by <strong>Internet of Things</strong> and <strong>Stream Analytics job</strong>.</p>
 <p><a href="Images/new-stream-analytics-job.png" target="_blank"><img src="Images/new-stream-analytics-job.png" alt="Creating a Stream Analytics job" style="max-width:100%;"></a></p>
 <p><em>Creating a Stream Analytics job</em></p>
 </li>
@@ -733,7 +736,7 @@ npm install request
 <li>
 <p>Save the JSON file that is downloaded to a location where you can easily find it. Then open the downloaded file in your favorite text editor and take a moment to examine its contents. How many rows (events) are represented in the sample data? What is the structure of each row — that is, what fields does each row contain?</p>
 <blockquote>
-<p>If you find the output hard to digest since there are no line breaks, try pasting it into an online JSON viewer such as the one at <a href="https://jsonformatter.curiousconcept.com/">https://jsonformatter.curiousconcept.com/</a>.</p>
+<p>If you find the output hard to digest since there are no line breaks, try pasting it into an online JSON viewer such as the one at <a href="https://jsonformatter.curiousconcept.com/" rel="nofollow">https://jsonformatter.curiousconcept.com/</a>.</p>
 </blockquote>
 </li>
 <li>
@@ -743,7 +746,7 @@ npm install request
 <p>You have connected a Stream Analytics job to an event hub and demonstrated that data is passed from one to the other. You have also sampled the data input to the Stream Analytics job and examined its structure. The next step is to do something with it — specifically, to bring the power of Azure Stream Analytics to bear on the data.</p>
 <p><a name="Exercise5"></a></p>
 <h2>Exercise 5: Prepare queries and test with sample data</h2>
-<p>Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query real-time data streams. In this exercise, you will use the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn834998.aspx">Stream Analytics Query Language</a> to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.</p>
+<p>Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query real-time data streams. In this exercise, you will use the <a href="https://msdn.microsoft.com/en-us/library/azure/Dn834998.aspx" rel="nofollow">Stream Analytics Query Language</a> to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.</p>
 <p>To flag potentially fraudulent withdrawals from ATMs, you will query for transactions performed with the same ATM card at different ATM machines within a specified time window (60 seconds). In real life, you would probably use a larger time window and perhaps even factor in the distance between ATM machines. However, a narrower time window is useful in a lab environment because it allows you to perform meaningful experiments in minutes rather than hours.</p>
 <ol>
 <li>
@@ -757,7 +760,7 @@ npm install request
 <p><em>Uploading sample data for testing queries</em></p>
 </li>
 <li>
-<p>Click the <strong>folder</strong> icon on the right and select the file named <strong>Withdrawals.json</strong> in this lab's "resources" directory. Then click <strong>OK</strong> to upload the file.</p>
+<p>Click the <strong>folder</strong> icon on the right and select the file named <strong>Withdrawals.json</strong> from the lab resources. Then click <strong>OK</strong> to upload the file.</p>
 <blockquote>
 <p>The reason you're using a file provided for you (rather than the one you captured in the previous exercise) is to make sure everyone gets the same results. eventgen.js uses JavaScript's Math.random() function to randomize results, and Math.random() does not produce repeatable sequences of pseudo-random numbers.</p>
 </blockquote>
@@ -943,7 +946,7 @@ npm install request
 </li>
 </ol>
 <p>Currently, the output from your Stream Analytics job is stored in blobs. In real life, you might prefer to view the output in a more convenient form, such as in a chart that's updated in real time. You could accomplish that by writing an application that monitors the blob and charts the data, or, better yet, by directing the output to an event hub and writing an application that subscribes to events from the event hub.</p>
-<p>Microsoft recognizes that not everyone wants to write applications, and has provided an alternative in the form of <a href="https://powerbi.microsoft.com/">Microsoft Power BI</a>. With Power BI, you can create dashboards that render output from Stream Analytics jobs without writing any code. For more information, refer to <a href="https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-power-bi-dashboard/">Stream Analytics &amp; Power BI: A real-time analytics dashboard for streaming data</a>.</p>
+<p>Microsoft recognizes that not everyone wants to write applications, and has provided an alternative in the form of <a href="https://powerbi.microsoft.com/" rel="nofollow">Microsoft Power BI</a>. With Power BI, you can create dashboards that render output from Stream Analytics jobs without writing any code. For more information, refer to <a href="https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-power-bi-dashboard/" rel="nofollow">Stream Analytics &amp; Power BI: A real-time analytics dashboard for streaming data</a>.</p>
 <p><a name="Summary"></a></p>
 <h2>Summary</h2>
 <p>Azure Stream Analytics is a powerful tool for analyzing live data streams from IoT devices or anything else that's capable of transmitting data. In this lab, you got a first-hand look at Stream Analytics as well as Azure event hubs. Among other things, you learned how to:</p>
@@ -955,9 +958,9 @@ npm install request
 <li>Create a rule (query) that detects anomalies in streaming data</li>
 <li>Use that rule to record anomalies in Azure blobs</li>
 </ul>
-<p>One drawback to hard-coding rules into Stream Analytics is that rules don't "learn" from the data streams, which can lead to false positives in anomaly detection. If this concerns you, read the article entitled <a href="http://blogs.technet.com/b/machinelearning/archive/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data.aspx">Anomaly Detection – Using Machine Learning to Detect Abnormalities in Time Series Data</a> in the Azure team's Machine Learning blog. In it, they present an anomaly detection service accessible through a REST API that uses Azure Machine Learning to learn from the data presented to it. Imagine combining the power of Stream Analytics to extract information from real-time data streams with the power of Azure Machine Learning to learn from that information and refine the analytics on the fly. This is precisely the type of solution that Microsoft Azure empowers you to build!</p>
+<p>One drawback to hard-coding rules into Stream Analytics is that rules don't "learn" from the data streams, which can lead to false positives in anomaly detection. If this concerns you, read the article entitled <a href="http://blogs.technet.com/b/machinelearning/archive/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data.aspx" rel="nofollow">Anomaly Detection – Using Machine Learning to Detect Abnormalities in Time Series Data</a> in the Azure team's Machine Learning blog. In it, they present an anomaly detection service accessible through a REST API that uses Azure Machine Learning to learn from the data presented to it. Imagine combining the power of Stream Analytics to extract information from real-time data streams with the power of Azure Machine Learning to learn from that information and refine the analytics on the fly. This is precisely the type of solution that Microsoft Azure empowers you to build!</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
