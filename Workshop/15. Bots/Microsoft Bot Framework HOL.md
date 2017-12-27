@@ -35,6 +35,11 @@ The following are required to complete this hands-on lab:
 - [Microsoft Bot Framework Emulator](https://emulator.botframework.com/)
 - [Skype](https://www.skype.com/en/download-skype/skype-for-computer/)
 
+<a name="Resources"></a>
+### Resources ###
+
+[Click here](https://a4r.blob.core.windows.net/public/bots-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
 ---
 
 <a name="Exercises"></a>
@@ -244,7 +249,7 @@ You can enter questions and answers into a QnA Maker knowledge base manually, or
 
     _Replacing the knowledge base_
 
-1. Browse to the "Resources" folder included with this lab and select the text file named **Final QnA.txt**. Click **OK** when prompted to confirm that importing this file will overwrite existing questions and answers.
+1. Select the text file named **Final QnA.txt** included in the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/bots-resources.zip). Click **OK** when prompted to confirm that importing this file will overwrite existing questions and answers.
  
 1. Click **Knowledge Base** and confirm that 14 new questions and answers appear in the knowledge base. (The six you imported from the URL are still there, despite the fact that you were warned that they would be overwritten.) Then click **Save and retrain** to save the changes.
 
