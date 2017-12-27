@@ -35,6 +35,11 @@ The following are required to complete this hands-on lab:
 - Microsoft [Visual Studio Code](http://code.visualstudio.com) version 1.14.0 or higher
 - [Node.js](https://nodejs.org) version 6.0 or higher
 
+<a name="Resources"></a>
+### Resources ###
+
+[Click here](https://a4r.blob.core.windows.net/public/cvs-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
 ---
 
 <a name="Exercises"></a>
@@ -97,7 +102,7 @@ In this exercise, you will add images of famous paintings by Picasso, Pollock, a
 
     _Browsing for local images_ 
  
-1. Browse to the "Resources\Artists\Picasso" folder included with this lab, select all of the files in the folder, and click **Open**.
+1. Browse to the "Artists\Picasso" folder in the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/cvs-resources.zip), select all of the files in the folder, and click **Open**.
 
 	![Selecting an image](Images/fe-browse-picasso-01.png)
 
@@ -125,7 +130,7 @@ In this exercise, you will add images of famous paintings by Picasso, Pollock, a
 
 1. With seven Picasso images, the Custom Vision Service can do a decent job of identifying paintings by Picasso. But if you trained the model right now, it would only understand what a Picasso looks like, and it would not be able to identify paintings by other artists.
 
-	The next step is to upload some paintings by another artist. Click **Add images** and select all of the images in this lab's "Resources\Artists\Rembrandt" folder. Tag them with the labels "painting" and "Rembrandt" (not "Picasso"), and upload them to the project.
+	The next step is to upload some paintings by another artist. Click **Add images** and select all of the images in the "Artists\Rembrandt" folder in the lab resources. Tag them with the labels "painting" and "Rembrandt" (not "Picasso"), and upload them to the project.
 
 	> When you add the tag "painting," you don't have to type it in again. You can select it from the drop-down list attached to the **Add some tags...** box, as shown below. You **will** have to type "Rembrandt" and click **+** to add a "Rembrandt" tag.
 
@@ -139,7 +144,7 @@ In this exercise, you will add images of famous paintings by Picasso, Pollock, a
 
     _Picasso and Rembrandt images_ 
 
-1. Now add paintings by the enigmatic artist Jackson Pollock to enable the Custom Vision Service to recognize Pollock paintings, too. Select all of the images in this lab's "Resources\Artists\Pollock" folder, tag them with the terms "painting" and "Pollock", and upload them to the project.
+1. Now add paintings by the enigmatic artist Jackson Pollock to enable the Custom Vision Service to recognize Pollock paintings, too. Select all of the images in the "Artists\Pollock" folder in the lab resources, tag them with the terms "painting" and "Pollock", and upload them to the project.
 
 With the tagged images uploaded, the next step is to train the model with these images so it can distinguish between paintings by Picasso, Rembrandt, and Pollock, as well as determine whether a painting is a work by one of these famous artists.
 
@@ -173,7 +178,7 @@ In [Exercise 5](#Exercise5), you will create a Node.js app that uses the model t
 
     _Testing the model_ 
 
-1. Click **Browse local files**, and then browse to the "Quick Tests" folder in this lab's "Resources" folder. Select **PicassoTest_01.jpg**, and click **Open**.
+1. Click **Browse local files**, and then browse to the "Quick Tests" folder in the lab resources. Select **PicassoTest_01.jpg**, and click **Open**.
 
 	![Selecting a Picasso test image](Images/portal-select-test-01.png)
 
@@ -195,7 +200,7 @@ In [Exercise 5](#Exercise5), you will create a Node.js app that uses the model t
 
     _Tagging the test image_ 
 
-1. Perform another quick test using the file named **FlowersTest.jpg** in the lab's "Resources\Quick Test" folder. Confirm that this image is assigned a low probability of being a Picasso, a Rembrandt, or a Pollock.
+1. Perform another quick test using the file named **FlowersTest.jpg** in the "Quick Test" folder. Confirm that this image is assigned a low probability of being a Picasso, a Rembrandt, or a Pollock.
 
 The model is trained and ready to go and appears to be adept at identifying paintings by certain artists. Now let's go a step further and incorporate the model's intelligence into an app.
 
@@ -210,7 +215,7 @@ The true power of the Microsoft Custom Vision Service is the ease with which dev
 
 1. If Visual Studio Code isn't installed on your workstation, go to http://code.visualstudio.com and install it now.
 
-1. Start Visual Studio Code and select **Open Folder...** from the **File** menu. In the ensuing dialog, select the "Resources\Client\Artworks" folder included with this lab.
+1. Start Visual Studio Code and select **Open Folder...** from the **File** menu. In the ensuing dialog, select the "Client\Artworks" folder included in the lab resources.
 
 	![Selecting the Artworks folder](Images/fe-select-folder.png)
 
@@ -295,7 +300,7 @@ In this exercise, you will use the Artworks app to submit images to the Custom V
 
     _Browsing for local images in the Artworks app_ 
 
-1. Browse to the "Quick Tests" folder in the "Resources" folder accompanying this lab. Select the file named **PicassoTest_02.jpg**, and then click **Open**.
+1. Browse to the "Quick Tests" folder in the lab resources. Select the file named **PicassoTest_02.jpg**, and then click **Open**.
 
 1. Click the **Predict** button to submit the image to the Custom Vision Service.
 

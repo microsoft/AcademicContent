@@ -473,10 +473,10 @@ vertical-align:1px;
 <hr>
 <p><a name="Overview"></a></p>
 <h2>Overview</h2>
-<p><a href="https://azure.microsoft.com/en-us/services/cognitive-services/" title="Microsoft Cognitive Services">Microsoft Cognitive Services</a> is a suite of services and APIs backed by machine learning that enables developers to incorporate intelligent features such as facial recognition in photos and videos, sentiment analysis in text, and language understanding into their applications. Microsoft's <a href="https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/">Custom Vision Service</a> is among the newest members of the Cognitive Services suite. Its purpose is to create image classification models that "learn" from labeled images you provide. Want to know if a photo contains a picture of a flower? Train the Custom Vision Service with a collection of flower images, and it can tell you whether the next image includes a flower — or even what type of flower it is.</p>
+<p><a href="https://azure.microsoft.com/en-us/services/cognitive-services/" title="Microsoft Cognitive Services" rel="nofollow">Microsoft Cognitive Services</a> is a suite of services and APIs backed by machine learning that enables developers to incorporate intelligent features such as facial recognition in photos and videos, sentiment analysis in text, and language understanding into their applications. Microsoft's <a href="https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/" rel="nofollow">Custom Vision Service</a> is among the newest members of the Cognitive Services suite. Its purpose is to create image classification models that "learn" from labeled images you provide. Want to know if a photo contains a picture of a flower? Train the Custom Vision Service with a collection of flower images, and it can tell you whether the next image includes a flower — or even what type of flower it is.</p>
 <p><a href="Images/custom-vision-details.jpg" target="_blank"><img src="Images/custom-vision-details.jpg" alt="" style="max-width:100%;"></a></p>
-<p>The Custom Vision Service enables organizations to develop domain-specific image-classification models and use it to analyze image content. Examples include identifying a dog's breed from a picture of the dog, analyzing images for adult content, and identifying defective parts produced by manufacturing processes. It was recently used to <a href="https://blogs.technet.microsoft.com/canitpro/2017/05/10/teaching-drones-to-aid-search-and-rescue-efforts-via-cognitive-services/">help search-and-rescue drones</a> identify objects such as boats and life vests in large bodies of water and recognize potential emergency situations in order to notify a rescue squad without waiting for human intervention.</p>
-<p>The Custom Vision Service exposes two APIs: the <a href="https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3">Custom Vision Training API</a> and the <a href="https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814">Custom Vision Prediction API</a>. You can build, train, and test image-classification models using the <a href="https://www.customvision.ai/">Custom Vision Service portal</a>, or you can build, train, and test them using the Custom Vision Training API. Once a model is trained, you can use the Custom Vision Prediction API to build apps that utilize it. Both are REST APIs that are easily called from a variety of programming languages.</p>
+<p>The Custom Vision Service enables organizations to develop domain-specific image-classification models and use it to analyze image content. Examples include identifying a dog's breed from a picture of the dog, analyzing images for adult content, and identifying defective parts produced by manufacturing processes. It was recently used to <a href="https://blogs.technet.microsoft.com/canitpro/2017/05/10/teaching-drones-to-aid-search-and-rescue-efforts-via-cognitive-services/" rel="nofollow">help search-and-rescue drones</a> identify objects such as boats and life vests in large bodies of water and recognize potential emergency situations in order to notify a rescue squad without waiting for human intervention.</p>
+<p>The Custom Vision Service exposes two APIs: the <a href="https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3" rel="nofollow">Custom Vision Training API</a> and the <a href="https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814" rel="nofollow">Custom Vision Prediction API</a>. You can build, train, and test image-classification models using the <a href="https://www.customvision.ai/" rel="nofollow">Custom Vision Service portal</a>, or you can build, train, and test them using the Custom Vision Training API. Once a model is trained, you can use the Custom Vision Prediction API to build apps that utilize it. Both are REST APIs that are easily called from a variety of programming languages.</p>
 <p>In this lab, you will create a Custom Vision Service model, train it with images of famous paintings tagged with the artists' names, and utilize the model from a Node.js app to identify the artist of paintings that you upload. Along the way, you will learn how to train a Custom Vision Service model and leverage it from your apps using REST APIs.</p>
 <p><a name="Objectives"></a></p>
 <h3>Objectives</h3>
@@ -491,10 +491,13 @@ vertical-align:1px;
 <h3>Prerequisites</h3>
 <p>The following are required to complete this hands-on lab:</p>
 <ul>
-<li>A Microsoft account. If you don't have one, <a href="https://account.microsoft.com/account">sign up for free</a>.</li>
-<li>Microsoft <a href="http://code.visualstudio.com">Visual Studio Code</a> version 1.14.0 or higher</li>
-<li><a href="https://nodejs.org">Node.js</a> version 6.0 or higher</li>
+<li>A Microsoft account. If you don't have one, <a href="https://account.microsoft.com/account" rel="nofollow">sign up for free</a>.</li>
+<li>Microsoft <a href="http://code.visualstudio.com" rel="nofollow">Visual Studio Code</a> version 1.14.0 or higher</li>
+<li><a href="https://nodejs.org" rel="nofollow">Node.js</a> version 6.0 or higher</li>
 </ul>
+<p><a name="Resources"></a></p>
+<h3>Resources</h3>
+<p><a href="https://a4r.blob.core.windows.net/public/cvs-resources.zip" rel="nofollow">Click here</a> to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.</p>
 <hr>
 <p><a name="Exercises"></a></p>
 <h2>Exercises</h2>
@@ -513,7 +516,7 @@ vertical-align:1px;
 <p>The first step in building an image-classification model with the Custom Vision Service is to create a project. In this exercise, you will use the Custom Vision Service portal to create a Custom Vision Service project.</p>
 <ol>
 <li>
-<p>Open the <a href="https://www.customvision.ai/">Custom Vision Service portal</a> in your browser. Then click <strong>Sign In</strong>.</p>
+<p>Open the <a href="https://www.customvision.ai/" rel="nofollow">Custom Vision Service portal</a> in your browser. Then click <strong>Sign In</strong>.</p>
 <p><a href="Images/portal-sign-in.png" target="_blank"><img src="Images/portal-sign-in.png" alt="Signing in to the Custom Vision Service portal" style="max-width:100%;"></a></p>
 <p><em>Signing in to the Custom Vision Service portal</em></p>
 </li>
@@ -550,7 +553,7 @@ vertical-align:1px;
 <p><em>Browsing for local images</em></p>
 </li>
 <li>
-<p>Browse to the "Resources\Artists\Picasso" folder included with this lab, select all of the files in the folder, and click <strong>Open</strong>.</p>
+<p>Browse to the "Artists\Picasso" folder in the <a href="https://a4r.blob.core.windows.net/public/cvs-resources.zip" rel="nofollow">resources that accompany this lab</a>, select all of the files in the folder, and click <strong>Open</strong>.</p>
 <p><a href="Images/fe-browse-picasso-01.png" target="_blank"><img src="Images/fe-browse-picasso-01.png" alt="Selecting an image" style="max-width:100%;"></a></p>
 <p><em>Selecting an image</em></p>
 </li>
@@ -574,7 +577,7 @@ vertical-align:1px;
 </li>
 <li>
 <p>With seven Picasso images, the Custom Vision Service can do a decent job of identifying paintings by Picasso. But if you trained the model right now, it would only understand what a Picasso looks like, and it would not be able to identify paintings by other artists.</p>
-<p>The next step is to upload some paintings by another artist. Click <strong>Add images</strong> and select all of the images in this lab's "Resources\Artists\Rembrandt" folder. Tag them with the labels "painting" and "Rembrandt" (not "Picasso"), and upload them to the project.</p>
+<p>The next step is to upload some paintings by another artist. Click <strong>Add images</strong> and select all of the images in the "Artists\Rembrandt" folder in the lab resources. Tag them with the labels "painting" and "Rembrandt" (not "Picasso"), and upload them to the project.</p>
 <blockquote>
 <p>When you add the tag "painting," you don't have to type it in again. You can select it from the drop-down list attached to the <strong>Add some tags...</strong> box, as shown below. You <strong>will</strong> have to type "Rembrandt" and click <strong>+</strong> to add a "Rembrandt" tag.</p>
 </blockquote>
@@ -587,21 +590,21 @@ vertical-align:1px;
 <p><em>Picasso and Rembrandt images</em></p>
 </li>
 <li>
-<p>Now add paintings by the enigmatic artist Jackson Pollock to enable the Custom Vision Service to recognize Pollock paintings, too. Select all of the images in this lab's "Resources\Artists\Pollock" folder, tag them with the terms "painting" and "Pollock", and upload them to the project.</p>
+<p>Now add paintings by the enigmatic artist Jackson Pollock to enable the Custom Vision Service to recognize Pollock paintings, too. Select all of the images in the "Artists\Pollock" folder in the lab resources, tag them with the terms "painting" and "Pollock", and upload them to the project.</p>
 </li>
 </ol>
 <p>With the tagged images uploaded, the next step is to train the model with these images so it can distinguish between paintings by Picasso, Rembrandt, and Pollock, as well as determine whether a painting is a work by one of these famous artists.</p>
 <p><a name="Exercise3"></a></p>
 <h2>Exercise 3: Train the model</h2>
-<p>In this exercise, you will train the model using the images uploaded and tagged in the previous exercise. Training can be accomplished with a simple button click in the portal, or by calling the <a href="https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095bed">TrainProject</a> method in the <a href="https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3">Custom Vision Training API</a>. Once trained, a model can be refined by uploading additional tagged images and retraining it.</p>
+<p>In this exercise, you will train the model using the images uploaded and tagged in the previous exercise. Training can be accomplished with a simple button click in the portal, or by calling the <a href="https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095bed" rel="nofollow">TrainProject</a> method in the <a href="https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3" rel="nofollow">Custom Vision Training API</a>. Once trained, a model can be refined by uploading additional tagged images and retraining it.</p>
 <ol>
 <li>
-<p>Click <strong>Train</strong> at the top of the page to train the model. Each time you train the model, a new iteration is created. The Custom Vision Service maintains several iterations, allowing you to compare your progress over time.</p>
+<p>Click the <strong>Train</strong> button at the top of the page to train the model. Each time you train the model, a new iteration is created. The Custom Vision Service maintains several iterations, allowing you to compare your progress over time.</p>
 <p><a href="Images/portal-click-train.png" target="_blank"><img src="Images/portal-click-train.png" alt="Training the model" style="max-width:100%;"></a></p>
 <p><em>Training the model</em></p>
 </li>
 <li>
-<p>Wait for the training process to complete. (It should only take a few seconds.) Then review the training statistics presented to you for iteration 1. <strong>Precision</strong> and <strong>recall</strong> are separate but related  measures of the model's accuracy. Suppose the model was presented with three Picassos and three Van Goghs, and that it correctly identified two of the Picassos as "Picasso" images, but incorrectly identified two of the Van Goghs as Picassos. In this case, the precision would be 50% (two of the four images it classified as Picassos are actually Picassos), while its recall would be 67% (it correctly identified two of the three Picasso images as Picassos). You can learn more about precision and recall from <a href="https://en.wikipedia.org/wiki/Precision_and_recall">https://en.wikipedia.org/wiki/Precision_and_recall</a>.</p>
+<p>Wait for the training process to complete. (It should only take a few seconds.) Then review the training statistics presented to you for iteration 1. <strong>Precision</strong> and <strong>recall</strong> are separate but related  measures of the model's accuracy. Suppose the model was presented with three Picassos and three Van Goghs, and that it correctly identified two of the Picassos as "Picasso" images, but incorrectly identified two of the Van Goghs as Picassos. In this case, the precision would be 50% (two of the four images it classified as Picassos are actually Picassos), while its recall would be 67% (it correctly identified two of the three Picasso images as Picassos). You can learn more about precision and recall from <a href="https://en.wikipedia.org/wiki/Precision_and_recall" rel="nofollow">https://en.wikipedia.org/wiki/Precision_and_recall</a>.</p>
 <p><a href="Images/portal-train-complete.png" target="_blank"><img src="Images/portal-train-complete.png" alt="Results of training the model" style="max-width:100%;"></a></p>
 <p><em>Results of training the model</em></p>
 </li>
@@ -617,7 +620,7 @@ vertical-align:1px;
 <p><em>Testing the model</em></p>
 </li>
 <li>
-<p>Click <strong>Browse local files</strong>, and then browse to the "Quick Tests" folder in this lab's "Resources" folder. Select <strong>PicassoTest_01.jpg</strong>, and click <strong>Open</strong>.</p>
+<p>Click <strong>Browse local files</strong>, and then browse to the "Quick Tests" folder in the lab resources. Select <strong>PicassoTest_01.jpg</strong>, and click <strong>Open</strong>.</p>
 <p><a href="Images/portal-select-test-01.png" target="_blank"><img src="Images/portal-select-test-01.png" alt="Selecting a Picasso test image" style="max-width:100%;"></a></p>
 <p><em>Selecting a Picasso test image</em></p>
 </li>
@@ -638,25 +641,25 @@ vertical-align:1px;
 <p><em>Tagging the test image</em></p>
 </li>
 <li>
-<p>Perform another quick test using the file named <strong>FlowersTest.jpg</strong> in the lab's "Resources\Quick Test" folder. Confirm that this image is assigned a low probability of being a Picasso, a Rembrandt, or a Pollock.</p>
+<p>Perform another quick test using the file named <strong>FlowersTest.jpg</strong> in the "Quick Test" folder. Confirm that this image is assigned a low probability of being a Picasso, a Rembrandt, or a Pollock.</p>
 </li>
 </ol>
 <p>The model is trained and ready to go and appears to be adept at identifying paintings by certain artists. Now let's go a step further and incorporate the model's intelligence into an app.</p>
 <p><a name="Exercise5"></a></p>
 <h2>Exercise 5: Create a Node.js app that uses the model</h2>
-<p>The true power of the Microsoft Custom Vision Service is the ease with which developers can incorporate its intelligence into their own applications using the <a href="https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814">Custom Vision Prediction API</a>. In this exercise, you will use Visual Studio Code to modify an app named Artwork to use the model you built and trained in previous exercises.</p>
+<p>The true power of the Microsoft Custom Vision Service is the ease with which developers can incorporate its intelligence into their own applications using the <a href="https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814" rel="nofollow">Custom Vision Prediction API</a>. In this exercise, you will use Visual Studio Code to modify an app named Artwork to use the model you built and trained in previous exercises.</p>
 <ol>
 <li>
-<p>If Node.js isn't installed on your system, go to <a href="https://nodejs.org">https://nodejs.org</a> and install the latest LTS version for your operating system.</p>
+<p>If Node.js isn't installed on your system, go to <a href="https://nodejs.org" rel="nofollow">https://nodejs.org</a> and install the latest LTS version for your operating system.</p>
 <blockquote>
 <p>If you aren't sure whether Node.js is installed, open a Command Prompt or terminal window and type <strong>node -v</strong>. If you don't see a Node.js version number, then Node.js isn't installed. If a version of Node.js older than 6.0 is installed, it is highly recommend that you download and install the latest version.</p>
 </blockquote>
 </li>
 <li>
-<p>If Visual Studio Code isn't installed on your workstation, go to <a href="http://code.visualstudio.com">http://code.visualstudio.com</a> and install it now.</p>
+<p>If Visual Studio Code isn't installed on your workstation, go to <a href="http://code.visualstudio.com" rel="nofollow">http://code.visualstudio.com</a> and install it now.</p>
 </li>
 <li>
-<p>Start Visual Studio Code and select <strong>Open Folder...</strong> from the <strong>File</strong> menu. In the ensuing dialog, select the "Resources\Client\Artworks" folder included with this lab.</p>
+<p>Start Visual Studio Code and select <strong>Open Folder...</strong> from the <strong>File</strong> menu. In the ensuing dialog, select the "Client\Artworks" folder included in the lab resources.</p>
 <p><a href="Images/fe-select-folder.png" target="_blank"><img src="Images/fe-select-folder.png" alt="Selecting the Artworks folder" style="max-width:100%;"></a></p>
 <p><em>Selecting the Artworks folder</em></p>
 </li>
@@ -716,10 +719,10 @@ vertical-align:1px;
 <p><em>The Artworks app</em></p>
 </li>
 </ol>
-<p>Artworks is a cross-platform app written with Node.js and <a href="https://electron.atom.io/">Electron</a>. As such, it is equally capable of running on Windows, macOS, and Linux. In the next exercise, you will use it to classify images by the artists who painted them.</p>
+<p>Artworks is a cross-platform app written with Node.js and <a href="https://electron.atom.io/" rel="nofollow">Electron</a>. As such, it is equally capable of running on Windows, macOS, and Linux. In the next exercise, you will use it to classify images by the artists who painted them.</p>
 <p><a name="Exercise6"></a></p>
 <h2>Exercise 6: Use the app to classify images</h2>
-<p>In this exercise, you will use the Artworks app to submit images to the Custom Vision Service for classification. The app uses the JSON information returned from calls to the Custom Vision Prediction API's <a href="https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814">PredictImage</a> method to tell you whether an image represents a painting by Picasso, Rembrandt, Pollock, or none of the above. It also shows the probability that the classification assigned to the image is correct.</p>
+<p>In this exercise, you will use the Artworks app to submit images to the Custom Vision Service for classification. The app uses the JSON information returned from calls to the Custom Vision Prediction API's <a href="https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814" rel="nofollow">PredictImage</a> method to tell you whether an image represents a painting by Picasso, Rembrandt, Pollock, or none of the above. It also shows the probability that the classification assigned to the image is correct.</p>
 <ol>
 <li>
 <p>Click the <strong>Browse (...)</strong> button in the Artworks app.</p>
@@ -727,7 +730,7 @@ vertical-align:1px;
 <p><em>Browsing for local images in the Artworks app</em></p>
 </li>
 <li>
-<p>Browse to the "Quick Tests" folder in the "Resources" folder accompanying this lab. Select the file named <strong>PicassoTest_02.jpg</strong>, and then click <strong>Open</strong>.</p>
+<p>Browse to the "Quick Tests" folder in the lab resources. Select the file named <strong>PicassoTest_02.jpg</strong>, and then click <strong>Open</strong>.</p>
 </li>
 <li>
 <p>Click the <strong>Predict</strong> button to submit the image to the Custom Vision Service.</p>
@@ -760,7 +763,7 @@ vertical-align:1px;
 <h2>Summary</h2>
 <p>Image classification is playing an increasingly large role in industry as a means for automating such tasks as checking images uploaded to Web sites for offensive content and inspecting parts rolling off of assembly lines for defects. Building an image-classification model manually — that is, coding it from the ground up in Python, R, or another language — requires no small amount of expertise, but the Custom Vision Service enables virtually anyone to build sophisticated image-classification models. And once a model is built and trained, an app that uses it is only few lines of code away.</p>
 <hr>
-<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.</p>
+<p>Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <a href="https://opensource.org/licenses/MIT" rel="nofollow">https://opensource.org/licenses/MIT</a>.</p>
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
