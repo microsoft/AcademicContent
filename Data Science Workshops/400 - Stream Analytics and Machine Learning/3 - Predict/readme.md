@@ -98,6 +98,10 @@ In this exercise, you will train the model using the images that you tagged and 
 
 1. Click the **Train** button at the top of the page to train the model. Each time you train the model, a new iteration is created. The Custom Vision Service maintains several iterations, allowing you to compare your progress over time.
 
+	![Training the model](Images/train-model.png)
+
+	_Training the model_
+
 1. Wait for the training process to complete. (It should only take a few seconds.) Then review the training statistics presented to you for iteration 1.
 
 	![Results of training the model](Images/training-results.png)
@@ -216,7 +220,7 @@ In this exercise, you will modify the Azure Function that you created in the pre
 
 	_Opening a function console_
 
-1. Execute the following commands in the function console to install the NPM [request](https://www.npmjs.com/package/request) package, the NPM [tedious](https://www.npmjs.com/package/tedious) package, and the [Azure Storage SDK for Node.js](https://www.npmjs.com/package/azure-storage) so your function can use them.
+1. Execute the following commands in the function console to install the NPM [request](https://www.npmjs.com/package/request) package, the NPM [tedious](https://www.npmjs.com/package/tedious) package, and the [Azure Storage SDK for Node.js](https://www.npmjs.com/package/azure-storage) so your function can use them, and ignore any warning messages that are displayed.
 
 	```
 	npm install request
@@ -352,7 +356,7 @@ In this exercise, you will modify the Azure Function that you created in the pre
 1. Replace the following placeholders in the function code with the values below. Then save your changes.
 
 	- Replace PREDICTION_URL on line 2 with the prediction URL you saved in Exercise 2
-	- Replace PREDICTION_UKEY on line 3 with the prediction key you saved in Exercise 2
+	- Replace PREDICTION_KEY on line 3 with the prediction key you saved in Exercise 2
 	- Replace ACCOUNT_NAME on line 4 with the name of the storage account you created in Lab 1
 	- Replace ACCOUNT_KEY on line 5 with the storage account's access key
 	- Replace SERVER_NAME on line 6 with the name you assigned to the database server in Exercise 3
