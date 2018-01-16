@@ -56,7 +56,7 @@ In this exercise, you will use the Azure CLI to create an Azure SQL database in 
 
 	If the CLI is installed, the version number will be displayed. If the version number is less than 2.0.19, download and install the latest version.
 
-	> As an alternative to installing the Azure CLI, you can use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) available in the [Azure Portal](https:portal.azure.com). Simply open the portal in your browser and click the Cloud Shell button in the toolbar at the top of the page. One of the benefits of using the Cloud Shell is that you're always running the latest version
+	> As an alternative to installing the Azure CLI, you can use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) available in the [Azure Portal](https://portal.azure.com). Simply open the portal in your browser and click the **Cloud Shell** button in the toolbar at the top of the page. One of the benefits of using the Cloud Shell is that you're *always* running an up-to-date version. Note that you can use **Shift+Insert** to paste commands into the Cloud Shell, and **Ctrl+Insert** to copy text from the Cloud Shell to the clipboard.
 
 	![Opening the Azure Cloud Shell](Images/cloud-shell.png)
 
