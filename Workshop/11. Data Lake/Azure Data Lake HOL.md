@@ -342,22 +342,28 @@ Let's get started!
 1. If you haven't installed the [Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/), take a moment to install it now. Then open a command shell (Bash, Terminal, Command Prompt, etc.) and execute the following command:
 
 	```
-	azure login
+	az login
 	```
+
+	> As an alternative to installing the Azure CLI, you can use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) available in the [Azure Portal](https://portal.azure.com). Simply open the portal in your browser and click the **Cloud Shell** button in the toolbar at the top of the page. One of the benefits of using the Cloud Shell is that you're *always* running an up-to-date version. Note that you can use **Shift+Insert** to paste commands into the Cloud Shell, and **Ctrl+Insert** to copy text from the Cloud Shell to the clipboard.
+
+	![Opening the Azure Cloud Shell](Images/cloud-shell.png)
+
+	_Opening the Azure Cloud Shell_
 
 1. Copy the access code presented to you in the command shell to the clipboard. Then open a browser window and navigate to https://aka.ms/devicelogin and enter the code. If prompted to sign in, do so using your Microsoft account. Upon successful authentication, your command-line session will be connected to your Azure subscription.
 
-1. Assuming you are using the Azure Pass subscription provided to you for these labs, execute the following command to ensure that Azure Pass is the active subscription (the subscription that will be charged against) for operations performed with the CLI:
+1. Assuming you are using the Azure Pass subscription provided to you for these labs, execute the following command to ensure that Azure Pass is the active subscription (the subscription that will be charged against) for operations performed with the CLI, replacing SUBSCRIPTION_NAME_OR_ID with the subscription's name or ID:
 
 	```
-	azure account set "Azure Pass"
+	az account set --subscription "SUBSCRIPTION_NAME_OR_ID"
 	```
 
-1. Now execute the following commands to create a Data Lake catalog credential used to authenticate when executing federated queries. Substitute your Data Lake Analytics account name for *analytics_account_name* and your database server name (the one specified in Step 11 of this exercise) for *database_server_name*:
+1. Now execute the following commands to create a Data Lake catalog credential used to authenticate when executing federated queries. Substitute your Data Lake Analytics account name for ANALYTICS_ACCOUNT_NAME, your database server name (the one specified in Step 11 of this exercise) for DATABASE_SERVER_NAME, and the database server user (also specified in Step 11) for DATABASE_USER:
 
     <pre>
-	azure config mode arm
-	azure datalake analytics catalog credential create <i>analytics_account_name</i> UserIntegration tcp://<i>database_server_name</i>.database.windows.net FederatedCredential azureuser</pre>
+	az config mode arm
+	az dla catalog credential create --account ANALYTICS_ACCOUNT_NAME --database-name UserIntegration --uri tcp://DATABASE_SERVER_NAME.database.windows.net --credential-name FederatedCredential --user-name DATABASE_USER</pre>
 
 	When prompted for a password, enter the SQL server password ("Azure4Research!") you specified in Step 11.
 
