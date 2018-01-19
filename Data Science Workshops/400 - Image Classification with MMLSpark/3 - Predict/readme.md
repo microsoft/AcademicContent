@@ -77,7 +77,7 @@ The notebook is now configured and ready to go. Let's use it to train a machine-
 <a name="Exercise2"></a>
 ## Exercise 2: Use the notebook to train a model ##
 
-In this exercise, you will use the Jupyter notebook you created in the previous exercise to train an image-classification model. Rather than build the model from scratch, you will use [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning) to refine a model that has already been trained to work with images. The pretrained model you will use is a [convolutional Deep Neural Network](https://en.wikipedia.org/wiki/Convolutional_neural_network) (DNN) named [ResNet_18](https://docs.microsoft.com/en-us/cognitive-toolkit/build-your-own-image-classifier-using-transfer-learning) that is provided with the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/), also known as CNTK.
+In this exercise, you will use the Jupyter notebook you created in the previous exercise to train an image-classification model. Rather than build the model from scratch, you will use [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning) to refine a model that has already been trained to work with images. The pretrained model you will use is a [convolutional Deep Neural Network](https://en.wikipedia.org/wiki/Convolutional_neural_network) (DNN) named [ResNet18](https://docs.microsoft.com/en-us/cognitive-toolkit/build-your-own-image-classifier-using-transfer-learning) that is provided with the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/), also known as CNTK.
 
 Building on a model that is already trained to understand an application domain — in this case, images — allows you to achieve higher accuracy with less training. Training an image classifier from scratch typically requires tens of thousands of images at a minimum. Refining a pretrained model to differentiate between images can require as few as a few dozen images
 
@@ -204,7 +204,7 @@ Building on a model that is already trained to understand an application domain 
 
 	The transfer might take a few minutes to finish since a few hundred images are copied from blob storage to the container. Wait for "Blobs transferred" to appear in the output indicating that the transfer is complete before proceeding to the next step.
 
-1. ResNet_18 comes in the form of a **.model** file that can be downloaded from the CNTK Web site. Add a new cell to the notebook and execute the following code to download the model file containing the pretrained model:
+1. ResNet18 comes in the form of a **.model** file that can be downloaded from the CNTK Web site. Add a new cell to the notebook and execute the following code to download the model file containing the pretrained model:
 
 	```python
 	def download_model(model_root = os.path.join(data_root, 'PretrainedModels')):
@@ -222,7 +222,7 @@ Building on a model that is already trained to understand an application domain 
 
 	This, too, might take a few minutes, depending on your connection speed. Wait for "Download complete" to appear in the output indicating that the download is complete before proceeding to the next step.
 
-1. Add another cell to notebook and execute the following code to train the ResNet_18 model using the training images that were copied to the file system in the container:
+1. Add another cell to notebook and execute the following code to train the ResNet18 model using the training images that were copied to the file system in the container:
 
 	```python
 	python_version = sys.version_info.major

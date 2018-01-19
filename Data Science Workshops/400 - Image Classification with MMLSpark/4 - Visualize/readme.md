@@ -103,7 +103,7 @@ In this exercise, you will write a simple Web service using the [Flask](http://f
 	}
 	```
 
-	The values of the respective properties denote the probabilities that the image represents a painting by each of the three artists.
+	The values of the respective properties denote the probabilities that the image represents a painting by each of the three artists. In this example, the model determined that Van Gogh is most likely the artist of the image that was evaluated.
 
 1. Create a file named **Dockerfile** (no file-name extension) in the project directory and paste in the following statements before saving the file:
 
@@ -127,7 +127,7 @@ In this exercise, you will write a simple Web service using the [Flask](http://f
 	CMD ["app.py"]
 	```
 
-	This **Dockerfile** contains instructions for building a Docker container image. It starts with the base image [microsoft/mmlspark](https://hub.docker.com/r/microsoft/mmlspark/) and adds the CPU-only version of CNTK, the Python [Pillow](https://pillow.readthedocs.io/en/5.0.0/) package for image processing, and [Flask](http://flask.pocoo.org/). Then it copies **app.py** and **PaintingsLearningTransfer.model** into the container image, opens port 8008 to networking traffic, and runs **app.py** when the container is started.
+	This **Dockerfile** contains instructions for building a Docker container image. It starts with the base image [microsoft/mmlspark](https://hub.docker.com/r/microsoft/mmlspark/) and adds the CPU-only version of CNTK, the Python [Pillow](https://pillow.readthedocs.io/en/5.0.0/) package for image processing, and [Flask](http://flask.pocoo.org/). Then it copies **app.py** and **PaintingsLearningTransfer.model** into the container image, opens port 8008 to networking traffic, and configures the container to run **app.py** when the container is started.
 
 1. Navigate to the project directory in a Command Prompt or terminal window and execute the following command to build a Docker image named "spark-server:"
 
@@ -135,7 +135,7 @@ In this exercise, you will write a simple Web service using the [Flask](http://f
 	docker build -t spark-server .
 	```
 
-1. Confirm that the command completed successfully. Then execute this command to run the container and start the Web service:
+1. Wait for the command to complete and confirm that it completed successfully, ignoring any warnings present in the output. Then execute this command to run the container and start the Web service:
 
 	```
 	docker run -p 1234:8008 spark-server
@@ -143,25 +143,20 @@ In this exercise, you will write a simple Web service using the [Flask](http://f
 
 	The ```-p``` switch redirects traffic sent to port 1234 on the local machine to port 8008 in the container. The Web server inside the container listens on port 8008.
 
-1. Confirm that output similar ro the following appears in the Command Prompt or terminal window:
+1. Confirm that output similar to the following appears in the Command Prompt or terminal window indicating that the Web service is running:
 
-	```
-	Selected CPU as the process wide default device.
-	 * Running on http://0.0.0.0:8008/ (Press CTRL+C to quit)
-	 * Restarting with stat
-	Selected CPU as the process wide default device.
-	 * Debugger is active!
-	 * Debugger PIN: 211-648-697
-	```
+	![Running the container](Images/start-container.png)
 
-The CNTK model has now been operationalized and is waiting to be called by the Web service. The next step is to place calls to the Web service.
+	_Running the container_
+
+The CNTK model is now operationalized and waiting to be called by the Web service. The next step is to place some calls to the Web service.
 
 <a name="Exercise2"></a>
 ## Exercise 2: Call the Web service from a Node app ##
 
 In this exercise, you will use an app provided for you in the [resources that accompany this lab](https://topcs.blob.core.windows.net/public/400-mmlspark-resources-04.zip) to upload images to the Web service and display the results. The app is already configured to place calls to the Web service's REST endpoint at http://localhost:1234/analyze. Port 1234 is the one you redirected to port 8008 in the container when you started the container in the previous exercise.
 
-1. If [Node.js](https://nodejs.org/en/) isn't installed on your computer, go to https://nodejs.org and install the latest LTS version for your operating system. If you aren't sure whether Node.js is installed, open a Command Prompt or terminal window and type ```node -v```. If you don't see a Node.js version number, then Node.js isn't installed.
+1. If [Node.js](https://nodejs.org/en/) isn't installed on your computer, go to https://nodejs.org and install the latest LTS version for your operating system. If you aren't sure whether Node.js is installed, type ```node -v``` into a Command Prompt or terminal window. If you don't see a Node.js version number, then Node.js isn't installed.
 
 	> If a version of Node.js older than 8.9 is installed, it is highly recommend that you download and install the latest version.
 
@@ -191,7 +186,9 @@ In this exercise, you will use an app provided for you in the [resources that ac
 
 1. Select other images in the "Test Images" folder and submit them for evaluation. Confirm that the model correctly identifies the artists.
 
-You are not limited to evaluating only those images in the "Test Images" folder. Feel free to search the Web for other images depicting paintings by Monet, Picasso, and Van Gogh and evaluate them, too. There is no limit on the size of the images that you can submit to the Web service, but smaller images do upload and evaluate faster.
+	You are not limited to evaluating only those images in the "Test Images" folder. Feel free to search the Web for other images depicting paintings by Monet, Picasso, and Van Gogh and evaluate them, too. There is no limit on the size of the images that you can submit to the Web service, but smaller images do upload and evaluate faster.
+
+If you're curious to know how the Artworks app works, browse the files in the "Artworks Client" directory. In particular, examine **predict.js**,which contains the code that uploads images to the Web service and displays the results. The variable named ```url``` on line 4 contains the URL of the Web service's ```analyze``` method. If the Web service were hosted somewhere else, you could modify this value to change the target of the calls.
 
 <a name="Summary"></a>
 ## Summary ##
