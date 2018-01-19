@@ -205,7 +205,10 @@ You are not limited to evaluating only those images in the "Test Images" folder.
 <a name="Summary"></a>
 ## Summary ##
 
-TODO: Add summary.
+Because you packaged a CNTK model and a Web service in a Docker container, you could easily deploy them to the cloud and run them there using the [Azure Container Service](https://azure.microsoft.com/services/container-service/) or [Azure Container Instances](https://azure.microsoft.com/services/container-instances/). You could also run them on an [HDInsight](https://azure.microsoft.com/services/hdinsight/) Spark cluster hosted in Azure. For more information on deploying HDInsight clusters and using them as compute targets, see [Create DSVM and HDI Spark cluster as compute targets](https://docs.microsoft.com/azure/machine-learning/preview/how-to-create-dsvm-hdi#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
+
+
+Once you're finished using the solution you built in this series, you should delete all the Azure services you deployed so they no longer charge to your subscription. To delete them, simply go to the Azure Portal and delete the "mmlsparklab-rg" resource group. That's one of the many benefits of using resource groups: one simple action deletes the resource group and everything inside it. Once deleted, a resource group cannot be recovered, so make sure you're finished with it before deleting it.
 
 ---
 
