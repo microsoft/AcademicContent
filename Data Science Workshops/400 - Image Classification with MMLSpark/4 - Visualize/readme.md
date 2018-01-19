@@ -192,7 +192,7 @@ In this exercise, you will use an app provided for you in the [resources that ac
 
 	You are not limited to evaluating only those images in the "Test Images" folder. Feel free to search the Web for other images depicting paintings by Monet, Picasso, and Van Gogh and evaluate them, too. There is no limit on the size of the images that you can submit to the Web service, but smaller images do upload and evaluate faster.
 
-If you're curious to know how the Artworks app works, browse the files in the "Artworks Client" directory. In particular, examine **predict.js**,which contains the code that uploads images to the Web service and displays the results. The variable named ```url``` on line 4 contains the URL of the Web service's ```analyze``` method. If the Web service were hosted somewhere else, you could modify this value to change the target of the calls.
+If you're curious to know how the Artworks app works, browse the files in the "Artworks Client" directory. In particular, examine **predict.js**, which contains the code that uploads images to the Web service and displays the results. The variable named ```url``` on line 4 contains the URL of the Web service's ```analyze``` method. If the Web service were hosted somewhere else, you could modify this value to change the target of the calls.
 
 <a name="Summary"></a>
 ## Summary ##
