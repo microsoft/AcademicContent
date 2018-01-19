@@ -69,9 +69,8 @@ TODO: Add introduction.
 	```python
 	import cntk as C
 	from PIL import Image
-	import numpy as np
 	from io import BytesIO
-	import base64
+	import numpy as np
 	from flask import Flask, request, jsonify
 	
 	app = Flask(__name__)
@@ -96,8 +95,7 @@ TODO: Add introduction.
 	
 	@app.route('/analyze', methods=['POST'])
 	def analyze():
-	    data = request.json['image']
-	    bytes = base64.b64decode(data)
+	    bytes = request.get_data()
 	    result = eval_single_image(model, bytes)
 	
 	    output = {}
