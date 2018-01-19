@@ -156,9 +156,13 @@ The CNTK model is now operationalized and waiting to be called by the Web servic
 
 In this exercise, you will use an app provided for you in the [resources that accompany this lab](https://topcs.blob.core.windows.net/public/400-mmlspark-resources-04.zip) to upload images to the Web service and display the results. The app is already configured to place calls to the Web service's REST endpoint at http://localhost:1234/analyze. Port 1234 is the one you redirected to port 8008 in the container when you started the container in the previous exercise.
 
-1. If [Node.js](https://nodejs.org/en/) isn't installed on your computer, go to https://nodejs.org and install the latest LTS version for your operating system. If you aren't sure whether Node.js is installed, type ```node -v``` into a Command Prompt or terminal window. If you don't see a Node.js version number, then Node.js isn't installed.
+1. If Node.js isn't installed on your computer, go to https://nodejs.org/ and install it it now. You can determine whether Node is installed — and what version is installed — by opening a Command Prompt or terminal window and typing the following command:
 
-	> If a version of Node.js older than 8.9 is installed, it is highly recommend that you download and install the latest version.
+	```
+	node -v
+	```
+
+	If Node is installed, the version number will be displayed. If the version number is less than 8.0, **download and install the latest version**.
 
 1. In a Command Prompt or terminal window, ```cd``` to the "Artworks Client" directory in the resources that accompany this lab. Then use the following command to install the packages that the app requires:
 
