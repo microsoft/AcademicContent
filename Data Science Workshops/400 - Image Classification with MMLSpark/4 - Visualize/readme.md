@@ -1,8 +1,8 @@
 ![](Images/header.png)
 
-In the [previous lab](../3%20-%20Predict), you built a machine-learning model with the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/), also known as CNTK, and trained it to differentiate between paintings by Picasso, Monet, and Van Gogh. You used a Jupyter notebook to do the training. The output was a **.model** file containing a trained neural network.
+In the [previous lab](../3%20-%20Predict), you built a machine-learning model with the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/), also known as CNTK, and trained it to differentiate between paintings by Picasso, Monet, and Van Gogh. You used Python code in a Jupyter notebook to do the training. The output was a **.model** file containing a trained neural network.
 
-In this lab, the fourth of four in the series, you will operationalize the model by packaging the **.model** file and a Web service written in Python and [Flask](http://flask.pocoo.org/) in a Docker container image. That Web service will expose a REST endpoint that evaluates an uploaded image and returns a JSON payload containing the probabilities that the image depicts a painting by each of the three famous artists. Then you will conclude the series by running the Web service in a Docker container and connecting to it from a cross-platform desktop app written with [Node.js](https://nodejs.org/en/) and [Electron](https://electronjs.org/).
+In this lab, the fourth of four in the series, you will operationalize the model by packaging the **.model** file and a Web service written in Python and [Flask](http://flask.pocoo.org/) in a Docker container image. That Web service will expose a REST endpoint that evaluates an uploaded image and returns a JSON payload containing the probabilities that the image depicts a painting by each of the three artists. Then you will conclude the series by running the Web service in a Docker container and connecting to it from a cross-platform desktop app written with [Node.js](https://nodejs.org/en/) and [Electron](https://electronjs.org/).
 
 ![](Images/road-map-4.png)
 
@@ -40,38 +40,16 @@ This hands-on lab includes the following exercises:
 - [Exercise 1: Operationalize the model using a Web service](#Exercise1)
 - [Exercise 2: Call the Web service from a Node app](#Exercise2)
 
-Estimated time to complete this lab: **30** minutes.
+Estimated time to complete this lab: **20** minutes.
 
 <a name="Exercise1"></a>
 ## Exercise 1: Operationalize the model using a Web service ##
 
-TODO: Add introduction.
+In this exercise, you will write a simple Web service using the [Flask](http://flask.pocoo.org/) framework and package it and the **.model** file created in the previous lab in a Docker container image. Then you will start the Web service by running the container on the local Docker host.
 
-1. tk.
+1. Create a project directory on your hard disk. Name it anything you want. Then copy the **PaintingsLearningTransfer.model** file that you copied to the local file system in the previous lab into the project directory.
 
-	![tk](Images/tk.png)
-
-	_tk_
-
-1. tk.
-
-	![tk](Images/tk.png)
-
-	_tk_
-
-1. Use the following command to 
-
-	![tk](Images/tk.png)
-
-	_tk_
-
-1. tk.
-
-	![tk](Images/tk.png)
-
-	_tk_
-
-1. tk.
+1. Add a file named **app.py** to the project directory and paste in the following Python code. Then save the file:
 
 	```python
 	import cntk as C
@@ -115,13 +93,19 @@ TODO: Add introduction.
 	    app.run(debug=True, port=8008, host='0.0.0.0')
 	```
 
-1. tk.
+	This code implements a Web service using the Flask framework. The Web service listens for HTTP requests on port 8008, and it exposes a single REST method at the URL "/analyze." That method accepts a binary image in the body of an HTTP POST. Then it evaluates the image by passing it to the CNTK model embodied in **PaintingsLearningTransfer.model**. The call to ```C.load_model``` loads the model when the Web service starts, and the ```eval_single_image``` function invokes the model with a call to ```loaded_model.eval```. The output from the method is a JSON payload formatted in this manner:
 
-	![tk](Images/tk.png)
+	```json
+	{
+	  "Picasso": 0.000167,
+	  "Monet": 0.00026,
+	  "VanGogh": 0.99807,
+	}
+	```
 
-	_tk_
+	The values of the respective properties denote the probabilities that the image represents a painting by each of the three artists.
 
-1. tk.
+1. Create a file named **Dockerfile** (no file-name extension) in the project directory and paste in the following statements before saving the file:
 
 	```dockerfile
 	FROM microsoft/mmlspark:plus-0.9.9
@@ -143,32 +127,39 @@ TODO: Add introduction.
 	CMD ["app.py"]
 	```
 
-1. tk.
+	This **Dockerfile** contains instructions for building a Docker container image. It starts with the base image [microsoft/mmlspark](https://hub.docker.com/r/microsoft/mmlspark/) and adds the CPU-only version of CNTK, the Python [Pillow](https://pillow.readthedocs.io/en/5.0.0/) package for image processing, and [Flask](http://flask.pocoo.org/). Then it copies **app.py** and **PaintingsLearningTransfer.model** into the container image, opens port 8008 to networking traffic, and runs **app.py** when the container is started.
 
-	![tk](Images/tk.png)
-
-	_tk_
-
-1. tk.
+1. Navigate to the project directory in a Command Prompt or terminal window and execute the following command to build a Docker image named "spark-server:"
 
 	```
 	docker build -t spark-server .
 	```
 
-1. tk.
+1. Confirm that the command completed successfully. Then execute this command to run the container and start the Web service:
 
 	```
-	docker run -p1234:8008 spark-server
+	docker run -p 1234:8008 spark-server
 	```
 
-1. Verify output.
+	The ```-p``` switch redirects traffic sent to port 1234 on the local machine to port 8008 in the container. The Web server inside the container listens on port 8008.
 
-TODO: Add closing.
+1. Confirm that output similar ro the following appears in the Command Prompt or terminal window:
+
+	```
+	Selected CPU as the process wide default device.
+	 * Running on http://0.0.0.0:8008/ (Press CTRL+C to quit)
+	 * Restarting with stat
+	Selected CPU as the process wide default device.
+	 * Debugger is active!
+	 * Debugger PIN: 211-648-697
+	```
+
+The CNTK model has now been operationalized and is waiting to be called by the Web service. The next step is to place calls to the Web service.
 
 <a name="Exercise2"></a>
 ## Exercise 2: Call the Web service from a Node app ##
 
-In this exercise, you will use an app provided for you in the [resources that accompany this lab](https://topcs.blob.core.windows.net/public/400-mmlspark-resources-04.zip) to upload images to the Web service and display the results. The app is already configured to place calls to the Web service's REST endpoint at http://localhost:1234/analyze. Port 1234 is the one you redirected to port 8008 in the container when you started the container in the previous exercise. The Web server inside the container is listening on port 8008.
+In this exercise, you will use an app provided for you in the [resources that accompany this lab](https://topcs.blob.core.windows.net/public/400-mmlspark-resources-04.zip) to upload images to the Web service and display the results. The app is already configured to place calls to the Web service's REST endpoint at http://localhost:1234/analyze. Port 1234 is the one you redirected to port 8008 in the container when you started the container in the previous exercise.
 
 1. If [Node.js](https://nodejs.org/en/) isn't installed on your computer, go to https://nodejs.org and install the latest LTS version for your operating system. If you aren't sure whether Node.js is installed, open a Command Prompt or terminal window and type ```node -v```. If you don't see a Node.js version number, then Node.js isn't installed.
 
@@ -186,7 +177,7 @@ In this exercise, you will use an app provided for you in the [resources that ac
 	npm start
 	```
 
-1. Once the app starts, click the **Select** button and select one of the image files in "Test Images" folder of the resources that accompany this lab.
+1. Once the app starts, click the **Select** button and select one of the JPEG files in "Test Images" folder of the resources that accompany this lab.
 
 	![Selecting an image to evaluate](Images/artworks-1.png)
 
