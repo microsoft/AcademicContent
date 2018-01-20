@@ -1,0 +1,3 @@
+# Azure IoT
+
+This folder contains hands-on labs introducing core Azure IoT services. Learn how to use [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) to extract information from fast-moving data streams, [Azure IoT hubs](https://azure.microsoft.com/services/iot-hub/) to collect IoT data securely and in real time, [Adafruit Feather](https://www.adafruit.com/feather) to stream events to IoT hubs, and more.

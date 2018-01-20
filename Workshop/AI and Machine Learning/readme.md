@@ -1,0 +1,3 @@
+# AI and Machine Learning
+
+This folder contains hands-on labs introducing some of the tools available in Azure and in [Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for building intelligent bots and applications backed by AI and machine learning. Learn how to build machine-learning models with [Azure Machine Learning Studio](https://studio.azureml.net/) and connect to them from client apps, build neural networks with the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/), train deep neural networks to recognize objects in images with the [Custom Vision Service](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/), and more.
