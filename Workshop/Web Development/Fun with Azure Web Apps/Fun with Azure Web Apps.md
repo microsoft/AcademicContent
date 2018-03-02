@@ -100,7 +100,7 @@ The endpoint is the base URL to which calls to the Text Analytics API are placed
 
 1. Enter additional comments for this class. Observe how the individual comments are rated, and how each new comment affects the overall rating for the class.
 
-Play around with the Web site and familiarize yourself with how it works. The next step is to deploy it to Azure so others can enjoy it as well. But first, you need to create an Azure Web App to host it. 
+Play around with the Web site and familiarize yourself with how it works. Feel free to poke around the source code, too — particularly the **functions.js** file, which houses the code that submits comments to the Text Analytics API and parses the JSON that comes back for the results of the sentiment analysis. The next step is to deploy the site to Azure so others can enjoy it as well. But first, you need to create an Azure Web App to host it. 
 
 <a name="Exercise3"></a>
 ## Exercise 3: Create an Azure Web App ##
