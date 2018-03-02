@@ -1,0 +1,14 @@
+{
+  "name": "classrates",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "ejs": "*",
+    "express": "3.3.5",
+    "jquery": "3.3.1"
+  }
+}

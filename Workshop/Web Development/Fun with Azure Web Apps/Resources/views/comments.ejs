@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<% include header %>
+
+	<body>
+		<% include navbar %>
+
+			<div class="container" style="margin-top:80px">
+
+				<div>
+					<div>
+						<h3>
+							<%= classTitle %>
+								<img width="100" src='/img/stars<%= classRating %>.png' />
+						</h3>
+						<div>
+							<h4>
+								Enter Comment
+							</h4>
+							<p>Tell us how much you enjoyed (or did not enjoy) this class:</p>
+							<textarea name="styled-textarea" id="styled"></textarea>
+							<p>
+								<button class="btn btn-default" onclick="submitComment('styled-textarea')" value="SUBMIT">Submit Comment</button>
+							</p>
+
+							<div style="font-size:10pt;width:500px;margin-bottom:20px">
+								Class rating will be
+								<strong>automatically determined</strong> based on the
+								<strong>sentiment extracted</strong> from your comments using Azure Cognitive Services' Text Analytics API.
+							</div>
+
+							<% classComments.forEach(function(comment) { %>
+								<hr/>
+								<p>
+									<img width="100" src='/img/stars<%= comment.rating %>.png' />
+									<div class="comments">
+										<%= comment.comments %>
+									</div>
+								</p>
+							<% }); %>
+						</div>
+
+					</div>
+				</div>
+
+				<hr />
+			</div>
+
+			<script src="../jquery/jquery.js"></script>
+			<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+	</body>
+
+</html>
