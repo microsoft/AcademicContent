@@ -1,8 +1,6 @@
 <a name="HOLTitle"></a>
 # Fun with Azure Web Apps #
 
----
-
 How easy is it to build a Web site and deploy it to Azure? What if it's not just a static Web site, but a dynamic, data-driven Web site that runs on Node.js, utilizes [Git](https://git-scm.com) for source control, and uses Artificial Intelligence (AI) to process user input? It's easier than you might think, thanks to [Azure Web Apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-overview/), which provides a robust platform for Web apps of all types and features built-in Git support; [Visual Studio Code](https://code.visualstudio.com/), a free and cross-platform source-code editor that includes seamless Git support of its own; and Azure Cognitive Services' [Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/), which exposes [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) methods backed by AI and machine learning for analyzing text for sentiment, language, topics, and more.
 
 In this lab, you will create an Azure Web App and use Visual Studio Code to deploy to it the "Classrates" site pictured below that lets you rate college classes. Rather than enter ratings directly, you will enter comments, and the site will use the Text Analytics API to analyze comments for sentiment and rate the classes accordingly. You will also leverage the Git support in Azure and Visual Studio Code to enact source control and publish to Azure directly from Visual Studio Code. And you will accomplish all of this in under 30 minutes.
