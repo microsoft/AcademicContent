@@ -14,9 +14,7 @@
                This repo provides technical resources for faculty, students, and Microsoft developer advocates for use in computer science learning. The modules cover common cross-platform scenarios including mobile app dev, web dev, internet of things, data science, machine learning, and devops. Content delivery is divided into four groups: complimentary course content, tech talks, events materials to support hackathons or coding challenges, and course labs.</p>
                <p>Most hands-on learning focuses on how to deploy cross-platform technologies on Microsoft Azure although most of the concepts can be applied across many cloud platform solutions. Academic users can get free Azure from various programs including: 
             <a href="https://azure.microsoft.com/en-us/free/">Azure Free Account (requires credit card)</a> or 
-            <a href="https://www.dreamspark.com/student/default.aspx">Microsoft Imagine (requires student verification but no credit card)</a>. 
-            ,
-            .
+            <a href="https://www.dreamspark.com/student/default.aspx">Microsoft Imagine (requires student verification but no credit card)</a>.
             </p>
                <p>Your feedback is appreciated - please fork this repo and contribute!</p> 
                <p>If you want to report any issues we need to fix. Please log an <a href="https://github.com/MSFTImagine/computerscience/issues">issue</a>. Include 
