@@ -105,7 +105,7 @@ Play around with the Web site and familiarize yourself with how it works. Feel f
 <a name="Exercise3"></a>
 ## Exercise 3: Create an Azure Web App ##
 
-In this exercise, you will use the [Azure portal](https://portal.azure.com) to create an Azure Web App and configure it to use continuous integration. [Continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) means that the Web site is deployed to the Web App from a Git repository hosted in the cloud that is synced to a local repository. In the next exercise, you will set up a local Git repository in Visual Studio Code and connect it to the remote Git repository. Consequently, you will be able to publish to Azure by checking in your code changes and pushing the changes to the remote repository.
+In this exercise, you will use the [Azure portal](https://portal.azure.com) to create an Azure Web App and configure it to use continuous integration. [Continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) means that the Web site is deployed to the Web App from a Git repository hosted in the cloud that is synced to a local repository. In the next exercise, you will set up a local Git repository in Visual Studio Code and connect it to the remote Git repository. Subsequently, you will be able to publish to Azure by checking in your code changes and pushing the changes to the remote repository.
 
 1. Open the [Azure portal](https://portal.azure.com) in your browser. If you are asked to sign in, do so using your Microsoft account.
 
@@ -115,7 +115,7 @@ In this exercise, you will use the [Azure portal](https://portal.azure.com) to c
 
     _Creating an Azure Web App_
 
-1. Enter a unique name for the app. The name must be unique across Azure, so you will probably have to name it something other than "Classrates." Select **Create new** under "Resource Group" and enter a resource-group name, and select the operating system on which you want the Web App to run. (Either Windows or Linux is fine.) Click **App service plan/Location** and create a new service plan that specifies the Azure region in which you want to host the Web App (for example, East US). Then click the **Create** button at the bottom of the blade.
+1. Enter a unique name for the app. The name must be unique across Azure, so you will probably have to use something other than "Classrates." Select **Create new** under "Resource Group" and enter a resource-group name, and select the operating system on which you want the Web App to run. (Either Windows or Linux is fine.) Click **App service plan/Location** and create a new service plan that specifies the Azure region in which you want to host the Web App (for example, East US). Then click the **Create** button at the bottom of the blade.
 
 	> When you create a service plan, you can also choose the type of server that will host the Web site and select a cost model. At the time of this writing, Azure offers a free hosting plan for Windows, but not for Linux. Azure is constantly evolving, so this may change in the future.
 
