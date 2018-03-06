@@ -1,8 +1,6 @@
 <a name="HOLTitle"></a>
 # Video Indexer #
 
----
-
 <a name="Overview"></a>
 ## Overview ##
 
