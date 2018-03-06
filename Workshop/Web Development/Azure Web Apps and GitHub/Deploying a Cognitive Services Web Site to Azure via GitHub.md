@@ -141,7 +141,7 @@ Play around with the Web site and familiarize yourself with how it works. Feel f
 <a name="Exercise3"></a>
 ## Exercise 3: Create an Azure Web App ##
 
-In this exercise, you will use the [Azure portal](https://portal.azure.com) to create an Azure Web App and connect it to the Classrates repo that was created for you in GitHub when you forked the master repo. With this connection established, pushing changes from the local repo to the GitHub repo will automatically publish those changes to Azure -- a process known as [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration).
+In this exercise, you will use the [Azure portal](https://portal.azure.com) to create an Azure Web App and connect it to the Classrates repo that was created for you in GitHub when you forked the master repo. With this connection established, pushing changes from the local repo to the GitHub repo will automatically publish those changes to Azure — a process known as [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration).
 
 1. Open the [Azure portal](https://portal.azure.com) in your browser. If you are asked to sign in, do so using your Microsoft account.
 
