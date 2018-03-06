@@ -95,7 +95,7 @@ The endpoint is the base URL to which calls to the Text Analytics API are placed
 1. If Node.js isn't installed on your PC, go to https://nodejs.org/ and install the latest LTS version. You can determine whether Node is installed by opening a Command Prompt or terminal window and typing the following command:
 
 	```
-	node -v
+	node --version
 	```
 
 	If Node is installed, the version number will be displayed.
