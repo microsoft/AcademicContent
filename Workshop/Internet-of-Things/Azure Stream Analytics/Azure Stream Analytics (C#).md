@@ -61,7 +61,7 @@ In this exercise, you'll create an Azure event hub to provide input to Azure Str
 
 1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). If you are asked to sign in, do so using your Microsoft account.
 
-1. In the portal, click **+ New**, followed by **Internet of Things** and **Event Hubs**.
+1. In the portal, click **+ Create a resource**, followed by **Internet of Things** and **Event Hubs**.
 
     ![Adding a new event hub](Images/new-event-hub.png)
 
@@ -228,7 +228,7 @@ In real life, there would be real ATM machines sending events to the event hub. 
 
 In this exercise, you will use the Azure Portal to create a Stream Analytics job and connect it to the event hub you created in [Exercise 1](#Exercise1). You will also capture the raw data being passed to the Stream Analytics job from the event hub and examine its structure.
 
-1. Return to the [Azure Portal](https://portal.azure.com) and click **+ New**, followed by **Internet of Things** and **Stream Analytics job**.
+1. Return to the [Azure Portal](https://portal.azure.com) and click **+ Create a resource**, followed by **Internet of Things** and **Stream Analytics job**.
 
     ![Creating a Stream Analytics job](Images/new-stream-analytics-job.png)
 
@@ -502,7 +502,7 @@ Now that you have directed the output from the Stream Analytics job to an event 
 
 In this exercise, you will use Visual Studio to write an ASP.NET MVC Web app that connects to the output event hub and displays real-time notifications of potentially fraudulent transactions. You will also create a storage account required by the dashboard.
 
-1. Return to the Azure Portal and click **+ New** in the ribbon on the left. Then click **Storage**, followed by **Storage account**.
+1. Return to the Azure Portal and click **+ Create a resource** in the ribbon on the left. Then click **Storage**, followed by **Storage account**.
 
     ![Adding a storage account](Images/new-storage-account.png)
 

@@ -67,7 +67,7 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
  
-1. To create a storage account, click **+ New** in the ribbon on the left. Then click **Storage**, followed by **Storage account**.
+1. To create a storage account, click **+ Create a resource** in the ribbon on the left. Then click **Storage**, followed by **Storage account**.
 
     ![Creating a storage account](Images/new-storage-account.png)
 
@@ -153,7 +153,7 @@ The containers are currently empty, but that will change once your app is deploy
 
 In this exercise, you will acquire a subscription key allowing you to call the Computer Vision API from your code. You'll use this key in a later exercise to generate captions and search keywords for images uploaded to the Web site.
 
-1. In the Azure Portal, click **+ New**, followed by **AI + Cognitive Services** and **Computer Vision API**.
+1. In the Azure Portal, click **+ Create a resource**, followed by **AI + Cognitive Services** and **Computer Vision API**.
 
     ![Creating a new Computer Vision API subscription](Images/new-vision-api.png)
 

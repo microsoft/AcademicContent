@@ -42,7 +42,7 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
 1. Open the [Azure Portal](https://portal.azure.com/) in your browser. If you are asked to sign in, do so with your Microsoft account.
  
-1. To create a storage account, click **+ New** in the ribbon on the left. Then click **Storage**, followed by **Storage account**.
+1. To create a storage account, click **+ Create a resource** in the ribbon on the left. Then click **Storage**, followed by **Storage account**.
 
     ![Adding a storage account](Images/new-storage-account.png)
 

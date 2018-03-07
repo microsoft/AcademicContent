@@ -60,7 +60,7 @@ In this exercise, you'll create an Azure event hub to provide input to Azure Str
 
 1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). If you are asked to sign in, do so using your Microsoft account.
 
-1. In the portal, click **+ New**, followed by **Internet of Things** and **Event Hubs**.
+1. In the portal, click **+ Create a resource**, followed by **Internet of Things** and **Event Hubs**.
 
     ![Adding a new event hub](Images/new-event-hub.png)
 
@@ -230,7 +230,7 @@ Now that events are flowing to your event hub, the next step is to create a Stre
 
 In this exercise, you will use the Azure Portal to create a Stream Analytics job and connect it to the event hub you created in [Exercise 1](#Exercise1). You will also capture the raw data being passed to the Stream Analytics job from the event hub and examine its structure.
 
-1. Return to the [Azure Portal](https://portal.azure.com) and click **+ New**, followed by **Internet of Things** and **Stream Analytics job**.
+1. Return to the [Azure Portal](https://portal.azure.com) and click **+ Create a resource**, followed by **Internet of Things** and **Stream Analytics job**.
 
     ![Creating a Stream Analytics job](Images/new-stream-analytics-job.png)
 
@@ -431,7 +431,7 @@ Being able to run your queries and see the results in the portal is great for te
 
 In this exercise, you will create a storage account and configure the Stream Analytics job to store output in blob storage. Then you will run the job against a live data stream and check the results by inspecting blob storage.
 
-1. Return to the Azure Portal and click **+ New** in the ribbon on the left. Then click **Storage**, followed by **Storage account**.
+1. Return to the Azure Portal and click **+ Create a resource** in the ribbon on the left. Then click **Storage**, followed by **Storage account**.
 
     ![Adding a storage account](Images/new-storage-account.png)
 
