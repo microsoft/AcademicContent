@@ -14,8 +14,8 @@
                This repo provides technical resources for faculty, students, and Microsoft developer advocates for use in computer science learning. The modules cover common cross-platform scenarios including mobile app dev, web dev, internet of things, data science, machine learning, and devops. We offer hands-on labs that can be used in the classroom or as workshop content, as well as other educator content including tech talks, coding challenges, and event-in-a-box workshops.</p>
                <p>Most of our learning content focuses on how to deploy cross-platform technologies on Microsoft Azure although the concepts can be applied across many cloud platform solutions.</p>
 							 <p>Students can get free Azure credits to explore these resources in the classroom or on their own here:
-							 <ul><li><a href="https://azure.microsoft.com/en-us/free/students/">Azure For Student ($100 in Azure - no credit card required)</a></li>
-							 <li><a href="https://azure.microsoft.com/en-us/free/students-starter-faq/">Azure For Student Starter (use free Azure products with no credit card)</a></li>
+							 <ul><li><a href="https://azure.microsoft.com/en-us/free/students/">Azure For Students ($100 in Azure - no credit card required)</a></li>
+							 <li><a href="https://azure.microsoft.com/en-us/free/students-starter-faq/">Azure For Students Starter (use free Azure products with no credit card)</a></li>
 							 <li><a href="https://azure.microsoft.com/en-us/free/">Azure Free Account</a></li></ul>
             </p>
                <p>Your feedback is appreciated - please fork this repo and contribute!</p> 
