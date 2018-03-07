@@ -57,7 +57,7 @@ In this exercise, you will use the Azure Portal to deploy an HDInsight Hadoop cl
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
 
-1. Click **+ New** in the upper-left corner of the portal. Then click **Data + Analytics**, followed by **HDInsight**.
+1. Click **+ Create a resource** in the upper-left corner of the portal. Then click **Data + Analytics**, followed by **HDInsight**.
 
     ![Creating an HDInsight cluster](Images/new-hdinsight.png)
 
