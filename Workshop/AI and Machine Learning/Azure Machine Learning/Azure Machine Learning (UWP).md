@@ -58,7 +58,7 @@ The first step in employing Azure Machine Learning Studio is to create a Machine
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
-1. Click **+ New**. Then type "machine learning" (without quotation marks) into the search box and select **Machine Learning Studio Workspace** from the search results.
+1. Click **+ Create a resourc**. Then type "machine learning" (without quotation marks) into the search box and select **Machine Learning Studio Workspace** from the search results.
 
     ![Creating a workspace](Images/new-ml-workspace-1.png)
 

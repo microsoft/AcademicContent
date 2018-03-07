@@ -46,7 +46,7 @@ The Ubuntu Data Science Virtual Machine for Linux is a virtual-machine image tha
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
-1. Click **+ New** in the menu on the left side of the portal, and then type "data science" (without quotation marks) into the search box. Select **Data Science Virtual Machine for Linux (Ubuntu)** from the results list.
+1. Click **+ Create a resource** in the menu on the left side of the portal, and then type "data science" (without quotation marks) into the search box. Select **Data Science Virtual Machine for Linux (Ubuntu)** from the results list.
 
     ![Finding the Ubuntu Data Science VM](Images/new-data-science-vm-1.png)
 

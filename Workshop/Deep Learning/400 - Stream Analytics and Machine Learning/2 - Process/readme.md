@@ -54,7 +54,7 @@ In this exercise, you will use the Azure Portal to create a Stream Analytics job
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
-1. Click **+ New**, followed by **Internet of Things** and **Stream Analytics job**.
+1. Click **+ Create a resource**, followed by **Internet of Things** and **Stream Analytics job**.
 
     ![Creating a Stream Analytics job](Images/new-stream-analytics-job.png)
 
@@ -177,7 +177,7 @@ The query that you tested in the previous exercise employs simple logic: if the 
 
 One way to connect a Stream Analytics job to a machine-learning model running in the cloud is to use an [Azure Function](https://azure.microsoft.com/services/functions/) as a Stream Analytics output. The function, which is invoked each time Stream Analytics produces an output, can then call out to the machine-learning model. In this exercise, you will write an Azure Function, connect it to Stream Analytics, and stub it out so you can verify that it's being called.
 
-1. In the Azure Portal, click **+ New**, followed by **Compute** and **Function App**.
+1. In the Azure Portal, click **+ Create a resource**, followed by **Compute** and **Function App**.
 
     ![Creating an Azure Function App](Images/new-function-app.png)
 

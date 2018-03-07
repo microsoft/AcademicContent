@@ -812,7 +812,7 @@ In this exercise, you will create an Azure Web App and deploy Intellipix to it u
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
 
-1. Click **+ New**, followed by **Web + Mobile** and **Web App**.
+1. Click **+ Create a resource**, followed by **Web + Mobile** and **Web App**.
 
     ![Creating a new Azure Web App](Images/node-new-web-app.png)
 

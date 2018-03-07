@@ -57,7 +57,7 @@ Deploying a blockchain on Azure only takes a few minutes. In this exercise, you 
 
 1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). If you are asked to sign in, do so using your Microsoft account.
 
-1. In the portal, click **+ New**, followed by **Blockchain** and **Ethereum Consortium Blockchain**.
+1. In the portal, click **+ Create a resource**, followed by **Blockchain** and **Ethereum Consortium Blockchain**.
 
 	![Creating an Ethereum blockchain](Images/new-blockchain.png)
 

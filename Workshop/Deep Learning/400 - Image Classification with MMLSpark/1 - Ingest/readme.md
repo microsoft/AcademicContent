@@ -105,7 +105,7 @@ The [Bing Image Search API](https://azure.microsoft.com/services/cognitive-servi
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
-1. In the Azure Portal, click **+ New**. Type "bing search" (without quotation marks) into the search box and select **Bing Search v7 APIs** from the drop-down list. Then click the **Create** button at the bottom of the ensuing blade.
+1. In the Azure Portal, click **+ Create a resource**. Type "bing search" (without quotation marks) into the search box and select **Bing Search v7 APIs** from the drop-down list. Then click the **Create** button at the bottom of the ensuing blade.
 
     ![Creating a new Bing Search API subscription](Images/new-search-api.png)
 

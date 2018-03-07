@@ -485,18 +485,12 @@ There are several ways to provision an Azure Web App. In this exercise, you will
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
 
-1. Click **+ New**. In the "New" blade that opens, type "web app mysql" (without quotation marks) into the search box and press **Enter**.
+1. Click **+ Create a resource**. Type "web app mysql" into the search box and press **Enter**. Then select **Web App + MySQL** from the search results.
 
-    ![Finding the "Web App + MySQL" template](Images/find-webappmysql.png)
+    ![Creating a Web App with MySQL](Images/new-web-app-mysql.png)
 
-    _Finding the "Web App + MySQL" template_
+    _Creating a Web App with MySQL_
 
-1. Two new blades named "Marketplace" and "Everything" open in the portal. The former represents the [Microsoft Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/), which is an online store containing thousands of free templates for deploying apps, services, virtual machines, and more, preconfigured for Azure and provisioned with popular tools such as WordPress, CakePHP, and Django. In the "Everything" blade, click **Web App + MySQL**.
-
-    ![Selecting the "Web App + MySQL" template](Images/select-webappmysql.png)
-
-    _Selecting the "Web App + MySQL" template_
-    
 1. In the "Web App + MySQL" blade that opens, take a moment to review the text and learn what the template provisions. Then click the **Create** button at the bottom of the blade.
 
     ![Creating a Web App with MySQL](Images/create-web-app.png)

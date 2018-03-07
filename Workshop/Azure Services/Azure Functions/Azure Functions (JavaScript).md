@@ -55,7 +55,7 @@ The first step in writing an Azure Function is to create an Azure Function App. 
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
-2. Click **+ New**, followed by **Compute** and **Function App**.
+2. Click **+ Create a resource**, followed by **Compute** and **Function App**.
 
     ![Creating an Azure Function App](Images/new-function-app.png)
 
@@ -269,7 +269,7 @@ An Azure Function written in JavaScript has been created and configured and the 
 
 The Azure Function you created in [Exercise 2](#Exercise2) loads a subscription key for the Microsoft Cognitive Services Computer Vision API from application settings. This key is required in order for your code to call the Computer Vision API, and is transmitted in an HTTP header in each call. It also loads the base URL for the Computer Vision API (which varies by data center) from application settings. In this exercise, you will subscribe to the Computer Vision API, and then add an access key and a base URL to application settings.
 
-1. In the Azure Portal, click **+ New**, followed by **AI + Cognitive Services** and **Computer Vision API**.
+1. In the Azure Portal, click **+ Create a resource**, followed by **AI + Cognitive Services** and **Computer Vision API**.
 
     ![Creating a new Computer Vision API subscription](Images/new-vision-api.png)
 

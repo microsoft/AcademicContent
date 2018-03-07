@@ -120,7 +120,7 @@ Now that you have an SSH key pair, you can create and configure an Azure Contain
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
 
-1. Click **+ New**, followed by **Containers** and **Azure Container Service**.
+1. Click **+ Create a resource**, followed by **Containers** and **Azure Container Service**.
 
 	![Creating a container service](Images/docker-new-container.png)
 
