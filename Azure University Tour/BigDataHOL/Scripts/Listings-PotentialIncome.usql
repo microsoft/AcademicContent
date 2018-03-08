@@ -1,0 +1,81 @@
+// Output potential monthly income based upon search terms: 
+
+// Populate our search term variables:
+DECLARE @State string = "WA"; // WA, CA, TX, or DC 
+DECLARE @City string = "Seattle"; // Seattle, Austin, Los Angeles, or Washington
+DECLARE @Neighbourhood string = "Capitol Hill";
+DECLARE @Property_type string = "Apartment"; // "Private room" or "Entire home/apt"
+DECLARE @Room_type string = "Entire home/apt"; // "Entire home/apt", "Shared room",  or "Private room"
+DECLARE @Bedrooms string = "1";
+
+// Read the data file Listings.csv into @AllListings variable:
+@AllListings =
+EXTRACT
+  id int
+, neighbourhood string
+, city string
+, state string
+, zipcode string
+, property_type string
+, room_type string
+, bedrooms string 
+, price string
+, last_review string
+, review_scores_rating string
+, review_scores_value string
+, reviews_per_month string
+, availability_30 string
+, availability_365 string
+FROM "Listings-MyDates.csv"
+USING Extractors.Csv(skipFirstNRows: 1, silent:true) ;
+
+// Calculate Occupancy Rate and convert Price from a string to a number:
+@ListingsOccupancyRate =
+SELECT id 
+, neighbourhood  
+, city  
+, state  
+, zipcode  
+, property_type  
+, room_type  
+, bedrooms  
+, ((Func<string, float>) (inString => {float intValue; return float.TryParse(inString, out intValue) ? (float)intValue : (float)0;})) (price.Replace("$","")) AS price
+, last_review
+, ((Func<string, float>) (inString => {float intValue; return float.TryParse(inString, out intValue) ? (float)intValue : (float)0;})) (review_scores_rating) AS review_scores_rating
+, review_scores_value  
+, reviews_per_month 
+, availability_30
+, (((Func<string, float>) (inString => {float intValue; return float.TryParse(inString, out intValue) ? (float)intValue : (float)0;})) (availability_30)) / 30 AS occupancy_rate
+FROM @AllListings 
+WHERE
+    state == @State
+AND city == @City
+AND neighbourhood == @Neighbourhood
+AND property_type == @Property_type
+AND room_type == @Room_type
+AND bedrooms == @Bedrooms
+AND bedrooms IS NOT NULL
+AND availability_30 != "0" ;
+
+// Using the occupancy_rate calculated above, determine potential income:
+@ListingsPotentialIncome =
+SELECT state 
+, city  
+, neighbourhood  
+, property_type  
+, room_type  
+, bedrooms  
+, price
+, review_scores_rating  
+, review_scores_value   
+, availability_30
+, occupancy_rate
+, ((price * occupancy_rate * 30) * (review_scores_rating / 100)) AS potential_monthly_income
+, ((price * occupancy_rate * 30) * (review_scores_rating / 100)) * 12 AS potential_yearly_income
+FROM @ListingsOccupancyRate ;
+
+// ORDER BY the review score rating
+OUTPUT @ListingsPotentialIncome
+    TO "Listings-PotentialIncome.csv"
+    ORDER BY potential_monthly_income DESC
+    USING Outputters.Csv(outputHeader:true) ;
