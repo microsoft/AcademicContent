@@ -69,10 +69,6 @@
 					   <td><b><a href="https://github.com/Microsoft/CNTK/wiki/Setup-Windows-Binary-Script"> Cognitive Tookit</a></b></td>
 					   <td>Resources to set up Cognitive Toolkit using notebooks from product team. After installing tutorials will be in c:\repos\bindings\python\tutorials.</td>
 					</tr>
-					<tr>
-					   <td><b><a href="https://microsoft.github.io/techcasestudies/"> Industry Case Studies</a></b></td>
-					   <td>Case studies of companies using Azure.</td>
-					</tr>
           <tr>
 					   <td><b><a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/">Research case studies</a></b></td>
 					   <td>Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too!</td>
@@ -84,6 +80,10 @@
           <tr>
 					   <td><b><a href="https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-use-sample-datasets">Machine Learning Data Sets</a></b></td>
 					   <td>Data sets shared by Azure Machine Learning team to help explore machine learning.</td>
+					</tr>
+					<tr>
+					   <td><b><a href="www.msmarco.org/">MS MARCO</a></b></td>
+					   <td>Microsoft MAchine Reading COmprehension Dataset generated from real Bing user queries and search results.</td>
 					</tr>
 				 </table>
 			</div>
