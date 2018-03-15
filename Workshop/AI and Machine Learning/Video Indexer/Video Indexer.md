@@ -1,13 +1,13 @@
 <a name="HOLTitle"></a>
 # Video Indexer #
 
-[Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a suite of services and APIs backed by machine learning that enables developers to incorporate intelligent features such as facial recognition in photos and videos, sentiment analysis in text, and language understanding into their applications. [Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) is one of the newest members of the Cognitive Services family. Its purpose is to transform raw video content into content that is searchable, discoverable, and engaging to the user. Want to generate a video transcript, index words spoken in the video or written on a whiteboard, or create a list of keywords from topics discussed in the video? Video Indexer can do all this and more. It can even find individuals in the video, and sometimes tell you who they are.
+[Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a suite of services and APIs backed by machine learning that enables developers to incorporate intelligent features such as facial recognition in photos and videos, sentiment analysis in text, and language understanding into their applications. [Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) is one of the newest members of the Cognitive Services family. Its purpose is to transform raw video content into content that is searchable, discoverable, and more engaging to the user. Want to generate a video transcript, index words spoken in the video or written on a whiteboard, or create a list of keywords from topics discussed in the video? Video Indexer can do all this and more. It can even find individuals in the video, and sometimes tell who they are.
 
 ![Microsoft Video Indexer](Images/video-indexer.jpg)
 
 Video Indexer is both a service and an API. The service is accessed through a Web portal. It allows you to upload videos and examine the information generated from them. The [Video Indexer API](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5a37a5a80dc5610d2cc48221) is a REST API that does everything the portal does, and also allows you to access the information that is generated when videos are indexed.
 
-In this lab, you will learn how to use Video Indexer to analyze videos and extract actionable information and insights. Then you will write an app that uses the Video Indexer API to make content in the videos that you indexed searchable.
+In this lab, you will learn how to use Video Indexer to analyze videos and extract actionable information and insights. Then you will build an app named Video Explorer that uses the Video Indexer API to make content in the videos that you indexed searchable.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -17,7 +17,7 @@ In this hands-on lab, you will learn how to:
 - Submit videos to Video Indexer for indexing
 - View and edit the information that is generated
 - Translate video transcriptions into other languages
-- Write an app that uses the Video Indexer API to make video content searchable
+- Use the Video Indexer API in a Node.js app
 
 <a name="Prerequisites"></a>
 ### Prerequisites ###
@@ -45,7 +45,7 @@ Estimated time to complete this lab: **30 to 40** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Index a collection of videos ##
 
-In this exercise, you will use the Video Indexer portal to submit for indexing three short educational videos created by Microsoft. You can upload videos from your local file system, or provide URLs from which the videos can be retrieved. The videos you will upload are publicly available MP4s that have been loaded into Azure blob storage, so you will upload them by URL.
+In this exercise, you will use the Video Indexer portal to index three short educational videos created by Microsoft. You can upload videos from your local file system, or provide video URLs. The videos you will index are publicly available MP4s that have been loaded into Azure blob storage, so you will upload them by URL.
 
 1. Open the [Video Indexer portal](https://www.videoindexer.ai/) in your browser and click **Get Started**. Then click **Sign in with a Live or Outlook account** and sign in using your Microsoft account. Answer **Yes** if prompted to let this app access your info.
 
@@ -88,7 +88,13 @@ When indexing is complete, you will receive an e-mail notification for each vide
 <a name="Exercise2"></a>
 ## Exercise 2: Explore an indexed video in the portal ##
 
-In Video Indexer, insights are aggregated views of the knowledge extracted from a video, such as faces, keywords, and sentiment. For example, you can see the faces of people appearing in the video, as well as time ranges and percentages for each face shown. In addition, Video Indexer automatically generates video transcripts based on its built-in speech and speaker recognition services. It even provides facilities for editing the information that it generated so you can correct errors in transcripts, put names to faces that weren't recognized, and more. In this exercise, you will examine and edit the information generated for one of the videos indexed in the previous exercise.
+In Video Indexer, insights are aggregated views of the knowledge extracted from a video, such as faces, keywords, and sentiment. For example, you can see the faces of people appearing in the video, as well as time ranges and percentages for each face shown. Video Indexer cross-references the faces that it finds against a database of thousands of famous people and automatically identifies them. You can see for yourself by opening the "Microsoft in Education" video in the portal. Microsoft CEO Satya Nadella appears in that video, and Video Indexer recognizes him.
+
+![A famous person who appears in "Microsoft in Education"](Images/satya-nadella.png)
+
+_A famous person who appears in "Microsoft in Education"_
+
+Video Indexer automatically generates video transcripts based on its built-in speech and speaker recognition services. It even provides facilities for editing the information that it generated so you can correct errors in transcripts, put names to faces that weren't recognized, and more. In this exercise, you will examine and edit the information generated for one of the videos indexed in the previous exercise.
 
 1. Click **Play** to play the "Overview of the Microsoft AI School" video.
 
@@ -112,7 +118,9 @@ In Video Indexer, insights are aggregated views of the knowledge extracted from 
 
 	_Editing a transcript_
 
-1. Scroll through the transcript looking for other words and phrases that weren't transcribed correctly and take a moment to fix them. Note that when you select a block of text to be edited, you can click the Play button to its right to jump to that point in the video and listen to what was said.
+1. Scroll through the transcript looking for other words and phrases that weren't transcribed correctly and take a moment to fix them.
+
+	> Tip: When you select a block of text to be edited, you can click the Play button to its right to jump to that point in the video and listen to what was said.
 
 1. Once a video is indexed, you can search its contents. Type "suggestion" into the search box at the top of the page and press **Enter.** Confirm that the search results include four instances in which the word "suggestion" was spoken in the video. The sound icon on the left indicates the content was spoken. But Video Indexer isn't limited to searching for spoken content.
 
@@ -212,7 +220,7 @@ Try other search terms such as "AI," "awesome," and "Microsoft." The results wil
 
 The [Video Indexer API](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5a37a5a80dc5610d2cc48221) is a rich one that includes methods for uploading videos for indexing, searching indexed videos, retrieving and modifying transcripts, monitoring the processing state as a video is being indexed, and more. One of the more powerful methods is [Get Breakdown](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5a37a5a80dc5610d2cc48219?), which returns a "breakdown" of a video containing the same kind of detailed information found in the Video Indexer portal after a video is indexed.
 
-The Video Explorer app featured in Exercise 4 uses the [Search](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5a37a5a80dc5610d2cc48224?) method, which is just one of more than 30 methods featured in the Video Indexer API. You could leverage additional APIs to make Video Explorer richer and more interactive. You could even use the [Get Player Widget URL](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5a37a5a80dc5610d2cc4821b?) method to embed a video player in the app. Feel free to use these APIs to build on Video Explorer and customize it to fit your needs.
+Video Explorer uses the [Search](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5a37a5a80dc5610d2cc48224?) method, which is just one of more than 30 methods featured in the Video Indexer API. You could leverage additional APIs to make Video Explorer richer and more interactive. For example, you could allow users to search for people that appear in a video, or search specifically for text that is extracted via OCR. You could even use the [Get Player Widget URL](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5a37a5a80dc5610d2cc4821b?) method to embed a video player in the app. Feel free to use these APIs to expand Video Explorer and customize it to fit your needs, and learn more about Video Indexer in the process.
 
 ---
 
