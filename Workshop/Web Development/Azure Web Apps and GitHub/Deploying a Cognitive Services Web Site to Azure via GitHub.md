@@ -10,7 +10,7 @@ In this lab, you will create an Azure Web App and use Visual Studio Code to depl
 Sound like fun? Then let's get started!
 
 <a name="Prerequisites"></a>
-## Prerequisites ##
+### Prerequisites ###
 
 The following are required to complete this hands-on lab:
 
@@ -19,6 +19,13 @@ The following are required to complete this hands-on lab:
 - [Git](https://git-scm.com) for Windows, macOS, or Linux
 - [Visual Studio Code](http://code.visualstudio.com)
 - [Node.js](https://nodejs.org)
+
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-1.png)
+
+The cost of this lab is **low**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
 <a name="Exercises"></a>
 ## Exercises ##
