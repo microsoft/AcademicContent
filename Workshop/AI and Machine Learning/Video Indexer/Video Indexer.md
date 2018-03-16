@@ -28,6 +28,13 @@ The following are required to complete this hands-on lab:
 - [Visual Studio Code](http://code.visualstudio.com)
 - [Node.js](https://nodejs.org)
 
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-1.png)
+
+For an overview of the cost ratings assigned to each lab, refer to [Explanation of Costs](../../Costs.md).
+
 ---
 
 <a name="Exercises"></a>

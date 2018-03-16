@@ -2,7 +2,7 @@
 
 The Azure Workshop is a collection of hands-on coding labs designed to help Computer Science faculty and students learn how to deploy solutions to the Azure cloud involving common scenarios such as Web development, AI and machine learning, data science, and IoT using cross-platform technologies. Most labs are compatible with Windows, macOS, or Linux and take 60 to 90 minutes to complete.
 
-Before you start, make sure you have access to Microsoft Azure subscription. If you need to create, follow this guide: [Prepare Microsoft Azure subscription](PrepAzure).
+Before you start, make sure you have access to a Microsoft Azure subscription. If you need to create one, follow this guide: [Prepare Microsoft Azure subscription](PrepAzure).
 
 The labs fall into six general categories:
 
