@@ -5,7 +5,7 @@ Most of the hands-on labs in this repo require an Azure subscription. When you d
 Each lab in this repository includes a cost rating that ranges from 0 to 3 dollar signs:
 
 - Zero dollar signs means the lab incurs no cost because it doesn't require an Azure subscription or utilizes Azure services with free tiers
-- $ means that the cost of the lab is minimal — generally a few dollars or less if you follow the instructions closely
+- $ means that the cost of the lab is minimal — generally a few dollars or less if you delete the resources that you deployed within a day or two
 - $$ means that the cost of the lab is higher, and is generally reserved for labs that require VMs and other resources that are billed by the hour
 - $$$ means that the cost is relatively high because you are deploying compute clusters or other resources that incur multiple per-hour charges
 
