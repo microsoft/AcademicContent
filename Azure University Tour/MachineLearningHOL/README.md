@@ -56,19 +56,19 @@ In this exercise, you will create an instance of the DSVM for Linux in Azure. Th
 1. In a web browser, open the [Azure portal](https://portal.azure.com/) at https://portal.azure.com, and then sign in with your Microsoft account.
 2. From the left-side menu, click the **+** sign to add a new resource.
 
-![CreateResource](images\CreateResource.jpg)
+![CreateResource](images/CreateResource.jpg)
 
 3. In the **Search** field, type **data science**. From the list of matching results, click **Data Science Virtual Machine for Linux (Ubuntu)**.
 
-![FindDSVM](images\FindDSVM.jpg) 
+![FindDSVM](images/FindDSVM.jpg) 
 
 4. Take a few moments to read the description of the DSVM for Linux (Ubuntu), and then click **Create**.
 
-![CreateDSVM](images\CreateDSVM.jpg)
+![CreateDSVM](images/CreateDSVM.jpg)
 
 5. In the **Name** field, enter a name for your VM; for example, **MyDSVM**.
 
-![CreateDSVM2](images\CreateDSVM2.jpg)
+![CreateDSVM2](images/CreateDSVM2.jpg)
 
 6. In the **VM disk type** field, select **SSD**.
 
@@ -102,18 +102,18 @@ At this stage, the Choose a Size page appears. Proceed to the next step.
 ### Step 2: Sizing the new VM and reviewing settings ###
 1. On the **Choose A Size** page, click **View All**.
 
-![ChooseSize](images\ChooseSize.jpg)
+![ChooseSize](images/ChooseSize.jpg)
 
 2. In the list of available VM types, select **DS1_V2 Standard**.
 
-![ONE-002a](images\ONE-002a.jpg "DSVM")
+![ONE-002a](images/ONE-002a.jpg "DSVM")
 
 3. Click **Select**.
 4. On the **Settings** page that appears, review the default settings, and then click **OK**. The Create page appears, displaying offer details and summary information.
 5. Click **Create**.
 6. Wait a few minutes while the DSVM is deployed. After it is deployed, you will see a dashboard for your new VM. At the top of the dashboard, you will see controls.
 
-![StartStop](images\StartStop.jpg "DSVM")
+![StartStop](images/StartStop.jpg "DSVM")
 
 7. The **Start** button is not available, indicating that the new VM has already started.
 
@@ -125,41 +125,41 @@ In this exercise, you will use a local X2Go client to connect to your new VM in 
 2. Open X2Go. If you see any security alerts related to firewalls, now or later during these exercises, click **Allow Access**.
 3. If the Session Preferences dialog box does not open automatically, from the **Session** menu, click **New Session**.
 
-![NewSession](images\NewSession.jpg)
+![NewSession](images/NewSession.jpg)
 
 4. Return to your web browser and to the Azure portal at https://portal.azure.com, which you opened in Exercise 1.
 5. In the **Overview** section, which displays information about the new VM you have created, locate and copy the VM’s public IP address.
-![ONE-006](images\ONE-006.jpg "DSVM")
+![ONE-006](images/ONE-006.jpg "DSVM")
 6. Return to the **Session Preferences** dialog box in X2Go. Paste the IP address of the Azure VM, which you just copied, into the **Host** field.
 
-![SessionPref](images\SessionPref.jpg)
+![SessionPref](images/SessionPref.jpg)
 
 7. In the **Login** field, type the user name you chose for your new VM in Exercise 1.
 8. Change the **Session Type** setting to **XFCE**.
-![17xfce](images\17xfce.jpg "DSVM")
+![17xfce](images/17xfce.jpg "DSVM")
 9. Click **OK**.
 10. In the X2Go client window, begin a new session by clicking on the name **New session** within the window on the right that displays the IP address you just pasted.
 
-![NewSession2](images\NewSession2.jpg)
+![NewSession2](images/NewSession2.jpg)
 
 11. In the **New Session** window, supply the password you specified when you created the VM in Exercise 1, and then click **OK**.
 
-![NewSession3](images\NewSession3.jpg)
+![NewSession3](images/NewSession3.jpg)
 
 12. If you see a message displaying a public key hash and asking whether you trust the host key, click **Yes**.
 
-![Failed](images\Failed.jpg)
+![Failed](images/Failed.jpg)
 
 13. Wait a couple of minutes for a connection to the VM to establish. If you are on a Macintosh and are prompted to install XQuartz, follow the link provided to install XQuartz, log back off and then back on, and finally return to step 10. 
 
 After the connection to the VM completes, a new window opens displaying the VM desktop and then a web page.
 
-![NewVM](images\NewVM.jpg)
+![NewVM](images/NewVM.jpg)
 
 14. As needed, resize the window displaying the desktop of the DSVM. By default, a webpage is displayed that provides information about the DSVM.
 15. Minimize the web browser, take a moment to review the icons on the desktop, and then proceed to Exercise 3.
 
-![NewVM2](images\NewVM2.jpg)
+![NewVM2](images/NewVM2.jpg)
 
 <a name="Exercise3"></a>
 ## Exercise 3: Download a dataset and prepare a Jupyter notebook ##
@@ -171,7 +171,7 @@ Perform the following procedures in the X2Go session window that is connected to
 ### Step 1: Copying and decompressing the dataset ###
 1. In the DSVM, open a terminal emulator by clicking on the appropriate icon at the bottom of the screen.
 
-![term](images\term.jpg "DSVM")
+![term](images/term.jpg "DSVM")
 
 2. At the command prompt in the terminal emulator, create and switch to a new directory named **BnB** within the **~/notebooks** directory by entering the following three commands, one at a time:
 
@@ -183,14 +183,14 @@ cd BnB
 
 3. In the DSVM, open a web browser by clicking on the appropriate icon at the bottom of the screen.
 
-![Browser](images\Browser.jpg "DSVM")
+![Browser](images/Browser.jpg "DSVM")
 
 4. Browse to the following address: https://github.com/MSFTImagine/computerscience/tree/master/Azure%20University%20Tour/MachineLearningHOL/content
 5. From the list of files in this directory, locate and click **listings.csv.gz**, and then click **Download** and **Save File** to save the file. The file will automatically save to the Downloads directory.
 6. From the list of files in this same /content directory, locate and click **iPY_run_annotated.png**, and then click **Download**. Right-click the image in the browser and select **Save Image As**. Choose to save the file in the /notebooks/BnB/ directory.
 7. In the DSVM, use **File Manager** (available at the bottom of the screen) to move the **listings.csv.gz** file from the **Downloads** directory to the **/notebooks/BnB/** directory.
 
-![FileManager](images\FileManager.jpg "DSVM")
+![FileManager](images/FileManager.jpg "DSVM")
 
 7. The **listings.csv.gz** file now needs to be decompressed. Return to the terminal emulator, and if necessary, use the **cd** command to navigate to the /notebooks/BnB/ directory. 
 8. Type the following at the command prompt:
@@ -207,21 +207,21 @@ In this step, you will save a Jupyter Notebook document from GitHub to the /note
 1. In the DSVM, return to the web browser, and then navigate to https://github.com/MSFTImagine/computerscience/tree/master/Azure%20University%20Tour/MachineLearningHOL/content
 2. Click **Machine_Learning_HOL_Ex4.ipynb**, click **Raw** in the top-right portion of the screen, and then press Ctrl+S to save the file to the /notebooks/BnB/ directory.
 
-![Raw](images\Raw.jpg "DSVM")
+![Raw](images/Raw.jpg "DSVM")
 
 You will now open the Jupyter Notebook web application and then the notebook you just saved.
 
 3. In the DSVM, minimize all active windows. On the desktop, locate and double-click the Jupyter desktop-configuration file.
 
-![Jupyter](images\Jupyter.jpg "DSVM")
+![Jupyter](images/Jupyter.jpg "DSVM")
 
 A UXTerm terminal opens, and then a webpage opens to http://localhost:8888/tree. Inside this webpage, the Jupyter Notebook web application displays the dashboard, which contains a number of directories and Jupyter notebooks.  The Jupyter Notebook dashboard maps to the /notebooks directory within the file structure of the DSVM.
 
-![Jupyter2](images\Jupyter2.jpg "DSVM")
+![Jupyter2](images/Jupyter2.jpg "DSVM")
 
 4. In the Jupyter Notebook dashboard displayed at http://localhost:8888, double-click to open the **/BnB** directory, and then double-click **Machine_Learning_HOL_Ex4.ipynb**.
 
-![Jupyter3](images\Jupyter3.jpg "DSVM")
+![Jupyter3](images/Jupyter3.jpg "DSVM")
 
 The Machine_Learning_HOL_Ex4.ipynb notebook will require a few moments to complete loading in the browser.
 
@@ -229,7 +229,7 @@ The Machine_Learning_HOL_Ex4.ipynb notebook will require a few moments to comple
 
 Once the notebook is fully displayed, continue to Exercise 4.
 
-![Jupyter4](images\Jupyter4.jpg "DSVM")
+![Jupyter4](images/Jupyter4.jpg "DSVM")
 
 <a name="Exercise4"></a>
 
