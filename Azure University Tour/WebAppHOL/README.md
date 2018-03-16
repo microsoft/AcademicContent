@@ -7,7 +7,7 @@
 
 We find ourselves now at a fascinating moment in the history of software development. For the first time ever, not only is data about our world abundant, readily available, and easy to share, but nearly unlimited processing power is just as available to anyone who needs it. Add to that mix the public availability of new, powerful artificial-intelligence (AI) algorithms that Microsoft had previously used only in-house, and suddenly developers have a mind-boggling degree of programming power, right at their fingertips. With AI, we can tap into huge amounts of data and make it work for us by giving us insights about whatever we care about. Microsoft Cognitive Services provides a rich source for AI algorithms, enabling your apps to see, hear, speak, understand, and interpret your users' needs.
 
-In this lab, you will experience the benefits of using AI first-hand. You will begin the lab by downloading a short-term vacation-rental web application called ContosoBNB. Then you will incorporate into that web application the Project Wollongong API from Cognitive Services. Project Wollongong provides a custom score for the attractiveness of a location according to a user's select preferences. After incorporating the API, the ContosoBNB application is able to render a Bing Maps image of several cities within the United States, where the project is supported. Circles appear on the rendered map to represent neighborhoods, and each circle displays a number that corresponds to the number of available properties within that neighborhood. Neighborhoods are also rated according to preference settings that the user can adjust. Finally, using the API, you will alter the neighborhood criteria (categories) displayed in the user interface (UI). This step will enable you to customize the attractiveness score of a neighborhood so that the score is determined by its proximity to amenities you prioritize (such as restaurants or parks) within the defined area.
+In this lab, you will experience the benefits of using AI first-hand. You will begin the lab by downloading a short-term vacation-rental web application called ContosoBNB. Then you will incorporate into that web application the Project Local Insights API from Cognitive Services. Project Local Insights provides a custom score for the attractiveness of a location according to a user's select preferences. After incorporating the API, the ContosoBNB application is able to render a Bing Maps image of several cities within the United States, where the project is supported. Circles appear on the rendered map to represent neighborhoods, and each circle displays a number that corresponds to the number of available properties within that neighborhood. Neighborhoods are also rated according to preference settings that the user can adjust. Finally, using the API, you will alter the neighborhood criteria (categories) displayed in the user interface (UI). This step will enable you to customize the attractiveness score of a neighborhood so that the score is determined by its proximity to amenities you prioritize (such as restaurants or parks) within the defined area.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -16,7 +16,7 @@ In this hands-on lab, you will learn:
 
 - How to install and use Visual Studio Code
 - How to obtain an API key for Azure Cognitive Services
-- How to make calls to the Project Wollongong API
+- How to make calls to the Project Local Insights API
 - How data is returned from the API (and how to use that data)
 - How to tailor your requests to customize the data returned from the API
 
@@ -25,7 +25,7 @@ In this hands-on lab, you will learn:
 
 The following are required to complete this hands-on lab:
 
-- A key for the Project Wollongong API. If you haven't already, [subscribe to Project Wollongong](https://labs.cognitive.microsoft.com/en-us/project-wollongong).
+- A key for the Project Local Insights API. If you haven't already, [subscribe to Project Local Insights](https://labs.cognitive.microsoft.com/en-us/project-local-insights).
 - Your favorite development environment for web applications. If you don't have one, try Microsoft Visual Studio Code, with [downloads for Windows, Linux, and Mac available here](https://code.visualstudio.com/download).
 
 <a name="Resources"></a>
@@ -33,7 +33,7 @@ The following are required to complete this hands-on lab:
 
 This lab makes use of an existing dataset (released under public domain) to model real-world property listings with their associated details. The complete dataset can be found at http://insideairbnb.com/get-the-data.html. For the purposes of this lab, the data has been separated by city location and provided in JavaScript Object Notation (JSON) format to emulate how it might be provided if requested directly from a database.
 
-You will find a .ZIP file containing the resources used in this lab [here](https://github.com/ProwessInfo/AzureUniversityRedShirt/archive/master.zip). (These are the same resources that are downloaded at the beginning of Exercise 1.)
+You will find a .ZIP file containing the resources used in this lab [here](https://redshirttour.blob.core.windows.net/challenges/WebAppHOL.zip). (These are the same resources that are downloaded at the beginning of Exercise 1.)
 
 <a name="Exercises"></a>
 ## Exercises ##
@@ -44,7 +44,7 @@ This hands-on lab includes the following exercises:
 - [Exercise 2: Getting familiar with the core application](#Exercise2)
 - [Exercise 3: Add neighborhoods to the core application](#Exercise3)
 - [Exercise 4: Add slider controls to the core application](#Exercise4)
-- [Exercise 5: Connect the Wollongong API](#Exercise5)
+- [Exercise 5: Connect the Project Local Insights API](#Exercise5)
 - [Exercise 6: Update pins with API ratings data](#Exercise6)
 - [Exercise 7: Customizing the API for personalized results](#Exercise7)
 
@@ -53,7 +53,7 @@ Estimated time to complete this lab: **60** minutes
 <a name="Exercise1"></a>
 ## Exercise 1: Configure your Cognitive Services API key ##
 
-In this exercise, you will install (if necessary) and open a local development environment, download the lab's source files, and finally configure the application to use the API key provided after subscribing to Project Wollongong.
+In this exercise, you will install (if necessary) and open a local development environment, download the lab's source files, and finally configure the application to use the API key provided after subscribing to Project Local Insights.
 
 1. You will need an editor to view and make changes to the application as part of this lab. If you would like to use Visual Studio Code and your computer is running Windows, proceed to step 2. Otherwise skip to step 4.
 2. Download and install Microsoft Visual Studio Code [here](https://code.visualstudio.com/download). Accept the License Agreement and make note of the installation location.
@@ -65,23 +65,22 @@ In this exercise, you will install (if necessary) and open a local development e
 
   ![Visual Studio Code Settings](img/VSCodeOptions.png)
 
-4. Use the **AzureUniversityRedShirt** link at the top of this page to open the root of this GitHub repository (AzureUniversityRedShirt) in a new tab or page. On that page, click **Clone or download**.
-5. Click **Download ZIP** to download the repository to your computer,
-6. Extract the downloaded .zip file.
-7. If you haven't done so already, go to https://labs.cognitive.microsoft.com/en-us/project-wollongong and subscribe to Project Wollongong to get your key.
+4. Download the .ZIP file containing the resources used in this lab [here](https://redshirttour.blob.core.windows.net/challenges/WebAppHOL.zip)
+5. Extract the downloaded .zip file.
+6. If you haven't done so already, go to https://labs.cognitive.microsoft.com/en-us/project-local-insights and subscribe to Project Local Insights to get your key.
 
-  ![Subscribe to Wollongong Project](img/Subscribe.png)
+  ![Subscribe to Project Local Insights](img/Subscribe.png)
 
-8. Once you have your key, navigate on your device to the `AzureUniversityRedShirt-master\Challenges\WebAppHOL\js` folder, and then Right Click the **settings.js** file and select "Open with Code". Replace **\<YOUR KEY\>** with your Project Wollongong key (deleting the brackets "\<" and "\>" along with the letters "YOUR KEY"), and then save and close the file.
+7. Once you have your key, navigate on your device to the `WebAppHOL\WebAppHOL\js` folder, and then Right Click the **settings.js** file and select "Open with Code". (On a Mac, you can select the file in Finder, open the File menu, point to Open With, and then select Visual Studio Code.) Replace **\<YOUR KEY\>** with your Project Local Insights key (deleting the brackets "\<" and "\>" along with the letters "YOUR KEY"), and then save and close the file.
 
   ![Set the Cog Services Key](img/SetCogServicesKey.png)
 
 <a name="Exercise2"></a>
 ## Exercise 2: Getting familiar with the core application ##
 
-In this exercise, you will run the core web application locally to get familiar with its functionality as a baseline for the upcomming exercises.
+In this exercise, you will run the core web application locally to get familiar with its functionality as a baseline for the upcoming exercises.
 
-1. From the **AzureUniversityRedShirt-master\Challenges\WebAppHOL** directory on your computer, open the **index.html** file in your browser to run the application.
+1. From the **WebAppHOL\WebAppHOL** directory on your computer, open the **index.html** file in your browser to run the application.
   
   ![Web Application Landing Page](img/WebApp_Choose.png)
 
@@ -95,7 +94,7 @@ In this exercise, you will run the core web application locally to get familiar 
 
 4. Note your ability to zoom in and out using the scroll control, and the **Neighborhood Match** legend in the lower right of the window.
 
-In the upcomming exercises you will render circles (pins) indicating Seattle neighborhoods containing the number of rentals available in each neighborhood (shown as numbers within the circles). These neighborhoods will be ranked based on how well they meet a user-defined set of criteria, known as `categories` within the Project Wollongong API. The default scoring displayed is based on average-level interest in access to local amenities, such as medical care, grocery and shopping stores, parks and recreation, and nightlife. How well a neighborhood scores is represented by the color of the pins defined in the legend.
+In the upcoming exercises you will render circles (pins) indicating Seattle neighborhoods containing the number of rentals available in each neighborhood (shown as numbers within the circles). These neighborhoods will be ranked based on how well they meet a user-defined set of criteria, known as `categories` within the Project Wollongong API. The default scoring displayed is based on average-level interest in access to local amenities, such as medical care, grocery and shopping stores, parks and recreation, and nightlife. How well a neighborhood scores is represented by the color of the pins defined in the legend.
 
 5. Note how clicking the hamburger control in the upper-right of the window allows you to change your location to a number of pre-defined cities.
 
@@ -106,21 +105,21 @@ In the upcomming exercises you will render circles (pins) indicating Seattle nei
 
 In this exercise, we'll get neighborhood data from a json file and render the neighborhoods on the map.
 
-1. For reference find and open one of the neighborhood datasets, the datasets are found in the **AzureUniversityRedShirt-master\Challenges\WebAppHOL\data** directory on your computer. Open the **data_se.js** in your editor as an example.
+1. For reference find and open one of the neighborhood datasets, the datasets are found in the **WebAppHOL\WebAppHOL\data** directory on your computer. Open the **data_se.js** in your editor as an example.
 
 2. Note that the data includes names of the neighborhood and the number of avaialble rentals within that neighborhood. This data is representative for how it might be provided after making a request to a database.
 
   ![Seattle Neighborhood Data](img/NeighborhoodData.png)
   
-3. Close the neighborhood data file and open the **index.js** file found in the **AzureUniversityRedShirt-master\Challenges\WebAppHOL\js** directory on your computer using Visual Studio Code or another editor. You will be making changes to this file to render the neighborhoods on the map.
+3. Close the neighborhood data file and open the **index.js** file found in the **WebAppHOL\WebAppHOL\js** directory on your computer using Visual Studio Code or another editor. You will be making changes to this file to render the neighborhoods on the map.
 
-4. Find and comment out "CenterMap(settings.city);" on line 232 of **index.js** and un-comment the following line on 233 "// GetCityData(city_code);"
+4. Now you will search and find "// GetCityData(city_code);" in **index.js** and un-comment the line. (Note that if you are using Visual Studio Code, you can perform a search by pressing '\<CTRL\>\<F\>'.)
 
   ![Code Change](img/WebApp_CodeChange1.png)
 
-5. Find "// GetNeighborhoods();" on line 311 and un-comment.
+5. Find "// GetNeighborhoods();" within the **index.js** file and un-comment.
 
-6. Find "///// Get Neighborhood Data Here" on line 62 within the index.js file and add the following functions below that line.
+6. The 'GetCityData' and 'GetNeighborhoods' functions gather neighborhood data for the selected city and set pins on each neighborhood. Find "///// Get Neighborhood Data Here" within the **index.js** file and add these functions below that line.
 
 Add the 'GetCityData' function using the code snippet below:
 
@@ -171,7 +170,7 @@ function GetNeighborhoods() {
     }
 }
 ```
-7. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). As a reminder, you'll find the index.html file in the **AzureUniversityRedShirt-master\Challenges\WebAppHOL** directory on your computer.
+7. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). As a reminder, you'll find the index.html file in the **WebAppHOL\WebAppHOL** directory on your computer.
 
 8. Note how circles or pins have been added to your map representing all the neighborhoods in your neighghborhood dataset. The numbers within the pins represent the number of rental propreties within that neighborhood. Every circle is gray because we are not yet comparing any personal preferences to neighborhood features.
 
@@ -182,13 +181,13 @@ function GetNeighborhoods() {
 <a name="Exercise4"></a>
 ## Exercise 4: Adding sliders to the core application ##
 
-In this exercise, we'll add slider controls for categories used by the Project Wollongong API. The application populates a pop-up window with a list of sliders which are found within the **settings.js** file, found within the **AzureUniversityRedShirt-master\Challenges\WebAppHOL\js** directory on your computer.
+In this exercise, we'll add slider controls for categories used by the Project Local Insights API. The application populates a pop-up window with a list of sliders which are found within the **settings.js** file, found within the **WebAppHOL\WebAppHOL\js** directory on your computer.
 
-1. Open the **setting.js** file with Visual Studio Code (or another editor) and take note of how the categories are defined and which categories are currently active vs. commented out.
+1. Open the **settings.js** file with Visual Studio Code (or another editor) and take note of how the categories are defined and which categories are currently active vs. commented out.
 
   ![Categories in the Settings.js File](img/WebApp_CategoriesFile.png)
   
-2. Find "// CreateCategorySlidersList();" on line 391 in the **index.js** file at the end of the jQuery document ready function and un-comment it. 
+2. Search for "// CreateCategorySlidersList();" in the **index.js** file found at the end of the jQuery document ready function and un-comment it. 
 
 3.  Below the line `/////// Create Slider Functions Here`, add the 'CreateCategorySlidersList' function using the code snippet below:
 
@@ -212,7 +211,7 @@ function CreateCategorySlidersList() {
 }
 ```
 
-4. Add the 'CreateCategorySlider' function using the code snippet below:
+4. And immediately following the last function, add the 'CreateCategorySlider' function using the code snippet below:
 
 ```javascript
 /**
@@ -235,31 +234,33 @@ function CreateCategorySlider(id, name, value) {
 }
 ```
 
-5. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). As a reminder, you'll find the index.html file in the **AzureUniversityRedShirt-master\Challenges\WebAppHOL** directory on your computer.
+5. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). As a reminder, you'll find the index.html file in the **WebAppHOL\WebAppHOL** directory on your computer.
 
 6. Note how sliders are now displayed after clicking the **Make it Yours** control. The displayed sliders are categories identified in the settings.js file.
 
   ![Display Categories Slider Control](img/WebApp_Filters.png)
 
 <a name="Exercise5"></a>
-## Exercise 5: Connect the Wollongong API ##
+## Exercise 5: Connect the Project Local Insights API ##
 
-In this exercise, we'll continue to build our application so that we can make requests to the Project Wollongong API.
+In this exercise, we'll continue to build our application so that we can make requests to the Project Local Insights API.
 
 1. In the **index.js** file, search for the PlacePin function. In the PlacePin function, add: 
  `GetNeighborhoodScore(location, category_string, pins[neighborhood + settings.city]);`
  on the line before: `map.entities.push(pins[neighborhood + settings.city]);`
 
-2. Add the following additional functions to the **index.js** file:
+This line calls the function we'll add in the next step.
+
+2. Now you are going to add the 'GetNeighborhoodScore' function that creates a sum of the weighted categories. Navigate to the end of the the **index.js** file, adding the function before the line containing `window.onresize = Resize;`
 
 ```javascript
 /**
- * Calls the Project Wollongong api for the requested location.
+ * Calls the Project Local Insights api for the requested location.
  * The sum of nearby locations for each category is used for the score of that category.
  * (see the PlacePin function)
  *
  * @param  {obj} location - location object returned from the Maps Search module
- * @param  {string} category - category string used in the Project Wollongong api call
+ * @param  {string} category - category string used in the Project Local Insights api call
  * @param  {obj} pin - the map pin connected to this location
  * @private
  */
@@ -314,18 +315,17 @@ function GetNeighborhoodScore(location, category, pin) {
 }
 ```
 
-2. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). As a reminder, you'll find the index.html file in the **AzureUniversityRedShirt-master\Challenges\WebAppHOL** directory on your computer.
+3. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). As a reminder, you'll find the index.html file in the **WebAppHOL\WebAppHOL** directory on your computer.
+Note: Running the application, you will notice that nothing seems to have changed. Even though we are now gathering data from the Cognitive service API, we are not yet rendering that on the pins. You will do that in Exercise 6.
 
 <a name="Exercise6"></a>
 ## Exercise 6: Update pins with API ratings data ##
 
-In this exercise, we'll use the responses provided by the Cognitive service API, create a score for each neighborhood by adding up all the neighborhood weighted category scores and apply a color to the pin based on their relative scores.
+In this exercise, we'll use the responses provided by Microsoft Cognitive Services to create a score for each neighborhood. We'll calculate this score by adding up all the neighborhood weighted category scores. Then we'll apply a color to the pin based on their relative scores.
 
-1.  In the **index.js** file, search for the `GetNeighborhoodScore` function. At the end of the Done function in the GetNeighborhoodScore function, look for the comment `// CalculatePinScore(pin);`. 
+1.  Search for "// CalculatePinScore(pin);" in the **index.js** file and un-comment it. This line now calls the function added in the next step.
 
-2. After `// CalculatePinScore(pin);`, add: `CalculatePinScore(pin);`
-
-3. Add the following functions to **index.js**:
+2. Now you will add the 'CalculatePinScore' and 'UpdatePinColors' functions. The 'CalculatePinScore' function creates an overall score for each pin (neighborhood), and the 'UpdatePinColors' function sets the color of the pins based on its score. Navigate to the end of the the **index.js** file and then add these functions before the line containing `window.onresize = Resize;`:
 
 ```javascript
 /**
@@ -388,16 +388,16 @@ function UpdatePinColors() {
     }
 }
 ```
-2. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). Reminder, you'll find the index.html file in the **AzureUniversityRedShirt-master\Challenges\WebAppHOL** directory on your computer.
+3. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). Reminder, you'll find the index.html file in the **WebAppHOL\WebAppHOL** directory on your computer.
 
-3. Note how the neighborhood pins are now colored to indicate which best the weighting category setting defined by the slider control. The displayed sliders are categories identified in the settings.js file.
+4. Note how the neighborhood pins are now colored to indicate which best the weighting category setting defined by the slider control. The displayed sliders are categories identified in the settings.js file. (Note: To toggle between the map view and the slider control, click the double arrows at the top of the window.) 
 
   ![Display Categories Slider Control](img/WebApp_Default.png)
 
 <a name="Exercise7"></a>
 ## Exercise 7: Customizing the API for personalized results ##
 
-In this exercise, you will customize the implementation of the Project Wollongong API. The `categories` object, found in the **settings.js** file (located in the **AzureUniversityRedShirt-master\Challenges\WebAppHOL\js** directory), provides the full list of categories that are available for use with the Project Wollongong API. By modifying this `categories` object, you can change which sliders appear in the "Make It Yours" menu.
+In this exercise, you will customize the implementation of the Project Local Insights API. The `categories` object, found in the **settings.js** file (located in the **WebAppHOL\WebAppHOL\js** directory), provides the full list of categories that are available for use with the Project Local Insights API. By modifying this `categories` object, you can change which sliders appear in the "Make It Yours" menu.
 
 1. Open the **settings.js** file in a text editor, and then browse to the **categories** object. Note that in the list of categories, all but five are currently commented out; these are the five criteria that are currently displayed in the ContosoBNB UI. Add and remove the commenting to match the following five categories: **Arts & Entertainment**, **Food & Drink Stores**, **Restaurants**, **Bars**, and **Bars/Nightlife**. These changes give preference to a rental property that is within walking distance to the best Seattle neighborhood for nightlife.
 
@@ -450,12 +450,12 @@ route_mode: "walking",
 ```  
 <a name="Summary"></a>
 ## Summary ##
-Project Wollongong is a project within Cognitive Services that provides an attractiveness score for a location based on the number of nearby amenities.
+Project Local Insights is a project within Cognitive Services that provides an attractiveness score for a location based on the number of nearby amenities.
 
-In this lab, you learned the following about Project Wollongong:
+In this lab, you learned the following about Project Local Insights:
 
 - How to subscribe to a service and receive an API key
-- How to make calls to the Project Wollongong API
+- How to make calls to the Project Local Insights API
 - How data is returned from the API and how to use that data
 - How to customize requests to make data returned by the API suit your needs 
 
