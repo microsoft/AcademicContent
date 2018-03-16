@@ -32,6 +32,13 @@ The following are required to complete this hands-on lab:
 - [Node.js](https://nodejs.org)
 - [Skype](https://www.skype.com/en/download-skype/skype-for-computer/)
 
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-2.png)
+
+The cost of this lab is **moderate**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
+
 ---
 
 <a name="Exercises"></a>

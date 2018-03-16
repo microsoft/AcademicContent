@@ -1,11 +1,6 @@
 <a name="HOLTitle"></a>
 # Building Smart Apps with Azure Machine Learning Studio #
 
----
-
-<a name="Overview"></a>
-## Overview ##
-
 Machine learning, which facilitates predictive analytics using large volumes of data by employing algorithms that iteratively learn from that data, is one of the fastest growing areas of computer science. Its uses range from credit-card fraud detection and self-driving cars to optical character recognition (OCR) and online shopping recommendations. It makes us smarter by making computers smarter. And its usefulness will only increase as more and more data becomes available and the desire to perform predictive analysis from that data grows, too.
 
 [Azure Machine Learning Studio](https://azure.microsoft.com/en-us/services/machine-learning/) is a cloud-based predictive-analytics service that offers a streamlined experience for data scientists of all skill levels. It features an easy to use, drag-and-drop interface for building machine-learning models. It comes with a library of time-saving experiments and features best-in-class algorithms developed and tested in the real world by Microsoft businesses such as Bing. And its built-in support for [R](https://www.r-project.org/) and [Python](https://www.python.org/) means you can build custom scripts  to customize your model. Once you've built and trained your model, you can easily expose it as a Web service that is consumable from a variety of programming languages, or share it with the community by placing it in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
@@ -34,6 +29,13 @@ The following are required to complete this hands-on lab:
 ### Resources ###
 
 [Click here](https://a4r.blob.core.windows.net/public/cs-machine-learning-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-1.png)
+
+The cost of this lab is **low**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
 ---
 

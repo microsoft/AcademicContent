@@ -1,10 +1,5 @@
 <a name="HOLTitle"></a>
-# Building Interactive Notebooks with Azure Notebooks
-
----
-
-<a name="Overview"></a>
-## Overview ##
+# Building Interactive Notebooks with Azure Notebooks #
 
 [Azure Notebooks](https://notebooks.azure.com/) provides a cloud-based solution for editing and running [Jupyter](http://jupyter.org/) notebooks. Jupyter is an environment based on [IPython](https://ipython.org/) that facilitates interactive programming and data analysis using a variety of programming languages. Jupyter notebooks enjoy widespread use in research and academia for mathematical modeling, machine learning, statistical analysis, and for teaching and learning how to code.
 
@@ -27,13 +22,20 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- A Microsoft Account
+- An active Microsoft personal account. If you don't have one, [sign up for free](https://account.microsoft.com/account).
 - A modern Web browser
 
 <a name="Resources"></a>
 ### Resources ###
 
 [Click here](https://a4r.blob.core.windows.net/public/notebook-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-0.png)
+
+There is no cost associated with this lab because it doesn't require an Azure subscription. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
 ---
 

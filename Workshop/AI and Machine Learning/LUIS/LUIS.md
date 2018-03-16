@@ -1,11 +1,6 @@
 <a name="HOLTitle"></a>
 # Microsoft Language Understanding Intelligent Service (LUIS) #
 
----
-
-<a name="Overview"></a>
-## Overview ##
-
 One of the key challenges in the world of human-computer interactions is training a computer to discern a user's intent from natural-language commands. Suppose that a user types "find news about Microsoft" into a news reader or browser. A person understands this command easily. But implementing the logic for a computer to understand this simple phrase is an exceedingly difficult task, especially when you factor in language and culture and the influence that those have on how we communicate.  
 
 ![Human-computer interaction](Images/luis-lab-header.png)
@@ -32,6 +27,13 @@ The following are required to complete this hands-on lab:
 
 - A Microsoft account. If you don't have one, [sign up for free](https://account.microsoft.com/account).
 - [Visual Studio Code](http://code.visualstudio.com)
+
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-0.png)
+
+There is no cost associated with this lab because it doesn't require an Azure subscription. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
 ---
 

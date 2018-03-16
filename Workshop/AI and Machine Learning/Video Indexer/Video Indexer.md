@@ -1,7 +1,7 @@
 <a name="HOLTitle"></a>
-# Video Indexer #
+# Using Azure Video Indexer to Extract Video Insights#
 
-[Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a suite of services and APIs backed by machine learning that enables developers to incorporate intelligent features such as facial recognition in photos and videos, sentiment analysis in text, and language understanding into their applications. [Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) is one of the newest members of the Cognitive Services family. Its purpose is to transform raw video content into content that is searchable, discoverable, and more engaging to the user. Want to generate a video transcript, index words spoken in the video or written on a whiteboard, or create a list of keywords from topics discussed in the video? Video Indexer can do all this and more. It can even find individuals in the video, and sometimes tell who they are.
+[Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a suite of services and APIs backed by machine learning that enables developers to incorporate intelligent features such as facial recognition in photos and videos, sentiment analysis in text, and language understanding into their applications. [Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) is one of the newest members of the Cognitive Services family. Its purpose is to transform raw video content into content that is searchable, discoverable, and more engaging to the user. Want to generate a video transcript, index words spoken in the video or written on a whiteboard, or create a list of keywords from topics discussed in the video? Video Indexer can do all this and more. It can even find individuals in the video, and sometimes tell who they are.
 
 ![Microsoft Video Indexer](Images/video-indexer.jpg)
 
@@ -31,9 +31,9 @@ The following are required to complete this hands-on lab:
 <a name="Cost"></a>
 ### Cost ###
 
-![](Images/cost-1.png)
+![](Images/cost-0.png)
 
-For an overview of the cost ratings assigned to each lab, refer to [Explanation of Costs](../../Costs.md).
+There is no cost associated with this lab because it doesn't require an Azure subscription. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
 ---
 
