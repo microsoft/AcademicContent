@@ -23,9 +23,9 @@ The following are required to complete this hands-on lab:
 <a name="Cost"></a>
 ### Cost ###
 
-![](Images/cost-1.png)
+![](Images/cost-2.png)
 
-The cost of this lab is **low**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
+The cost of this lab is **moderate**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
 <a name="Exercises"></a>
 ## Exercises ##

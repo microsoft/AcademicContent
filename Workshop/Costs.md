@@ -5,8 +5,8 @@ Most of the hands-on labs in this repo require an Azure subscription. When you d
 Each lab in this repository includes a cost rating that ranges from 0 to 3 dollar signs:
 
 - Zero dollar signs means the lab incurs no cost because it doesn't require an Azure subscription or utilizes Azure services with free tiers
-- $ means that the cost of the lab is minimal — generally a few dollars or less if you delete the resources that you deployed within a day or two
+- $ means that the cost of the lab is minimal — generally a few dollars or less
 - $$ means that the cost of the lab is higher, and is generally reserved for labs that require VMs and other resources that are billed by the hour
 - $$$ means that the cost is relatively high because you are deploying compute clusters or other resources that incur multiple per-hour charges
 
-The final exercise in each $$$ lab has you delete the resource group that you created during the course of the lab. Deleting the resource group deletes all the resources inside it and stops all charges for those resources. It is *always* wise to delete the Azure resources you created when you no longer need them to avoid incurring unwanted charges. It is **especially important for $$$ labs**, because compute clusters can cost anywhere from a few dollars to thousands of dollars per day and can quickly exhaust the funds available in your subscription.
+The cost rating is based on how much you will be charged for a lab if you fail to delete the resources that you deployed. **None of the labs costs more than a few dollars if you spend an hour or two working it and delete it at the end**. You can delete everything you deployed during a lab by deleting the resource groups created during the course of the lab. Deleting a resource group deletes all the resources inside it and stops all charges for those resources. This is **especially important for $$$ labs**, because compute clusters can cost anywhere from a few dollars to thousands of dollars per day and can quickly exhaust the funds available in your subscription.
