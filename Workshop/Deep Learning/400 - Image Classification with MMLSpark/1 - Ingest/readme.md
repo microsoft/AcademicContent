@@ -28,7 +28,12 @@ The following are required to complete this hands-on lab:
 - The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 - [Docker](https://www.docker.com/)
 
----
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-2.png)
+
+The cost of this lab series is **moderate**. For an overview of cost ratings, refer to [Explanation of Costs](../../../Costs.md).
 
 <a name="Exercises"></a>
 ## Exercises ##

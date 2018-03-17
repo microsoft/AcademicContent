@@ -25,8 +25,6 @@ In this hands-on lab, you will learn how to:
 
 If you haven't completed the [previous lab in this series](../2%20-%20Process), you must do so before starting this lab.
 
----
-
 <a name="Exercises"></a>
 ## Exercises ##
 

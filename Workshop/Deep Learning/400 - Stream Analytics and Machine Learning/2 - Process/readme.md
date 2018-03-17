@@ -33,8 +33,6 @@ If you haven't completed the [previous lab in this series](../1%20-%20Ingest), y
 
 [Click here](https://topcs.blob.core.windows.net/public/400-streaming-resources-02.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
 
----
-
 <a name="Exercises"></a>
 ## Exercises ##
 

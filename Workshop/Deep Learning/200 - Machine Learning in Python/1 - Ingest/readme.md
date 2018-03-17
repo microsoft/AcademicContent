@@ -26,7 +26,12 @@ The following are required to complete this hands-on lab:
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - An [Xfce](https://xfce.org/) remote-desktop client such as [X2Go](https://wiki.x2go.org/doku.php/download:start)
 
----
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-2.png)
+
+The cost of this lab series is **moderate**. For an overview of cost ratings, refer to [Explanation of Costs](../../../Costs.md).
 
 <a name="Exercises"></a>
 ## Exercises ##

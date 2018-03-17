@@ -21,8 +21,6 @@ In this hands-on lab, you will learn how to:
 
 If you haven't completed the [previous lab in this series](../3%20-%20Predict), you must do so before starting this lab.
 
----
-
 <a name="Exercises"></a>
 ## Exercises ##
 

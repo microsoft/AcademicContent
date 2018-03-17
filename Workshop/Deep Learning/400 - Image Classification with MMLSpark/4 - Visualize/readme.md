@@ -30,8 +30,6 @@ If you haven't completed the [previous lab in this series](../3%20-%20Predict), 
 
 [Click here](https://topcs.blob.core.windows.net/public/400-mmlspark-resources-04.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
 
----
-
 <a name="Exercises"></a>
 ## Exercises ##
 

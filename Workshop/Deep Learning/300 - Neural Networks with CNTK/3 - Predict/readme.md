@@ -32,8 +32,6 @@ If you haven't completed the [previous lab in this series](../2%20-%20Process), 
 
 [Click here](https://topcs.blob.core.windows.net/public/300-cntk-resources-03.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
 
----
-
 <a name="Exercises"></a>
 ## Exercises ##
 

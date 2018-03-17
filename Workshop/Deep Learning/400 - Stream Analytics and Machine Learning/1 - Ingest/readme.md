@@ -32,7 +32,12 @@ The following are required to complete this hands-on lab:
 
 [Click here](https://topcs.blob.core.windows.net/public/400-streaming-resources-01.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
 
----
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-2.png)
+
+The cost of this lab series is **moderate**. For an overview of cost ratings, refer to [Explanation of Costs](../../../Costs.md).
 
 <a name="Exercises"></a>
 ## Exercises ##
