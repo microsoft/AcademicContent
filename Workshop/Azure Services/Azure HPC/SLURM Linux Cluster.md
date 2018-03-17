@@ -1,11 +1,6 @@
 <a name="HOLTitle"></a>
 # Creating and Using an HPC Cluster in Azure #
 
----
-
-<a name="Overview"></a>
-## Overview ##
-
 One of the benefits of using the cloud to handle large computing workloads is virtually limitless scalability. In Microsoft Azure, you can create a cluster of virtual machines (VMs) networked to form a high-performance computing (HPC) cluster in a matter of minutes. If you need more computing power than the cluster can provide, you can *scale up* by creating a cluster with larger and more capable virtual machines (more cores, more RAM, etc.), or you can *scale out* by creating a cluster with more nodes.
 
 In this lab, you will create a Linux cluster consisting of three virtual machines, or nodes — one master node and two worker nodes — and run a Python script on it to convert a batch of color images to grayscale. You will get first-hand experience deploying HPC clusters in Azure as well as managing and using the nodes in a cluster. And you will learn how easy it is to bring massive computing power to bear on problems that require it when you use the cloud.
@@ -37,7 +32,12 @@ The following are required to complete this hands-on lab:
 
 [Click here](https://a4r.blob.core.windows.net/public/hpc-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
 
----
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-3.png)
+
+The cost of this lab is **high**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
 <a name="Exercises"></a>
 ## Exercises ##

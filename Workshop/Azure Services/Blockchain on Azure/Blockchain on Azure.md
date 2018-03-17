@@ -1,11 +1,6 @@
 <a name="HOLTitle"></a>
 # Blockchain-as-a-Service on Azure #
 
----
-
-<a name="Overview"></a>
-## Overview ##
-
 [Blockchain](https://en.wikipedia.org/wiki/Blockchain) is one of the world's most talked-about technologies, and one that has the potential to fundamentally change the way we use the Internet. Originally designed for [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin), Blockchain remains the technology behind that digital currency but is not limited to applications involving virtual money. In the words of Dan Tapscott, author, TED speaker, and Executive Director of the [Blockchain Research Institute](https://www.blockchainresearchinstitute.org/), "Blockchain is an incorruptible digital ledger of economic transactions that can be programmed to record not just financial transactions, but virtually everything of value." One of the more inventive uses for Blockchain is to implement tamper-proof digital voting systems, a concept that is being actively explored [in the U.S. and abroad](https://venturebeat.com/2016/10/22/blockchain-tech-could-fight-voter-fraud-and-these-countries-are-testing-it/).
 
 Blockchain gets its name from the manner in which it stores data. Transactions such as a transfer of money from one party to another or a vote cast for a political candidate are stored in cryptographically sealed blocks. Blocks are joined together into chains ("blockchains"), with each block in the chain containing a hash of the previous block. A blockchain acts like an electronic ledger, and rather than be stored in one place, it is replicated across countless computers (nodes) in a Blockchain network. This decentralization means that a blockchain has no single point of failure and is controlled by no single entity. The latter is especially important for a system whose primary goal is to allow private transactions to take place without involving a "trusted" third party such as a bank.
@@ -34,6 +29,13 @@ In this hands-on lab, you will learn how to:
 - [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and PowerShell (Windows users only)
 - [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html)
 - [Node.js](https://nodejs.org)
+
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-3.png)
+
+The cost of this lab is **high**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
 <a name="Exercises"></a>
 ## Exercises ##

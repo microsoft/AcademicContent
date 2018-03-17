@@ -1,11 +1,6 @@
 <a name="HOLTitle"></a>
 # Virtual Machine Scaling and Performance #
 
----
-
-<a name="Overview"></a>
-## Overview ##
-
 One of the benefits of using the cloud to handle large computing workloads is virtually limitless scalability. In Microsoft Azure, you can create a cluster of virtual machines (VMs) networked to form a high-performance computing (HPC) cluster in a matter of minutes. If you need more computing power than the cluster can provide, you can *scale up* by creating a cluster with larger and more capable virtual machines (more cores, more RAM, etc.), or you can *scale out* by creating a cluster with more nodes. Finding the optimum cluster configuration for a given job is a key requirement for utilizing compute resources effectively and efficiently.
 
 In this hands-on lab, you will run a compute-intensive job on three different Linux HPC clusters and compare performance. The cluster sizes you will use are:
@@ -49,6 +44,13 @@ The following are required to complete this hands-on lab:
 ### Resources ###
 
 [Click here](https://a4r.blob.core.windows.net/public/vm-scaling-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-3.png)
+
+The cost of this lab is **high**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
 <a name="Exercises"></a>
 ## Exercises ##

@@ -37,8 +37,6 @@ The following are required to complete this hands-on lab:
 
 The cost of this lab is **moderate**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
----
-
 <a name="Exercises"></a>
 ## Exercises ##
 

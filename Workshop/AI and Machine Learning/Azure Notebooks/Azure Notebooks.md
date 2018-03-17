@@ -37,8 +37,6 @@ The following are required to complete this hands-on lab:
 
 There is no cost associated with this lab because it doesn't require an Azure subscription. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
----
-
 <a name="Exercises"></a>
 ## Exercises ##
 

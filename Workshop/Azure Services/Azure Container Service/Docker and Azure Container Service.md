@@ -1,11 +1,6 @@
 <a name="HOLTitle"></a>
 # Running Docker Containers in the Azure Container Service #
 
----
-
-<a name="Overview"></a>
-## Overview ##
-
 Containers, which allow software and files to be bundled up into neat packages that can be run on different computers and different operating systems, are earning a lot of attention these days. And almost synonymous with the term "container" is the term "Docker." [Docker](http://www.docker.com) is the world's most popular containerization platform. This description of it comes from the Docker Web site:
 
 *Docker containers wrap a piece of software in a complete filesystem that contains everything needed to run: code, runtime, system tools, system libraries – anything that can be installed on a server. This guarantees that the software will always run the same, regardless of its environment.*
@@ -51,7 +46,12 @@ You do not need to install the Docker client if you already have Docker (or Dock
 
 [Click here](https://a4r.blob.core.windows.net/public/container-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
 
----
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-2.png)
+
+The cost of this lab is **moderate**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
 <a name="Exercises"></a>
 ## Exercises ##

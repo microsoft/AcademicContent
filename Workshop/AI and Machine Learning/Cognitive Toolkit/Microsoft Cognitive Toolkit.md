@@ -52,8 +52,6 @@ There is no cost associated with this lab because it doesn't require an Azure su
 
 [Click here](https://a4r.blob.core.windows.net/public/cntk-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
 
----
-
 <a name="Exercises"></a>
 ## Exercises ##
 
