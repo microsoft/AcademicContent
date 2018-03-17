@@ -1,11 +1,6 @@
 <a name="HOLTitle"></a>
 # Using Microsoft Power BI to Explore and Visualize Data #
 
----
-
-<a name="Overview"></a>
-## Overview ##
-
 [Microsoft Power BI](https://powerbi.microsoft.com/en-us/mobile/) was created to address the data explosion in commercial and academic organizations, the need to analyze that data, and the need for rich, interactive visuals to represent the data and reveal key insights. It contains a suite of tools that assist in the full life cycle of data analysis, from data discovery and collection to data transformation, aggregation, visualization, sharing, and collaboration. Moreover, it allows you to create rich visualizations without writing any code and present them in interactive dashboards.
 
 Power BI can organize and unify all of your organization’s data to provide a clear, real-time view of your world. Its features include data connectors for a wide range of services and applications, support for popular file formats and databases, a full-featured expression engine, a WYSIWYG editor for creating sophisticated visualizations, support for visualizing data on the Web or on mobile devices running iOS, Android, or Windows, and support for embedding visualizations in your own Web or mobile apps.
@@ -37,7 +32,12 @@ The following are required to complete this hands-on lab:
 - An active Microsoft Power BI subscription or [sign up for a free trial](https://app.powerbi.com/signupredirect?pbi_source=web)
 - [Microsoft Power BI Desktop](https://go.microsoft.com/fwlink/?LinkId=521662&clcid=0x409) (Windows only).
 
----
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-1.png)
+
+The cost of this lab is **low**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
 <a name="Exercises"></a>
 ## Exercises ##

@@ -1,9 +1,5 @@
 <a name="HOLTitle"></a>
 # Data Analytics with Apache Spark for Azure HDInsight #
----
-
-<a name="Overview"></a>
-## Overview ##
 
 Today, data is being collected in ever-increasing amounts, at ever-increasing velocities, and in an ever-expanding variety of formats. This explosion of data is colloquially known as the Big Data phenomenon.
 
@@ -36,7 +32,12 @@ The following are required to complete this hands-on lab:
 
 [Click here](https://a4r.blob.core.windows.net/public/spark-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
 
----
+<a name="Cost"></a>
+### Cost ###
+
+![](Images/cost-3.png)
+
+The cost of this lab is **high**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
 <a name="Exercises"></a>
 ## Exercises ##
