@@ -31,7 +31,7 @@
             <h2></h2>
           <table class="table table-bordered table-striped table-hover">
 					<tr>
-					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Workshop"> Workshop</a></b></td>
+					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Workshop">Labs</a></b></td>
 					   <td>Hands-on exercises using cross-platform technologies with Microsoft Azure.</td>
 					</tr>
           <tr>
