@@ -120,7 +120,7 @@ In this exercise, we'll get neighborhood data from a json file and render the ne
 
 5. Find "// GetNeighborhoods();" within the **index.js** file and un-comment.
 
-The 'GetCityData' and 'GetNeighborhoods' functions gather neighborhood data for the selected city and set pins on each neighborhood. Find "///// Get Neighborhood Data Here" within the **index.js** file and add these functions starting below that line.
+The 'GetCityData' and 'GetNeighborhoods' functions gather neighborhood data for the selected city and set pins on each neighborhood. Find "///// Get Neighborhood Data Here" within the **index.js** file and add these functions starting below that line. Note: You'll be uncommenting and adding functions throughout the rest of this lab so be sure to take time to read and understand the code - what its intent is and why its expressed in this way. If you get stuck, ask a mentor! :) 
 
 6. Add the 'GetCityData' function using the code snippet below:
 
