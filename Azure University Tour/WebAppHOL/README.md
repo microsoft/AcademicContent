@@ -317,12 +317,12 @@ function GetNeighborhoodScore(location, category, pin) {
 ```
 
 3. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). As a reminder, you'll find the index.html file in the **WebAppHOL\WebAppHOL** directory on your computer.
-Note: Running the application, you will notice that nothing seems to have changed. Even though we are now gathering data from the Cognitive service API, we are not yet rendering that on the pins. You will do that in Exercise 6.
+Note: Running the application, you will notice that nothing seems to have changed. Even though we are now gathering data from the Cognitive Service API, we are not yet rendering that on the pins. You will do that in Exercise 6.
 
 <a name="Exercise6"></a>
 ## Exercise 6: Update pins with API ratings data ##
 
-In this exercise, we'll use the responses provided by Microsoft Cognitive Services to create a score for each neighborhood. We'll calculate this score by adding up all the neighborhood weighted category scores. Then we'll apply a color to the pin based on their relative scores.
+In this exercise, we'll use the responses provided by Cognitive Services to create a score for each neighborhood. We'll calculate this score by adding up all the neighborhood weighted category scores. Then we'll apply a color to the pin based on their relative scores.
 
 1.  Search for "// CalculatePinScore(pin);" in the **index.js** file and un-comment it. This line now calls the function added in the next step.
 
