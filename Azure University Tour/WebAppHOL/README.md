@@ -460,7 +460,7 @@ In this lab, you learned the following about Project Local Insights:
 - How data is returned from the API and how to use that data
 - How to customize requests to make data returned by the API suit your needs 
 
-As this lab has shown, Microsoft Cognitive Services enables you to quickly and easily infuse your application with AI insights that can bring your application to life.
+As this lab has shown, Azure Cognitive Services enables you to quickly and easily infuse your application with AI using a pre-existing data set. If you were building a fully-productionalized BNB rentals application, you might imagine how your development needs would grow to include real-time user-generated content and more sophisticated models of scoring. Fortunately Azure has enterprise-grade tools like [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) and [Azure Machine Learning](https://azure.microsoft.com/overview/machine-learning/) to help. You can learn more about the complete Azure AI platform [here](https://azure.microsoft.com/overview/ai-platform/).
 
 ---
 
