@@ -173,7 +173,7 @@ function GetNeighborhoods() {
 ```
 8. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). As a reminder, you'll find the index.html file in the **WebAppHOL\WebAppHOL** directory on your computer.
 
-9. Note how circles or pins have been added to your map representing all the neighborhoods in your neighghborhood dataset. The numbers within the pins represent the number of rental propreties within that neighborhood. Every circle is gray because we are not yet comparing any personal preferences to neighborhood features.
+9. Note how circles or pins have been added to your map representing all the neighborhoods in the dataset. The numbers within the pins represent the number of rental properties within that neighborhood. Every circle is gray because we are not yet comparing any personal preferences to neighborhood features.
 
 10. Click **Make it Yours**. Notice that the page is blank and no customization controls have yet been added to the app.
 
