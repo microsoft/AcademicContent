@@ -114,15 +114,15 @@ In this exercise, we'll get neighborhood data from a json file and render the ne
   
 3. Close the neighborhood data file and open the **index.js** file found in the **WebAppHOL\WebAppHOL\js** directory on your computer using Visual Studio Code or another editor. You will be making changes to this file to render the neighborhoods on the map.
 
-4. Now you will search and find "// GetCityData(city_code);" in **index.js** and un-comment the line. (Note that if you are using Visual Studio Code, you can perform a search by pressing '\<CTRL\>\<F\>'.)
+4. Search and find "// GetCityData(city_code);" in **index.js** and un-comment the line of code (that is, delete the "//" prior to "GetCity..."). Note that if you are using Visual Studio Code, you can perform a search by pressing '\<CTRL\>\<F\>'.
 
   ![Code Change](img/WebApp_CodeChange1.png)
 
 5. Find "// GetNeighborhoods();" within the **index.js** file and un-comment.
 
-6. The 'GetCityData' and 'GetNeighborhoods' functions gather neighborhood data for the selected city and set pins on each neighborhood. Find "///// Get Neighborhood Data Here" within the **index.js** file and add these functions below that line.
+The 'GetCityData' and 'GetNeighborhoods' functions gather neighborhood data for the selected city and set pins on each neighborhood. Find "///// Get Neighborhood Data Here" within the **index.js** file and add these functions starting below that line.
 
-Add the 'GetCityData' function using the code snippet below:
+6. Add the 'GetCityData' function using the code snippet below:
 
 ```javascript
 /**
@@ -147,7 +147,7 @@ function GetCityData(dataset) {
     // });
 }
 ```
-Add the 'GetNeighborhoods' function to the index.js file using the code snippet below.
+7. Add the 'GetNeighborhoods' function to the index.js file using the code snippet below:
 
 ```javascript
 /**
@@ -171,11 +171,11 @@ function GetNeighborhoods() {
     }
 }
 ```
-7. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). As a reminder, you'll find the index.html file in the **WebAppHOL\WebAppHOL** directory on your computer.
+8. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). As a reminder, you'll find the index.html file in the **WebAppHOL\WebAppHOL** directory on your computer.
 
-8. Note how circles or pins have been added to your map representing all the neighborhoods in your neighghborhood dataset. The numbers within the pins represent the number of rental propreties within that neighborhood. Every circle is gray because we are not yet comparing any personal preferences to neighborhood features.
+9. Note how circles or pins have been added to your map representing all the neighborhoods in your neighghborhood dataset. The numbers within the pins represent the number of rental propreties within that neighborhood. Every circle is gray because we are not yet comparing any personal preferences to neighborhood features.
 
-9. Click **Make it Yours**. Notice that the page is blank and no customization controls have yet been added to the app.
+10. Click **Make it Yours**. Notice that the page is blank and no customization controls have yet been added to the app.
 
   ![Code Change](img/WebApp_Pins.png)
 
