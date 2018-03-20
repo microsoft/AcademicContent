@@ -88,7 +88,7 @@ At this stage, the Choose a size page appears. Proceed to the next step.
 
 ![ChooseSize](img/ChooseSize.jpg)
 
-2. In the list of available VM types, select **DS4_V2 Standard**. Notice the wide range of VM choices available. Azure provides a range of choices according to the needs of your workload - for example, some applications might need the high memory allocation (G-series) while others are equipped with GPUs (N-series) that maximize the performance of deep-learning experiments (like image classification). Some are cost-effective for early experiementation (A-series, Dv2 series). But a D-series is a good starting point for this lab. You can learn more [here](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/09/12/choosing-the-most-appropiate-azure-virtual-machine-specification/).
+2. In the list of available VM types, select **DS4_V2 Standard**. Notice the wide range of VM choices available. Azure provides these according to the growing needs of your workload or application - for example, you might need the high memory allocation (G-series) or additional GPUs (N-series) that maximize the performance of deep-learning experiments (like image classification). Some VMs are most cost-effective for early experiementation (A-series, Dv2 series). But a D-series is a good starting point for this lab. You can learn more [here](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/09/12/choosing-the-most-appropiate-azure-virtual-machine-specification/).
 
 ![ChooseSize2](img/ChooseSize2.jpg)
 
@@ -108,24 +108,24 @@ The Create page appears, displaying offer details and summary information.
 7.  The **Start** button is not available, indicating that the new VM has already started.
 
 ### Step 3: Connecting to the new VM
-1. If you are on an Apple Mac device, download and install [Microsoft Remote Desktop 10](https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12) from the [App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12).
+If you are on an Apple Mac device, download and install [Microsoft Remote Desktop 10](https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12) from the [App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12).
 
-2. On the control bar for your new VM, click **Connect**.
+1. On the control bar for your new VM, click **Connect**.
 
 ![Connect](img/Connect.jpg)
 
 This step downloads an RDP file through your browser.
 
-3. Open the RDP file, and then connect to the DSVM.
+2. Open the RDP file, and then connect to the DSVM.
 
 	- If you are on a Windows computer, you can open the RDP file through the browser. Click **Connect** when prompted, then supply the credentials you specified in step 1 of this exercise when prompted, and finally click **Yes** to accept the certificate.
 	- If you are on a Mac device, save the RDP file to a convenient location, and then open the file. If you are prompted to verify a certificate, click **Continue**. Enter the credentials you specified in the step 1 when prompted.
 
-4.  When you see the DSVM desktop, proceed to the next exercise.
+3.  When you see the DSVM desktop, proceed to the next exercise.
 
 <a name="Exercise2"></a>
 ## Exercise 2: Set up the U-SQL local run environment
-We are going to run U-SQL queries on the DSVM, but these tools are missing some components that we need by default. Before you can run U-SQL queries locally in the source code editor, Microsoft Visual Studio Code, you will need to download and install an additional Visual Studio component, Azure Data Lake Tools, and additional script dependencies. Then you will need to start the Data Lake local run service.
+We are going to run U-SQL queries on the DSVM but the default configuration is missing some components that we need for our lab. Before you can run U-SQL queries locally in the source code editor like [Visual Studio Code](https://code.visualstudio.com/), you will need to download and install an extension called Azure Data Lake Tools plus some additional script dependencies. Then you will need to start the Data Lake local-run service.
 
 ### Step 1: Installing the Visual Studio component 
 1. In the DSVM, right-click the **Start** button, and then select **Search**.
@@ -158,9 +158,7 @@ The installation will require a few minutes to complete.
 8. After the installation has completed, close the Visual Studio Installer window.
 
 ### Step 2: Installing Azure Data Lake Tools in Visual Studio Code
-We will be using Visual Studio Code as our source-code editor of choice. To make Visual Studio Code compatible with U-SQL, we need to install the Data Lake Tools extension.
-
-U-SQL is a powerful big-data query language that was designed to be used for a wide variety of datasets (both structured and unstructured) that are stored in Data Lake Store, Azure Blob storage, Microsoft SQL Server in Azure, Azure SQL Database, and Azure SQL Data Warehouse. An additional advantage of U-SQL is that you can query data directly in CSV files, without having to create a database and load the data into that database.
+We will be using Visual Studio Code as our source-code editor of choice which has already been pre-installed on the DSVM. If you like using it, you can also [install it](https://code.visualstudio.com/) on your Mac, Windows, or Linux device in the future. To make Visual Studio Code compatible with U-SQL, we need to install the Data Lake Tools extension.
 
 1.  On the desktop of the DSVM, locate and double-click the Visual Studio Code icon to open the application.
 
@@ -212,7 +210,7 @@ You now need to trigger Visual Studio Code to install dependencies that are need
 
 ### Step 4: Start and configure the Azure Data Lake local run service
 
-U-SQL was designed to be used for large datasets stored in Data Lake and Blob storage. To query *local* data files, you first need to start and configure the Data Lake local run service.
+U-SQL is a powerful big-data query language that was designed to be used for a wide variety of datasets (both structured and unstructured) that are stored in Data Lake Store, Azure Blob storage, Microsoft SQL Server in Azure, Azure SQL Database, and Azure SQL Data Warehouse. An additional advantage of U-SQL is that you can query data directly in CSV files, without having to create a database and load the data into that database. U-SQL was designed to be used for large datasets stored in Data Lake and Blob storage. To query *local* data files, you first need to start and configure the Data Lake local run service.
 
 1. In Visual Studio Code, from the **View** menu, select **Command Palette**. (If you are on a PC, you can open the command palette with the keyboard shortcut Ctrl+Shift+P.)
 
