@@ -9,17 +9,16 @@ You devise the following plan: Because your startup does not have the capital to
 
 ### Objectives
 In this HOL, you will:
-+ Learn how Data Lake and U-SQL provide an alternative to Apache Hadoop Distributed File System (HDFS) and MapReduce.
-+ Work with data on your local system and in Azure Data Lake Store.
-+ Execute U-SQL queries on your local system and in Data Lake.
-+ Modify queries to address data-inconsistency issues.
++ Work with data and U-SQL queries on your local system and in Azure Data Lake Store.
++ Execute U-SQL queries on your local system and in Azure Data Lake.
++ Modify queries to address data-inconsistency issues
 
 
 ### Prerequisites
 
 The following are required to complete this HOL:
 
-- An Azure subscription, which will be used to create the VM and and query Data Lake. Verified students can get access through [Azure for Students](http://aka.ms/azure5students).
+- An Azure subscription, which will be used to create the VM and query Data Lake. Verified students can get access through [Azure for Students](http://aka.ms/azure5students).
 
 ### Resources
 
