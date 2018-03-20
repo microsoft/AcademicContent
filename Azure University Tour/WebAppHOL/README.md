@@ -451,9 +451,9 @@ route_mode: "walking",
 ```  
 <a name="Summary"></a>
 ## Summary ##
-Project Local Insights is a project within Cognitive Services that provides an attractiveness score for a location based on the number of nearby amenities.
+Local Insights is an experimental project within the Azure Cognitive Services family that provides an attractiveness score for a location based on the number of nearby amenities.
 
-In this lab, you learned the following about Project Local Insights:
+In this lab, you learned the following steps in creating an AI solution:
 
 - How to subscribe to a service and receive an API key
 - How to make calls to the Project Local Insights API
