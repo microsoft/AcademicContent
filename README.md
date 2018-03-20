@@ -31,27 +31,27 @@
             <h2></h2>
           <table class="table table-bordered table-striped table-hover">
 					<tr>
-					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Workshop">Labs</a></b></td>
+					   <td><b><a href="Labs">Labs</a></b></td>
 					   <td>Hands-on exercises using cross-platform technologies with Microsoft Azure.</td>
 					</tr>
           <tr>
-					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Scripts">Scripts (preview)</a></b></td>
+					   <td><b><a href="Educator%20Content/Scripts">Scripts (preview)</a></b></td>
 					   <td>Scripts and templates to help set up your classroom environment.</td>
 					</tr>
           <tr>
-					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Azure%20Guides">Azure Guides</a></b></td>
+					   <td><b><a href="Educator%20Content/Azure%20Guides">Azure Guides</a></b></td>
 					   <td>Discover what Azure technologies apply to different teaching areas.</td>
 					</tr>
           <tr>
-					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Event-In-Box/Machine%20Learning%20Challenge">Event in a Box</a></b></td>
+					   <td><b><a href="Educator%20Content/Event-In-Box/Machine%20Learning%20Challenge">Event in a Box</a></b></td>
 					   <td>A pre-packaged event to help students explore machine learning.</td>
 					</tr>
           <tr>
-					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content">Complimentary Course Content</a></b></td>
+					   <td><b><a href="Educator%20Content/Complimentary%20Course%20Content">Complimentary Course Content</a></b></td>
 					   <td>Learning modules to complement existing course instruction. Includes presentations, speaker notes, and hands-on labs.</td>
 					</tr>
           <tr>
-					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks"> Tech Talks</a></b></td>
+					   <td><b><a href="Educator%20Content/Tech%20Talks">Tech Talks</a></b></td>
 					   <td>Presentations on emerging or innovative tech topics with speakers notes and demos. </td>
 					</tr>
 				 </table>
