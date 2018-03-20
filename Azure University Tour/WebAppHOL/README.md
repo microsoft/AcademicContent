@@ -27,13 +27,14 @@ The following are required to complete this hands-on lab:
 
 - An API key from Cognitive Services Local Insights. If you haven't already, [subscribe to Project Local Insights](https://labs.cognitive.microsoft.com/en-us/project-local-insights).
 - Visual Studio Code, with [downloads for Windows, Linux, and Mac available here](https://code.visualstudio.com/download).
+- Download the .ZIP file containing the resources used in this lab [here](https://redshirttour.blob.core.windows.net/challenges/WebAppHOL.zip).
 
 <a name="Resources"></a>
 ### Resources ###
 
 This lab makes use of an existing dataset (released under public domain) to model real-world property listings and their metadata. The complete dataset can be found at http://insideairbnb.com/get-the-data.html. For the purposes of this lab, the data has been separated by city location and provided in [JavaScript Object Notation (JSON)](https://www.json.org/) format to emulate how it might be provided if requested directly from a database.
 
-You will find a .ZIP file containing the resources used in this lab [here](https://redshirttour.blob.core.windows.net/challenges/WebAppHOL.zip). (These are the same resources that are downloaded at the beginning of Exercise 1.)
+
 
 <a name="Exercises"></a>
 ## Exercises ##
