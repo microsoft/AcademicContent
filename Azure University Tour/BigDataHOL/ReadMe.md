@@ -1,11 +1,11 @@
-# Big data hands-on lab (HOL) #
+# Harness the Power of Big Data for your BNB Rentals App #
 <a name="Overview"></a>
 ## Overview ##
-In this hands-on lab (HOL), you are working as a new developer for a company that is creating an app called ContosoBNB, a short-term vacation rental platform similar to [Airbnb](https://www.airbnb.com/). One feature planned for the ContosoBNB application will help property owners by suggesting a rental rate that is based on recent data about similar rental properties in the local market.
+In this hands-on lab (HOL), you are working as a new developer for a startup that is creating a short-term vacation rental sharing app called [ContosoBNB](https://contosobnb.azurewebsites.net/). One feature planned for the ContosoBNB app will help property owners by suggesting a rental rate that is based on recent data about similar rental properties in the local market.
 
-To prepare for development of this feature, your team has recently obtained public data about rental properties in four American cities, each in a separate comma-separated value (CSV) file. You have been tasked with finding the most recent rental data in these large files and also with finding a way to search for all rental properties that match any given criteria within a specific area.
+To develop this feature, your team has recently obtained public data about rental properties in four cities in the United States, each in a distinct comma-separated value (CSV) file. You have been tasked with finding the most recent rental data in these large files and also with finding a way to search for all rental properties that match any given criteria within a specific area.
 
-You devise the following plan. Because your company does not own a workstation suitable for big-data processing, you decide first to create a powerful virtual machine (VM) in Microsoft Azure that you can use to perform your work while paying only for the time spent using the VM. You will perform this task in Exercise 1. Next, as a way to complete the specific task that has been assigned to you, you know that you can use the Azure Data Lake big-data query language, U-SQL, to directly query data in CSV files without having to load the data in a database. However, you want to perform these U-SQL queries even more quickly and without having to rely on remote storage, so you decide to install the Data Lake local run service on the VM workstation after the VM is up and running. You will perform this task in Exercise 2. In Exercise 3, you will create and perform U-SQL queries on the VM to compile a list of the most recent rental listings from all four CSV files. Finally, in Exercise 4, you will debug a U-SQL query statement devised to find listings within a specific neighborhood.
+You devise the following plan: Because your startup does not have the capital to build and maintain a big-data processing workstation, you decide first to create a powerful virtual machine (VM) in Microsoft Azure that you can use to perform your work while paying only for the time spent using the VM. You will perform this task in Exercise 1. Next, as a way to complete the specific task that has been assigned to you, you know that you can use [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) and U-SQL (a big-data query language), to directly query data within CSV files without having to load the data in a database. But you want to perform these U-SQL queries even more quickly and without having to rely on remote storage; you can install the Data Lake local-run service on the VM hosted in Azure. You will perform this task in Exercise 2. In Exercise 3, you will create and perform U-SQL queries on the VM to compile a list of the most recent rental listings from all four CSV files. Finally, in Exercise 4, you will debug a U-SQL query statement devised to find listings within a specific neighborhood.
 
 ### Objectives
 In this HOL, you will:
@@ -19,7 +19,7 @@ In this HOL, you will:
 
 The following are required to complete this HOL:
 
-- An Azure subscription, with which to perform Data Lake data-transfer exercises
+- An Azure subscription, which will be used to create the VM and and query Data Lake. Verified students can get access through [Azure for Students](http://aka.ms/azure5students).
 
 ### Resources
 
