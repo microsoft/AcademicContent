@@ -1,21 +1,21 @@
 <a name="HOLTitle"></a>
-# Incorporating Cognitive Services into a web application #
+# How to build ContosoBNB, an AI-powered Rentals web app #
 ---
 
 <a name="Overview"></a>
 ## Overview ##
 
-We find ourselves now at a fascinating moment in the history of software development. For the first time ever, not only is data about our world abundant, readily available, and easy to share, but nearly unlimited processing power is just as available to anyone who needs it. Add to that mix the public availability of new, powerful artificial-intelligence (AI) algorithms that Microsoft had previously used only in-house, and suddenly developers have a mind-boggling degree of programming power, right at their fingertips. With AI, we can tap into huge amounts of data and make it work for us by giving us insights about whatever we care about. [Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provides a rich source for AI algorithms, enabling your apps to see, hear, speak, understand, and interpret your users' needs.
+We find ourselves now at a fascinating moment in the history of technology. Through our mobile devices, data is abundant, readily available, and easy to share. We have nearly unlimited processing power and it's available to anyone who needs it. Add to that mix the public availability of new, powerful artificial-intelligence (AI) algorithms, and suddenly developers have a mind-boggling degree of programming power, right at their fingertips. With AI, we can tap into huge amounts of data and make it work for us by giving us insights about whatever we care about. [Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provides a rich source for AI algorithms, enabling your apps to see, hear, speak, understand, and interpret your users' needs.
 
-In this lab, you will experience the benefits of using AI first-hand. You will begin the lab by downloading a short-term vacation-rental web application called [ContosoBNB](https://contosobnb.azurewebsites.net/). Then you will incorporate into that web application the Project Local Insights API from Cognitive Services. Project Local Insights provides a custom score for the attractiveness of a location according to a user's select preferences. After incorporating the API, the ContosoBNB application is able to render a Bing Maps image of several cities within the United States, where the project is supported. Circles appear on the rendered map to represent neighborhoods, and each circle displays a number that corresponds to the number of available properties within that neighborhood. Neighborhoods are also rated according to preference settings that the user can adjust. Finally, using the API, you will alter the neighborhood criteria (categories) displayed in the user interface (UI). This step will enable you to customize the attractiveness score of a neighborhood so that the score is determined by its proximity to amenities you prioritize (such as restaurants or parks) within the defined area.
+In this lab, you will experience the benefits of using AI first-hand. You will begin the lab by downloading a short-term vacation-rental web app called [ContosoBNB](https://contosobnb.azurewebsites.net/). Then you will incorporate into that web app the Project Local Insights API from Cognitive Services. Project Local Insights provides a custom score for the attractiveness of a location according to a user's select preferences. After incorporating the API, the ContosoBNB application is able to render a Bing Maps image of several cities within the United States where the project is supported. Circles appear on the rendered map to represent neighborhoods, and each circle displays a number that corresponds to the number of available properties within that neighborhood. Neighborhoods are also rated according to preference settings that the user can adjust. Finally, using the API, you will alter the neighborhood criteria (categories) displayed in the user interface (UI). This step will enable you to customize the attractiveness score of a neighborhood so that the score is determined by its proximity to amenities you prioritize (such as restaurants or parks) within the defined area.
 
 <a name="Objectives"></a>
 ### Objectives ###
 
-In this hands-on lab, you will learn:
+In this hands-on lab, you will learn how to build your own AI-powered Contoso BNB:
 
-- How to install and use Visual Studio Code
-- How to obtain an API key for Azure Cognitive Services
+- How to install and use Visual Studio Code on your preferred platform
+- How to obtain an API key for Cognitive Services
 - How to make calls to the Project Local Insights API
 - How data is returned from the API (and how to use that data)
 - How to tailor your requests to customize the data returned from the API
@@ -25,13 +25,13 @@ In this hands-on lab, you will learn:
 
 The following are required to complete this hands-on lab:
 
-- A key for the Project Local Insights API. If you haven't already, [subscribe to Project Local Insights](https://labs.cognitive.microsoft.com/en-us/project-local-insights).
-- Your favorite development environment for web applications. If you don't have one, try Microsoft Visual Studio Code, with [downloads for Windows, Linux, and Mac available here](https://code.visualstudio.com/download).
+- An API key from Cognitive Services Local Insights. If you haven't already, [subscribe to Project Local Insights](https://labs.cognitive.microsoft.com/en-us/project-local-insights).
+- Visual Studio Code, with [downloads for Windows, Linux, and Mac available here](https://code.visualstudio.com/download).
 
 <a name="Resources"></a>
 ### Resources ###
 
-This lab makes use of an existing dataset (released under public domain) to model real-world property listings with their associated details. The complete dataset can be found at http://insideairbnb.com/get-the-data.html. For the purposes of this lab, the data has been separated by city location and provided in JavaScript Object Notation (JSON) format to emulate how it might be provided if requested directly from a database.
+This lab makes use of an existing dataset (released under public domain) to model real-world property listings and their metadata. The complete dataset can be found at http://insideairbnb.com/get-the-data.html. For the purposes of this lab, the data has been separated by city location and provided in [JavaScript Object Notation (JSON)](https://www.json.org/) format to emulate how it might be provided if requested directly from a database.
 
 You will find a .ZIP file containing the resources used in this lab [here](https://redshirttour.blob.core.windows.net/challenges/WebAppHOL.zip). (These are the same resources that are downloaded at the beginning of Exercise 1.)
 
