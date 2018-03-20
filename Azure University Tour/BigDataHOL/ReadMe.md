@@ -5,7 +5,7 @@ In this hands-on lab (HOL), you are working as a new developer for a startup tha
 
 To develop this feature, your team has recently obtained public data about rental properties in four cities in the United States, each in a distinct [comma-separated value (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) file. You have been tasked with finding the most recent rental data in these large files and also with finding a way to search for all rental properties that match any given criteria within a specific area.
 
-You devise the following plan: Because your startup does not have the capital to build and maintain a big-data processing workstation, you decide first to create a powerful, Linux-based [Data Science Virtual Machine (DSVM)](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) in Azure that you can use to perform your work while paying only for the time spent using the VM (Exercise 1). Next, as a way to complete the specific task that has been assigned to you, you know that you can use [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) and [U-SQL](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started) to directly query data within CSV files without having to load the data into a database. You also want to perform these U-SQL queries quickly - without having to rely on remote storage - so you install the Data Lake local-run service on the VM hosted in Azure (Exercise 2). You will create and perform U-SQL queries on the VM to compile a list of the most recent rental listings from all four CSV files (Exercise 3). Finally you will debug a U-SQL query statement devised to find listings within a specific neighborhood (Exercise 4).
+You devise the following plan: Because your startup does not have the capital to build and maintain a big-data processing workstation, you decide first to create a powerful [Data Science Virtual Machine (DSVM)](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) in Azure that you can use to perform your work while paying only for the time spent using the VM (Exercise 1). Next, as a way to complete the specific task that has been assigned to you, you know that you can use [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) and [U-SQL](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started) to directly query data within CSV files without having to load the data into a database. You also want to perform these U-SQL queries quickly - without having to rely on remote storage - so you install the Data Lake local-run service on the VM hosted in Azure (Exercise 2). You will create and perform U-SQL queries on the VM to compile a list of the most recent rental listings from all four CSV files (Exercise 3). Finally you will debug a U-SQL query statement devised to find listings within a specific neighborhood (Exercise 4).
 
 ### Objectives
 In this HOL, you will:
@@ -18,7 +18,7 @@ In this HOL, you will:
 
 The following are required to complete this HOL:
 
-- An Azure subscription, which will be used to create the VM and query Data Lake. Verified students can get access through [Azure for Students](http://aka.ms/azure5students).
+- An Azure subscription, which will be used to create the VM and query Data Lake. Students can get access through [Azure for Students](http://aka.ms/azure4students). To quickly verify your student status, use your school-issued email address like "your_name@your_school.edu" or equivalent. This will become your Microsoft Account that you can use to log-into the [Azure Portal](http://portal.azure.com).
 
 ### Resources
 
@@ -29,7 +29,7 @@ This lab makes use of an existing dataset (released under public domain) to mode
 This HOL includes the following exercises:
 
 -   [Exercise 1: Create a DSVM](#Exercise1)
--   [Exercise 2: Set up the U-SQL local run environment](#Exercise2)
+-   [Exercise 2: Set-up the U-SQL local run environment](#Exercise2)
 -   [Exercise 3: Use U-SQL to gather data](#Exercise3)
 -   [Exercise 4: Use U-SQL queries to search listings](#Exercise4)
 
@@ -43,7 +43,7 @@ In this exercise, you will create an instance of the Data Science Virtual Machin
 
 ### Step 1: Creating a DSVM in Azure
 
-1.  In a web browser, open the [Azure portal](https://portal.azure.com/), and then sign in with your Microsoft account.
+1.  In a web browser, open the [Azure Portal](https://portal.azure.com/), and then sign in with your Microsoft Account. 
 
 2.  From the left-side menu, click the **+** sign to add a new resource.
 
