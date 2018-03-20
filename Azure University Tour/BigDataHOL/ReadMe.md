@@ -88,7 +88,7 @@ At this stage, the Choose a size page appears. Proceed to the next step.
 
 ![ChooseSize](img/ChooseSize.jpg)
 
-2. In the list of available VM types, select **DS4_V2 Standard**.
+2. In the list of available VM types, select **DS4_V2 Standard**. Notice the wide range of VM choices available. Azure provides a range of choices according to the needs of your workload - for example, some applications might need the high memory allocation (G-series) while others are equipped with GPUs (N-series) that maximize the performance of deep-learning experiments (like image classification). Some are cost-effective for early experiementation (A-series, Dv2 series). But a D-series is a good starting point for this lab. You can learn more [here](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/09/12/choosing-the-most-appropiate-azure-virtual-machine-specification/).
 
 ![ChooseSize2](img/ChooseSize2.jpg)
 
