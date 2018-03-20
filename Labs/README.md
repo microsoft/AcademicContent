@@ -6,12 +6,12 @@ Before you start, make sure you have access to a Microsoft Azure subscription. I
 
 The labs fall into six general categories:
 
-- AI and Machine Learning
-- Azure Services
-- Big Data and Analytics
-- Deep Learning
-- Internet-of-Things
-- Web Development
+- [AI and Machine Learning](AI%20and%20Machine%20Learning)
+- [Azure Services](Azure%20Services)
+- [Big Data and Analytics](Big%20Data%20and%20Analytics)
+- [Deep Learning](Deep%20Learning)
+- [Internet-of-Things](Internet-of-Things)
+- [Web Development](Web%20Development)
 
 Examples include [building a machine-learning model that performs Optical Character Recognition (OCR)](AI%20and%20Machine%20Learning/Azure%20Machine%20Learning), deploying an [Azure Function](https://azure.microsoft.com/services/functions/) that [evaluates images uploaded to blob storage for adult content](Azure%20Services/Azure%20Functions), and [building a BlockChain network on Azure](Azure%20Services/Blockchain%20on%20Azure). Feel free to explore the folders and subfolders in this repo to discover all sorts of interesting exercises and use them to hone your Azure knowledge and development skills.
 
