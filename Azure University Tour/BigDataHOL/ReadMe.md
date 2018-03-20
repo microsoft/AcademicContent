@@ -70,12 +70,12 @@ In this exercise, you will create an instance of the Data Science Virtual Machin
      - One number 
      - One special character that is not "\" or "-" 
 
-Save your user name and password, because you will use this information to sign in to the VM later.
+Save your user name and password, because you will use this information to sign-in to the VM later.
 
-8. In the **Subscription** drop-down menu, select your subscription.
+8. In the **Subscription** drop-down menu, select your current Azure Subscription. Most users will only have one but it's possible to have many.
 9. In the **Resource Group** section, leave **Create New** selected, and then enter a name of your choice for the resource group in the field below; for example, **DataScienceGroup1**.
 
-A resource group in Azure is a container for the resources used to run an application. Resource groups help administrators organize monitoring, access control, provisioning, and billing. Generally, items in one resource group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
+A [Resource Group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in Azure is a container used to run an application. Resource Groups help developers organize and control their solutions such as monitoring, access control, provisioning, active development vs stable production channels, and billing. Generally, items in one Resource Group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
 
 10. In the **Location** drop-down menu, ensure that a geographically close location is chosen.
 11. Click **OK**.
@@ -99,7 +99,7 @@ The Create page appears, displaying offer details and summary information.
 
 5.  Click **Create**.
 
-**Important**: Make sure you return to the Azure portal and shut down this VM after you complete this lab.
+**Important**: Make sure you return to the Azure Portal and shut down this VM after you complete this lab. If you do not do this, your VM will continue to consume your available Azure credit. Azure now has [automatic start/stop features for VMs](https://docs.microsoft.com/azure/automation/automation-solution-vm-management) but you must configure them accordingly.
 
 6.  Wait a few minutes while the DSVM deploys. After it deploys, you will see a dashboard for your new VM. At the top of the dashboard, you will see controls.
 
