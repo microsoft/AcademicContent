@@ -423,7 +423,7 @@ In this exercise, you will use the Azure Portal to view the information regardin
 
 	_Opening the database_
 
-1. Click **Data explorer** in the menu on the left. Then click **Login** at the top of the blade, select **SQL server authentication** as the authorization type, enter the user name and password you specified in Exercise 1, and click **OK** to log in to the database.
+1. Click **Query editor** in the menu on the left. Then click **Login** at the top of the blade, select **SQL server authentication** as the authorization type, enter the user name and password you specified in Exercise 1, and click **OK** to log in to the database.
 
 	![Logging in to the database](Images/login-to-database.png)
 

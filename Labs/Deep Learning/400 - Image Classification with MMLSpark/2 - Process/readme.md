@@ -75,7 +75,7 @@ In this exercise, you will connect to the Azure SQL database you created in the 
 
 	Scroll to the right and observe that the table includes fields named "DHashHex8," "DHashHex7," and so on, all the way down to "DHashHex1." The **load.py** script that you ran in the previous lab used Bing Image Search to find images of paintings by famous artists. Then it downloaded each image and generated a series of [dHashes](https://pypi.python.org/pypi/dhash) with bit sizes from 8 to 1. A dHash is a [perceptual image hash](https://www.pyimagesearch.com/2017/11/27/image-hashing-opencv-python/); its purpose is to quantify the similarity between images. Higher bit sizes produce finer-grained results, meaning images have to be more alike to produce the same dHash. Image hashing is an important part of a strategy to clean the data because you don't want to train a machine-learning model that recognizes Van Gogh paintings with 50 images of the same Van Gogh. Perceptual hashes wouldn't be needed if training images were picked by hand. They are extraordinarily useful when picking images algorithmically.
 
-1. Return to the [Azure Portal](https://portal.azure.com) and open the database that you created in the previous lab. Then use Data Explorer to execute the following query, which uses common table expressions (CTEs) to tabulate the number of unique images for each artist:
+1. Return to the [Azure Portal](https://portal.azure.com) and open the database that you created in the previous lab. Then use the query editor to execute the following query, which uses common table expressions (CTEs) to tabulate the number of unique images for each artist:
 
 	``` SQL
 	WITH RowTagging

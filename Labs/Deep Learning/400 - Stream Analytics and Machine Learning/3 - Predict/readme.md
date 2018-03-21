@@ -165,7 +165,7 @@ In this exercise, you will use the Azure CLI to create an Azure SQL database tha
 
 	_Allowing Azure to access the database server_
 
-1. Open the database in the Azure Portal. Then click **Data explorer** in the menu on the left, click **Login** at the top of the blade, enter the user name and password you specified in Step 1, and click **OK** to log in to the database.
+1. Open the database in the Azure Portal. Then click **Query editor** in the menu on the left, click **Login** at the top of the blade, enter the user name and password you specified in Step 1, and click **OK** to log in to the database.
 
 	![Logging in to the database server](Images/database-login.png)
 
@@ -372,7 +372,7 @@ In this exercise, you will modify the Azure Function that you created in the pre
 
 1. **Let the camera array and the Stream Analytics job run for 3 to 5 minutes**. Then stop the Stream Analytics job and stop **run.js**.
 
-1. Return to the database in the Azure Portal and use Data Explorer to execute the following query:
+1. Return to the database in the Azure Portal and use the query editor to execute the following query:
 
 	```sql
 	SELECT * FROM dbo.PolarBears
