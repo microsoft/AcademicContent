@@ -6,7 +6,6 @@
 
 This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and devops.
 
-Check out our hands-on labs that can be used in the classroom or as workshop content, as well as other educator content including tech talks, coding challenges, and event-in-a-box workshops.
 
 Students can get free Azure credits to explore these resources here:
 * [Azure For Students ($100 in Azure - no credit card required)](https://azure.microsoft.com/en-us/free/students/)
@@ -18,6 +17,7 @@ Your feedback is appreciated - please fork this repo and contribute!
 To report any issues, please [log a GitHub issue](Issues). Include the content section, module number and title, along with any error messages and screenshots.
 
 ## Learn by doing with our [hands-on labs](Labs)
+Check out our hands-on labs that can be used on your own or in the classroom. They also make for great easy-to-run workshops!
 
 | Lab Categories | |
 | - | - |
@@ -29,6 +29,7 @@ To report any issues, please [log a GitHub issue](Issues). Include the content s
 | [Web Development](Labs/Web%20Development) | Quickly create scalable web apps using Node, PHP, MySQL on easy-to-use tools like Visual Studio Code and GitHub. |
 
 ## Other available academic resources
+We also have other great educator content including tech talks, coding challenges, and event-in-a-box workshops.
 | Resource | |
 | - | - |
 | [Scripts (preview)](Educator%20Content/Scripts) | Scripts and templates to help set up your classroom environment. |
