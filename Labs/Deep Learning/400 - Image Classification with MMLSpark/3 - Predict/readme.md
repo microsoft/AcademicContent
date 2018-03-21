@@ -443,7 +443,7 @@ Building on a model that is already trained to understand an application domain 
 	                    print("Processed {0} samples ({1:.2%} correct)".format(pred_count, (float(correct_count) / pred_count)))
 	                if pred_count >= num_images:
 	                    break
-	    print ("{0} of {1} prediction were correct".format(correct_count, pred_count))
+	    print ("{0} of {1} predictions were correct".format(correct_count, pred_count))
 	    return correct_count, pred_count, (float(correct_count) / pred_count)
 	
 	# Evaluate the test set
