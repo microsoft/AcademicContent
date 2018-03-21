@@ -1,14 +1,13 @@
 # Academic Resources for Computer Science
 
-**March 2018 Release.** *The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.
+**March 2018 Release.** *The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
 
 **Source:** https://github.com/MSFTImagine/computerscience
 
-This repo provides technical resources for faculty, students, and Microsoft developer advocates for use in computer science learning. The modules cover common cross-platform scenarios including mobile app dev, web dev, internet of things, data science, machine learning, and devops. We offer hands-on labs that can be used in the classroom or as workshop content, as well as other educator content including tech talks, coding challenges, and event-in-a-box workshops.
+This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and devops.
 
-Most of our learning content focuses on how to deploy cross-platform technologies on Microsoft Azure although the concepts can be applied across many cloud platform solutions.
 
-Students can get free Azure credits to explore these resources in the classroom or on their own here:
+Students can get free Azure credits to explore these resources here:
 * [Azure For Students ($100 in Azure - no credit card required)](https://azure.microsoft.com/en-us/free/students/)
 * [Azure For Students Starter (use free Azure products with no credit card)](https://azure.microsoft.com/en-us/free/students-starter-faq/)
 * [Azure Free Account](https://azure.microsoft.com/en-us/free/)
@@ -18,6 +17,7 @@ Your feedback is appreciated - please fork this repo and contribute!
 To report any issues, please [log a GitHub issue](Issues). Include the content section, module number and title, along with any error messages and screenshots.
 
 ## Learn by doing with our [hands-on labs](Labs)
+Check out our hands-on labs that can be used on your own or in the classroom. They also make for fun, easy-to-run workshops!
 
 | Lab Categories | |
 | - | - |
@@ -29,6 +29,8 @@ To report any issues, please [log a GitHub issue](Issues). Include the content s
 | [Web Development](Labs/Web%20Development) | Quickly create scalable web apps using Node, PHP, MySQL on easy-to-use tools like Visual Studio Code and GitHub. |
 
 ## Other available academic resources
+We also have other great educator content including tech talks, coding challenges, and a machine learning event-in-a-box.
+
 | Resource | |
 | - | - |
 | [Scripts (preview)](Educator%20Content/Scripts) | Scripts and templates to help set up your classroom environment. |
