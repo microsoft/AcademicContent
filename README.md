@@ -26,7 +26,7 @@ To report any issues, please [log a GitHub issue](Issues). Include the content s
 | [Big Data and Analytics](Labs/Big%20Data%20and%20Analytics) | Spin up Apache Spark Clusters, Use Hadoop to extract information from big datasets or use Power BI to explore and visualize data. |
 | [Deep Learning](Labs/Deep%20Learning) | These labs build on each other to introduce tools and libraries for AI. They're labeled 200-400 level to indicate level of technical detail. |
 | [Internet-of-Things](Labs/Internet-of-Things) | Use Azure to collect and stream IoT data securely and in real time. |
-| [Web Development](Labs/Web%20Development) | Quickly create a scalable web apps using Node, PHP, MySQL on easy-to-use tools like Visual Studio Code and GitHub. |
+| [Web Development](Labs/Web%20Development) | Quickly create scalable web apps using Node, PHP, MySQL on easy-to-use tools like Visual Studio Code and GitHub. |
 
 ## Other available academic resources
 | Resource | |
