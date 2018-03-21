@@ -17,7 +17,7 @@ Your feedback is appreciated - please fork this repo and contribute!
 To report any issues, please [log a GitHub issue](Issues). Include the content section, module number and title, along with any error messages and screenshots.
 
 ## Learn by doing with our [hands-on labs](Labs)
-Check out our hands-on labs that can be used on your own or in the classroom. They also make for great easy-to-run workshops!
+Check out our hands-on labs that can be used on your own or in the classroom. They also make for fun, easy-to-run workshops!
 
 | Lab Categories | |
 | - | - |
@@ -30,6 +30,7 @@ Check out our hands-on labs that can be used on your own or in the classroom. Th
 
 ## Other available academic resources
 We also have other great educator content including tech talks, coding challenges, and event-in-a-box workshops.
+
 | Resource | |
 | - | - |
 | [Scripts (preview)](Educator%20Content/Scripts) | Scripts and templates to help set up your classroom environment. |
