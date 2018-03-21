@@ -29,6 +29,8 @@ Check out our hands-on labs that can be used on your own or in the classroom. Th
 | [Web Development](Labs/Web%20Development) | Quickly create scalable web apps using Node, PHP, MySQL on easy-to-use tools like Visual Studio Code and GitHub. |
 
 ## Other available academic resources
+We also have other great educator content including tech talks, coding challenges, and a machine learning event-in-a-box.
+
 | Resource | |
 | - | - |
 | [Scripts (preview)](Educator%20Content/Scripts) | Scripts and templates to help set up your classroom environment. |
