@@ -1,21 +1,21 @@
 <a name="HOLTitle"></a>
-# Incorporating Cognitive Services into a web application #
+# How to build ContosoBNB, an AI-powered Rentals web app #
 ---
 
 <a name="Overview"></a>
 ## Overview ##
 
-We find ourselves now at a fascinating moment in the history of software development. For the first time ever, not only is data about our world abundant, readily available, and easy to share, but nearly unlimited processing power is just as available to anyone who needs it. Add to that mix the public availability of new, powerful artificial-intelligence (AI) algorithms that Microsoft had previously used only in-house, and suddenly developers have a mind-boggling degree of programming power, right at their fingertips. With AI, we can tap into huge amounts of data and make it work for us by giving us insights about whatever we care about. Microsoft Cognitive Services provides a rich source for AI algorithms, enabling your apps to see, hear, speak, understand, and interpret your users' needs.
+We find ourselves now at a fascinating moment in the history of technology. Through our mobile devices, data is abundant, readily available, and easy to share. We have nearly unlimited processing power and it's available to anyone who needs it. Add to that mix the public availability of new, powerful artificial-intelligence (AI) algorithms, and suddenly developers have a mind-boggling degree of programming power, right at their fingertips. With AI, we can tap into huge amounts of data and make it work for us by giving us insights about whatever we care about. [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provides a rich source for AI algorithms, enabling your apps to see, hear, speak, understand, and interpret your users' needs.
 
-In this lab, you will experience the benefits of using AI first-hand. You will begin the lab by downloading a short-term vacation-rental web application called ContosoBNB. Then you will incorporate into that web application the Project Local Insights API from Cognitive Services. Project Local Insights provides a custom score for the attractiveness of a location according to a user's select preferences. After incorporating the API, the ContosoBNB application is able to render a Bing Maps image of several cities within the United States, where the project is supported. Circles appear on the rendered map to represent neighborhoods, and each circle displays a number that corresponds to the number of available properties within that neighborhood. Neighborhoods are also rated according to preference settings that the user can adjust. Finally, using the API, you will alter the neighborhood criteria (categories) displayed in the user interface (UI). This step will enable you to customize the attractiveness score of a neighborhood so that the score is determined by its proximity to amenities you prioritize (such as restaurants or parks) within the defined area.
+In this lab, you will experience the benefits of using AI first-hand. You will begin the lab by downloading a short-term vacation-rental web app called [ContosoBNB](https://contosobnb.azurewebsites.net/). Then you will incorporate the [Local Insights API](https://labs.cognitive.microsoft.com/project-local-insights), an experimental project in the Azure Cognitive Services family. Project Local Insights provides a custom score for the attractiveness of a location according to a user's select preferences. After incorporating the API, the ContosoBNB application is able to render a [Bing Maps](https://www.microsoft.com/maps/choose-your-bing-maps-api) image of several cities within the United States where the project is supported. Circles appear on the rendered map to represent neighborhoods, and each circle displays a number that corresponds to the number of available properties within that neighborhood. Neighborhoods are also rated according to preference settings that the user can adjust. Finally, using the API, you will alter the neighborhood criteria (categories) displayed in the user interface (UI). This step will enable you to customize the attractiveness score of a neighborhood so that the score is determined by its proximity to amenities you prioritize (such as restaurants or parks) within the defined area.
 
 <a name="Objectives"></a>
 ### Objectives ###
 
-In this hands-on lab, you will learn:
+In this hands-on lab, you will learn how to build your own AI-powered Contoso BNB:
 
-- How to install and use Visual Studio Code
-- How to obtain an API key for Azure Cognitive Services
+- How to install and use Visual Studio Code on your preferred platform
+- How to obtain an API key for Cognitive Services
 - How to make calls to the Project Local Insights API
 - How data is returned from the API (and how to use that data)
 - How to tailor your requests to customize the data returned from the API
@@ -25,15 +25,16 @@ In this hands-on lab, you will learn:
 
 The following are required to complete this hands-on lab:
 
-- A key for the Project Local Insights API. If you haven't already, [subscribe to Project Local Insights](https://labs.cognitive.microsoft.com/en-us/project-local-insights).
-- Your favorite development environment for web applications. If you don't have one, try Microsoft Visual Studio Code, with [downloads for Windows, Linux, and Mac available here](https://code.visualstudio.com/download).
+- An API key from Cognitive Services Local Insights. If you haven't already, [subscribe to Project Local Insights](https://labs.cognitive.microsoft.com/en-us/project-local-insights).
+- Visual Studio Code, with [downloads for Windows, Linux, and Mac available here](https://code.visualstudio.com/download).
+- Download the .ZIP file containing the resources used in this lab [here](https://redshirttour.blob.core.windows.net/challenges/WebAppHOL.zip).
 
 <a name="Resources"></a>
 ### Resources ###
 
-This lab makes use of an existing dataset (released under public domain) to model real-world property listings with their associated details. The complete dataset can be found at http://insideairbnb.com/get-the-data.html. For the purposes of this lab, the data has been separated by city location and provided in JavaScript Object Notation (JSON) format to emulate how it might be provided if requested directly from a database.
+This lab makes use of an existing dataset (released under public domain) to model real-world property listings and their metadata. The complete dataset can be found at http://insideairbnb.com/get-the-data.html. For the purposes of this lab, the data has been separated by city location and provided in [JavaScript Object Notation (JSON)](https://www.json.org/) format to emulate how it might be provided if requested directly from a database.
 
-You will find a .ZIP file containing the resources used in this lab [here](https://redshirttour.blob.core.windows.net/challenges/WebAppHOL.zip). (These are the same resources that are downloaded at the beginning of Exercise 1.)
+
 
 <a name="Exercises"></a>
 ## Exercises ##
@@ -113,15 +114,15 @@ In this exercise, we'll get neighborhood data from a json file and render the ne
   
 3. Close the neighborhood data file and open the **index.js** file found in the **WebAppHOL\WebAppHOL\js** directory on your computer using Visual Studio Code or another editor. You will be making changes to this file to render the neighborhoods on the map.
 
-4. Now you will search and find "// GetCityData(city_code);" in **index.js** and un-comment the line. (Note that if you are using Visual Studio Code, you can perform a search by pressing '\<CTRL\>\<F\>'.)
+4. Search and find "// GetCityData(city_code);" in **index.js** and un-comment the line of code (that is, delete the "//" prior to "GetCity..."). Note that if you are using Visual Studio Code, you can perform a search by pressing '\<CTRL\>\<F\>'.
 
   ![Code Change](img/WebApp_CodeChange1.png)
 
 5. Find "// GetNeighborhoods();" within the **index.js** file and un-comment.
 
-6. The 'GetCityData' and 'GetNeighborhoods' functions gather neighborhood data for the selected city and set pins on each neighborhood. Find "///// Get Neighborhood Data Here" within the **index.js** file and add these functions below that line.
+The 'GetCityData' and 'GetNeighborhoods' functions gather neighborhood data for the selected city and set pins on each neighborhood. Find "///// Get Neighborhood Data Here" within the **index.js** file and add these functions starting below that line. Note: You'll be uncommenting and adding functions throughout the rest of this lab so be sure to take time to read and understand the code - what its intent is and why its expressed in this way. If you get stuck, ask a mentor! :) 
 
-Add the 'GetCityData' function using the code snippet below:
+6. Add the 'GetCityData' function using the code snippet below:
 
 ```javascript
 /**
@@ -146,7 +147,7 @@ function GetCityData(dataset) {
     // });
 }
 ```
-Add the 'GetNeighborhoods' function to the index.js file using the code snippet below.
+7. Add the 'GetNeighborhoods' function to the index.js file using the code snippet below:
 
 ```javascript
 /**
@@ -170,11 +171,11 @@ function GetNeighborhoods() {
     }
 }
 ```
-7. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). As a reminder, you'll find the index.html file in the **WebAppHOL\WebAppHOL** directory on your computer.
+8. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). As a reminder, you'll find the index.html file in the **WebAppHOL\WebAppHOL** directory on your computer.
 
-8. Note how circles or pins have been added to your map representing all the neighborhoods in your neighghborhood dataset. The numbers within the pins represent the number of rental propreties within that neighborhood. Every circle is gray because we are not yet comparing any personal preferences to neighborhood features.
+9. Note how circles or pins have been added to your map representing all the neighborhoods in the dataset. The numbers within the pins represent the number of rental properties within that neighborhood. Every circle is gray because we are not yet comparing any personal preferences to neighborhood features.
 
-9. Click **Make it Yours**. Notice that the page is blank and no customization controls have yet been added to the app.
+10. Click **Make it Yours**. Notice that the page is blank and no customization controls have yet been added to the app.
 
   ![Code Change](img/WebApp_Pins.png)
 
@@ -316,12 +317,12 @@ function GetNeighborhoodScore(location, category, pin) {
 ```
 
 3. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). As a reminder, you'll find the index.html file in the **WebAppHOL\WebAppHOL** directory on your computer.
-Note: Running the application, you will notice that nothing seems to have changed. Even though we are now gathering data from the Cognitive service API, we are not yet rendering that on the pins. You will do that in Exercise 6.
+Note: Running the application, you will notice that nothing seems to have changed. Even though we are now gathering data from the Cognitive Service API, we are not yet rendering that on the pins. You will do that in Exercise 6.
 
 <a name="Exercise6"></a>
 ## Exercise 6: Update pins with API ratings data ##
 
-In this exercise, we'll use the responses provided by Microsoft Cognitive Services to create a score for each neighborhood. We'll calculate this score by adding up all the neighborhood weighted category scores. Then we'll apply a color to the pin based on their relative scores.
+In this exercise, we'll use the responses provided by Cognitive Services to create a score for each neighborhood. We'll calculate this score by adding up all the neighborhood weighted category scores. Then we'll apply a color to the pin based on their relative scores.
 
 1.  Search for "// CalculatePinScore(pin);" in the **index.js** file and un-comment it. This line now calls the function added in the next step.
 
@@ -450,16 +451,16 @@ route_mode: "walking",
 ```  
 <a name="Summary"></a>
 ## Summary ##
-Project Local Insights is a project within Cognitive Services that provides an attractiveness score for a location based on the number of nearby amenities.
+Local Insights is an experimental project within the Azure Cognitive Services family that provides an attractiveness score for a location based on the number of nearby amenities.
 
-In this lab, you learned the following about Project Local Insights:
+In this lab, you learned the following steps in creating an AI solution:
 
 - How to subscribe to a service and receive an API key
 - How to make calls to the Project Local Insights API
 - How data is returned from the API and how to use that data
 - How to customize requests to make data returned by the API suit your needs 
 
-As this lab has shown, Microsoft Cognitive Services enables you to quickly and easily infuse your application with AI insights that can bring your application to life.
+As this lab has shown, Azure Cognitive Services enables you to quickly and easily infuse your application with AI using a pre-existing data set. If you were building a fully-productionalized BNB rentals application, you might imagine how your development needs would grow to include real-time user-generated content and more sophisticated models of scoring. Fortunately Azure has enterprise-grade tools like [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) and [Azure Machine Learning](https://azure.microsoft.com/overview/machine-learning/) to help. You can learn more about the complete Azure AI platform [here](https://azure.microsoft.com/overview/ai-platform/).
 
 ---
 

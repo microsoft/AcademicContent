@@ -1,25 +1,24 @@
-# Big data hands-on lab (HOL) #
+# Harness the Power of Big Data for your BNB Rentals App #
 <a name="Overview"></a>
 ## Overview ##
-In this hands-on lab (HOL), you are working as a new developer for a company that is creating an app called ContosoBNB, a short-term vacation rental platform similar to [Airbnb](https://www.airbnb.com/). One feature planned for the ContosoBNB application will help property owners by suggesting a rental rate that is based on recent data about similar rental properties in the local market.
+In this hands-on lab (HOL), you are working as a new developer for a startup that is creating a short-term vacation rental sharing app called [ContosoBNB](https://contosobnb.azurewebsites.net/). One feature planned for the ContosoBNB app will help property owners by suggesting a rental rate that is based on recent data about similar rental properties in the local market.
 
-To prepare for development of this feature, your team has recently obtained public data about rental properties in four American cities, each in a separate comma-separated value (CSV) file. You have been tasked with finding the most recent rental data in these large files and also with finding a way to search for all rental properties that match any given criteria within a specific area.
+To develop this feature, your team has recently obtained public data about rental properties in four cities in the United States, each in a distinct [comma-separated value (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) file. You have been tasked with finding the most recent rental data in these large files and also with finding a way to search for all rental properties that match any given criteria within a specific area.
 
-You devise the following plan. Because your company does not own a workstation suitable for big-data processing, you decide first to create a powerful virtual machine (VM) in Microsoft Azure that you can use to perform your work while paying only for the time spent using the VM. You will perform this task in Exercise 1. Next, as a way to complete the specific task that has been assigned to you, you know that you can use the Azure Data Lake big-data query language, U-SQL, to directly query data in CSV files without having to load the data in a database. However, you want to perform these U-SQL queries even more quickly and without having to rely on remote storage, so you decide to install the Data Lake local run service on the VM workstation after the VM is up and running. You will perform this task in Exercise 2. In Exercise 3, you will create and perform U-SQL queries on the VM to compile a list of the most recent rental listings from all four CSV files. Finally, in Exercise 4, you will debug a U-SQL query statement devised to find listings within a specific neighborhood.
+You devise the following plan: Because your startup does not have the capital to build and maintain a big-data processing workstation, you decide first to create a powerful [Data Science Virtual Machine (DSVM)](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) in Azure that you can use to perform your work while paying only for the time spent using the VM (Exercise 1). Next, as a way to complete the specific task that has been assigned to you, you know that you can use [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) and [U-SQL](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started) to directly query data within CSV files without having to load the data into a database. You also want to perform these U-SQL queries quickly - without having to rely on remote storage - so you install the Data Lake local-run service on the VM hosted in Azure (Exercise 2). You will create and perform U-SQL queries on the VM to compile a list of the most recent rental listings from all four CSV files (Exercise 3). Finally you will debug a U-SQL query statement devised to find listings within a specific neighborhood (Exercise 4).
 
 ### Objectives
 In this HOL, you will:
-+ Learn how Data Lake and U-SQL provide an alternative to Apache Hadoop Distributed File System (HDFS) and MapReduce.
-+ Work with data on your local system and in Azure Data Lake Store.
-+ Execute U-SQL queries on your local system and in Data Lake.
-+ Modify queries to address data-inconsistency issues.
++ Work with data and U-SQL queries on your local system and in Azure Data Lake Store.
++ Execute U-SQL queries on your local system and in Azure Data Lake.
++ Modify queries to address data-inconsistency issues
 
 
 ### Prerequisites
 
 The following are required to complete this HOL:
 
-- An Azure subscription, with which to perform Data Lake data-transfer exercises
+- An Azure subscription, which will be used to create the VM and query Data Lake. Students can get access through [Azure for Students](http://aka.ms/azure4students). To quickly verify your student status, use your school-issued email address like "your_name@your_school.edu" or equivalent. This will become your Microsoft Account that you can use to log-into the [Azure Portal](http://portal.azure.com).
 
 ### Resources
 
@@ -30,7 +29,7 @@ This lab makes use of an existing dataset (released under public domain) to mode
 This HOL includes the following exercises:
 
 -   [Exercise 1: Create a DSVM](#Exercise1)
--   [Exercise 2: Set up the U-SQL local run environment](#Exercise2)
+-   [Exercise 2: Set-up the U-SQL local run environment](#Exercise2)
 -   [Exercise 3: Use U-SQL to gather data](#Exercise3)
 -   [Exercise 4: Use U-SQL queries to search listings](#Exercise4)
 
@@ -44,7 +43,7 @@ In this exercise, you will create an instance of the Data Science Virtual Machin
 
 ### Step 1: Creating a DSVM in Azure
 
-1.  In a web browser, open the [Azure portal](https://portal.azure.com/), and then sign in with your Microsoft account.
+1.  In a web browser, open the [Azure Portal](https://portal.azure.com/), and then sign in with your Microsoft Account. 
 
 2.  From the left-side menu, click the **+** sign to add a new resource.
 
@@ -71,12 +70,12 @@ In this exercise, you will create an instance of the Data Science Virtual Machin
      - One number 
      - One special character that is not "\" or "-" 
 
-Save your user name and password, because you will use this information to sign in to the VM later.
+Save your user name and password, because you will use this information to sign-in to the VM later.
 
-8. In the **Subscription** drop-down menu, select your subscription.
+8. In the **Subscription** drop-down menu, select your current Azure Subscription. Most users will only have one but it's possible to have many.
 9. In the **Resource Group** section, leave **Create New** selected, and then enter a name of your choice for the resource group in the field below; for example, **DataScienceGroup1**.
 
-A resource group in Azure is a container for the resources used to run an application. Resource groups help administrators organize monitoring, access control, provisioning, and billing. Generally, items in one resource group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
+A [Resource Group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in Azure is a container used to run an application. Resource Groups help developers organize and control their solutions such as monitoring, access control, provisioning, active development vs stable production channels, and billing. Generally, items in one Resource Group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
 
 10. In the **Location** drop-down menu, ensure that a geographically close location is chosen.
 11. Click **OK**.
@@ -89,7 +88,7 @@ At this stage, the Choose a size page appears. Proceed to the next step.
 
 ![ChooseSize](img/ChooseSize.jpg)
 
-2. In the list of available VM types, select **DS4_V2 Standard**.
+2. In the list of available VM types, select **DS4_V2 Standard**. Notice the wide range of VM choices available. Azure provides these according to the growing needs of your workload or application - for example, you might need the high memory allocation (G-series) or additional GPUs (N-series) that maximize the performance of deep-learning experiments (like image classification). Some VMs are most cost-effective for early experiementation (A-series, Dv2 series). But a D-series is a good starting point for this lab. You can learn more [here](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/09/12/choosing-the-most-appropiate-azure-virtual-machine-specification/).
 
 ![ChooseSize2](img/ChooseSize2.jpg)
 
@@ -100,7 +99,7 @@ The Create page appears, displaying offer details and summary information.
 
 5.  Click **Create**.
 
-**Important**: Make sure you return to the Azure portal and shut down this VM after you complete this lab.
+**Important**: Make sure you return to the Azure Portal and shut down this VM after you complete this lab. If you do not do this, your VM will continue to consume your available Azure credit. Azure now has [automatic start/stop features for VMs](https://docs.microsoft.com/azure/automation/automation-solution-vm-management) but you must configure them accordingly.
 
 6.  Wait a few minutes while the DSVM deploys. After it deploys, you will see a dashboard for your new VM. At the top of the dashboard, you will see controls.
 
@@ -109,24 +108,24 @@ The Create page appears, displaying offer details and summary information.
 7.  The **Start** button is not available, indicating that the new VM has already started.
 
 ### Step 3: Connecting to the new VM
-1. If you are on an Apple Mac device, download and install [Microsoft Remote Desktop 10](https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12) from the [App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12).
+If you are on an Apple Mac device, download and install [Microsoft Remote Desktop 10](https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12) from the [App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12).
 
-2. On the control bar for your new VM, click **Connect**.
+1. On the control bar for your new VM, click **Connect**.
 
 ![Connect](img/Connect.jpg)
 
 This step downloads an RDP file through your browser.
 
-3. Open the RDP file, and then connect to the DSVM.
+2. Open the RDP file, and then connect to the DSVM.
 
 	- If you are on a Windows computer, you can open the RDP file through the browser. Click **Connect** when prompted, then supply the credentials you specified in step 1 of this exercise when prompted, and finally click **Yes** to accept the certificate.
 	- If you are on a Mac device, save the RDP file to a convenient location, and then open the file. If you are prompted to verify a certificate, click **Continue**. Enter the credentials you specified in the step 1 when prompted.
 
-4.  When you see the DSVM desktop, proceed to the next exercise.
+3.  When you see the DSVM desktop, proceed to the next exercise.
 
 <a name="Exercise2"></a>
 ## Exercise 2: Set up the U-SQL local run environment
-We are going to run U-SQL queries on the DSVM, but these tools are missing some components that we need by default. Before you can run U-SQL queries locally in the source code editor, Microsoft Visual Studio Code, you will need to download and install an additional Visual Studio component, Azure Data Lake Tools, and additional script dependencies. Then you will need to start the Data Lake local run service.
+We are going to run U-SQL queries on the DSVM but the default configuration is missing some components that we need for our lab. Before you can run U-SQL queries locally in the source code editor like [Visual Studio Code](https://code.visualstudio.com/), you will need to download and install an extension called Azure Data Lake Tools plus some additional script dependencies. Then you will need to start the Data Lake local-run service.
 
 ### Step 1: Installing the Visual Studio component 
 1. In the DSVM, right-click the **Start** button, and then select **Search**.
@@ -159,9 +158,7 @@ The installation will require a few minutes to complete.
 8. After the installation has completed, close the Visual Studio Installer window.
 
 ### Step 2: Installing Azure Data Lake Tools in Visual Studio Code
-We will be using Visual Studio Code as our source-code editor of choice. To make Visual Studio Code compatible with U-SQL, we need to install the Data Lake Tools extension.
-
-U-SQL is a powerful big-data query language that was designed to be used for a wide variety of datasets (both structured and unstructured) that are stored in Data Lake Store, Azure Blob storage, Microsoft SQL Server in Azure, Azure SQL Database, and Azure SQL Data Warehouse. An additional advantage of U-SQL is that you can query data directly in CSV files, without having to create a database and load the data into that database.
+We will be using Visual Studio Code as our source-code editor of choice which has already been pre-installed on the DSVM. If you like using it, you can also [install it](https://code.visualstudio.com/) on your Mac, Windows, or Linux device in the future. To make Visual Studio Code compatible with U-SQL, we need to install the Data Lake Tools extension.
 
 1.  On the desktop of the DSVM, locate and double-click the Visual Studio Code icon to open the application.
 
@@ -213,7 +210,7 @@ You now need to trigger Visual Studio Code to install dependencies that are need
 
 ### Step 4: Start and configure the Azure Data Lake local run service
 
-U-SQL was designed to be used for large datasets stored in Data Lake and Blob storage. To query *local* data files, you first need to start and configure the Data Lake local run service.
+U-SQL is a powerful big-data query language that was designed to be used for a wide variety of datasets (both structured and unstructured) that are stored in Data Lake Store, Azure Blob storage, Microsoft SQL Server in Azure, Azure SQL Database, and Azure SQL Data Warehouse. An additional advantage of U-SQL is that you can query data directly in CSV files, without having to create a database and load the data into that database. U-SQL was designed to be used for large datasets stored in Data Lake and Blob storage. To query *local* data files, you first need to start and configure the Data Lake local run service.
 
 1. In Visual Studio Code, from the **View** menu, select **Command Palette**. (If you are on a PC, you can open the command palette with the keyboard shortcut Ctrl+Shift+P.)
 
