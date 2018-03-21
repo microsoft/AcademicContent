@@ -210,7 +210,7 @@ You now need to trigger Visual Studio Code to install dependencies that are need
 
 ### Step 4: Start and configure the Azure Data Lake local run service
 
-U-SQL is a powerful big-data query language that was designed to be used for a wide variety of datasets (both structured and unstructured) that are stored in Data Lake Store, Azure Blob storage, Microsoft SQL Server in Azure, Azure SQL Database, and Azure SQL Data Warehouse. An additional advantage of U-SQL is that you can query data directly in CSV files, without having to create a database and load the data into that database. U-SQL was designed to be used for large datasets stored in Data Lake and Blob storage. To query *local* data files, you first need to start and configure the Data Lake local run service.
+U-SQL is a powerful Big Data query language that blends the best of declarative SQL with C#; it was designed to be used for a wide variety of datasets (both structured and unstructured) that are stored in Data Lake Store, Azure Blob Storage, Azure SQL Database, Azure SQL Data Warehouse, and on-premise Microsoft SQL Server. An additional advantage of U-SQL is that you can query data directly in CSV files, without having to create a database and load the data into that database. U-SQL was designed to be used for large datasets stored in Data Lake and Blob storage. To query *local* data files, you first need to start and configure the Data Lake local run service.
 
 1. In Visual Studio Code, from the **View** menu, select **Command Palette**. (If you are on a PC, you can open the command palette with the keyboard shortcut Ctrl+Shift+P.)
 
@@ -257,7 +257,7 @@ Visual Studio Code is now configured to run U-SQL queries locally.
 <a name="Exercise3"></a>
 ## Exercise 3: Use U-SQL to gather data
 
-A powerful feature of U-SQL is that it enables you to execute queries against multiple data files at the same time. In this example, we have four data files containing Airbnb listings data for the District of Columbia, Washington, Texas, and California. In a typical scenario, you would have to import each file into a single database and then execute a query to see the combined data. Using the U-SQL and Data Lake local run service, however, querying all four data files is much easier and faster, and you can do it on your local system without a database program.
+A powerful feature of U-SQL is that it enables you to execute queries against multiple data files at the same time. In this example, we have four data files containing rental listings data for the District of Columbia, Washington, Texas, and California. In a typical scenario, you would have to import each file into a single database and then execute a query to see the combined data. Using the U-SQL and Data Lake local-run service, however, querying all four data files is much easier and faster, and you can do it on your local system without a database program.
 
 In the following exercise, you will use two separate scripts to compile data from various CSV files, and you will then reduce the dataset to only the most recent listings. The resulting dataset is the dataset needed by your team to build the ContosoBNB app.
 
@@ -535,6 +535,10 @@ If you were to customize your DSVM and add a spreadsheet application such as Mic
 
     ![StartStop2](img/StartStop2.jpg)
 
-This brings us to the end of the big-data HOL. Feel free to explore the scripts and the environment more. When you are done, remember to return to the Azure portal and shut down your DSVM.
+This brings us to the end of the Big Data HOL. In this lab, you learned how to do the following while building your ContosoBNB app's "suggest a rental rate" feature and specifically its data structure:
 
-### Important: Remember to shut down the virtual machine in the Azure portal after you have completed this HOL. 
+ - Work with data and U-SQL queries on your local system and in Azure Data Lake Store
+ - Execute U-SQL queries on your local system and in Azure Data Lake
+ - Modify queries to troubleshoot data-inconsistency issues
+
+You might imagine if you were a professional developer working with many types of data (structured and unstructured) and with millions of rows. What if user's generated a million rows of data per minute? Or behavioral telemetry per second? Handing these types of large-scale data challenges is what cloud platforms like Azure are uniquely suited for. Feel free to explore the scripts and the environment more. When you are done, remember to return to the Azure Portal and shut down your DSVM so you can use your cloud credits in future projects! :)
