@@ -1,12 +1,10 @@
 # Academic Resources for Computer Science
 
-**March 2018 Release.** *The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.
+**March 2018 Release.** *The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
 
 **Source:** https://github.com/MSFTImagine/computerscience
 
 This repo provides technical resources for faculty, students, and Microsoft developer advocates for use in computer science learning. The modules cover common cross-platform scenarios including mobile app dev, web dev, internet of things, data science, machine learning, and devops. We offer hands-on labs that can be used in the classroom or as workshop content, as well as other educator content including tech talks, coding challenges, and event-in-a-box workshops.
-
-Most of our learning content focuses on how to deploy cross-platform technologies on Microsoft Azure although the concepts can be applied across many cloud platform solutions.
 
 Students can get free Azure credits to explore these resources in the classroom or on their own here:
 * [Azure For Students ($100 in Azure - no credit card required)](https://azure.microsoft.com/en-us/free/students/)
