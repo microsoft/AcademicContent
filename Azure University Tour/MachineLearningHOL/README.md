@@ -121,7 +121,7 @@ At this stage, the Choose a size page appears. Proceed to the next step.
 ## Exercise 2: Connect to the DSVM ##
 In this exercise, you will use a local X2Go client to connect to your new VM in Azure.
 
-1. If you have not already done so, download and install X2Go on your local device. You can download it [here](https://wiki.x2go.org/doku.php/download:start).)
+1. If you have not already done so, download and install X2Go on your local device. You can download it [here](https://wiki.x2go.org/doku.php/download:start).
 2. Open X2Go. If you see any security alerts related to firewalls, now or later during these exercises, click **Allow Access**.
 3. If the Session Preferences dialog box does not open automatically, from the **Session** menu, click **New Session**.
 
@@ -246,12 +246,10 @@ Before completing the lab, make sure you shut down the virtual machine you creat
 
 1. Close the X2Go window.
 
-2. Return to the Azure portal at https://portal.azure.com. Locate and open the settings for the new DSVM that you created as part of this HOL.
+2. Return to the [Azure Portal](https://portal.azure.com). Locate and open the settings for the new DSVM that you created as part of this HOL.
 
 3. In the controls, click **Stop** to stop the DSVM.
 
    ![StartStop2](images/StartStop2.jpg)
 
-This brings us to the end of the Machine Learning HOL. 
-
-### Important: Remember to shut down the virtual machine in the Azure portal after you have completed this HOL.
+This brings us to the end of the Machine Learning HOL. You might imagine if you were a professional developer working with increasingly complex models, maybe even [nueral networks](https://en.wikipedia.org/wiki/Artificial_neural_network) with deep-learning libraries like Google's [Tensorflow](https://www.tensorflow.org/) and Microsoft's [Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)...both are supported in Azure on your DSVM btw. Your new AI-powered features are your competitive advantage in pricing, attracting the best listings and finding more always price-sensitive users. Feel free to explore the Jupyter notebook and the environment more. When you are done, remember to return to the Azure Portal and shut down your DSVM so you can use your cloud credits in future projects! :)
