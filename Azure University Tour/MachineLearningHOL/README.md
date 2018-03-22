@@ -28,7 +28,7 @@ In this HOL, you will learn how to:
 
 The following are required to complete this HOL:
 
-- An active Azure subscription; if you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
+- An Azure subscription, which will be used to create the VM. Students can get access through Azure for Students. To quickly verify your student status, use your school-issued email address like "your_name@your_school.edu" or equivalent. This will become your Microsoft Account that you can use to log-into the Azure Portal.
 - [X2Go](https://wiki.x2go.org/doku.php/download:start), an [Xfce](https://xfce.org/) remote-desktop client
 
 <a name="Resources"></a>
@@ -49,11 +49,11 @@ This HOL includes the following exercises:
 <a name="Exercise1"></a>
 ## Exercise 1: Create a DSVM ##
 
-In this exercise, you will create an instance of the DSVM for Linux in Azure. The DSVM for Linux is a VM image in Azure that includes many preinstalled and configured data-science and development tools. You can read a longer description about the many tools and features available in the DSVM [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu). 
+In this exercise, you will create an instance of the DSVM for Linux in Azure:
 
 ### Step 1: Creating the DSVM in Azure ###
 
-1. In a web browser, open the [Azure portal](https://portal.azure.com/) at https://portal.azure.com, and then sign in with your Microsoft account.
+1. In a web browser, open the [Azure Portal](https://portal.azure.com/) and then sign-in with your Microsoft Account.
 2. From the left-side menu, click the **+** sign to add a new resource.
 
 ![CreateResource](images/CreateResource.jpg)
@@ -89,18 +89,18 @@ In this exercise, you will create an instance of the DSVM for Linux in Azure. Th
 
 10. In the **Subscription** drop-down menu, select your subscription.
 
-11. In the **Resource Group** section, leave **Create New** selected, and then enter a name of your choice for the resource group in the field below; for example, **DataScienceGroup1**.
+11. In the **Resource group** section, leave **Create New** selected, and then enter a name of your choice for the Resource group in the field below; for example, **DataScienceGroup1**.
 
-    A resource group in Azure is a container for the resources used to run an application. Resource groups help administrators organize monitoring, access control, provisioning, and billing. Generally, items in one resource group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
+    A Resource group in Azure is a container for the resources used to run an application. Resource groups help administrators organize monitoring, access control, provisioning, and billing. Generally, items in one resource group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
 
 12. In the **Location** drop-down menu, ensure that a geographically close location is chosen.
 
 13. Click **OK**.
 
-At this stage, the Choose a Size page appears. Proceed to the next step.
+At this stage, the Choose a size page appears. Proceed to the next step.
 
 ### Step 2: Sizing the new VM and reviewing settings ###
-1. On the **Choose A Size** page, click **View All**.
+1. On the **Choose A size** page, click **View All**.
 
 ![ChooseSize](images/ChooseSize.jpg)
 
@@ -121,13 +121,13 @@ At this stage, the Choose a Size page appears. Proceed to the next step.
 ## Exercise 2: Connect to the DSVM ##
 In this exercise, you will use a local X2Go client to connect to your new VM in Azure.
 
-1. If you have not already done so, download and install X2Go on your local device. (You can download it [here](https://wiki.x2go.org/doku.php/download:start).)
+1. If you have not already done so, download and install X2Go on your local device. You can download it [here](https://wiki.x2go.org/doku.php/download:start).)
 2. Open X2Go. If you see any security alerts related to firewalls, now or later during these exercises, click **Allow Access**.
 3. If the Session Preferences dialog box does not open automatically, from the **Session** menu, click **New Session**.
 
 ![NewSession](images/NewSession.jpg)
 
-4. Return to your web browser and to the Azure portal at https://portal.azure.com, which you opened in Exercise 1.
+4. Return to your web browser and to the [Azure Portal](https://portal.azure.com), which you opened in Exercise 1.
 5. In the **Overview** section, which displays information about the new VM you have created, locate and copy the VM’s public IP address.
 ![ONE-006](images/ONE-006.jpg "DSVM")
 6. Return to the **Session Preferences** dialog box in X2Go. Paste the IP address of the Azure VM, which you just copied, into the **Host** field.
@@ -150,7 +150,7 @@ In this exercise, you will use a local X2Go client to connect to your new VM in 
 
 ![Failed](images/Failed.jpg)
 
-13. Wait a couple of minutes for a connection to the VM to establish. If you are on a Macintosh and are prompted to install XQuartz, follow the link provided to install XQuartz, log back off and then back on, and finally return to step 10. 
+13. Wait a couple of minutes for a connection to the VM to establish. If you are on a Mac and are prompted to install XQuartz, follow the link provided to install XQuartz, log back off and then back on, and finally return to step 10. 
 
 After the connection to the VM completes, a new window opens displaying the VM desktop and then a web page.
 
