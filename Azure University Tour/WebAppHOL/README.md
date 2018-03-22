@@ -1,5 +1,5 @@
 <a name="HOLTitle"></a>
-# How to build ContosoBNB, an AI-powered Rentals web app #
+# Build ContosoBNB, an AI-powered rentals web app #
 ---
 
 <a name="Overview"></a>
@@ -7,12 +7,12 @@
 
 We find ourselves now at a fascinating moment in the history of technology. Through our mobile devices, data is abundant, readily available, and easy to share. We have nearly unlimited processing power and it's available to anyone who needs it. Add to that mix the public availability of new, powerful artificial-intelligence (AI) algorithms, and suddenly developers have a mind-boggling degree of programming power, right at their fingertips. With AI, we can tap into huge amounts of data and make it work for us by giving us insights about whatever we care about. [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provides a rich source for AI algorithms, enabling your apps to see, hear, speak, understand, and interpret your users' needs.
 
-In this lab, you will experience the benefits of using AI first-hand. You will begin the lab by downloading a short-term vacation-rental web app called [ContosoBNB](https://contosobnb.azurewebsites.net/). Then you will incorporate the [Local Insights API](https://labs.cognitive.microsoft.com/project-local-insights), an experimental project in the Azure Cognitive Services family. Project Local Insights provides a custom score for the attractiveness of a location according to a user's select preferences. After incorporating the API, the ContosoBNB application is able to render a [Bing Maps](https://www.microsoft.com/maps/choose-your-bing-maps-api) image of several cities within the United States where the project is supported. Circles appear on the rendered map to represent neighborhoods, and each circle displays a number that corresponds to the number of available properties within that neighborhood. Neighborhoods are also rated according to preference settings that the user can adjust. Finally, using the API, you will alter the neighborhood criteria (categories) displayed in the user interface (UI). This step will enable you to customize the attractiveness score of a neighborhood so that the score is determined by its proximity to amenities you prioritize (such as restaurants or parks) within the defined area.
+In this lab, you will experience the benefits of using AI first-hand. You will begin the lab by downloading a short-term vacation-rental web app called [ContosoBNB](https://contosobnb.azurewebsites.net/). Then you will incorporate the [Local Insights API](https://labs.cognitive.microsoft.com/project-local-insights), an experimental project in the Azure Cognitive Services family. Project Local Insights provides a custom score for the attractiveness of a location according to a user's select preferences. After incorporating the API, the ContosoBNB application renders a [Bing Maps](https://www.microsoft.com/maps/choose-your-bing-maps-api) image of several cities within the United States where the project is supported. Circles appear on the rendered map to represent neighborhoods, and each circle displays a number that corresponds to the number of available properties within that neighborhood. Neighborhoods are also rated according to preference settings that the user can adjust. Finally, using the API, you will alter the neighborhood criteria (categories) displayed in the user interface. This step enables you to customize the attractiveness score of a neighborhood so that the score is determined by its proximity to amenities you prioritize (such as restaurants or parks) within the defined area.
 
 <a name="Objectives"></a>
 ### Objectives ###
 
-In this hands-on lab, you will learn how to build your own AI-powered Contoso BNB:
+In this hands-on lab, you will learn how to build your own AI-powered ContosoBNB:
 
 - How to install and use Visual Studio Code on your preferred platform
 - How to obtain an API key for Cognitive Services
@@ -120,7 +120,10 @@ In this exercise, we'll get neighborhood data from a json file and render the ne
 
 5. Find "// GetNeighborhoods();" within the **index.js** file and un-comment.
 
-The 'GetCityData' and 'GetNeighborhoods' functions gather neighborhood data for the selected city and set pins on each neighborhood. Find "///// Get Neighborhood Data Here" within the **index.js** file and add these functions starting below that line. Note: You'll be uncommenting and adding functions throughout the rest of this lab so be sure to take time to read and understand the code - what its intent is and why its expressed in this way. If you get stuck, ask a mentor! :) 
+**Note:** You'll be uncommenting and adding functions throughout the rest of this lab so be sure to take time to read and understand the code - what its intent is and why its expressed in this way. If you get stuck, ask a mentor!
+
+The 'GetCityData' and 'GetNeighborhoods' functions gather neighborhood data for the selected city and set pins on each neighborhood. Find "///// Get Neighborhood Data Here" within the **index.js** file and add these functions starting below that line. 
+
 
 6. Add the 'GetCityData' function using the code snippet below:
 
@@ -246,7 +249,7 @@ function CreateCategorySlider(id, name, value) {
 
 In this exercise, we'll continue to build our application so that we can make requests to the Project Local Insights API.
 
-1. In the **index.js** file, search for the PlacePin function. In the PlacePin function, add: 
+1. In the **index.js** file, search for the PlacePin function. In the PlacePin function, add/uncomment: 
  `GetNeighborhoodScore(location, category_string, pins[neighborhood + settings.city]);`
  on the line before: `map.entities.push(pins[neighborhood + settings.city]);`
 
