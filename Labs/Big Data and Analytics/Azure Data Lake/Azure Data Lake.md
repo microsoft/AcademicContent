@@ -366,6 +366,20 @@ Let's get started!
 	az dla catalog credential create --account ANALYTICS_ACCOUNT_NAME --database-name UserIntegration --uri tcp://DATABASE_SERVER_NAME.database.windows.net --credential-name FederatedCredential --user-name DATABASE_USER</pre>
 
 	When prompted for a password, enter the SQL server password ("Azure4Research!") you specified in Step 11.
+	
+	Alternative code for above for use with PowerShell (if you are getting an error with Azure CLI):
+	
+	<pre>
+	$dbName = "UserIntegration"
+	$credentialName = "FederatedCredential"
+	$dbUri = "tcp://DATABASE_SERVER_NAMEd.database.windows.net"
+	$adla = "ANALYTICS_ACCOUNT_NAME"
+	
+	New-AdlCatalogCredential -AccountName $adla `
+		-DatabaseName $dbName `
+		-CredentialName $credentialName `
+		-Credential (Get-Credential) `
+		-Uri $dbUri</pre>
 
 1. Return to your Data Lake Analytics account in the Azure Portal. Then click **+ New Job** and execute the following query:
 
