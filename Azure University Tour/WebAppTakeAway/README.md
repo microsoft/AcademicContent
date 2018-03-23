@@ -15,20 +15,40 @@ The following are required to deploy this application:
 - A key for the Project Local Insights API. If you haven't already, [subscribe to Project Local Insights](https://labs.cognitive.microsoft.com/en-us/project-local-insights).
 - Your favorite development environment for web applications. If you don't have one, try Microsoft Visual Studio Code, with [downloads for Windows, Linux, and Mac available here](https://code.visualstudio.com/download).
 - An active Azure subscription
+- A FTP client to upload the source files within the decompressed .zip file. 
 
 <a name="Steps"></a>
 ## Steps ##
 
 To deploy the ContosoBNB web application you will need to follow the steps below:
 
-1. After logging into the Azure Portal, you will need to create a 'Web App', select ***Windows*** for the OS.
-2. Download and extract the 'WebApp.zip' file found in the 'source' directory.
-3. If you haven't done so already, go to https://labs.cognitive.microsoft.com/en-us/project-local-insights and subscribe to Project Local Insights to get your key.
+1. After logging into the Azure Portal, you will need to create a 'Web App'.
+  
+  ![Add Web App](img/AddWebApp.png)
+  
+2. Enter a unique name for your web app and select ***Windows*** for the OS.  
+
+  ![Name Web App](img/NameWebApp.png)
+  
+3. After your new web app is running, navigate to 'Deployment credentials' and enter unique FTP credentials.  
+
+  ![Set FTP Credentials](img/SetCredentials.png)
+  
+4. Navigate back to Overview and note the FTP username and host settings.  
+
+  ![Note FTP Credentials](img/NoteFTPCreds.png)
+
+5. Download the 'WebApp.zip' file containing source files [here](https://redshirttour.blob.core.windows.net/webapptakeaway/WebApp.zip)
+6. Extract the downloaded .zip file.
+7. If you haven't done so already, go to https://labs.cognitive.microsoft.com/en-us/project-local-insights and subscribe to Project Local Insights to get your key.
 
   ![Subscribe to Project Local Insights](../Challenges/WebAppHOL/img/Subscribe.png)
 
-4. Once you have your key, navigate on your expanded files to the `WebApp\public\javascripts` folder, and then Right Click the **settings.js** file and select "Open with Code". (On a Mac, you can select the file in Finder, open the File menu, point to Open With, and then select Visual Studio Code.) Replace **\<YOUR KEY\>** with your Project Local Insights key (deleting the brackets "\<" and "\>" along with the letters "YOUR KEY"), and then save and close the file.
+8. Once you have your key, navigate on your expanded files to the `WebApp\public\javascripts` folder, and then Right Click the **settings.js** file and select "Open with Code". (On a Mac, you can select the file in Finder, open the File menu, point to Open With, and then select Visual Studio Code.) Replace **\<YOUR KEY\>** with your Project Local Insights key (deleting the brackets "\<" and "\>" along with the letters "YOUR KEY"), and then save and close the file.
 
   ![Set the Cog Services Key](../Challenges/WebAppHOL/img/SetCogServicesKey.png)
-5. Using FTP or the App Service Editor upload the extracted folders/files into the wwwroot folder.
-6. From the Azure Portal restart the web app.
+9. Using a FTP client of your choice, upload the extracted folders/files into the wwwroot folder on your web app.
+
+  ![FTP Files](img/FTPFiles.png)
+
+10. From the Azure Portal restart the web app.
