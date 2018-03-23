@@ -314,7 +314,7 @@ In this exercise, we'll continue to build our application so that we can make re
             if (error.status == 429) {
                 setTimeout(function(){
                     GetNeighborhoodScore(location, category, pin);
-                },1000); 
+                },1000);
             } else {
                 pin.setOptions({ color: "hsla(0, 96%, 19%, "+ .2 +")" });
                 pin.metadata.description = "<span class='error'>Match Score Error</span>";
@@ -334,133 +334,136 @@ In this exercise, we'll continue to build our application so that we can make re
 
 In this exercise, we'll use the responses provided by Cognitive Services to create a score for each neighborhood. We'll calculate this score by adding up all the neighborhood weighted category scores. Then we'll apply a color to the pin based on their relative scores.
 
-1.  Search for "// CalculatePinScore(pin);" in the **index.js** file and un-comment it. This line now calls the function added in the next step.
+1. Search for "// CalculatePinScore(pin);" in the **index.js** file and un-comment it. This line now calls the function added in the next step.
 
-2. Now you will add the 'CalculatePinScore' and 'UpdatePinColors' functions. The 'CalculatePinScore' function creates an overall score for each pin (neighborhood), and the 'UpdatePinColors' function sets the color of the pins based on its score. Navigate to the end of the the **index.js** file and then add these functions before the line containing `window.onresize = Resize;`:
+1. Now you will add the 'CalculatePinScore' and 'UpdatePinColors' functions. The 'CalculatePinScore' function creates an overall score for each pin (neighborhood), and the 'UpdatePinColors' function sets the color of the pins based on its score. Navigate to the end of the the **index.js** file and then add these functions before the line containing `window.onresize = Resize;`:
 
-```javascript
-/**
- * Calculates the score of this pin by adding up all of the pin's weighted category scores.
- * Updates all of the pins' colors based on their relative scores.
- * (see the GetNeighborhoodScore function)
- *
- * @param  {obj} pin - the pin to recieve a score.
- * @private
- */
-function CalculatePinScore(pin) {
+    ```javascript
+    /**
+    * Calculates the score of this pin by adding up all of the pin's weighted category scores.
+    * Updates all of the pins' colors based on their relative scores.
+    * (see the GetNeighborhoodScore function)
+    *
+    * @param  {obj} pin - the pin to recieve a score.
+    * @private
+    */
+    function CalculatePinScore(pin) {
 
-    var score = 0;
+        var score = 0;
 
-    var pin_keys = Object.keys(pins);
-    var category_results = Object.keys(pin.results);
+        var pin_keys = Object.keys(pins);
+        var category_results = Object.keys(pin.results);
 
-    var category_names = Object.keys(settings.categories);
+        var category_names = Object.keys(settings.categories);
 
-    for (var i=0; i<category_results.length; i++) {
-        //          The number of nearby locations * The priority of those locations (1-3)  * 10
-        score += (pin.results[category_results[i]] * settings.categories[category_results[i]].value) * 10;
+        for (var i=0; i<category_results.length; i++) {
+            //          The number of nearby locations * The priority of those locations (1-3)  * 10
+            score += (pin.results[category_results[i]] * settings.categories[category_results[i]].value) * 10;
+        }
+
+        pin.metadata.score = score;
+
+        max_score = Math.max(max_score, score);
+
+        UpdatePinColors();
     }
 
-    pin.metadata.score = score;
+    /**
+    * Updates all of the pins' colors based on their score compared to the highest score.
+    *
+    * @private
+    */
+    function UpdatePinColors() {
+        var pin;
+        var description;
+        var pin_keys = Object.keys(pins);
+        for (var p=0; p<pin_keys.length; p++) {
+            pin = pins[pin_keys[p]];
 
-    max_score = Math.max(max_score, score);
-
-    UpdatePinColors();
-}
-
-
-/**
- * Updates all of the pins' colors based on their score compared to the highest score.
- *
- * @private
- */
-function UpdatePinColors() {
-    var pin;
-    var description;
-    var pin_keys = Object.keys(pins);
-    for (var p=0; p<pin_keys.length; p++) {
-        pin = pins[pin_keys[p]];
-
-        if (pin.metadata.score >= 0) {
-            // if this pin's score is the best.
-            if (pin.metadata.score === max_score) {
-                pin.setOptions({
-                    color: "hsl(207, 98%, 43%)"
-                });
-                description = "<strong>Best Match</strong>";
-            } else {
-                pin.setOptions({
-                    color: "hsla(215, 96%, 19%, "+ (pin.metadata.score/max_score + .1) +")"
-                });
-                description = '<span class="debug">' + Math.round(100*pin.metadata.score/max_score) + "% Match</span>";
+            if (pin.metadata.score >= 0) {
+                // if this pin's score is the best.
+                if (pin.metadata.score === max_score) {
+                    pin.setOptions({
+                        color: "hsl(207, 98%, 43%)"
+                    });
+                    description = "<strong>Best Match</strong>";
+                } else {
+                    pin.setOptions({
+                        color: "hsla(215, 96%, 19%, "+ (pin.metadata.score/max_score + .1) +")"
+                    });
+                    description = '<span class="debug">' + Math.round(100*pin.metadata.score/max_score) + "% Match</span>";
+                }
+                pin.metadata.description = description;
             }
-            pin.metadata.description = description;
         }
     }
-}
-```
-3. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). Reminder, you'll find the index.html file in the **WebAppHOL\WebAppHOL** directory on your computer.
+    ```
+1. Save the index.js file with your changes, then open the **index.html** file in your browser to run the application (or refresh if it's already open). Reminder, you'll find the index.html file in the **WebAppHOL\WebAppHOL** directory on your computer.
 
-4. Note how the neighborhood pins are now colored to indicate which best the weighting category setting defined by the slider control. The displayed sliders are categories identified in the settings.js file. (Note: To toggle between the map view and the slider control, click the double arrows at the top of the window.) 
+1. Note how the neighborhood pins are now colored to indicate which best the weighting category setting defined by the slider control. The displayed sliders are categories identified in the settings.js file. (Note: To toggle between the map view and the slider control, click the double arrows at the top of the window.)
 
-  ![Display Categories Slider Control](img/WebApp_Default.png)
+    ![Display Categories Slider Control](img/WebApp_Default.png)
 
 <a name="Exercise7"></a>
+
 ## Exercise 7: Customizing the API for personalized results ##
 
 In this exercise, you will customize the implementation of the Project Local Insights API. The `categories` object, found in the **settings.js** file (located in the **WebAppHOL\WebAppHOL\js** directory), provides the full list of categories that are available for use with the Project Local Insights API. By modifying this `categories` object, you can change which sliders appear in the "Make It Yours" menu.
 
 1. Open the **settings.js** file in a text editor, and then browse to the **categories** object. Note that in the list of categories, all but five are currently commented out; these are the five criteria that are currently displayed in the ContosoBNB UI. Add and remove the commenting to match the following five categories: **Arts & Entertainment**, **Food & Drink Stores**, **Restaurants**, **Bars**, and **Bars/Nightlife**. These changes give preference to a rental property that is within walking distance to the best Seattle neighborhood for nightlife.
 
-```javascript
-var settings = {
+    ```javascript
+    var settings = {
+        route_mode: "walking",
+        minute_distance: 20,
+        distance: null,
+        categories: {
+            '90001':{name:"Arts & Entertainment", value: 2},
+            // '90012':{name:"Attractions", value: 2},
+            // '90016':{name:"Museums", value: 2},
+            // '90111':{name:"Banking & Finance", value: 2},
+            // '90353':{name:"Beauty & Spas", value: 2},
+            '90232':{name:"Food & Drink Stores", value: 2},
+            '90287':{name:"Restaurants", value: 2},
+            // '90265':{name:"Fast Food Stores", value: 2},
+            '90243':{name:"Bars", value: 2},
+            '90243':{name:"Bars/Nightlife", value: 2},
+            // '90870':{name:"Parks & Recreation", value: 2},
+            // '90408':{name:"Medical Centers", value: 2},
+            // '90408':{name:"Medical Care", value: 2},
+            // '90942':{name:"Animal & Pet Services", value: 2},
+            // '90551':{name:"Child Care Services", value: 2},
+            // '90738':{name:"Grocery", value: 2},
+            // '91493':{name:"Supermarkets", value: 2},
+            // '90932':{name:"Home & Garden Stores", value: 2},
+            // '90793':{name:"Pet Supply Stores", value: 2},
+            // '90771':{name:"Malls & Shopping Centers", value: 2},
+            // '90771':{name:"Shopping", value: 2},
+            // '91567':{name:"Park & Rides", value: 2},
+            // '91510':{name:"Liquor & Wine Stores", value: 2},
+            // '90727':{name:"Department Stores", value: 2},
+            // '90661':{name:"Electronics Stores", value: 2},
+            // '90617':{name:"Religion", value: 2},
+            // '91457':{name:"Places of Worship", value: 2},
+            // '90619':{name:"Churches", value: 2}
+        }
+    ```
+
+1. Review how these changes provide new best neighborhood matches. In this example, Belltown is now a best match.
+
+    ![Web Application Refined Categories](img/WebApp_Refined.png)
+
+1. Make some adjustments of your own, and see how they impact the results. For example, changing the `route_mode` from "walking" to "driving" in the `settings.js` file typically results in a significantly different output.
+
+    ```javascript
     route_mode: "walking",
-    minute_distance: 20,
-    distance: null,
-    categories: {
-        '90001':{name:"Arts & Entertainment", value: 2},
-        // '90012':{name:"Attractions", value: 2},
-        // '90016':{name:"Museums", value: 2},
-        // '90111':{name:"Banking & Finance", value: 2},
-        // '90353':{name:"Beauty & Spas", value: 2},
-        '90232':{name:"Food & Drink Stores", value: 2},
-        '90287':{name:"Restaurants", value: 2},
-        // '90265':{name:"Fast Food Stores", value: 2},
-        '90243':{name:"Bars", value: 2},
-        '90243':{name:"Bars/Nightlife", value: 2},
-        // '90870':{name:"Parks & Recreation", value: 2},
-        // '90408':{name:"Medical Centers", value: 2},
-        // '90408':{name:"Medical Care", value: 2},
-        // '90942':{name:"Animal & Pet Services", value: 2},
-        // '90551':{name:"Child Care Services", value: 2},
-        // '90738':{name:"Grocery", value: 2},
-        // '91493':{name:"Supermarkets", value: 2},
-        // '90932':{name:"Home & Garden Stores", value: 2},
-        // '90793':{name:"Pet Supply Stores", value: 2},
-        // '90771':{name:"Malls & Shopping Centers", value: 2},
-        // '90771':{name:"Shopping", value: 2},
-        // '91567':{name:"Park & Rides", value: 2},
-        // '91510':{name:"Liquor & Wine Stores", value: 2},
-        // '90727':{name:"Department Stores", value: 2},
-        // '90661':{name:"Electronics Stores", value: 2},
-        // '90617':{name:"Religion", value: 2},
-        // '91457':{name:"Places of Worship", value: 2},
-        // '90619':{name:"Churches", value: 2}
-    }
-```
+        minute_distance: 20,
+    ```
 
-2. Review how these changes provide new best neighborhood matches. In this example, Belltown is now a best match.
-
-![Web Application Refined Categories](img/WebApp_Refined.png)
-
-3. Make some adjustments of your own, and see how they impact the results. For example, changing the `route_mode` from "walking" to "driving" in the `settings.js` file typically results in a significantly different output.
-
-```javascript
-route_mode: "walking",
-    minute_distance: 20,
-```  
 <a name="Summary"></a>
+
 ## Summary ##
+
 Local Insights is an experimental project within the Azure Cognitive Services family that provides an attractiveness score for a location based on the number of nearby amenities.
 
 In this lab, you learned the following steps in creating an AI solution:
@@ -468,10 +471,10 @@ In this lab, you learned the following steps in creating an AI solution:
 - How to subscribe to a service and receive an API key
 - How to make calls to the Project Local Insights API
 - How data is returned from the API and how to use that data
-- How to customize requests to make data returned by the API suit your needs 
+- How to customize requests to make data returned by the API suit your needs
 
 As this lab has shown, Azure Cognitive Services enables you to quickly and easily infuse your application with AI using a pre-existing data set. If you were building a fully-productionalized BNB rentals application, you might imagine how your development needs would grow to include real-time user-generated content and more sophisticated models of scoring. Fortunately Azure has enterprise-grade tools like [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) and [Azure Machine Learning](https://azure.microsoft.com/overview/machine-learning/) to help. You can learn more about the complete Azure AI platform [here](https://azure.microsoft.com/overview/ai-platform/).
 
 ---
 
-Copyright 2018 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
+Copyright 2018 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <https://opensource.org/licenses/MIT.>
