@@ -1,10 +1,10 @@
-# Build the Machine Learning model that powers ContosoBNB #
+# Build the machine learning model that powers ContosoBNB #
 <a name="Overview"></a>
 ## Overview ##
 
-In this hands-on lab (HOL), you are a newly-hired data scientist for a company building a short-term vacation rental platform called ContosoBNB. Your goal is to begin building, training, and tuning a machine learning model to suggest a rental rate that maximizes revenue for rental property owners.
+In this hands-on lab, you are acting as a newly-hired data scientist for a company building a short-term vacation rental platform called ContosoBNB. Your goal is to begin building, training, and tuning a machine learning model to suggest a rental rate that maximizes revenue for rental property owners.
 
-First, you will create a simple dev environment using the [Data Science Virtual Machine (DSVM)](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) in Azure. This VM image is built specifically for data-science workloads with platform support for Windows Server, Ubuntu Linux, and CentOS Linux. The DSVM comes preconfigured with many popular open-source tools, including Jupyter, RStudio, and scikit-learn, which is a free, open-source machine learning toolkit for Python programmers.
+First, you will create a simple dev environment using the [Data Science Virtual Machine (DSVM)](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) in Azure. This VM image is built specifically for data science workloads with platform support for Windows Server, Ubuntu Linux, and CentOS Linux. The DSVM comes preconfigured with many popular open-source tools, including [Jupyter](https://jupyter.org/), [RStudio](https://www.rstudio.com/), and [scikit-learn](https://www.rstudio.com/), which is a free, open-source machine learning toolkit for Python programmers.
 
 After you create a Linux operating system (OS)-based DSVM and connect to it, you will import a dataset and then use the scikit-learn API to create and refine an ML model to use with your dataset.
 
@@ -14,11 +14,11 @@ After you create a Linux operating system (OS)-based DSVM and connect to it, you
 In this HOL, you will learn how to:
 
 - Create a Linux OS-based DSVM
-- Connect to the DSVM using a remote-desktop client
+- Connect to the DSVM using a remote desktop client
 - Save a data file from GitHub to the DSVM
 - Save a Jupyter Notebook file from GitHub to the DSVM
-- Use pandas to filter columns in a dataset
-- Use pandas to quantize values in a column
+- Use [pandas](http://pandas.pydata.org/) to filter columns in a dataset
+- Use pandas to calculate values in a column
 - Use scikit-learn to split the data into separate datasets for training and testing
 - Use scikit-learn to create an ML model
 - Use scikit-learn to analyze the model's accuracy
@@ -28,8 +28,10 @@ In this HOL, you will learn how to:
 
 The following are required to complete this HOL:
 
-- An Azure subscription, which will be used to create the VM. Students can get access through Azure for Students. To quickly verify your student status, use your school-issued email address like "your_name@your_school.edu" or equivalent. This will become your Microsoft Account that you can use to log-into the Azure Portal.
-- [X2Go](https://wiki.x2go.org/doku.php/download:start), an [Xfce](https://xfce.org/) remote-desktop client
+* An Azure subscription, which will be used to create the VM and query Data Lake. Students can get access through [Azure for Students](http://aka.ms/azure4students).
+* [X2Go](https://wiki.x2go.org/doku.php/download:start), an [Xfce](https://xfce.org/) remote-desktop client. [Installation instructions](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
+
+**Note:** To quickly verify your student status, use your school-issued email address like "your_name@your_school.edu" or equivalent. This will become your Microsoft Account that you can use to login to the [Azure Portal](http://portal.azure.com).
 
 <a name="Resources"></a>
 ### Resources ###
@@ -53,7 +55,8 @@ In this exercise, you will create an instance of the DSVM for Linux in Azure:
 
 ### Step 1: Creating the DSVM in Azure ###
 
-1. In a web browser, open the [Azure Portal](https://portal.azure.com/) and then sign-in with your Microsoft Account.
+1. In a web browser, open the [Azure Portal](https://portal.azure.com/) and then sign-in with your Microsoft Account (use the account your Azure subscription is associated with).
+
 2. From the left-side menu, click the **+** sign to add a new resource.
 
 ![CreateResource](images/CreateResource.jpg)
@@ -72,9 +75,9 @@ In this exercise, you will create an instance of the DSVM for Linux in Azure:
 
 6. In the **VM disk type** field, select **SSD**.
 
-7. In the **User Name** field, type a user name of your choice. Save this information, because you will use it to sign in to the VM later.
+7. In the **User name** field, type a user name of your choice. Save this information, because you will use it to sign in to the VM later.
 
-8. For **Authentication Type**, select **Password**.
+8. For **Authentication type**, select **Password**.
 
 9. In the **Password** field, enter a password of your choice that meets the following requirements:
 
@@ -87,11 +90,11 @@ In this exercise, you will create an instance of the DSVM for Linux in Azure:
 
    Save your username and password, because you will use it to sign in to the VM later. 
 
-10. In the **Subscription** drop-down menu, select your subscription.
+10. In the **Subscription** drop-down menu, select your current Azure Subscription. Most users will only have one but it's possible to have many.
 
-11. In the **Resource group** section, leave **Create New** selected, and then enter a name of your choice for the Resource group in the field below; for example, **DataScienceGroup1**.
+11. In the **Resource group** section, leave **Create new** selected, and then enter a name of your choice for the Resource group in the field below; for example, **DataScienceGroup1**.
 
-    A Resource group in Azure is a container for the resources used to run an application. Resource groups help administrators organize monitoring, access control, provisioning, and billing. Generally, items in one resource group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
+    A [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in Azure is a container for the resources used to run an application. Resource groups help administrators organize monitoring, access control, provisioning, and billing. Generally, items in one resource group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
 
 12. In the **Location** drop-down menu, ensure that a geographically close location is chosen.
 
@@ -104,12 +107,12 @@ At this stage, the Choose a size page appears. Proceed to the next step.
 
 ![ChooseSize](images/ChooseSize.jpg)
 
-2. In the list of available VM types, select **DS1_V2 Standard**.
+2. In the list of available VM types, select **DS1_V2 Standard**. Notice the wide range of VM choices available. Azure provides these according to the growing needs of your workload or application - for example, you might need the high memory allocation (G-series) or additional GPUs (N-series) that maximize the performance of deep-learning experiments (like image classification). Some VMs are most cost-effective for early experiementation (A-series, Dv2 series). A D-series is a good starting point for this lab. You can learn more [here](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-sizes-specs) or [here](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/09/12/choosing-the-most-appropiate-azure-virtual-machine-specification/).
 
 ![ONE-002a](images/ONE-002a.jpg "DSVM")
 
 3. Click **Select**.
-4. On the **Settings** page that appears, review the default settings, and then click **OK**. The Create page appears, displaying offer details and summary information.
+4. On the **Settings** page that appears, review the default settings, and then click **OK**. The **Create** page appears, displaying offer details and summary information.
 5. Click **Create**.
 6. Wait a few minutes while the DSVM is deployed. After it is deployed, you will see a dashboard for your new VM. At the top of the dashboard, you will see controls.
 
@@ -121,7 +124,10 @@ At this stage, the Choose a size page appears. Proceed to the next step.
 ## Exercise 2: Connect to the DSVM ##
 In this exercise, you will use a local X2Go client to connect to your new VM in Azure.
 
-1. If you have not already done so, download and install X2Go on your local device. You can download it [here](https://wiki.x2go.org/doku.php/download:start).
+1. If you have not already done so, download and install X2Go on your local device. You can download it [here](https://wiki.x2go.org/doku.php/download:start). Instructions [here](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
+
+    *Check [these docs](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/linux-dsvm-intro#installing-and-configuring-x2go-client) for more information on using X2Go on the Linux Data Science Virtual Machine.*
+
 2. Open X2Go. If you see any security alerts related to firewalls, now or later during these exercises, click **Allow Access**.
 3. If the Session Preferences dialog box does not open automatically, from the **Session** menu, click **New Session**.
 
@@ -164,22 +170,24 @@ After the connection to the VM completes, a new window opens displaying the VM d
 <a name="Exercise3"></a>
 ## Exercise 3: Download a dataset and prepare a Jupyter notebook ##
 
-In this exercise, you will copy a dataset and a Jupyter file from GitHub to a new /notebooks/BnB directory on your DSVM. These files will be used to perform the ML practice in a Jupyter notebook in Exercise 4.
+In this exercise, you will copy a dataset and a Jupyter file from GitHub to a new /notebooks/BnB directory on your DSVM. These files will be used to run machine learning algorithms in a Jupyter notebook in Exercise 4.
 
 Perform the following procedures in the X2Go session window that is connected to the DSVM hosted on Azure.
 
 ### Step 1: Copying and decompressing the dataset ###
-1. In the DSVM, open a terminal emulator by clicking on the appropriate icon at the bottom of the screen.
+1. In the DSVM, open a terminal emulator (or shell) by clicking on the appropriate icon at the bottom of the screen.
 
 ![term](images/term.jpg "DSVM")
 
-2. At the command prompt in the terminal emulator, create and switch to a new directory named **BnB** within the **~/notebooks** directory by entering the following three commands, one at a time:
+2. At the command prompt in the shell, create and switch to a new directory named **BnB** within the **~/notebooks** directory by entering the following three commands, one at a time:
 
 ```
-cd notebooks
-mkdir BnB
-cd BnB
+cd notebooks // change directory to "notebooks"
+mkdir BnB    // make new directory called "BnB"
+cd BnB       // change directory to "BnB"
 ```
+
+**Note:** On Linux all commands and directory names are case-sensitive.
 
 3. In the DSVM, open a web browser by clicking on the appropriate icon at the bottom of the screen.
 
@@ -252,4 +260,6 @@ Before completing the lab, make sure you shut down the virtual machine you creat
 
    ![StartStop2](images/StartStop2.jpg)
 
-This brings us to the end of the Machine Learning HOL. You might imagine if you were a professional developer working with increasingly complex models, harnessing [nueral network](https://en.wikipedia.org/wiki/Artificial_neural_network) algorithms with deep-learning libraries like Google's [Tensorflow](https://www.tensorflow.org/) and Microsoft's [Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). Both libraries are supported in Azure on your DSVM btw which is available in a GPU-based configuration to maximize performance. Your new AI-powered features are your competitive advantage in pricing, enabling your app to attract the best listings which, in turn, are more appealing to price-sensitive users. Feel free to explore the Jupyter notebook and the environment more. When you are done, remember to return to the Azure Portal and shut down your DSVM so you can use your cloud credits in future projects! :)
+This brings us to the end of the Machine Learning HOL. Imagine if you were a professional developer working with increasingly complex models, harnessing [neural network](https://en.wikipedia.org/wiki/Artificial_neural_network) algorithms with deep-learning libraries like Google's [TensorFlow](https://www.tensorflow.org/) and Microsoft's [Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). Both Azure's Data Science Virtual Machine supports both libraries, and is available in a GPU-based configuration to maximize performance. Your new AI-powered features provide a competitive advantage in pricing your rental units, enabling your app to attract the best listings which, in turn, are more appealing to price-sensitive users.
+
+Feel free to explore the Jupyter notebook and the environment more. When you are done, remember to return to the Azure Portal and **shut down your DSVM** so you can use your cloud credits in future projects!

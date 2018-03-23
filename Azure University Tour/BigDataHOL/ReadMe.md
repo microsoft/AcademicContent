@@ -85,7 +85,7 @@ Save your user name and password, because you will use this information to sign-
 8. In the **Subscription** drop-down menu, select your current Azure Subscription. Most users will only have one but it's possible to have many.
 9. In the **Resource group** section, leave **Create new** selected, and then enter a name of your choice for the resource group in the field below; for example, **DataScienceGroup1**.
 
-A [Resource Group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in Azure is a container used to run an application. Resource Groups help developers organize and control their solutions such as monitoring, access control, provisioning, active development vs stable production channels, and billing. Generally, items in one Resource Group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
+A [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in Azure is a container used to run an application. Resource Groups help developers organize and control their solutions such as monitoring, access control, provisioning, active development vs stable production channels, and billing. Generally, items in one Resource Group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
 
 10. In the **Location** drop-down menu, ensure that a geographically close location is chosen.
 11. Click **OK**.
@@ -564,4 +564,6 @@ This brings us to the end of the Big Data HOL. In this lab, you learned how to d
  - Execute U-SQL queries on your local system and in Azure Data Lake
  - Modify queries to troubleshoot data-inconsistency issues
 
-Imagine if you were a professional developer working with many types of data (structured and unstructured) with millions of rows. What if your users generated a million rows of data per minute? Or behavioral telemetry per second? Handing these types of large-scale data challenges is what cloud platforms like Azure are uniquely suited for. Feel free to explore the scripts and the environment more. When you are done, always remember to return to the Azure Portal and shut down your DSVM so you can use your cloud credits in future projects!
+Imagine if you were a professional developer working with many types of data (structured and unstructured) with millions of rows. What if your users generated a million rows of data per minute? Or behavioral telemetry per second? Handing these types of large-scale data challenges is what cloud platforms like Azure are uniquely suited for. Feel free to explore the scripts and the environment more.
+
+When you are done, always remember to return to the Azure Portal and **shut down your DSVM** so you can use your cloud credits in future projects!
