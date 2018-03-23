@@ -1,10 +1,10 @@
-# Build the Machine Learning model that powers ContosoBNB #
+# Build the machine learning model that powers ContosoBNB #
 <a name="Overview"></a>
 ## Overview ##
 
-In this hands-on lab (HOL), you are a newly-hired data scientist for a company building a short-term vacation rental platform called ContosoBNB. Your goal is to begin building, training, and tuning a machine learning model to suggest a rental rate that maximizes revenue for rental property owners.
+In this hands-on lab, you are acting as a newly-hired data scientist for a company building a short-term vacation rental platform called ContosoBNB. Your goal is to begin building, training, and tuning a machine learning model to suggest a rental rate that maximizes revenue for rental property owners.
 
-First, you will create a simple dev environment using the [Data Science Virtual Machine (DSVM)](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) in Azure. This VM image is built specifically for data-science workloads with platform support for Windows Server, Ubuntu Linux, and CentOS Linux. The DSVM comes preconfigured with many popular open-source tools, including Jupyter, RStudio, and scikit-learn, which is a free, open-source machine learning toolkit for Python programmers.
+First, you will create a simple dev environment using the [Data Science Virtual Machine (DSVM)](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) in Azure. This VM image is built specifically for data science workloads with platform support for Windows Server, Ubuntu Linux, and CentOS Linux. The DSVM comes preconfigured with many popular open-source tools, including [Jupyter](https://jupyter.org/), [RStudio](https://www.rstudio.com/), and [scikit-learn](https://www.rstudio.com/), which is a free, open-source machine learning toolkit for Python programmers.
 
 After you create a Linux operating system (OS)-based DSVM and connect to it, you will import a dataset and then use the scikit-learn API to create and refine an ML model to use with your dataset.
 
@@ -14,11 +14,11 @@ After you create a Linux operating system (OS)-based DSVM and connect to it, you
 In this HOL, you will learn how to:
 
 - Create a Linux OS-based DSVM
-- Connect to the DSVM using a remote-desktop client
+- Connect to the DSVM using a remote desktop client
 - Save a data file from GitHub to the DSVM
 - Save a Jupyter Notebook file from GitHub to the DSVM
-- Use pandas to filter columns in a dataset
-- Use pandas to quantize values in a column
+- Use [pandas](http://pandas.pydata.org/) to filter columns in a dataset
+- Use pandas to calculate values in a column
 - Use scikit-learn to split the data into separate datasets for training and testing
 - Use scikit-learn to create an ML model
 - Use scikit-learn to analyze the model's accuracy
@@ -28,8 +28,9 @@ In this HOL, you will learn how to:
 
 The following are required to complete this HOL:
 
-- An Azure subscription, which will be used to create the VM. Students can get access through Azure for Students. To quickly verify your student status, use your school-issued email address like "your_name@your_school.edu" or equivalent. This will become your Microsoft Account that you can use to log-into the Azure Portal.
-- [X2Go](https://wiki.x2go.org/doku.php/download:start), an [Xfce](https://xfce.org/) remote-desktop client
+* An Azure subscription, which will be used to create the VM and query Data Lake. Students can get access through [Azure for Students](http://aka.ms/azure4students).
+
+**Note:** To quickly verify your student status, use your school-issued email address like "your_name@your_school.edu" or equivalent. This will become your Microsoft Account that you can use to login to the [Azure Portal](http://portal.azure.com).
 
 <a name="Resources"></a>
 ### Resources ###
@@ -53,7 +54,8 @@ In this exercise, you will create an instance of the DSVM for Linux in Azure:
 
 ### Step 1: Creating the DSVM in Azure ###
 
-1. In a web browser, open the [Azure Portal](https://portal.azure.com/) and then sign-in with your Microsoft Account.
+1. In a web browser, open the [Azure Portal](https://portal.azure.com/) and then sign-in with your Microsoft Account (use the account your Azure subscription is associated with).
+
 2. From the left-side menu, click the **+** sign to add a new resource.
 
 ![CreateResource](images/CreateResource.jpg)
