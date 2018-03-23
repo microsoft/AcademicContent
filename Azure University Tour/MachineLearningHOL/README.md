@@ -29,7 +29,7 @@ In this HOL, you will learn how to:
 The following are required to complete this HOL:
 
 * An Azure subscription, which will be used to create the VM and query Data Lake. Students can get access through [Azure for Students](http://aka.ms/azure4students).
-* [X2Go](https://wiki.x2go.org/doku.php/download:start), an [Xfce](https://xfce.org/) remote-desktop client
+* [X2Go](https://wiki.x2go.org/doku.php/download:start), an [Xfce](https://xfce.org/) remote-desktop client. [Installation instructions](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
 
 **Note:** To quickly verify your student status, use your school-issued email address like "your_name@your_school.edu" or equivalent. This will become your Microsoft Account that you can use to login to the [Azure Portal](http://portal.azure.com).
 
@@ -124,7 +124,10 @@ At this stage, the Choose a size page appears. Proceed to the next step.
 ## Exercise 2: Connect to the DSVM ##
 In this exercise, you will use a local X2Go client to connect to your new VM in Azure.
 
-1. If you have not already done so, download and install X2Go on your local device. You can download it [here](https://wiki.x2go.org/doku.php/download:start).
+1. If you have not already done so, download and install X2Go on your local device. You can download it [here](https://wiki.x2go.org/doku.php/download:start). Instructions [here](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
+
+    *Check [these docs](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/linux-dsvm-intro#installing-and-configuring-x2go-client) for more information on using X2Go on the Linux Data Science Virtual Machine.*
+
 2. Open X2Go. If you see any security alerts related to firewalls, now or later during these exercises, click **Allow Access**.
 3. If the Session Preferences dialog box does not open automatically, from the **Session** menu, click **New Session**.
 
@@ -167,22 +170,24 @@ After the connection to the VM completes, a new window opens displaying the VM d
 <a name="Exercise3"></a>
 ## Exercise 3: Download a dataset and prepare a Jupyter notebook ##
 
-In this exercise, you will copy a dataset and a Jupyter file from GitHub to a new /notebooks/BnB directory on your DSVM. These files will be used to perform the ML practice in a Jupyter notebook in Exercise 4.
+In this exercise, you will copy a dataset and a Jupyter file from GitHub to a new /notebooks/BnB directory on your DSVM. These files will be used to run machine learning algorithms in a Jupyter notebook in Exercise 4.
 
 Perform the following procedures in the X2Go session window that is connected to the DSVM hosted on Azure.
 
 ### Step 1: Copying and decompressing the dataset ###
-1. In the DSVM, open a terminal emulator by clicking on the appropriate icon at the bottom of the screen.
+1. In the DSVM, open a terminal emulator (or shell) by clicking on the appropriate icon at the bottom of the screen.
 
 ![term](images/term.jpg "DSVM")
 
-2. At the command prompt in the terminal emulator, create and switch to a new directory named **BnB** within the **~/notebooks** directory by entering the following three commands, one at a time:
+2. At the command prompt in the shell, create and switch to a new directory named **BnB** within the **~/notebooks** directory by entering the following three commands, one at a time:
 
 ```
-cd notebooks
-mkdir BnB
-cd BnB
+cd notebooks // change directory to "notebooks"
+mkdir BnB    // make new directory called "BnB"
+cd BnB       // change directory to "BnB"
 ```
+
+**Note:** On Linux all commands and directory names are case-sensitive.
 
 3. In the DSVM, open a web browser by clicking on the appropriate icon at the bottom of the screen.
 
