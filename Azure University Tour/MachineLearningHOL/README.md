@@ -75,9 +75,9 @@ In this exercise, you will create an instance of the DSVM for Linux in Azure:
 
 6. In the **VM disk type** field, select **SSD**.
 
-7. In the **User Name** field, type a user name of your choice. Save this information, because you will use it to sign in to the VM later.
+7. In the **User name** field, type a user name of your choice. Save this information, because you will use it to sign in to the VM later.
 
-8. For **Authentication Type**, select **Password**.
+8. For **Authentication type**, select **Password**.
 
 9. In the **Password** field, enter a password of your choice that meets the following requirements:
 
@@ -90,11 +90,11 @@ In this exercise, you will create an instance of the DSVM for Linux in Azure:
 
    Save your username and password, because you will use it to sign in to the VM later. 
 
-10. In the **Subscription** drop-down menu, select your subscription.
+10. In the **Subscription** drop-down menu, select your current Azure Subscription. Most users will only have one but it's possible to have many.
 
-11. In the **Resource group** section, leave **Create New** selected, and then enter a name of your choice for the Resource group in the field below; for example, **DataScienceGroup1**.
+11. In the **Resource group** section, leave **Create new** selected, and then enter a name of your choice for the Resource group in the field below; for example, **DataScienceGroup1**.
 
-    A Resource group in Azure is a container for the resources used to run an application. Resource groups help administrators organize monitoring, access control, provisioning, and billing. Generally, items in one resource group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
+    A [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in Azure is a container for the resources used to run an application. Resource groups help administrators organize monitoring, access control, provisioning, and billing. Generally, items in one resource group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
 
 12. In the **Location** drop-down menu, ensure that a geographically close location is chosen.
 
@@ -107,12 +107,12 @@ At this stage, the Choose a size page appears. Proceed to the next step.
 
 ![ChooseSize](images/ChooseSize.jpg)
 
-2. In the list of available VM types, select **DS1_V2 Standard**.
+2. In the list of available VM types, select **DS1_V2 Standard**. Notice the wide range of VM choices available. Azure provides these according to the growing needs of your workload or application - for example, you might need the high memory allocation (G-series) or additional GPUs (N-series) that maximize the performance of deep-learning experiments (like image classification). Some VMs are most cost-effective for early experiementation (A-series, Dv2 series). A D-series is a good starting point for this lab. You can learn more [here](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-sizes-specs) or [here](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/09/12/choosing-the-most-appropiate-azure-virtual-machine-specification/).
 
 ![ONE-002a](images/ONE-002a.jpg "DSVM")
 
 3. Click **Select**.
-4. On the **Settings** page that appears, review the default settings, and then click **OK**. The Create page appears, displaying offer details and summary information.
+4. On the **Settings** page that appears, review the default settings, and then click **OK**. The **Create** page appears, displaying offer details and summary information.
 5. Click **Create**.
 6. Wait a few minutes while the DSVM is deployed. After it is deployed, you will see a dashboard for your new VM. At the top of the dashboard, you will see controls.
 
