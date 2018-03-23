@@ -349,7 +349,7 @@ OUTPUT @ListingsCombined
     USING Outputters.Csv(outputHeader:true) ;
 ```
 
-5. Now look closely at line 19 in the Listings-Combined.usql script. The asterisks between braces, **{\*}**, tells the Data Lake run service to use pattern matching to read multiple files. This line directs U-SQL to read from any data file that starts with “Listings” and ends with “.csv.” The EXTRACT statement reads from all four of the location-specific CSV files because they all follow the naming pattern of "Listings_[Location].csv."
+5. Now look closely at line 19 in the Listings-Combined.usql script. The asterisks between braces, **{\*}**, tells the Data Lake run service to use pattern matching to read multiple files. This line directs U-SQL to read from any data file that starts with “Listings_” and ends with “.csv.” The EXTRACT statement reads from all four of the location-specific CSV files because they all follow the naming pattern of "Listings_[Location].csv."
 
 ```
 FROM "Listings_{*}.csv"
