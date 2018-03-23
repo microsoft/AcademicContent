@@ -564,4 +564,6 @@ This brings us to the end of the Big Data HOL. In this lab, you learned how to d
  - Execute U-SQL queries on your local system and in Azure Data Lake
  - Modify queries to troubleshoot data-inconsistency issues
 
-Imagine if you were a professional developer working with many types of data (structured and unstructured) with millions of rows. What if your users generated a million rows of data per minute? Or behavioral telemetry per second? Handing these types of large-scale data challenges is what cloud platforms like Azure are uniquely suited for. Feel free to explore the scripts and the environment more. When you are done, always remember to return to the Azure Portal and shut down your DSVM so you can use your cloud credits in future projects!
+Imagine if you were a professional developer working with many types of data (structured and unstructured) with millions of rows. What if your users generated a million rows of data per minute? Or behavioral telemetry per second? Handing these types of large-scale data challenges is what cloud platforms like Azure are uniquely suited for. Feel free to explore the scripts and the environment more.
+
+When you are done, always remember to return to the Azure Portal and **shut down your DSVM** so you can use your cloud credits in future projects!
