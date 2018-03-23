@@ -33,8 +33,8 @@ Want to host an event at your school? We can help!
 
 | Resource | |
 | - | - |
-| [Event in a Box](Educator%20Content/Event-In-Box/Machine%20Learning%20Challenge) | A pre-packaged coding challenge to help students explore machine learning. |
-| [Tech Talks](Educator%20Content/Tech%20Talks) | Presentations on emerging or innovative tech topics with speakers notes and demos. |
+| [Event in a Box](Events/Event-In-Box/Machine%20Learning%20Challenge) | A pre-packaged coding challenge to help students explore machine learning. |
+| [Tech Talks](Events/Tech%20Talks) | Presentations on emerging or innovative tech topics with speakers notes and demos. |
 
 ## Other available [academic resources](Educator%20Content)
 We also have other great educator content to help you use Azure in the classroom.
