@@ -6,8 +6,8 @@
 
 This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and devops.
 
-
 Students can get free Azure credits to explore these resources here:
+
 * [Azure For Students ($100 in Azure - no credit card required)](https://azure.microsoft.com/en-us/free/students/)
 * [Azure For Students Starter (use free Azure products with no credit card)](https://azure.microsoft.com/en-us/free/students-starter-faq/)
 * [Azure Free Account](https://azure.microsoft.com/en-us/free/)
@@ -17,6 +17,7 @@ Your feedback is appreciated - please fork this repo and contribute!
 To report any issues, please [log a GitHub issue](Issues). Include the content section, module number and title, along with any error messages and screenshots.
 
 ## Learn by doing with our [hands-on labs](Labs)
+
 Check out our hands-on labs that can be used on your own or in the classroom. They also make for fun, easy-to-run workshops!
 
 | Lab Categories | |
@@ -29,6 +30,7 @@ Check out our hands-on labs that can be used on your own or in the classroom. Th
 | [Web Development](Labs/Web%20Development) | Quickly create scalable web apps using Node, PHP, MySQL on easy-to-use tools like Visual Studio Code and GitHub. |
 
 ## Host great [events](Events)
+
 Want to host an event at your school? We can help!
 
 | Resource | |
@@ -37,6 +39,7 @@ Want to host an event at your school? We can help!
 | [Tech Talks](Events/Tech%20Talks) | Presentations on emerging or innovative tech topics with speakers notes and demos. |
 
 ## Other available [academic resources](Educator%20Content)
+
 We also have other great educator content to help you use Azure in the classroom.
 
 | Resource | |
@@ -46,6 +49,7 @@ We also have other great educator content to help you use Azure in the classroom
 | [Course Content](Educator%20Content/Complimentary%20Course%20Content) | Learning modules to complement existing course instruction. Includes presentations, speaker notes, and hands-on labs. |
 
 ## Content from other sources
+
 | Resource | |
 | - | - |
 | [Technical Community Content](https://github.com/Microsoft/TechnicalCommunityContent) | Workshops from the community team. |
