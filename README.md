@@ -28,16 +28,22 @@ Check out our hands-on labs that can be used on your own or in the classroom. Th
 | [Internet-of-Things](Labs/Internet-of-Things) | Use Azure to collect and stream IoT data securely and in real time. |
 | [Web Development](Labs/Web%20Development) | Quickly create scalable web apps using Node, PHP, MySQL on easy-to-use tools like Visual Studio Code and GitHub. |
 
-## Other available academic resources
-We also have other great educator content including tech talks, coding challenges, and a machine learning event-in-a-box.
+## Host great [events](Events)
+Want to host an event at your school? We can help!
+
+| Resource | |
+| - | - |
+| [Event in a Box](Educator%20Content/Event-In-Box/Machine%20Learning%20Challenge) | A pre-packaged coding challenge to help students explore machine learning. |
+| [Tech Talks](Educator%20Content/Tech%20Talks) | Presentations on emerging or innovative tech topics with speakers notes and demos. |
+
+## Other available [academic resources](Educator%20Content)
+We also have other great educator content to help you use Azure in the classroom.
 
 | Resource | |
 | - | - |
 | [Scripts (preview)](Educator%20Content/Scripts) | Scripts and templates to help set up your classroom environment. |
 | [Azure Guides](Educator%20Content/Azure%20Guides) | Discover what Azure technologies apply to different teaching areas. |
-| [Event in a Box](Educator%20Content/Event-In-Box/Machine%20Learning%20Challenge) | A pre-packaged event to help students explore machine learning. |
 | [Course Content](Educator%20Content/Complimentary%20Course%20Content) | Learning modules to complement existing course instruction. Includes presentations, speaker notes, and hands-on labs. |
-| [Tech Talks](Educator%20Content/Tech%20Talks) | Presentations on emerging or innovative tech topics with speakers notes and demos. |
 
 ## Content from other sources
 | Resource | |
