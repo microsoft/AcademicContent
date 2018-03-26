@@ -345,6 +345,8 @@ Let's get started!
 	az login
 	```
 
+	> **NOTE: As of March 2018 there is a credentialing bug in Azure Cloud Shell. The following steps MUST be performed in Azure CLI - not Azure Cloud Shell.**
+
 	> As an alternative to installing the Azure CLI, you can use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) available in the [Azure Portal](https://portal.azure.com). Simply open the portal in your browser and click the **Cloud Shell** button in the toolbar at the top of the page. One of the benefits of using the Cloud Shell is that you're *always* running an up-to-date version. Note that you can use **Shift+Insert** to paste commands into the Cloud Shell, and **Ctrl+Insert** to copy text from the Cloud Shell to the clipboard.
 
 	![Opening the Azure Cloud Shell](Images/cloud-shell.png)
@@ -362,12 +364,11 @@ Let's get started!
 1. Now execute the following commands to create a Data Lake catalog credential used to authenticate when executing federated queries. Substitute your Data Lake Analytics account name for ANALYTICS_ACCOUNT_NAME, your database server name (the one specified in Step 11 of this exercise) for DATABASE_SERVER_NAME, and the database server user (also specified in Step 11) for DATABASE_USER:
 
     <pre>
-	az config mode arm
 	az dla catalog credential create --account ANALYTICS_ACCOUNT_NAME --database-name UserIntegration --uri tcp://DATABASE_SERVER_NAME.database.windows.net --credential-name FederatedCredential --user-name DATABASE_USER</pre>
 
 	When prompted for a password, enter the SQL server password ("Azure4Research!") you specified in Step 11.
 	
-	Alternative code for above for use with PowerShell (if you are getting an error with Azure CLI):
+	> Alternative code for above for use with PowerShell (if you are getting an error with Azure CLI):
 	
 	<pre>
 	$dbName = "UserIntegration"
