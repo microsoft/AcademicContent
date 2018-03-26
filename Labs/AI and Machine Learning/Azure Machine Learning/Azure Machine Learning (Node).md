@@ -403,53 +403,46 @@ In this exercise, you will write a cross-platform client app using [Node.js](htt
 
     _Opening package.json_
     
-1. Add the *dependencies* and *devDependencies* sections shown below to **package.json**. You can insert these starting on line 2 if you would like.
+1. Add the ```dependencies``` and ```devDependencies``` properties shown below to **package.json** after the ```scripts``` property that is already there.
                
-    ```javascript
-    {
-	  "dependencies": {
-	    "@angular/common": "2.0.0",
-	    "@angular/compiler": "2.0.0",
-	    "@angular/core": "2.0.0",
-	    "@angular/forms": "2.0.0",
-	    "@angular/http": "2.0.0",
-	    "@angular/platform-browser": "2.0.0",
-	    "@angular/platform-browser-dynamic": "2.0.0",
-	    "@types/core-js": "0.9.34",
-	    "@types/jasmine": "2.2.34",
-	    "@types/node": "6.0.41",
-	    "core-js": "2.4.1",
-	    "reflect-metadata": "0.1.3",
-	    "rxjs": "5.0.0-beta.12",
-	    "systemjs": "0.19.27",
-	    "zone.js": "0.6.23"
-	  },
-	  "devDependencies": {
-	    "electron": "1.4.0",
-	    "npm-run-all": "3.1.0",
-	    "typescript": "2.0.3"
-	  },
-      ...
-    }
+    ```json
+	"dependencies": {
+	  "@angular/common": "2.0.0",
+	  "@angular/compiler": "2.0.0",
+	  "@angular/core": "2.0.0",
+	  "@angular/forms": "2.0.0",
+	  "@angular/http": "2.0.0",
+	  "@angular/platform-browser": "2.0.0",
+	  "@angular/platform-browser-dynamic": "2.0.0",
+	  "@types/core-js": "0.9.34",
+	  "@types/jasmine": "2.2.34",
+	  "@types/node": "6.0.41",
+	  "core-js": "2.4.1",
+	  "reflect-metadata": "0.1.3",
+	  "rxjs": "5.0.0-beta.12",
+	  "systemjs": "0.19.27",
+	  "zone.js": "0.6.23"
+	},
+	"devDependencies": {
+	  "electron": "1.8.4",
+	  "npm-run-all": "3.1.0",
+	  "typescript": "2.0.3"
+	},
     ```
 
-    This brings a number of important dependencies into the application. Everything under the *dependencies* property is associated with the [Angular](https://angular.io/) framework and related TypeScript definitions. Angular is a client framework that simplifies JavaScript applications. It provides functionality for implementing user interfaces and also for calling Web services. The *devDependencies* property defines other components used by the application.
+    This brings a number of important dependencies into the application. Everything under the ```dependencies``` property is associated with the [Angular](https://angular.io/) framework and related TypeScript definitions. Angular is a client framework that simplifies JavaScript applications. It provides functionality for implementing user interfaces and also for calling Web services. The ```devDependencies``` property defines other components used by the application.
      
     > You will be using [TypeScript](https://www.typescriptlang.org/) to code the application. TypeScript is a superset of JavaScript, so the code should look familiar to you. You will use some TypeScript-specific features, such as [decorators](https://www.typescriptlang.org/docs/handbook/decorators.html). (While this is not an absolute requirement, it does simplify the Angular code a bit.)
       
-1. Replace the *scripts* property in **package.json** with the following *scripts* property. Then save your changes to **package.json**.
+1. Replace the ```scripts``` property in **package.json** with the following ```scripts``` property. Then save your changes to **package.json**.
        
-    ```javascript
-    {
-      ...
-      "scripts": {
-        "start": "npm-run-all --parallel electron tsc:w",
-        "electron": "electron .",
-        "tsc": "tsc",
-        "tsc:w": "tsc -w"
-      },
-      ...
-    }
+    ```json
+	"scripts": {
+	  "start": "npm-run-all --parallel electron tsc:w",
+	  "electron": "electron .",
+	  "tsc": "tsc",
+	  "tsc:w": "tsc -w"
+	},
     ```
 
 1. Place the mouse cursor over the project directory in Visual Studio Code's Explorer panel and click the **New File** button to add a new file to the project. Name the file **tsconfig.json**.
@@ -460,7 +453,7 @@ In this exercise, you will write a cross-platform client app using [Node.js](htt
 
 1. To give TypeScript information about how to build the application, paste the following statements into **tsconfig.json**. Then save your changes.
 
-    ```javascript
+    ```json
     {
       "compilerOptions": {
         "target": "es5",
@@ -604,7 +597,7 @@ In this exercise, you will write a cross-platform client app using [Node.js](htt
 
     > You can uncomment the call to *win.webContents.openDevTools()* if you want the [Chrome Developer Tools](https://developer.chrome.com/devtools) to be opened automatically when you start the application.  This is helpful for debugging if things go wrong with your application.
 
-1. Electron needs to know which file is the main startup file. This is specified in **package.json**. Change the *main* property in that file to the following:
+1. Electron needs to know which file is the main startup file. This is specified in **package.json**. Change the ```main``` property in that file to the following:
        
     ```javascript
     "main": "main.js",
@@ -734,8 +727,8 @@ In this exercise, you will write a cross-platform client app using [Node.js](htt
     
         postRequest(request: any) {
     
-            const url = 'web_service_url';
-            const apiKey = 'api_key';
+            const url = 'WEB_SERVICE_URL';
+            const apiKey = 'API_KEY';
     
             let body = JSON.stringify(request);
             let headers = new Headers({
@@ -788,11 +781,11 @@ In this exercise, you will write a cross-platform client app using [Node.js](htt
      
     The heart of the application is the PixelGrid component, which displays a two-dimensional grid in which the user draws digits and manages an array of Boolean values indicating the on/off state of each square in the grid. It also handles clicks of the **Submit** and **Clear** buttons. The **Submit** button submits the input data to the ML Web service.
     
-1. The application needs the API Key and URL for your Web service. Modify **application.ts** by replacing *web_service_url* on line 120 with the Web service URL you saved in Exercise 5, Step 7, and replacing *api_key* on line 121 with the API key you saved in Exercise 5, Step 5.
+1. The application needs the API Key and URL for your Web service. Modify **application.ts** by replacing WEB_SERVICE_URL on line 120 with the Web service URL you saved in Exercise 5, Step 7, and replacing API_KEY on line 121 with the API key you saved in Exercise 5, Step 5.
 
     ```typescript
-    const url = 'web_service_url';
-    const apiKey = 'api_key';
+    const url = 'WEB_SERVICE_URL';
+    const apiKey = 'API_KEY';
     ```
 
 1. Use Visual Studio Code's **File -> Save All** command to save all of your changes. Then return to the Command Prompt or terminal window and compile the application by executing the following command:
