@@ -123,7 +123,7 @@ Every transaction performed in a blockchain must be "fueled" by an account. This
 
 	_Opening the Azure cloud shell_
 
-1. Press **Shift+Insert**  to paste the ```ssh``` command that is on the clipboard into the cloud shell. Then press **Enter** to execute the command. If you are prompted with a security warning informing you that the authenticity of the host can't be established and asking if you want to connect anyway, type "yes" and press **Enter**.
+1. Make sure **Bash** is the language selected in the upper-left corner of the cloud shell. Press **Shift+Insert**  to paste the ```ssh``` command that is on the clipboard into the cloud shell. Then press **Enter** to execute the command. If you are prompted with a security warning informing you that the authenticity of the host can't be established and asking if you want to connect anyway, type "yes" and press **Enter**.
 
 1. When prompted for a password, enter the password you entered in Exercise 1, Step 3.
 
@@ -338,9 +338,9 @@ The contract is now present in the blockchain and waiting to be invoked. All you
 
 Smart contracts are designed to be used by applications that use the blockchain for secure transactions. In this exercise, you will run a Web site written in Node.js that uses the "ratemyprof" contract. The app allows users to enter ratings for professors. The data is stored in the blockchain. The app uses a library named [web3.js](https://github.com/ethereum/web3.js/), which wraps the [Ethereum RPC API](https://ethereumbuilders.gitbooks.io/guide/content/en/ethereum_json_rpc.html) and dramatically simplifies code for interacting with smart contracts. Note that there are also web3 libraries available for other languages, including .NET, Java and Python.
 
-1. Create a directory named "RateMyProf" to serve as the project directory for the Web site. Open the zip file containing the [source code for the Web site]() and copy its contents into the "RateMyProf" directory.
+1. Create a directory named "Profrates" to serve as the project directory for the Web site. Open the zip file containing the [source code for the Web site](#) and copy its contents into the "Profrates" directory.
 
-1. In a terminal or PowerShell window, ```cd``` to the "RateMyProf" directory. If you are running Windows, execute the following command to install [Windows-Build-Tools](https://www.npmjs.com/package/windows-build-tools), which enables native Node modules to be compiled on Windows:
+1. In a terminal or PowerShell window, ```cd``` to the "Profrates" directory. If you are running Windows, execute the following command to install [Windows-Build-Tools](https://www.npmjs.com/package/windows-build-tools), which enables native Node modules to be compiled on Windows:
 
 	```
 	npm install -g --production windows-build-tools
@@ -356,17 +356,17 @@ Smart contracts are designed to be used by applications that use the blockchain 
 	npm install
 	```
 
-1. Open **index.js** in the "RateMyProf" directory in your favorite text or program editor. Replace ENDPOINT_URL on line 6 with the Ethereum RPC endpoint you obtained from the Azure Portal in Exercise 3, Step 6.
+1. Open **index.js** in the "Profrates" directory in your favorite text or program editor. Replace ENDPOINT_URL on line 6 with the Ethereum RPC endpoint you obtained from the Azure Portal in Exercise 3, Step 6.
 
 1. Replace ACCOUNT_ADDRESS on line 7 with the address you saved in Exercise 2, Step 7.
 
-1. In the PowerShell or terminal window, ```cd``` back to the "truffle" directory that you created in the previous exercise. Then use the following command to list the addresses of all the smart contracts in the project, including the "ratemyprof" contract and some sample contracts that were created when you ran ```truffle init```:
+1. In the PowerShell or terminal window, ```cd``` back to the "truffle" directory that you created in the previous exercise. Then use the following command to list the addresses of all the smart contracts in the project, including the "profrates" contract and some sample contracts that were created when you ran ```truffle init```:
 
 	```
 	truffle networks
 	```
 
-	Replace CONTRACT_ADDRESS on line 8 of **index.js** with the "ratemyprof" address in the output. Then save the file. The modified lines should look something like this:
+	Replace CONTRACT_ADDRESS on line 8 of **index.js** with the "profrates" address in the output. Then save the file. The modified lines should look something like this:
 
 	```
 	var etherUrl = "http://labng2-dns-reg1.eastus.cloudapp.azure.com:8545";
@@ -374,7 +374,7 @@ Smart contracts are designed to be used by applications that use the blockchain 
 	var contract = "0x62af894ebf09a58dbdb3f7b1444d767241c83da5";
 	```
 
-1. Use a ```cd``` command to navigate back to the "RateMyProf" directory. Then execute the following command to start the Web app:
+1. Use a ```cd``` command to navigate back to the "Profrates" directory. Then execute the following command to start the Web app:
 
 	```
 	node index.js
