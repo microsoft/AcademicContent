@@ -313,7 +313,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 	```javascript
 	var ratemyprof = artifacts.require("./profrates.sol");
 	module.exports = function(deployer) {
-	    deployer.deploy(ratemyprof);
+	    deployer.deploy(profrates);
 	};
 	```
 
