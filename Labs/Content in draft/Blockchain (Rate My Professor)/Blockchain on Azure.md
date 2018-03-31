@@ -210,7 +210,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
 1. Use your favorite text or program editor to open the file named **truffle.js** in the "truffle" folder. Replace its contents with the statements below. Then replace ENDPOINT_URL on line 4 with the URL on the clipboard minus the leading "http://" and the trailing port number (for example, ":8545"), and replace PORT_NUMBER on line 5 with the port number you removed from the URL.
 
-	```json
+	```javascript
 	module.exports = {
 	  networks: {
 	    development: {
@@ -225,7 +225,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
 	The modified file should look something like this:
 
-	```
+	```javascript
 	module.exports = {
 	  networks: {
 	    development: {
@@ -279,7 +279,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 	            emit newRating(ratingID);
 	        }
 	        else {
-			    revert();
+	            revert();
 	        }
 	    }
 
