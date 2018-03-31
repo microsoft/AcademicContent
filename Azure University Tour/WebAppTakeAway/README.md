@@ -42,11 +42,11 @@ To deploy the ContosoBNB web application you will need to follow the steps below
 6. Extract the downloaded .zip file.
 7. If you haven't done so already, go to https://labs.cognitive.microsoft.com/en-us/project-local-insights and subscribe to Project Local Insights to get your key.
 
-  ![Subscribe to Project Local Insights](../Challenges/WebAppHOL/img/Subscribe.png)
+  ![Subscribe to Project Local Insights](../WebAppHOL/img/Subscribe.png)
 
 8. Once you have your key, navigate on your expanded files to the `WebApp\public\javascripts` folder, and then Right Click the **settings.js** file and select "Open with Code". (On a Mac, you can select the file in Finder, open the File menu, point to Open With, and then select Visual Studio Code.) Replace **\<YOUR KEY\>** with your Project Local Insights key (deleting the brackets "\<" and "\>" along with the letters "YOUR KEY"), and then save and close the file.
 
-  ![Set the Cog Services Key](../Challenges/WebAppHOL/img/SetCogServicesKey.png)
+  ![Set the Cog Services Key](../WebAppHOL/img/SetCogServicesKey.png)
 9. Using a FTP client of your choice, upload the extracted folders/files into the wwwroot folder on your web app.
 
   ![FTP Files](img/FTPFiles.png)
