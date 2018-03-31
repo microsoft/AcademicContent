@@ -14,8 +14,10 @@ The following are required to deploy this application:
 
 - A key for the Project Local Insights API. If you haven't already, [subscribe to Project Local Insights](https://labs.cognitive.microsoft.com/en-us/project-local-insights).
 - Your favorite development environment for web applications. If you don't have one, try Microsoft Visual Studio Code, with [downloads for Windows, Linux, and Mac available here](https://code.visualstudio.com/download).
-- An active Azure subscription
+- An active Azure subscription. Students can get access through Azure for Students.
 - A FTP client to upload the source files within the decompressed .zip file. 
+
+Note: To quickly verify your student status, use your school-issued email address like "your_name@your_school.edu" or equivalent. This will become your Microsoft Account that you can use to login to the Azure Portal.
 
 <a name="Steps"></a>
 ## Steps ##
