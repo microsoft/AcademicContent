@@ -259,7 +259,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 	        string photoUrl;
 	        string name;
 	        Rating[] ratings;		
-		}
+	    }
 
 	    Professor[] professors;
 		
@@ -311,7 +311,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 1. Create a file named **2_deploy_contracts.js** in the "migrations" subdirectory. Paste the following code into the file and save it:
 
 	```javascript
-	var profrate = artifacts.require("./profrates.sol");
+	var profrates = artifacts.require("./profrates.sol");
 	module.exports = function(deployer) {
 	    deployer.deploy(profrates);
 	};
