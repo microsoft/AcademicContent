@@ -245,7 +245,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 	```javascript
 	pragma solidity ^0.4.16;
 
-	contract ratemyprof {
+	contract profrates {
 
 	    event newProfessor(uint _id);
 	    event newRating(uint _id);		
@@ -311,7 +311,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 1. Create a file named **2_deploy_contracts.js** in the "migrations" subdirectory. Paste the following code into the file and save it:
 
 	```javascript
-	var ratemyprof = artifacts.require("./profrates.sol");
+	var profrate = artifacts.require("./profrates.sol");
 	module.exports = function(deployer) {
 	    deployer.deploy(profrates);
 	};
@@ -336,7 +336,7 @@ The contract is now present in the blockchain and waiting to be invoked. All you
 <a name="Exercise4"></a>
 ## Exercise 4: Invoke the contract from an app ##
 
-Smart contracts are designed to be used by applications that use the blockchain for secure transactions. In this exercise, you will run a Web site written in Node.js that uses the "ratemyprof" contract. The app allows users to enter ratings for professors. The data is stored in the blockchain. The app uses a library named [web3.js](https://github.com/ethereum/web3.js/), which wraps the [Ethereum RPC API](https://ethereumbuilders.gitbooks.io/guide/content/en/ethereum_json_rpc.html) and dramatically simplifies code for interacting with smart contracts. Note that there are also web3 libraries available for other languages, including .NET, Java and Python.
+Smart contracts are designed to be used by applications that use the blockchain for secure transactions. In this exercise, you will run a Web site written in Node.js that uses the "profrates" contract. The app allows users to enter ratings for professors. The data is stored in the blockchain. The app uses a library named [web3.js](https://github.com/ethereum/web3.js/), which wraps the [Ethereum RPC API](https://ethereumbuilders.gitbooks.io/guide/content/en/ethereum_json_rpc.html) and dramatically simplifies code for interacting with smart contracts. Note that there are also web3 libraries available for other languages, including .NET, Java and Python.
 
 1. Create a directory named "Profrates" to serve as the project directory for the Web site. Open the zip file containing the [source code for the Web site](#) and copy its contents into the "Profrates" directory.
 
