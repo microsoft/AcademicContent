@@ -69,7 +69,7 @@ In this exercise, you will install (if necessary) and open a local development e
 
     ![Visual Studio Code Settings](img/VSCodeOptions.png)
 
-1. Download the .ZIP file containing the resources used in this lab [here](https://redshirttour.blob.core.windows.net/challenges/WebAppHOL.zip)
+1. Download the .ZIP file containing the resources used in this lab [here](https://redshirttour.blob.core.windows.net/challenges/WebAppHOL.zip).
 1. Extract the downloaded .zip file.
 1. If you haven't done so already, go to <https://labs.cognitive.microsoft.com/en-us/project-local-insights> and subscribe to Project Local Insights to get your key.
 
