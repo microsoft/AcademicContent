@@ -380,8 +380,6 @@ Smart contracts are designed to be used by applications that use the blockchain 
 	node index.js
 	```
 
-	Watch the output. The app seeds the blockchain with some sample professors and sample ratings by calling methods in the smart contract.
-
 1. Now open your browser and navigate to http://localhost:8080. Confirm that the Web site's home page appears.
 
 	![The Profrates home page](Images/profrates-1.png)
