@@ -384,21 +384,21 @@ Smart contracts are designed to be used by applications that use the blockchain 
 
 1. Now open your browser and navigate to http://localhost:8080. Confirm that the Web site's home page appears.
 
-	![tk](Images/tk.png)
+	![The Profrates home page](Images/profrates-1.png)
 
-	_tk_
+	_The Profrates home page_
 
-1. tk.
+1. Click one of the professors on the home page. Type a comment into the comment box and click one of the stars to specify a rating from one to five stars. Then click the **Submit** button.
 
-	![tk](Images/tk.png)
+	![Submitting a comment](Images/profrates-2.png)
 
-	_tk_
+	_Submitting a comment_
 
-1. tk.
+1. Repeat the previous step to submit ratings and comments for several professors. Confirm that the aggregate ratings on the home page change as additional ratings are entered, and that each time you visit the ratings page for a given professor, the ratings you submitted earlier appear on the page, too.
 
-	![tk](Images/tk.png)
+	![Viewing previous comments](Images/profrates-3.png)
 
-	_tk_
+	_Viewing previous comments_
 
 1. tk.
 
