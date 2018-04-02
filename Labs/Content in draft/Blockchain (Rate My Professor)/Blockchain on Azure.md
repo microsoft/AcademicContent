@@ -1,16 +1,16 @@
 <a name="HOLTitle"></a>
-# Building a Tamper-Proof Ratings System Using Blockchain on Azure #
+# Building a Tamper-Proof Ratings System with Blockchain on Azure #
 
 [Blockchain](https://en.wikipedia.org/wiki/Blockchain) is one of the world's most talked-about technologies, and one that has the potential to fundamentally change the way we use the Internet. Originally designed for [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin), Blockchain remains the technology behind that digital currency but is not limited to applications involving virtual money. In the words of Dan Tapscott, author, TED speaker, and Executive Director of the [Blockchain Research Institute](https://www.blockchainresearchinstitute.org/), "Blockchain is an incorruptible digital ledger of economic transactions that can be programmed to record not just financial transactions, but virtually everything of value." One of the more inventive uses for Blockchain is to implement tamper-proof digital voting systems, a concept that is being actively explored [in the U.S. and abroad](https://venturebeat.com/2016/10/22/blockchain-tech-could-fight-voter-fraud-and-these-countries-are-testing-it/).
 
-Blockchain gets its name from the manner in which it stores data. Transactions such as a transfer of money from one party to another or a vote cast for a political candidate are stored in cryptographically sealed blocks. Blocks are joined together into chains ("blockchains"), with each block in the chain containing a hash of the previous block. A blockchain acts like an electronic ledger, and rather than be stored in one place, it is replicated across countless computers (nodes) in a Blockchain network. This decentralization means that a blockchain has no single point of failure and is controlled by no single entity. The latter is especially important for a system whose primary goal is to allow private transactions to take place without involving a "trusted" third party such as a bank.
+Blockchain gets its name from the manner in which it stores data. Transactions such as a transfer of money from one party to another or a vote cast for a political candidate are stored in cryptographically sealed blocks. Blocks are joined together into chains ("blockchains"), with each block in the chain containing a hash of the previous block. A blockchain acts like an electronic ledger, with blocks replicated across countless computers (nodes) in a Blockchain network rather than stored in one place. This decentralization means that a blockchain has no single point of failure and is controlled by no single entity. The latter is especially important for a system whose primary goal is to allow private transactions to take place without involving a "trusted" third party such as a bank.
 
 Anyone can build a Blockchain network and use it to host blockchains. Microsoft Azure makes it incredibly simple to do both by supporting Blockchain-as-a-Service. A few button clicks in the Azure Portal are sufficient to deploy a network of virtual machines provisioned with popular Blockchain implementations such as [Ethereum](https://www.ethereum.org/), [Corda](https://www.corda.net/), or 
 [Hyperledger Fabric](https://www.hyperledger.org/projects/fabric).
 
 Ethereum was one of the first general-purpose Blockchain implementations. The software is open-source and is the basis for Ethereum's own cryptocurrency known as [Ether](https://www.ethereum.org/ether). You can deploy Ethereum networks of your own and use its Blockchain implementation however you wish. Among other features, Ethereum supports [smart contracts](https://en.wikipedia.org/wiki/Smart_contract), which are written in languages such as [Solidity](https://en.wikipedia.org/wiki/Solidity) and then compiled into bytecode and deployed to the blockchain for execution.
 
-In this lab, you will deploy an Ethereum network on Azure and create a custom blockchain. Then you will build a Web site that lets students post comments about professors and rate them from one to five stars, and that stores the information in the blockchain. Along the way, you will get first-hand experience running Blockchain networks on Azure, as well as writing smart contracts for Ethereum and using them to store digital records in such a way that they cannot be altered.
+In this lab, you will deploy an Ethereum network on Azure and create a custom blockchain. Then you will build a Web site named "Profrates" for rating professors that stores the comments and ratings that users enter in the blockchain. Along the way, you will get first-hand experience running Blockchain networks on Azure, as well as writing smart contracts for Ethereum and using them to store digital records in such a way that they cannot be altered.
 
 ![](Images/header.png)
 
@@ -20,8 +20,9 @@ In this lab, you will deploy an Ethereum network on Azure and create a custom bl
 In this hands-on lab, you will learn how to:
 
 - Deploy an Ethereum blockchain network on Azure
-- Write smart contracts and deploy them to Ethereum networks
-- Manipulate Ethereum blockchains using Node.js
+- Write smart contracts in Solidity
+- Deploy smart contracts to Ethereum networks
+- Invoke smart contracts from Node.js
 
 <a name="Prerequisites"></a>
 ### Prerequisites ###
@@ -56,13 +57,13 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
 1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). If you are asked to sign in, do so using your Microsoft account.
 
-1. In the portal, click **+ Create a resource**, followed by **Blockchain** and **Ethereum Proof-of-Work Blockchain**.
+1. In the portal, click **+ Create a resource**, followed by **Blockchain** and **Ethereum Proof-of-Work Consortium**.
 
 	![Creating an Ethereum blockchain](Images/new-blockchain.png)
 
 	_Creating an Ethereum blockchain_
 
-1. Fill in the "Basics" blade as shown below, providing a password that's at least 12 characters long with a mix of uppercase letters, lowercase letters, numbers, and special characters. Select the region nearest you, and then click **OK**. *Be sure to remember the password that you entered, because you will need it in the next exercise*.
+1. Fill in the "Basics" blade as shown below, providing a password that's at least 12 characters long containing a mix of uppercase letters, lowercase letters, numbers, and special characters. Select the region nearest you, and then click **OK**. *Remember the password that you entered, because you will need it in the next exercise*.
 
 	![Entering basic settings](Images/blockchain-settings-1.png)
 
@@ -76,7 +77,7 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
 1. Click **OK** at the bottom of the "Network Size and Performance" blade to accept the default settings for VM sizes, number of nodes, and so on.
 
-1. In the "Ethereum Settings" blade, set **Consortium Member ID** to **123** and enter a password in four places as the Ethereum account password and private key passphrase. Then click **OK**. Once again, *remember the password that you entered, because you will need it in the next exercise*.
+1. In the "Ethereum Settings" blade, set the member ID to **123** and enter a password in four places as the Ethereum account password and private key passphrase. Then click **OK**. Once again, *remember the password that you entered, because you will need it in the next exercise*.
 
 	![Entering Ethereum settings](Images/blockchain-settings-3.png)
 
