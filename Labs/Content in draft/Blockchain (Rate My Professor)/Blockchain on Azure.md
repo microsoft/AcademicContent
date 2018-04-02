@@ -44,7 +44,7 @@ This hands-on lab includes the following exercises:
 - [Exercise 1: Create a blockchain on Azure](#Exercise1)
 - [Exercise 4: Unlock the coinbase account](#Exercise2)
 - [Exercise 3: Deploy a smart contract](#Exercise3)
-- [Exercise 4: Invoke the contract from an app](#Exercise4)
+- [Exercise 4: Invoke the contract from a Web app](#Exercise4)
 - [Exercise 5: Delete the blockchain network](#Exercise5)
 
 Estimated time to complete this lab: **60** minutes.
@@ -246,10 +246,10 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
 	```javascript
 	pragma solidity ^0.4.16;
-
+	
 	contract profrates {
 	
-	    event newRating(uint _id);		
+	    event newRating(uint id);		
 	
 	    struct Rating {
 	        uint professorID;
@@ -261,10 +261,10 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 			
 	    function addRating(uint professorID, string comment, uint stars) public returns (uint ratingID) {
 	        ratingID = ratings.length;
-	        ratings[ratings.length++] = Rating(professorID, comment, stars); // Is the ++ needed?
+	        ratings[ratings.length++] = Rating(professorID, comment, stars);
 	        emit newRating(ratingID);
 	    }
-
+	
 	    function getRatingsCount() constant public returns (uint count) {
 	        return ratings.length;
 	    }
@@ -277,7 +277,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 	}
 	```
 
-	This code, which constitutes a smart contract, is written in Solidity. Solidity files are compiled to JSON files containing interface definitions as well as bytecode. This contract contains functions for adding information about professors and ratings to the blockchain, as well as functions for retrieving that information.
+	This code, which constitutes a smart contract, is written in [Solidity](https://en.wikipedia.org/wiki/Solidity), which is similar to JavaScript. Solidity files are compiled to JSON files containing interface definitions as well as bytecode. This contract contains functions for adding a rating to the blockchain, getting a count of ratings recorded in the blockchain, and retrieving individual ratings. A "rating" is defined by the ```Rating``` structure, which contains the ID of the professor to which the rating pertains, a textual comment, and a numeric value from 1 to 5.
 
 1. Create a file named **2_deploy_contracts.js** in the "migrations" subdirectory. Paste the following code into the file and save it:
 
@@ -306,21 +306,19 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 The contract is now present in the blockchain and waiting to be invoked. All you lack is a mechanism for invoking it. In the next exercise, you will use the contract in a Web site that runs on Node.js.
 
 <a name="Exercise4"></a>
-## Exercise 4: Invoke the contract from an app ##
+## Exercise 4: Invoke the contract from a Web app ##
 
-Smart contracts are designed to be used by applications that use the blockchain for secure transactions. In this exercise, you will run a Web site written in Node.js that uses the "profrates" contract. The app allows users to enter ratings for professors. The data is stored in the blockchain. The app uses a library named [web3.js](https://github.com/ethereum/web3.js/), which wraps the [Ethereum RPC API](https://ethereumbuilders.gitbooks.io/guide/content/en/ethereum_json_rpc.html) and dramatically simplifies code for interacting with smart contracts. Note that there are also web3 libraries available for other languages, including .NET, Java and Python.
+Smart contracts are designed to be used by applications that use the blockchain for secure transactions. In this exercise, you will run a Web app written in Node.js that uses the "profrates" contract. The app allows users to rate professors from one to five stars and enter comments to go with the ratings. The data is stored in the blockchain. The app uses a library named [web3.js](https://github.com/ethereum/web3.js/), which wraps the [Ethereum RPC API](https://ethereumbuilders.gitbooks.io/guide/content/en/ethereum_json_rpc.html) and dramatically simplifies code for interacting with smart contracts. Note that there are also web3 libraries available for other languages, including .NET, Java and Python.
 
-1. Create a directory named "Profrates" to serve as the project directory for the Web site. Open the zip file containing the [source code for the Web site](#) and copy its contents into the "Profrates" directory.
+1. Create a directory named "Profrates" to serve as the project directory for the Web site. Open the zip file containing the [source code for the Web site](https://topcs.blob.core.windows.net/public/profrates-resources.zip) and copy its contents into the "Profrates" directory.
 
-1. In a terminal or PowerShell window, ```cd``` to the "Profrates" directory. If you are running Windows, execute the following command to install [Windows-Build-Tools](https://www.npmjs.com/package/windows-build-tools), which enables native Node modules to be compiled on Windows:
+1. In a terminal or PowerShell window, ```cd``` to the "Profrates" directory. If you are running Windows, make sure PowerShell is running as an an administrator and execute the following command to install [Windows-Build-Tools](https://www.npmjs.com/package/windows-build-tools), which enables native Node modules to be compiled on Windows:
 
 	```
 	npm install -g --production windows-build-tools
 	```
 
 	This command might take 5 minutes or more to complete, so be patient!
-
-	> PowerShell must be running as an administrator for this command to succeed.
 
 1. Now execute the following command to install the packages listed in the **package.json** file:
 
@@ -358,44 +356,64 @@ Smart contracts are designed to be used by applications that use the blockchain 
 
 	_The Profrates home page_
 
-1. Click one of the professors on the home page. Type a comment into the comment box and click one of the stars to specify a rating from one to five stars. Then click the **Submit** button.
+1. Click one of the professors on the home page. Type a comment into the comment box and click a star to specify a rating from one to five stars. Then click the **Submit** button.
 
 	![Submitting a comment](Images/profrates-2.png)
 
 	_Submitting a comment_
 
-1. Repeat the previous step to submit ratings and comments for several professors. Confirm that the aggregate ratings on the home page change as additional ratings are entered, and that each time you visit the ratings page for a given professor, the ratings you submitted earlier appear on the page, too.
+1. Confirm that the comment and rating you entered appear at the bottom of the page. Then enter more comments and ratings for this professor. Each time you click **Submit**, an asynchronous request is submitted to the Ethereum network to add a block to the blockchain. Inside that block is the comment and star rating that you entered, as well as the ID of the professor to which they pertain.
 
-	![Viewing previous comments](Images/profrates-3.png)
+	![Submitting additional comments](Images/profrates-3.png)
 
-	_Viewing previous comments_
+	_Submitting additional comments_
 
-1. tk.
+1. Click the image of the graduate in the upper-left corner of the page to return to the home page. Confirm that the comments you entered are reflected on the home page in the comment count and the star rating for the professor that you rated.
 
-	![tk](Images/tk.png)
+	> IMPORTANT: These changes might not show up on the home page for 30 seconds or more. If necessary, refresh the page every few seconds until the changes appear.
 
-	_tk_
+1. Rate some of the other professors and confirm that the ratings "stick," despite the short delay between the time a rating is entered and the time it can be retrieved from the blockchain.
 
-1. tk.
+1. Care to see the code in the Web app that adds a rating to the blockchain? Clicking the **Submit** button transmits an AJAX request to a REST method on the server. That method is implemented in **index.js**, which you'll find in the "Profrates" directory:
 
-	![tk](Images/tk.png)
+	```javascript
+	app.post("/add", function (req, res) {
+	    contractInstance.methods.addRating(parseInt(req.body.professorId), req.body.comment, parseInt(req.body.stars)).send({ from: account, gas:500000 }, function(error, transactionHash) {
+	        if (error) {
+	            res.status(500).send(error);
+	        }
+	        else {
+	            res.status = 200;
+	            res.json({ id: 0 });
+	        }
+	    });			
+	});
+	```
 
-	_tk_
+	The real work is performed by the call to ```contractInstance```, which is initialized this way:
 
-1. tk.
+	```javascript
+	contractInstance = new web3.eth.Contract(abi, contract);
+	```
 
-	![tk](Images/tk.png)
+	```web3``` comes from web3 library. ```abi``` is a variable that contains a local definition of the contract — the same contract that you implemented in Solidity in the previous exercise — and ```contract``` is the contract address that you retrieved with the ```truffle networks``` command earlier in this exercise.
 
-	_tk_
+1. While you have **index.js** open, find the following statement block:
 
-TODO: Add closing.
+	```
+	app.get("/rating/:index", function (req, res) {
+	  ...
+	});
+	```
+
+	This implements a REST method that retrieves from the blockchain the rating whose index is specified. What contract function is called inside this method to retrieve a block from the blockchain?
+
+The Web site is currently running locally. As an optional exercise, consider deploying it to the cloud as an Azure Web App so you can access it from anywhere. For a hands-on introduction to deploying Web apps as Azure Web Apps, refer to [Deploying a Cognitive Services Web Site to Azure via GitHub](../Web%20Development/Azure%20Web%20Apps%20and%20GitHub/Deploying%20a%20Cognitive%20Services%20Web%20Site%20to%20Azure%20via%20GitHub.md).
 
 <a name="Exercise5"></a>
 ## Exercise 5: Delete the blockchain network 
 
-Resource groups are a useful feature of Azure because they simplify the task of managing related resources. One of the most practical reasons to use resource groups is that deleting a resource group deletes all of the resources it contains. Rather than delete those resources one by one, you can delete them all at once.
-
-In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Ethereum network. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.
+In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Ethereum network. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because the resources in it are relatively expensive.
 
 1. Return to the blade for the resource group you created in Exercise 1. Then click the **Delete** button at the top of the blade.
 
@@ -405,7 +423,7 @@ In this exercise, you will delete the resource group created in [Exercise 1](#Ex
 
 1. For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group. Then click the **Delete** button to remove all traces of this lab from your Azure subscription.
 
-After a few minutes, the blockchain and all of the associated resources will be deleted. Billing stops when you click the **Delete** button, so you're not charged for the time required to delete the resources. Similarly, billing doesn't start until the resources are fully and successfully deployed.
+After a few minutes, the network and all of the associated resources will be deleted. Billing stops when you click **Delete**, so you're not charged for the time required to delete the resources. Similarly, billing doesn't start until the resources are fully and successfully deployed.
 
 <a name="Summary"></a>
 ## Summary ##
