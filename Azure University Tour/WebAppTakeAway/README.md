@@ -1,4 +1,4 @@
-# Deploying the ContosoBNB Web Applicaiton #
+# Deploying the ContosoBNB Web Application #
 
 <a name="AppDeployTitle"></a>
 
