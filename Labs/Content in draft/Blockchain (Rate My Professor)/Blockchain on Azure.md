@@ -12,6 +12,8 @@ Ethereum was one of the first general-purpose Blockchain implementations. The so
 
 In this lab, you will deploy an Ethereum network on Azure and create a custom blockchain. Then you will build a Web site that lets students post comments about professors and rate them from one to five stars, and that stores the information in the blockchain. Along the way, you will get first-hand experience running Blockchain networks on Azure, as well as writing smart contracts for Ethereum and using them to store digital records in such a way that they cannot be altered.
 
+![](Images/header.png)
+
 <a name="Objectives"></a>
 ### Objectives ###
 
@@ -281,6 +283,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
 	```javascript
 	var profrates = artifacts.require("./profrates.sol");
+
 	module.exports = function(deployer) {
 	    deployer.deploy(profrates);
 	};
