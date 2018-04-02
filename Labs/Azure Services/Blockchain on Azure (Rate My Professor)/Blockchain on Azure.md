@@ -199,7 +199,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 	npm install -g truffle
 	```
 
-1. Now use the following command to initialize a Truffle project in the current directory. This will download a few Solidity scripts and install them, and create a scaffolding in the "truffle" folder.
+1. Use the following command to initialize a Truffle project in the current directory. This will download a few Solidity scripts and install them, and create a scaffolding in the "truffle" folder.
 
 	```
 	truffle init
@@ -304,7 +304,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 	truffle deploy
 	```
 
-The contract is now present in the blockchain and waiting to be invoked. All you lack is a mechanism for invoking it. In the next exercise, you will use the contract in a Web site that runs on Node.js.
+The contract is now present in the blockchain and waiting to be invoked. All you lack is a mechanism for invoking it. In the next exercise, you will invoke the contract from a Web app that runs on Node.js.
 
 <a name="Exercise4"></a>
 ## Exercise 4: Invoke the contract from a Web app ##
@@ -329,7 +329,7 @@ Smart contracts are designed to be used by applications that use the blockchain 
 
 1. Open **index.js** in the "Profrates" directory in your favorite text or program editor. Replace ENDPOINT_URL on line 6 with the Ethereum RPC endpoint you obtained from the Azure Portal in Exercise 3, Step 6.
 
-1. Replace ACCOUNT_ADDRESS on line 7 with the address you saved in Exercise 2, Step 7.
+1. Replace ACCOUNT_ADDRESS on line 7 with the address you saved in Exercise 2, Step 8.
 
 1. In the PowerShell or terminal window, ```cd``` back to the "truffle" directory that you created in the previous exercise. Then use the following command to list the addresses of all the smart contracts in the project, including the "profrates" contract and some sample contracts that were created when you ran ```truffle init```:
 
@@ -397,7 +397,7 @@ Smart contracts are designed to be used by applications that use the blockchain 
 	contractInstance = new web3.eth.Contract(abi, contract);
 	```
 
-	```web3``` comes from web3 library. ```abi``` is a variable that contains a local definition of the contract — the same contract that you implemented in Solidity in the previous exercise — and ```contract``` is the contract address that you retrieved with the ```truffle networks``` command earlier in this exercise.
+	```web3``` comes from web3 library. ```abi``` is a variable that contains a JSON definition of the contract — the same contract that you implemented in Solidity in the previous exercise — and ```contract``` is the contract address that you retrieved with the ```truffle networks``` command earlier in this exercise.
 
 1. While you have **index.js** open, find the following statement block:
 
