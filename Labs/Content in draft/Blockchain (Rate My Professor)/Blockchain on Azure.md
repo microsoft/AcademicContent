@@ -246,63 +246,32 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 	pragma solidity ^0.4.16;
 
 	contract profrates {
-
-	    event newProfessor(uint _id);
+	
 	    event newRating(uint _id);		
-
+	
 	    struct Rating {
+	        uint professorID;
 	        string comment;
 	        uint stars;
 	    }
+	
+	    Rating[] ratings;
 			
-	    struct Professor {
-	        string photoUrl;
-	        string name;
-	        Rating[] ratings;		
-	    }
-
-	    Professor[] professors;
-		
-	    function addProfessor(string name, string photoUrl) public returns (uint professorID) {
-	        professorID = professors.length;
-	        professors.length++;
-	        professors[professorID].photoUrl = photoUrl;
-	        professors[professorID].name = name;
-	        emit newProfessor(professorID);
-	    }
-
 	    function addRating(uint professorID, string comment, uint stars) public returns (uint ratingID) {
-	        if (stars > 0 && stars <= 5) {
-	            Professor storage professor =  professors[professorID];
-	            ratingID = professor.ratings.length;
-	            professor.ratings[professor.ratings.length++] = Rating(comment, stars);
-	            emit newRating(ratingID);
-	        }
-	        else {
-	            revert();
-	        }
+	        ratingID = ratings.length;
+	        ratings[ratings.length++] = Rating(professorID, comment, stars); // Is the ++ needed?
+	        emit newRating(ratingID);
 	    }
 
-	    function getProfessorCount() constant public returns (uint count) {
-	        return professors.length;
+	    function getRatingsCount() constant public returns (uint count) {
+	        return ratings.length;
 	    }
-		
-	    function getProfessor(uint professorID) constant public returns (string name, string photoUrl, uint stars, uint ratingCount) {
-	        Professor storage professor =  professors[professorID];
-	        name = professor.name;
-	        photoUrl = professor.photoUrl;
-	        stars = 0;
-	        ratingCount = professor.ratings.length;
-	        for (uint i = 0; i < professor.ratings.length; i++) {
-	            stars += professor.ratings[i].stars;
-	        }		
+	
+	    function getRating(uint index) constant public returns (uint professorID, string comment, uint stars) {
+	        professorID = ratings[index].professorID;
+	        comment = ratings[index].comment;
+	        stars = ratings[index].stars;
 	    }
-		
-	    function getRating(uint professorID, uint ratingID) constant public returns (string comment, uint stars) {
-	        Professor storage professor =  professors[professorID];
-	        comment = professor.ratings[ratingID].comment;
-	        stars = professor.ratings[ratingID].stars;
-	    }	
 	}
 	```
 
