@@ -1,6 +1,6 @@
 # Azure University Tour
 
-Welcome to the [Azure University Tour](https://www.microsoftevents.com/profile/web/index.cfm?PKwebID=0x765986abcd)! In this series of challenges, you'll build your own [ContosoBNB](https://contosobnb.azurewebsites.net/) web app, the one that was demo'ed during the keynote.
+Welcome to the [Azure University Tour](https://www.microsoftevents.com/profile/web/index.cfm?PKwebID=0x765986abcd)! In this series of challenges, you'll build a few of the features from the [ContosoBNB](https://contosobnb.azurewebsites.net/) web app, the one that was demo'ed during the keynote.
 
 ![ContosoBNB](https://github.com/MSFTImagine/computerscience/blob/master/_layouts/ContosoBNB.png)
 
