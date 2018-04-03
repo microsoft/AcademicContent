@@ -3,10 +3,9 @@
 
 [Blockchain](https://en.wikipedia.org/wiki/Blockchain) is one of the world's most talked-about technologies, and one that has the potential to fundamentally change the way we use the Internet. Originally designed for [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin), Blockchain remains the technology behind that digital currency but is not limited to applications involving virtual money. In the words of Dan Tapscott, author, TED speaker, and Executive Director of the [Blockchain Research Institute](https://www.blockchainresearchinstitute.org/), "Blockchain is an incorruptible digital ledger of economic transactions that can be programmed to record not just financial transactions, but virtually everything of value." One of the more inventive uses for Blockchain is to implement tamper-proof digital voting systems, a concept that is being actively explored [in the U.S. and abroad](https://venturebeat.com/2016/10/22/blockchain-tech-could-fight-voter-fraud-and-these-countries-are-testing-it/).
 
-Blockchain gets its name from the manner in which it stores data. Transactions such as a transfer of money from one party to another or a vote cast for a political candidate are stored in cryptographically sealed blocks. Blocks are joined together into chains ("blockchains"), with each block in the chain containing a hash of the previous block. A blockchain acts like an electronic ledger, and rather than be stored in one place, it is replicated across countless computers (nodes) in a Blockchain network. This decentralization means that a blockchain has no single point of failure and is controlled by no single entity. The latter is especially important for a system whose primary goal is to allow private transactions to take place without involving a "trusted" third party such as a bank.
+Blockchain gets its name from the manner in which it stores data. Transactions such as a transfer of money from one party to another or a vote cast for a political candidate are stored in cryptographically sealed blocks. Blocks are joined together into chains ("blockchains"), with each block in the chain containing a hash of the previous block. A blockchain acts like an electronic ledger, with blocks replicated across countless computers (nodes) in a Blockchain network rather than stored in one place. This decentralization means that a blockchain has no single point of failure and is controlled by no single entity. The latter is especially important for a system whose primary goal is to allow private transactions to take place without involving a "trusted" third party such as a bank.
 
-Anyone can build a Blockchain network and use it to host blockchains. Microsoft Azure makes it incredibly simple to do both by supporting Blockchain-as-a-Service. A few button clicks in the Azure Portal are sufficient to deploy a network of virtual machines provisioned with popular Blockchain implementations such as [Ethereum](https://www.ethereum.org/), [Corda](https://www.corda.net/), or 
-[Hyperledger Fabric](https://www.hyperledger.org/projects/fabric).
+Anyone can build a Blockchain network and use it to host blockchains. Microsoft Azure makes it incredibly simple to do both by supporting Blockchain-as-a-Service. A few button clicks in the Azure Portal are sufficient to deploy a network of virtual machines provisioned with popular Blockchain implementations such as [Ethereum](https://www.ethereum.org/), [Corda](https://www.corda.net/), or [Hyperledger Fabric](https://www.hyperledger.org/projects/fabric).
 
 Ethereum was one of the first general-purpose Blockchain implementations. The software is open-source and is the basis for Ethereum's own cryptocurrency known as [Ether](https://www.ethereum.org/ether). You can deploy Ethereum networks of your own and use its Blockchain implementation however you wish. Among other features, Ethereum supports [smart contracts](https://en.wikipedia.org/wiki/Smart_contract), which are written in languages such as [Solidity](https://en.wikipedia.org/wiki/Solidity) and then compiled into bytecode and deployed to the blockchain for execution.
 
@@ -26,7 +25,6 @@ In this hands-on lab, you will learn how to:
 ### Prerequisites ###
 
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
-- [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and PowerShell (Windows users only)
 - [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html)
 - [Node.js](https://nodejs.org)
 
@@ -44,60 +42,57 @@ This hands-on lab includes the following exercises:
 
 - [Exercise 1: Create a Blockchain on Azure](#Exercise1)
 - [Exercise 2: Create a wallet](#Exercise2)
-- [Exercise 3: Unlock the coinbase account (Windows)](#Exercise3)
-- [Exercise 4: Unlock the coinbase account (macOS and Linux) ](#Exercise4)
-- [Exercise 5: Deploy a smart contract](#Exercise5)
-- [Exercise 6: Invoke the contract from an app](#Exercise6)
-- [Exercise 7: Delete the Ethereum network](#Exercise7)
+- [Exercise 3: Unlock the coinbase account](#Exercise3)
+- [Exercise 4: Deploy a smart contract](#Exercise4)
+- [Exercise 5: Invoke the contract from an app](#Exercise5)
+- [Exercise 6: Delete the Ethereum network](#Exercise6)
 
 Estimated time to complete this lab: **60** minutes.
 
 <a name="Exercise1"></a>
 ## Exercise 1: Create a blockchain on Azure ##
 
-Deploying a blockchain on Azure only takes a few minutes. In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain network in the cloud.
+In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain network in the cloud. [Ethereum](https://www.ethereum.org/) is a platform for running decentralized applications that rely on smart contracts, and it is offered as a service in Azure. For a great introduction to Ethereum, its history, and its uses, see [What is Ethereum? A Step-by-Step Beginners Guide](https://blockgeeks.com/guides/ethereum/).
 
 1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). If you are asked to sign in, do so using your Microsoft account.
 
-1. In the portal, click **+ Create a resource**, followed by **Blockchain** and **Ethereum Consortium Blockchain**.
+1. In the portal, click **+ Create a resource**, followed by **Blockchain** and **Ethereum Proof-of-Work Consortium**.
 
 	![Creating an Ethereum blockchain](Images/new-blockchain.png)
 
 	_Creating an Ethereum blockchain_
 
-1. Click the **Create** button at the bottom of the "Ethereum Consortium Blockchain" blade.
-
-1. In the "Basics" blade, set **Resource prefix** to "blkchn" (without quotation marks), **VM user name** to "blkadmin" (without quotation marks), and the password to "Blockchain!321" (once more, without quotation marks). Make sure **Create new** is selected under **Resource group**, and enter "BlockchainResourceGroup" as the resource-group name. Select the location nearest you, and then click **OK**.
+1. Fill in the "Basics" blade as shown below, providing a password that's at least 12 characters long containing a mix of uppercase letters, lowercase letters, numbers, and special characters. Select the region nearest you, and then click **OK**. *Remember the password that you entered, because you will need it in the next exercise*.
 
 	![Entering basic settings](Images/blockchain-settings-1.png)
 
 	_Entering basic settings_
 
+1. In the "Deployment regions" blade, make sure **Number of regions** is set to 1 and select the region closest to you. Then click **OK** at the bottom of the blade.
+
+	![Specifying deployment regions](Images/blockchain-settings-2.png)
+
+	_Specifying deployment regions_
+
 1. Click **OK** at the bottom of the "Network Size and Performance" blade to accept the default settings for VM sizes, number of nodes, and so on.
 
-	![Accepting the default network settings](Images/blockchain-settings-2.png)
-
-	_Accepting the default network settings_
-
-1. In the "Ethereum Settings" blade, set **Network ID** to **123456**, and enter "Blockchain!321" in four places as the Ethereum account password and private key passphrase. Then click **OK**.
+1. In the "Ethereum Settings" blade, set the member ID to **123** and enter a password in four places as the Ethereum account password and private key passphrase. Then click **OK**. Once again, *remember the password that you entered, because you will need it in the next exercise*.
 
 	![Entering Ethereum settings](Images/blockchain-settings-3.png)
 
 	_Entering Ethereum settings_
 
-1. Review the settings in the "Summary" blade and click **OK**.
+1. Fill in the "OMS" blade as shown below, selecting the region closest to you. Then click **OK**.
 
-	![Reviewing the settings](Images/blockchain-settings-4.png)
+	> OMS stands for [Operations Management Suite](https://www.microsoft.com/cloud-platform/insight-and-analytics) and is a feature of Azure that allows you to monitor workloads running in the cloud and gain real-time insights into their operation. When you deploy an Ethereum network, Azure automatically connects it to an OMS instance.
 
-	_Reviewing the settings_
+	![Entering OMS settings](Images/blockchain-settings-4.png)
 
-1. Click the **Purchase** button to begin the deployment.
+	_Entering OMS settings_
 
-	![Beginning the deployment](Images/blockchain-settings-5.png)
+1. Review the settings in the "Summary" blade and click **OK** at the bottom of the blade. Then click the **Create** button at the bottom of the "Create" blade to begin the deployment.
 
-	_Beginning the deployment_
-
-The deployment will probably take about 5 minutes to complete, but rather than wait for it to finish, proceed to Exercise 2 and begin the process of setting up a wallet. 
+The deployment will probably take 10 to 15 minutes to complete, but rather than wait for it to finish, proceed to Exercise 2 and begin the process of setting up a wallet. 
 
 <a name="Exercise2"></a>
 ## Exercise 2: Create a wallet ##
@@ -136,7 +131,7 @@ The next task is to set up a wallet and connect it to the Ethereum network deplo
 
 	_Accepting the terms of use_
 
-1. Enter "Blockchain!321" (without quotation marks) as the password in two places, and then click **Create**.
+1. Enter a password, and then click **Create**.
 
 	![Creating a MetaMask account](Images/metamask-5.png)
 
@@ -162,7 +157,7 @@ The next task is to set up a wallet and connect it to the Ethereum network deplo
 
 	_Opening the Blockchain resource_
 	
-1. Click the **Copy** button next to ETHEREUM-RPC-ENDPOINT under "Outputs." This URL is very important, because it allows apps to make JSON-RPC calls to the network to deploy smart contracts and perform other blockchain-related tasks.
+1. Click **Outputs** in the menu on the left. Then click the **Copy** button next to ETHEREUM-RPC-ENDPOINT. This URL is very important, because it allows apps to make JSON-RPC calls to the network to deploy smart contracts and perform other blockchain-related tasks.
 
 	![Copying the endpoint URL](Images/copy-endpoint.png)
 
@@ -215,91 +210,64 @@ Seeding your wallet with Ether isn't strictly necessary because you won't be usi
 Where did the 1,000 Ether come from? They came from the *coinbase* account that was created when the network was created. The coinbase account holds all the Ether that haven't been transferred to individual accounts. Later, you will use Ether in this account to *fuel* the transactions that you perform via the contracts that you deploy. Before you can do that, you must unlock the account.
 
 <a name="Exercise3"></a>
-## Exercise 3: Unlock the coinbase account (Windows) ##
+## Exercise 3: Unlock the coinbase account ##
 
-To unlock the coinbase account, you must connect to one of the Ethereum servers with SSH and execute a couple of commands. If you are running macOS or Linux, **skip to [Exercise 4](#Exercise4)** and use the built-in SSH client. If you are running Windows instead, proceed with this exercise.
+In this exercise, you will use SSH to connect to the Ethereum network you deployed in the previous exercise and execute a series of commands to unlock the account and retrieve its address.
 
-1. PuTTY is a popular (and free) SSH client for Windows. If PuTTY isn't installed on your computer, [download and install it](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) now.
-
-1. Return to the Azure Portal and click the **Copy** button next to ADMIN-SITE.
-
-	![Copying the admin-site link](Images/copy-site-url.png)
-
-	_Copying the admin-site link_
-
-1. Start PuTTY and paste the value on the clipboard into the **Host Name (or IP address)** field. Remove "http://" from the beginning of the string, and type **3000** into the **Port** field to connect using port 3000. Then click the **Open** button to initiate a Secure Shell (SSH) connection. If you are prompted with a security warning asking if you want to update the cached key, answer yes.
-
-	![Connecting with PuTTY](Images/putty.png)
-
-	_Connecting with PuTTY_
-
-1. A PuTTY terminal window will appear and you will be prompted to **login as**. Log in with the user name ("blkadmin") and password ("Blockchain!321") you entered in Exercise 1, Step 4.
-
-1. Execute the following command in the console window to attach to the Ethereum node:
-
-	```
-	geth attach
-	```
-
-1. Now execute the following command to unlock the coinbase account:
-
-	```
-	web3.personal.unlockAccount(web3.personal.listAccounts[0],"Blockchain!321", 15000)
-	```
-
-	This will allow you to use the blockchain to transfer funds from the coinbase account. Make sure that the output from the command is the word "true."
-
-1. Type **exit** into the console window to detach from Ethereum.
-
-1. Type **exit** again to close the SSH connection and end the PuTTY session.
-
-Now that the coinbase account is unlocked, you are ready to start using the network to execute transactions on the blockchain. Proceed to [Exercise 5](#Exercise5). Exercise 4 is for macOS and Linux users only.
-
-<a name="Exercise4"></a>
-## Exercise 4: Unlock the coinbase account (macOS and Linux) ##
-
-To unlock the coinbase account, you must connect to one of the Ethereum servers with SSH and execute a couple of commands. macOS and Linux users can use the built-in SSH client to connect.
-
-1. Return to the Azure Portal and click the **Copy** button next to SSH-TO-FIRST-TX-NODE.
+1. Return to the Azure portal and click the **Copy** button next to SSH-TO-FIRST-TX-NODE-REGION1 to copy the SSH command to the clipboard.
 
 	![Copying the SSH command](Images/copy-ssh-command.png)
 
 	_Copying the SSH command_
 
-1. Open a terminal window and paste the command on the clipboard into the terminal window. Then press **Enter** to execute the command. If you are prompted with a security warning asking if you want to update the cached key, answer yes.
+1. Click the **Cloud Shell** button in the toolbar at the top of the portal to open a cloud shell. The Azure cloud shell provides an environment for executing Bash and PowerShell commands without leaving the portal. You can use **Shift+Insert** to paste commands into the cloud shell, and **Ctrl+Insert** to copy text from the cloud shell to the clipboard.
 
-1. When prompted for a password, enter the password ("Blockchain!321") you entered in Exercise 1, Step 4.
+	![Opening the Azure cloud shell](Images/cloud-shell.png)
 
-1. Execute the following command in the terminal window to attach to the Ethereum node:
+	_Opening the Azure cloud shell_
+
+1. Make sure **Bash** is the language selected in the upper-left corner of the cloud shell. Press **Shift+Insert**  to paste the ```ssh``` command that is on the clipboard into the cloud shell. Then press **Enter** to execute the command. If you are prompted with a security warning informing you that the authenticity of the host can't be established and asking if you want to connect anyway, type "yes" and press **Enter**.
+
+1. When prompted for a password, enter the password you entered in Exercise 1, Step 3.
+
+1. Execute the following command in the cloud shell to attach to the first node in the Ethereum network. [geth](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options), which is short for "go-ethereum," is a multipurpose command for managing Ethereum networks.
 
 	```
 	geth attach
 	```
 
-1. Now execute the following command to unlock the coinbase account:
+1. Now execute the following command to unlock the coinbase account, substituting the password you entered in Exercise 1, Step 6 for PASSWORD:
 
 	```
-	web3.personal.unlockAccount(web3.personal.listAccounts[0],"Blockchain!321", 15000)
+	web3.personal.unlockAccount(web3.personal.listAccounts[0],"PASSWORD",28800)
 	```
 
-	This will allow you to use the blockchain to transfer funds from the coinbase account. Make sure that the output from the command is the word "true."
+	This will allow you to perform transactions using the coinbase account for up to 8 hours (28,800 seconds). Make sure that the output from the command is the word "true," as shown below.
 
-1. Type **exit** into the terminal window to detach from Ethereum.
+	![Unlocking the account](Images/unlock-account.png)
 
-Now that the coinbase account is unlocked, you are ready to start using the network to execute transactions on the blockchain.
+	_Unlocking the account_
 
-<a name="Exercise5"></a>
-## Exercise 5: Deploy a smart contract ##
+1. Type ```exit``` into the cloud shell to detach from Ethereum.
 
-Ethereum blockchains use "smart contracts" to broker transactions. A smart contract is essentially a program that runs on blockchain transaction nodes. Ethereum developers often use the popular [Truffle](http://truffleframework.com/) framework to develop smart contracts. In this exercise, you will set up a Truffle development environment, code and then compile a smart contract, and deploy it to the blockchain.
+1. Type ```exit``` again to close the SSH connection.
 
-1. If Node.js isn't installed on your system, go to https://nodejs.org and install the latest LTS version for your operating system.
+Now that the coinbase account is unlocked, you are ready to start using the network to execute transactions on the blockchain. To code those transactions, you will create and then deploy a smart contract.
 
-	> If you aren't sure whether Node.js is installed, open a Command Prompt or terminal window and type **node -v**. If you don't see a Node.js version number, then Node.js isn't installed. If a version of Node.js older than 6.0 is installed, it is highly recommend that you download and install the latest version.
+<a name="Exercise4"></a>
+## Exercise 4: Deploy a smart contract ##
 
-1. If you are using macOS or Linux, open a terminal. If you are using Windows instead, open a PowerShell window.
+Ethereum blockchains use smart contracts to broker transactions. A smart contract is a program that runs on blockchain transaction nodes in [Ethereum Virtual Machines](https://themerkle.com/what-is-the-ethereum-virtual-machine/). Ethereum developers often use the popular [Truffle](http://truffleframework.com/) framework to develop smart contracts. In this exercise, you will set up a Truffle development environment, compile a smart contract, and deploy it to the blockchain.
 
-1. In the terminal or PowerShell window, use the following command to create a directory named "truffle" in the location of your choice:
+1. If Node.js isn't installed on your computer, go to https://nodejs.org and install the latest LTS version for your operating system. If you aren't sure whether Node.js is installed, open a Command Prompt or terminal window and execute the following command:
+
+	```
+	node --version
+	```
+
+	If you don't see a Node.js version number, then Node.js isn't installed.
+
+1. If you are using macOS or Linux, open a terminal window. If you are using Windows instead, open a PowerShell window. In the terminal or PowerShell window, use the following command to create a directory named "truffle" in the location of your choice:
 
 	```
 	mkdir truffle
@@ -335,17 +303,17 @@ Ethereum blockchains use "smart contracts" to broker transactions. A smart contr
 	module.exports = {
   	    networks: {
             development: {
-                host: "blkchn2o4.eastus.cloudapp.azure.com",
+                host: "labng2-dns-reg1.eastus.cloudapp.azure.com",
                 port: 8545,
-   	            network_id: "*" // Match any network id
-   	        }
+	            network_id: "*" // Match any network id
+	        }
  	    }
 	};
 	```
 
 1. Create a new contract in the subdirectory named "contracts" (which was created when you ran ```truffle init```) by creating a text file named **myCoin.sol** in that directory, pasting in the following code, and then saving the file:
 
-	```
+	```javascript
 	pragma solidity ^0.4.4;
 
 	// Declares the contract
@@ -406,8 +374,8 @@ Ethereum blockchains use "smart contracts" to broker transactions. A smart contr
 
 The contract is now present in the blockchain and waiting for its ```sendCoin``` function to be called to transfer funds. All we lack is a mechanism for calling that function using RPC. In the next exercise, you will close the loop by using a Node.js app to invoke the contract.
 
-<a name="Exercise6"></a>
-## Exercise 6: Invoke the contract from an app ##
+<a name="Exercise5"></a>
+## Exercise 5: Invoke the contract from an app ##
 
 Smart contracts are designed to be used by applications that use the blockchain for secure transactions. In this exercise, you will create a Node.js app that uses the "myCoin" contract and then run it to broker an exchange of My Coin currency — specifically, to transfer funds from the coinbase account to the account you created in [Exercise 2](#Exercise2) (Account 1). The app will use a library named [web3.js](https://github.com/ethereum/web3.js/), which wraps the Ethereum RPC API and dramatically simplifies code for interacting with smart contracts. Note that there are also web3 libraries available for other languages, including Java and Python.
 
@@ -527,22 +495,20 @@ Smart contracts are designed to be used by applications that use the blockchain 
 
 If you'd like, you can run the app again to transfer another 1,000 My Coin. Each time you run the app and invoke the contract, the balance in the coinbase account will decrease by 1,000, and the balance in Account 1 will increase by the same amount.
 
-<a name="Exercise7"></a>
-## Exercise 7: Delete the Ethereum network ##
+<a name="Exercise6"></a>
+## Exercise 6: Delete the blockchain network 
 
-Resource groups are a useful feature of Azure because they simplify the task of managing related resources. One of the most practical reasons to use resource groups is that deleting a resource group deletes all of the resources it contains. Rather than delete those resources one by one, you can delete them all at once.
-
-In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Ethereum network. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.
+In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Ethereum network. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because the resources in it are relatively expensive.
 
 1. Return to the blade for the resource group you created in Exercise 1. Then click the **Delete** button at the top of the blade.
 
-	![Deleting a resource group](Images/delete-resource-group.png)
+	![Deleting the resource group](Images/delete-resource-group.png)
 
-	_Deleting a resource group_
+	_Deleting the resource group_
 
 1. For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group. Then click the **Delete** button to remove all traces of this lab from your Azure subscription.
 
-After a few minutes, the blockchain and all of the associated resources will be deleted. Billing stops when you click the **Delete** button, so you're not charged for the time required to delete the resources. Similarly, billing doesn't start until the resources are fully and successfully deployed.
+After a few minutes, the network and all of the associated resources will be deleted. Billing stops when you click **Delete**, so you're not charged for the time required to delete the resources. Similarly, billing doesn't start until the resources are fully and successfully deployed.
 
 <a name="Summary"></a>
 ## Summary ##
@@ -551,4 +517,4 @@ This is just one example of the kinds of apps you can build with Blockchain, and
 
 ---
 
-Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT. 
+Copyright 2018 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT. 
