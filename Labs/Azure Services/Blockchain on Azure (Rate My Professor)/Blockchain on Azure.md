@@ -47,7 +47,7 @@ The cost of this lab is **high**. For an overview of cost ratings, refer to [Exp
 This hands-on lab includes the following exercises:
 
 - [Exercise 1: Create a blockchain on Azure](#Exercise1)
-- [Exercise 4: Unlock the coinbase account](#Exercise2)
+- [Exercise 2: Unlock the coinbase account](#Exercise2)
 - [Exercise 3: Deploy a smart contract](#Exercise3)
 - [Exercise 4: Invoke the contract from a Web app](#Exercise4)
 - [Exercise 5: Delete the blockchain network](#Exercise5)
