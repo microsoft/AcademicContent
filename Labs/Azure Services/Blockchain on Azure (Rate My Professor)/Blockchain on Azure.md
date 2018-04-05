@@ -218,7 +218,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
     _Copying the endpoint URL_
 
-1. Use your favorite text or program editor to open the file named **truffle.js** in the "truffle" folder. Replace its contents with the statements below. Then replace ENDPOINT_URL on line 4 with the URL on the clipboard minus the leading "http://" and the trailing port number (for example, ":8545"), and replace PORT_NUMBER on line 5 with the port number you removed from the URL.
+1. Use your favorite text or program editor (like [VSCode](https://code.visualstudio.com/)) to open the file named **truffle.js** in the "truffle" folder. Replace its contents with the statements below. Then replace ENDPOINT_URL on line 4 with the URL on the clipboard minus the leading "http://" and the trailing port number (for example, ":8545"), and replace PORT_NUMBER on line 5 with the port number you removed from the URL.
 
     ```javascript
     module.exports = {
