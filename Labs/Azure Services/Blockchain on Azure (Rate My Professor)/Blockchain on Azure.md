@@ -90,7 +90,7 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
 1. Fill in the "OMS" blade as shown below, selecting the region closest to you. Then click **OK**.
 
-    > OMS stands for [Operations Management Suite](https://www.microsoft.com/cloud-platform/insight-and-analytics) and is a feature of Azure that allows you to monitor workloads running in the cloud and gain real-time insights into their operation. When you deploy an Ethereum network, Azure automatically connects it to an OMS instance.
+    > OMS stands for [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) and is a feature of Azure that allows you to monitor workloads running in the cloud and gain real-time insights into their operation. When you deploy an Ethereum network, Azure automatically connects it to an OMS instance.
 
     ![Entering OMS settings](Images/blockchain-settings-4.png)
 
@@ -218,7 +218,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
     _Copying the endpoint URL_
 
-1. Use your favorite text or program editor to open the file named **truffle.js** in the "truffle" folder. Replace its contents with the statements below. Then replace ENDPOINT_URL on line 4 with the URL on the clipboard minus the leading "http://" and the trailing port number (for example, ":8545"), and replace PORT_NUMBER on line 5 with the port number you removed from the URL.
+1. Use your favorite text or program editor like [VSCode](https://code.visualstudio.com/) to open the file named **truffle.js** in the "truffle" folder you created. Replace its contents with the statements below. Then replace ENDPOINT_URL on line 4 with the URL on the clipboard minus the leading "http://" and the trailing port number (for example, ":8545"), and replace PORT_NUMBER on line 5 with the port number you removed from the URL.
 
     ```javascript
     module.exports = {
@@ -335,9 +335,9 @@ Smart contracts are designed to be used by applications that use the blockchain 
     npm install
     ```
 
-1. Open **index.js** in the "Profrates" directory in your favorite text or program editor. Replace ENDPOINT_URL on line 6 with the Ethereum RPC endpoint you obtained from the Azure Portal in Exercise 3, Step 6.
+1. Open **index.js** in the "Profrates" directory in your favorite text or program editor. Replace ENDPOINT_URL on line 6 with the Ethereum RPC endpoint you obtained from the Azure Portal in Exercise 3, Step 6 (`ETHEREUM-RPC-ENDPOINT`).
 
-1. Replace ACCOUNT_ADDRESS on line 7 with the address you saved in Exercise 2, Step 8.
+1. Replace ACCOUNT_ADDRESS on line 7 with the hex value address you saved in Exercise 2, Step 8.
 
 1. In the PowerShell or terminal window, ```cd``` back to the "truffle" directory that you created in the previous exercise. Then use the following command to list the addresses of all the smart contracts in the project, including the "profrates" contract and some sample contracts that were created when you ran ```truffle init```:
 
@@ -371,7 +371,9 @@ Smart contracts are designed to be used by applications that use the blockchain 
 
     _Submitting a comment_
 
-1. Confirm that the comment and rating you entered appear at the bottom of the page. Then enter more comments and ratings for this professor. Each time you click **Submit**, an asynchronous request is submitted to the Ethereum network to add a block to the blockchain. Inside that block is the comment and star rating that you entered, as well as the ID of the professor to which they pertain.
+1. Confirm that the comment and rating you entered appear at the bottom of the page. Then enter more comments and ratings for this professor.
+
+    Each time you click **Submit**, an asynchronous request is submitted to the Ethereum network to add a block to the blockchain. Inside that block is the comment and star rating that you entered, as well as the ID of the professor to which they pertain.
 
     ![Submitting additional comments](Images/profrates-3.png)
 
@@ -443,4 +445,4 @@ This is just one example of the kinds of apps you can build with Blockchain, and
 
 ---
 
-Copyright 2018 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <https://opensource.org/licenses/MIT.> 
+Copyright 2018 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <https://opensource.org/licenses/MIT.>
