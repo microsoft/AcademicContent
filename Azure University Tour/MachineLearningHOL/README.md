@@ -4,11 +4,11 @@
 
 ## Overview ##
 
-In this hands-on lab, you are acting as a newly-hired data scientist for a company building a short-term vacation rental platform called ContosoBNB. Your goal is to begin building, training, and tuning a machine learning model to suggest a rental rate that maximizes revenue for rental property owners.
+Machine learning (ML) has become a critical tool for organizations to use for predictive analytics. ML uses algorithms to classify data and then make sophisticated extrapolations through predictive models. But ML can be cumbersome for data scientists who need to build and configure development environments with all the software and tools required.
 
-First, you will create a simple dev environment using the [Data Science Virtual Machine (DSVM)](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) in Azure. This VM image is built specifically for data science workloads with platform support for Windows Server, Ubuntu Linux, and CentOS Linux. The DSVM comes preconfigured with many popular open-source tools, including [Jupyter](https://jupyter.org/), [RStudio](https://www.rstudio.com/), and [scikit-learn](https://www.rstudio.com/), which is a free, open-source machine learning toolkit for Python programmers.
+Microsoft helps reduce the complexity of this process by offering the Data Science Virtual Machine (DSVM): a virtual-machine (VM) image built specifically for data-science workloads. The DSVM is hosted in Microsoft Azure, and it has editions built for Windows Server, Ubuntu Linux, and CentOS. The DSVM comes preconfigured with many popular open-source tools, including Jupyter and RStudio.
 
-After you create a Linux operating system (OS)-based DSVM and connect to it, you will import a dataset and then use the scikit-learn API to create and refine an ML model to use with your dataset.
+In this hands-on lab (HOL), you will create a Linux operating system (OS)-based DSVM, import a dataset, and then use the scikit-learn API to create an ML model to use with your dataset.
 
 <a name="Objectives"></a>
 
@@ -147,9 +147,10 @@ In this exercise, you will use a local X2Go client to connect to your new VM in 
 
     ![ONE-006](images/ONE-006.jpg "DSVM")
 
+
 1. Return to the **Session Preferences** dialog box in X2Go. Paste the IP address of the Azure VM, which you just copied, into the **Host** field.
 
-    ![SessionPref](images/SessionPref.jpg)
+![SessionPref](images/SessionPref.jpg)
 
 1. In the **Login** field, type the user name you chose for your new VM in Exercise 1.
 1. Change the **Session Type** setting to **XFCE**.
@@ -190,6 +191,7 @@ Perform the following procedures in the X2Go session window that is connected to
 
 ### Step 1: Copying and decompressing the dataset ###
 
+
 1. In the DSVM, open a terminal emulator (or shell) by clicking on the appropriate icon at the bottom of the screen.
 
     ![term](images/term.jpg "DSVM")
@@ -228,6 +230,7 @@ Perform the following procedures in the X2Go session window that is connected to
 
 In this step, you will save a Jupyter Notebook document from GitHub to the /notebooks/BnB directory in your DSVM.
 
+
 1. In the DSVM, return to the web browser, and then navigate to <https://github.com/MSFTImagine/computerscience/tree/master/Azure%20University%20Tour/MachineLearningHOL/content>
 1. Click **Machine_Learning_HOL_Ex4.ipynb**, click **Raw** in the top-right portion of the screen, and then press Ctrl+S to save the file to the /notebooks/BnB/ directory.
 
@@ -259,7 +262,7 @@ Once the notebook is fully displayed, continue to Exercise 4.
 
 ## Exercise 4: Import data, clean data, and make predictions using Python/SciKit-Learn in a Jupyter notebook ##
 
-*This exercise is performed in the Jupyter notebook you opened at the end of Exercise 3. The Jupyter notebook contains all of the instructions for the exercise, including a series of code samples to run.*
+*This exercise is performed in the Jupyter notebook you opened at the end of Exercise 3. The Jupyter notebook includes all of the instructions for the exercise, which includes a series of code samples to run.*
 
 **Important: After you done with Exercise 4, be sure to shut down the DSVM in Azure.**
 
@@ -269,14 +272,56 @@ In this exercise, you will import data from the listings.csv file, clean the dat
 
 Before completing the lab, make sure you shut down the virtual machine you created in Microsoft Azure.
 
-1. Close the X2Go window.
+1. In a web browser, open the Azure Web Portal (http://portal.azure.com).
+2. Close the X2Go window and then use the controls in the Azure Web Portal to stop the Data Science Virtual Machine. 
+3. Close all open windows.
 
-1. Return to the [Azure Portal](https://portal.azure.com). Locate and open the settings for the new DSVM that you created as part of this HOL.
+You have now completed the Machine Learning HOL.
 
-1. In the controls, click **Stop** to stop the DSVM.
+<a name="Appendix"></a>
 
-   ![StartStop2](images/StartStop2.jpg)
+### Appendix: Alternate method to open your Jupyter notebook
 
-This brings us to the end of the Machine Learning HOL. Imagine if you were a professional developer working with increasingly complex models, harnessing [neural network](https://en.wikipedia.org/wiki/Artificial_neural_network) algorithms with deep-learning libraries like Google's [TensorFlow](https://www.tensorflow.org/) and Microsoft's [Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). Both Azure's Data Science Virtual Machine supports both libraries, and is available in a GPU-based configuration to maximize performance. Your new AI-powered features provide a competitive advantage in pricing your rental units, enabling your app to attract the best listings which, in turn, are more appealing to price-sensitive users.
+There is a small chance that the steps outlined in Exercise 3, Step 2 for opening the Jupyter notebook might not work as intended. If that is the case for you, follow the steps in this workaround so that you can complete the lab:
 
-Feel free to explore the Jupyter notebook and the environment more. When you are done, remember to return to the Azure Portal and **shut down your DSVM** so you can use your cloud credits in future projects!
+1. Locate the Jupyter.desktop file on the desktop of the DSVM.
+
+   ![Jupyter-fix-010](images/Jupyter-fix-010.png "DSVM")
+
+2. Right-click the Jupyter.desktop file and select **Open With > Open With“Visual Studio Code”**
+
+   ![Jupyter-fix-020](images/Jupyter-fix-020.png "DSVM")
+
+3. Update `Path=` to `Path=$SDG_RUNTIME_DIR/jupyter`
+
+   ![Jupyter-fix-030](images/Jupyter-fix-030.png "DSVM")
+
+4. Cut and paste `/anaconda/pkgs/notebook-5.4.0-py27_0/info/icon.png` over `/anaconda/pkgs/notebook-5.0.0-py27h3661c2b_2/info/icon.png`
+
+   ![Jupyter-fix-040](images/Jupyter-fix-040.png "DSVM")
+
+5. The Jupyter shortcut will update on the desktop.
+
+   ![Jupyter-fix-050](images/Jupyter-fix-050.png "DSVM")
+
+6. Open a terminal and run the following command: `jupyter notebook --generate-config`
+
+   ![Jupyter-fix-060](images/Jupyter-fix-060.png "DSVM")
+
+7. Next, run the following command: `jupyter notebook password`
+
+   ![Jupyter-fix-070](images/Jupyter-fix-070.png "DSVM")
+
+8. When requested, create a good password.
+
+9. From the desktop, run the Jupyter server. Take note of the new URL.
+
+   ![Jupyter-fix-080](images/Jupyter-fix-080.png "DSVM")
+
+10. Browse to <https://localhost:9999> and confirm the exception.
+
+    ![Jupyter-fix-100](images/Jupyter-fix-100.png "DSVM")
+
+11. Log in using the password you created earlier.
+
+    ![Jupyter-fix-110](images/Jupyter-fix-110.png "DSVM")
