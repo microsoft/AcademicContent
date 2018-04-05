@@ -1,3 +1,0 @@
-# Big Data and Analytics
-
-This folder contains hands-on labs introducing some of the essential services that Azure provides for handling big-data workloads and visualizing the results. Learn how to spin up [Apache Spark](https://spark.apache.org/) clusters in the cloud using [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), use [Apache Hadoop](http://hadoop.apache.org/) to extract information from large datasets, use [Microsoft Power BI](https://powerbi.microsoft.com) to explore and visualize data, and more.
