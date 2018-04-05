@@ -90,7 +90,7 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
 1. Fill in the "OMS" blade as shown below, selecting the region closest to you. Then click **OK**.
 
-    > OMS stands for [Operations Management Suite](https://www.microsoft.com/en-ca/cloud-platform/operations-management-suite) and is a feature of Azure that allows you to monitor workloads running in the cloud and gain real-time insights into their operation. When you deploy an Ethereum network, Azure automatically connects it to an OMS instance.
+    > OMS stands for [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) and is a feature of Azure that allows you to monitor workloads running in the cloud and gain real-time insights into their operation. When you deploy an Ethereum network, Azure automatically connects it to an OMS instance.
 
     ![Entering OMS settings](Images/blockchain-settings-4.png)
 
