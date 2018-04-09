@@ -218,6 +218,8 @@ Perform the following procedures in the X2Go session window that is connected to
 
 1. From the list of files in this directory, locate and click **listings.csv.gz**, and then click **Download** to save the file. The file will automatically save to the Downloads directory.
 
+1. From the list of files in this same /content directory, locate and click **iPY_run_annotated.png**, and then click **Download**. Right-click the image in the browser and select **Save Image As**. Choose to save the file in the /notebooks/BnB/ directory.
+
 1. In the DSVM, use **File Manager** (available at the bottom of the screen) to move **listings.csv.gz** from the **Downloads** directory to the **/notebooks/BnB/** directory.
 
     ![FileManager](images/FileManager.jpg "DSVM")
