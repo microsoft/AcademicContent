@@ -1,5 +1,7 @@
-# Machine learning hands-on lab (HOL) #
+# Build the machine learning model that powers ContosoBNB #
+
 <a name="Overview"></a>
+
 ## Overview ##
 
 Machine learning (ML) has become a critical tool for organizations to use for predictive analytics. ML uses algorithms to classify data and then make sophisticated extrapolations through predictive models. But ML can be cumbersome for data scientists who need to build and configure development environments with all the software and tools required.
@@ -9,34 +11,40 @@ Microsoft helps reduce the complexity of this process by offering the Data Scien
 In this hands-on lab (HOL), you will create a Linux operating system (OS)-based DSVM, import a dataset, and then use the scikit-learn API to create an ML model to use with your dataset.
 
 <a name="Objectives"></a>
+
 ### Objectives ###
 
 In this HOL, you will learn how to:
 
 - Create a Linux OS-based DSVM
-- Connect to the DSVM using a remote-desktop client
+- Connect to the DSVM using a remote desktop client
 - Save a data file from GitHub to the DSVM
 - Save a Jupyter Notebook file from GitHub to the DSVM
-- Use pandas to filter columns in a dataset
-- Use pandas to quantize values in a column
+- Use [pandas](http://pandas.pydata.org/) to filter columns in a dataset
+- Use pandas to calculate values in a column
 - Use scikit-learn to split the data into separate datasets for training and testing
 - Use scikit-learn to create an ML model
 - Use scikit-learn to analyze the model's accuracy
 
 <a name="Prerequisites"></a>
+
 ### Prerequisites ###
 
 The following are required to complete this HOL:
 
-- An active Azure subscription; if you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
-- [X2Go](https://wiki.x2go.org/doku.php/download:start), an [Xfce](https://xfce.org/) remote-desktop client
+- An Azure subscription, which will be used to create the VM and query Data Lake. Students can get access through [Azure for Students](http://aka.ms/azure4students).
+- [X2Go](https://wiki.x2go.org/doku.php/download:start), an [Xfce](https://xfce.org/) remote-desktop client. [Installation instructions](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
+
+**Note:** To quickly verify your student status, use your school-issued email address like "your_name@your_school.edu" or equivalent. This will become your Microsoft Account that you can use to login to the [Azure Portal](http://portal.azure.com).
 
 <a name="Resources"></a>
+
 ### Resources ###
 
 This lab uses an existing dataset (released under public domain) to model real-world property listings with their associated details. The complete dataset can be found [here](http://insideairbnb.com/get-the-data.html).
 
 <a name="Exercises"></a>
+
 ## Exercises ##
 
 This HOL includes the following exercises:
@@ -47,28 +55,29 @@ This HOL includes the following exercises:
 - [Exercise 4: Import data, clean data, and make predictions using Python/scikit-learn in a Jupyter notebook](#Exercise4)
 
 <a name="Exercise1"></a>
+
 ## Exercise 1: Create a DSVM ##
 
-In this exercise, you will create an instance of the DSVM for Linux in Azure. The DSVM for Linux is a VM image in Azure that includes many preinstalled and configured data-science and development tools. You can read a longer description about the many tools and features available in the DSVM [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu). 
+In this exercise, you will create an instance of the DSVM for Linux in Azure. The DSVM for Linux is a VM image in Azure that includes many preinstalled and configured data-science and development tools. You can read a longer description about the many tools and features available in the DSVM [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
 ### Step 1: Creating the DSVM in Azure ###
 
-1. In a web browser, open the [Azure portal](https://portal.azure.com/) at https://portal.azure.com, and then sign in with your Microsoft account.
+1. In a web browser, open the [Azure portal](https://portal.azure.com/) at https://portal.azure.com, and then sign in with your Microsoft account (use the account your Azure subscription is associated with).
 2. From the left-side menu, click the **+** sign to add a new resource.
 
-![CreateResource](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/CreateResource.jpg)
+    ![CreateResource](/images/CreateResource.jpg)
 
 3. In the **Search** field, type **data science**. From the list of matching results, click **Data Science Virtual Machine for Linux (Ubuntu)**.
 
-![FindDSVM](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/FindDSVM.jpg) 
+    ![FindDSVM](images/FindDSVM.jpg)
 
 4. Take a few moments to read the description of the DSVM for Linux (Ubuntu), and then click **Create**.
 
-![CreateDSVM](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/CreateDSVM.jpg)
+    ![CreateDSVM](images/CreateDSVM.jpg)
 
 5. In the **Name** field, enter a name for your VM; for example, **MyDSVM**.
 
-![CreateDSVM2](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/CreateDSVM2.jpg)
+    ![CreateDSVM2](images/CreateDSVM2.jpg)
 
 6. In the **VM disk type** field, select **SSD**.
 7. In the **User Name** field, type a user name of your choice. Save this information, because you will use it to sign in to the VM later.
