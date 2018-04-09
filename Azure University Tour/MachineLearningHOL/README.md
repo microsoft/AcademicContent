@@ -63,44 +63,64 @@ In this exercise, you will create an instance of the DSVM for Linux in Azure. Th
 ### Step 1: Creating the DSVM in Azure ###
 
 1. In a web browser, open the [Azure portal](https://portal.azure.com/) at https://portal.azure.com, and then sign in with your Microsoft account (use the account your Azure subscription is associated with).
-2. From the left-side menu, click the **+** sign to add a new resource.
+1. From the left-side menu, click the **+** sign to add a new resource.
 
     ![CreateResource](images/CreateResource.jpg)
 
-3. In the **Search** field, type **data science**. From the list of matching results, click **Data Science Virtual Machine for Linux (Ubuntu)**.
+1. In the **Search** field, type **data science**. From the list of matching results, click **Data Science Virtual Machine for Linux (Ubuntu)**.
 
     ![FindDSVM](images/FindDSVM.jpg)
 
-4. Take a few moments to read the description of the DSVM for Linux (Ubuntu), and then click **Create**.
+1. Take a few moments to read the description of the DSVM for Linux (Ubuntu), and then click **Create**.
 
     ![CreateDSVM](images/CreateDSVM.jpg)
 
-5. In the **Name** field, enter a name for your VM; for example, **MyDSVM**.
+1. In the **Name** field, enter a name for your VM; for example, **MyDSVM**.
 
     ![CreateDSVM2](images/CreateDSVM2.jpg)
 
-6. In the **VM disk type** field, select **SSD**.
-7. In the **User Name** field, type a user name of your choice. Save this information, because you will use it to sign in to the VM later.
-8. For **Authentication Type**, select **Password**.
-9. In the **Password** field, enter a password of your choice. Save this information, because you will use it to sign in to the VM later.
-10. In the **Subscription** drop-down menu, select your subscription.
-11. In the **Resource Group** section, leave **Create New** selected, and then enter a name of your choice for the resource group in the field below; for example, **DataScienceGroup1**.
-12. In the **Location** drop-down menu, ensure that a geographically close location is chosen.
-13. Click **OK**.
+1. In the **VM disk type** field, select **SSD**.
+
+1. In the **User Name** field, type a user name of your choice.
+
+1. For **Authentication Type**, select **Password**.
+
+1. In the **Password** field, enter a password of your choice that meets the following requirements:
+    - Must be between 12 and 72 characters long
+    - Must contain three of the following:
+        - One lowercase letter
+        - One uppercase letter
+        - One number
+        - One special character that is not "\" or "-"
+
+    Save your username and password, because you will use it to sign in to the VM later.
+
+1. IIn the **Subscription** drop-down menu, select your current Azure Subscription. Most users will only have one but it's possible to have many.
+
+1. In the **Resource Group** section, leave **Create New** selected, and then enter a name of your choice for the resource group in the field below; for example, **DataScienceGroup1**.
+
+    A [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in Azure is a container for the resources used to run an application. Resource groups help administrators organize monitoring, access control, provisioning, and billing. Generally, items in one resource group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
+
+1. In the **Location** drop-down menu, ensure that a geographically close location is chosen.
+
+1. Click **OK**.
 
 At this stage, the Choose a Size page appears. Proceed to the next step.
 
 ### Step 2: Sizing the new VM and reviewing settings ###
+
 1. On the **Choose A Size** page, click **View All**.
 
-![ChooseSize](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/ChooseSize.jpg)
+    ![ChooseSize](images/ChooseSize.jpg)
 
-2. In the list of available VM types, select **DS1_V2 Standard**.
+1. In the list of available VM types, select **DS1_V2 Standard**. Notice the wide range of VM choices available. Azure provides these according to the growing needs of your workload or application - for example, you might need the high memory allocation (G-series) or additional GPUs (N-series) that maximize the performance of deep-learning experiments (like image classification). Some VMs are most cost-effective for early experiementation (A-series, Dv2 series. A D-series is a good starting point for this lab. You can learn more [here](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-sizes-specs) or [here](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/09/12/choosing-the-most-appropiate-azure-virtual-machine-specification/).
 
-![alt text](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/ONE-002a.jpg "DSVM")
+    ![ONE-002a](images/ONE-002a.jpg "DSVM")
 
-3. Click **Select**.
-4. On the **Settings** page that appears, review the default settings, and then click **OK**. The Create page appears, displaying offer details and summary information.
+1. Click **Select**.
+
+1. On the **Settings** page that appears, review the default settings, and then click **OK**. The **Create** page appears, displaying offer details and summary information.
+
 5. Click **Create**.
 6. Wait a few minutes while the DSVM is deployed. After it is deployed, you will see a dashboard for your new VM. At the top of the dashboard, you will see controls.
 
