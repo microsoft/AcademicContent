@@ -261,7 +261,7 @@ In this step, you will save a Jupyter Notebook document from GitHub to the /note
 
 Once the notebook is fully displayed, continue to Exercise 4.
 
-    ![Jupyter4](images/Jupyter4.jpg "DSVM")
+![Jupyter4](images/Jupyter4.jpg "DSVM")
 
 <a name="Exercise4"></a>
 
