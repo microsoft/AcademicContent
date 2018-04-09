@@ -121,130 +121,151 @@ At this stage, the Choose a Size page appears. Proceed to the next step.
 
 1. On the **Settings** page that appears, review the default settings, and then click **OK**. The **Create** page appears, displaying offer details and summary information.
 
-5. Click **Create**.
-6. Wait a few minutes while the DSVM is deployed. After it is deployed, you will see a dashboard for your new VM. At the top of the dashboard, you will see controls.
+1. Click **Create**.
+1. Wait a few minutes while the DSVM is deployed. After it is deployed, you will see a dashboard for your new VM. At the top of the dashboard, you will see controls.
 
-![alt text](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/StartStop.jpg "DSVM")
+    ![StartStop](images/StartStop.jpg "DSVM")
 
-7. The **Start** button is not available, indicating that the new VM has already started.
+1. The **Start** button is not available, indicating that the new VM has already started.
 
 <a name="Exercise2"></a>
+
 ## Exercise 2: Connect to the DSVM ##
+
 In this exercise, you will use a local X2Go client to connect to your new VM in Azure.
 
-1. If you have not already done so, download and install X2Go on your local device. (You can download it [here](https://wiki.x2go.org/doku.php/download:start).)
-2. Open X2Go. If you see any security alerts related to firewalls, now or later during these exercises, click **Allow Access**.
-3. If the Session Preferences dialog box does not open automatically, from the **Session** menu, click **New Session**.
+1. If you have not already done so, download and install X2Go on your local device. You can download it [here](https://wiki.x2go.org/doku.php/download:start). Instructions [here](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
 
-![NewSession](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/NewSession.jpg)
+    *Check [these docs](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/linux-dsvm-intro#installing-and-configuring-x2go-client) for more information on using X2Go on the Linux Data Science Virtual Machine.*
 
-4. Return to your web browser and to the Azure portal at https://portal.azure.com, which you opened in Exercise 1.
-5. In the **Overview** section, which displays information about the new VM you have created, locate and copy the VM’s public IP address.
-![alt text](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/ONE-006.jpg "DSVM")
-6. Return to the **Session Preferences** dialog box in X2Go. Paste the IP address of the Azure VM, which you just copied, into the **Host** field.
+1. Open X2Go. If you see any security alerts related to firewalls, now or later during these exercises, click **Allow Access**.
 
-![SessionPref](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/SessionPref.jpg)
+1. If the Session Preferences dialog box does not open automatically, from the **Session** menu, click **New Session**.
 
-7. In the **Login** field, type the user name you chose for your new VM in Exercise 1.
-8. Change the **Session Type** setting to **XFCE**.
-![alt text](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/17xfce.jpg "DSVM")
-9. Click **OK**.
-10. In the X2Go client window, begin a new session by clicking the **New Session** window on the right that displays the IP address you just pasted.
+    ![NewSession](images/NewSession.jpg)
 
-![NewSession2](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/NewSession2.jpg)
+1. Return to your web browser and to the Azure portal at <https://portal.azure.com,> which you opened in Exercise 1.
 
-11. In the **New Session** window, supply the password you specified when you created the VM in Exercise 1, and then click **OK**.
+1. In the **Overview** section, which displays information about the new VM you have created, locate and copy the VM’s public IP address.
 
-![NewSession3](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/NewSession3.jpg)
+    ![ONE-006](images/ONE-006.jpg "DSVM")
 
-12. If you see a message that the host key verification failed, click **Yes** to trust the host key.
+1. Return to the **Session Preferences** dialog box in X2Go. Paste the IP address of the Azure VM, which you just copied, into the **Host** field.
 
-![Failed](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Failed.jpg)
+    ![SessionPref](images/SessionPref.jpg)
 
-13. Wait a couple of minutes for a connection to the VM to establish.
+1. In the **Login** field, type the user name you chose for your new VM in Exercise 1.
 
-After the connection to the VM completes, a new window opens displaying the VM desktop and then a web page.
+1. Change the **Session Type** setting to **XFCE**.
 
-![NewVM](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/NewVM.jpg)
+    ![17xfce](images/17xfce.jpg "DSVM")
 
-14. As needed, resize the window displaying the desktop of the DSVM. By default, a webpage is displayed that provides information about the DSVM.
-15. Minimize the web browser, take a moment to review the icons on the desktop, and then proceed to Exercise 3.
+1. Click **OK**.
 
-![NewVM2](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/NewVM2.jpg)
+1. In the X2Go client window, begin a new session by clicking the **New Session** window on the right that displays the IP address you just pasted.
+
+    ![NewSession2](images/NewSession2.jpg)
+
+1. In the **New Session** window, supply the password you specified when you created the VM in Exercise 1, and then click **OK**.
+
+    ![NewSession3](images/NewSession3.jpg)
+
+1. If you see a message that the host key verification failed, click **Yes** to trust the host key.
+
+    ![Failed](images/Failed.jpg)
+
+1. Wait a couple of minutes for a connection to the VM to establish.
+
+    After the connection to the VM completes, a new window opens displaying the VM desktop and then a web page.
+
+    ![NewVM](images/NewVM.jpg)
+
+1. As needed, resize the window displaying the desktop of the DSVM. By default, a webpage is displayed that provides information about the DSVM.
+
+1. Minimize the web browser, take a moment to review the icons on the desktop, and then proceed to Exercise 3.
+
+    ![NewVM2](images/NewVM2.jpg)
 
 <a name="Exercise3"></a>
+
 ## Exercise 3: Download a dataset and prepare a Jupyter notebook ##
 
-In this exercise, you will copy a dataset and a Jupyter file from GitHub to a new /notebooks/BnB directory on your DSVM. These files will be used to perform the ML practice in a Jupyter notebook in Exercise 4.
+In this exercise, you will copy a dataset and a Jupyter file from GitHub to a new /notebooks/BnB directory on your DSVM. These files will be used to run machine learning algorithms in a Jupyter notebook in Exercise 4.
 
 Perform the following procedures in the X2Go session window that is connected to the DSVM hosted on Azure.
 
 ### Step 1: Copying and decompressing the dataset ###
-1. In the DSVM, open a terminal emulator by clicking on the appropriate icon at the bottom of the screen.
 
-![alt text](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/term.jpg "DSVM")
+1. In the DSVM, open a terminal emulator (or shell) by clicking on the appropriate icon at the bottom of the screen.
 
-2. At the command prompt in the terminal emulator, create and switch to a new directory named **BnB** within the **/notebooks** directory by entering the following three commands, one at a time:
+    ![term](images/term.jpg "DSVM")
 
-```
-cd notebooks
-mkdir BnB
-cd BnB
-```
+1. Within the shell you just opened, create and switch to a new directory named **BnB** within the **~/notebooks** directory by entering the following three commands, one at a time:
 
-3. In the DSVM, open a web browser by clicking on the appropriate icon at the bottom of the screen.
+    ```shell
+    cd notebooks
+    mkdir BnB
+    cd BnB
+    ```
 
-![Browser](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Browser.jpg "DSVM")
+    **Note:** On Linux all commands and directory names are case-sensitive.
 
-4. Browse to the following address: https://github.com/ProwessInfo/AzureUniversityRedShirt/tree/master/Challenges/MachineLearningHOL/content
-5. From the list of files in this directory, locate and click **listings.csv.gz**, and then click **Download** to save the file. The file will automatically save to the Downloads directory.
-6. In the DSVM, use **File Manager** (available at the bottom of the screen) to move **listings.csv.gz** from the **Downloads** directory to the **/notebooks/BnB/** directory.
+1. In the DSVM, open a web browser by clicking on the appropriate icon at the bottom of the screen.
 
-![FileManager](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/FileManager.jpg "DSVM")
+    ![Browser](images/Browser.jpg "DSVM")
 
-7. The file now needs to be decompressed. Return to the terminal emulator, and type the following at the command prompt:
+1. Browse to the following address: <https://github.com/Microsoft/computerscience/tree/master/Azure%20University%20Tour/MachineLearningHOL/content>
 
-```
-gunzip listings.csv.gz
-```
-The file listings.csv has now replaced listings.csv.gz in the /notebooks/BnB directory.
+1. From the list of files in this directory, locate and click **listings.csv.gz**, and then click **Download** to save the file. The file will automatically save to the Downloads directory.
+
+1. In the DSVM, use **File Manager** (available at the bottom of the screen) to move **listings.csv.gz** from the **Downloads** directory to the **/notebooks/BnB/** directory.
+
+    ![FileManager](images/FileManager.jpg "DSVM")
+
+1. The file now needs to be decompressed. Return to the terminal emulator, and type the following in the shell:
+
+    ```shell
+    gunzip listings.csv.gz
+    ```
+    The file listings.csv has now replaced listings.csv.gz in the /notebooks/BnB directory.
 
 ### Step 2: Saving the Jupyter Notebook file and opening the notebook ###
 
 In this step, you will save a Jupyter Notebook document from GitHub to the /notebooks/BnB directory in your DSVM.
 
-1. In the DSVM, return to the web browser, and then navigate to https://github.com/ProwessInfo/AzureUniversityRedShirt/tree/master/Challenges/MachineLearningHOL/content.
-2. Click **Machine_Learning_HOL_Ex4.ipynb**, click **Raw** in the top-right portion of the screen, and then press Ctrl+S to save the file to the /notebooks/BnB/ directory.
+1. In the DSVM, return to the web browser, and then navigate to <https://github.com/Microsoft/computerscience/tree/master/Azure%20University%20Tour/MachineLearningHOL/content>
 
-![Raw](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Raw.jpg "DSVM")
+1. Click **Machine_Learning_HOL_Ex4.ipynb**, click **Raw** in the top-right portion of the screen, and then press Ctrl+S to save the file to the /notebooks/BnB/ directory.
 
-You will now open the Jupyter Notebook web application and then the notebook you just saved.
+    ![Raw](images/Raw.jpg "DSVM")
 
-3. In the DSVM, minimize all active windows. On the desktop, locate and double-click the Jupyter desktop-configuration file.
+    You will now open the Jupyter Notebook web application and then the notebook you just saved.
 
-![Jupyter](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Jupyter.jpg "DSVM")
+1. In the DSVM, minimize all active windows. On the desktop, locate and double-click the Jupyter desktop-configuration file.
 
-A UXTerm terminal opens, and then a webpage opens to http://localhost:8888/tree. Inside this webpage, the Jupyter Notebook web application displays the dashboard, which contains a number of directories and Jupyter notebooks.  The Jupyter Notebook dashboard maps to the /notebooks directory within the file structure of the DSVM.
+    ![Jupyter](images/Jupyter.jpg "DSVM")
 
-**Note:** If Jupyter does not open for you, try the workaround steps in the [Appendix](#Appendix).
+    A UXTerm terminal opens, and then a webpage opens to http://localhost:8888/tree. Inside this webpage, the Jupyter Notebook web application displays the dashboard, which contains a number of directories and Jupyter notebooks.  The Jupyter Notebook dashboard maps to the /notebooks directory within the file structure of the DSVM.
 
-![Jupyter2](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Jupyter2.jpg "DSVM")
+    **Note:** If Jupyter does not open for you, try the workaround steps in the [Appendix](#Appendix).
 
-4. In the Jupyter Notebook dashboard displayed at http://localhost:8888, double-click to open the **/BnB** directory, and then double-click **Machine_Learning_HOL_Ex4.ipynb**.
+    ![Jupyter2](images/Jupyter2.jpg "DSVM")
 
-![Jupyter3](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Jupyter3.jpg "DSVM")
+1. In the Jupyter Notebook dashboard displayed at <http://localhost:8888,> double-click to open the **/BnB** directory, and then double-click **Machine_Learning_HOL_Ex4.ipynb**.
 
-The Machine_Learning_HOL_Ex4.ipynb notebook will require a few moments to complete loading in the browser.
+    ![Jupyter3](images/Jupyter3.jpg "DSVM")
 
-5. If you receive a Kernel Not Found message, select **Python 3.5** from the drop-down menu, and then click **Set Kernel**.
+    The Machine_Learning_HOL_Ex4.ipynb notebook will require a few moments to complete loading in the browser.
+
+1. If you receive a Kernel Not Found message, select **Python 3.5** from the drop-down menu, and then click **Set Kernel**.
 
 Once the notebook is fully displayed, continue to Exercise 4.
 
-![Jupyter4](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Jupyter4.jpg "DSVM")
+    ![Jupyter4](images/Jupyter4.jpg "DSVM")
 
 <a name="Exercise4"></a>
 
-## Exercise 4: Import data, clean data, and make predictions using Python/SciKit-Learn in a Jupyter notebook
+## Exercise 4: Import data, clean data, and make predictions using Python/SciKit-Learn in a Jupyter notebook ##
 
 *This exercise is performed in the Jupyter notebook you opened at the end of Exercise 3. The Jupyter notebook includes all of the instructions for the exercise, which includes a series of code samples to run.*
 
@@ -252,10 +273,10 @@ Once the notebook is fully displayed, continue to Exercise 4.
 
 In this exercise, you will import data from the listings.csv file, clean the data, and then build a model to predict the price of a rental property. You should perform this entire exercise in the Jupyter notebook you opened at the end of Exercise 3.
 
-### Stopping the DSVM
+### Stopping the DSVM ###
 Before completing the lab, make sure you shut down the virtual machine you created in Microsoft Azure.
 
-1. In a web browser, open the Azure Web Portal (http://portal.azure.com).
+1. In a web browser, open the Azure Web Portal (<http://portal.azure.com).>
 2. Close the X2Go window and then use the controls in the Azure Web Portal to stop the Data Science Virtual Machine. 
 3. Close all open windows.
 
@@ -269,42 +290,42 @@ There is a small chance that the steps outlined in Exercise 3, Step 2 for openin
 
 1. Locate the Jupyter.desktop file on the desktop of the DSVM.
 
-   ![Jupyter-fix-010](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Jupyter-fix-010.png "DSVM")
+    ![Jupyter-fix-010](images/Jupyter-fix-010.png "DSVM")
 
 2. Right-click the Jupyter.desktop file and select **Open With > Open With“Visual Studio Code”**
 
-   ![Jupyter-fix-020](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Jupyter-fix-020.png "DSVM")
+   ![Jupyter-fix-020](images/Jupyter-fix-020.png "DSVM")
 
 3. Update `Path=` to `Path=$SDG_RUNTIME_DIR/jupyter`
 
-   ![Jupyter-fix-030](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Jupyter-fix-030.png "DSVM")
+   ![Jupyter-fix-030](images/Jupyter-fix-030.png "DSVM")
 
 4. Cut and paste `/anaconda/pkgs/notebook-5.4.0-py27_0/info/icon.png` over `/anaconda/pkgs/notebook-5.0.0-py27h3661c2b_2/info/icon.png`
 
-   ![Jupyter-fix-040](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Jupyter-fix-040.png "DSVM")
+   ![Jupyter-fix-040](images/Jupyter-fix-040.png "DSVM")
 
 5. The Jupyter shortcut will update on the desktop.
 
-   ![Jupyter-fix-050](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Jupyter-fix-050.png "DSVM")
+   ![Jupyter-fix-050](images/Jupyter-fix-050.png "DSVM")
 
 6. Open a terminal and run the following command: `jupyter notebook --generate-config`
 
-   ![Jupyter-fix-060](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Jupyter-fix-060.png "DSVM")
+   ![Jupyter-fix-060](images/Jupyter-fix-060.png "DSVM")
 
 7. Next, run the following command: `jupyter notebook password`
 
-   ![Jupyter-fix-070](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Jupyter-fix-070.png "DSVM")
+   ![Jupyter-fix-070](images/Jupyter-fix-070.png "DSVM")
 
 8. When requested, create a good password.
 
 9. From the desktop, run the Jupyter server. Take note of the new URL.
 
-   ![Jupyter-fix-080](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Jupyter-fix-080.png "DSVM")
+   ![Jupyter-fix-080](images/Jupyter-fix-080.png "DSVM")
 
 10. Browse to <https://localhost:9999> and confirm the exception.
 
-    ![Jupyter-fix-100](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Jupyter-fix-100.png "DSVM")
+    ![Jupyter-fix-100](images/Jupyter-fix-100.png "DSVM")
 
 11. Log in using the password you created earlier.
 
-    ![Jupyter-fix-110](https://github.com/ProwessInfo/AzureUniversityRedShirt/blob/master/Challenges/MachineLearningHOL/images/Jupyter-fix-110.png "DSVM")
+    ![Jupyter-fix-110](images/Jupyter-fix-110.png "DSVM")
