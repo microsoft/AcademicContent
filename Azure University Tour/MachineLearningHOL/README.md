@@ -4,11 +4,11 @@
 
 ## Overview ##
 
-Machine learning (ML) has become a critical tool for organizations to use for predictive analytics. ML uses algorithms to classify data and then make sophisticated extrapolations through predictive models. But ML can be cumbersome for data scientists who need to build and configure development environments with all the software and tools required.
+In this hands-on lab (HOL), you are a newly hired data scientist for a company building an application named ContosoBNB, which is modeled after a short-term vacation rental platform like [Airbnb](https://www.airbnb.com/). Your goal is to begin building, training, and tuning a machine learning model to suggest a rental rate that maximizes revenue for rental property owners.
 
-Microsoft helps reduce the complexity of this process by offering the Data Science Virtual Machine (DSVM): a virtual-machine (VM) image built specifically for data-science workloads. The DSVM is hosted in Microsoft Azure, and it has editions built for Windows Server, Ubuntu Linux, and CentOS. The DSVM comes preconfigured with many popular open-source tools, including Jupyter and RStudio.
+First, you will reduce the complexity of building your development environment by creating an instance of the Data Science Virtual Machine (DSVM): a virtual-machine (VM) image built specifically for data-science workloads. The DSVM is hosted in Microsoft Azure, and it has editions built for Windows Server, Ubuntu Linux, and CentOS Linux. The DSVM comes preconfigured with many popular open-source tools, including Jupyter and RStudio. This VM also contains scikit-learn, which is a free, open-source machine learning toolkit for Python programmers.
 
-In this hands-on lab (HOL), you will create a Linux operating system (OS)-based DSVM, import a dataset, and then use the scikit-learn API to create an ML model to use with your dataset.
+After you create a Linux operating system (OS)-based DSVM and connect to it, you will import a dataset and then use the scikit-learn API to create and refine an ML model to use with your dataset.
 
 <a name="Objectives"></a>
 
