@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Jupyter
+Comment=Jupyter Notebook
+Exec=jupyter notebook --notebook-dir=~/notebooks
+Path=$SDG_RUNTIME_DIR/jupyter
+Terminal=true
+StartupNotify=false
+Icon=/anaconda/pkgs/notebook-5.4.0-py27_0/info/icon.png
