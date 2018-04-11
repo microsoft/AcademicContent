@@ -237,21 +237,53 @@ In this step, you will save a Jupyter Notebook document from GitHub to the /note
 
 1. In the DSVM, return to the web browser, and then navigate to <https://github.com/Microsoft/computerscience/tree/master/Azure%20University%20Tour/MachineLearningHOL/content>
 
-1. Click **Machine_Learning_HOL_Ex4.ipynb**, click **Raw** in the top-right portion of the screen, and then press Ctrl+S to save the file to the /notebooks/BnB/ directory.
+2. Click **Machine_Learning_HOL_Ex4.ipynb**, click **Raw** in the top-right portion of the screen, and then press Ctrl+S to save the file to the /notebooks/BnB/ directory.
 
     ![Raw](images/Raw.jpg "DSVM")
 
     You will now open the Jupyter Notebook web application and then the notebook you just saved.
 
-1. In the DSVM, minimize all active windows. On the desktop, locate and double-click the Jupyter desktop-configuration file.
+3. Select **Jupyter.Desktop** and click **Raw**.
 
-    ![Jupyter](images/Jupyter.jpg "DSVM")
+4. Copy the content of the file.
 
-    A UXTerm terminal opens, and then a webpage opens to http://localhost:8888/tree. Inside this webpage, the Jupyter Notebook web application displays the dashboard, which contains a number of directories and Jupyter notebooks.  The Jupyter Notebook dashboard maps to the /notebooks directory within the file structure of the DSVM.
+5. On the desktop of the DSVM, right-click **jupyter.desktop** and select **Visual Code**.
 
-    **Note:** If Jupyter does not open for you, try the workaround steps in the [Appendix](#Appendix).
+6. Right-click the Jupyter.desktop file and select **Open With > Open With“Visual Studio Code”**
 
-    ![Jupyter2](images/Jupyter2.jpg "DSVM")
+    ![Jupyter-fix-020](images/Jupyter-fix-020.png)
+
+7. Paste the update configuration.
+
+8. Save the file.
+
+9. Close the file.
+
+10. The Jupyter shortcut will update on the desktop.
+
+    ![Jupyter-fix-050](images/Jupyter-fix-050.png)
+
+5. Open a terminal and run the following command: `jupyter notebook --generate-config`
+
+    ![Jupyter-fix-060](images/Jupyter-fix-060.png)
+
+6. Next, run the following command: `jupyter notebook password`
+
+    ![Jupyter-fix-070](images/Jupyter-fix-070.png)
+
+7. When requested, create a good password.
+
+8. From the desktop, run the Jupyter server. Take note of the new URL.
+
+    ![Jupyter-fix-080](images/Jupyter-fix-080.png)
+
+9. Browse to <https://localhost:9999> and confirm the exception.
+
+    ![Jupyter-fix-100](images/Jupyter-fix-100.png)
+
+16. Log in using the password you created earlier. A UXTerm terminal opens, and then a webpage opens to http://localhost:8888/tree. Inside this webpage, the Jupyter Notebook web application displays the dashboard, which contains a number of directories and Jupyter notebooks.  The Jupyter Notebook dashboard maps to the /notebooks directory within the file structure of the DSVM.
+
+    ![Jupyter-fix-110](images/Jupyter-fix-110.png)
 
 1. In the Jupyter Notebook dashboard displayed at <http://localhost:8888,> double-click to open the **/BnB** directory, and then double-click **Machine_Learning_HOL_Ex4.ipynb**.
 
@@ -283,51 +315,3 @@ Before completing the lab, make sure you shut down the virtual machine you creat
 3. Close all open windows.
 
 You have now completed the Machine Learning HOL.
-
-<a name="Appendix"></a>
-
-### Appendix: Alternate method to open your Jupyter notebook
-
-There is a small chance that the steps outlined in Exercise 3, Step 2 for opening the Jupyter notebook might not work as intended. If that is the case for you, follow the steps in this workaround so that you can complete the lab:
-
-1. Locate the Jupyter.desktop file on the desktop of the DSVM.
-
-    ![Jupyter-fix-010](images/Jupyter-fix-010.png "DSVM")
-
-2. Right-click the Jupyter.desktop file and select **Open With > Open With“Visual Studio Code”**
-
-   ![Jupyter-fix-020](images/Jupyter-fix-020.png "DSVM")
-
-3. Update `Path=` to `Path=$SDG_RUNTIME_DIR/jupyter`
-
-   ![Jupyter-fix-030](images/Jupyter-fix-030.png "DSVM")
-
-4. Cut and paste `/anaconda/pkgs/notebook-5.4.0-py27_0/info/icon.png` over `/anaconda/pkgs/notebook-5.0.0-py27h3661c2b_2/info/icon.png`
-
-   ![Jupyter-fix-040](images/Jupyter-fix-040.png "DSVM")
-
-5. The Jupyter shortcut will update on the desktop.
-
-   ![Jupyter-fix-050](images/Jupyter-fix-050.png "DSVM")
-
-6. Open a terminal and run the following command: `jupyter notebook --generate-config`
-
-   ![Jupyter-fix-060](images/Jupyter-fix-060.png "DSVM")
-
-7. Next, run the following command: `jupyter notebook password`
-
-   ![Jupyter-fix-070](images/Jupyter-fix-070.png "DSVM")
-
-8. When requested, create a good password.
-
-9. From the desktop, run the Jupyter server. Take note of the new URL.
-
-   ![Jupyter-fix-080](images/Jupyter-fix-080.png "DSVM")
-
-10. Browse to <https://localhost:9999> and confirm the exception.
-
-    ![Jupyter-fix-100](images/Jupyter-fix-100.png "DSVM")
-
-11. Log in using the password you created earlier.
-
-    ![Jupyter-fix-110](images/Jupyter-fix-110.png "DSVM")

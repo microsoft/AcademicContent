@@ -119,7 +119,7 @@ At this stage, the Choose a size page appears. Proceed to the next step.
 
 ### Step 3: Connecting to the new VM ##
 
-If you are on an Apple Mac device, download and install [Microsoft Remote Desktop 10](https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12) from the [App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12).
+If you are on an Apple Mac device, skip to **Step 3a** below.
 
 1. On the control bar for your new VM, click **Connect**.
 
@@ -130,9 +130,29 @@ If you are on an Apple Mac device, download and install [Microsoft Remote Deskto
 1. Open the RDP file, and then connect to the DSVM.
 
     * If you are on a Windows computer, you can open the RDP file through the browser. Click **Connect** when prompted, then supply the credentials you specified in step 1 of this exercise when prompted, and finally click **Yes** to accept the certificate.
-    * If you are on a Mac device, save the RDP file to a convenient location, and then open the file. If you are prompted to verify a certificate, click **Continue**. Enter the credentials you specified in the step 1 when prompted.
+    * If you are on a Mac device, skip to **Step 3a** below.
 
 1. When you see the DSVM desktop, proceed to the next exercise.
+
+
+### Step 3a: Connecting to the new VM from and Apple Mac device
+
+If you are on an Apple Mac device, download and install [Microsoft Remote Desktop 10](https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12) from the [App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12).
+
+1. On the control bar for your new VM, click **Connect**.
+2. Open the **Applications** folder from **Finder**.
+3. Launch **Microsoft Remote Desktop**.
+    ![Mac RDP](img/Mac-10.png)
+4. Click **New**.
+    ![New](img/Mac-20.png)
+5. In the **Connection name** field, enter a name for the virtual machine.
+    ![New connection](img/Mac-30.png)
+6. From your browser, copy the **Public IP** address of the virtual machine and paste it into **PC name** field in the **Edit Remote Desktops** window.
+7. Close the **Edit Remote Desktops** window; the virtual machine will appear under **My Desktops**.
+    ![New VM](img/Mac-40.png)
+8. Double-click on the VM to launch the session.
+9. Enter the username and password to connect to the virtual machine.
+10. When you see the DSVM desktop, proceed to the next exercise.
 
 <a name="Exercise2"></a>
 
