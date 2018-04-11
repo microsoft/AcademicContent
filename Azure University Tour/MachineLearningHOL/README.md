@@ -237,51 +237,49 @@ In this step, you will save a Jupyter Notebook document from GitHub to the /note
 
 1. In the DSVM, return to the web browser, and then navigate to <https://github.com/Microsoft/computerscience/tree/master/Azure%20University%20Tour/MachineLearningHOL/content>
 
-2. Click **Machine_Learning_HOL_Ex4.ipynb**, click **Raw** in the top-right portion of the screen, and then press Ctrl+S to save the file to the /notebooks/BnB/ directory.
+1. Click **Machine_Learning_HOL_Ex4.ipynb**, click **Raw** in the top-right portion of the screen, and then press Ctrl+S to save the file to the /notebooks/BnB/ directory.
 
     ![Raw](images/Raw.jpg "DSVM")
 
     You will now open the Jupyter Notebook web application and then the notebook you just saved.
 
-3. Select **Jupyter.Desktop** and click **Raw**.
+1. Select **Jupyter.Desktop** and click **Raw**.
 
-4. Copy the content of the file.
+1. Copy the content of the file.
 
-5. On the desktop of the DSVM, right-click **jupyter.desktop** and select **Visual Code**.
-
-6. Right-click the Jupyter.desktop file and select **Open With > Open With“Visual Studio Code”**
+1. On the desktop of the DSVM, Right-click the Jupyter.desktop file and select **Open With > Open With“Visual Studio Code”**
 
     ![Jupyter-fix-020](images/Jupyter-fix-020.png)
 
-7. Paste the update configuration.
+1. Paste the update configuration.
 
-8. Save the file.
+1. Save the file.
 
-9. Close the file.
+1. Close the file.
 
-10. The Jupyter shortcut will update on the desktop.
+1. The Jupyter shortcut will update on the desktop.
 
     ![Jupyter-fix-050](images/Jupyter-fix-050.png)
 
-5. Open a terminal and run the following command: `jupyter notebook --generate-config`
+1. Open a terminal and run the following command: `jupyter notebook --generate-config`
 
     ![Jupyter-fix-060](images/Jupyter-fix-060.png)
 
-6. Next, run the following command: `jupyter notebook password`
+1. Next, run the following command: `jupyter notebook password`
 
     ![Jupyter-fix-070](images/Jupyter-fix-070.png)
 
-7. When requested, create a good password.
+1. When requested, create a good password.
 
-8. From the desktop, run the Jupyter server. Take note of the new URL.
+1. From the desktop, run the Jupyter server. Take note of the new URL.
 
     ![Jupyter-fix-080](images/Jupyter-fix-080.png)
 
-9. Browse to <https://localhost:9999> and confirm the exception.
+1. Browse to <https://localhost:9999> and confirm the exception.
 
     ![Jupyter-fix-100](images/Jupyter-fix-100.png)
 
-16. Log in using the password you created earlier. A UXTerm terminal opens, and then a webpage opens to http://localhost:8888/tree. Inside this webpage, the Jupyter Notebook web application displays the dashboard, which contains a number of directories and Jupyter notebooks.  The Jupyter Notebook dashboard maps to the /notebooks directory within the file structure of the DSVM.
+1. Log in using the password you created earlier. A UXTerm terminal opens, and then a webpage opens to http://localhost:8888/tree. Inside this webpage, the Jupyter Notebook web application displays the dashboard, which contains a number of directories and Jupyter notebooks.  The Jupyter Notebook dashboard maps to the /notebooks directory within the file structure of the DSVM.
 
     ![Jupyter-fix-110](images/Jupyter-fix-110.png)
 
