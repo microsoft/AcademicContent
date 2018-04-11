@@ -251,7 +251,7 @@ In this step, you will save a Jupyter Notebook document from GitHub to the /note
 
 6. Right-click the Jupyter.desktop file and select **Open With > Open With“Visual Studio Code”**
 
-    ![Jupyter-fix-020](C:\Users\jeppesen\Documents\GitHub\computerscience\Azure University Tour\MachineLearningHOL\images\Jupyter-fix-020.png)
+    ![Jupyter-fix-020](images/Jupyter-fix-020.png)
 
 7. Paste the update configuration.
 
@@ -261,25 +261,25 @@ In this step, you will save a Jupyter Notebook document from GitHub to the /note
 
 10. The Jupyter shortcut will update on the desktop.
 
-    ![Jupyter-fix-050](C:\Users\jeppesen\Documents\GitHub\computerscience\Azure University Tour\MachineLearningHOL\images\Jupyter-fix-050.png)
+    ![Jupyter-fix-050](images/Jupyter-fix-050.png)
 
 5. Open a terminal and run the following command: `jupyter notebook --generate-config`
 
-    ![Jupyter-fix-060](C:\Users\jeppesen\Documents\GitHub\computerscience\Azure University Tour\MachineLearningHOL\images\Jupyter-fix-060.png)
+    ![Jupyter-fix-060](images/Jupyter-fix-060.png)
 
 6. Next, run the following command: `jupyter notebook password`
 
-    ![Jupyter-fix-070](C:\Users\jeppesen\Documents\GitHub\computerscience\Azure University Tour\MachineLearningHOL\images\Jupyter-fix-070.png)
+    ![Jupyter-fix-070](images/Jupyter-fix-070.png)
 
 7. When requested, create a good password.
 
 8. From the desktop, run the Jupyter server. Take note of the new URL.
 
-    ![Jupyter-fix-080](C:\Users\jeppesen\Documents\GitHub\computerscience\Azure University Tour\MachineLearningHOL\images\Jupyter-fix-080.png)
+    ![Jupyter-fix-080](images/Jupyter-fix-080.png)
 
 9. Browse to <https://localhost:9999> and confirm the exception.
 
-    ![Jupyter-fix-100](C:\Users\jeppesen\Documents\GitHub\computerscience\Azure University Tour\MachineLearningHOL\images\Jupyter-fix-100.png)
+    ![Jupyter-fix-100](images/Jupyter-fix-100.png)
 
 16. Log in using the password you created earlier. A UXTerm terminal opens, and then a webpage opens to http://localhost:8888/tree. Inside this webpage, the Jupyter Notebook web application displays the dashboard, which contains a number of directories and Jupyter notebooks.  The Jupyter Notebook dashboard maps to the /notebooks directory within the file structure of the DSVM.
 
