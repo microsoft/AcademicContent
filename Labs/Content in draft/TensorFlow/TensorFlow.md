@@ -333,7 +333,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
 
 1. Click the **Select** button and pick one of the hot-dog images you downloaded in Step 3. Wait for a message box to appear, indicating whether the image contains a hot dog. Did the model get it correct?
 
-    ![Selecting an image](Images\not-hot-dog-select.png)
+    ![Selecting an image](Images\select-image.png)
 
     _Selecting an image_
 
