@@ -205,7 +205,7 @@ TODO: Provide description of the MobleNet model being used.
 
      > This command will fail if there is already an instance of TensorBoard running. If you see an error complaining that port 6006 is already in use, use a ```pkill -f "tensorboard"``` command to kill it. Then execute the ```tensorboard``` command again.
 
-1. Switch back to the original terminal window and execute the following commands to start the transfer-learning process -- that is, to train the model with the images you downloaded earlier:
+1. Switch back to the original terminal window and execute the following commands to start the transfer-learning process — that is, to train the model with the images you downloaded earlier:
 
       ```bash
       IMAGE_SIZE=224;
@@ -239,7 +239,7 @@ TODO: Provide description of the MobleNet model being used.
 
 1. TODO: Point out some of the key elements in TensorBoard and explain how they relate to the training process.
 
-1. Switch back to File Manager and navigate to the "notebooks/tensorflow-for-poets-2/tf_files" folder. Confirm that it contains a fie named **retrained_graph_hotdog.pb**. *This fie was created during the training process and contains the trained TensorFlow model*. You will use it in the next exercise to invoke the model from the NotHotDog app.
+1. Switch back to File Manager and navigate to the "notebooks/tensorflow-for-poets-2/tf_files" folder. Confirm that it contains a file named **retrained_graph_hotdog.pb**. *This file was created during the training process and contains the trained TensorFlow model*. You will use it in the next exercise to invoke the model from the NotHotDog app.
 
 The script that you executed in Step 9 specified 500 training steps, which strikes a balance between accuracy and the time required for training. If you would like, try training the model again with a higher ```how_many_training_steps``` value such as 1000 or 2000. A higher step count generally results in higher accuracy, but at the expense of increased training time.
 
