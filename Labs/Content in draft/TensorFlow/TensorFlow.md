@@ -100,7 +100,7 @@ Once the deployment has completed, proceed to the next exercise.
 
 In this exercise, you will connect remotely to the Ubuntu desktop in the VM that you created in the previous exercise. To do so, you need a client that supports [Xfce](https://xfce.org/), which is a lightweight desktop environment for Linux.
 
-1. If you don't already have an Xfce client installed, download the [X2Go client](https://wiki.x2go.org/doku.php/download:start) and install it before continuing with this exercise. X2Go is a free and open-source Xfce solution that works on a variety of operating system,s including Windows and OS X. The instructions in this exercise assume you are using X2Go, but you may use any client that supports Xfce.
+1. If you don't already have an Xfce client installed, download the [X2Go client](https://wiki.x2go.org/doku.php/download:start) and install it before continuing with this exercise. X2Go is a free and open-source Xfce solution that works on a variety of operating systems, including Windows and OS X. The instructions in this exercise assume you are using X2Go, but you may use any client that supports Xfce.
 
 1. Return to the "data-science-rg" resource group in the Azure portal. Click the "data-science-vm" resource to open it in the portal.
 
@@ -147,15 +147,15 @@ Now that you are connected, take a moment to explore the shortcuts on the deskto
 
 In this exercise, you will train an image-classification model built with [TensorFlow](https://www.tensorflow.org/) to recognize images that contain hot dogs. Rather than create the model from scratch, which would require vast amounts of computing power and thousands — perhaps tens of thousands — of images, you will leverage a preexisting model, a practice known as [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning).
 
-The model you will use is a member of the [MobileNets](https://research.googleblog.com/2017/06/mobilenets-open-source-models-for.html) family, which is a collection of computer-vision models built with TensorFlow that are optimized for mobile devices. They are small, low-latency, and power-efficient — perfect for smartphones and tablets. They work on desktop devices, too, but are slightly less accurate than larger and more complex TensorFlow models. More importantly, they generally deliver acceptable accuracy when trained with as few as several dozen images.
+The model you will use is a member of the [MobileNets](https://research.googleblog.com/2017/06/mobilenets-open-source-models-for.html) family, which is a collection of computer-vision models built with TensorFlow that are optimized for mobile devices. They are small, low-latency, and power-efficient, which makes them ideal for smartphones and tablets. They work on desktop devices, too, but are slightly less accurate than conventional TensorFlow models. More importantly, they generally deliver acceptable accuracy when trained with as few as several dozen images.
 
-TODO: Provide description of the MobileNet model being used.
+Training a MobileNet model to recognize hot-dog images is essentially a matter of adding a layer to a neural network whose existing layers are trained to perform image classification. The extra layer is what enables the modified network to recognize hot dogs. Building that layer, however, requires hundreds of lines of complex Python code. Rather than write that code yourself, you will use a training script written by Google and published in a public GitHub repository. The same script could be used to train the model to recognize cat images or perform other image-classification tasks. Only the images and the labels that accompany them need to change.
 
-1. Click the Terminal Emulator icon at the bottom of the screen to open a terminal window.
+1. Click the Terminal icon at the bottom of the screen to open a terminal window.
 
-    ![Launching Terminal Emulator](Images/launch-terminal.png)
+    ![Launching a terminal window](Images/launch-terminal.png)
 
-    _Launching Terminal Emulator_
+    _Launching a terminal window_
 
 1. Execute the following command in the terminal window to navigate to the "notebooks" folder:
 
@@ -200,7 +200,7 @@ TODO: Provide description of the MobileNet model being used.
 1. Open a *new* terminal window and navigate to the "notebooks/tensorflow-for-poets-2" folder — the same one that is open in the first terminal window. Then use the following command to launch [TensorBoard](https://www.tensorflow.org/programmers_guide/summaries_and_tensorboard), which is a set of tools used to visualize TensorFlow models and gain insight into the transfer-learning process: 
 
      ```bash
-     tensorboard --logdir tf_files/training_summaries &
+     tensorboard --logdir tf_files/training_summaries
      ```
 
      > This command will fail if there is already an instance of TensorBoard running. If you see an error complaining that port 6006 is already in use, use a ```pkill -f "tensorboard"``` command to kill it. Then execute the ```tensorboard``` command again.
@@ -343,9 +343,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
 
 1. Repeat the previous step using one of the images that doesn't contain a hot dog. Was the model right this time?
 
-1. Continue feeding different food images into the model and confirm that the app correctly identifies most of the hot-dog images as ones containing hot dogs. Don't be surprised if it gets it wrong from time to time, because the accuracy is less than 100%.
-
-TODO: Add closing.
+Continue feeding food images into the app until you're satisfied that it can identify images containing hot dogs. Don't expect it to be right 100% of the time, but do expect it to be right *most* of the time.
 
 <a name="Exercise5"></a>
 ## Exercise 5: Delete the Data Science VM ##
