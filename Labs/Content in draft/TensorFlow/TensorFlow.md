@@ -2,11 +2,11 @@
 
 Data scientists use a variety of tools to ply their trade. One of the challenges they face is building an environment with the right software installed and configuring all the pieces to work in harmony. Microsoft's [Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) (DSVM) is a customized virtual-machine image hosted in Azure that is built specifically for data-science workloads. It comes with a number of popular open-source tools preinstalled, and it runs on Windows Server as well as Linux. The Linux edition is available in both Ubuntu and CentOS versions
 
-With a DSVM providing the environment, you can get up and running quickly with popular tools such as [Jupyter](http://jupyter.org/), [R Studio](https://www.rstudio.com/), the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/), and many others. You can also build neural networks with [TensorFlow](https://www.tensorflow.org/), the open-source machine-learning framework originated by Google that is rapidly growing in popularity. A variation of the DSVM called the [Deep Learning Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview), optimized with high-end GPUs, is available for running neural networks and other systems that require the parallel processing power that GPUs offer.
+With a DSVM providing the environment, you can get up and running quickly with popular tools such as [Jupyter](http://jupyter.org/), [R Studio](https://www.rstudio.com/), the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/), and many others. You can also build neural networks with [TensorFlow](https://www.tensorflow.org/), the open-source machine-learning framework originated by Google that is rapidly growing in popularity.
 
-In this lab, you will create a Linux Data Science Virtual Machine in Azure, connect to it via a remote desktop client, use TensorFlow to build a [deep neural network](https://en.wikipedia.org/wiki/Artificial_neural_network) that performs [image classification](https://medium.com/@tifa2up/image-classification-using-deep-neural-networks-a-beginner-friendly-approach-using-tensorflow-94b0a090ccd4), and train the network to recognize images that contain hot dogs. Then you will write a Python app that examines the images you select and tells you whether they contain hot dogs — your own variation of the [NotHotDog app](https://www.youtube.com/watch?v=ACmydtFDTGs) made famous on the TV show [Silicon Valley](https://www.hbo.com/silicon-valley).
+In this lab, you will create a Linux Data Science Virtual Machine in Azure, connect to it via remote desktop, use TensorFlow to build a [deep neural network](https://en.wikipedia.org/wiki/Artificial_neural_network) that performs [image classification](https://medium.com/@tifa2up/image-classification-using-deep-neural-networks-a-beginner-friendly-approach-using-tensorflow-94b0a090ccd4), and train the network to recognize images that contain hot dogs. Then you will write a Python app that examines the images you provide to it and tells you whether they contain hot dogs — your own variation of the [NotHotDog app](https://www.youtube.com/watch?v=ACmydtFDTGs) made famous on the TV show [Silicon Valley](https://www.hbo.com/silicon-valley).
 
-TODO: Add image.
+![tk](Images/hot-dog-app.png)
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -44,7 +44,7 @@ This hands-on lab includes the following exercises:
 - [Exercise 4: Create a NotHotDog app](#Exercise4)
 - [Exercise 5: Delete the Data Science VM](#Exercise4)
 
-Estimated time to complete this lab: **60** minutes.
+Estimated time to complete this lab: **45** minutes.
 
 <a name="Exercise1"></a>
 ## Exercise 1: Create an Ubuntu Data Science VM ##
@@ -87,13 +87,13 @@ The Ubuntu Data Science Virtual Machine for Linux is a virtual-machine image tha
 
     _Opening the resource group_
 
-1. Wait until "Deploying" changes to "Succeeded" indicating that DSVM and supporting Azure resources have been created.
+1. Wait until "Deploying" changes to "Succeeded" indicating that DSVM and supporting Azure resources have been created. Deployment typically takes 5 minutes or less. Periodically click **Refresh** at the top of the blade to refresh the deployment status. 
 
     ![Monitoring the deployment status](Images/deployment-succeeded.png)
 
     _Monitoring the deployment_
 
-Deployment typically takes 5 minutes or less. Periodically click **Refresh** at the top of the blade to refresh the deployment status. Once the deployment has completed, proceed to the next exercise.
+Once the deployment has completed, proceed to the next exercise.
 
 <a name="Exercise2"></a>
 ## Exercise 2: Connect to the Data Science VM ##
@@ -149,7 +149,7 @@ In this exercise, you will train an image-classification model built with [Tenso
 
 The model you will use is a member of the [MobileNets](https://research.googleblog.com/2017/06/mobilenets-open-source-models-for.html) family, which is a collection of computer-vision models built with TensorFlow that are optimized for mobile devices. They are small, low-latency, and power-efficient — perfect for smartphones and tablets. They work on desktop devices, too, but are slightly less accurate than larger and more complex TensorFlow models. More importantly, they generally deliver acceptable accuracy when trained with as few as several dozen images.
 
-TODO: Provide description of the MobleNet model being used.
+TODO: Provide description of the MobileNet model being used.
 
 1. Click the Terminal Emulator icon at the bottom of the screen to open a terminal window.
 
@@ -187,17 +187,17 @@ TODO: Provide description of the MobleNet model being used.
 
     _Launching File Manager_
 
-1. In File Manager, navigate to the "notebooks/tf_files" folder. Confirm that the folder contains a pair of subdirectories named "hot_dog" and "not_hot_dog." The former contains several hundred images containing hot dogs, while the latter contains an equal number of images that do **not** contain hot dogs. Feel free to browse these images to get a feel for what they look like.
+1. In File Manager, navigate to the "notebooks/tensorflow-for-poets-2/tf_files" folder. Confirm that the folder contains a pair of subdirectories named "hot_dog" and "not_hot_dog." The former contains several hundred images containing hot dogs, while the latter contains an equal number of images that do **not** contain hot dogs. Browse the images in the "hot_dog" folder to get a feel for what they look like. Check out the images in the "not_hot_dog" folder as well.
 
     > In order to train a neural network to determine whether an image contains a hot dog, you have to train it with images that contain hot dogs as well as images that do not.
 
-    ![Hot-dog images in the "hot_dog" folder](Images/placeholder.png)
+    ![Images in the "hot_dog" folder](Images/hot-dog-images.png)
 
-    *Hot-dog images in the "hot_dog" folder*
+    *Images in the "hot_dog" folder*
 
-    Also confirm that the folder contains a text file named **retrained_labels_hotdog.txt**. This file identifies the subdirectories containing the training images. It is used by the Python script that tk.
+    Also confirm that the folder contains a text file named **retrained_labels_hotdog.txt**. This file identifies the subdirectories containing the training images. It is used by the Python script that trains the model to recognize hot-dog images.
 
-1. Open a *new* terminal window and navigate to the "tensorflow-for-poets-2" folder — the same one that is open in the first terminal window. Then use the following command to launch [TensorBoard](https://www.tensorflow.org/programmers_guide/summaries_and_tensorboard), which is a set of tools used to visualize TensorFlow models and gain insight into the transfer-learning process. 
+1. Open a *new* terminal window and navigate to the "notebooks/tensorflow-for-poets-2" folder — the same one that is open in the first terminal window. Then use the following command to launch [TensorBoard](https://www.tensorflow.org/programmers_guide/summaries_and_tensorboard), which is a set of tools used to visualize TensorFlow models and gain insight into the transfer-learning process: 
 
      ```bash
      tensorboard --logdir tf_files/training_summaries &
@@ -205,7 +205,7 @@ TODO: Provide description of the MobleNet model being used.
 
      > This command will fail if there is already an instance of TensorBoard running. If you see an error complaining that port 6006 is already in use, use a ```pkill -f "tensorboard"``` command to kill it. Then execute the ```tensorboard``` command again.
 
-1. Switch back to the original terminal window and execute the following commands to start the transfer-learning process — that is, to train the model with the images you downloaded earlier:
+1. Switch back to the original terminal window and execute the following commands to start the transfer-learning process — that is, to train the model with the images you downloaded earlier. **Tip**: You can copy these commands to the clipboard, and then use **Shift+Ins** to paste them into the terminal window.
 
       ```bash
       IMAGE_SIZE=224;
@@ -223,21 +223,25 @@ TODO: Provide description of the MobleNet model being used.
       --validation_percentage=15
       ```
 
-    TODO: Provide an explanation of the parameters passed to the Python script. Also, do these commands need to be combined into one command?
+    TODO: Provide an explanation of the parameters passed to the Python script.
 
-1. Wait for training to complete; it will probably take about 5 minutes. Then check the output to determine the accuracy of the model. Your result may vary slightly from the one below because the training process involves a small amount of random estimation.
+1. Wait for training to complete; it should take less than 5 minutes. Then check the output to determine the accuracy of the model. Your result may vary slightly from the one below because the training process involves a small amount of random estimation.
 
       ![Gauging the accuracy](Images/running-transfer-learning.png)
 
       _Gauging the accuracy_
 
-1. Click the browser icon at the bottom of the desktop to open the browser installed in the Data Science VM. Then navigate to http://0.0.0.0/6006 to connect to Tensorboard.
+1. Click the browser icon at the bottom of the desktop to open the browser installed in the Data Science VM. Then navigate to http://0.0.0.0:6006 to connect to Tensorboard.
 
     ![Launching Firefox](Images/launch-firefox.png)
 
     _Launching Firefox_
 
-1. TODO: Point out some of the key elements in TensorBoard and explain how they relate to the training process.
+1. Inspect the graph labeled "accuracy_1." The blue line depicts the accuracy achieved over time as the 500 training steps are executed. Confirm that the end of the blue line coincides with the accuracy recorded in the previous step.
+
+	![The TensorBoard Scalars display](Images/tensorboard-scalars.png)
+
+	_The TensorBoard Scalars display_
 
 1. Switch back to File Manager and navigate to the "notebooks/tensorflow-for-poets-2/tf_files" folder. Confirm that it contains a file named **retrained_graph_hotdog.pb**. *This file was created during the training process and contains the trained TensorFlow model*. You will use it in the next exercise to invoke the model from the NotHotDog app.
 
@@ -248,82 +252,82 @@ The script that you executed in Step 9 specified 500 training steps, which strik
 
 In this exercise, you will use [Visual Studio Code](https://code.visualstudio.com/), Microsoft's free, cross-platform source-code editor which is preinstalled in the Data Science VM, to write a NotHotDog app in Python. The app will use [Tkinter](https://wiki.python.org/moin/TkInter), which is a popular GUI framework for Python, to implement its user interface, and it will allow you to select images from your local file system. Then it will pass those images to the model you trained in the previous exercise and tell you whether they contain a hot dog.
 
-1. Start Visual Code (tk: describe how?) and use the **Open Folder...** command found in the **File** menu to open the "notebooks/tensorflow-for-poets-2/tf_files" folder containing the **retrained_graph_hotdog.pb** file created when you trained the model.
+1. Click **Applications** in the upper-left corner of the desktop and select **Accessories > Visual Studio Code** to start Visual Studio Code. Use Visual Studio Code's **File > Open Folder...** command to open the "notebooks/tensorflow-for-poets-2/tf_files" folder containing the **retrained_graph_hotdog.pb** file created when you trained the model.
 
-1. Create a new file named **classify.py** in the current folder. Then paste in the following Python code and save the file:
+1. Create a new file named **classify.py** in the current folder. If Visual Studio Code offers to install the Python extension, click **Install** to install it. Use **Shift+Ins** to paste in the following Python code, and then save the file:
 
     ```python
-    import tkinter as tk
-    from tkinter import messagebox, filedialog, font
-    from PIL import ImageTk, Image
-    import subprocess
-
-    def select_image_click(img_label):
-        try:
-            file = filedialog.askopenfilename()
-
-            img = Image.open(file)
-            img = img.resize((300, 300))
-            selected_img = ImageTk.PhotoImage(img)
-
-            img_label.configure(image=selected_img, width=240)
-
-            output = subprocess.check_output(["python",
-                "../scripts/label_image.py",
-                "--graph=retrained_graph_hotdog.pb",
-                "--image={0}".format(file),
-                "--labels=retrained_labels_hotdog.txt"])
-
-            highest = str(output).split("\\n")[3].split(" ")
-
-            if len(highest) == 3:
-                score = float(highest[2])
-                is_hotdog = True
-            else:
-                score = float(highest[3])
-                is_hotdog = False
-
-            if score > 0.95:
-                if is_hotdog:
-                    messagebox.showinfo("Result", "That's a hot dog!")
-                else:
-                    messagebox.showinfo("Result", "That's not a hot dog.")
-            else:
-                messagebox.showinfo("Result", "Unknown")
-
-        except FileNotFoundError as e:
-            messagebox.showerror("File not found", "File {0} was not found.".format(e.filename))
-
-    def run():
-        window = tk.Tk()
-
-        window.title("Hotdog or Not Hotdog")
-        window.geometry('400x600')
-
-        text_font = font.Font(size=18, family="Helvetica Neue")
-        welcome_text = tk.Label(window, text="Hotdog or Not Hotdog", font=text_font)
-        welcome_text.pack()
-
-        instructions_text = tk.Label(window, text="\n\nUse a neural network trained with Tensorflow\n"
-                                                "to identify photos of a hot dog.")
-        instructions_text.pack(fill=tk.X)
-
-        select_btn = tk.Button(window, text="Select", bg="#0063B1", fg="white", width=5, height=1)
-        select_btn.pack(pady=30)
-
-        image_label = tk.Label(window)
-        image_label.pack()
-
-        select_btn.configure(command=lambda: select_image_click(image_label))
-        window.mainloop()
-
-    if __name__ == "__main__":
-        run()
+	import tkinter as tk
+	from tkinter import messagebox, filedialog, font
+	from PIL import ImageTk, Image
+	import subprocess
+	
+	def select_image_click(img_label):
+	    try:
+	        file = filedialog.askopenfilename()
+	
+	        img = Image.open(file)
+	        img = img.resize((300, 300))
+	        selected_img = ImageTk.PhotoImage(img)
+	
+	        img_label.configure(image=selected_img, width=240)
+	
+	        output = subprocess.check_output(["python",
+	            "../scripts/label_image.py",
+	            "--graph=retrained_graph_hotdog.pb",
+	            "--image={0}".format(file),
+	            "--labels=retrained_labels_hotdog.txt"])
+	
+	        highest = str(output).split("\\n")[3].split(" ")
+	
+	        if len(highest) == 3:
+	            score = float(highest[2])
+	            is_hotdog = True
+	        else:
+	            score = float(highest[3])
+	            is_hotdog = False
+	
+	        if score > 0.95:
+	            if is_hotdog:
+	                messagebox.showinfo("Result", "That's a hot dog!")
+	            else:
+	                messagebox.showinfo("Result", "That's not a hot dog.")
+	        else:
+	            messagebox.showinfo("Result", "Unknown")
+	
+	    except FileNotFoundError as e:
+	        messagebox.showerror("File not found", "File {0} was not found.".format(e.filename))
+	
+	def run():
+	    window = tk.Tk()
+	
+	    window.title("Hotdog or Not Hotdog")
+	    window.geometry('400x600')
+	
+	    text_font = font.Font(size=18, family="Helvetica Neue")
+	    welcome_text = tk.Label(window, text="Hot Dog or Not Hot Dog", font=text_font)
+	    welcome_text.pack()
+	
+	    instructions_text = tk.Label(window, text="\n\nUse a neural network built with Tensorflow\n"
+	        "to identify photos containing hot dogs")
+	    instructions_text.pack(fill=tk.X)
+	
+	    select_btn = tk.Button(window, text="Select", bg="#0063B1", fg="white", width=5, height=1)
+	    select_btn.pack(pady=30)
+	
+	    image_label = tk.Label(window)
+	    image_label.pack()
+	
+	    select_btn.configure(command=lambda: select_image_click(image_label))
+	    window.mainloop()
+	
+	if __name__ == "__main__":
+	    run()
     ```
 
     They key code here is the call to ```subprocess.check_output```, which invokes the trained model by executing a Python script named **label_image.py** found in the "scripts" folder, passing in the image that the user selected.
 
-1. Use your favorite search engine to find a few food images — some containing hot dogs, and some not. Download these images and store them in the location of your choice in the VM.
+1. Use your favorite search engine to find a few food images — some containing hot dogs, and some not. Download these images and store them in the location of your choice in the VM's file system.
 
 1. Use Visual Studio Code's **View > Integrated Terminal** command to open an integrated terminal. Then execute the following command in the integrated terminal to run the app:
 
