@@ -1,10 +1,10 @@
 # Building Neural Networks with TensorFlow and Microsoft's Data Science Virtual Machine #
 
-Data scientists use a variety of tools to ply their trade. One of the challenges they face is building an environment with the right software installed and configuring all the pieces to work in harmony. Microsoft's [Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) (DSVM) is a customized virtual-machine image hosted in Azure that is built specifically for data-science workloads. It comes with a number of popular open-source tools preinstalled, and it runs on Windows Server as well as Linux. The Linux edition is available in both Ubuntu and CentOS versions
+Data scientists use a variety of tools to ply their trade. One of the challenges they face is building an environment with the right software installed and configuring all the pieces to work in harmony. Microsoft's [Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) (DSVM) is a customized virtual-machine image hosted in Azure that is built specifically for data-science workloads. It comes with a number of popular open-source tools preinstalled, and it runs on Windows Server as well as Linux. The Linux edition is available in both Ubuntu and CentOS versions.
 
-With a DSVM providing the environment, you can get up and running quickly with popular tools such as [Jupyter](http://jupyter.org/), [R Studio](https://www.rstudio.com/), the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/), and many others. You can also build neural networks with [TensorFlow](https://www.tensorflow.org/), the open-source machine-learning framework originated by Google that is rapidly growing in popularity.
+With a DSVM providing the environment, you can get up and running quickly with popular tools such as [Jupyter](http://jupyter.org/), [R Studio](https://www.rstudio.com/), the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/), and many others. You can also build neural networks with [TensorFlow](https://www.tensorflow.org/), the open-source machine-learning framework from Google that specializes in deep learning. For a complete list of tools installed in the DSVM, see [What's included in the Data Science VM](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview#whats-included-in-the-data-science-vm).
 
-In this lab, you will create a Linux Data Science Virtual Machine in Azure, connect to it via remote desktop, use TensorFlow to build a [deep neural network](https://en.wikipedia.org/wiki/Artificial_neural_network) that performs [image classification](https://medium.com/@tifa2up/image-classification-using-deep-neural-networks-a-beginner-friendly-approach-using-tensorflow-94b0a090ccd4), and train the network to recognize images that contain hot dogs. Then you will write a Python app that examines the images you provide to it and tells you whether they contain hot dogs — your own variation of the [NotHotDog app](https://www.youtube.com/watch?v=ACmydtFDTGs) made famous on the TV show [Silicon Valley](https://www.hbo.com/silicon-valley).
+In this lab, you will create a Linux Data Science Virtual Machine in Azure, connect to it via remote desktop, and train a [deep neural network](https://en.wikipedia.org/wiki/Artificial_neural_network) built with TensorFlow to recognize images that contain hot dogs. Then you will write a Python app that tells you whether images input to it contain hot dogs — your own variation of the [NotHotDog app](https://www.youtube.com/watch?v=ACmydtFDTGs) made famous on the TV show [Silicon Valley](https://www.hbo.com/silicon-valley).
 
 ![tk](Images/hot-dog-app.png)
 
@@ -15,7 +15,7 @@ In this hands-on lab, you will learn how to:
 
 - Create a Linux Data Science Virtual Machine in Azure
 - Connect to the DSVM via remote desktop
-- Train a TensorFlow model to recognize images containing hot dogs
+- Train a TensorFlow model to classify images as one containing hot dogs and ones NOT containing hot dogs
 - Use the model in a Python app
 
 <a name="Prerequisites"></a>
