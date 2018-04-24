@@ -49,7 +49,7 @@ Estimated time to complete this lab: **45** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Create an Ubuntu Data Science VM ##
 
-The Ubuntu Data Science Virtual Machine for Linux is a virtual-machine image that simplifies getting started with data science. Multiple tools are already built, installed, and configured in order to get you up and running quickly. The NVIDIA GPU driver, [NVIDIA CUDA](https://developer.nvidia.com/cuda-downloads), and [NVIDIA CUDA Deep Neural Network](https://developer.nvidia.com/cudnn) (cuDNN) library are also included, as are [Jupyter](http://jupyter.org/), several sample Jupyter notebooks, and [TensorFlow](https://www.tensorflow.org/). All pre-installed frameworks are GPU-enabled but will work on CPUs as well.  In this exercise, you will create an instance of the Data Science Virtual Machine for Linux on Azure.
+The Data Science Virtual Machine for Linux is a virtual-machine image that simplifies getting started with data science. Multiple tools are already built, installed, and configured in order to get you up and running quickly. The NVIDIA GPU driver, [NVIDIA CUDA](https://developer.nvidia.com/cuda-downloads), and [NVIDIA CUDA Deep Neural Network](https://developer.nvidia.com/cudnn) (cuDNN) library are also included, as are [Jupyter](http://jupyter.org/), several sample Jupyter notebooks, and [TensorFlow](https://www.tensorflow.org/). All pre-installed frameworks are GPU-enabled but work on CPUs as well. In this exercise, you will create an instance of the Data Science Virtual Machine for Linux on Azure.
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
@@ -67,7 +67,7 @@ The Ubuntu Data Science Virtual Machine for Linux is a virtual-machine image tha
 
     _Entering basic settings_
 
-1. In the "Choose a size" blade, show all size options available by clicking **View All**. Then scroll down and select **DS1_V2 Standard**, which provides a low-cost way to experiment with Data Science VMs. Then click the **Select** button at the bottom.
+1. In the "Choose a size" blade, show all size options available by clicking **View All**. Scroll down and select **DS1_V2 Standard**, which provides a low-cost way to experiment with Data Science VMs. Then click the **Select** button at the bottom.
 
     ![Choosing a VM size](Images/create-data-science-vm-2.png)
 
@@ -126,7 +126,7 @@ In this exercise, you will connect remotely to the Ubuntu desktop in the VM that
 
     _Starting a new session_
 
-1. Enter the password you specified in [Exercise 1](#Exercise1), and then click the **OK** button. If asked if you trust the host key, answer **Yes**. Also ignore any error messages stating that "SSH daemon could not be started."
+1. Enter the password you specified in [Exercise 1](#Exercise1), and then click the **OK** button. If asked if you trust the host key, answer **Yes**. Also ignore any error messages stating that the SSH daemon could not be started.
 
     ![Logging into the VM](Images/new-session-3.png)
 
@@ -134,7 +134,7 @@ In this exercise, you will connect remotely to the Ubuntu desktop in the VM that
 
 1. Wait for the remote desktop to appear and confirm that it resembles the one below.
 
-    > If the text and icons on the desktop are too large, terminate the session. Click the icon in the lower-right corner of the "New Session" panel and select **Session preferences...** from the ensuing menu. Go to the "Input/Output" tab in the "New session" dialog and adjust the display DPI. Start with 96 and adjust as needed to get the look you want.
+	> If the text and icons on the desktop are too large, terminate the session. Click the icon in the lower-right corner of the "New Session" panel and select **Session preferences...** from the menu. Go to the "Input/Output" tab in the "New session" dialog and adjust the display DPI, and then start a new session. Start with 96 DPI and adjust as needed.
 
     ![Connected!](Images/ubuntu-desktop.png)
 
@@ -145,13 +145,13 @@ Now that you are connected, take a moment to explore the shortcuts on the deskto
 <a name="Exercise3"></a>
 ## Exercise 3: Train a TensorFlow model ##
 
-In this exercise, you will train an image-classification model built with [TensorFlow](https://www.tensorflow.org/) to recognize images that contain hot dogs. Rather than create the model from scratch, which would require vast amounts of computing power and thousands — perhaps tens of thousands — of images, you will leverage a preexisting model, a practice known as [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning).
+In this exercise, you will train an image-classification model built with [TensorFlow](https://www.tensorflow.org/) to recognize images that contain hot dogs. Rather than create the model from scratch, which would require vast amounts of computing power and tens or even hundreds of thousands of images, you will customize a preexisting model, a practice known as [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning). Transfer learning allows you to achieve high levels of accuracy with as little as a few minutes of training time on a typical laptop or PC and as few as several dozen images.
 
-The model you will use is a member of the [MobileNets](https://research.googleblog.com/2017/06/mobilenets-open-source-models-for.html) family, which is a collection of computer-vision models built with TensorFlow that are optimized for mobile devices. They are small, low-latency, and power-efficient, which makes them ideal for smartphones and tablets. They work on desktop devices, too, but are slightly less accurate than conventional TensorFlow models. More importantly, they generally deliver acceptable accuracy when trained with as few as several dozen images.
+In the context of deep learning, transfer learning involves starting with a deep neural network that is pretrained to perform image classification and adding a layer that customizes the network for your problem domain — for example, to classify images into two groups: those that contain hot dogs, and those that do not. More than 20 pretrained TensorFlow image-classification models are available at https://github.com/tensorflow/models/tree/master/research/slim#pre-trained-models. The Inception and ResNet models are characterized by higher accuracy and higher resource requirements, while the MobileNet models trade accuracy for compactness and power efficiency and were developed with mobile devices in mind. All of these models are well-known in the deep-learning community and have been used in a number of competitions as well as in real-world applications. You will use one of the MobileNet models as the basis for your neural network in order to strike a reasonable balance between accuracy and training time.
 
-Training a MobileNet model to recognize hot-dog images is essentially a matter of adding a layer to a neural network whose existing layers are trained to perform image classification. The extra layer is what enables the modified network to recognize hot dogs. Building that layer, however, requires hundreds of lines of complex Python code. Rather than write that code yourself, you will use a training script written by Google and published in a public GitHub repository. The same script could be used to train the model to recognize cat images or perform other image-classification tasks. Only the images and the labels that accompany them need to change.
+Training the model involves little more than running a Python script that downloads the base model and adds a layer trained with domain-specific images and labels. The script you need is available on GitHub, and the images you will use were assembled from thousands of public-domain food images available from [Kaggle](https://www.kaggle.com).
 
-1. Click the Terminal icon at the bottom of the screen to open a terminal window.
+1. In the Data Science VM, click the Terminal icon at the bottom of the screen to open a terminal window.
 
     ![Launching a terminal window](Images/launch-terminal.png)
 
@@ -163,11 +163,13 @@ Training a MobileNet model to recognize hot-dog images is essentially a matter o
     cd notebooks
     ```
 
-1. Now use the following command to clone the model from GitHub:
+1. Now use the following command to clone the "TensorFlow for Poets" repository from GitHub:
 
     ```bash
     git clone https://github.com/googlecodelabs/tensorflow-for-poets-2
     ```
+
+	This repo contains scripts for creating transfer-learning models, invoking a trained model in order to classify an image, and more. It is part of [Google Codelabs](https://codelabs.developers.google.com/), which contains a variety of resources and hands-on labs for software developers interested in learning about TensorFlow and other Google tools and APIs.
 
 1. Once cloning is complete, navigate to the folder containing the cloned model:
 
@@ -181,6 +183,8 @@ Training a MobileNet model to recognize hot-dog images is essentially a matter o
     wget https://topcs.blob.core.windows.net/public/tensorflow-resources.zip -O temp.zip; unzip temp.zip -d tf_files; rm temp.zip
     ```
 
+	This command downloads a zip containing hundreds of food images — half containing hot dogs, and half that do not — and copies them into the subdirectory named "tf_files."
+
 1. Click the File Manager icon at the bottom of the screen to open a File Manager window.
 
     ![Launching File Manager](Images/launch-file-manager.png)
@@ -189,47 +193,56 @@ Training a MobileNet model to recognize hot-dog images is essentially a matter o
 
 1. In File Manager, navigate to the "notebooks/tensorflow-for-poets-2/tf_files" folder. Confirm that the folder contains a pair of subdirectories named "hot_dog" and "not_hot_dog." The former contains several hundred images containing hot dogs, while the latter contains an equal number of images that do **not** contain hot dogs. Browse the images in the "hot_dog" folder to get a feel for what they look like. Check out the images in the "not_hot_dog" folder as well.
 
-    > In order to train a neural network to determine whether an image contains a hot dog, you have to train it with images that contain hot dogs as well as images that do not.
+    > In order to train a neural network to determine whether an image contains a hot dog, you have to train it with images that contain hot dogs as well as images that do not contain hot dogs.
 
     ![Images in the "hot_dog" folder](Images/hot-dog-images.png)
 
     *Images in the "hot_dog" folder*
 
-    Also confirm that the folder contains a text file named **retrained_labels_hotdog.txt**. This file identifies the subdirectories containing the training images. It is used by the Python script that trains the model to recognize hot-dog images.
+    Also confirm that the folder contains a text file named **retrained_labels_hotdog.txt**. This file identifies the subdirectories containing the training images. It is used by the Python script that trains the model to recognize hot-dog images. The script enumerates the files in each subdirectory identifed in the text file (the text file's name is a parameter passed to the script) and uses those files to train the network.
 
-1. Open a *new* terminal window and navigate to the "notebooks/tensorflow-for-poets-2" folder — the same one that is open in the first terminal window. Then use the following command to launch [TensorBoard](https://www.tensorflow.org/programmers_guide/summaries_and_tensorboard), which is a set of tools used to visualize TensorFlow models and gain insight into the transfer-learning process: 
+1. Open a second terminal window and navigate to the "notebooks/tensorflow-for-poets-2" folder — the same one that is open in the first terminal window. Then use the following command to launch [TensorBoard](https://www.tensorflow.org/programmers_guide/summaries_and_tensorboard), which is a set of tools used to visualize TensorFlow models and gain insight into the transfer-learning process: 
 
      ```bash
      tensorboard --logdir tf_files/training_summaries
      ```
 
-     > This command will fail if there is already an instance of TensorBoard running. If you see an error complaining that port 6006 is already in use, use a ```pkill -f "tensorboard"``` command to kill it. Then execute the ```tensorboard``` command again.
+     > This command will fail if there is already an instance of TensorBoard running. If you are notified that port 6006 is already in use, use a ```pkill -f "tensorboard"``` command to kill the existing process. Then execute the ```tensorboard``` command again.
 
-1. Switch back to the original terminal window and execute the following commands to start the transfer-learning process — that is, to train the model with the images you downloaded earlier. **Tip**: You can copy these commands to the clipboard, and then use **Shift+Ins** to paste them into the terminal window.
+1. Switch back to the original terminal window and execute the following commands:
 
-      ```bash
-      IMAGE_SIZE=224;
-      ARCHITECTURE="mobilenet_0.50_${IMAGE_SIZE}";
-      python scripts/retrain.py \
-      --bottleneck_dir=tf_files/bottlenecks \
-      --how_many_training_steps=500 \
-      --model_dir=tf_files/models/ \
-      --summaries_dir=tf_files/training_summaries/"${ARCHITECTURE}" \
-      --output_graph=tf_files/retrained_graph_hotdog.pb \
-      --output_labels=tf_files/retrained_labels_hotdog.txt \
-      --architecture="${ARCHITECTURE}" \
-      --image_dir=tf_files \
-      --testing_percentage=15 \
-      --validation_percentage=15
-      ```
+	```bash
+	IMAGE_SIZE=224;
+	ARCHITECTURE="mobilenet_0.50_${IMAGE_SIZE}";
+	```
 
-    TODO: Provide an explanation of the parameters passed to the Python script.
+	These commands initialize environment variables specifying the resolution of the training images and the base model that your neural network will build upon. Valid values for IMAGE_SIZE are 128, 160, 192, and 224. Higher values increase the training time, but also increase the accuracy of the classifier. 
+
+1. Now execute the following command to start the transfer-learning process — that is, to train the model with the images you downloaded:
+
+	> **Tip**: You can copy these lines to the clipboard, and then use **Shift+Ins** to paste them into the terminal window.
+
+	```bash
+	python scripts/retrain.py \
+	--bottleneck_dir=tf_files/bottlenecks \
+	--how_many_training_steps=500 \
+	--model_dir=tf_files/models/ \
+	--summaries_dir=tf_files/training_summaries/"${ARCHITECTURE}" \
+	--output_graph=tf_files/retrained_graph_hotdog.pb \
+	--output_labels=tf_files/retrained_labels_hotdog.txt \
+	--architecture="${ARCHITECTURE}" \
+	--image_dir=tf_files \
+	--testing_percentage=15 \
+	--validation_percentage=15
+	```
+
+    **retrain.py** is one of the scripts in the repo that you downloaded. It is complex: more than 1,000 lines long. Its job is to download the model specified with the ```architecture``` switch and add to it a new layer trained with the images found in subdirectories of the directory specified with the ```image_dir``` switch. Each image is labeled with the name of the subdirectory in which it is located — in this case, either "hot_dog" or "not_hot_dog" — enabling the modified neural network to classify images input to it as hot-dog images ("hot_dog") or not-hot-dog images ("not_hot_dog"). The output from the training session is a TensorFlow model file named **retrained_graph_hotdog.pb**, as specified by the ```output_graph``` switch.
 
 1. Wait for training to complete; it should take less than 5 minutes. Then check the output to determine the accuracy of the model. Your result may vary slightly from the one below because the training process involves a small amount of random estimation.
 
-      ![Gauging the accuracy](Images/running-transfer-learning.png)
+      ![Gauging the model's accuracy](Images/running-transfer-learning.png)
 
-      _Gauging the accuracy_
+      _Gauging the model's accuracy_
 
 1. Click the browser icon at the bottom of the desktop to open the browser installed in the Data Science VM. Then navigate to http://0.0.0.0:6006 to connect to Tensorboard.
 
@@ -237,15 +250,21 @@ Training a MobileNet model to recognize hot-dog images is essentially a matter o
 
     _Launching Firefox_
 
-1. Inspect the graph labeled "accuracy_1." The blue line depicts the accuracy achieved over time as the 500 training steps are executed. Confirm that the end of the blue line coincides with the accuracy recorded in the previous step.
+1. Inspect the graph labeled "accuracy_1." The blue line depicts the accuracy achieved over time as the 500 training steps specified with the ```how_many_training_steps``` switch are executed. This metric is important, because it shows how the accuracy of the model evolves as training progresses. Equally important is the distance between the blue and orange lines, which quantifies the amount of overfitting that occurred and should always be minimized. [Overfitting](https://en.wikipedia.org/wiki/Overfitting) means the model is adept at classifying the images it was trained with, but not as adept at classifying other images presented to it. The results here are acceptable, because there is a difference of less than 10% between the orange line (the "training" accuracy achieved with the training images) and the blue line (the "validation" accuracy achieved when tested with images outside the training set).
 
 	![The TensorBoard Scalars display](Images/tensorboard-scalars.png)
 
 	_The TensorBoard Scalars display_
 
+1. Click **GRAPHS** in the TensorBoard menu and inspect the graph shown there. The primary purpose of this graph is to depict the neural network and the layers that comprise it. In this example, "input_1" is the layer that was trained with food images and added to the network. "MobilenetV1" is the base neural network that you started with. It contains many layers which aren't shown. Had you built a deep neural network from scratch, all of the layers would have been diagrammed here. For more information on the Graphs display and the information surfaced there, refer to [TensorBoard: Graph Visualization](https://www.tensorflow.org/programmers_guide/graph_viz).
+
+	![The TensorBoard Graphs display](Images/tensorboard-graphs.png)
+
+	_The TensorBoard Graphs display_
+
 1. Switch back to File Manager and navigate to the "notebooks/tensorflow-for-poets-2/tf_files" folder. Confirm that it contains a file named **retrained_graph_hotdog.pb**. *This file was created during the training process and contains the trained TensorFlow model*. You will use it in the next exercise to invoke the model from the NotHotDog app.
 
-The script that you executed in Step 9 specified 500 training steps, which strikes a balance between accuracy and the time required for training. If you would like, try training the model again with a higher ```how_many_training_steps``` value such as 1000 or 2000. A higher step count generally results in higher accuracy, but at the expense of increased training time.
+The script that you executed in Step 10 specified 500 training steps, which strikes a balance between accuracy and the time required for training. If you would like, try training the model again with a higher ```how_many_training_steps``` value such as 1000 or 2000. A higher step count generally results in higher accuracy, but at the expense of increased training time. Watch out for overfitting, which, as a reminder, is represented by the difference between the orange and blue lines in TensorBoard's Scalars display.
 
 <a name="Exercise4"></a>
 ## Exercise 4: Create a NotHotDog app ##
@@ -254,9 +273,9 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
 
 1. Click **Applications** in the upper-left corner of the desktop and select **Accessories > Visual Studio Code** to start Visual Studio Code. Use Visual Studio Code's **File > Open Folder...** command to open the "notebooks/tensorflow-for-poets-2/tf_files" folder containing the **retrained_graph_hotdog.pb** file created when you trained the model.
 
-1. Create a new file named **classify.py** in the current folder. If Visual Studio Code offers to install the Python extension, click **Install** to install it. Use **Shift+Ins** to paste in the following Python code, and then save the file:
+1. Create a new file named **classify.py** in the current folder. If Visual Studio Code offers to install the Python extension, click **Install** to install it. Copy the code below to the clipboard and use **Shift+Ins** to paste it into **classify.py**. Then save the file:
 
-    ```python
+	```python
 	import tkinter as tk
 	from tkinter import messagebox, filedialog, font
 	from PIL import ImageTk, Image
@@ -323,25 +342,25 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
 	
 	if __name__ == "__main__":
 	    run()
-    ```
+	```
 
-    They key code here is the call to ```subprocess.check_output```, which invokes the trained model by executing a Python script named **label_image.py** found in the "scripts" folder, passing in the image that the user selected.
+    They key code here is the call to ```subprocess.check_output```, which invokes the trained model by executing a Python script named **label_image.py** found in the "scripts" folder, passing in the image that the user selected. This script, too, came from the repo that you cloned in the previous exercise.
 
 1. Use your favorite search engine to find a few food images — some containing hot dogs, and some not. Download these images and store them in the location of your choice in the VM's file system.
 
 1. Use Visual Studio Code's **View > Integrated Terminal** command to open an integrated terminal. Then execute the following command in the integrated terminal to run the app:
 
-     ```bash
-     python classify.py
-     ```
+	 ```bash
+	 python classify.py
+	 ```
 
-1. Click the **Select** button and pick one of the hot-dog images you downloaded in Step 3. Wait for a message box to appear, indicating whether the image contains a hot dog. Did the model get it correct?
+1. Click the app's **Select** button and pick one of the hot-dog images you downloaded in Step 3. Wait for a message box to appear, indicating whether the image contains a hot dog. Did the model get it correct?
 
     ![Selecting an image](Images/select-image.png)
 
     _Selecting an image_
 
-1. Repeat the previous step using one of the images that doesn't contain a hot dog. Was the model right this time?
+1. Repeat the previous step using an image that doesn't contain a hot dog. Was the model right this time?
 
 Continue feeding food images into the app until you're satisfied that it can identify images containing hot dogs. Don't expect it to be right 100% of the time, but do expect it to be right *most* of the time.
 
@@ -363,7 +382,7 @@ After a few minutes, the resource group and all of its resources will be deleted
 <a name="Summary"></a>
 ## Summary ##
 
-The steps in this lab may be generalized to perform other types of image-classification tasks. For example, you could train the same TensorFlow model to recognize cat images or identify defective parts parts produced on an assembly line. Image classification is one of the most prevalent uses of machine learning today, and its usefulness will only increase over time. Now that you have a basis to work from, try creating some image-classification models of oyur own. You never know what might come of it!
+The steps in this lab may be generalized to perform other types of image-classification tasks. For example, you could train the same TensorFlow model to recognize cat images or identify defective parts parts produced on an assembly line. Image classification is one of the most prevalent uses of machine learning today, and its usefulness will only increase over time. Now that you have a basis to work from, try creating some image-classification models of your own. You never know what might come of it!
 
 ---
 
