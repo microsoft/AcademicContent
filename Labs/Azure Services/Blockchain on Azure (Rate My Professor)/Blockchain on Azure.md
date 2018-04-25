@@ -15,7 +15,6 @@ In this lab, you will deploy an Ethereum network on Azure and create a custom bl
 ![Profrates app](Images/header.png)
 
 <a name="Objectives"></a>
-
 ### Objectives ###
 
 In this hands-on lab, you will learn how to:
@@ -26,14 +25,12 @@ In this hands-on lab, you will learn how to:
 - Invoke smart contracts from Node.js
 
 <a name="Prerequisites"></a>
-
 ### Prerequisites ###
 
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - [Node.js](https://nodejs.org)
 
 <a name="Cost"></a>
-
 ### Cost ###
 
 ![Cost](Images/cost-3.png)
@@ -41,7 +38,6 @@ In this hands-on lab, you will learn how to:
 The cost of this lab is **high**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
 <a name="Exercises"></a>
-
 ## Exercises ##
 
 This hands-on lab includes the following exercises:
@@ -55,7 +51,6 @@ This hands-on lab includes the following exercises:
 Estimated time to complete this lab: **60** minutes.
 
 <a name="Exercise1"></a>
-
 ## Exercise 1: Create a blockchain on Azure ##
 
 In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain network in the cloud. [Ethereum](https://www.ethereum.org/) is a platform for running decentralized applications that rely on smart contracts, and it is offered as a service in Azure. For a great introduction to Ethereum, its history, and its uses, see [What is Ethereum? A Step-by-Step Beginners Guide](https://blockgeeks.com/guides/ethereum/).
@@ -107,7 +102,6 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 Deployment will probably take 10 to 15 minutes. You can click the **Refresh** button at the top of the blade to refresh the deployment status. Once the deployment has completed, proceed to the next exercise.
 
 <a name="Exercise2"></a>
-
 ## Exercise 2: Unlock the coinbase account ##
 
 When it created the Ethereum network, Azure also created a *coinbase* account to support transactions performed in the blockchain. The name "coinbase" is misleading. It alludes to the fact that Blockchain is often used as the basis for digital currencies. But Blockchain can be used for much more than that, as you are in the process of demonstrating.
@@ -158,7 +152,7 @@ Every transaction performed in a blockchain must be "fueled" by an account. This
 
     ```shell
     web3.personal.listAccounts[0]
-    ````
+    ```
 
     The output will be a hex value similar to this one:
 
@@ -166,7 +160,7 @@ Every transaction performed in a blockchain must be "fueled" by an account. This
     0xd19cc89f0c9c1bf8280b9c8ec8125bd0e028ee51
     ```
 
-    Copy this address to the clipboard and paste it to a text file so you can easily retrieve it later.
+    Copy this address to the clipboard and paste it into a text file so you can easily retrieve it later.
 
 1. Type ```exit``` into the cloud shell to detach from Ethereum.
 
@@ -175,7 +169,6 @@ Every transaction performed in a blockchain must be "fueled" by an account. This
 Now that the coinbase account is unlocked, you are ready to start using the network to execute transactions on the blockchain. To code those transactions, you will create and then deploy a smart contract.
 
 <a name="Exercise3"></a>
-
 ## Exercise 3: Deploy a smart contract ##
 
 Ethereum blockchains use smart contracts to broker transactions. A smart contract is a program that runs on blockchain transaction nodes in [Ethereum Virtual Machines](https://themerkle.com/what-is-the-ethereum-virtual-machine/). Ethereum developers often use the popular [Truffle](http://truffleframework.com/) framework to develop smart contracts. In this exercise, you will set up a Truffle development environment, compile a smart contract, and deploy it to the blockchain.
@@ -218,7 +211,9 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
     _Copying the endpoint URL_
 
-1. Use your favorite text or program editor like [VSCode](https://code.visualstudio.com/) to open the file named **truffle.js** in the "truffle" folder you created. Replace its contents with the statements below. Then replace ENDPOINT_URL on line 4 with the URL on the clipboard minus the leading "http://" and the trailing port number (for example, ":8545"), and replace PORT_NUMBER on line 5 with the port number you removed from the URL.
+1. Use your favorite text or program editor such as [Visual Studio Code](https://code.visualstudio.com/) to open the file named **truffle.js** in the "truffle" folder you created. Replace its contents with the statements below. Then replace ENDPOINT_URL on line 4 with the URL on the clipboard minus the leading "http://" and the trailing port number (for example, ":8545"), and replace PORT_NUMBER on line 5 with the port number you removed from the URL.
+
+	> Visual Studio Code is Microsoft's free, cross-platform source-code editor. It runs great on Windows as well as on Linux and macOS. It also features IntelliSense, integrated Git support, and much more.
 
     ```javascript
     module.exports = {
@@ -314,20 +309,19 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 The contract is now present in the blockchain and waiting to be invoked. All you lack is a mechanism for invoking it. In the next exercise, you will invoke the contract from a Web app that runs on Node.js.
 
 <a name="Exercise4"></a>
-
 ## Exercise 4: Invoke the contract from a Web app ##
 
 Smart contracts are designed to be used by applications that use the blockchain for secure transactions. In this exercise, you will run a Web app written in Node.js that uses the "profrates" contract. The app allows users to rate professors from one to five stars and enter comments to go with the ratings. The data is stored in the blockchain. The app uses a library named [web3.js](https://github.com/ethereum/web3.js/), which wraps the [Ethereum RPC API](https://ethereumbuilders.gitbooks.io/guide/content/en/ethereum_json_rpc.html) and dramatically simplifies code for interacting with smart contracts. Note that there are also web3 libraries available for other languages, including .NET, Java and Python.
 
 1. Create a directory named "Profrates" to serve as the project directory for the Web site. Open the zip file containing the [source code for the Web site](https://topcs.blob.core.windows.net/public/profrates-resources.zip) and copy its contents into the "Profrates" directory.
 
-1. In a terminal or PowerShell window, ```cd``` to the "Profrates" directory. If you are running Windows, make sure PowerShell is running as an an administrator and execute the following command to install [Windows-Build-Tools](https://www.npmjs.com/package/windows-build-tools), which enables native Node modules to be compiled on Windows:
+1. In a terminal or PowerShell window, ```cd``` to the "Profrates" directory. If you are running Linux or macOS, proceed to Step 3. If you are running Windows, make sure PowerShell is running as an an administrator and execute the following command to install [Windows-Build-Tools](https://www.npmjs.com/package/windows-build-tools), which enables native Node modules to be compiled on Windows:
 
     ```shell
     npm install -g --production windows-build-tools
     ```
 
-    This command might take 5 minutes or more to complete, so be patient!
+    This command might take 5 minutes or more to complete, so be patient! It must be run as an administrator, so if you closed the PowerShell window that you opened as an administrator in [Exercise 3](#Exercise3), start PowerShell as an administrator to execute the command.
 
 1. Now execute the following command to install the packages listed in the **package.json** file:
 
@@ -381,7 +375,7 @@ Smart contracts are designed to be used by applications that use the blockchain 
 
 1. Click the image of the graduate in the upper-left corner of the page to return to the home page. Confirm that the comments you entered are reflected on the home page in the comment count and the star rating for the professor that you rated.
 
-    > IMPORTANT: These changes might not show up on the home page for 30 seconds or more. If necessary, refresh the page every few seconds until the changes appear.
+    > IMPORTANT: These changes might not show up on the home page for 30 seconds or more. If necessary, refresh the page every few seconds until the changes appear. The delay is due to the fact that the average [block time](https://en.wikipedia.org/wiki/Blockchain#Block_time) on an Ethereum network is around 17 seconds. For more information on block times and the logic behind them, see  [The Mystery Behind Block Time](https://medium.facilelogin.com/the-mystery-behind-block-time-63351e35603a) and [On Slow and Fast Block Times](https://blog.ethereum.org/2015/09/14/on-slow-and-fast-block-times/).
 
 1. Rate some of the other professors and confirm that the ratings "stick," despite the short delay between the time a rating is entered and the time it can be retrieved from the blockchain.
 
@@ -422,7 +416,6 @@ Smart contracts are designed to be used by applications that use the blockchain 
 The Web site is currently running locally. As an optional exercise, consider deploying it to the cloud as an Azure Web App so you can access it from anywhere. For a hands-on introduction to deploying Web apps as Azure Web Apps, refer to [Deploying a Cognitive Services Web Site to Azure via GitHub](../../Web%20Development/Azure%20Web%20Apps%20and%20GitHub/Deploying%20a%20Cognitive%20Services%20Web%20Site%20to%20Azure%20via%20GitHub.md).
 
 <a name="Exercise5"></a>
-
 ## Exercise 5: Delete the blockchain network ##
 
 In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Ethereum network. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because the resources in it are relatively expensive.
@@ -438,7 +431,6 @@ In this exercise, you will delete the resource group created in [Exercise 1](#Ex
 After a few minutes, the network and all of the associated resources will be deleted. Billing stops when you click **Delete**, so you're not charged for the time required to delete the resources. Similarly, billing doesn't start until the resources are fully and successfully deployed.
 
 <a name="Summary"></a>
-
 ## Summary ##
 
 This is just one example of the kinds of apps you can build with Blockchain, and with Ethereum Blockchain networks in particular. It also demonstrates how easily Blockchain networks are deployed on Azure. For more on Azure blockchains and on Ethereum networks and their capabilities, refer to <https://www.ethereum.org/.>
