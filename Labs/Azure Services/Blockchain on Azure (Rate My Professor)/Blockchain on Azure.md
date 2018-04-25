@@ -28,6 +28,7 @@ In this hands-on lab, you will learn how to:
 ### Prerequisites ###
 
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- [Visual Studio Code](http://code.visualstudio.com)
 - [Node.js](https://nodejs.org)
 
 <a name="Cost"></a>
@@ -77,19 +78,13 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
 1. Click **OK** at the bottom of the "Network Size and Performance" blade to accept the default settings for VM sizes, number of nodes, and so on.
 
-1. In the "Ethereum Settings" blade, set the member ID to **123** and enter a password in four places as the Ethereum account password and private key passphrase. Then click **OK**. Once again, *remember the password that you entered, because you will need it in the next exercise*.
+1. In the "Ethereum Settings" blade, set Consortium Member Id to **123** and enter a password in four places as the Ethereum account password and private key passphrase. Then click **OK**. Once again, *remember the password that you entered, because you will need it in the next exercise*.
+
+	> The member ID is used to avoid IP collisions when multiple organizations are deployed to a single Ethereum network. Because you aren't sharing the network with other organizations, the ID that you enter is unimportant.
 
     ![Entering Ethereum settings](Images/blockchain-settings-3.png)
 
     _Entering Ethereum settings_
-
-1. Fill in the "OMS" blade as shown below, selecting the region closest to you. Then click **OK**.
-
-    > OMS stands for [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) and is a feature of Azure that allows you to monitor workloads running in the cloud and gain real-time insights into their operation. When you deploy an Ethereum network, Azure automatically connects it to an OMS instance.
-
-    ![Entering OMS settings](Images/blockchain-settings-4.png)
-
-    _Entering OMS settings_
 
 1. Review the settings in the "Summary" blade and click **OK** at the bottom of the blade. Then click the **Create** button at the bottom of the "Create" blade to begin the deployment.
 
@@ -132,15 +127,15 @@ Every transaction performed in a blockchain must be "fueled" by an account. This
 
 1. Execute the following command in the cloud shell to attach to the first node in the Ethereum network. [geth](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options), which is short for "go-ethereum," is a multipurpose command for managing Ethereum networks.
 
-    ```shell
-    geth attach
-    ```
+	```shell
+	geth attach
+	```
 
 1. Now execute the following command to unlock the coinbase account, substituting the password you entered in Exercise 1, Step 6 for PASSWORD:
 
-    ```shell
-    web3.personal.unlockAccount(web3.personal.listAccounts[0],"PASSWORD",28800)
-    ```
+	```shell
+	web3.personal.unlockAccount(web3.personal.listAccounts[0],"PASSWORD",28800)
+	```
 
     This will allow you to perform transactions using the coinbase account for up to 8 hours (28,800 seconds). Make sure that the output from the command is the word "true," as shown below.
 
@@ -150,17 +145,17 @@ Every transaction performed in a blockchain must be "fueled" by an account. This
 
 1. Now use the following command to get the address of the coinbase account:
 
-    ```shell
-    web3.personal.listAccounts[0]
-    ```
+	```shell
+	web3.personal.listAccounts[0]
+	```
 
     The output will be a hex value similar to this one:
 
-    ```shell
-    0xd19cc89f0c9c1bf8280b9c8ec8125bd0e028ee51
-    ```
+	```shell
+	0xd19cc89f0c9c1bf8280b9c8ec8125bd0e028ee51
+	```
 
-    Copy this address to the clipboard and paste it into a text file so you can easily retrieve it later.
+    Copy this value to the clipboard and **paste it into a text file** so you can easily retrieve it later.
 
 1. Type ```exit``` into the cloud shell to detach from Ethereum.
 
@@ -175,136 +170,138 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
 1. If Node.js isn't installed on your computer, go to <https://nodejs.org> and install the latest LTS version for your operating system. If you aren't sure whether Node.js is installed, open a Command Prompt or terminal window and execute the following command:
 
-    ```shell
-    node --version
-    ```
+	```shell
+	node --version
+	```
 
     If you don't see a Node.js version number, then Node.js isn't installed.
 
-1. If you are using macOS or Linux, open a terminal window. If you are using Windows instead, open a PowerShell window running **as an administrator**. In the terminal or PowerShell window, use the following command to create a directory named "truffle" in the location of your choice:
+1. Create a directory named "truffle" in the location of your choice on your hard disk.
 
-    ```shell
-    mkdir truffle
-    ```
+1. If you are using macOS or Linux, open a terminal window. If you are using Windows, open a PowerShell window. In the terminal or PowerShell window, ```cd``` to the "truffle" directory you created in the previous step and use the following command to install Truffle:
 
-1. Now change to the "truffle" directory:
+	```shell
+	npm install -g truffle
+	```
 
-    ```shell
-    cd truffle
-    ```
+1. Now use the following command to initialize a Truffle project in the current directory. This will download a few Solidity scripts and install them, and create a scaffolding in the "truffle" folder.
 
-1. Use the following command to install Truffle:
+	```shell
+	truffle init
+	```
 
-    ```shell
-    npm install -g truffle
-    ```
+1. If Visual Studio Code isn't installed on your PC, go to https://code.visualstudio.com/ and install it now. Visual Studio Code is a free, lightweight source-code editor for Windows, macOS, and Linux. It features IntelliSense, integrated Git support, and much more.
 
-1. Use the following command to initialize a Truffle project in the current directory. This will download a few Solidity scripts and install them, and create a scaffolding in the "truffle" folder.
+1. Start Visual Studio Code and use the **File** > **Open Folder...** command to open the "truffle" directory that you created in Step 2. Confirm that the directory contains a pair of files named **truffle.js** and **truffle-config.js**, as shown below. These files are part of the scaffolding created by the ```truffle init``` command.
 
-    ```shell
-    truffle init
-    ```
+	![Visual Studio Code](Images/visual-studio-code.png)
 
-1. Return to the Azure portal and click the **Copy** button to the right of ETHEREUM-RPC-ENDPOINT to copy the endpoint URL to the clipboard. This URL is important, because it allows apps to make JSON-RPC calls to the network to deploy smart contracts and perform other blockchain-related tasks.
+	_Visual Studio Code_
+
+1. Open **truffle.js** in Visual Studio Code and replace its contents with the following statements: 
+
+	```javascript
+	module.exports = {
+	  networks: {
+	    development: {
+	      host: "ENDPOINT_URL",
+	      port: PORT_NUMBER,
+	      network_id: "*", // Match any network id
+	      gas: 4712388
+	    }
+	  }
+	};
+	```
+
+1. Return to the Azure portal and click the **Copy** button to the right of ETHEREUM-RPC-ENDPOINT to copy the endpoint URL to the clipboard. This URL is important, because it allows apps to make JSON-RPC calls to the Ethereum network to deploy smart contracts and perform other blockchain-related tasks.
 
     ![Copying the endpoint URL](Images/copy-endpoint.png)
 
     _Copying the endpoint URL_
 
-1. Use your favorite text or program editor such as [Visual Studio Code](https://code.visualstudio.com/) to open the file named **truffle.js** in the "truffle" folder you created. Replace its contents with the statements below. Then replace ENDPOINT_URL on line 4 with the URL on the clipboard minus the leading "http://" and the trailing port number (for example, ":8545"), and replace PORT_NUMBER on line 5 with the port number you removed from the URL.
+1. Return to **truffle.js** in Visual Studio Code. Replace ENDPOINT_URL on line 4 with the URL on the clipboard. Then remove the leading "http://" and the trailing port number (for example, ":8545"), and replace PORT_NUMBER on line 5 with the port number you removed from the URL. The modified file should look something like this:
 
-	> Visual Studio Code is Microsoft's free, cross-platform source-code editor. It runs great on Windows as well as on Linux and macOS. It also features IntelliSense, integrated Git support, and much more.
+	```javascript
+	module.exports = {
+	  networks: {
+	    development: {
+	      host: "labng2-dns-reg1.eastus.cloudapp.azure.com",
+	      port: 8545,
+	      network_id: "*", // Match any network id
+	      gas: 4712388
+	    }
+	  }
+	};
+	```
 
-    ```javascript
-    module.exports = {
-      networks: {
-        development: {
-          host: "ENDPOINT_URL",
-          port: PORT_NUMBER,
-          network_id: "*", // Match any network id
-          gas: 4712388
-        }
-      }
-    };
-    ```
+	Once these changes are made, save the file.
 
-    The modified file should look something like this:
+1. Create a file named **profrates.sol** in the subdirectory named "contracts" and paste in the following code. Then save the file.
 
-    ```javascript
-    module.exports = {
-      networks: {
-        development: {
-          host: "labng2-dns-reg1.eastus.cloudapp.azure.com",
-          port: 8545,
-          network_id: "*", // Match any network id
-          gas: 4712388
-        }
-      }
-    };
-    ```
-
-    Once these changes are made, save the file.
-
-1. Create a file named **profrates.sol** in the subdirectory named "contracts" (which was created when you ran ```truffle init```) and paste in the following code. Then save the file.
-
-    ```javascript
-    pragma solidity ^0.4.16;
-
-    contract profrates {
-
-        event newRating(uint id);
-
-        struct Rating {
-            uint professorID;
-            string comment;
-            uint stars;
-        }
-
-        Rating[] ratings;
-
-        function addRating(uint professorID, string comment, uint stars) public returns (uint ratingID) {
-            ratingID = ratings.length;
-            ratings[ratings.length++] = Rating(professorID, comment, stars);
-            emit newRating(ratingID);
-        }
-
-        function getRatingsCount() constant public returns (uint count) {
-            return ratings.length;
-        }
-
-        function getRating(uint index) constant public returns (uint professorID, string comment, uint stars) {
-            professorID = ratings[index].professorID;
-            comment = ratings[index].comment;
-            stars = ratings[index].stars;
-        }
-    }
-    ```
+	```javascript
+	pragma solidity ^0.4.16;
+	
+	contract profrates {
+	
+	    event newRating(uint id);
+	
+	    struct Rating {
+	        uint professorID;
+	        string comment;
+	        uint stars;
+	    }
+	
+	    Rating[] ratings;
+	
+	    function addRating(uint professorID, string comment, uint stars) public returns (uint ratingID) {
+	        ratingID = ratings.length;
+	        ratings[ratings.length++] = Rating(professorID, comment, stars);
+	        emit newRating(ratingID);
+	    }
+	
+	    function getRatingsCount() constant public returns (uint count) {
+	        return ratings.length;
+	    }
+	
+	    function getRating(uint index) constant public returns (uint professorID, string comment, uint stars) {
+	        professorID = ratings[index].professorID;
+	        comment = ratings[index].comment;
+	        stars = ratings[index].stars;
+	    }
+	}
+	```
 
     This code, which constitutes a smart contract, is written in [Solidity](https://en.wikipedia.org/wiki/Solidity), which is similar to JavaScript. Solidity files are compiled to JSON files containing interface definitions as well as bytecode. This contract contains functions for adding a rating to the blockchain, getting a count of ratings recorded in the blockchain, and retrieving individual ratings. A "rating" is defined by the ```Rating``` structure, which contains the ID of the professor to which the rating pertains, a textual comment, and a numeric value from 1 to 5.
 
 1. Create a file named **2_deploy_contracts.js** in the "migrations" subdirectory. Paste the following code into the file and save it:
 
-    ```javascript
-    var profrates = artifacts.require("./profrates.sol");
-
-    module.exports = function(deployer) {
-        deployer.deploy(profrates);
-    };
-    ```
+	```javascript
+	var profrates = artifacts.require("./profrates.sol");
+	
+	module.exports = function(deployer) {
+	    deployer.deploy(profrates);
+	};
+	```
 
     This is the code that deploys the contract to the blockchain.
 
-1. Return to the terminal or PowerShell window and execute the following command to compile the  contract:
+1. Select **Integrated Terminal** from Visual Studio Code's **View** menu to open an integrated terminal. If you are using Windows, make sure the language selected for the integrated terminal is PowerShell. Then execute the following command in the integrated terminal to compile the  contract:
 
-    ```shell
-    truffle compile
-    ```
+	```shell
+	truffle compile
+	```
 
-1. Now use the following command to deploy the contract to the blockchain:
+1. Now execute the following command in the integrated terminal to deploy the contract to the blockchain:
 
-    ```shell
-    truffle deploy
-    ```
+	```shell
+	truffle deploy
+	```
+
+1. Copy the address of the "profrates" contract shown in the command output to the clipboard and **paste it into a text file** so you can easily retrieve it later.
+
+	![Saving the contract address](Images/copy-contract-address.png)
+
+	_Saving the contract address_
 
 The contract is now present in the blockchain and waiting to be invoked. All you lack is a mechanism for invoking it. In the next exercise, you will invoke the contract from a Web app that runs on Node.js.
 
@@ -313,47 +310,47 @@ The contract is now present in the blockchain and waiting to be invoked. All you
 
 Smart contracts are designed to be used by applications that use the blockchain for secure transactions. In this exercise, you will run a Web app written in Node.js that uses the "profrates" contract. The app allows users to rate professors from one to five stars and enter comments to go with the ratings. The data is stored in the blockchain. The app uses a library named [web3.js](https://github.com/ethereum/web3.js/), which wraps the [Ethereum RPC API](https://ethereumbuilders.gitbooks.io/guide/content/en/ethereum_json_rpc.html) and dramatically simplifies code for interacting with smart contracts. Note that there are also web3 libraries available for other languages, including .NET, Java and Python.
 
-1. Create a directory named "Profrates" to serve as the project directory for the Web site. Open the zip file containing the [source code for the Web site](https://topcs.blob.core.windows.net/public/profrates-resources.zip) and copy its contents into the "Profrates" directory.
+1. If you are running Windows, open a PowerShell window running **as an administrator**. Then execute the following command to install [Windows-Build-Tools](https://www.npmjs.com/package/windows-build-tools), which enables native Node modules to be compiled on Windows:
 
-1. In a terminal or PowerShell window, ```cd``` to the "Profrates" directory. If you are running Linux or macOS, proceed to Step 3. If you are running Windows, make sure PowerShell is running as an an administrator and execute the following command to install [Windows-Build-Tools](https://www.npmjs.com/package/windows-build-tools), which enables native Node modules to be compiled on Windows:
+	```shell
+	npm install -g --production windows-build-tools
+	```
 
-    ```shell
-    npm install -g --production windows-build-tools
-    ```
+	This command might take 5 minutes or more to complete, so be patient!
 
-    This command might take 5 minutes or more to complete, so be patient! It must be run as an administrator, so if you closed the PowerShell window that you opened as an administrator in [Exercise 3](#Exercise3), start PowerShell as an administrator to execute the command.
+1. Create a directory named "Profrates" to serve as the project directory for the Web site. Download the zip file containing the [source code for the Web site](https://topcs.blob.core.windows.net/public/profrates-resources.zip) and copy its contents into the "Profrates" directory.
 
-1. Now execute the following command to install the packages listed in the **package.json** file:
+1. Return to Visual Studio Code and use the **File > Open Folder...** command to open the "Profrates" directory. Then execute the following command in Visual Studio Code's integrated terminal to install the packages listed in the **package.json** file:
 
-    ```shell
-    npm install
-    ```
+	```shell
+	npm install
+	```
 
-1. Open **index.js** in the "Profrates" directory in your favorite text or program editor. Replace ENDPOINT_URL on line 6 with the Ethereum RPC endpoint you obtained from the Azure Portal in Exercise 3, Step 6 (`ETHEREUM-RPC-ENDPOINT`).
+1. Return to the Azure portal and click the **Copy** button to the right of ETHEREUM-RPC-ENDPOINT to copy the endpoint URL to the clipboard as you did in Exercise 3, Step 8.
 
-1. Replace ACCOUNT_ADDRESS on line 7 with the hex value address you saved in Exercise 2, Step 8.
+    ![Copying the endpoint URL](Images/copy-endpoint.png)
 
-1. In the PowerShell or terminal window, ```cd``` back to the "truffle" directory that you created in the previous exercise. Then use the following command to list the addresses of all the smart contracts in the project, including the "profrates" contract and some sample contracts that were created when you ran ```truffle init```:
+    _Copying the endpoint URL_
 
-    ```shell
-    truffle networks
-    ```
+1. Return to Visual Studio Code and open **index.js**. Replace ENDPOINT_URL on line 7 with the Ethereum RPC endpoint that's on the clipboard.
 
-    Replace CONTRACT_ADDRESS on line 8 of **index.js** with the "profrates" address in the output. Then save the file. The modified lines should look something like this:
+1. Replace ACCOUNT_ADDRESS on line 8 with the account address you saved in Exercise 2, Step 8.
 
-    ```javascript
-    var etherUrl = "http://labng2-dns-reg1.eastus.cloudapp.azure.com:8545";
-    var account = "0xd19cc89f0c9c1bf8280b9c8ec8125bd0e028ee51";
-    var contract = "0x62af894ebf09a58dbdb3f7b1444d767241c83da5";
-    ```
+1. Replace CONTRACT_ADDRESS on line 9 with the contract address you saved in Exercise, 3, Step 14. Then save your changes to **index.js**. The modified lines should look something like this:
 
-1. Use a ```cd``` command to navigate back to the "Profrates" directory. Then execute the following command to start the Web app:
+	```javascript
+	var etherUrl = "http://labng2-dns-reg1.eastus.cloudapp.azure.com:8545";
+	var account = "0xd19cc89f0c9c1bf8280b9c8ec8125bd0e028ee51";
+	var contract = "0x5402c34df62e6a8a3fc8d4f078c5495dd051dde9";
+	```
 
-    ```shell
-    node index.js
-    ```
+1. Execute the following command in Visual Studio Code's integrated terminal to start the Web app:
 
-1. Now open your browser and navigate to <http://localhost:8080.> Confirm that the Web site's home page appears.
+	```shell
+	node index.js
+	```
+
+1. Now open your browser and navigate to http://localhost:8080. Confirm that the Web site's home page appears.
 
     ![The Profrates home page](Images/profrates-1.png)
 
