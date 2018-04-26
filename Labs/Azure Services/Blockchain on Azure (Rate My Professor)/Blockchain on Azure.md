@@ -376,37 +376,37 @@ Smart contracts are designed to be used by applications that use the blockchain 
 
 1. Rate some of the other professors and confirm that the ratings "stick," despite the short delay between the time a rating is entered and the time it can be retrieved from the blockchain.
 
-1. Care to see the code in the Web app that adds a rating to the blockchain? Clicking the **Submit** button transmits an AJAX request to a REST method on the server. That method is implemented in **index.js**, which you'll find in the "Profrates" directory:
+1. Care to see the code in the Web app that adds a rating to the blockchain? Clicking the **Submit** button transmits an AJAX request to a REST method on the server. That method is implemented in **index.js**:
 
-    ```javascript
-    app.post("/add", function (req, res) {
-        contractInstance.methods.addRating(parseInt(req.body.professorId), req.body.comment, parseInt(req.body.stars)).send({ from: account, gas:500000 }, function(error, transactionHash) {
-            if (error) {
-                res.status(500).send(error);
-            }
-            else {
-                res.status = 200;
-                res.json({ id: 0 });
-            }
-        });
-    });
-    ```
+	```javascript
+	app.post("/add", function (req, res) {
+	    contractInstance.methods.addRating(parseInt(req.body.professorId), req.body.comment, parseInt(req.body.stars)).send({ from: account, gas:500000 }, function(error, transactionHash) {
+	        if (error) {
+	            res.status(500).send(error);
+	        }
+	        else {
+	            res.status = 200;
+	            res.json({ id: 0 });
+	        }
+	    });
+	});
+	```
 
     The real work is performed by the call to ```contractInstance```, which is initialized this way:
 
-    ```javascript
-    contractInstance = new web3.eth.Contract(abi, contract);
-    ```
+	```javascript
+	contractInstance = new web3.eth.Contract(abi, contract);
+	```
 
     ```web3``` comes from web3 library. ```abi``` is a variable that contains a JSON definition of the contract — the same contract that you implemented in Solidity in the previous exercise — and ```contract``` is the contract address that you retrieved with the ```truffle networks``` command earlier in this exercise.
 
 1. While you have **index.js** open, find the following statement block:
 
-    ```javascript
-    app.get("/rating/:index", function (req, res) {
-      ...
-    });
-    ```
+	```javascript
+	app.get("/rating/:index", function (req, res) {
+	  ...
+	});
+	```
 
     This implements a REST method that retrieves from the blockchain the rating whose index is specified. What contract function is called inside this method to retrieve a block from the blockchain?
 
