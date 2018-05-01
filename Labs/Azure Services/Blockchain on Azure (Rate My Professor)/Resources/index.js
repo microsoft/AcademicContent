@@ -6,7 +6,7 @@ var app = express();
 
 var etherUrl = "ENDPOINT_URL";
 var account = "ACCOUNT_ADDRESS";
-var contract = "CONTRACT_ADDRESS"
+var contract = "CONTRACT_ADDRESS";
 
 var httpPort = 8080;
 var web3 = new Web3();
