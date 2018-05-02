@@ -162,6 +162,7 @@ Training the model involves little more than running a Python script that downlo
     ```bash
     cd notebooks
     ```
+    This folder is prepopulated with sample Jupyter notebooks curated for the DSVM.
 
 1. Now use the following command to clone the "TensorFlow for Poets" repository from GitHub:
 
@@ -312,7 +313,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
 	            else:
 	                messagebox.showinfo("Result", "That's not a hot dog.")
 	        else:
-	            messagebox.showinfo("Result", "Unknown")
+	            messagebox.showinfo("Result", "Can't tell.")
 	
 	    except FileNotFoundError as e:
 	        messagebox.showerror("File not found", "File {0} was not found.".format(e.filename))
