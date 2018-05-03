@@ -72,17 +72,21 @@ The Data Science Virtual Machine for Linux is a virtual-machine image that simpl
 
     _Entering basic settings_
 
-1. In the "Choose a size" blade, show all size options available by clicking **View All**. Scroll down and select **DS1_V2 Standard**, which provides a low-cost way to experiment with Data Science VMs. Then click the **Select** button at the bottom.
+1. In the "Choose a size" blade, select **DS1_V2 Standard**, which provides a low-cost way to experiment with Data Science VMs. Then click the **Select** button at the bottom of the blade.
 
     ![Choosing a VM size](Images/create-data-science-vm-2.png)
 
     _Choosing a VM size_
 
-1. In the "Settings" blade, click **OK** at the bottom.
+1. In the "Settings" blade, check **SSH (22)** in the list of inbound ports so clients can connect to the VM using the [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) protocol on port 22. Then click **OK**.
+
+    ![Creating the VM](Images/create-data-science-vm-3.png)
+
+    _Creating the VM_
 
 1. In the "Create" blade, take a moment to review the options you selected for the VM, and click **Create** to start the VM creation process.
 
-    ![Creating the VM](Images/create-data-science-vm-3.png)
+    ![Creating the VM](Images/create-data-science-vm-4.png)
 
     _Creating the VM_
 
@@ -176,6 +180,7 @@ Training the model involves little more than running a Python script that downlo
     ```bash
     git clone https://github.com/googlecodelabs/tensorflow-for-poets-2
     ```
+    > **Tip**: You can copy this line to the clipboard, and then use **Shift+Ins** to paste it into the terminal window.
 
     This repo contains scripts for creating transfer-learning models, invoking a trained model in order to classify an image, and more. It is part of [Google Codelabs](https://codelabs.developers.google.com/), which contains a variety of resources and hands-on labs for software developers interested in learning about TensorFlow and other Google tools and APIs.
 
@@ -201,7 +206,7 @@ Training the model involves little more than running a Python script that downlo
 
 1. In File Manager, navigate to the "notebooks/tensorflow-for-poets-2/tf_files" folder. Confirm that the folder contains a pair of subdirectories named "hot_dog" and "not_hot_dog." The former contains several hundred images containing hot dogs, while the latter contains an equal number of images that do **not** contain hot dogs. Browse the images in the "hot_dog" folder to get a feel for what they look like. Check out the images in the "not_hot_dog" folder as well.
 
-    > In order to train a neural network to determine whether an image contains a hot dog, you have to train it with images that contain hot dogs as well as images that do not contain hot dogs.
+    > In order to train a neural network to determine whether an image contains a hot dog, you will train it with images that contain hot dogs as well as images that do not contain hot dogs.
 
     ![Images in the "hot_dog" folder](Images/hot-dog-images.png)
 
@@ -227,8 +232,6 @@ Training the model involves little more than running a Python script that downlo
     These commands initialize environment variables specifying the resolution of the training images and the base model that your neural network will build upon. Valid values for IMAGE_SIZE are 128, 160, 192, and 224. Higher values increase the training time, but also increase the accuracy of the classifier.
 
 1. Now execute the following command to start the transfer-learning process — that is, to train the model with the images you downloaded:
-
-    > **Tip**: You can copy these lines to the clipboard, and then use **Shift+Ins** to paste them into the terminal window.
 
     ```bash
     python scripts/retrain.py \
@@ -353,7 +356,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
         run()
     ```
 
-    They key code here is the call to ```subprocess.check_output```, which invokes the trained model by executing a Python script named **label_image.py** found in the "scripts" folder, passing in the image that the user selected. This script, too, came from the repo that you cloned in the previous exercise.
+    They key code here is the call to ```subprocess.check_output```, which invokes the trained model by executing a Python script named **label_image.py** found in the "scripts" folder, passing in the image that the user selected. This script came from the repo that you cloned in the previous exercise.
 
 1. Use your favorite search engine to find a few food images — some containing hot dogs, and some not. Download these images and store them in the location of your choice in the VM's file system.
 
