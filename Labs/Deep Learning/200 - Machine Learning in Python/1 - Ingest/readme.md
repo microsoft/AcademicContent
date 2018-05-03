@@ -65,19 +65,25 @@ The Ubuntu Data Science Virtual Machine for Linux is a virtual-machine image tha
 
 1. Enter a name for the virtual machine and a user name for logging into it. Set **Authentication type** to **Password** and enter a password. *Be sure to remember the user name and password that you enter*, because you will need them to access the VM. Select **Create new** under **Resource group** and enter a resource-group name such as "data-science-rg." Select the **Location** nearest you, and then click **OK**..
 
-    ![Entering basic information about the VM](Images/create-data-science-vm-1.png)
+    ![Entering basic settings](Images/create-data-science-vm-1.png)
 
-    _Entering basic information about the VM_
+    _Entering basic settings_
 
-1. Next, choose a size for the VM. In order to show all size options available, click **View All**. Scroll down and select **DS1_V2 Standard**, which provides a low-cost way to experiment with Data Science VMs. Then click the **Select** button.
+1. In the "Choose a size" blade, select **DS1_V2 Standard**, which provides a low-cost way to experiment with Data Science VMs. Then click the **Select** button at the bottom of the blade.
 
     ![Choosing a VM size](Images/create-data-science-vm-2.png)
 
     _Choosing a VM size_
 
-1. Click **OK** at the bottom of the "Settings" blade. Then take a moment to review the options you selected for the VM, and click **Create** to create it.
+1. In the "Settings" blade, check **SSH (22)** in the list of inbound ports so clients can connect to the VM using the [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) protocol on port 22. Then click **OK**.
 
     ![Creating the VM](Images/create-data-science-vm-3.png)
+
+    _Creating the VM_
+
+1. In the "Create" blade, take a moment to review the options you selected for the VM, and click **Create** to start the VM creation process.
+
+    ![Creating the VM](Images/create-data-science-vm-4.png)
 
     _Creating the VM_
 
