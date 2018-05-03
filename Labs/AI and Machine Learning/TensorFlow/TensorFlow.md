@@ -108,7 +108,8 @@ Once the deployment has completed, proceed to the next exercise.
 
 ## Exercise 2: Connect to the Data Science VM ##
 
-In this exercise, you will connect remotely to the Ubuntu desktop in the VM that you created in the previous exercise. To do so, you need a client that supports [Xfce](https://xfce.org/), which is a lightweight desktop environment for Linux.
+In this exercise, you will connect remotely to the Ubuntu desktop in the VM that you created in the previous exercise. To do so, you need a client that supports [Xfce](https://xfce.org/), which is a lightweight desktop environment for Linux. For background, and for an overview of the various ways you can connect to a DSVM, see [How to access the Data Science Virtual Machine for Linux
+](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#how-to-access-the-data-science-virtual-machine-for-linux).
 
 1. If you don't already have an Xfce client installed, download the [X2Go client](https://wiki.x2go.org/doku.php/download:start) and install it before continuing with this exercise. X2Go is a free and open-source Xfce solution that works on a variety of operating systems, including Windows and OS X. The instructions in this exercise assume you are using X2Go, but you may use any client that supports Xfce.
 
@@ -367,6 +368,8 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
      ```
 
 1. Click the app's **Select** button and pick one of the hot-dog images you downloaded in Step 3. Wait for a message box to appear, indicating whether the image contains a hot dog. Did the model get it correct?
+
+	> If you see error messages regarding a missing kernel driver in the terminal window when you process an image, you can safely ignore them. They result from the fact that the Data Science VM does not contain a virtual GPU.
 
     ![Selecting an image](Images/select-image.png)
 
