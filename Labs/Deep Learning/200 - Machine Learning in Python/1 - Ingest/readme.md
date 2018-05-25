@@ -75,15 +75,9 @@ The Ubuntu Data Science Virtual Machine for Linux is a virtual-machine image tha
 
     _Choosing a VM size_
 
-1. In the "Settings" blade, check **SSH (22)** in the list of inbound ports so clients can connect to the VM using the [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) protocol on port 22. Then click **OK**.
+1. Click **OK** at the bottom of the "Settings" blade. Review the information presented to you in the "Create" blade, and then click **Create** to start the VM creation process.
 
     ![Creating the VM](Images/create-data-science-vm-3.png)
-
-    _Creating the VM_
-
-1. In the "Create" blade, take a moment to review the options you selected for the VM, and click **Create** to start the VM creation process.
-
-    ![Creating the VM](Images/create-data-science-vm-4.png)
 
     _Creating the VM_
 
@@ -166,11 +160,11 @@ In this exercise, you will import a dataset from Azure blob storage into the VM 
     curl https://topcs.blob.core.windows.net/public/FlightData.csv --output flightdata.csv
     ```
 
-1. Click **Applications** in the upper-left corner of the desktop. Then click **Development**, followed by **JupyterHub**.
+1. Click **Applications** in the upper-left corner of the desktop. Then click **Development**, followed by **Jupyter**.
 
-    ![Launching JupyterHub](Images/start-jupyter.png)
+    ![Launching Jupyter](Images/start-jupyter.png)
 
-    _Launching JupyterHub_
+    _Launching Jupyter_
 
 1. In the browser window that opens, click **flights** to open the "flights" directory.
 
