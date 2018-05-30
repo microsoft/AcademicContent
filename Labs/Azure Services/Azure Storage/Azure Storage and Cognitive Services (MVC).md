@@ -440,7 +440,7 @@ In this exercise, you will use the Computer Vision API to generate a caption for
 
 1. Begin by using the Azure Storage Explorer to delete the blobs in the "photos" container and the "thumbnails" container. (Do not delete the containers themselves.) This will allow you to start fresh with a new batch of images to process with the Computer Vision API.
 
-1. In the Azure Portal, click **+ Create a resource**, followed by **AI + Cognitive Services** and **Computer Vision API**.
+1. In the Azure Portal, click **+ Create a resource**, followed by **AI + Machine Learning** and **Computer Vision**.
 
     ![Creating a new Computer Vision API subscription](Images/new-vision-api.png)
 
