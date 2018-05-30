@@ -3,9 +3,9 @@
 
 Software bots are everywhere. You probably interact with them every day without realizing it. Bots, especially chat and messenger bots, are changing the way we interact with businesses, communities, and even each other. Thanks to light-speed advances in artificial intelligence (AI) and the ready availability of AI services, bots are not only becoming more advanced and personalized, but also more accessible to developers. 
 
-Regardless of the target language or platform, developers building bots face a variety of challenges. Bots must be able process input and output intelligently. Bots need to be responsive, scalable, and extensible. They need to work cross-platform, and they need to interact with users in a conversational manner and in the language the user chooses.
+Regardless of the target language or platform, developers building bots face a variety of challenges. Bots must be able process input and output intelligently. Bots need to be responsive, scalable, and extensible. They need to work cross-platform, and they need to interact with users in a conversational manner and in the language that the user chooses.
 
-The [Azure Bot Service](https://azure.microsoft.com/en-us/services/bot-service/), combined with [Microsoft QnA Maker](https://qnamaker.ai/), provide the tools developers need to build and publish intelligent bots that interact naturally with users using a range of services. In this lab, you will create a bot using the Azure Bot Service and connect it to a knowledge base built with QnA Maker. Then you will interact with the bot using Skype — one of many popular services with which bots built with the Azure Bot Service can integrate.
+The [Azure Bot Service](https://azure.microsoft.com/en-us/services/bot-service/), combined with [Microsoft QnA Maker](https://www.qnamaker.ai/), provide the tools developers need to build and publish intelligent bots that interact naturally with users using a range of services. In this lab, you will create a bot using the Azure Bot Service and connect it to a knowledge base built with QnA Maker. Then you will interact with the bot using Skype — one of many popular services with which bots built with the Azure Bot Service can integrate.
 
 ![](Images/bot-service.png)
 
@@ -15,9 +15,10 @@ The [Azure Bot Service](https://azure.microsoft.com/en-us/services/bot-service/)
 In this hands-on lab, you will learn how to:
 
 - Create an Azure Web App Bot to host a bot
-- Create a Microsoft QnA knowledge base, populate it with data, and connect it to a bot
+- Create a knowledge base, populate it with data, and connect it to a bot
 - Implement bots in code and debug the bots that you build
 - Publish bots and use continuous integration to keep them up to date
+- Debug bots locally using Visual Studio Code and the Microsoft Bot Framework Emulator
 - Plug a bot into Skype and interact with it there
 
 <a name="Prerequisites"></a>
@@ -45,11 +46,12 @@ The cost of this lab is **moderate**. For an overview of cost ratings, refer to 
 This hands-on lab includes the following exercises:
 
 - [Exercise 1: Create an Azure Web App Bot](#Exercise1)
-- [Exercise 2: Train the bot with Microsoft QnA Maker](#Exercise2)
-- [Exercise 3: Deploy the bot using continuous integration](#Exercise3)
+- [Exercise 2: Create a knowledge base with Microsoft QnA Maker](#Exercise2)
+- [Exercise 3: Deploy a bot with Visual Studio Code](#Exercise3)
 - [Exercise 4: Debug the bot locally](#Exercise4)
 - [Exercise 5: Connect the bot to the knowledge base](#Exercise5)
 - [Exercise 6: Test the bot with Skype](#Exercise6)
+- [Exercise 7: Delete the resource group](#Exercise7)
  
 Estimated time to complete this lab: **45** minutes.
 
@@ -60,13 +62,13 @@ The first step in creating a bot is to provide a location for the bot to be host
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to sign in, do so using your Microsoft account.
 
-1. Click **+ Create a resource**, followed by **AI + Cognitive Services** and then **Web App Bot**.
+1. Click **+ Create a resource**, followed by **AI + Machine Learning** and then **Web App Bot**.
  
     ![Creating a new Azure Web App Bot](Images/new-bot-service.png)
 
     _Creating a new Azure Web App Bot_
   
-1. Enter a name such as "qna-factbot" into the **App name** box. *This name must be unique within Azure, so make sure a green check mark appears next to it.* Select **Create new** under **Resource group** and enter the resource-group name "BotResources." Select the location nearest you, and then click **Bot template**.
+1. Enter a name such as "qa-factbot" into the **App name** box. *This name must be unique within Azure, so make sure a green check mark appears next to it.* Select **Create new** under **Resource group** and enter the resource-group name "factbot-rg." Select the location nearest you and select the free **F0** pricing tier. Then click **Bot template**.
 
 	![Configuring the Azure Web App Bot](Images/portal-start-bot-creation.png)
 
@@ -78,91 +80,91 @@ The first step in creating a bot is to provide a location for the bot to be host
 
 	_Selecting the language and template_
 
-1. Now click **App service plan/Location** followed by **Create New** and create an app service plan in the same region that you selected in Step 3. Once that's done, click **Create** at the bottom of the "Web App Bot" blade to start the deployment. 
+1. Now click **App service plan/Location** followed by **Create New** and create an app service plan named "qa-factbot-service-plan" or something similar in the same region that you selected in Step 3. Once that's done, click **Create** at the bottom of the "Web App Bot" blade to start the deployment. 
 
-1. Click **Resource Groups** in the ribbon on the left. Then click **BotResources** to open the resource group created for the Azure Web App Bot.
+1. Click **Resource groups** in the ribbon on the left side of the portal. Then click **factbot-rg** to open the resource group created for the Azure Web App Bot. Wait until "Deploying" changes to "Succeeded" at the top of the blade indicating that the Azure Web App Bot was successfully deployed. Deployment generally requires two minutes or less. Periodically click **Refresh** at the top of the blade to refresh the deployment status.
 
-    ![Opening the resource group](Images/open-resource-group.png)
+    ![Successful deployment](Images/deployment-succeeded.png)
 
-    _Opening the resource group_
+    _Successful deployment_
   
-1. Wait until "Deploying" changes to "Succeeded" at the top of the blade indicating that the Azure Web App Bot was successfully deployed. (You can click the **Refresh** button at the top of the blade to refresh the deployment status.) Then click the Web App Bot resource.
-
-    ![Opening the Web App Bot](Images/open-web-app-bot.png)
-
-    _Opening the Web App Bot_
-  
-1. Behind the scenes, a lot happened when the Azure Web App Bot was deployed. A bot was created and registered, an Azure Web App was created to host it, and the bot was configured to work with [Microsoft QnA Maker](https://qnamaker.ai/). To make sure the deployment was successful, click **Test in Web Chat** in the menu on the left, and then type "Hi" into the chat window at the bottom of the blade. Confirm that the bot responds with an informational message regarding QnA Maker, as pictured below.
-
-    ![Chatting with your bot](Images/portal-test-chat.png)
-
-    _Chatting with your bot_
-
-The next step is to send your bot to school by connecting it to QnA Maker and training it with questions and answers.
+Behind the scenes, a lot happened when the Azure Web App Bot was deployed. A bot was created and registered, an [Azure Web App](https://azure.microsoft.com/services/app-service/web/) was created to host it, and the bot was configured to work with [Microsoft QnA Maker](https://www.qnamaker.ai/). The next step is to use QnA Maker to create a knowledge base of questions and answers to infuse the bot with intelligence.
 
 <a name="Exercise2"></a>
-## Exercise 2: Train the bot with Microsoft QnA Maker ##
+## Exercise 2: Create a knowledge base with Microsoft QnA Maker ##
 
-[Microsoft QnA Maker](https://qnamaker.ai/) is part of [Azure Cognitive Services](https://www.microsoft.com/cognitive-services/), which is a suite of services and APIs for building intelligent apps backed by AI and machine learning. Rather than infuse a bot with intelligence by writing code that tries to anticipate every question a user might ask and provide a response, you can train it with a knowledge base of questions and answers created with QnA Maker. A common usage scenario is to create a knowledge base from a FAQ so the bot can answer domain-specific questions such as "How do I find my Windows product key" or "Where can I download Visual Studio Code?"
+[Microsoft QnA Maker](https://www.qnamaker.ai/) is part of [Azure Cognitive Services](https://www.microsoft.com/cognitive-services/), which is a suite of services and APIs for building intelligent apps backed by AI and machine learning. Rather than code a bot to anticipate every question a user might ask and provide a response, you can connect it to a knowledge base of questions and answers created with QnA Maker. A common usage scenario is to create a knowledge base from a FAQ so the bot can answer domain-specific questions such as "How do I find my Windows product key" or "Where can I download Visual Studio Code?"
 
-In this exercise, you will use QnA Maker to train the bot to respond to questions such as "What NFL teams have won the most Super Bowls" and "What is the largest city in the world?"
+In this exercise, you will use QnA Maker to create a knowledge base containing questions such as "What NFL teams have won the most Super Bowls" and "What is the largest city in the world?" Then you will deploy the knowledge base in an Azure Web app so it can be accessed via an HTTPS endpoint.
 
-1. Open the [Microsoft QnA Maker portal](https://qnamaker.ai/) in your browser and sign in with your Microsoft account. Then click **Create new service** in the menu bar at the top of the page.
+1. Open the [Microsoft QnA Maker portal](https://www.qnamaker.ai/) in your browser and sign in with your Microsoft account if you aren't already signed in. Then click **Create a knowledge base** in the menu bar at the top of the page.
  
-    ![Creating a new QnA service](Images/qna-click-create-service.png)
+    ![Creating a knowledge base](Images/qna-new-kb.png)
 
-    _Creating a new QnA service_
+    _Creating a knowledge base_
 
-1. Enter "QnA Factbot" as the service name. Then scroll to the bottom of the page and click the **Create** button. 
+1. Click **Create a QnA service**.
 
-1. The knowledge base currently contains a single question and answer: "hi" and "hello."  Replace "hello" with "Welcome to the QnA Factbot!" Then click **Save and retrain**. 
- 
-    ![Updating the default QnA Maker response](Images/qna-update-default-answer.png)
+    ![Creating a QnA service](Images/create-kb-1.png)
 
-    _Updating the default QnA Maker response_
+    _Creating a QnA service_
 
-1. Click **Test** on the left side of the page. Then type "hi" into the box at the bottom of the chat window and press **Enter**. Confirm that the bot responds with "Welcome to the QnA Factbot!"
- 
-    ![Chatting with the bot](Images/qna-updated-chat-response.png)
+1. Enter a name such as "qa-factbot-kb" into the **Name** box. This name must be unique within Azure, so make sure a green check mark appears next to it *and* in the **App name** box further down the blade. Select **Use existing** under **Resource group** and select the "factbot-rg" resource group that you created when you deployed the Azure Web App Bot in [Exercise 1](#Exercise1). Select **F0** and **F** as the pricing tiers. (Both are free tiers that are ideal for experimenting with bots.) Select the location nearest you in both location drop-downs, and then click the **Create** button at the bottom of the blade.
 
-    _Chatting with the bot_
+    ![Creating a QnA service](Images/new-qna-maker-service.png)
 
-1. You can enter questions and answers into a QnA Maker knowledge base manually, or you can import them from a variety of sources, including online FAQs. Click **Settings** on the left side of the page. Paste the following URL into the "URLs" box, and then click **Save and retrain**:
+    _Creating a QnA service_
 
-	```
-	https://traininglabservices.azurewebsites.net/help/faqs.html
-	```
+1. Click **Resource groups** in the ribbon on the left side of the portal and open the "factbot-rg" resource group. Wait until "Deploying" changes to "Succeeded" at the top of the blade indicating that the QnA service and the resources associated with it were successfully deployed. Once more, you can click **Refresh** at the top of the blade to refresh the deployment status.
 
-1. Click **Knowledge Base** on the left side of the page and confirm that six new questions and answers were added. Then click **Save and retrain** again to save the changes.
+    ![Successful deployment](Images/resource-group-master-2.png)
 
-1. Click **Test** to return to the test page. Type "What's the largest city in the world?" into the box at the bottom of the chat window and press **Enter**. How does the bot respond?
- 
-1. The knowledge base only contains a few questions and answers, but can easily be updated to include more. You can even import questions and answers stored in text files on your computer. To demonstrate, [click here](https://a4r.blob.core.windows.net/public/bots-resources.zip) to download a zip file containing a text file named **Final QnA.txt**, and copy the text file to your computer. Click **Replace Knowledge Base** in the upper-left corner of the portal, select the text file, and click **OK** when prompted to confirm that importing this file will overwrite existing questions and answers.
- 
-1. Click **Knowledge Base** and confirm that 20 questions and answers appear in the knowledge base. Then click **Save and retrain** to save the changes.
+    _Successful deployment_
 
-1. Click **Test** to return to the test page. Type "What book has sold the most copies?" into the box at the bottom of the chat window and press **Enter**. Confirm that the bot responds as shown below. 
- 
-    ![Chatting with the bot](Images/qna-test-book.png)
+1. Return to the [Create a knowledge base](https://www.qnamaker.ai/Create) page in the QnA Maker portal. Under **Azure QnA service**, select the QnA service whose name you specified in Step 3. Then assign the knowledge base a name such as "Factbot Knowledge Base."
 
-    _Chatting with the bot_
+    ![Naming the knowledge base](Images/create-kb-2-3.png)
 
-1. The knowledge base now contains 20 questions and answers, but the answer on row 7 contains an invalid character. Click **Knowledge Base** in the menu on the left. Locate the invalid character in row 7 between the words "most" and "Emmys," and replace it with a space character. Then click **Save and retrain**.
- 
-    ![Editing an answer](Images/qna-invalid-char.png)
+    _Naming the knowledge base_
 
-    _Editing an answer_
+1. You can enter questions and answers into a QnA Maker knowledge base manually, or you can import them from online FAQs or local files. Supported formats include tab-delimited text files, Microsoft Word documents, Excel spreadsheets, and PDF files.
 
-1. Click the **Publish** button at the top of the page to publish the changes to the knowledge base. Review the changes and click the **Publish** button at the bottom of the page.
- 
-    ![Publishing the updated knowledge base](Images/qna-review-publishing-changes.png)
+	To demonstrate, [click here](https://topcs.blob.core.windows.net/public/bots-resources.zip) to download a zip file containing a text file named **Factbot.tsv**, and copy the file to your computer. Then scroll down in the QnA Maker portal, click **+ Add file**, and select **Factbot.tsv**. This file contains 20 questions and answers in tab-delimited format.
 
-    _Publishing the updated knowledge base_
+    ![Populating the knowledge base](Images/create-kb-4.png)
 
-With the knowledge base in place and the bot trained, it is now time to deploy the bot to Azure.
+    _Populating the knowledge base_
+
+1. Click **Create your KB** at the bottom of the page and wait for the knowledge base to be created. It should take less than a minute.
+
+    ![Creating the knowledge base](Images/create-kb-5.png)
+
+    _Creating the knowledge base_
+
+1. Confirm that the questions and answers imported from **Factbot.tsv** appear in the knowledge base. Then click **Save and train** and wait for training to complete.
+
+    ![Training the knowledge base](Images/save-and-train.png)
+
+    _Training the knowledge base_
+
+1. Click the **Test** button to the right of the **Save and train** button. Type "Hi" into the message box and press **Enter**. Confirm that the response is "Welcome to the QnA Factbot," as shown below.
+
+    ![Testing the knowledge base](Images/test-kb.png)
+
+    _Testing the knowledge base_
+
+1. Type "What book has sold the most copies?" into the message box and press **Enter**. What is the response?
+
+1. Click the **Test** button again to collapse the Test panel. Then click **Publish** in the menu at the top of the page, and click the **Publish** button at the bottom of the page to publish the knowledge base. *Publishing* makes the knowledge base available at an HTTPS endpoint.
+
+    ![Publishing the knowledge base](Images/publish-kb.png)
+
+    _Publishing the knowledge base_ 
+
+Wait for the publication process to complete and confirm that you are told the QnA service has been deployed. With the knowledge base now hosted in an Azure Web App of its own, the next step is to deploy a bot that can use it.
 
 <a name="Exercise3"></a>
-## Exercise 3: Deploy the bot using continuous integration ##
+## Exercise 3: Deploy a bot with Visual Studio Code ##
 
 When you created an Azure Web App Bot in [Exercise 1](#Exercise1), an Azure Web App was deployed to host it. But the bot does require some code, and it still needs to be deployed to the Azure Web app. Fortunately, the code was generated for you by the Azure Bot Service. In this exercise, you will use Visual Studio Code to place the code in a local Git repository and publish the bot to Azure by pushing changes from the local repository to a remote repository connected to the Azure Web App that hosts the bot — a process known as [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration).
 
@@ -186,9 +188,15 @@ When you created an Azure Web App Bot in [Exercise 1](#Exercise1), an Azure Web 
 
 1. Create a folder named "Factbot" in the location of your choice on your hard disk to hold the bot's source code.
 
-1. Return to the Azure Portal and open the Web App Bot you created in [Exercise 1](#Exercise1). Click **Build** in the menu on the left, and then click **Download zip file** to prepare a zip file containing the bot's source code. Once the zip file is prepared, click the **Download zip file** button to download it. When the download is complete, copy the contents of the zip file to the "Factbot" folder that you created a moment ago.
+1. Return to the Azure Portal and open the "factbot-rg" resource group. Then click the Web App Bot you created in [Exercise 1](#Exercise1).
 
-    ![Downloading the source code](Images/portal-click-download-source.png)
+    ![Opening the Web App Bot](Images/open-web-app-bot.png)
+
+    _Opening the Web App Bot_
+
+1. Click **Build** in the menu on the left, and then click **Download zip file** to prepare a zip file containing the bot's source code. Once the zip file is prepared, click the **Download zip file** button to download it. When the download is complete, copy the contents of the zip file to the "Factbot" folder that you created in Step 4.
+
+    ![Downloading the source code](Images/download-source.png)
 
     _Downloading the source code_
   
@@ -206,7 +214,7 @@ When you created an Azure Web App Bot in [Exercise 1](#Exercise1), an Azure Web 
 
     _Entering deployment credentials_  
 
-1. Start Visual Studio Code and use the **File** > **Open Folder...** command to open the "Factbot" folder that you copied the bot's source code into in Step 5.
+1. Start Visual Studio Code and use the **File** > **Open Folder...** command to open the "Factbot" folder that you copied the bot's source code to in Step 6.
 
 1. Click the **Source Control** button in the activity bar on the left side of Visual Studio Code, and click the **Initialize Repository** icon at the top. Then click the **Intialize Repository** button in the ensuing dialog.
 
@@ -226,16 +234,16 @@ When you created an Azure Web App Bot in [Exercise 1](#Exercise1), an Azure Web 
 	git remote add qna-factbot https://BOT_NAME.scm.azurewebsites.net:443/BOT_NAME.git
 	```
 
-1. Click the ellipsis (the three dots) at the top of the SOURCE CONTROL panel and select **Publish Branch** from the menu to push the bot code from the local repository to Azure. If prompted for credentials, enter the user name and password you specified in Step 8 of this exercise.
+1. Click the ellipsis (the three dots) at the top of the SOURCE CONTROL panel and select **Publish Branch** from the menu to push the bot code from the local repository to Azure. If prompted for credentials, enter the user name and password you specified in Step 9 of this exercise.
 
-Your bot has been published to Azure. Now it's time to see it in action and learn how to debug it in Visual Studio Code.
+Your bot has been published to Azure. But before you test it there, let's run it locally and learn how to debug it in Visual Studio Code.
 
 <a name="Exercise4"></a>
 ## Exercise 4: Debug the bot locally ##
 
 As with any application code that you write, changes to bot code need to be tested and debugged locally before being deployed to production. To help debug bots, Microsoft offers the [Bot Framework Emulator](https://emulator.botframework.com/). In this exercise, you will learn how to use Visual Studio Code and the emulator to debug your bots.
 
-1. If you haven't installed the Microsoft Bot Framework Emulator, take a moment to do so now. You can download it from https://emulator.botframework.com/.
+1. If you haven't installed the Microsoft Bot Framework Emulator, take a moment to do so now. You can download it from https://emulator.botframework.com/. Versions are available for Windows, macOS, and Linux.
 
 1. Execute the following command in Visual Studio Code's integrated terminal to install [Restify](http://restify.com/), a popular Node package for building and consuming RESTful Web services:
 
@@ -316,23 +324,19 @@ As with any application code that you write, changes to bot code need to be test
 
     _Adding breakpoints to app.js_ 
 
-1. Click the **Debug** button in the activity bar, and then click the green arrow to start a debugging session. Observe that "test bot endpoint at http://localhost:3978/api/messages" appears in the debug console.
+1. Click the **Debug** button in the activity bar, and then click the green arrow to start a debugging session. Confirm that "test bot endpoint at http://localhost:3978/api/messages" appears in the debug console.
  
     ![Launching the debugger](Images/vs-launch-debugger.png)
 
     _Launching the debugger_ 
 
-1. Your bot code is now running locally. Launch the Bot Framework Emulator and type the following URL into the box at the top of the window:
+1. Your bot code is now running locally. Launch the Bot Framework Emulator and click **Create a new bot configuration**. Enter the bot name and the bot URL displayed in the debug console in the previous step. Then click **Save and connect** and save the configuration file in the location of your choice.
 
-	```
-	http://localhost:3978/api/messages
-	```
+	> In the future, you can reconnect to the bot simply by clicking the bot name under "My Bots."
 
-1. Leave "Microsoft App ID" and "Microsoft App Password" blank, and click **CONNECT** to connect the emulator to the debugging session.
- 
-    ![Connecting the emulator to the debugging session](Images/emulator-connect.png)
+    ![Connecting to the bot](Images/new-bot-configuration.png)
 
-    _Connecting the emulator to the debugging session_ 
+    _Connecting to the bot_ 
 
 1. Type "hi" into the box at the bottom of the emulator and press **Enter**. Confirm that Visual Studio Code breaks on line 20 of **app.js**. Then click the **Continue** button in Visual Studio Code's debugging toolbar and return to the emulator to see the bot's response.
  
@@ -347,27 +351,27 @@ At this point, you have a fully functioning bot and know how to debug it by runn
 <a name="Exercise5"></a>
 ## Exercise 5: Connect the bot to the knowledge base ##
 
-In this exercise, you will connect your bot to the QnA Maker knowledge base you built earlier so the bot can carry on an intelligent conversation. Connecting to the knowledge base involves retrieving a couple of keys from the QnA Maker portal, copying them into the Azure portal, updating the bot code, and then redeploying the bot to Azure.
+In this exercise, you will connect your bot to the QnA Maker knowledge base you built earlier so the bot can carry on an intelligent conversation. Connecting to the knowledge base involves retrieving some information from the QnA Maker portal, copying it into the Azure portal, updating the bot code, and then redeploying the bot to Azure.
 
-1. Return to the [QnA Maker portal](https://qnamaker.ai/) and click **My services** at the top. Then click the pencil icon for your factbot.
+1. Return to the [QnA Maker portal](https://www.qnamaker.ai/) and click your name in the upper-right corner. Select **Manage endpoint keys** from the menu that drops down. Click **Show** to show the primary endpoint key, and **Copy** to copy it to the clipboard. Then paste it into a text file so you can easily retrieve it in a moment.
 
-	![Editing the knowledge base](Images/edit-knowledge-base.png)
-
-	_Editing the knowledge base_
-
-1. Copy the knowledge base ID from the query string in the browser's address bar and paste it into a text file so you can easily retrieve it in a few moments.
-
-	![Copying the knowledge base ID](Images/qna-copy-id.png)
+	![Copying the endpoint key](Images/copy-primary-key.png)
 	
-	_Copying the knowledge base ID_  
+	_Copying the endpoint key_ 
 
-1. Click your name in the upper-right corner of the QnA Maker portal and select **Subscription keys** from the menu that drops down. Click **Show** to show the primary subscription key, and **Copy** to copy it to the clipboard. Then paste it into a text file as well.
+1. Click **My knowledge bases** in the menu at the top of the page. Then click **View Code** for the knowledge base that you created earlier.
 
-	![Copying the subscription key](Images/qna-view-keys.png)
+	![Opening the knowledge base](Images/open-knowledge-base.png)
+
+	_Opening the knowledge base_
+
+1. Copy the knowledge base ID from the first line and the host name from the second line and paste them into a text file as well. Then close the dialog. **Do not** include the "https://" prefix in the host name that you copy.
+
+	![Copying the knowledge base ID and host name](Images/copy-endpoint-info.png)
 	
-	_Copying the subscription key_ 
+	_Copying the knowledge base ID and host name_  
 
-1. Return to the Web App Bot in the Azure portal. Click **Application settings** in the menu on the left and scroll down until you find application settings named "QnAKnowledgebaseId" and "QnASubscriptionKey." Paste the knowledge base ID and the subscription key into these fields. Then click **Save**.
+1. Return to the Web App Bot in the Azure portal. Click **Application settings** in the menu on the left and scroll down until you find application settings named "QnAKnowledgebaseId," "QnAAuthKey,", and "QnAEndpointHostName." Paste the knowledge base ID and host name obtained in Step 3 and the endpoint key obtained in Step 1 into these fields. Then click **Save**.
 
     ![Editing application settings](Images/enter-app-settings.png)
 
@@ -400,35 +404,30 @@ In this exercise, you will connect your bot to the QnA Maker knowledge base you 
 	var bot = new builder.UniversalBot(connector);
 	
 	var recognizer = new builder_cognitiveservices.QnAMakerRecognizer({
-	                 knowledgeBaseId: process.env.QnAKnowledgebaseId, 
-	    subscriptionKey: process.env.QnASubscriptionKey});
+	    knowledgeBaseId: process.env.QnAKnowledgebaseId, 
+	    authKey: process.env.QnAAuthKey,
+	    endpointHostName: process.env.QnAEndpointHostName
+	});
 	
 	var basicQnAMakerDialog = new builder_cognitiveservices.QnAMakerDialog({
 	    recognizers: [recognizer],
-	                 defaultMessage: "I'm not quite sure what you're asking. Please ask your question again.",
-	                 qnaThreshold: 0.3
+	    defaultMessage: "I'm not quite sure what you're asking. Please ask your question again.",
+	    qnaThreshold: 0.3
 	});
 	
 	bot.dialog('basicQnAMakerDialog', basicQnAMakerDialog);
 	
-	bot.dialog('/', //basicQnAMakerDialog);
+	bot.dialog('/',
 	[
 	    function (session) {
-	        var qnaKnowledgebaseId = process.env.QnAKnowledgebaseId;
-	        var qnaSubscriptionKey = process.env.QnASubscriptionKey;
-	        
-	        // QnA Subscription Key and KnowledgeBase Id null verification
-	        if ((qnaSubscriptionKey == null || qnaSubscriptionKey == '') || (qnaKnowledgebaseId == null || qnaKnowledgebaseId == ''))
-	            session.send('Please set QnAKnowledgebaseId and QnASubscriptionKey in App Settings. Get them at https://qnamaker.ai.');
-	        else
-	            session.replaceDialog('basicQnAMakerDialog');
+	        session.replaceDialog('basicQnAMakerDialog');
 	    }
 	]);
 	```
 
-	Note the call to ```QnAMakerDialog``` on line 28. This creates a dialog that integrates a bot built with the Microsoft Bot Framework with a knowledge base built Microsoft QnA Maker.
+	Note the call to create a ```QnAMakerDialog``` instance on line 30. This creates a dialog that integrates a bot built with the Azure Bot Service with a knowledge base built Microsoft QnA Maker.
  
-1. Click the **Source Control** button in the activity bar in Visual Studio Code. Type "Added QnA Maker support" into the message box, and click the check mark to commit your changes. Then click the ellipsis and use the **Publish Branch** command to push these changes to the remote repository (and therefore to the Azure Web App).
+1. Click the **Source Control** button in the activity bar in Visual Studio Code. Type "Connected to knowledge base" into the message box, and click the check mark to commit your changes. Then click the ellipsis and use the **Publish Branch** command to push these changes to the remote repository (and therefore to the Azure Web App).
 
 1. Return to the Web App Bot in the Azure portal and click **Test in Web Chat** on the left to open the test console. Type "What's the most popular software programming language in the world?" into the box at the bottom of the chat window and press **Enter**. Confirm that the bot responds as follows:
 
@@ -445,7 +444,7 @@ Once deployed, bots can be connected to channels such as Skype, Slack, Microsoft
 
 1. If Skype isn't already installed on your computer, please install it now. You can download Skype for Windows, macOS, and Linux from https://www.skype.com/en/download-skype/skype-for-computer/.
 
-1. Return to your Web App Bot in the Azure Portal and click **Channels** in the menu on the left. Click the **Skype** icon. Then click **Save** at the bottom of the blade and agree to the terms of service. Finish up by clicking **Cancel**.
+1. Return to your Web App Bot in the Azure Portal and click **Channels** in the menu on the left. Click the **Skype** icon. Then click **Cancel** at the bottom of the blade.
 
     ![Editing the Skype channel](Images/portal-edit-skype.png)
 
@@ -457,18 +456,33 @@ Once deployed, bots can be connected to channels such as Skype, Slack, Microsoft
 	
 	_Connecting to Skype_
  
-1. Start a conversation with by typing "hi" into the Skype window. Then converse with the bot by asking it questions and seeing how it responds.   	
+1. Start a conversation with by typing "hi" into the Skype window. Then converse with the bot by asking it questions and seeing how it responds. Refer to the **Factbot.tsv** file that you used to populate the knowledge base in [Exercise 2](#Exercise2) for examples of questions to ask.
  
     ![Chatting with the bot in Skype](Images/skype-responses.png)
 
     _Chatting with the bot in Skype_
 
-You now have a fully functional bot created with the Azure Bot Service, infused with intelligence by Microsoft QnA Maker, and available for anyone in the world to interact with. Feel free to plug your bot into other channels and test it in different scenarios. And if you would like to make the bot smarter, consider expanding the knowledge base with additional questions and answers. For example, you could use the [online FAQ](https://docs.microsoft.com/bot-framework/bot-service-resources-bot-framework-faq) for the Bot Framework to train the bot to answer questions about the framework itself.
+You now have a fully functional bot created with the Azure Bot Service, infused with intelligence by Microsoft QnA Maker, and available for anyone in the world to interact with. Feel free to plug your bot into other channels and test it in different scenarios. And if you would like to make the bot smarter, consider expanding the knowledge base with additional questions and answers. For example, you could use the [online FAQ](https://docs.microsoft.com/azure/bot-service/bot-service-resources-bot-framework-faq?view=azure-bot-service-3.0) for the Bot Framework to train the bot to answer questions about the framework itself.
+
+<a name="Exercise7"></a>
+## Exercise 7: Delete the resource group ##
+
+In this exercise, you will delete the resource group containing the bot and all the resources associated with it. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it.
+
+1. Return to the blade for the "factbot-rg" resource group. Then click **Delete resource group** at the top of the blade.
+
+    ![Deleting the resource group](Images/delete-resource-group.png)
+
+    _Deleting the resource group_
+
+1. For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group. Then click the **Delete** button to remove all traces of this lab from your Azure subscription.
+
+After a few minutes, the resource group and all of its resources will be deleted. Billing stops when you click **Delete**, so you're not charged for the time required to delete the resources. Similarly, billing doesn't start until the resources are fully and successfully deployed.
 
 <a name="Summary"></a>
 ## Summary ##
 
-There is much more that you can do to leverage the power of the Microsoft Bot Framework by incorporating [Dialogs](http://aihelpwebsite.com/Blog/EntryId/9/Introduction-To-Using-Dialogs-With-The-Microsoft-Bot-Framework), [FormFlow](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/07/14/building-a-microsoft-bot-using-microsoft-bot-framework-using-formflow/), and [Microsoft Language Understanding and Intelligence Services (LUIS)](https://docs.botframework.com/en-us/node/builder/guides/understanding-natural-language/). With these and other features, you can build sophisticated bots that respond to users' queries and commands and interact in a fluid, conversational, and non-linear manner. For more information, and for ideas to get you started, see [What is Microsoft Bot Framework Overview](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/04/05/what-is-microsoft-bot-framework-overview/).
+There is much more that you can do to leverage the power of the Azure Bot Service by incorporating [Dialogs](http://aihelpwebsite.com/Blog/EntryId/9/Introduction-To-Using-Dialogs-With-The-Microsoft-Bot-Framework), [FormFlow](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/07/14/building-a-microsoft-bot-using-microsoft-bot-framework-using-formflow/), and [Microsoft Language Understanding and Intelligence Services (LUIS)](https://docs.botframework.com/en-us/node/builder/guides/understanding-natural-language/). With these and other features, you can build sophisticated bots that respond to users' queries and commands and interact in a fluid, conversational, and non-linear manner. For more information, and for ideas to get you started, see [What is Microsoft Bot Framework Overview](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/04/05/what-is-microsoft-bot-framework-overview/).
 
 ----
 
