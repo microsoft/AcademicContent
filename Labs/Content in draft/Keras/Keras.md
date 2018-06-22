@@ -282,7 +282,7 @@ In order to train a neural network, you need data to train it with. Rather than 
 1. Now call the `fit` function to to train the neural network:
 
 	```python
-	model.fit(x_train, y_train, validation_data=(x_test, y_test), epochs=5, batch_size=128)
+	hist = model.fit(x_train, y_train, validation_data=(x_test, y_test), epochs=5, batch_size=128)
 	```
 
 	Training should take about a minute, or 10 to 12 seconds per epoch. `epochs=5` tells Keras to make 5 forward and backward passes through the model. With each pass, the model learns from the training data and measures ("validates") how well it learned using the test data. Then it makes adjustments and goes back for the next pass or *epoch*. This is reflected in the output from the `fit` function, which shows the training accuracy (`acc`) and validation accuracy (`val_acc`) for each epoch.
@@ -291,7 +291,34 @@ In order to train a neural network, you need data to train it with. Rather than 
 
     _Training the model_
 
-	This model is somewhat unusual in that it learns well with just a few epochs. Note that the training accuracy quickly zooms to near 100%, while the validation accuracy goes up for an epoch or two and then flattens out. You generally don't want to train a model for any longer than is required for these accuracies to stabilize. The risk is [overfitting](https://en.wikipedia.org/wiki/Overfitting), which results in the model performing well against test data but not so well with real-world data. One indication that a model is overfitting is a growing discrepancy between the training accuracy and the validation accuracy. For a great introduction to overfitting, see [Overfitting in Machine Learning: What It Is and How to Prevent It](https://elitedatascience.com/overfitting-in-machine-learning).
+1. This model is somewhat unusual in that it learns well with just a few epochs. Note that the training accuracy quickly zooms to near 100%, while the validation accuracy goes up for an epoch or two and then flattens out. You generally don't want to train a model for any longer than is required for these accuracies to stabilize. The risk is [overfitting](https://en.wikipedia.org/wiki/Overfitting), which results in the model performing well against test data but not so well with real-world data. One indication that a model is overfitting is a growing discrepancy between the training accuracy and the validation accuracy. For a great introduction to overfitting, see [Overfitting in Machine Learning: What It Is and How to Prevent It](https://elitedatascience.com/overfitting-in-machine-learning).
+
+	To visualize the changes in training and validation accuracy as training progress, execute the following statements in a new notebook cell:
+
+	```python
+	import seaborn as sns
+	import matplotlib.pyplot as plt
+	%matplotlib inline
+	
+	sns.set()
+	acc = hist.history['acc']
+	loss = hist.history['val_acc']
+	epochs = range(1, len(acc) + 1)
+	
+	plt.plot(epochs, acc, '-', label='Training accuracy')
+	plt.plot(epochs, loss, ':', label='Validation accuracy')
+	plt.title('Training and Validation Accuracy')
+	plt.xlabel('Epoch')
+	plt.ylabel('Accuracy')
+	plt.legend(loc='upper left')
+	plt.plot()
+	```
+
+	The accuracy data comes from the `history` object returned by the model's `fit` function. That object's `history` property also contains values named `loss` and `val_loss` representing the training and validation loss, respectively. If you wanted to plot these values to produce a chart similar to the one below, how would you modify the code above to do it?
+
+	![Training and validation loss](Images/loss-chart.png)
+
+	_Training and validation loss_
 
 1. Finish up by calling the model's `evaluate` method to determine how accurately the model is able to quantify the sentiment expressed in text based on the test data in `x_test` (reviews) and `y_test` (0s and 1s, or "labels," indicating which reviews are positive and which are negative):
 
@@ -325,7 +352,7 @@ The real test comes when you input text of your own into the model and see how i
 	    text = [word for word in text if word.isalpha()]
 	
 	    # Generate an input tensor
-	    input = []
+	    input = [1]
 	    for word in text:
 	        if word in word_dict and word_dict[word] < top_words:
 	            input.append(word_dict[word])
