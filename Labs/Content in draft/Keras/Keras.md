@@ -279,7 +279,7 @@ In order to train a neural network, you need data to train it with. Rather than 
 
 	TODO: Describe what this code does and how it does it. LOTS to talk about here! Also include a diagram depicting the network that was built.
 
-1. Now call the `fit` function to to train the neural network:
+1. Now call the `fit` function to train the neural network:
 
 	```python
 	hist = model.fit(x_train, y_train, validation_data=(x_test, y_test), epochs=5, batch_size=128)
@@ -335,7 +335,7 @@ You probably achieved an accuracy in the 85% to 90% range. That's acceptable con
 
 ## Exercise 4: Use the neural network to analyze text for sentiment ##
 
-The real test comes when you input text of your own into the model and see how it performs — that is, how adept it is an quantifying the sentiment expressed in that text. In this exercise, you will write a Python function that accepts a text string as input, passes it to the model, and returns a sentiment score. Then you will use the function to analyze the sentiment expressed in various text strings.
+The real test comes when you input text of your own into the model and see how it performs — that is, how adept it is at quantifying the sentiment expressed in that text. In this exercise, you will write a Python function that accepts a text string as input, passes it to the model, and returns a sentiment score. Then you will use the function to analyze the sentiment expressed in various text strings.
 
 1. Add the following code to a cell at the end of the notebook and run the cell:
 
