@@ -88,7 +88,7 @@ The Data Science Virtual Machine for Linux is a virtual-machine image that simpl
 
     _Opening the resource group_
 
-1. Wait until "Deploying" changes to "Succeeded" indicating that DSVM and supporting Azure resources have been created. Deployment typically takes 5 minutes or less. Periodically click **Refresh** at the top of the blade to refresh the deployment status.
+1. Wait until "Deploying" changes to "Succeeded" indicating that the DSVM and supporting Azure resources have been created. Deployment typically takes 5 minutes or less. Periodically click **Refresh** at the top of the blade to refresh the deployment status.
 
     ![Monitoring the deployment status](Images/deployment-succeeded.png)
 
