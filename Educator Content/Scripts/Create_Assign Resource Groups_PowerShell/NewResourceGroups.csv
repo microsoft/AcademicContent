@@ -1,0 +1,3 @@
+UserPrincipalName,ResourceGroupName,Location,ClassId
+Student01@***.ac.uk,RGEdu01,WestEurope,Demo01
+Student02@***.ac.uk,RGEdu02,WestEurope,Demo01

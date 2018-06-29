@@ -1,0 +1,10 @@
+{
+  "name": "Flightalysis",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron-prebuilt": "^1.4.13"
+  }
+}

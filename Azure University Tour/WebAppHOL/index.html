@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contoso BNB</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./css/index.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <input type="checkbox" id="toggle-nav">
+    <input type="checkbox" id="toggle-cities">
+    <input type="checkbox" id="toggle-categories">
+    <header class="navbar navbar-default navbar-fixed-top">
+
+        <div class="flex-container">
+
+            <div class="navbar-container navbar-left">
+                <a class="navbar-brand" href="#">
+                    <img alt="Brand" src="./img/Logo.png">
+                </a>
+            </div>
+            
+            <div class="flex-filler">
+                <div class="experience-container">
+                    <label id="find-neighborhood-label" for="toggle-categories" class="hide">
+                        <p>Find Your Neighborhood // <strong>Make it Yours</strong></p>
+                        <p>
+                            <strong class="chevron-down">
+                                <span>&#10095;</span>
+                                <span>&#10095;</span>
+                            </strong>
+                        </p>
+                    </label>
+                    <label id="find-city-label" for="toggle-cities" class="">
+                        <p>Choose your destination.</p>
+                        <p>
+                            <strong class="chevron-down">
+                                <span>&#10095;</span>
+                                <span>&#10095;</span>
+                            </strong>
+                        </p>
+                    </label>
+                </div>
+            </div>
+          
+            <div class="navbar-container navbar-right">
+                <label id="toggle-nav-label" for="toggle-nav" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+
+
+
+    <nav>
+        <ul class="nav">
+            <li><a id="city-button" href="#">Change Your Location</a></li>
+            <li><a disabled id="" href="#">List a Room</a></li>
+        </ul>
+    </nav>
+
+    <div id="cities-modal">
+        <ul class="nav">
+            <li><a id="se-button" href="#">Seattle, WA</a></li>
+            <li><a id="au-button" href="#">Austin, TX</a></li>
+            <li><a id="la-button" href="#">Los Angeles, CA</a></li>
+            <li><a id="sf-button" href="#">San Francisco, CA</a></li>
+            <li><a id="dc-button" href="#">Washington DC</a></li>
+        </ul>
+    </div>
+
+
+
+    <div id="categories-modal" class="">
+        <ul id="categories"></ul>
+    </div>
+
+
+
+    <div id="legend">
+        <label>Neighborhood Match</label>
+        <div>
+            <span class="legend-color best"></span>
+            <span>Best Match</span>
+        </div>
+        <div>
+            <span class="legend-color great"></span>
+            <span>Great Match</span>
+        </div>
+        <div>
+            <span class="legend-color fair"></span>
+            <span>Fair Match</span>
+        </div>
+        <div>
+            <span class="legend-color rough"></span>
+            <span>Rough Match</span>
+        </div>
+        <div>
+            <span class="legend-color poor"></span>
+            <span>Poor Match</span>
+        </div>
+    </div>
+
+
+
+    <div id="front-cover">
+        <img src="./img/cover.jpg">
+    </div>
+
+
+    <div id="map-container" class="divMap"></div>
+
+
+    <footer class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Legal Disclaimer</a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+    <script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./data/data_au.js"></script>
+    <script type="text/javascript" src="./data/data_dc.js"></script>
+    <script type="text/javascript" src="./data/data_la.js"></script>
+    <script type="text/javascript" src="./data/data_se.js"></script>
+    <script type="text/javascript" src="./data/data_sf.js"></script>
+    <script type="text/javascript" src="./js/settings.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+    <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?branch=experimental&callback=CreateMap" async defer></script>
+</body>
+</html>
