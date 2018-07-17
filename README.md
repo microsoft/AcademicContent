@@ -1,6 +1,6 @@
 # Academic Resources for Computer Science
 
-**March 2018 Release.** *The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
+*The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
 
 **Source:** https://github.com/MSFTImagine/computerscience
 
