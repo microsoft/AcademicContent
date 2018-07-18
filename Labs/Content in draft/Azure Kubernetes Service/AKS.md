@@ -290,7 +290,7 @@ In this exercise, you will use the Docker image that you built in the Ubuntu VM 
 	
 	_AKS architecture_
 
-	In this relatively simple example, a pod hosts a single container representing a single application. In more complex scenarios, pods host multiple containers comprising [microservices](https://en.wikipedia.org/wiki/Microservices) which are tightly coupled to form applications.
+	In this relatively simple example, a pod hosts a single container representing a single application. In more complex scenarios, pods host multiple containers comprising [microservices](https://en.wikipedia.org/wiki/Microservices) which are tightly coupled to form applications. Pods are deployed in sets called [deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), which Kubernetes uses to scale across nodes in a cluster.
 
 1. Use the following command to get the IP address of the Minecraft server running in AKS:
 
