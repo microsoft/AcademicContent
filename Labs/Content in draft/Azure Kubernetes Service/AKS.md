@@ -1,14 +1,14 @@
-# Using the Azure Kubernetes Service (AKS)
+# Running Containerized Applications with the Azure Kubernetes Service (AKS)
 
-[Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) is hands-down one of the easiest ways to run Docker containers in a scalable, cloud-based, fault-tolerant infrastructure. [Kubernetes](https://kubernetes.io/) is an open-source tool for managing containerized applications across clusters of container hosts. It provides all of the infrastructure needed to run a container: storage, compute, networking, scaling, healing, load balancing, and more. AKS integrates Kubernetes with Azure so that load balancing, virtual IP addresses, and other infrastructural services are provided by Azure.
+[Containers](https://www.docker.com/what-container) are revolutionizing software development, and [Docker](http://www.docker.com) is the world's most popular containerization platform. Containers allow software and files to be bundled into self-contained packages that can be run on different computers and different operating systems. This description comes from the Docker Web site:
 
-The diagram below shows what a typical AKS deployment looks like. The basic unit of deployment in Kubernetes is the [pod](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/), which hosts one or more containers. Most pods host a single container representing a single application, but some pods host multiple containers that are tightly coupled to form applications. Pods are deployed in sets called [deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), which Kubernetes uses to scale across nodes in a cluster. Deployments are exposed outside Kubernetes through [kube proxies](https://kubernetes.io/docs/concepts/cluster-administration/proxies/) running on each node. When an AKS cluster is deployed, Azure allocates a virtual IP Address for the cluster and configures an [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer/) to front-end it through an [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview), or VNet.
+![](Images/container-overview.png)
 
-![AKS architecture](Images/aks.png)
+Containers are similar to virtual machines (VMs) in that they provide a predictable and isolated environment in which software can run. Because containers are smaller than VMs, they start quickly and use less RAM. Moreover, multiple containers running on a single machine share the same operating system kernel. Docker is based on open standards, enabling Docker containers to run on all major Linux distributions as well as Windows Server 2016.
 
-_AKS architecture_
+To simplify the use of Docker containers, Azure offers the [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS), which provides a scalable cloud-based environment for hosting containerized applications, and the [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR). The latter allows container images to be hosted in Azure and loaded quickly into AKS. [Kubernetes](https://kubernetes.io/) is an open-source tool for managing containerized applications across clusters of container hosts. It provides all of the infrastructure needed to run a container: storage, compute, networking, scaling, healing, load balancing, and more. AKS integrates Kubernetes with Azure so that load balancing, virtual IP addresses, and other infrastructural services are provided by Azure.
 
-In this lab, you will get first-hand experience with AKS and have some fun at the same time. After deploying an AKS cluster to Azure, you will build a Docker image containing a [Minecraft](https://minecraft.net/) server and push the image to the [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/). Then you will run the image in a container in AKS, connect a Minecraft client to the Minecraft server, and play Minecraft.
+In this lab, you will get first-hand experience with AKS and have some fun at the same time. After deploying an AKS cluster to Azure, you will build a Docker image containing a [Minecraft](https://minecraft.net/) server and push the image to the Azure Container Registry. Then you will run the image in a container in AKS, connect a Minecraft client to the Minecraft server, and play Minecraft.
 
 ![](Images/minecraft-banner.png)
 
@@ -66,7 +66,7 @@ Note that a virtual machine is *not* required for building Docker images. You co
 
 	_Creating a Kubernetes service_
 
-1. Select **Create new** to create a new resource group and enter a resource-group name. Enter a cluster name and a DNS name prefix and make sure a green check mark appears next to each. Select the region you wish to deploy to, and set the node count to 1 to minimize the cost of the cluster. Make sure the node size is set to **Standard DS1 v2** to further minimize cost. Then click the **Review + create** button at the bottom of the blade.
+1. Select **Create new** to create a new resource group and enter a resource-group name. Enter a cluster name and a DNS name prefix and make sure a green check mark appears next to each. Select the region you wish to deploy to, and set the node count to **1** to minimize the cost of the cluster. Make sure the node size is set to **Standard DS1 v2** to further minimize cost. Then click the **Review + create** button at the bottom of the blade.
 
 	> You will place all the resources you create in this lab in a single resource group so you can easily delete all those resources simply by deleting the resource group. Resource groups offer other benefits, too, including the ability to view billing information for the resource group as a whole.
 
@@ -84,9 +84,9 @@ Note that a virtual machine is *not* required for building Docker images. You co
 
 	_Creating an Ubuntu VM_
 
-1. The next step is to create an instance of the Azure Container Registry (ACR), which acts as a repository for Docker images in much the same way that [Docker Hub](https://hub.docker.com/) does. The difference is that when you run container images in Azure, the containers start faster if the images that they load are hosted in Azure, too — especially if both reside in the same data center.
+1. The next step is to create an instance of the Azure Container Registry, which acts as a repository for Docker images in much the same way that [Docker Hub](https://hub.docker.com/) does. The difference is that when you run container images in Azure, the containers start faster if the images that they load are hosted in Azure, too — especially if both reside in the same data center.
 
-	To begin, click **+ Create a resource** in the menu on the left side of the portal, followed by **Containers** and then **Container Registry**. Then enter a name for the container registry and select the resource group you created in Step 3 to place the container registry in the same resource group. (Be sure to select **Use existing**, too.) Select the same **Location** that you selected for the Kubernetes cluster and the Ubuntu VM and click **Enable** under "Admin user." Then finish up by clicking **Create** at the bottom of the blade.
+	To begin, click **+ Create a resource** in the menu on the left side of the portal, followed by **Containers** and then **Container Registry**. Then enter a name for the container registry and make sure a green check mark appears next to it since the name must be unique within Azure. Select the resource group you created in Step 3 to place the container registry in the same resource group. (Be sure to select **Use existing**, too.) Select the same **Location** that you selected for the Kubernetes cluster and the Ubuntu VM and click **Enable** under "Admin user." Then finish up by clicking **Create** at the bottom of the blade.
 
 	![Creating a container registry](Images/create-acr.png)
 
@@ -154,12 +154,12 @@ Now that the Azure infrastructure you need has been created, it's time to create
 	COPY server.properties .
 	RUN apt-get update && \
 	    apt-get install -y openjdk-8-jre-headless wget && \
-	    wget https://ci.nukkitx.com/job/NukkitX/job/master/lastSuccessfulBuild/artifact/target/nukkit-1.0-SNAPSHOT.jar
+	    wget https://ci.nukkitx.com/job/NukkitX/job/Nukkit/job/master/lastSuccessfulBuild/artifact/target/nukkit-1.0-SNAPSHOT.jar
 	EXPOSE 19132
 	CMD java -jar nukkit-1.0-SNAPSHOT.jar
 	```
 
-	The [FROM](https://docs.docker.com/engine/reference/builder/#from) command specifies the base image from which this image will be built — in this case, an Ubuntu image available from [Docker Hub](https://hub.docker.com/). The [COPY](https://hub.docker.com/) commands copy two files from the current directory into the Docker image: **nukkit.yml**, which contains configuration information for the Minecraft server software, and **server.properties**, which contains configuration information for Minecraft itself. The [RUN](https://docs.docker.com/engine/reference/builder/#run) command installs the [OpenJDK Java runtime](https://packages.ubuntu.com/xenial/openjdk-8-jre-headless) used by the Minecraft server and downloads the Minecraft server software. Then it opens port 19132 so clients can connect to it from the outside, and uses the [CMD](https://docs.docker.com/engine/reference/builder/#cmd) command to install Minecraft.
+	The [FROM](https://docs.docker.com/engine/reference/builder/#from) command specifies the base image from which this image will be built — in this case, an Ubuntu image available from [Docker Hub](https://hub.docker.com/). The [COPY](https://hub.docker.com/) commands copy two files from the current directory into the Docker image: **nukkit.yml**, which contains configuration information for the Minecraft server software, and **server.properties**, which contains configuration information for Minecraft itself. The [RUN](https://docs.docker.com/engine/reference/builder/#run) command installs the [OpenJDK Java runtime](https://packages.ubuntu.com/xenial/openjdk-8-jre-headless) used by the Minecraft server and downloads the Minecraft server software. [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) opens port 19132 so clients can connect to it from the outside, and the [CMD](https://docs.docker.com/engine/reference/builder/#cmd) command installs Minecraft.
 
 	The result is a Docker image containing a complete, self-contained Minecraft server. For a complete list of commands that can be included in a Dockerfile, see [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
@@ -282,7 +282,13 @@ In this exercise, you will use the Docker image that you built in the Ubuntu VM 
 	kubectl create -f minecraft.yaml
 	```
 
-	This command might take several minutes to complete. Behind the scenes, a lot is happening. Kubernetes loads the container image from the container registry and creates a container from the image, creates a pod to host the container, connects the pod to the internal Kubernetes network, and creates a kube proxy. AKS then creates an IP address in Azure, connects an Azure load balancer to the IP Address, and connects the load balancer to the kube proxy.
+	This command might take several minutes to complete. Behind the scenes, a lot is happening. Kubernetes loads the container image from the container registry and creates a container from the image, creates a [pod](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) to host the container, connects the pod to the internal Kubernetes network, and creates a [kube proxy](https://kubernetes.io/docs/concepts/cluster-administration/proxies/) to serve as an interface to the network. AKS then creates a virtual IP address in Azure, connects an [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer/) to the IP Address, and connects the load balancer to the kube proxy through an [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview), or VNet. The resultant architecture is pictured below.
+
+	![AKS architecture](Images/aks.png)
+	
+	_AKS architecture_
+
+	In this relatively simple example, a pod hosts a single container representing a single application. In more complex scenarios, pods host multiple containers comprising [microservices](https://en.wikipedia.org/wiki/Microservices) which are tightly coupled to form applications.
 
 1. Use the following command to get the IP address of the Minecraft server running in AKS:
 
