@@ -1,6 +1,6 @@
 # Running Containerized Applications with the Azure Kubernetes Service (AKS)
 
-[Containers](https://www.docker.com/what-container) are revolutionizing software development, and [Docker](http://www.docker.com) is the world's most popular containerization platform. Containers allow software and files to be bundled into self-contained packages that can be run on different computers and different operating systems. This description comes from the Docker Web site:
+[Containers](https://www.docker.com/what-container) are revolutionizing software development, and [Docker](http://www.docker.com) is the world's most popular containerization platform. Containers allow software and files to be bundled into self-contained packages that can be run on different computers and different operating systems. The following description comes from the Docker Web site:
 
 ![](Images/container-overview.png)
 
@@ -49,7 +49,7 @@ This hands-on lab includes the following exercises:
 - [Exercise 4: Connect the Minecraft client to the Minecraft server](#Exercise4)
 - [Exercise 5: Delete the resource group](#Exercise5)
 
-Estimated time to complete this lab: **45** minutes.
+Estimated time to complete this lab: **50** minutes.
 
 <a name="Exercise1"></a>
 ## Exercise 1: Deploy an AKS cluster and other Azure resources ##
@@ -122,6 +122,8 @@ Now that the Azure infrastructure you need has been created, it's time to create
 	![Launching the Cloud Shell](Images/cloud-shell.png)
 
 	_Launching the Cloud Shell_
+
+	If you haven't used the Cloud Shell before, you will prompted to choose a language. Select **Bash**, and if prompted to allow the Cloud Shell to create a storage account, allow it to do so.
 
 1. Make sure the language selected in the upper-left corner of the Cloud Shell is **Bash**. Then use the following command to connect to the Ubuntu VM using SSH, replacing IP_ADDRESS with the IP address on the clipboard and USERNAME with the user name you specified in Exercise 1, Step 5:
 
@@ -209,7 +211,7 @@ Now that the Azure infrastructure you need has been created, it's time to create
 
 	_Listing Docker images_
 
-The container image containing a Minecraft server is now present in the container registry and ready to be used to create container instances. Let's use AKS to launch a container instance.
+The container image containing a Minecraft server is now present in the container registry and ready to be used to create container instances. Next up: use AKS to launch a container instance.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Launch a Minecraft server in a container in AKS ##
@@ -222,13 +224,13 @@ In this exercise, you will use the Docker image that you built in the Ubuntu VM 
 	curl -s https://topcs.blob.core.windows.net/public/aks-shell-resources.tar | tar xv
 	```
 
-1. The .tar file contains two files that are now present in the current directory. The first one — **acr.sh** — is a shell script that connects an Azure Container Registry instance to an AKS cluster. Before you run it, you need to modify it. Use the following command to open **acr.sh** in the built-in [Nano editor](https://www.nano-editor.org/):
+1. The .tar file contains two files that are now present in the current directory. The first one — **acr.sh** — is a shell script that connects an Azure Container Registry instance to an AKS cluster. Before you run it, you need to modify it. Use the following command to open **acr.sh** in the built-in [Cloud Shell editor](https://azure.microsoft.com/blog/cloudshelleditor/) based on [Visual Studio Code](https://code.visualstudio.com/):
 
 	```
-	nano acr.sh
+	code acr.sh
 	```
 
-1. Replace RESOURCE_GROUP_NAME on lines 3 and 5 with the name of the resource group you created in [Exercise 1](#Exercise1). Similarly, replace CLUSTER_NAME on line 4 with the name of your AKS cluster from Exercise 1, Step 3, and replace REGISTRY_NAME on line 6 with the name of your container registry. Then press **Ctrl+O** followed by **Enter** to save the script, and **Ctrl+X** to exit Nano.
+1. Replace RESOURCE_GROUP_NAME on lines 3 and 5 with the name of the resource group you created in [Exercise 1](#Exercise1). Similarly, replace CLUSTER_NAME on line 4 with the name of your AKS cluster from Exercise 1, Step 3, and replace REGISTRY_NAME on line 6 with the name of your container registry. Then press **Ctrl+S** to save the script, and **Ctrl+Q** to close the editor.
 
 	![Modifying the shell script](Images/modified-script.png)
 
@@ -242,13 +244,13 @@ In this exercise, you will use the Docker image that you built in the Ubuntu VM 
 
 	Wait for the command to complete and confirm that the output contains no error messages. If successful, the command will output a JSON listing containing properties such as ```id``` and ```principalId```.
 
-1. The second file that you downloaded in Step 1 is **minecraft.yaml**. This is a configuration file used by Kubernetes to create resources in an AKS cluster. It, too, must be modified before it is used. Use the following command to open the file in the Nano editor:
+1. The second file that you downloaded in Step 1 is **minecraft.yaml**. This is a configuration file used by Kubernetes to create resources in an AKS cluster. It, too, must be modified before it is used. Use the following command to open the file in the Cloud Shell editor:
 
 	```bash
-	nano minecraft.yaml
+	code minecraft.yaml
 	```
 
-1. Replace CONTAINER_REGISTRY_NAME on line 15 with the name of your Azure container registry. Then press **Ctrl+O** followed by **Enter** to save the script, and **Ctrl+X** to exit Nano.
+1. Replace CONTAINER_REGISTRY_NAME on line 15 with the name of your Azure container registry. Then press **Ctrl+S** to save the script, and **Ctrl+Q** to close the editor.
 
 1. Next, you will use the Kubernetes CLI to deploy the container to AKS. The CLI is [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), which supports a variety of commands for managing Kubernetes resources and is already installed in the Cloud Shell. Before using it, you need to configure kubectl to talk to your instance of AKS.
 
