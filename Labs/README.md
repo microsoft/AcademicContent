@@ -10,13 +10,13 @@ Before you start, make sure you have access to a Microsoft Azure subscription. S
 
 The labs fall into six general categories:
 
-| Lab Categories | |
+| Lab Categories | Description |
 | - | - |
-| [AI and Machine Learning](AI%20and%20Machine%20Learning) | Build bots and apps backed by AI and ML using Azure and Azure Cognitive Services. |
+| [AI and Machine Learning](AI%20and%20Machine%20Learning) | Build bots and apps backed by AI and ML using Azure and Azure Cognitive Services and popular open-source libraries such as Keras and TensorFlow. |
 | [Azure Services](Azure%20Services) | Deploy serverless code with Azure Functions, run Docker containers, use Azure to build Blockchain networks and more. |
 | [Big Data and Analytics](Big%20Data%20and%20Analytics) | Spin up Apache Spark Clusters, Use Hadoop to extract information from big datasets or use Power BI to explore and visualize data. |
 | [Deep Learning](Deep%20Learning) | These labs build on each other to introduce tools and libraries for AI. They're labeled 200-400 level to indicate level of technical detail. |
-| [Internet-of-Things](Internet-of-Things) | Use Azure to collect and stream IoT data securely and in real time.s |
+| [Internet-of-Things](Internet-of-Things) | Use Azure to collect and stream IoT data securely and in real time. |
 | [Web Development](Web%20Development) | Quickly create a scalable web apps using Node, PHP, MySQL on easy-to-use tools like Visual Studio Code and GitHub. |
 
 Examples include [building a machine-learning model that performs Optical Character Recognition (OCR)](AI%20and%20Machine%20Learning/Azure%20Machine%20Learning), deploying an [Azure Function](https://azure.microsoft.com/services/functions/) that [evaluates images uploaded to blob storage for adult content](Azure%20Services/Azure%20Functions), and [building a BlockChain network on Azure](Azure%20Services/Blockchain%20on%20Azure). Feel free to explore the folders and subfolders in this repo to discover all sorts of interesting exercises and use them to hone your Azure knowledge and development skills.
