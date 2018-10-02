@@ -14,7 +14,7 @@ Students can get free Azure credits to explore these resources here:
 
 Your feedback is appreciated - please fork this repo and contribute!
 
-To report any issues, please [log a GitHub issue](Issues). Include the content section, module number and title, along with any error messages and screenshots.
+To report any issues, please [log a GitHub issue](https://github.com/Microsoft/computerscience/issues). Include the content section, module number and title, along with any error messages and screenshots.
 
 ## Learn by doing with our [hands-on labs](Labs)
 
