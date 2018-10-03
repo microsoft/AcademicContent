@@ -1,4 +1,4 @@
-# Academic Resources for Computer Science
+# Academic Resources for Computer Science:fire:
 
 *The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
 
@@ -29,11 +29,11 @@ Check out our hands-on labs that can be used on your own or in the classroom. Th
 | [Internet-of-Things](Labs/Internet-of-Things) | Use Azure to collect and stream IoT data securely and in real time. |
 | [Web Development](Labs/Web%20Development) | Quickly create scalable web apps using Node, PHP, MySQL on easy-to-use tools like Visual Studio Code and GitHub. |
 
-## Host great [events](Events)
+# #Host great [events](Events) :smiley:
 
 Want to host an event at your school? We can help!
 
-| Resource | |
+| Resource | |:star:
 | - | - |
 | [Event in a Box](Events/Event-In-Box/Machine%20Learning%20Challenge) | A pre-packaged coding challenge to help students explore machine learning. |
 | [Tech Talks](Events/Tech%20Talks) | Presentations on emerging or innovative tech topics with speakers notes and demos. |
@@ -42,7 +42,7 @@ Want to host an event at your school? We can help!
 
 We also have other great educator content to help you use Azure in the classroom.
 
-| Resource | |
+| Resource | |:star:
 | - | - |
 | [Scripts (preview)](Educator%20Content/Scripts) | Scripts and templates to help set up your classroom environment. |
 | [Azure Guides](Educator%20Content/Azure%20Guides) | Discover what Azure technologies apply to different teaching areas. |
