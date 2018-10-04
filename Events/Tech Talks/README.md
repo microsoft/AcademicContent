@@ -3,14 +3,14 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Academic Resources / Tech Talks</title>
+      <title> Academic Resources / Tech Talks</title>
 	  <link rel="stylesheet" href="style.css">
    </head>
    <body id="home">
       <div class="container">
          <div class="jumbotron">
             <h1>Tech Talks</h1>
-            <p><b>September 2017 release.</b> Source: <a href="https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks">https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks</a>.</p>
+            <p><b>September 2017 release.</b> Source: <a href="https://github.com/Microsoft/computerscience/blob/master/Events/Tech%20Talks">https://github.com/Microsoft/computerscience/blob/master/Events/Tech%20Talks</a>.</p>
             <p>
             Tech Talks seek to inspire and educate students on topics that are emerging in the tech industry or are developer career-focused. We want them to compliment a computer science education in a more informal forum like a pre-hackathon talk, within student groups, or other visiting campus speaking or meetups. Each contains a presentation as well as speaker notes and coding demos. They are generally designed to be about 1 hour with Q&A - feel free edit them down to fit desired length. New contributions are welcome.
             </p>
