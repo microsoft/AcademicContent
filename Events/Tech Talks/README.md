@@ -45,7 +45,7 @@
 				<tr>
 					   <td><b>Introduction to Cloud Computing</b></td>
 					   <td><a href="https://github.com/Microsoft/computerscience/blob/master/Events/Tech%20Talks/Tech%20Talk%20-%20Introduction%20to%20Cloud%20Computing.pptx">Presentation</a></td>
-					   <td>Overview of cloud technology and features.</td>
+					   <td>A brief overview of cloud technology and features. Provides information about scale, efficiency, cost of Cloud Computing and its impact on existing technologies and concepts.</td>
 					</tr>
 					<tr>
 					   <td><b>Using Cortana Intelligence Suite in your Hacks or Student Projects</b></td>
