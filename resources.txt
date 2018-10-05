@@ -1,0 +1,18 @@
+Useful Links
+
+Programming : https://archive.parrotsec.org/parrot/misc/openbooks/programming/
+Security    : https://archive.parrotsec.org/parrot/misc/openbooks/security/
+Networking  : https://archive.parrotsec.org/parrot/misc/openbooks/networking/
+Crypto      : https://archive.parrotsec.org/parrot/misc/openbooks/crypto/
+Misc        : https://archive.parrotsec.org/parrot/misc/openbooks/misc/
+Learn Bash  : http://www.bash.academy/
+C and C++   : https://www.cprogramming.com/
+Qt          : http://doc.qt.io/
+Python		  : https://www.python.org/doc/
+Oracle 		  : https://docs.oracle.com/javase/9/
+Php 		    : http://php.net/manual/en/index.php
+Moz Dev Net : https://developer.mozilla.org/en-US/
+ML			    : https://developers.google.com/machine-learning/crash-course/
+AI			    : http://www.fast.ai/
+Electronjs  : https://electronjs.org/docs/all
+Deep Learning : https://developer.nvidia.com/deep-learning
