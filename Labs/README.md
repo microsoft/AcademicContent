@@ -23,4 +23,4 @@ Examples include [building a machine-learning model that performs Optical Charac
 
 If you want to report any issues that need to be fixed, please log an [issue](https://github.com/MSFTImagine/computerscience/issues) on GitHub. Include the content section (Deep Learning, Azure Services, etc.), lab title, and exercise number, along with any error messages and screenshots. We are constantly adding new labs and refreshing existing ones, and we welcome your feedback on improving the content and keeping it current.
 
-Unless otherwise noted, these materials are licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT). You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
+Unless otherwise noted, these materials are licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT). You may use them according to the license as is most appropriate for your project. The terms of this license can be found [here](https://opensource.org/licenses/MIT).
