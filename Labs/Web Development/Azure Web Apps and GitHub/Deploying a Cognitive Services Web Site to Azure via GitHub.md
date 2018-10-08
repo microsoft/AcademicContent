@@ -7,7 +7,7 @@ In this lab, you will create an Azure Web App and use Visual Studio Code to depl
 
 ![](Images/header.png)
 
-Sound like fun? Then let's get started!
+Sounds like fun? Then let's get started!
 
 <a name="Prerequisites"></a>
 ### Prerequisites ###
