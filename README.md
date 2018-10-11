@@ -2,7 +2,7 @@
 
 *The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
 
-**Source:** https://github.com/MSFTImagine/computerscience
+**Source:** https://github.com/microsoft/computerscience
 
 This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and devops.
 
