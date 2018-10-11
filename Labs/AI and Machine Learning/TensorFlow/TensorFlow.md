@@ -58,7 +58,7 @@ The Data Science Virtual Machine for Linux is a virtual-machine image that simpl
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
-1. Click **+ Create a resource** in the menu on the left side of the portal, and then type "data science" (without quotation marks) into the search box. Select **Data Science Virtual Machine for Linux (Ubuntu)** from the results list.
+1. Click **+ Create a resource** in the menu on the left side of the portal, and then type "data science" into the search box. Select **Data Science Virtual Machine for Linux (Ubuntu)** from the results list.
 
     ![Finding the Ubuntu Data Science VM](Images/new-data-science-vm.png)
 
@@ -66,37 +66,15 @@ The Data Science Virtual Machine for Linux is a virtual-machine image that simpl
 
 1. Take a moment to review the list of tools included in the VM. Then click **Create** at the bottom of the blade.
 
-1. Fill in the "Basics" blade as shown below. Provide a password that's at least 12 characters long containing a mix of uppercase letters, lowercase letters, numbers and special characters. *Be sure to remember the user name and password that you enter, because you will need them later in the lab.*
+1. Click **Create new** and enter a name for a new resource group to hold the Data Science VM. Enter a name for the VM and select the region closest to you. Click **Change size** and select **DS1_v2** as the VM size. (The default VM size is abut four times more powerful, but also costs about four times more. DS1_v2 is sufficient for the purposes of this lab, and it minimizes the cost to your Azure subscription.) Change "Authentication type" to **Password** and enter a user name and password for logging into the VM. Then click **Review + create** at the bottom of the blade. 
 
-    ![Entering basic information about the VM](Images/create-data-science-vm-1.png)
+    ![Creating a Data Science VM](Images/create-data-science-vm.png)
 
-    _Entering basic settings_
+    _Creating a Data Science VM_
 
-1. In the "Choose a size" blade, select **DS1_V2 Standard**, which provides a low-cost way to experiment with Data Science VMs. Then click the **Select** button at the bottom of the blade.
+1. Review the settings presented to you, and click **Create** at the bottom of the blade to begin deploying the VM.
 
-    ![Choosing a VM size](Images/create-data-science-vm-2.png)
-
-    _Choosing a VM size_
-
-1. Click **OK** at the bottom of the "Settings" blade. Review the information presented to you in the "Create" blade, and then click **Create** to start the VM creation process.
-
-    ![Creating the VM](Images/create-data-science-vm-3.png)
-
-    _Creating the VM_
-
-1. Click **Resource groups** in the menu on the left side of the portal. Then click the "data-science-rg" resource group.
-
-    ![Opening the resource group](Images/open-resource-group.png)
-
-    _Opening the resource group_
-
-1. Wait until "Deploying" changes to "Succeeded" indicating that DSVM and supporting Azure resources have been created. Deployment typically takes 5 minutes or less. Periodically click **Refresh** at the top of the blade to refresh the deployment status.
-
-    ![Monitoring the deployment status](Images/deployment-succeeded.png)
-
-    _Monitoring the deployment_
-
-Once the deployment has completed, proceed to the next exercise.
+Wait until the deployment is complete. It typically takes about 5 minutes. Observe that the resource group you created contains more than just a virtual machine. It also contains a virtual disk for the VM, a storage account to hold the virtual disk, a virtual IP address, a network security group (NSG) that defines rules for inbound and outbound connections, and more. Placing Azure resources such as these in a resource group has many benefits, including the fact that you can view costs for the resource group as a whole, use role-based access control (RBAC) to restrict access to the resource group's resources, and delete all of the resources in the resource group at once by deleting the resource group itself.
 
 <a name="Exercise2"></a>
 
@@ -107,17 +85,17 @@ In this exercise, you will connect remotely to the Ubuntu desktop in the VM that
 
 1. If you don't already have an Xfce client installed, download the [X2Go client](https://wiki.x2go.org/doku.php/download:start) and install it before continuing with this exercise. X2Go is a free and open-source Xfce solution that works on a variety of operating systems, including Windows and OS X. The instructions in this exercise assume you are using X2Go, but you may use any client that supports Xfce.
 
-1. Return to the "data-science-rg" resource group in the Azure portal. Click the "data-science-vm" resource to open it in the portal.
+1. Click the virtual-machine resource to open it in the portal.
 
-    ![Opening the Data Science VM](Images/open-data-science-vm.png)
+	![Opening the virtual machine](Images/open-vm.png)
 
-    _Opening the Data Science VM_
+	_Opening the virtual machine_
 
-1. Hover over the IP address shown for the VM and click the **Copy** button that appears to copy the IP address to the clipboard.
+1. Hover the cursor over the VM's public IP address and cick the **Copy** button that appears next to it to copy the IP address to the clipboard.
 
-    ![Copying the VM's IP address](Images/copy-ip-address.png)
+	![Copying the IP address](Images/copy-ip-address.png)
 
-    _Copying the VM's IP address_
+	_Copying the IP address_
 
 1. Start the X2Go client and connect to the Data Science VM using the IP address on the clipboard and the user name you specified in the previous exercise. Connect via port **22** (the standard port used for SSH connections), and specify **XFCE** as the session type. Click the **OK** button to confirm your preferences.
 
@@ -379,7 +357,13 @@ Continue feeding food images into the app until you're satisfied that it can ide
 
 In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Data Science VM. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because a Data Science VM is moderately expensive.
 
-1. Return to the blade for the resource group you created in Exercise 1. Then click the **Delete resource group** button at the top of the blade.
+1. Click **Resource groups** in the menu on the left side of the portal to show a list of resource groups. Then click the resource group that you created in [Exercise 1](#Exercise1).
+
+    ![Opening the resource group](Images/open-resource-group.png)
+
+    _Opening the resource group_
+
+1. Click **Delete resource group** at the top of the blade.
 
     ![Deleting the resource group](Images/delete-resource-group.png)
 
