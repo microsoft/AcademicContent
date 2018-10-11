@@ -36,7 +36,7 @@ Want to host an event at your school? We can help with the resources below!
 | Resource | |
 | - | - |
 | [Events and Hacks](Events%20and%20Hacks) | These are keynotes and hack workshops that Microsoft has produced for student events. Feel free to use. Most slides also contain suggested demos and talk tracks. There's also pre-packaged coding challenge to help students explore machine learning. |
-| [Tech Talks](Events/Tech%20Talks) | One-off presentations on emerging or innovative tech topics with speakers notes and demos. |
+| [Tech Talks](Events%20and%20Hacks/Tech%20Talks) | One-off presentations on emerging or innovative tech topics with speakers notes and demos. |
 
 ## Other available [academic resources](Educator%20Resources)
 
