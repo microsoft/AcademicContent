@@ -2,9 +2,11 @@
 
 *The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
 
-**Source:** https://github.com/MSFTImagine/computerscience
+**Source:** https://github.com/microsoft/computerscience
 
 This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and devops.
+
+**Important:** We are migrating to [Microsoft Learn](https://docs.microsoft.com/learn/) | If you can't find what you're looking for in this repo, check out the 60+ labs on Microsoft Learn too. Many of these labs have their own built-in Azure sandbox making it easier for faculty and students to learn without requiring an Azure Subscription.
 
 Students can get free Azure credits to explore these resources here:
 
@@ -29,24 +31,24 @@ Check out our hands-on labs that can be used on your own or in the classroom. Th
 | [Internet-of-Things](Labs/Internet-of-Things) | Use Azure to collect and stream IoT data securely and in real time. |
 | [Web Development](Labs/Web%20Development) | Quickly create scalable web apps using Node, PHP, MySQL on easy-to-use tools like Visual Studio Code and GitHub. |
 
-## Host great [events](Events)
+## Host great [events and hacks](Events%20and%20Hacks)
 
-Want to host an event at your school? We can help!
+Want to host an event at your school? We can help with the resources below!
 
 | Resource | |
 | - | - |
-| [Event in a Box](Events/Event-In-Box/Machine%20Learning%20Challenge) | A pre-packaged coding challenge to help students explore machine learning. |
-| [Tech Talks](Events/Tech%20Talks) | Presentations on emerging or innovative tech topics with speakers notes and demos. |
+| [Events and Hacks](Events%20and%20Hacks) | These are keynotes and hack workshops that Microsoft has produced for student events. Feel free to use. Most slides also contain suggested demos and talk tracks. There's also pre-packaged coding challenge to help students explore machine learning. |
+| [Tech Talks](Events%20and%20Hacks/Tech%20Talks) | One-off presentations on emerging or innovative tech topics with speakers notes and demos. |
 
-## Other available [academic resources](Educator%20Content)
+## Other available [academic resources](Educator%20Resources)
 
 We also have other great educator content to help you use Azure in the classroom.
 
 | Resource | |
 | - | - |
-| [Scripts (preview)](Educator%20Content/Scripts) | Scripts and templates to help set up your classroom environment. |
-| [Azure Guides](Educator%20Content/Azure%20Guides) | Discover what Azure technologies apply to different teaching areas. |
-| [Course Content](Educator%20Content/Complimentary%20Course%20Content) | Learning modules to complement existing course instruction. Includes presentations, speaker notes, and hands-on labs. |
+| [Scripts](Educator%20Resources/Scripts) | Scripts and templates built in PowerShell or BASH to help set up your classroom environment. |
+| [Azure Guides](Educator%20Resources/Azure%20Guides) | Discover what Azure technologies apply to different teaching areas. |
+| [Course Content](Educator%20Resources/Complimentary%20Course%20Content) | Learning modules to complement existing course instruction. Includes presentations, speaker notes, and hands-on labs. |
 
 ## Content from other sources
 
