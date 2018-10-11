@@ -51,7 +51,6 @@ This hands-on lab includes the following exercises:
 Estimated time to complete this lab: **45** minutes.
 
 <a name="Exercise1"></a>
-
 ## Exercise 1: Create an Ubuntu Data Science VM ##
 
 The Data Science Virtual Machine for Linux is a virtual-machine image that simplifies getting started with data science. Multiple tools are already built, installed, and configured in order to get you up and running quickly. The NVIDIA GPU driver, [NVIDIA CUDA](https://developer.nvidia.com/cuda-downloads), and [NVIDIA CUDA Deep Neural Network](https://developer.nvidia.com/cudnn) (cuDNN) library are also included, as are [Jupyter](http://jupyter.org/), several sample Jupyter notebooks, and [TensorFlow](https://www.tensorflow.org/). All pre-installed frameworks are GPU-enabled but work on CPUs as well. In this exercise, you will create an instance of the Data Science Virtual Machine for Linux on Azure.
@@ -77,7 +76,6 @@ The Data Science Virtual Machine for Linux is a virtual-machine image that simpl
 Wait until the deployment is complete. It typically takes 5 minutes or less. Observe that the resource group you created contains more than just a virtual machine. It also contains a virtual disk for the VM, a storage account to hold the virtual disk, a virtual IP address, a network security group (NSG) that defines rules for inbound and outbound connections, and more. Placing Azure resources such as these in a resource group has many benefits, including the fact that you can view costs for the resource group as a whole, use role-based access control (RBAC) to restrict access to the resource group's resources, and delete all of the resources in the resource group at once by deleting the resource group itself.
 
 <a name="Exercise2"></a>
-
 ## Exercise 2: Connect to the Data Science VM ##
 
 In this exercise, you will connect remotely to the Ubuntu desktop in the VM that you created in the previous exercise. To do so, you need a client that supports [Xfce](https://xfce.org/), which is a lightweight desktop environment for Linux. For background, and for an overview of the various ways you can connect to a DSVM, see [How to access the Data Science Virtual Machine for Linux
@@ -85,7 +83,7 @@ In this exercise, you will connect remotely to the Ubuntu desktop in the VM that
 
 1. If you don't already have an Xfce client installed, download the [X2Go client](https://wiki.x2go.org/doku.php/download:start) and install it before continuing with this exercise. X2Go is a free and open-source Xfce solution that works on a variety of operating systems, including Windows and OS X. The instructions in this exercise assume you are using X2Go, but you may use any client that supports Xfce.
 
-1. Click the virtual-machine resource to open it in the portal.
+1. Return to the Azure Portal and click the Data Science VM.
 
 	![Opening the virtual machine](Images/open-vm.png)
 
@@ -126,7 +124,6 @@ In this exercise, you will connect remotely to the Ubuntu desktop in the VM that
 Now that you are connected, take a moment to explore the shortcuts on the desktop. These are shortcuts to the numerous data-science tools preinstalled in the VM, which include [Jupyter](http://jupyter.org/), [R Studio](https://www.rstudio.com/), and the [Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), among others.
 
 <a name="Exercise3"></a>
-
 ## Exercise 3: Train a TensorFlow model ##
 
 In this exercise, you will train an image-classification model built with [TensorFlow](https://www.tensorflow.org/) to recognize images that contain hot dogs. Rather than create the model from scratch, which would require vast amounts of computing power and tens or hundreds of thousands of images, you will customize a preexisting model, a practice known as [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning). Transfer learning allows you to achieve high levels of accuracy with as little as a few minutes of training time on a typical laptop or PC and as few as several dozen images.
@@ -251,7 +248,6 @@ Training the model involves little more than running a Python script that downlo
 The script that you executed in Step 10 specified 500 training steps, which strikes a balance between accuracy and the time required for training. If you would like, try training the model again with a higher ```how_many_training_steps``` value such as 1000 or 2000. A higher step count generally results in higher accuracy, but at the expense of increased training time. Watch out for overfitting, which, as a reminder, is represented by the difference between the orange and blue lines in TensorBoard's Scalars display.
 
 <a name="Exercise4"></a>
-
 ## Exercise 4: Create a NotHotDog app ##
 
 In this exercise, you will use [Visual Studio Code](https://code.visualstudio.com/), Microsoft's free, cross-platform source-code editor which is preinstalled in the Data Science VM, to write a NotHotDog app in Python. The app will use [Tkinter](https://wiki.python.org/moin/TkInter), which is a popular GUI framework for Python, to implement its user interface, and it will allow you to select images from your local file system. Then it will pass those images to the model you trained in the previous exercise and tell you whether they contain a hot dog.
@@ -355,7 +351,6 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
 Continue feeding food images into the app until you're satisfied that it can identify images containing hot dogs. Don't expect it to be right 100% of the time, but do expect it to be right *most* of the time.
 
 <a name="Exercise5"></a>
-
 ## Exercise 5: Delete the Data Science VM ##
 
 In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Data Science VM. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because a Data Science VM is moderately expensive.
@@ -377,7 +372,6 @@ In this exercise, you will delete the resource group created in [Exercise 1](#Ex
 After a few minutes, the resource group and all of its resources will be deleted. Billing stops when you click **Delete**, so you're not charged for the time required to delete the resources. Similarly, billing doesn't start until the resources are fully and successfully deployed.
 
 <a name="Summary"></a>
-
 ## Summary ##
 
 The steps in this lab may be generalized to perform other types of image-classification tasks. For example, you could train the same TensorFlow model to recognize cat images or identify defective parts parts produced on an assembly line. Image classification is one of the most prevalent uses of machine learning today, and its usefulness will only increase over time. Now that you have a basis to work from, try creating some image-classification models of your own. You never know what might come of it!

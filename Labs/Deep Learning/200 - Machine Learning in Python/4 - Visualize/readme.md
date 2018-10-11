@@ -29,6 +29,7 @@ This hands-on lab includes the following exercises:
 - [Exercise 1: Import Matplotlib](#Exercise1)
 - [Exercise 2: Predict on-time arrivals](#Exercise2)
 - [Exercise 3: Plot predictions](#Exercise3)
+- [Exercise 4: Delete the Data Science VM](#Exercise4)
 
 Estimated time to complete this lab: **20** minutes.
 
@@ -195,6 +196,27 @@ In this exercise, you will combine the ```predict_delay``` function you created 
 
 If you are new to Matplotlib and would like to learn more about it, you will find an excellent tutorial at https://www.labri.fr/perso/nrougier/teaching/matplotlib/. There is *much* more to Matplotlib than what was shown here, which is one reason why it is so popular in the Python community.
 
+<a name="Exercise4"></a>
+## Exercise 4: Delete the Data Science VM ##
+
+In this exercise, you will delete the resource group containing the Data Science VM and the associated resources. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because a Data Science VM is moderately expensive.
+
+1. Click **Resource groups** in the menu on the left side of the portal to show a list of resource groups. Then click the resource group containing the Data Science VM.
+
+    ![Opening the resource group](Images/open-resource-group.png)
+
+    _Opening the resource group_
+
+1. Click **Delete resource group** at the top of the blade.
+
+    ![Deleting the resource group](Images/delete-resource-group.png)
+
+    _Deleting the resource group_
+
+1. For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group. Then click the **Delete** button to remove all traces of this lab from your Azure subscription.
+
+After a few minutes, the resource group and all of its resources will be deleted. Billing stops when you click **Delete**, so you're not charged for the time required to delete the resources. Similarly, billing doesn't start until the resources are fully and successfully deployed.
+
 <a name="Summary"></a>
 ## Summary ##
 
@@ -208,8 +230,6 @@ In four hands-on labs, you learned how to:
 - Use [Matplotlib](https://matplotlib.org/) to visualize the results
 
 Pandas, Scikit-learn, and Matplotlib are three of the most popular Python libraries on the planet. With them, you can prepare data for use in machine learning, build sophisticated machine-learning models from the data, and chart the output. They are among dozens of tools preinstalled in Microsoft's Data Science VM, and they are just the tip of the iceberg in terms of what you can do with it. For more information, see https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-tools-overview.
-
-Once you're finished using the Data Science VM, you should delete it so it no longer charges to your Azure subscription. To delete it and the other resources that were created along with it, simply go to the Azure Portal and delete the "data-science-rg" resource group that you created in [Lab 1](../1%20-%20Ingest). That's one of the many benefits of using resource groups: one simple action deletes the resource group and everything inside it. Once deleted, a resource group cannot be recovered, so make sure you're finished with it before deleting it.
 
 ---
 

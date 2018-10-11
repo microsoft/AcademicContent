@@ -51,49 +51,23 @@ The Ubuntu Data Science Virtual Machine for Linux is a virtual-machine image tha
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
-1. Click **+ Create a resource** in the menu on the left side of the portal, and then type "data science" (without quotation marks) into the search box. Select **Data Science Virtual Machine for Linux (Ubuntu)** from the results list.
+1. Click **+ Create a resource** in the menu on the left side of the portal, and then type "data science" into the search box. Select **Data Science Virtual Machine for Linux (Ubuntu)** from the results list.
 
-    ![Finding the Ubuntu Data Science VM](Images/new-data-science-vm-1.png)
+    ![Finding the Ubuntu Data Science VM](Images/new-data-science-vm.png)
 
     _Finding the Ubuntu Data Science VM_
 
-1. Take a moment to review the list of tools included in the VM. Then click **Create**.
+1. Take a moment to review the list of tools included in the VM. Then click **Create** at the bottom of the blade.
 
-    ![Creating a Data Science VM](Images/new-data-science-vm-2.png)
+1. Click **Create new** and enter a name for a new resource group to hold the Data Science VM. Enter a name for the VM and select the region closest to you. Click **Change size** and select **DS1_v2** as the VM size. (The default VM size is abut four times more powerful, but also costs about four times more. DS1_v2 is sufficient for the purposes of this lab, and it minimizes the cost to your Azure subscription.) Change "Authentication type" to **Password** and enter a user name and password for logging into the VM. Then click **Review + create** at the bottom of the blade. 
+
+    ![Creating a Data Science VM](Images/create-data-science-vm.png)
 
     _Creating a Data Science VM_
 
-1. Enter a name for the virtual machine and a user name for logging into it. Set **Authentication type** to **Password** and enter a password. *Be sure to remember the user name and password that you enter*, because you will need them to access the VM. Select **Create new** under **Resource group** and enter a resource-group name such as "data-science-rg." Select the **Location** nearest you, and then click **OK**..
+1. Review the settings presented to you, and click **Create** at the bottom of the blade to begin deploying the VM.
 
-    ![Entering basic settings](Images/create-data-science-vm-1.png)
-
-    _Entering basic settings_
-
-1. In the "Choose a size" blade, select **DS1_V2 Standard**, which provides a low-cost way to experiment with Data Science VMs. Then click the **Select** button at the bottom of the blade.
-
-    ![Choosing a VM size](Images/create-data-science-vm-2.png)
-
-    _Choosing a VM size_
-
-1. Click **OK** at the bottom of the "Settings" blade. Review the information presented to you in the "Create" blade, and then click **Create** to start the VM creation process.
-
-    ![Creating the VM](Images/create-data-science-vm-3.png)
-
-    _Creating the VM_
-
-1. Click **Resource groups** in the menu on the left side of the portal. Then click the resource group whose name you specified in Step 4.
-
-    ![Opening the resource group](Images/open-resource-group.png)
-
-    _Opening the resource group_
-
-1. Wait until "Deploying" changes to "Succeeded" indicating that deployment has completed. Deployment typically takes 5 minutes or less. Periodically click **Refresh** at the top of the blade to refresh the deployment status.
-
-    ![Monitoring the deployment status](Images/deployment-succeeded.png)
-
-    _Monitoring the deployment status_
-
-The VM has been created. The next step is to connect to it remotely so you can work with the VM's Ubuntu desktop.
+Wait until the deployment is complete. It typically takes 5 minutes or less. Observe that the resource group you created contains more than just a virtual machine. It also contains a virtual disk for the VM, a storage account to hold the virtual disk, a virtual IP address, a network security group (NSG) that defines rules for inbound and outbound connections, and more. Placing Azure resources such as these in a resource group has many benefits, including the fact that you can view costs for the resource group as a whole, use role-based access control (RBAC) to restrict access to the resource group's resources, and delete all of the resources in the resource group at once by deleting the resource group itself.
 
 <a name="Exercise2"></a>
 ## Exercise 2: Connect to the Data Science VM ##
@@ -102,37 +76,39 @@ In this exercise, you will connect remotely to the Ubuntu desktop in the VM that
 
 1. If you don't already have an Xfce client installed, download the [X2Go client](https://wiki.x2go.org/doku.php/download:start) and install it now. X2Go is a free and open-source Xfce solution that works on a variety of operating systems. The instructions in this exercise assume you are using X2Go, but you can use any client as long as it supports Xfce.
 
-1. Return to the Azure Portal and the blade for the resource group containing the Data Science VM. Then click the VM.
+1. Return to the Azure Portal and click the Data Science VM.
 
-    ![Opening the Data Science VM](Images/open-data-science-vm.png)
+	![Opening the virtual machine](Images/open-vm.png)
 
-    _Opening the Data Science VM_
+	_Opening the virtual machine_
 
-1. Hover over the IP address shown for the VM and click the **Copy** button that appears to copy the IP address to the clipboard.
+1. Hover the cursor over the VM's public IP address and cick the **Copy** button that appears next to it to copy the IP address to the clipboard.
 
-    ![Copying the VM's IP address](Images/copy-ip-address.png)
+	![Copying the IP address](Images/copy-ip-address.png)
 
-    _Copying the VM's IP address_
+	_Copying the IP address_
 
-1. Start the X2Go client and connect to the Data Science VM at the IP address that's on the clipboard using the user name you specified in the previous exercise. Connect via port **22** (the standard port used for SSH connections), and specify **XFCE** as the session type.
+1. Start the X2Go client and connect to the Data Science VM using the IP address on the clipboard and the user name you specified in the previous exercise. Connect via port **22** (the standard port used for SSH connections), and specify **XFCE** as the session type. Click the **OK** button to confirm your preferences.
 
     ![Connecting with X2Go](Images/new-session-1.png)
 
     _Connecting with X2Go_
 
-1. In the **New session** panel on the right, select the resolution that you wish to use for the remote desktop. Then click the **New session** panel.
+1. In the "New session" panel on the right, select the resolution that you wish to use for the remote desktop. Then click **New session** at the top of the panel.
 
     ![Starting a new session](Images/new-session-2.png)
 
     _Starting a new session_
 
-1. Enter the password you specified in [Exercise 1](#Exercise1), and then click the **OK** button. If asked if you trust the host key, answer **Yes**. Also ignore any error messages saying the "SSH daemon could not be started."
+1. Enter the password you specified in [Exercise 1](#Exercise1), and then click the **OK** button. If asked if you trust the host key, answer **Yes**. Also ignore any error messages stating that the SSH daemon could not be started.
 
     ![Logging into the VM](Images/new-session-3.png)
 
     _Logging into the VM_
 
 1. Wait for the remote desktop to appear and confirm that it resembles the one below.
+
+    > If the text and icons on the desktop are too large, terminate the session. Click the icon in the lower-right corner of the "New Session" panel and select **Session preferences...** from the menu. Go to the "Input/Output" tab in the "New session" dialog and adjust the display DPI, and then start a new session. Start with 96 DPI and adjust as needed.
 
     ![Connected!](Images/ubuntu-desktop.png)
 
