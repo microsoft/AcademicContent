@@ -265,6 +265,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
 	from tkinter import messagebox, filedialog, font
 	from PIL import ImageTk, Image
 	import subprocess
+	import re
 	
 	def select_image_click(img_label):
 	    try:
