@@ -44,23 +44,47 @@ Estimated time to complete this lab: **20 to 30** minutes.
 
 The Classrates site that you are going to build uses Cognitive Services' [Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to analyze sentiment in the comments that students enter. The Text Analytics API takes text as input and returns a value from 0 to 1 quantifying the sentiment expressed in that text. The higher the score, the more favorable the sentiment. A comment such as "The most awesome class I've ever taken!" will score very high, while "Wouldn't wish this class on my worst enemy" will score low.
 
-In order to call the Text Analytics API, you need an API key. In this exercise, you will retrieve a free API key from the "Try Cognitive Services" portal. A free key enables you to call the Text Analytics API up to 5,000 times per month. If you need more than that — if, for example, you intend to use the Text Analytics API in a production app or Web site — you can use the Azure portal to [sign up for a paid API key](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup) with higher limits.
+In order to call the Text Analytics API, you need an endpoint URL and an API key. In this exercise, you will create a Text Analytics resource in the Azure Portal and then retrieve an endpoint URL and API key.
 
-1. Go to https://azure.microsoft.com/try/cognitive-services in your browser. Click **Language**, and then click **Get API Key** to the right of "Text Analytics API."
+1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to sign in, do so using your Microsoft account.
 
-	![Getting a Text Analytics API key](Images/portal-get-api-key.png)
+1. In the Azure Portal, click **+ Create a resource**, followed by **AI + Machine Learning** and **Text Analytics**.
 
-    _Getting a Text Analytics API key_ 
+    ![Creating a Text Analytics resource](Images/new-text-analytics.png)
 
-1.  Check the **I agree** box in the ensuing dialog. Then click **Next** and sign in using your Microsoft account (or a Facebook, LinkedIn, or GitHub account if you prefer).
+    _Creating a Text Analytics resource_
 
-1. Copy the endpoint URL and either of the API keys presented to you into a text file or some other place where you can easily retrieve them in the next exercise. Or simply leave the browser window open so you can copy and paste from there.
+1. Enter "text-analytics-api" as the resource name and select the location nearest you. Select **F0** as the pricing tier, and then click **Create new** and create a new resource group named "classrates-rg" to hold the Text Analytics resource and other resources created in this lab. Then click the **Create** button.
 
-	![Copying the endpoint and API key](Images/portal-copy-api-key.png)
+    ![Creating a Text Analytics resource](Images/create-text-analytics.png)
 
-    _Copying the endpoint and API key_ 
+    _Creating a Text Analytics resource_
 
-The endpoint is the base URL to which calls to the Text Analytics API are placed — "base" because "/sentiment" must be added to the end to complete the URL. The API key travels in an HTTP header in each request. Without a valid API key, the Text Analytics API fails requests placed to it. It is the API's way of ensuring that the caller is authorized.
+1. Click **Resource groups** in the menu on the left side of the portal to display a list of resource groups. Then click the "classrates-rg" resource group.
+
+	![Opening the resource group](Images/open-resource-group.png)
+
+	_Opening the resource group_
+
+1. Wait until the deployment has completed. (You can click **Refresh** at the top of the blade to refresh the deployment status.) Then click the Text Analytics resource to open it.
+
+	![Opening the Text Analytics resource](Images/open-text-analytics.png)
+
+	_Opening the Text Analytics resource_
+
+1. Click **Overview** in the menu on the left side of the blade. Then hover over the endpoint URL and click the **Copy** button that appears to its right to copy the endpoint URL to the clipboard. Paste the URL into your favorite text editor so you can easily retrieve it later.
+
+	![Copying the endpoint URL](Images/copy-endpoint.png)
+
+	_Copying the endpoint URL_
+
+1. Click **Keys** in the menu on the left side of the blade. Then click the **Copy** button to copy the first key to the clipboard. Paste the key into a text editor so you can easily retrieve it later, too.
+
+	![Copying the API key](Images/copy-api-key.png)
+
+	_Copying the API key_
+
+The endpoint URL is the base URL to which calls to the Text Analytics API are placed — "base" because "/sentiment" must be appended to complete the URL. The API key travels in an HTTP header in each request. Without a valid API key, the Text Analytics API fails requests placed to it. It is the API's way of ensuring that the caller is authorized.
 
 <a name="Exercise2"></a>
 ## Exercise 2: Fork the repo and run Classrates locally ##
@@ -149,8 +173,6 @@ Play around with the Web site and familiarize yourself with how it works. Feel f
 ## Exercise 3: Create an Azure Web App ##
 
 In this exercise, you will use the [Azure portal](https://portal.azure.com) to create an Azure Web App and connect it to the Classrates repo that was created for you in GitHub when you forked the master repo. With this connection established, pushing changes from the local repo to the GitHub repo will automatically publish those changes to Azure — a process known as [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration).
-
-1. Open the [Azure portal](https://portal.azure.com) in your browser. If you are asked to sign in, do so using your Microsoft account.
 
 1. In the portal, click **+ Create a resource**, followed by **Web + Mobile** and **Web App**.
 
