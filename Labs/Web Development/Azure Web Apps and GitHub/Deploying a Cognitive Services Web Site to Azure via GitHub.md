@@ -181,7 +181,7 @@ In this exercise, you will use the [Azure Portal](https://portal.azure.com) to c
 
     _Creating an Azure Web App_
 
-1. Enter a unique name for the app. The name must be unique across Azure, so you will probably have to use something other than "Classrates." Place the Web App in the "classrates-rg" resource group you created in [Exercise 1](#Exercise1), and select the operating system on which you want the Web App to run. (Either Windows or Linux is fine.)
+1. Enter a name for the Web App. The name must be unique across Azure, so you will probably have to use something other than "classrates." Place the Web App in the "classrates-rg" resource group you created in [Exercise 1](#Exercise1), and select the operating system on which you want the Web App to run. (Either Windows or Linux is fine.)
 
 	Click **App Service plan/Location** and create a new service plan in the same region you selected for the Text Analytics resource in Exercise 1 and that uses an inexpensive pricing tier — for example, the B1 tier available under Dev/Test, which is free for 30 days if you deploy the Web App on Linux. Select **Node.js 8.11** or higher as the runtime stack. Then click the **Create** button at the bottom of the blade.
 
@@ -189,7 +189,11 @@ In this exercise, you will use the [Azure Portal](https://portal.azure.com) to c
 
 	_Creating an Azure Web App_
 
-1. Wait for the deployment to finish. Then go to the Azure Web App in the Azure portal. One way to get there is to open the resource group and click the Web App resource in that group. You can also click the **Go to resource** button in the dialog that pops up in the portal when the deployment completes.
+1. Go to the "classrates-rg" resource group in the Azure Portal and wait for the deployment to finish. Then open the Web App.
+
+	![Opening the Web App](Images/open-web-app.png)
+
+	_Opening the Web App_
 
 1. Click **Deployment options** in the menu on the left side of the blade for the Azure Web App. Click **Choose Source**, and then click **GitHub**.
 
@@ -239,7 +243,7 @@ Now that you have continuous integration set up, you can make changes to the Web
 <a name="Exercise5"></a>
 ## Exercise 5: Delete the resource group ##
 
-In this exercise, you will delete the resource group that holds all the resources you created in this lab. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it.
+In this exercise, you will delete the resource group that holds all the resources created in this lab. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it.
 
 1. Click **Resource groups** in the menu on the left side of the portal to show a list of resource groups. Then click the "classrates-rg" resource group.
 
