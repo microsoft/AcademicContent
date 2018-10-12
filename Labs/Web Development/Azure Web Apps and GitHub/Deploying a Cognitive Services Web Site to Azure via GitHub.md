@@ -36,8 +36,9 @@ This hands-on lab includes the following exercises:
 - [Exercise 2: Fork the repo and run Classrates locally](#Exercise2)
 - [Exercise 3: Create an Azure Web App](#Exercise3)
 - [Exercise 4: Deploy the modified Classrates site to Azure](#Exercise4)
+- [Exercise 5: Delete the resource group](#Exercise5)
 
-Estimated time to complete this lab: **20 to 30** minutes.
+Estimated time to complete this lab: **30** minutes.
 
 <a name="Exercise1"></a>
 ## Exercise 1: Get a Text Analytics API key ##
@@ -84,7 +85,7 @@ In order to call the Text Analytics API, you need an endpoint URL and an API key
 
 	_Copying the API key_
 
-The endpoint URL is the base URL to which calls to the Text Analytics API are placed — "base" because "/sentiment" must be appended to complete the URL. The API key travels in an HTTP header in each request. Without a valid API key, the Text Analytics API fails requests placed to it. It is the API's way of ensuring that the caller is authorized.
+The endpoint URL is the base URL to which calls to the Text Analytics API are placed — "base" because "/sentiment" must be appended to the URL to score text for sentiment. The API key travels in an HTTP header in each request. Without a valid API key, the Text Analytics API fails requests placed to it. It is the API's way of ensuring that the caller is authorized.
 
 <a name="Exercise2"></a>
 ## Exercise 2: Fork the repo and run Classrates locally ##
@@ -135,7 +136,7 @@ The endpoint URL is the base URL to which calls to the Text Analytics API are pl
 
 1. Start Visual Studio Code and use the **File** > **Open Folder...** command to open the "Classrates" directory containing the cloned repo — the directory that was created by the ```git``` command in Step 6.
 
-1. Select **Integrated Terminal** from Visual Studio Code's **View** menu to open an integrated terminal. Then execute the following command in the integrated terminal to install [Bootstrap](https://www.npmjs.com/package/bootstrap), [Express](https://www.npmjs.com/package/express), and other packages that Classrates requires:
+1. Select **Terminal** from Visual Studio Code's **View** menu to open an integrated terminal. Then execute the following command in the integrated terminal to install [Bootstrap](https://www.npmjs.com/package/bootstrap), [Express](https://www.npmjs.com/package/express), and other packages that Classrates requires:
 
 	```
 	npm install
@@ -172,23 +173,23 @@ Play around with the Web site and familiarize yourself with how it works. Feel f
 <a name="Exercise3"></a>
 ## Exercise 3: Create an Azure Web App ##
 
-In this exercise, you will use the [Azure portal](https://portal.azure.com) to create an Azure Web App and connect it to the Classrates repo that was created for you in GitHub when you forked the master repo. With this connection established, pushing changes from the local repo to the GitHub repo will automatically publish those changes to Azure — a process known as [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration).
+In this exercise, you will use the [Azure Portal](https://portal.azure.com) to create an Azure Web App and connect it to the Classrates repo that was created for you in GitHub when you forked the master repo. With this connection established, pushing changes from the local repo to the GitHub repo will automatically publish those changes to Azure — a process known as [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration).
 
-1. In the portal, click **+ Create a resource**, followed by **Web + Mobile** and **Web App**.
+1. In the portal, click **+ Create a resource**, followed by **Web** and **Web App**.
 
     ![Creating an Azure Web App](Images/new-web-app.png)
 
     _Creating an Azure Web App_
 
-1. Enter a unique name for the app. The name must be unique across Azure, so you will probably have to use something other than "Classrates." Select **Create new** under "Resource Group" and enter a resource-group name, and select the operating system on which you want the Web App to run. (Either Windows or Linux is fine.) Click **App service plan/Location** and create a new service plan that specifies the Azure region in which you want to host the Web App (for example, East US). Then click the **Create** button at the bottom of the blade.
+1. Enter a unique name for the app. The name must be unique across Azure, so you will probably have to use something other than "Classrates." Place the Web App in the "classrates-rg" resource group you created in [Exercise 1](#Exercise1), and select the operating system on which you want the Web App to run. (Either Windows or Linux is fine.)
 
-	> When you create a service plan, you can also choose the type of server that will host the Web site and select a cost model. At the time of this writing, Azure offers a free hosting plan for Windows, but not for Linux. Azure is constantly evolving, so this may change in the future.
+	Click **App Service plan/Location** and create a new service plan in the same region you selected for the Text Analytics resource in Exercise 1 and that uses an inexpensive pricing tier — for example, the B1 tier available under Dev/Test, which is free for 30 days if you deploy the Web App on Linux. Select **Node.js 8.11** or higher as the runtime stack. Then click the **Create** button at the bottom of the blade.
 
 	![Creating an Azure Web App](Images/create-web-app.png)
 
 	_Creating an Azure Web App_
 
-1. Wait for the deployment to finish. (It typically takes 5 minutes or less.) Then go to the Azure Web App in the Azure portal. One way to get there is to click **Resource groups** in the ribbon on the left, select the resource group whose name you specified in the previous step, and then click the Web App resource. You can also click the **Go to resource** button in the dialog that pops up in the portal when the deployment completes.
+1. Wait for the deployment to finish. Then go to the Azure Web App in the Azure portal. One way to get there is to open the resource group and click the Web App resource in that group. You can also click the **Go to resource** button in the dialog that pops up in the portal when the deployment completes.
 
 1. Click **Deployment options** in the menu on the left side of the blade for the Azure Web App. Click **Choose Source**, and then click **GitHub**.
 
@@ -234,6 +235,27 @@ In this exercise, you will use Visual Studio Code to push the modified version o
 1. Click around the site and enter a few comments, ensuring that the site works the same in Azure as it did when you ran it ran locally. In particular, make sure that the comments you enter are converted into ratings, which is proof that the version of **functions.js** that you modified with an endpoint URL and an API key was successfully published to GitHub and subsequently to Azure.
 
 Now that you have continuous integration set up, you can make changes to the Web site by making the changes locally, checking them in, and rerunning the **Publish Branch** command. Of course, you can still test your changes locally before publishing them to Azure. You also enjoy the many benefits of source control, including the ability to isolate the work that you do in branches, view the changes that have been committed, and easily revert to previous versions of the code. To learn more about source control in Visual Studio Code, see [Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol).
+
+<a name="Exercise5"></a>
+## Exercise 5: Delete the resource group ##
+
+In this exercise, you will delete the resource group that holds all the resources you created in this lab. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it.
+
+1. Click **Resource groups** in the menu on the left side of the portal to show a list of resource groups. Then click the "classrates-rg" resource group.
+
+    ![Opening the resource group](Images/open-resource-group.png)
+
+    _Opening the resource group_
+
+1. Click **Delete resource group** at the top of the blade.
+
+    ![Deleting the resource group](Images/delete-resource-group.png)
+
+    _Deleting the resource group_
+
+1. For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group. Then click the **Delete** button to remove all traces of this lab from your Azure subscription.
+
+After a few minutes, the resource group and all of its resources will be deleted. Billing stops when you click **Delete**, so you're not charged for the time required to delete the resources. Similarly, billing doesn't start until the resources are fully and successfully deployed.
 
 <a name="Summary"></a>
 ## Summary ##
