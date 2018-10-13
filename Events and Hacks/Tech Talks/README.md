@@ -12,7 +12,7 @@
             <h1>Tech Talks</h1>
             <p><b>September 2017 release.</b> Source: <a href="https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks">https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks</a>.</p>
             <p>
-            Tech Talks seek to inspire and educate students on topics that are emerging in the tech industry or are developer career-focused. We want them to compliment a computer science education in a more informal forum like a pre-hackathon talk, within student groups, or other visiting campus speaking or meetups. Each contains a presentation as well as speaker notes and coding demos. They are generally designed to be about 1 hour with Q&A - feel free edit them down to fit desired length. New contributions are welcome.
+           Tech Talks seek to inspire and educate students on topics that are emerging in the tech industry or are developer career-focused. We want them to complement a computer science education in a more informal forum like a pre-hackathon talk, within student groups, or other visiting campus speaking or meetups. Each contains a presentation as well as speaker notes and coding demos. They are generally designed to be about 1 hour with Q&A - feel free to edit them down to fit the desired length. New contributions are welcome.
             </p>
             <p>If you want to report any issues we need to fix. Please log an <a href="https://github.com/Microsoft/computerscience/issues">issue</a>. Include the content section (Tech Talk, Workshop, Course Content), module number and title, along with any error messages and screenshots.</p>
  	 </div>
@@ -27,7 +27,7 @@
 					<tr>
 					   <td><b>A Career in Technical Evangelism: What we really do.</b></td>
 					   <td><a href="https://github.com/Microsoft/computerscience/blob/master/Events/Tech%20Talks/Tech%20Talk%20-%20A%20career%20in%20developer%20evangelism.pptx">Presentation</a></td>
-					   <td>Do you love sharing technology with other people as much as you love building things yourself? Want to help others be successful while building your commmunication and coding skills in parallel? Learn about this exciting career path from people who live it everyday. </td>
+					   <td>Do you love sharing technology with other people as much as you love building things yourself? Want to help others be successful while building your communication and coding skills in parallel? Learn about this exciting career path from people who live it every day.</td>
 					</tr>
 					<tr>
 					   <td><b>Setting-up the Perfect Online Resume for Student Devs</b></td>
