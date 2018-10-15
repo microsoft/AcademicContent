@@ -42,7 +42,7 @@ Want to host an event at your school? We can help with the resources below!
 
 ## Other available [academic resources](Educator%20Resources)
 
-We also have other great educator content to help you use Azure in the classroom.
+We also have other great educator content to help you use Azure in the classroom. 
 
 | Resource | |
 | - | - |
