@@ -8,7 +8,7 @@ This repo provides technical resources to help students and faculty learn about 
 
 **Important:** We are migrating to [Microsoft Learn](https://docs.microsoft.com/learn/) | If you can't find what you're looking for in this repo, check out the 60+ labs on Microsoft Learn too. Many of these labs have their own built-in Azure sandbox making it easier for faculty and students to learn without requiring an Azure Subscription.
 
-Students can get free Azure credits to explore these resources here:
+Students can get free Azure credits to explore these resources here :
 
 * [Azure For Students ($100 in Azure - no credit card required)](https://azure.microsoft.com/en-us/free/students/)
 * [Azure For Students Starter (use free Azure products with no credit card)](https://azure.microsoft.com/en-us/free/students-starter-faq/)
