@@ -1,8 +1,10 @@
-# HackMIT guide
+# HackGT Guide for Students hacking with Microsoft
 
-## JUDGING:
+## What's our hack prize?
+Each member of your team (up to 4 people) will win a
+[XBOX ONE X 1TB](https://www.xbox.com/en-us/xbox-one-x).
 
-[Link to judging form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUQ1dMRERSUlRBWVk0WEVZMFRMODVOQzNMUS4u)
+## How do I win? What's the judging criteria?
 
 | Criteria | Points |
 | -------- | ------ |
@@ -12,11 +14,31 @@
 | Is the project’s purpose and basic functionality easily understood? | /5 |
 | Does the project have a professional degree of production in terms of performance, user interface, visuals, and audio? | /10 |
 
+[Link to judging form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUQ1dMRERSUlRBWVk0WEVZMFRMODVOQzNMUS4u)
+
+## Links to know about
+[Azure for Students](https://aka.ms/a4s)
+ | $100 of Azure credit plus free services available without a credit card. Requires academic verification.
+
+[Azure Docs](https://docs.microsoft.com/azure)
+ | Atomic developer reference for all things Azure (and a lot of open source too).
+
+[Microsoft Learn](https://docs.microsoft.com/learn/)
+ | Full tutorials on the most common developer topics like building a website or spinning-up a virtual machine.
+
+[Microsoft Student Partners](https://imagine.microsoft.com/msp)
+ | We are a community of university students around the world with an interest in technology. Coding is our shared common language. You might find yourself leading your own hackathon, mentoring computer science students, or unlocking the next great idea with your team – it’s all up to you. The program is all about gaining leadership experiences and getting access to resources and develop your technical and career skills. And we have a lot of fun too.
+
+[Imagine Cup](https://imaginecup.microsoft.com/)
+ | If you really like today’s challenges, we encourage you to consider taking the next step with Imagine Cup. Imagine Cup is a global competition for the next generation of students. Team up, and use your creativity, passion, and knowledge of technology to create applications that shape how we live, work, and play. Every year, tens of thousands of students from across the globe compete for cash, travel, and prizes and for the honor of taking home the Imagine Cup!
+
+
+
 Fill out one form per team.
 
 [Google spreadsheet of teams](https://docs.google.com/spreadsheets/d/138iWdgGUtMPxQIihxRYjMnvc4r-RhEL8H95K6WA9FSg/edit#gid=395869937)
 
-## Important deets
+## Important dates
 **Wear Microsoft branded gear please!** 
 
 Key times:
@@ -129,12 +151,7 @@ This will be our live ticketing system during the event. Whenever hackers need h
 
 Please plan to be around at 1pm during Azure prize juding in case we need extra hands 😊
 
-## Links to Azure student developer programs
-[Azure for Students](https://aka.ms/a4s)
 
-[Microsoft Student Partner program](https://imagine.microsoft.com/en-us/msp)
-
-[Imagine Cup](https://imaginecup.microsoft.com/en-us/Events?id=0)
 
 ## Other FAQ
 What if someone asks me to sponsor their hackathon/event?
