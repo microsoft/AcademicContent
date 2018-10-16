@@ -110,8 +110,6 @@ We're going to be judging projects that used Azure for the Azure Champ Challenge
 
 [Judging info](../judging)
 
-![Judging criteria for Azure prize](../judging/hackjudging.png)
-
 [Judging form link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUNlBJMlNYT1lDSFVWVEpFUkpPQTlYTk9JNy4u)
 
 [Terms & Conditions for Azure prize](hacktx_tcs.pdf)
