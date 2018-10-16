@@ -3,7 +3,7 @@
 ## Important deets
 **Wear Microsoft branded gear please!** 
 
-Key times:
+### Key times:
 
 **Saturday Oct. 20**
 - 9:30am - 11am:   **Check in and help set up booth**
@@ -18,6 +18,7 @@ Key times:
 - 8am:             Breakfast
 - 8am - 12pm:      **Be around to help answer last minute questions!**
 - 12pm:            Hacking Ends
+- 12:30pm:         **Group huddle on judging**
 - 1pm:             Expo (Judging). **Be around to help judge!**
 - 2:30pm:          Finals juding. **Help tear down booth!)**
 - 3pm:             Closing ceremony. Keith speaking.
@@ -103,15 +104,11 @@ Sometimes hackers may be a little shy about approaching company reps, so feel fr
 
 
 ## Being a judge
-We're going to be judging projects that used Azure for the Azure Champ Challenge. 
+We're going to be judging projects that used Azure for the Azure Champ Challenge. Some of you are already signed up to be judges, but even if you're not, please be around at 12:30pm on Sunday during Azure prize juding huddle in case we need extra hands 😊
 
-![Judging criteria for Azure prize](https://github.com/Microsoft/computerscience/blob/master/Events%20and%20Hacks/Student%20Hacks/judging/hackjudging.png)
-
-(../judging/hackjudging.png)
+![Judging criteria for Azure prize](../judging/hackjudging.png)
 
 [Terms & Conditions for Azure prize](TCs.pdf)
-
-Please plan to be around at 1pm during Azure prize juding in case we need extra hands 😊
 
 ## Links to Azure student developer programs
 [Azure for Students](https://aka.ms/a4s)
