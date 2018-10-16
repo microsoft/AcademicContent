@@ -2,6 +2,18 @@
 Share the love: [aka.ms/hackwithazure](https://aka.ms/hackwithazure)
 
 ## What is Azure?
+Azure is a cloud computing platform (similar to AWS and Google Cloud Platform). We offer a broad range of services for developers to create with. 
+
+In particular, Azure has great, beginner-friendly services to help you use...
+- [AI/Machine Learning](https://azure.microsoft.com/en-us/overview/ai-platform/)
+- [Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/)
+- [Web Apps](https://docs.microsoft.com/en-us/azure/app-service/)
+- [Containers (Docker/Kubernetes)](https://docs.microsoft.com/en-us/azure/aks/)
+- [Bots](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0)
+
+...in your hacks!
+
+[Get started with Azure](https://docs.microsoft.com/en-us/azure/#pivot=get-started&panel=get-started1)
 
 ## How to get free Azure credits
 [aka.ms/azure4students](https://aka.ms/azure4students) - use your @<yourschool>.edu email to get $100 Azure credit plus free services  without a credit card.
