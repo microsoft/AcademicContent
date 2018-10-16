@@ -5,66 +5,71 @@
 
 Key times:
 
-**Saturday** Oct. 20
-- 9:30 am    Company Rep Check-in Begins (setup booth)
-- 10:00 am  Student Check-in Begins
-- 11:30 am  Opening Ceremony Begins
-- 12:00 pm  Hacking Begins
-- 1:00 pm    Lunch
-- 7:00 pm    Dinner
+**Saturday Oct. 20**
+- 9:30am - 11am:   **Check in and help set up booth**
+- 11:30am:         Opening ceremony. Keith speaking.
+- 12pm:            Hacking begins. **Be there to help hand out swag and mentor!**
+- 1pm:             Lunch
+- 4pm:             Azure workshop (presented by Shana)
+- 7pm:             Dinner
 
-**Sunday** Oct. 21
-- 12:00 am Midnight Meal
-- 8:00 am   Breakfast
-- 12:00 pm Hacking Ends
-- 1:00 pm   Expo (Judging)  Starts
-- 3:00 pm   Closing Ceremony
-- 5:00 pm   End of Event
+**Sunday Oct. 21**
+- 12am:            Midnight Meal
+- 8am:             Breakfast
+- 8am - 12pm:      **Be around to help answer last minute questions!**
+- 12pm:            Hacking Ends
+- 1pm:             Expo (Judging). **Be around to help judge!**
+- 2:30pm:          Finals juding. **Help tear down booth!)**
+- 3pm:             Closing ceremony. Keith speaking.
+- 5pm:             End of Event
 
-Where: AT&T Conference Center (West Side of AT&T Hotel and Conference Center)
+**Where:** AT&T Conference Center (West Side of AT&T Hotel and Conference Center)
 
 Address: 1900 University Avenue, Austin, TX 78705
  
 
 ## Contact info
-### Shana - main POC: 
+**Shana** - main POC #1: 
 - phone: 206-434-6193
 - mail: shanama@microsoft.com
+
+**Keith** - main POC #2:
+- phone: 425-359-2874
+- mail: keithloe@microsoft.com
 
 | Name               | Title                         |  Role at the event                            | Contact info |
 | ------------------ | ----------------------------- | --------------------------------------------- | ------------ |
 | Shana Matthews     | PM student dev                | Event + Technical mentor + Technical workshop | 206-434-6193 |
-| Keith Loeber       | Academic Director student dev | Event coordination                            |  |
-| Doug Thompson      | ATS .                         | Technical mentor + Azure judge                |  |
-| Chander Dhall      | MVP                           | Technical mentor + Azure judge + event judge  | 214-801-6705 |
-| Christian Johnson  | Tech SME                      | Technical mentor                              |  |
+| Keith Loeber       | Academic Director student dev | Event coordination                            | 425-359-2874 |
+| Doug Thompson      | ATS                           | Technical mentor + Azure judge                | 512-864-5940 |
+| Chander Dhall      | MVP                           | Technical mentor + Azure judge                | 214-801-6705 |
+| Georgia Fontana    | Tech Director                 | Technical mentor + Azure judge                |  |
+| Christian Johnson  | Tech SME                      | Technical mentor                              | 513-518-9415 |
 | Shawn Weisfeld     | Tech SME                      | Technical mentor                              |  |
 
 
 
 
 ## Schedule
-[Most up-to-date schedule/event website](https://hacktx.com/) 
+[Event website](https://hacktx.com/) has the most up-to-date schedule
 
 ### Booth schedule
 It's always a good idea to be around at the booth, but if you're listed as the "booth owner" please make sure you're there to keep things running and field questions!
 
-| Time               | Booth owner                                           | 
-| ------------------ | ----------------------------------------------------- |
-| **Saturday**       |                                                       |
-| 11am - 2pm         | **All please!!**                                      |
-| 2pm - 4pm          |                                                       |
-| 4pm - 6pm          |                                                       |
-| 6pm - 8pm          |                                                       |
-| 8pm - 10pm         |                                                       |
-| 10pm on            |                                                       |
-| **Sunday**         |                                                       |
-| 8am - 11am         | **All please!!**                                      |
+| Time               | Booth owner                                                                 | 
+| ------------------ | --------------------------------------------------------------------------- |
+| **Saturday**       |                                                                             |
+| 10am - 12pm        | Keith and Shana. Anyone else who wants to help with booth setup is welcome! |
+| 12pm - 3:30pm      | **Everyone please!** This is our busiest time for questions.                |
+| 3:30pm - 7pm       | Doug, Shawn, Shana                                                          |
+| 7pm - overnight    | Not mandatory. If you’re interested in staying later, feel free!            |
+| **Sunday**         |                                                                             |
+| 8am - 12pm         | Chander, Doug. Be around for last minute questions!                         |
 | 10:30am            | All hands on deck for judging                         |
 | 3pm and on         | Help Shana tear down booth & ship out booth materials |  
 
 ## Booth talking points
-- [aka.ms/hackwithazure](https://aka.ms/hackwithazure)
+- [aka.ms/hackwithazure](https://aka.ms/hackwithazure) - tutorials and troubleshooting!
 - Apply for a job at Microsoft (expect a LOT of interest in this)
    - Apply for internship or fulltime jobs at careers.microsoft.com
    - Online applications only, we do not accept paper resumes.
@@ -94,21 +99,16 @@ More info below.
 
 **How do I talk to hackers?** 
 
-Sometimes hackers may be a little shy about approaching company reps, so feel free to walk around the hacking area and introduce yourself, ask them what they’re working on, and offer your expertise! We’ll also be using a mentor queue to match mentors to hackers.
+Sometimes hackers may be a little shy about approaching company reps, so feel free to walk around the hacking area and introduce yourself, ask them what they’re working on, and offer your expertise!
 
-**Mentor queue?**
-
-This will be our live ticketing system during the event. Whenever hackers need help, they can post a ticket descrbing their issue and their location, and then mentors will be able to claim the tickets and come to the rescue! We highly recommend that mentors should attend a quick orientation (see schedule) to use the queue most effectively. If the mentors cannot attend, then they can access the queue at ​go.hackmit.org/q​— they can ask an attendant at the help desk for mentor privileges and a brief description of how to use it effectively.
-
-
-[Mentor guide + map](hackmit_mentorguide.pdf)
 
 ## Being a judge
-2 judging opportunities
-1. HackMIT event judge for expo @ 10:30am Sunday (Chander and Morgan)
-1. Azure judge @ 1pm Sunday (Jasmine, Chander, Morgan)
+We're going to be judging projects that used Azure for the Azure Champ Challenge. 
 
-[Judging criteria for Azure prize](../hackjudging.png)
+![Judging criteria for Azure prize](https://github.com/Microsoft/computerscience/blob/master/Events%20and%20Hacks/Student%20Hacks/judging/hackjudging.png)
+
+(../judging/hackjudging.png)
+
 [Terms & Conditions for Azure prize](TCs.pdf)
 
 Please plan to be around at 1pm during Azure prize juding in case we need extra hands 😊
