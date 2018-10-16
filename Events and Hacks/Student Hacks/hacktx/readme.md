@@ -1,29 +1,40 @@
 # HackMIT guide
 
+## JUDGING:
+
+[Link to judging form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUQ1dMRERSUlRBWVk0WEVZMFRMODVOQzNMUS4u)
+
+| Criteria | Points |
+| -------- | ------ |
+| Does the project address a clear need, problem, or opportunity and is the solution clearly explained? | /10 |
+| Does the project include innovations in technical design and/or implementation of services (e.g., Cognitive Services, Machine Learning) and/or User Experience? | /20 |
+| Does the project have a clear target market or audience? | /5 |
+| Is the project’s purpose and basic functionality easily understood? | /5 |
+| Does the project have a professional degree of production in terms of performance, user interface, visuals, and audio? | /10 |
+
+Fill out one form per team.
+
+[Google spreadsheet of teams](https://docs.google.com/spreadsheets/d/138iWdgGUtMPxQIihxRYjMnvc4r-RhEL8H95K6WA9FSg/edit#gid=395869937)
+
 ## Important deets
 **Wear Microsoft branded gear please!** 
 
 Key times:
 
-**Saturday** Oct. 20
-- 9:30 am    Company Rep Check-in Begins (setup booth)
-- 10:00 am  Student Check-in Begins
-- 11:30 am  Opening Ceremony Begins
-- 12:00 pm  Hacking Begins
-- 1:00 pm    Lunch
-- 7:00 pm    Dinner
+**Saturday**
+- 8am - Meet at sponsor checkin @ white tents outside of [Kresge Auditorium](https://www.google.com/maps/place/Kresge+Auditorium/@42.3577976,-71.1011636,15z/data=!4m8!1m2!2m1!1skresge+auditorium!3m4!1s0x89e37a007a8bbfe5:0x1571262b039a43bd!8m2!3d42.3581353!4d-71.0950313)
+- 11am - Mentor orientation in Johnson Media Room
+- 11am-2pm - **Key hack time**. Students will need the most help getting up and running with Azure (and convinced to use Azure)
+- 5pm - Our tech talk (Shana will be AWOL)
 
-**Sunday** Oct. 21
-- 12:00 am Midnight Meal
-- 8:00 am   Breakfast
-- 12:00 pm Hacking Ends
-- 1:00 pm   Expo (Judging)  Starts
-- 3:00 pm   Closing Ceremony
-- 5:00 pm   End of Event
+**Sunday**
+- 8am and on - **Key hack time**. Last minute hack help/Azure tech support
+- 10:30am - Expo judging (Morgan and Chander)
+- 1pm - Azure prize judging (Morgan, Chander, Jasmine)
+- 3pm - Closing ceremonies/tear down/help Shana ship stuff back
 
-Where: AT&T Conference Center (West Side of AT&T Hotel and Conference Center)
-
-Address: 1900 University Avenue, Austin, TX 78705
+Where:
+![](mitmap.png)
  
 
 ## Contact info
@@ -31,20 +42,25 @@ Address: 1900 University Avenue, Austin, TX 78705
 - phone: 206-434-6193
 - mail: shanama@microsoft.com
 
-| Name               | Title                         |  Role at the event                            | Contact info |
-| ------------------ | ----------------------------- | --------------------------------------------- | ------------ |
-| Shana Matthews     | PM student dev                | Event + Technical mentor + Technical workshop | 206-434-6193 |
-| Keith Loeber       | Academic Director student dev | Event coordination                            |  |
-| Doug Thompson      | ATS .                         | Technical mentor + Azure judge                |  |
-| Chander Dhall      | MVP                           | Technical mentor + Azure judge + event judge  | 214-801-6705 |
-| Christian Johnson  | Tech SME                      | Technical mentor                              |  |
-| Shawn Weisfeld     | Tech SME                      | Technical mentor                              |  |
+| Name               | Title                    |  Role at the event                            | Contact info |
+| ------------------ | ------------------------ | --------------------------------------------- | ------------ |
+| Shana Matthews     | PM student dev           | Event + Technical mentor + Technical workshop | 206-434-6193 |
+| Cristina Brendicke | PMM student dev          | Event coordination + Business mentor          | 206-303-7907 |
+| Morgan Mitchell    | PMM student dev          | Technical mentor + Azure judge + event judge  | 435-901-1928 |
+| Jasmine Greenaway  | Cloud Developer Advocate | Technical mentor + Azure judge                | 646-220-3858 |
+| Chander Dhall      | MVP                      | Technical mentor + Azure judge + event judge  | 214-801-6705 |
+| Lance McCarthy     | MVP                      | Technical mentor                              | 617-595-3686 |
+| Kushan Perera      | MVP                      | Technical mentor                              | 929-525-7949 |
 
 
 
 
 ## Schedule
-[Most up-to-date schedule/event website](https://hacktx.com/) 
+[Most up-to-date schedule](http://go.hackmit.org/sponsor-schedule) run by HackMIT staff
+
+[dayof website](http://go.hackmit.org/dayof) run by HackMIT staff
+
+![](hackmit_prelimschedule.png)
 
 ### Booth schedule
 It's always a good idea to be around at the booth, but if you're listed as the "booth owner" please make sure you're there to keep things running and field questions!
@@ -53,11 +69,11 @@ It's always a good idea to be around at the booth, but if you're listed as the "
 | ------------------ | ----------------------------------------------------- |
 | **Saturday**       |                                                       |
 | 11am - 2pm         | **All please!!**                                      |
-| 2pm - 4pm          |                                                       |
-| 4pm - 6pm          |                                                       |
-| 6pm - 8pm          |                                                       |
-| 8pm - 10pm         |                                                       |
-| 10pm on            |                                                       |
+| 2pm - 4pm          | Jasmine                                               |
+| 4pm - 6pm          | Cristina, Lance                                       |
+| 6pm - 8pm          | Morgan                                                |
+| 8pm - 10pm         | Cristina                                              |
+| 10pm on            | N/A (or just Shana)                                   |
 | **Sunday**         |                                                       |
 | 8am - 11am         | **All please!!**                                      |
 | 10:30am            | All hands on deck for judging                         |
