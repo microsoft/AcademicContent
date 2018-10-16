@@ -1,4 +1,4 @@
-# HackGT Guide for Students hacking with Microsoft
+# HackHarvard Guide for Students hacking with Microsoft
 
 ## What's our hack prize?
 Each member of your team (up to 4 people) will win a
