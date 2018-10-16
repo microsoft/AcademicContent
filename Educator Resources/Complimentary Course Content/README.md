@@ -11,7 +11,5 @@ If you want to report any issues we need to fix. Please log an [issue](https://g
 ### Available Modules in Complimentary Course Content
 
 | Module | Title                                       | Description |
-| | |
-
-
+| ------ | ------------------------------------------- | ------------|
 | 1      | [Introduction To Cloud Computing](/Module1) | This module introduces what cloud computing is, why it has become so popular, and the existing approaches to cloud computing. The module 1 labs cover real cloud computing examples. Upon completion of this module, the students should understand the fundamental concepts of cloud computing and how to apply them. [Labs](/Module1/Labs) |
