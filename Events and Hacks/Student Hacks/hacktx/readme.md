@@ -108,6 +108,8 @@ Sometimes hackers may be a little shy about approaching company reps, so feel fr
 ## Being a judge
 We're going to be judging projects that used Azure for the Azure Champ Challenge. Some of you are already signed up to be judges, but even if you're not, please be around at 12:30pm on Sunday during Azure prize juding huddle in case we need extra hands 😊
 
+[Judging info](../judging)
+
 ![Judging criteria for Azure prize](../judging/hackjudging.png)
 
 [Judging form link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUNlBJMlNYT1lDSFVWVEpFUkpPQTlYTk9JNy4u)
