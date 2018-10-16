@@ -121,7 +121,5 @@ We're going to be judging projects that used Azure for the Azure Champ Challenge
 What if someone asks me to sponsor their hackathon/event?
 Point them here: [aka.ms/event-sponsor-request](https://aka.ms/event-sponsor-request)
 
-[Briefing deck](hackmit_briefingdeck.pdf) for any other questions/background info.
-
-[Sponsor guidebook from HackMIT staff](hackmit_sponsorshipguide.pdf)
+[Briefing deck](../hack_briefing_deck.pdf) for any other questions/background info.
 
