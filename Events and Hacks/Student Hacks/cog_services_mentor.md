@@ -30,15 +30,13 @@ Pain points to be aware of:
 - e.g. using QnA maker + spell check + bot together
 
 Relationship between different parts of Microsoft AI platform
-Cog services = when you’re okay using OUR data
-Custom services = when you want to use OUR model but YOUR data
-              Speech, language, vision
-(if none of those work) = export as ONNX model and then import into developer tools 
+- Cog services = when you’re okay using OUR data
+- Custom services = when you want to use OUR model but YOUR data (Speech, language, vision)
+   - (if none of those work) = export as ONNX model and then import into developer tools 
 
 How to talk about Azure’s AI offerings vs. AWS vs. GCP
-If you’re asked about a comparison with AWS sagemaker / GCP automl… 
-Try not to go into details, but use as an opportunity to highlight our strengths.
-E.g. “I’m not sure… but WE are the best at adapting models. WE are unique in our AI principles policy” (huge differentiator)
+- If you’re asked about a comparison with AWS sagemaker / GCP automl… 
+- Try not to go into details, but use as an opportunity to highlight our strengths. E.g. “I’m not sure… but WE are the best at adapting models. WE are unique in our AI principles policy” (huge differentiator)
 
-How to give feedback on cog services
+How to give feedback on cog services:
 https://aka.ms/cogsdocsfeedback (only available if you have an @microsoft.com email) 
