@@ -2,7 +2,7 @@
 
 ## Important deets
 - Wear Microsoft branded gear!
-- Point students to aka.ms/hackwithazure!
+- Point students to [aka.ms/hackwithazure](https://aka.ms/hackwithazure)!
 - [Cognitive services resources](../cog_services_mentor.md) (slack, bug reports, etc.)
 - [Judging form link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUNlBJMlNYT1lDSFVWVEpFUkpPQTlYTk9JNy4u)
 
