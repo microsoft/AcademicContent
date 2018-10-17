@@ -48,10 +48,10 @@ Address: 1900 University Avenue, Austin, TX 78705
 | Keith Loeber       | Academic Director student dev | Event coordination                            | 425-359-2874 |
 | Doug Thompson      | ATS                           | Technical mentor + Azure judge                | 512-864-5940 |
 | Chander Dhall      | MVP                           | Technical mentor + Azure judge                | 214-801-6705 |
-| Georgia Fontana    | Tech Director                 | Technical mentor + Azure judge                |  |
+| Georgia Fontana    | Tech Director                 | Technical mentor + Azure judge                | 940-367-2903 |
 | Christian Johnson  | Tech SME                      | Technical mentor + Azure judge                | 513-518-9415 |
 | Shawn Weisfeld     | Tech SME                      | Technical mentor                              | 214-914-6770 |
-| Paul DeCarlo       | CDA                           | Technical mentor                              |  |
+| Paul DeCarlo       | CDA                           | Technical mentor                              | 832-578-6585 |
 
 
 
