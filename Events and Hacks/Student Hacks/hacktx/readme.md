@@ -49,6 +49,7 @@ Address: 1900 University Avenue, Austin, TX 78705
 | Georgia Fontana    | Tech Director                 | Technical mentor + Azure judge                |  |
 | Christian Johnson  | Tech SME                      | Technical mentor                              | 513-518-9415 |
 | Shawn Weisfeld     | Tech SME                      | Technical mentor                              |  |
+| Paul DeCarlo (tenative) | CDA                           | Technical mentor + Azure judge                |  |
 
 
 
