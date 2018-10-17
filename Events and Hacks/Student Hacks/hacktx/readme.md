@@ -1,9 +1,10 @@
 # HackTX guide
 
 ## Important deets
-**Wear Microsoft branded gear please!** 
-
-[Judging form link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUNlBJMlNYT1lDSFVWVEpFUkpPQTlYTk9JNy4u)
+- Wear Microsoft branded gear!
+- Point students to aka.ms/hackwithazure!
+- [Cognitive services resources](../cog_services_mentor.md) (slack, bug reports, etc.)
+- [Judging form link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUNlBJMlNYT1lDSFVWVEpFUkpPQTlYTk9JNy4u)
 
 ### Key times:
 
@@ -98,11 +99,9 @@ More info below.
 
 ## Being a mentor
 **What resources do I point hackers to?**
-
 [aka.ms/hackwithazure](https://aka.ms/hackwithazure) is a good place to start (feel free to fork, pull request and contribute) but also, whatever **you** think is a good resource!
 
 **How do I talk to hackers?** 
-
 Sometimes hackers may be a little shy about approaching company reps, so feel free to walk around the hacking area and introduce yourself, ask them what they’re working on, and offer your expertise!
 
 
