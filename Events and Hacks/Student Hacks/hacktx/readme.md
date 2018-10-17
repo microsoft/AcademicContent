@@ -2,6 +2,7 @@
 
 ## Important deets
 - Wear Microsoft branded gear!
+- Check in between 9:30 - 11am to get mentor creds + come to booth to say hi
 - Point students to [aka.ms/hackwithazure](https://aka.ms/hackwithazure)!
 - [Cognitive services resources](../cog_services_mentor.md) (slack, bug reports, etc.)
 - [Judging form link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUNlBJMlNYT1lDSFVWVEpFUkpPQTlYTk9JNy4u)
@@ -48,9 +49,9 @@ Address: 1900 University Avenue, Austin, TX 78705
 | Doug Thompson      | ATS                           | Technical mentor + Azure judge                | 512-864-5940 |
 | Chander Dhall      | MVP                           | Technical mentor + Azure judge                | 214-801-6705 |
 | Georgia Fontana    | Tech Director                 | Technical mentor + Azure judge                |  |
-| Christian Johnson  | Tech SME                      | Technical mentor                              | 513-518-9415 |
-| Shawn Weisfeld     | Tech SME                      | Technical mentor                              |  |
-| Paul DeCarlo       | CDA                           | Technical mentor + Azure judge                | 214-914-6770 |
+| Christian Johnson  | Tech SME                      | Technical mentor + Azure judge                | 513-518-9415 |
+| Shawn Weisfeld     | Tech SME                      | Technical mentor                              | 214-914-6770 |
+| Paul DeCarlo       | CDA                           | Technical mentor                              |  |
 
 
 
