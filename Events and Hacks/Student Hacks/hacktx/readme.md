@@ -12,7 +12,7 @@
 - 11:30am:         Opening ceremony. Keith speaking.
 - 12pm:            Hacking begins. **Be there to help hand out swag and mentor!**
 - 1pm:             Lunch
-- 4pm:             Azure workshop (presented by Shana)
+- 4pm:             Azure workshop (presented by Shana/Paul)
 - 7pm:             Dinner
 
 **Sunday Oct. 21**
@@ -49,7 +49,7 @@ Address: 1900 University Avenue, Austin, TX 78705
 | Georgia Fontana    | Tech Director                 | Technical mentor + Azure judge                |  |
 | Christian Johnson  | Tech SME                      | Technical mentor                              | 513-518-9415 |
 | Shawn Weisfeld     | Tech SME                      | Technical mentor                              |  |
-| Paul DeCarlo       | CDA                           | Technical mentor + Azure judge                |  |
+| Paul DeCarlo       | CDA                           | Technical mentor + Azure judge                | 214-914-6770 |
 
 
 
@@ -65,8 +65,8 @@ It's always a good idea to be around at the booth, but if you're listed as the "
 | **Saturday**       |                                                                             |
 | 10am - 12pm        | Keith and Shana. Anyone else who wants to help with booth setup is welcome! |
 | 12pm - 3:30pm      | **Everyone please!** This is our busiest time for questions.                |
-| 3:30pm - 7pm       | Doug, Shawn, Shana                                                          |
-| 7pm - overnight    | Not mandatory. If you’re interested in staying later, feel free!            |
+| 3:30pm - 7pm       | Doug, Shawn, Shana, Paul                                                    |
+| 7pm - overnight    | Paul + Not mandatory. If you’re interested in staying later, feel free!     |
 | **Sunday**         |                                                                             |
 | 8am - 12pm         | Chander, Doug. Be around for last minute questions!                         |
 | 10:30am            | All hands on deck for judging                         |
