@@ -17,7 +17,7 @@ The primary requirement is that your hack project include Azure in some way. Ple
 
 [Link to judging form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUQ1dMRERSUlRBWVk0WEVZMFRMODVOQzNMUS4u)
 
-## Links to know about
+## Useful Links
 [Azure for Students](https://aka.ms/a4s)
  | $100 of Azure credit plus free services available without a credit card. Requires academic verification.
 
