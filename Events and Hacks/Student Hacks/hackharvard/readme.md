@@ -23,6 +23,9 @@ The primary requirement is that your hack project include Azure in some way. Ple
 
 [Azure Docs](https://docs.microsoft.com/azure)
  | Atomic developer reference for all things Azure (and a lot of open source too).
+ 
+ [Slide deck from Microsoft workshop](https://1drv.ms/p/s!Amhcs0GmSgcRiPcSd1Y4sfqfrmzUUw)
+ | How to win a hack with AI
 
 [Microsoft Learn](https://docs.microsoft.com/learn/)
  | Full tutorials on the most common developer topics like building a website or spinning-up a virtual machine.
