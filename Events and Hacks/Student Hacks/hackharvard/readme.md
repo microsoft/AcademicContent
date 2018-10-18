@@ -42,17 +42,13 @@ The primary requirement is that your hack project include Azure in some way. Ple
 ## Microsoft mentors to connect with
 
 
-| Name               | Title                    | Role at the event                             | Contact info |
-| ------------------ | ------------------------ | --------------------------------------------- | ------------ |
-| Justin Garrett     | Director, Academic Eco   | Lead                                          | On slack     |
+| Name               | Title                        | Role at the event                             |
+| ------------------ | ---------------------------- | --------------------------------------------- 
+| Susan Ibach        | Microsoft Student Partner    | Microsoft Lead                                
+| Ryan Mendenhall    | Academic Program Manager     | Microsoft Lead
 
 
-## Microsoft events and hack schedule
-Insert hyperlinke to event schedule here.
+## Microsoft events 
+Microsoft Workshop - How to win a Hack with AI 11 PM - 12 AM Friday
 
-**Saturday**
-- 8am - TBD
-
-**Sunday**
-- TBD
 
