@@ -3,7 +3,7 @@
 ## What's our hack prize?
 Each member of your team (up to 4 people) will win a
 [XBOX ONE X 1TB](https://www.xbox.com/en-us/xbox-one-x).
-The primary requirement is that your hack project include Azure in some way. Please be sure to read the [Terms & Conditions for Azure Prize](TBD).
+The primary requirement is that your hack project include Azure in some way. Please be sure to read the [Terms & Conditions for Azure Prize](https://1drv.ms/w/s!Amhcs0GmSgcRiPcYjIuQW9BRJtBpzw).
 
 ## How do I win? What's the judging criteria?
 
