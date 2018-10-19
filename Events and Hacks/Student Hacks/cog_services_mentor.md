@@ -12,12 +12,12 @@ How to get in touch with cog services engineers:
 What to demo:
 - [aka.ms/intelligentkiosk](https://aka.ms/intelligentkiosk) (only available for @microsoft.com accounts)
 Intelligent kiosk – can find less-up-to date version on Github
-- AI lab
+- [AI lab](https://www.ailab.microsoft.com/)
    - JFK files search is a great demo
    - 2 good bots demos (Build a Bot and Drawing Bot)
-- AzureSamples repo on github (search for cognitive services)
-- AI School – probably too in-depth for a hackathon, but students can explore on their own
-- AI Gallery – more complex than what cog services allow for
+- AzureSamples repo on github (search for cognitive services) - [link with search](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=cognitive+services&type=&language=)
+- [AI School](https://aischool.microsoft.com/en-us/home) – probably too in-depth for a hackathon, but students can explore on their own
+- [AI Gallery](https://gallery.azure.ai/) – more complex than what cog services allow for
 
 Demo strategy:
 - Briefly overview the portfolio
