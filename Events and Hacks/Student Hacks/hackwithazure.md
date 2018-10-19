@@ -20,7 +20,9 @@ Check the docs on how to [get started with Azure](https://docs.microsoft.com/en-
   
 Not working? Come to the Microsoft booth and we'll get it fixed.
 
-**WARNING UT Austin students - do NOT use your @edu account.**
+**WARNING UT Austin students - do NOT use your @edu account.** 
+
+University of Washington, Georgia Tech, and MIT students can ignore this part :)
 
 You will get the same $100 credit from Azure for Students by using a Microsoft account (MSA). 
 
@@ -35,8 +37,8 @@ Steps to redeem $100 credit for UT Austin students:
 
 
 
-## Azure API prize
-Use any Azure service (like, any of them...) and enter our API prize (Azure Champ Challenge). Winners will recieve an Xbox One X for each team member and your hack will be entered into our Imagine Cup competition (the grand prize last year was a mentoring session with CEO Satya and $85k).
+## Azure hackathon prize
+Use any Azure service (like, any of them...) and enter our Azure prize (Azure Champ Challenge). Winners will recieve an Xbox One X for each team member and your hack will be entered into our Imagine Cup competition (the grand prize last year was a mentoring session with CEO Satya and $85k).
 
 See below for details.
 
