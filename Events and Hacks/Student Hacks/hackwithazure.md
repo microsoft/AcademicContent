@@ -22,7 +22,7 @@ Not working? Come to the Microsoft booth and we'll get it fixed.
 
 **WARNING: UT Austin students - do NOT use your @edu account.** 
 
-*University of Washington, Georgia Tech, and MIT students can ignore this part :)*
+*University of Washington, Georgia Tech, MIT, and all other students can ignore this part :)*
 
 > UT Austin students will use a Microsoft account (MSA) to get your $100 credit from Azure for Students. 
 >
