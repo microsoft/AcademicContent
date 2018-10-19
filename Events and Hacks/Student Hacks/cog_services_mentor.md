@@ -10,7 +10,7 @@ How to get in touch with cog services engineers:
 - StackOverflow – use “microsoft-cognitive” tag
 
 What to demo:
-- aka.ms/intelligentkiosk (only available for @microsoft.com accounts)
+- [aka.ms/intelligentkiosk](https://aka.ms/intelligentkiosk) (only available for @microsoft.com accounts)
 Intelligent kiosk – can find less-up-to date version on Github
 - AI lab
    - JFK files search is a great demo
@@ -39,4 +39,4 @@ How to talk about Azure’s AI offerings vs. AWS vs. GCP
 - Try not to go into details, but use as an opportunity to highlight our strengths. E.g. “I’m not sure… but WE are the best at adapting models. WE are unique in our AI principles policy” (huge differentiator)
 
 How to give feedback on cog services:
-https://aka.ms/cogsdocsfeedback (only available if you have an @microsoft.com email) 
+[aka.ms/cogsdocsfeedback](https://aka.ms/cogsdocsfeedback) (only available if you have an @microsoft.com email) 
