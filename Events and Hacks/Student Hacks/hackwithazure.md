@@ -20,7 +20,7 @@ Check the docs on how to [get started with Azure](https://docs.microsoft.com/en-
   
 Not working? Come to the Microsoft booth and we'll get it fixed.
 
-**WARNING** UT Austin students - do NOT use your @edu account. 
+**WARNING UT Austin students - do NOT use your @edu account.**
 
 You will get the same $100 credit from Azure for Students by using a Microsoft account (MSA). 
 
