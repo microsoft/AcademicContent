@@ -24,17 +24,16 @@ Not working? Come to the Microsoft booth and we'll get it fixed.
 
 *University of Washington, Georgia Tech, and MIT students can ignore this part :)*
 
-UT Austin students will use a Microsoft account (MSA) to get your $100 credit from Azure for Students. 
+> UT Austin students will use a Microsoft account (MSA) to get your $100 credit from Azure for Students. 
 
-You may already have an MSA (@outlook.com or @hotmail.com email, or could be associated with any other email address). If you don't, you can create one at [https://signup.live.com/](https://signup.live.com/) or as part of the instructions below.
+> You may already have an MSA (@outlook.com or @hotmail.com email, or could be associated with any other email address). If you don't, you can create one at [https://signup.live.com/](https://signup.live.com/) or as part of the instructions below.
 
-Steps to redeem $100 credit for UT Austin students:
-- Open up [aka.ms/azure4students](https://aka.ms/azure4students) in an in private browser window
-- Log in with your MSA email or create a new MSA (**NOT** your @utexas email)
-- Choose to verify with your @utexas email address. This will send an email to your utexas email inbox. 
-- Click the link from that email to verify your student status and redeem your free Azure credits.
-- Remember to always sign in to [portal.azure.com](portal.azure.com) with your MSA
-
+> Steps to redeem $100 credit for UT Austin students:
+> - Open up [aka.ms/azure4students](https://aka.ms/azure4students) in an in private browser window
+> - Log in with your MSA email or create a new MSA (**NOT** your @utexas email)
+> - Choose to verify with your @utexas email address. This will send an email to your utexas email inbox. 
+> - Click the link from that email to verify your student status and redeem your free Azure credits.
+> - Remember to always sign in to [portal.azure.com](portal.azure.com) with your MSA
 
 
 ## Azure hackathon prize
