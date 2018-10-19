@@ -4,7 +4,7 @@
 - Wear Microsoft branded gear!
 - Check in between 9:30 - 11am to get mentor creds + come to booth to say hi
 - Point students to [aka.ms/hackwithazure](https://aka.ms/hackwithazure)!
-- Join the HackTX slack group - [join link](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fjoin.slack.com%2Ft%2Fhacktx18%2Fshared_invite%2FenQtNDU1MzUxOTY5MTA1LTFhMzllNjEwMjRlNWJmMzRjMWM4ZDRmNmU1MDQxMTFjZDVjMjlkZTNmZmM2YzNiMWNjZDU3Y2NmZDEyZDk5NjI&data=02%7C01%7CShana.Matthews%40microsoft.com%7C41048f60fe974ff1a06008d635e0ef66%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636755637552740980&sdata=THVakWOdviLEzHWfyKltvv6jIGNQHoOUY0HY8R0zlsc%3D&reserved=0)
+- Join the HackTX slack group - [join link](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fjoin.slack.com%2Ft%2Fhacktx18%2Fshared_invite%2FenQtNDU1MzUxOTY5MTA1LTFhMzllNjEwMjRlNWJmMzRjMWM4ZDRmNmU1MDQxMTFjZDVjMjlkZTNmZmM2YzNiMWNjZDU3Y2NmZDEyZDk5NjI&data=02%7C01%7CShana.Matthews%40microsoft.com%7C41048f60fe974ff1a06008d635e0ef66%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636755637552740980&sdata=THVakWOdviLEzHWfyKltvv6jIGNQHoOUY0HY8R0zlsc%3D&reserved=0). Check out the Azure channel.
 - [Cognitive services resources](../cog_services_mentor.md) (slack, bug reports, etc.)
 - [Judging form link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUNlBJMlNYT1lDSFVWVEpFUkpPQTlYTk9JNy4u)
 
