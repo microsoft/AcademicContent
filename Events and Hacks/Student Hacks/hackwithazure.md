@@ -13,7 +13,7 @@ In particular, Azure has great, beginner-friendly services to help you use...
 
 ...in your hacks!
 
-[Get started with Azure](https://docs.microsoft.com/en-us/azure/#pivot=get-started&panel=get-started1)
+Check the docs on how to [get started with Azure](https://docs.microsoft.com/en-us/azure/#pivot=get-started&panel=get-started1).
 
 ## How to get free Azure credits
 [aka.ms/azure4students](https://aka.ms/azure4students) - use your @<yourschool>.edu email to get $100 Azure credit plus free services  without a credit card.
