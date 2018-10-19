@@ -74,6 +74,9 @@ It's always a good idea to be around at the booth, but if you're listed as the "
 | 10:30am            | All hands on deck for judging                         |
 | 3pm and on         | Help Shana tear down booth & ship out booth materials |  
 
+## FYI - lots of resources about Cognitive Services
+[Cognitive services resources](../cog_services_mentor.md) (slack, bug reports, etc.)
+
 ## Booth talking points
 - [aka.ms/hackwithazure](https://aka.ms/hackwithazure) - tutorials and troubleshooting!
 - Apply for a job at Microsoft (expect a LOT of interest in this)
