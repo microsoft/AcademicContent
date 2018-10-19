@@ -20,11 +20,11 @@ Check the docs on how to [get started with Azure](https://docs.microsoft.com/en-
   
 Not working? Come to the Microsoft booth and we'll get it fixed.
 
-**WARNING UT Austin students - do NOT use your @edu account.** 
+**WARNING: UT Austin students - do NOT use your @edu account.** 
 
-University of Washington, Georgia Tech, and MIT students can ignore this part :)
+*University of Washington, Georgia Tech, and MIT students can ignore this part :)*
 
-You will get the same $100 credit from Azure for Students by using a Microsoft account (MSA). 
+UT Austin students will use a Microsoft account (MSA) to get your $100 credit from Azure for Students. 
 
 You may already have an MSA (@outlook.com or @hotmail.com email, or could be associated with any other email address). If you don't, you can create one at [https://signup.live.com/](https://signup.live.com/) or as part of the instructions below.
 
@@ -93,6 +93,8 @@ https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview
 [Azure Docs](https://docs.microsoft.com/azure) - Reference for all things Azure (and a lot of open source too).
 
 [Microsoft Learn](https://docs.microsoft.com/learn/) - Full tutorials on the most common developer topics like building a website or spinning-up a virtual machine.
+
+[Azure Student Labs](https://aka.ms/azurestudentlabs) - Our repository of labs geared for computer science students that you can learn from. Find them at [aka.ms/azurestudentlabs](https://aka.ms/azurestudentlabs)
 
 [Microsoft Student Partners](https://imagine.microsoft.com/msp) - We are a community of university students around the world with an interest in technology. Coding is our shared common language. You might find yourself leading your own hackathon, mentoring computer science students, or unlocking the next great idea with your team – it’s all up to you. The program is all about gaining leadership experiences and getting access to resources and develop your technical and career skills. And we have a lot of fun too.
 
