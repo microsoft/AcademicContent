@@ -20,7 +20,10 @@ Check the docs on how to [get started with Azure](https://docs.microsoft.com/en-
   
 Not working? Come to the Microsoft booth and we'll get it fixed.
 
-**WARNING** UT Austin students - do NOT use your @edu account. You will get the same $100 credit from Azure for Students by using a Microsoft account (MSA). 
+**WARNING** UT Austin students - do NOT use your @edu account. 
+
+You will get the same $100 credit from Azure for Students by using a Microsoft account (MSA). 
+
 You may already have an MSA (@outlook.com or @hotmail.com email, or could be associated with any other email address). If you don't, you can create one at [https://signup.live.com/](https://signup.live.com/) or as part of the instructions below.
 
 Steps to redeem $100 credit for UT Austin students:
