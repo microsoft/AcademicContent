@@ -7,7 +7,7 @@ How we talk about cog services:
 
 How to get in touch with cog services engineers:
 - Slack group: https://azureappliedai.slack.com/ 
-- StackOverflow – use “microsoft-cognitive” tag (@Noelle – this was my guess, correct me if there’s a different one you prefer 😊)
+- StackOverflow – use “microsoft-cognitive” tag
 
 What to demo:
 - aka.ms/intelligentkiosk (only available for @microsoft.com accounts)
