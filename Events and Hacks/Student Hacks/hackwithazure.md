@@ -20,6 +20,33 @@ Check the docs on how to [get started with Azure](https://docs.microsoft.com/en-
   
 Not working? Come to the Microsoft booth and we'll get it fixed.
 
+**WARNING** UT Austin students - do NOT use your @edu account. You will get the same $100 credit from Azure for Students by using a Microsoft account (MSA). 
+You may already have an MSA (@outlook.com or @hotmail.com email, or could be associated with any other email address). If you don't, you can create on 
+Steps:
+- Open up [aka.ms/azure4students](https://aka.ms/azure4students) in an in private browser window
+- Log in with 
+
+yeah, I can help you out
+so, people can actually get A4S with their MSA
+they should open up the A4S in a private window
+log in with their utexas
+it will ask them to verify
+ 
+[‎10/‎18/‎2018 5:57 PM]  Ryan Mendenhall:  
+the problem is with Utexas and their directory security
+they don't allow students to spin up a subscription on it
+regardless of offer
+so they have to verify with their utexas
+and sign in with their MSA
+gmail, outlook, etc
+ 
+[‎10/‎18/‎2018 5:58 PM]  Ryan Mendenhall:  
+sorry, error - I said log in with utexas
+it should be log in with mSA -it will ask them to verify with utexas
+which will send an email to their utexas inbox
+ 
+
+
 ## Azure API prize
 Use any Azure service (like, any of them...) and enter our API prize (Azure Champ Challenge). Winners will recieve an Xbox One X for each team member and your hack will be entered into our Imagine Cup competition (the grand prize last year was a mentoring session with CEO Satya and $85k).
 
