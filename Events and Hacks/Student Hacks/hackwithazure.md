@@ -41,6 +41,10 @@ Use any Azure service (like, any of them...) and enter our Azure prize (Azure Ch
 
 See below for details.
 
+## So you want to work (or intern) at Microsoft?
+Apply for internship or fulltime jobs at [careers.microsoft.com](careers.microsoft.com)!
+We do not accept paper resumes and none of us are recruiters, but if you catch us with a free moment we're happy to tell you about our personal experiences going through the recruiting process.
+
 ## Demos from Azure workshop
 https://notebooks.azure.com/shana/libraries/demos
 - [Text analytics - alpacas on reddit](https://notebooks.azure.com/shana/libraries/demos/html/cogservices_textanalytics.ipynb)
