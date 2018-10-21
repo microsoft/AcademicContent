@@ -1,18 +1,18 @@
-# Academic Resources for Computer Science
+# Tech Resources for Computer Science and Academic Communities
 
 *The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
 
 **Source:** https://github.com/microsoft/computerscience
 
-This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and devops.
+This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and devops. It also includes interesting tech talks and engaging, fun tech challenges that Microsoft leads at student hackathons and [Imagine Cup](http://www.imaginecup.com).
 
 **Important:** We are migrating to [Microsoft Learn](https://docs.microsoft.com/learn/) | If you can't find what you're looking for in this repo, check out the 60+ labs on Microsoft Learn too. Many of these labs have their own built-in Azure sandbox making it easier for faculty and students to learn without requiring an Azure Subscription.
 
 Students can get free Azure credits to explore these resources here:
 
-* [Azure For Students ($100 in Azure - no credit card required)](https://azure.microsoft.com/en-us/free/students/)
-* [Azure For Students Starter (use free Azure products with no credit card)](https://azure.microsoft.com/en-us/free/students-starter-faq/)
-* [Azure Free Account](https://azure.microsoft.com/en-us/free/)
+* [Azure for Students](https://azure.microsoft.com/en-us/free/students/) | $100 in Azure for 12 months with free tier of services - no credit card required with academic verification
+* [Azure for Students Starter](https://azure.microsoft.com/en-us/free/students-starter-faq/) | use select Azure products like App Services for free - no credit card required with academic verification
+* [Azure Free Account](https://azure.microsoft.com/en-us/free/) | $200 in Azure for one month with free tier of services - requires credit card and probably the best fit for faculty evaluating Azure for course instruction unless your organization has a grant or enterprise agreement.
 
 Your feedback is appreciated - please fork this repo and contribute!
 
