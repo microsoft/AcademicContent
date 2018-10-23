@@ -1,6 +1,6 @@
 # Tech Talks
 
-**September 2017 release.** Source: [https://github.com/Microsoft/computerscience/tree/master/Events%20and%20Hacks/Tech%20Talks](.)
+Source: [https://github.com/Microsoft/computerscience/tree/master/Events%20and%20Hacks/Tech%20Talks](.)
 
 Tech Talks seek to inspire and educate students on topics that are emerging in the tech industry or are developer career-focused. We want them to compliment a computer science education in a more informal forum like a pre-hackathon talk, within student groups, or other visiting campus speaking or meetups. Each contains a presentation as well as speaker notes and coding demos. They are generally designed to be about 1 hour with Q&A - feel free edit them down to fit desired length. New contributions are welcome.
 
@@ -28,3 +28,21 @@ If you want to report any issues we need to fix. Please log an [issue](https://g
 | Microsoft Cognitive Services adding smarts to your applications | [Presentation](/Tech%20Talk%20-%20Machine%20Learning%20Cognitive%20%26%20Bots.pdf) | Understand Microsoft Machine Learning, Cognitive Services and the Bot Framework and the opportunity of using these services to add smarts to your applications the perfect services for your hackathon and challenges. |
 
 ### Cloud
+
+| Title | Link | Description |
+| ----- | ---- | ----------- |
+| Azure Compute Cloud - Introduction to Service Fabric and Azure Compute | [Presentation](/Tech%20Talk%20-%20Azure%20compute%20cloud.pptx) | Understand all about Compute Offerings from VMs to Container Services. |
+| Microsoft and Containers - So what are Containers | [Presentation](/Tech%20Talk%20-%20Microsoft%20and%20Containers.pptx) [Demos](/ContainerDemo) | Understand Containers we discuss the difference between Windows Server Containers, Hyper V Containers, Docker on Windows, Azure Container and share examples and demos for each with details on the docker release pipeline. |
+| Azure Storage Overview - Using Microsoft Azure for Storage Services | [Presentation](/Tech%20Talk%20-%20AzureStorageOverview.pptx) | Understand Microsoft Azure Storage Services Demos are located in storage Demo Folder. |
+
+### Other topics of interest
+
+| Title | Link | Description |
+| ----- | ---- | ----------- |
+| Using Bots in your Hackathon project - Introduction to Bots | [Presentation](/Tech%20Talk%20-%20Using%20Bots%20in%20Your%20Hackathon%20Project.pptx) | Understand the components of a Bot including how LUIS and intelligence fit in. |
+| Bots are the New Apps - Introduction to Microsoft Bot Framework | [Presentation](/Tech%20Talk%20-%20Bots%20Are%20the%20New%20Apps.pptx) [Demos](/busbot) | Understand all about Microsoft Bot Framework and build your first bots. |
+| Cybersecurity - an Ever Moving Target | [Presentation](/Tech%20Talk%20-%20Cybersecurity%20an%20Ever%20Moving%20Target.pptx) | Black hats, White hats, the Dark Web, Bitcoin. What do they all have in-common? Cybersecurity is one of the fastest growing careers for developers. This talk is all about what hacking really means: motivations, scale, attack vectors, and countermeasures. |
+| Virtual Reality - The Past, Present, and the Future that Starts Right Now | [Presentatation](/Tech%20Talk%20-%20The%20tech%20path%20towards%20Augmented%20and%20Virtual%20Reality.pptx) | Understanding Microsoft AI Strategy and how conversation as a service can build intelligent apps. |
+| Microsoft Power BI - So what is PowerBI | [Presentation](/Tech%20Talk%20-%20PowerBI_StudentPresentation.pptx) [Tutorial](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/08/31/visualisation-of-data-with-power-bi/) | Understand PowerBI we discuss the difference the history of data visualization and then the various way PowerBI can visualize data |
+| Microsoft Power BI and REST Services - Samples of how to use REST APIS to build amazing data visualisations | [Presentation](/Tech%20Talk%20-%20PowerBI_RESTSamples_student.pptx) | Understand PowerBI APIs samples and demos. |
+| Microsoft Xbox One - Building Windows 10 UWP Apps and Games for Xbox One | [Presentation](/Tech%20Talk%20-%20Building%20UWP%20Apps%20&%20Games%20for%20XboxOne.pptx) [Demos](/XboxOneUWPDemo) | Understand Microsoft Xbox One UWP App and Game development building UWP Games and Apps with C#, Unity3d and MonoGame. |
