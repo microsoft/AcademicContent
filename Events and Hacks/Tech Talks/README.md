@@ -12,7 +12,7 @@ If you want to report any issues we need to fix. Please log an [issue](https://g
 
 | Title | Link | Description |
 | ----- | ---- | ----------- |
-| A Career in Technical Evangelism: What we really do | [Presentation](/Tech%20Talk%20-%20A%20career%20in%20developer%20evangelism.pptx) | Do you love sharing technology with other people as much as you love building things yourself? Want to help others be successful while building your commmunication and coding skills in parallel? Learn about this exciting career path from people who live it everyday. |
+| A Career in Technical Evangelism: What we really do | [Presentation](./Tech%20Talk%20-%20A%20career%20in%20developer%20evangelism.pptx) | Do you love sharing technology with other people as much as you love building things yourself? Want to help others be successful while building your commmunication and coding skills in parallel? Learn about this exciting career path from people who live it everyday. |
 | Setting-up the Perfect Online Resume for Student Devs | [Presentation](/Tech%20Talk%20-%20Setting%20up%20the%20Perfect%20Online%20Resume%20for%20Student%20Devs.pptx) | Ready to share your talent with startups, agencies, and big tech companies? There's nothing better than showing them. Take the first step by creating your own online resume and portfolio of projects, hosted in the Azure Cloud. |
 | Your First Startup: How to move investors to YES! | [Presentation](/Tech%20Talk%20-%20How%20to%20move%20investors%20to%20Yes.pptx) | Thinking about building the next great thing? Deciding to bootstrap or raise some capital? This talk guides you through the realities, the process, and how to pitch investors towards your big career breakthrough. |
 
