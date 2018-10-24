@@ -4,7 +4,7 @@ This module introduces the foundations of JavaScript — the language of the web
 
 | Lesson | Title | Lab | Objectives |
 | ------ | ----- | --- | ---------- |
-| 1 | [JS Primer](/Lessons/Module2_Lesson1%20JS%20Primer.pptx) | | Write a basic JavaScript program. Understand the basics of JavaScript including: Objects and Primitives, Truthy and Falsy, Functions. |
+| 1 | [JS Primer](./Lessons/Module2_Lesson1%20JS%20Primer.pptx) | | Write a basic JavaScript program. Understand the basics of JavaScript including: Objects and Primitives, Truthy and Falsy, Functions. |
 | 2 | [Getting Started with Node.js](./Lessons/Module2_Lesson2%20Getting%20Started%20with%20Node.js.pptx) | [Lab](./Labs/Module%202%20Lesson%202%20Lab.docx) | Understand the basics of node.js. Interact with node.js on the command line. Understand and use npm. |
 | 3 | [Building a Website with Azure](./Lessons/Module2_Lesson3%20Azure%20Websites.pptx) | [Lab](./Labs/Module%202%20Lesson%203%20Lab.docx) | Understand why to adopt cloud computing. Explain some Azure service models. Define the benefits of Azure websites. |
 | 4 | [Building a Web Application Server with Express](./Lessons/Module2_Lesson4%20Building%20a%20Web%20Application%20Server%20with%20Express.pptx) | | Understand the difference between static and dynamic content. Use Node’s middleware. Run Express. |
