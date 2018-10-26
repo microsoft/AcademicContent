@@ -4,7 +4,7 @@ This module introduces Big Data, its platforms, and its analysis. Hadoop is the 
 
 | Lesson | Title | Lab | Objectives |
 | ------ | ----- | --- | ---------- |
-| 1 | [Big Data and Hadoop](./Lessons/Module4_Lesson01%20Big%20Data%20and%20Hadoop.pptx) | [Lab](.Labs/Module%204%20Lesson%2001%20Getting%20started%20with%20HDP%20Lab.docx) | Explain Big Data. Understand why Hadoop is used. Describe the core concepts of Hadoop. Recognize the features of the Hadoop ecosystem. |
+| 1 | [Big Data and Hadoop](./Lessons/Module4_Lesson01%20Big%20Data%20and%20Hadoop.pptx) | [Lab](./Labs/Module%204%20Lesson%2001%20Getting%20started%20with%20HDP%20Lab.docx) | Explain Big Data. Understand why Hadoop is used. Describe the core concepts of Hadoop. Recognize the features of the Hadoop ecosystem. |
 | 2 | [Getting Started with Hadoop Cluster on Azure](./Lessons/Module4_Lesson02%20Getting%20started%20with%20Hadoop%20cluster%20on%20Azure.pptx) | | Explain the purpose of a Hadoop cluster. Describe YARN Architecture and HDFS. Use MapReduce to run a job. Understand the function of HDInsight. |
 | 3 | [Getting Started with HDInsight](./Lessons/Module4_Lesson03%20Getting%20started%20with%20HDInsight.pptx) | [Lab](./Labs/Module%204%20Lesson%2003%20Getting%20started%20with%20HDInsight%20Lab.docx) | Understand features of HDFS. Understand processing Big Data with HDInsight. |
 | 4 | [Hive Overview](./Lessons/Module4_Lesson04%20Hive%20Overview.pptx) | | Understand what Hive is. Describe Hive architecture and components. Explain the Hive data model and how data is stored. |
@@ -14,5 +14,4 @@ This module introduces Big Data, its platforms, and its analysis. Hadoop is the 
 | 8 | [Hive CLI and Hive Query Language Basics](./Lessons/Module4_Lesson08%20Hive%20CLI%20and%20Hive%20Query%20Language%20Basics.pptx) | | Use the Hive CLI and Hive shell. Work with the SELECT statement. |
 | 9 | [Hive Query Language In-Depth](./Lessons/Module4_Lesson09%20Hive%20Query%20Language%20In-Depth.pptx) | [Lab](./Labs/Module%204%20Lesson%2009%20HiveQL%20Lab.docx) | Use the SELECT with WHERE statement. Understand different data types used in HiveQL. Recognize floating point comparisons. Use JOIN statements. |
 | 10 | [Hive Extensions](./Lessons/Module4_Lesson10%20Hive%20Extensions.pptx) | | Use Hive set variables to pass parameters to a Hive query. Create external scripts/programs using TRANSFORM….USING. Understand how user-defined functions (UDFs are created and used in Hive. Access open source UDFs. |
-| 11 | [Hive Text Processing](./Lessons/Module4_Lesson11%20Hive%20Text%20Processing.pptx) | | Use String functions for: manipulating strings, formatting strings, search and substitute, parsing URLs, regular expressions, data mining, and
-table generating. |
+| 11 | [Hive Text Processing](./Lessons/Module4_Lesson11%20Hive%20Text%20Processing.pptx) | | Use String functions for: manipulating strings, formatting strings, search and substitute, parsing URLs, regular expressions, data mining, and table generating. |
