@@ -73,12 +73,10 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
     _Creating a storage account_
 
-1. In the ensuing "Create storage account" blade, enter a name for the new storage account in **Name** field. The name is important, because it forms one part of the URL through which blobs created under this account are accessed.
+1. Enter a unique name for the storage account in **Name** field and make sure a green check mark appears next to it. The name is important, because it forms one part of the URL through which blobs created under this account are accessed. Place the storage account in a new resource group named "IntellipixResources," and select the region nearest you. Finish up by clicking the **Review + create** button at the bottom of the blade to create the new storage account.
 
 	> Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure. If someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the **Name** field.
-
-	Once you have a name that Azure will accept, make sure **Resource manager** is selected as the deployment model and **General purpose** is selected as the account type. Then select **Create new** under **Resource group** and enter "IntellipixResources" as the resource-group name. Select the **Location** nearest you, and finish up by clicking the **Create** button at the bottom of the blade to create the new storage account.
-    
+   
 	![Specifying parameters for a new storage account](Images/create-storage-account.png)
 
     _Specifying parameters for a new storage account_
