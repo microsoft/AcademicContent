@@ -31,7 +31,9 @@ Check out our hands-on labs that can be used on your own or in the classroom. Th
 
 ## Host great [events](Events)
 
+
 Want to host an event at your school? We can help!
+
 
 | Resource | |
 | - | - |
@@ -48,7 +50,9 @@ We also have other great educator content to help you use Azure in the classroom
 | [Azure Guides](Educator%20Content/Azure%20Guides) | Discover what Azure technologies apply to different teaching areas. |
 | [Course Content](Educator%20Content/Complimentary%20Course%20Content) | Learning modules to complement existing course instruction. Includes presentations, speaker notes, and hands-on labs. |
 
+
 ## Content from other sources
+
 
 | Resource | |
 | - | - |
