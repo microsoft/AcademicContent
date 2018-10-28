@@ -25,7 +25,7 @@ Add-AzureAccount   
 get-AzureSubscription | Format-table SubscriptionName, isDefault, isCurrent, DefaultAccount, subscriptionid 
  
 #Setting An Azure Subscription
-Set Subscripton 
+Set Subscription 
 
 Set-AzureSubscription -SubscriptionId "090fa8f2-cc0e-4d36-8cc7-22223321993796"               
 
