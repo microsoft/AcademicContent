@@ -589,7 +589,7 @@ In this exercise, you will create a new Web app in Eclipse and add code to uploa
 
 1. On line 37, replace *vision_api_key* with the Computer Vision API key that you saved in Exercise 3, Step 5.
 
-1. On line 38, replace *vision_api_endpoint* with the Computer Vision API endpoint that you saved in Exercise 3, Step 4.
+1. On line 38, replace *vision_api_endpoint* with the Computer Vision API endpoint that you saved in Exercise 3, Step 4. Add "vision/v1.0" to the end of the URL if it isn't already there.
 
 1. Right-click **WebContent** in Project Explorer and use the **New** > **HTML file** command to add an HTML file named "index.html" to the project.
 

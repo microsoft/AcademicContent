@@ -499,7 +499,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 	
 	This is the code that executes in Node.js on the server. Points of interest include the *saveImageToAzure* function, which saves an uploaded image in blob storage using APIs in the Azure Storage Client Library for Node.js, the *createThumbnailFromImage* function, which uses the Computer Vision API to generate an image thumbnail, and the *analyzeImage* function, which uses the Computer Vision API to generate a caption and a list of keywords describing the image. Another function you might care to inspect is *saveAnalysisResults*, which writes the caption and keywords to blob metadata. Finally, take a moment to examine the *listBlobsMiddleware* function, which enumerates the photos uploaded to the site by enumerating the blobs in the "photos" container. 
 
-1. Replace *vision_api_endpoint* on line 8 with the Computer Vision API endpoint that you saved in Exercise 3, Step 4.
+1. Replace *vision_api_endpoint* on line 8 with the Computer Vision API endpoint that you saved in Exercise 3, Step 4. Add "vision/v1.0" to the end of the URL if it isn't already there.
 
 1. Place the mouse cursor over "INTELLIPIX" in Visual Studio Code's Explorer window and click the **New Folder** button that appears. Name the new folder "src" (without quotation marks).
 

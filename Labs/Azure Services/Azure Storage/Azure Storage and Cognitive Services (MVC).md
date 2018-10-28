@@ -477,6 +477,8 @@ In this exercise, you will use the Computer Vision API to generate a caption for
 	<add key="VisionEndpoint" value="VISION_ENDPOINT" />
 	```
 
+1. If the endpoint URL you just added to **Web.config** doesn't end with "/vision/v1.0", add it. The complete URL should look something like this: https://eastus.api.cognitive.microsoft.com/vision/v1.0.
+
 1. In Solution Explorer, right-click the project and use the **Manage NuGet Packages...** command to install a package named **Microsoft.ProjectOxford.Vision**. This package contains types for calling the Computer Vision API. As usual, approve any changes and licenses that are presented to you.
 
     ![Installing Microsoft.ProjectOxford.Vision](Images/install-vision-package.png)
