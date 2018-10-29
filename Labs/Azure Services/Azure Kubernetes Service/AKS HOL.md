@@ -31,6 +31,13 @@ The following are required to complete this hands-on lab:
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
 - [Minecraft for Windows 10](https://www.microsoft.com/p/minecraft-for-windows-10/9nblggh2jhxj?activetab=pivot%3aoverviewtab), [Minecraft for iOS](https://itunes.apple.com/us/app/minecraft/id479516143?mt=8), or [Minecraft for Android](https://play.google.com/store/apps/details?id=com.mojang.minecraftpe)
 
+<a name="Cost"></a>
+### Cost ###
+
+![cost](Images/cost-2.png)
+
+The cost of this lab series is **moderate**. For an overview of cost ratings, refer to [Explanation of Costs](../../../Costs.md).
+
 <a name="Exercises"></a>
 ## Exercises ##
 
@@ -355,3 +362,7 @@ After a few minutes, the resource group and all of its resources will be deleted
 ## Summary ##
 
 Azure Kubernetes Service can do more than host Minecraft. It is a general-purpose solution built on top of open-source software that is compatible with third-party Kubernetes tools. It supports enterprise features such as easy scalabilty, high availability, resiliency through self-health checks, and more. Combined with other container services in Azure, it makes Azure a first-rate platform for hosting Docker containers and managing those containers with Kubernetes.
+
+---
+
+Copyright 2018 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <https://opensource.org/licenses/MIT.>
