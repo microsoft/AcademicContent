@@ -34,6 +34,22 @@ Address: Andrew Wiles Building, University of Oxford, Radcliffe Observatory Quar
 ## Schedule
 [Event website](http://www.oxfordhack.uk/) has the most up-to-date info
 
+| Time               | Event                                                                       | 
+| ------------------ | --------------------------------------------------------------------------- |
+| **Saturday**       |                                                                             |
+| 8am - 10am         | Booth setup and checkin                                                     |
+| 10am - 11am        | Opening ceremonies (need speaker)                                           |
+| 12pm               | Hacking kicks off                                                           |
+| 1pm                | Lunch                                                                       |
+| 2pm - 2:30pm       | Microsoft workshop (need speaker)                                           |
+| 6pm - 7pm          | Dinner                                                                      |
+| **Sunday**         |                                                                             |
+| 8:30am - 9:30am    | Breakfast                                                                   |
+| 12pm               | Hacking ends                                                                |
+| 12pm - 1pm         | Lunch                                                                       |
+| 1pm - 3pm          | Judging (need judges)                                                       |
+| 5pm - 6pm          | Awards ceremony (need speaker)                                              |
+
 ### Booth schedule
 It's always a good idea to be around at the booth, but if you're listed as the "booth owner" please make sure you're there to keep things running and field questions!
 
