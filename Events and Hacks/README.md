@@ -10,7 +10,6 @@
 - DubHacks
 - CalHacks
 - Start AI
-- HackaTUM
 - Oxford Hack
 - Hack Washington
 - Cambridge Hack
