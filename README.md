@@ -4,7 +4,7 @@
 
 **Source:** https://github.com/microsoft/computerscience
 
-This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and devops. It also includes interesting tech talks and engaging, fun tech challenges that Microsoft leads at student hackathons and [Imagine Cup](http://www.imaginecup.com).
+This repo provides technical resources to help students and faculty learn about [Azure](https://azure.microsoft.com/en-in/) and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and devops. It also includes interesting tech talks and engaging, fun tech challenges that Microsoft leads at student hackathons and [Imagine Cup](http://www.imaginecup.com).
 
 **Important:** We are migrating to [Microsoft Learn](https://docs.microsoft.com/learn/) | If you can't find what you're looking for in this repo, check out the 60+ labs on Microsoft Learn too. Many of these labs have their own built-in Azure sandbox making it easier for faculty and students to learn without requiring an Azure Subscription.
 
@@ -14,13 +14,10 @@ Students can get free Azure credits to explore these resources here:
 * [Azure for Students Starter](https://azure.microsoft.com/en-us/free/students-starter-faq/) | use select Azure products like App Services for free - no credit card required with academic verification
 * [Azure Free Account](https://azure.microsoft.com/en-us/free/) | $200 in Azure for one month with free tier of services - requires credit card and probably the best fit for faculty evaluating Azure for course instruction unless your organization has a grant or enterprise agreement.
 
-Your feedback is appreciated - please fork this repo and contribute!
+## Navigating through this Repository
+### Learn by doing with our [hands-on labs](Labs)
 
-To report any issues, please [log a GitHub issue](Issues). Include the content section, module number and title, along with any error messages and screenshots.
-
-## Learn by doing with our [hands-on labs](Labs)
-
-Check out our hands-on labs that can be used on your own or in the classroom. They also make for fun, easy-to-run workshops!
+* Check out our hands-on labs that can be used on your own or in the classroom. They also make for fun, easy-to-run workshops!
 
 | Lab Categories | |
 | - | - |
@@ -31,18 +28,18 @@ Check out our hands-on labs that can be used on your own or in the classroom. Th
 | [Internet-of-Things](Labs/Internet-of-Things) | Use Azure to collect and stream IoT data securely and in real time. |
 | [Web Development](Labs/Web%20Development) | Quickly create scalable web apps using Node, PHP, MySQL on easy-to-use tools like Visual Studio Code and GitHub. |
 
-## Host great [events and hacks](Events%20and%20Hacks)
+### Host great [events and hacks](Events%20and%20Hacks)
 
-Want to host an event at your school? We can help with the resources below!
+* Want to host an event at your school? We can help with the resources below!
 
 | Resource | |
 | - | - |
 | [Events and Hacks](Events%20and%20Hacks) | These are keynotes and hack workshops that Microsoft has produced for student events. Feel free to use. Most slides also contain suggested demos and talk tracks. There's also pre-packaged coding challenge to help students explore machine learning. |
 | [Tech Talks](Events%20and%20Hacks/Tech%20Talks) | One-off presentations on emerging or innovative tech topics with speakers notes and demos. |
 
-## Other available [academic resources](Educator%20Resources)
+### Other available [academic resources](Educator%20Resources)
 
-We also have other great educator content to help you use Azure in the classroom.
+* We also have other great educator content to help you use Azure in the classroom.
 
 | Resource | |
 | - | - |
@@ -50,7 +47,7 @@ We also have other great educator content to help you use Azure in the classroom
 | [Azure Guides](Educator%20Resources/Azure%20Guides) | Discover what Azure technologies apply to different teaching areas. |
 | [Course Content](Educator%20Resources/Complimentary%20Course%20Content) | Learning modules to complement existing course instruction. Includes presentations, speaker notes, and hands-on labs. |
 
-## Content from other sources
+### Content from other sources
 
 | Resource | |
 | - | - |
@@ -59,4 +56,8 @@ We also have other great educator content to help you use Azure in the classroom
 | [Research case studies](https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/) | Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too! |
 | [Microsoft Research Data Sets](http://aka.ms/datascience) | Data sets shared by Microsoft Research for academic use. |
 | [Machine Learning Data Sets](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-use-sample-datasets) | Data sets shared by Azure Machine Learning team to help explore machine learning. |
-| [MS MARCO](http://www.msmarco.org) | Microsoft MAchine Reading COmprehension Dataset generated from real Bing user queries and search results. |
+| [MS MARCO](http://www.msmarco.org) | Microsoft Machine Reading COmprehension Dataset generated from real Bing user queries and search results. |
+
+Your feedback is appreciated - please fork this repo and contribute!
+
+To report any issues, please [log a GitHub issue](Issues). Include the content section, module number and title, along with any error messages and screenshots.
