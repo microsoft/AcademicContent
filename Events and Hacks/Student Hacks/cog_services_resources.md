@@ -9,4 +9,5 @@
 - https://github.com/Azure-Samples/cognitive-services-vision-face-finder
 - https://github.com/Azure-Samples/cognitive-services-dotnet-call-center
 - https://github.com/Azure-Samples/cognitive-services-studybot-csharp
+- [AI Immersion Workshop](https://github.com/Microsoft/AI-Immersion-Workshop)
  
