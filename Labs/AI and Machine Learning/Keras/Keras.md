@@ -132,7 +132,7 @@ In this exercise, you will use Keras to build and train a neural network that an
 
     _Dictionary mapping words to integers_
 
-1. As you have seen, each review in the dataset is encoded as a collection of integers rather than words. Is it possible reverse-encode a review so you can see the original text that comprised it? Enter the following statements into a new cell and execute them to show the first review in `x_train` in textual format:
+1. As you have seen, each review in the dataset is encoded as a collection of integers rather than words. Is it possible to reverse-encode a review so you can see the original text that comprised it? Enter the following statements into a new cell and execute them to show the first review in `x_train` in textual format:
 
 	```python
 	word_dict = imdb.get_word_index()
