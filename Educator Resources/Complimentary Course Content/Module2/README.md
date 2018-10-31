@@ -1,0 +1,15 @@
+# Module 2 - Web Development
+
+This module introduces the foundations of JavaScript — the language of the web. Additionally this module covers using Node.js to build a back-end, how to use JavaScript on a server to build RESTful APIs and how to deploy to a scalable and convenient cloud hosting platform (Azure Cloud Services/Websites) with persistent data using a NoSQL database (Azure Storage).
+
+| Lesson | Title | Lab | Objectives |
+| ------ | ----- | --- | ---------- |
+| 1 | [JS Primer](./Lessons/Module2_Lesson1%20JS%20Primer.pptx) | | Write a basic JavaScript program. Understand the basics of JavaScript including: Objects and Primitives, Truthy and Falsy, Functions. |
+| 2 | [Getting Started with Node.js](./Lessons/Module2_Lesson2%20Getting%20Started%20with%20Node.js.pptx) | [Lab](./Labs/Module%202%20Lesson%202%20Lab.docx) | Understand the basics of node.js. Interact with node.js on the command line. Understand and use npm. |
+| 3 | [Building a Website with Azure](./Lessons/Module2_Lesson3%20Azure%20Websites.pptx) | [Lab](./Labs/Module%202%20Lesson%203%20Lab.docx) | Understand why to adopt cloud computing. Explain some Azure service models. Define the benefits of Azure websites. |
+| 4 | [Building a Web Application Server with Express](./Lessons/Module2_Lesson4%20Building%20a%20Web%20Application%20Server%20with%20Express.pptx) | | Understand the difference between static and dynamic content. Use Node’s middleware. Run Express. |
+| 5 | [Building REST Services with Express](./Lessons/Module2_Lesson5%20Building%20REST%20Services%20with%20Express.pptx) | [Lab](./Labs/Module%202%20Lesson%205%20Lab.docx) | Understand the basics of REST. Use REST verbs for CRUD operations. Parse JSON, Buffer, and HTML. |
+| 6 | [Working with Node.js and Azure Table Storage](./Lessons/Module2_Lesson6%20Working%20with%20Node.js%20and%20Azure%20Table%20Storage.pptx) | [Lab](./Labs/Module%202%20Lesson%206%20Lab.docx) | Understand the basics of Azure Storage. Interact with Azure Storage Tables using Node.js. Perform basic CRUD operations. |
+| 7 | [Building a Web Application Client with React](./Lessons/Module2_Lesson7%20Building%20a%20Web%20Application%20Client%20with%20React.pptx) | [Lab](./Labs/Module%202%20Lesson%207%20Lab.docx) | Understand the basics of React, JSX, and Babel. Build a web application client using React, JSX, and Babel. |
+| 8 | [Deploying Node.js Applications to Azure](./Lessons/Module2_Lesson8%20Deploying%20Node.js%20Web%20Applications%20to%20Azure.pptx) | [Lab](./Labs/Module%202%20Lesson%208%20Lab.docx) | Create an Azure Site. Understand Azure Deployment using Git. Interact with the Azure CLI. |
+| 9 | [Serverless Computing with Azure Functions](./Lessons/Module2_Lesson9%20Serverless%20Computing%20with%20Azure%20Functions.pptx) | [Lab](./Labs/Module%202%20Lesson%209%20Lab.docx) | Understand Azure Functions. Understand Serverless Computing. Create a HTTP Webhook+API Trigger. |

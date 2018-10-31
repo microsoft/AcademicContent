@@ -1,92 +1,62 @@
-<html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <link rel="stylesheet" href="style.css">
-   </head>
-   <body id="home">
-      <div class="container">
-         <div class="jumbotron">
-            <h1>Academic Resources for Computer Science</h1>
-            <p><b>September 2017 release.</b> <i>The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under <a href="https://github.com/MSFTImagine/computerscience/blob/master/LICENSE.md">MIT license</a>. Please check back regularly for updated versions.</i> <b>Source:</b> <a href="https://github.com/MSFTImagine/computerscience">https://github.com/MSFTImagine/computerscience</a>.</p>
-            <p>
-               This repo provides technical resources for faculty, students, and Microsoft developer advocates for use in computer science learning. The modules cover common cross-platform scenarios including mobile app dev, web dev, internet of things, data science, machine learning, and devops. Content delivery is divided into four groups: complimentary course content, tech talks, events materials to support hackathons or coding challenges, and course labs.</p>
-               <p>Most hands-on learning focuses on how to deploy cross-platform technologies on Microsoft Azure although most of the concepts can be applied across many cloud platform solutions. Academic users can get free Azure from various programs including: 
-            <a href="https://azure.microsoft.com/en-us/free/">Azure Free Account (requires credit card)</a> or 
-            <a href="https://www.dreamspark.com/student/default.aspx">Microsoft Imagine (requires student verification but no credit card)</a>. 
-            ,
-            .
-            </p>
-               <p>Your feedback is appreciated - please fork this repo and contribute!</p> 
-               <p>If you want to report any issues we need to fix. Please log an <a href="https://github.com/MSFTImagine/computerscience/issues">issue</a>. Include 
-               the content section, module number and title, along with any error messages and screenshots.</p> 
-             </div>  
-         </div>
-         <div class="panel panel-default">
-            <div class="panel-heading">
-               <h3 class="panel-title">Available academic resources</h3>
-            </div>
-            <div class="panel-body">
-            <h2></h2>
-          <table class="table table-bordered table-striped table-hover">
-					<tr>
-					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Workshop"> Workshop</a></b></td>
-					   <td>Hands-on exercises using cross-platform technologies with Microsoft Azure.</td>
-					</tr>
-          <tr>
-					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Scripts">Scripts(preview)</a></b></td>
-					   <td>Scripts and templates to help set up your classroom environment.</td>
-					</tr>
-          <tr>
-					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Azure%20Guides">Azure Guides</a></b></td>
-					   <td>Discover what Azure technologies apply to different teaching areas.</td>
-					</tr>
-          <tr>
-					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Event-In-Box/Machine%20Learning%20Challenge">Event in a box</a></b></td>
-					   <td>A pre-packaged event to help students explore machine learning.</td>
-					</tr>
-          <tr>
-					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Complimentary%20Course%20Content">Complimentary Course Content</a></b></td>
-					   <td>Learning modules to complement existing course instruction. Includes presentations, speaker notes, and hands-on labs.</td>
-					</tr>
-          <tr>
-					   <td><b><a href="https://github.com/MSFTImagine/computerscience/tree/master/Tech%20Talks"> Tech Talks</a></b></td>
-					   <td>Presentations on emerging or innovative tech topics with speakers notes and demos. </td>
-					</tr>
-				 </table>
-         <h2>Content from other sources</h2>
-         <table class="table table-bordered table-striped table-hover">
-					<tr>
-					   <td><b><a href="https://github.com/Microsoft/TechnicalCommunityContent">Technical Community Content</a></b></td>
-					   <td>Workshops from the community team.</td>
-					</tr>
-          <tr>
-					   <td><b><a href="http://aka.ms/NUSworkshop">Bots workshop</a></b></td>
-					   <td>Bots and LUIS workshop from Singapore team.</td>
-					</tr>
-          <tr>
-					   <td><b><a href="https://github.com/Microsoft/CNTK/wiki/Setup-Windows-Binary-Script"> Cognitive Tookit</a></b></td>
-					   <td>Resources to set up Cognitive Toolkit using notebooks from product team. After installing tutorials will be in c:\repos\bindings\python\tutorials.</td>
-					</tr>
-					<tr>
-					   <td><b><a href="https://microsoft.github.io/techcasestudies/"> Industry Case Studies</a></b></td>
-					   <td>Case studies of companies using Azure.</td>
-					</tr>
-          <tr>
-					   <td><b><a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/">Research case studies</a></b></td>
-					   <td>Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too!</td>
-					</tr>
-          <tr>
-					   <td><b><a href="http://aka.ms/datascience">Microsoft Research Data Sets</a></b></td>
-					   <td>Data sets shared by Microsoft Research for academic use.</td>
-					</tr>
-          <tr>
-					   <td><b><a href="https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-use-sample-datasets">Machine Learning Data Sets</a></b></td>
-					   <td>Data sets shared by Azure Machine Learning team to help explore machine learning.</td>
-					</tr>
-				 </table>
-			</div>
-      </div>
-   </body>
-</html>
+# Tech Resources for Computer Science and Academic Communities
+
+*The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
+
+**Source:** https://github.com/microsoft/computerscience
+
+This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and devops. It also includes interesting tech talks and engaging, fun tech challenges that Microsoft leads at student hackathons and [Imagine Cup](http://www.imaginecup.com).
+
+**Important:** We are migrating to [Microsoft Learn](https://docs.microsoft.com/learn/) | If you can't find what you're looking for in this repo, check out the 60+ labs on Microsoft Learn too. Many of these labs have their own built-in Azure sandbox making it easier for faculty and students to learn without requiring an Azure Subscription.
+
+Students can get free Azure credits to explore these resources here:
+
+* [Azure for Students](https://azure.microsoft.com/en-us/free/students/) | $100 in Azure for 12 months with free tier of services - no credit card required with academic verification
+* [Azure for Students Starter](https://azure.microsoft.com/en-us/free/students-starter-faq/) | use select Azure products like App Services for free - no credit card required with academic verification
+* [Azure Free Account](https://azure.microsoft.com/en-us/free/) | $200 in Azure for one month with free tier of services - requires credit card and probably the best fit for faculty evaluating Azure for course instruction unless your organization has a grant or enterprise agreement.
+
+Your feedback is appreciated - please fork this repo and contribute!
+
+To report any issues, please [log a GitHub issue](Issues). Include the content section, module number and title, along with any error messages and screenshots.
+
+## Learn by doing with our [hands-on labs](Labs)
+
+Check out our hands-on labs that can be used on your own or in the classroom. They also make for fun, easy-to-run workshops!
+
+| Lab Categories | |
+| - | - |
+| [AI and Machine Learning](Labs/AI%20and%20Machine%20Learning) | Build bots and apps backed by AI and ML using Azure and Azure Cognitive Services. |
+| [Azure Services](Labs/Azure%20Services) | Deploy serverless code with Azure Functions, run Docker containers, use Azure to build Blockchain networks and more. |
+| [Big Data and Analytics](Labs/Big%20Data%20and%20Analytics) | Spin up Apache Spark Clusters, Use Hadoop to extract information from big datasets or use Power BI to explore and visualize data. |
+| [Deep Learning](Labs/Deep%20Learning) | These labs build on each other to introduce tools and libraries for AI. They're labeled 200-400 level to indicate level of technical detail. |
+| [Internet-of-Things](Labs/Internet-of-Things) | Use Azure to collect and stream IoT data securely and in real time. |
+| [Web Development](Labs/Web%20Development) | Quickly create scalable web apps using Node, PHP, MySQL on easy-to-use tools like Visual Studio Code and GitHub. |
+
+## Host great [events and hacks](Events%20and%20Hacks)
+
+Want to host an event at your school? We can help with the resources below!
+
+| Resource | |
+| - | - |
+| [Events and Hacks](Events%20and%20Hacks) | These are keynotes and hack workshops that Microsoft has produced for student events. Feel free to use. Most slides also contain suggested demos and talk tracks. There's also pre-packaged coding challenge to help students explore machine learning. |
+| [Tech Talks](Events%20and%20Hacks/Tech%20Talks) | One-off presentations on emerging or innovative tech topics with speakers notes and demos. |
+
+## Other available [academic resources](Educator%20Resources)
+
+We also have other great educator content to help you use Azure in the classroom.
+
+| Resource | |
+| - | - |
+| [Scripts](Educator%20Resources/Scripts) | Scripts and templates built in PowerShell or BASH to help set up your classroom environment. |
+| [Azure Guides](Educator%20Resources/Azure%20Guides) | Discover what Azure technologies apply to different teaching areas. |
+| [Course Content](Educator%20Resources/Complimentary%20Course%20Content) | Learning modules to complement existing course instruction. Includes presentations, speaker notes, and hands-on labs. |
+
+## Content from other sources
+
+| Resource | |
+| - | - |
+| [Technical Community Content](https://github.com/Microsoft/TechnicalCommunityContent) | Workshops from the community team. |
+| [Cognitive Tookit](https://docs.microsoft.com/en-us/cognitive-toolkit/Setup-Windows-Binary-Script) | Resources to set up Cognitive Toolkit using notebooks from product team. After installing tutorials will be in c:\repos\bindings\python\tutorials. |
+| [Research case studies](https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/) | Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too! |
+| [Microsoft Research Data Sets](http://aka.ms/datascience) | Data sets shared by Microsoft Research for academic use. |
+| [Machine Learning Data Sets](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-use-sample-datasets) | Data sets shared by Azure Machine Learning team to help explore machine learning. |
+| [MS MARCO](http://www.msmarco.org) | Microsoft MAchine Reading COmprehension Dataset generated from real Bing user queries and search results. |

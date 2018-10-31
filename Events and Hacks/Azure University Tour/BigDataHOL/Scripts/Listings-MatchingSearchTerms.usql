@@ -1,0 +1,50 @@
+// Output listings matching search terms: 
+
+// Populate our search term variables:
+DECLARE @State string = "WA"; // WA, CA, TX, or DC 
+DECLARE @City string = "Seattle"; // Seattle, Austin, Los Angeles, or Washington
+DECLARE @Neighbourhood string = "Capitol Hill";
+DECLARE @Property_type string = "Apartment"; // "Private room" or "Entire home/apt"
+DECLARE @Room_type string = "Entire home/apt"; // "Entire home/apt", "Shared room",  or "Private room"
+DECLARE @Bedrooms int = 1;
+
+// Read the data file Listings.csv into @AllListings variable:
+@AllListings =
+EXTRACT
+  id int
+, neighbourhood  string
+, city  string
+, state  string
+, zipcode  string
+, property_type  string
+, room_type  string
+, bedrooms  int
+, price  string
+, last_review string
+, review_scores_rating  string
+, review_scores_value  string
+, reviews_per_month string
+, availability_30 string
+, availability_365  string
+FROM "Listings-MyDates.csv"
+USING Extractors.Csv(skipFirstNRows: 1, silent:true) ;
+
+// SELECT Listing records, matching our search terms, into @ListingsBetweenDates variable:
+@ListingsMatchingSearchTerms =
+SELECT al.*
+FROM @AllListings AS al // Using "al" as an alias for @AllListings
+WHERE
+    state == @State
+AND city == @City
+AND neighbourhood == @Neighbourhood
+AND property_type == @Property_type
+AND room_type == @Room_type
+AND bedrooms == @Bedrooms ;
+
+// Save the results from @ListingsMatchingSearchTerms variable to a data file:
+// ORDER BY the review score rating, largest values first.
+OUTPUT @ListingsMatchingSearchTerms
+    TO "Listings-MatchingSearchTerms.csv"
+    ORDER BY review_scores_rating DESC 
+    USING Outputters.Csv(outputHeader:true);
+    
