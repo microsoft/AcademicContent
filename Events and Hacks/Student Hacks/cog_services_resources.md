@@ -11,3 +11,4 @@
 - https://github.com/Azure-Samples/cognitive-services-studybot-csharp
 - [AI Immersion Workshop](https://github.com/Microsoft/AI-Immersion-Workshop)
  
+AI samples with Visual Studio Tools for AI: https://github.com/Microsoft/samples-for-ai
