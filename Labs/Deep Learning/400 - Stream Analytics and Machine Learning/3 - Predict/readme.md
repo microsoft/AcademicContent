@@ -349,7 +349,7 @@ In this exercise, you will modify the Azure Function that you created in the pre
 
 	- Replace PREDICTION_URL on line 2 with the prediction URL you saved in Exercise 2
 	- Replace PREDICTION_KEY on line 3 with the prediction key you saved in Exercise 2
-	- Replace ACCOUNT_NAME on line 4 with the name of the storage account you created in Lab 1
+	- Replace ACCOUNT_NAME on line 4 with the name of the storage account you created in [Part 1](../1%20-%20Ingest)
 	- Replace ACCOUNT_KEY on line 5 with the storage account's access key
 	- Replace SERVER_NAME on line 6 with the name you assigned to the database server in Exercise 3
 	- Replace DATABASE_NAME on line 7 with the name you assigned to the database
