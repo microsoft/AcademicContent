@@ -41,7 +41,7 @@ Address: Andrew Wiles Building, University of Oxford, Radcliffe Observatory Quar
 | 10am - 11am        | Opening ceremonies (need speaker)                                           |
 | 12pm               | Hacking kicks off                                                           |
 | 1pm                | Lunch                                                                       |
-| 2pm - 2:30pm       | Microsoft workshop (need speaker)                                           |
+| 2pm - 2:30pm       | Microsoft workshop (Simona speaking)                                        |
 | 6pm - 7pm          | Dinner                                                                      |
 | **Sunday**         |                                                                             |
 | 8:30am - 9:30am    | Breakfast                                                                   |
