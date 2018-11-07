@@ -10,5 +10,6 @@
 - https://github.com/Azure-Samples/cognitive-services-dotnet-call-center
 - https://github.com/Azure-Samples/cognitive-services-studybot-csharp
 - [AI Immersion Workshop](https://github.com/Microsoft/AI-Immersion-Workshop)
+- https://azure.github.io/LearnAI-Bootcamp/emergingaidev_bootcamp
  
 AI samples with Visual Studio Tools for AI: https://github.com/Microsoft/samples-for-ai
