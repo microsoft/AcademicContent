@@ -34,6 +34,8 @@ Address: Andrew Wiles Building, University of Oxford, Radcliffe Observatory Quar
 ## Schedule
 [Event website](http://www.oxfordhack.uk/) has the most up-to-date info
 
+[Schedule](https://docs.google.com/spreadsheets/d/1aSUoTyw9PtjxoPULKEcpN1GiuRkGZRVx_5kFCBGl3FU/edit#gid=0)
+
 | Time               | Event                                                                       | 
 | ------------------ | --------------------------------------------------------------------------- |
 | **Saturday**       |                                                                             |
