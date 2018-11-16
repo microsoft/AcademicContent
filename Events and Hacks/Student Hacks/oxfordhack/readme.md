@@ -5,15 +5,18 @@
 - Check in between 8 - 9am to get mentor creds + come to booth to say hi
 - Point students to [aka.ms/hackwithazure](https://aka.ms/hackwithazure)!
 - [Cognitive services resources](../cog_services_mentor.md) (slack, bug reports, etc.)
-- [Judging form link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUNlBJMlNYT1lDSFVWVEpFUkpPQTlYTk9JNy4u)
+- [Judging form link]() -- TBD
 
 ### Key times:
+Please be around for these key times when we'll need the most help:
 
 **Saturday Nov. 24**
-TBD
+- 9am: Checkin
+- 9am-1pm: Kickoff + first few hours of hacking
 
 **Sunday Nov. 25**
-TBD
+- 9am-12pm: Last few hours of hacking
+- 1pm-3pm: Judging
 
 **Where:** The Mathematical Institute at the University of Oxford
 
@@ -24,11 +27,6 @@ Address: Andrew Wiles Building, University of Oxford, Radcliffe Observatory Quar
 **Shana** - main POC
 - phone: 206-434-6193
 - mail: shanama@microsoft.com
-
-| Name               | Title                         |  Role at the event                            | Contact info |
-| ------------------ | ----------------------------- | --------------------------------------------- | ------------ |
-| Shana Matthews     | PM student dev                | Event + Technical mentor + Technical workshop | 206-434-6193 |
-
 
 
 ## Schedule
@@ -51,18 +49,6 @@ Address: Andrew Wiles Building, University of Oxford, Radcliffe Observatory Quar
 | 12pm - 1pm         | Lunch                                                                       |
 | 1pm - 3pm          | Judging (need judges)                                                       |
 | 5pm - 6pm          | Awards ceremony (need speaker)                                              |
-
-### Booth schedule
-It's always a good idea to be around at the booth, but if you're listed as the "booth owner" please make sure you're there to keep things running and field questions!
-
-TBD
-
-| Time               | Booth owner                                                                 | 
-| ------------------ | --------------------------------------------------------------------------- |
-| **Saturday**       |                                                                             |
-|                    |                                                                             |
-| **Sunday**         |                                                                             |
-|                    |                                                                             |
 
 ## FYI - lots of resources about Cognitive Services
 [Cognitive services resources](../cog_services_mentor.md) (slack, bug reports, etc.)
@@ -104,7 +90,7 @@ We're going to be judging projects that used Azure for the Azure Champ Challenge
 
 [Judging info](../judging)
 
-[Judging form link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUNlBJMlNYT1lDSFVWVEpFUkpPQTlYTk9JNy4u)
+[Judging form link]() -- TBD
 
 [Terms & Conditions for Azure prize]() -- TBD
 
