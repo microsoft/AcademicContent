@@ -153,7 +153,7 @@ The notebook editor currently shows an empty cell. In this exercise, you will ad
 
 1. Place the cursor in the empty cell at the bottom of the notebook. Change the cell type to **Markdown** and enter "Create a scatter plot" as the text.
 
-1. Add a **Code** cell and paste in the following code, which uses [Mapplotlib](http://matplotlib.org/) to create a scatter plot.
+1. Add a **Code** cell and paste in the following code, which uses [Matplotlib](http://matplotlib.org/) to create a scatter plot.
 
 	```python
 	plt.scatter(yearsBase, meanBase)
