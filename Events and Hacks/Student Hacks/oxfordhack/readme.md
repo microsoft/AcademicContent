@@ -67,7 +67,7 @@ Address: Andrew Wiles Building, University of Oxford, Radcliffe Observatory Quar
    - If verification code does not work, Shana has Azure passes student can activate
 - Enter to win Azure API prize
    - Use Azure in your hackathon and qualify for Azure API prize
-   - Prize is 4 Xbox One S 1TB
+   - Prize is 4 Xbox One X 1TB
    - Find tutorials to learn Azure at docs.microsoft.com or at our 5pm workshop
 
      
