@@ -56,7 +56,7 @@ Address: Andrew Wiles Building, University of Oxford, Radcliffe Observatory Quar
 ## Booth talking points
 - [aka.ms/hackwithazure](https://aka.ms/hackwithazure) - tutorials and troubleshooting!
 - Apply for a job at Microsoft (expect a LOT of interest in this)
-   - Apply for internship or fulltime jobs at careers.microsoft.com
+   - Apply for internship or fulltime jobs at [careers.microsoft.com](https://careers.microsoft.com/)
    - Online applications only, we do not accept paper resumes.
    - Refer recruiting questions to University recruiting or Microsoft full time employees.
 - Free Azure through Azure for Students
