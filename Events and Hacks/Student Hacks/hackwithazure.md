@@ -1,6 +1,10 @@
 # Hack with Azure - aka.ms/hackwithazure
 Share the love: [aka.ms/hackwithazure](https://aka.ms/hackwithazure)
 
+## Quick links
+- Free $100 credit: https://aka.ms/azureforstudents
+- Take survey to get tshirt or socks: https://aka.ms/azure-hackathon
+
 ## What is Azure?
 Azure is a cloud computing platform (similar to AWS and Google Cloud Platform). We offer a broad range of services for developers to create with. 
 
@@ -13,7 +17,7 @@ In particular, Azure has great, beginner-friendly services to help you use...
 
 ...in your hacks! 
 
-[Check the docs](https://docs.microsoft.com/en-us/azure/#pivot=get-started&panel=get-started1) on how to get started with Azure. We offer a full range of labs with [Microsoft Learn](https://docs.microsoft.com/en-us/learn/). See more details below.
+[Check the docs](https://docs.microsoft.com/en-us/azure/#pivot=get-started&panel=get-started1) on how to get started with Azure. We offer a full range of labs with [Microsoft Learn](https://docs.microsoft.com/en-us/learn/).
 
 ## How to get free Azure credits
 [aka.ms/azure4students](https://aka.ms/azure4students) - use your @<yourschool>.edu email to get $100 Azure credit plus free services  without a credit card.
@@ -30,14 +34,6 @@ See below for details.
 ## So you want to work (or intern) at Microsoft?
 Apply for internship or fulltime jobs at [careers.microsoft.com](careers.microsoft.com)!
 We do not accept paper resumes and none of us are recruiters, but if you catch us with a free moment we're happy to tell you about our personal experiences going through the recruiting process.
-
-## Demos from Azure workshop
-https://notebooks.azure.com/shana/libraries/demos
-- [Text analytics - alpacas on reddit](https://notebooks.azure.com/shana/libraries/demos/html/cogservices_textanalytics.ipynb)
-- [Speech to text/translation](https://notebooks.azure.com/shana/libraries/demos/html/cogservices_translate.ipynb)
-- [Vision - coral reefs & scuba divers](https://notebooks.azure.com/shana/libraries/demos/html/cogservices_vision.ipynb)
-
-(sorry, the speech to text one doesn't work on azure notebooks, but you can download the .ipynb and run it locally on Jupyter 😃)
 
 ## Tutorials
 ### Add AI
