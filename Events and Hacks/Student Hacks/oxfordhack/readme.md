@@ -6,7 +6,7 @@
 - Point students to [aka.ms/hackwithazure](https://aka.ms/hackwithazure)!
 - [Join the Slack](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fjoin.slack.com%2Ft%2Fparticipant-oh2018%2Fshared_invite%2FenQtNDg0NjE5NTIyMTYxLTU0YzE5MTJiNmY4ZmY5NjNiYjAwMzkyNzFjMmE0ZWZiNjM2MTAwYzY5OTdjYzAzOWZmZDM3YzFiYzY3NTlhYzI&data=02%7C01%7CShana.Matthews%40microsoft.com%7C05e93caba4e84fe98f3008d650699932%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636784811830767844&sdata=3SOUzUXP8k3iDAzhAHCfeHCzTpTkbGCSR%2FF%2FDYXlj1c%3D&reserved=0)
 - [Cognitive services resources](../cog_services_mentor.md) (slack, bug reports, etc.)
-- [Judging form link]() -- TBD
+- [Judging form link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUQkhWSTY1UlpRWTNHRVAxNlIxMTJVUlBYRy4u) 
 
 ### Key times:
 Please be around for these key times when we'll need the most help:
@@ -91,7 +91,7 @@ We're going to be judging projects that used Azure for the Azure Champ Challenge
 
 [Judging info](../judging)
 
-[Judging form link]() -- TBD
+[Judging form link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUQkhWSTY1UlpRWTNHRVAxNlIxMTJVUlBYRy4u)
 
 [Terms & Conditions for Azure prize]() -- TBD
 
