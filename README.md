@@ -1,6 +1,6 @@
 # Tech Resources for Computer Science and Academic Communities
 
-*The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
+*The content and the code in this repo are intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
 
 **Source:** https://github.com/microsoft/computerscience
 
