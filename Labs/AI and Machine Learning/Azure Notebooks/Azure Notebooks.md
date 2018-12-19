@@ -40,7 +40,7 @@ There is no cost associated with this lab because it doesn't require an Azure su
 <a name="Exercises"></a>
 ## Exercises ##
 
-- [Exercise 1: Create a library and a notebook](#Exercise1)
+- [Exercise 1: Create a project and a notebook](#Exercise1)
 - [Exercise 2: Upload data and create a scatter plot](#Exercise2)
 - [Exercise 3: Perform linear regression with NumPy](#Exercise3)
 - [Exercise 4: Perform linear regression with scikit-learn](#Exercise4)
@@ -51,7 +51,7 @@ There is no cost associated with this lab because it doesn't require an Azure su
 Estimated time to complete this lab: **45** minutes.
 
 <a name="Exercise1"></a>
-## Exercise 1: Create a library and a notebook ##
+## Exercise 1: Create a project and a notebook ##
 
 The first order of business is to create a new Azure notebook. Azure notebooks are contained in projects, whose primary purpose is to group related notebooks. In this exercise, you will create a new project and then create a notebook inside it.
 
