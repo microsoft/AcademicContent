@@ -33,7 +33,7 @@ See below for details.
 
 ## So you want to work (or intern) at Microsoft?
 Apply for internship or fulltime jobs at [careers.microsoft.com](careers.microsoft.com)!
-We do not accept paper resumes and none of us are recruiters, but if you catch us with a free moment we're happy to tell you about our personal experiences going through the recruiting process.
+Most of us aren't recruiters (and we can't guarantee that we will have one with us), but if you catch us with a free moment we're happy to tell you about our personal experiences going through the recruiting process.
 
 ## Tutorials
 ### Add AI
