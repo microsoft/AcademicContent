@@ -24,7 +24,6 @@ In this hands-on lab, you will learn how to:
 The following are required to complete this hands-on lab:
 
 - An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
-- The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 - [Node.js](https://nodejs.org/)
 
 <a name="Resources"></a>
@@ -54,35 +53,35 @@ Estimated time to complete this lab: **30** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Create a storage account ##
 
-In this exercise, you will use the Azure CLI to create an Azure storage account in the cloud. This storage account will store as blobs photographs taken by the simulated cameras that you deploy. Note that you can also create storage accounts using the [Azure Portal](https://portal.azure.com). Whether to use the CLI or the portal is often a matter of personal preference.
+In this exercise, you will use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) to create an Azure storage account in the cloud. The storage account will store as blobs photographs taken by the simulated cameras that you deploy. The Cloud Shell provides a browser-based command line for executing Azure commands and is an alternative to the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), which allows you to execute the same commands on your local workstation. Whether to use the CLI or the Cloud Shell is often a matter of personal preference. One of the advantages of the Cloud Shell is that it doesn't require you to install any software on your PC. Another is that you don't have to update it periodically as you do the CLI.
 
-1. If the Azure CLI 2.0 isn't installed on your computer, go to https://docs.microsoft.com/cli/azure/install-azure-cli and install it now. You can determine whether the CLI is installed — and what version is installed — by opening a Command Prompt or terminal window and typing the following command:
+1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
-	```
-	az -v
-	```
+1. Click the **Cloud Shell** button in the toolbar at the top of the portal to open the Cloud Shell.
 
-	If the CLI is installed, the version number will be displayed. If the version number is less than 2.0.23, **download and install the latest version**.
+	> If you would prefer, you can open a Cloud Shell in a separate browser window by pointing your browser to https://shell.azure.com. Clicking the Cloud Shell button in the portal opens a Cloud Shell inside the portal.
 
-	> As an alternative to installing the Azure CLI, you can use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) available in the [Azure Portal](https://portal.azure.com). Simply open the portal in your browser and click the **Cloud Shell** button in the toolbar at the top of the page. One of the benefits of using the Cloud Shell is that you're *always* running an up-to-date version. Note that you can use **Shift+Insert** to paste commands into the Cloud Shell, and **Ctrl+Insert** to copy text from the Cloud Shell to the clipboard.
+    ![Opening the Azure Cloud Shell](Images/cloud-shell.png)
 
-	![Opening the Azure Cloud Shell](Images/cloud-shell.png)
+    _Opening the Azure Cloud Shell_
 
-	_Opening the Azure Cloud Shell_
+	If you haven't used the Cloud Shell before, you will prompted to choose a language. Select Bash, and if prompted to allow the Cloud Shell to create a storage account, allow it to do so. In addition, if you have multiple Azure subscriptions, you will be asked to choose a subscription. Select the one that you wish to use to create resources in this lab and the next one.
 
-1. The next task is to create a resource group to hold the storage account and other Azure resources that make up the solution you're building. Execute the following command in a Command Prompt window or terminal window (or in the Azure Cloud Shell) to create a resource group named "streaminglab-rg" in Azure's South Central US region:
+1. The next task is to create a resource group to hold the storage account and other Azure resources that comprise the solution. Make sure the language selected in the Cloud Shell is Bash, and execute the following command in the Cloud Shell to create a resource group named "streaminglab-rg" in Azure's South Central US region:
 
 	```
 	az group create --name streaminglab-rg --location southcentralus
 	```
 
-	> If the CLI responds by saying you must log in to execute this command, type ```az login``` and follow the instructions on the screen to log in to the CLI. In addition, if you have multiple Azure subscriptions, follow the instructions at https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli to set the active subscription — the one that the resources you create with the CLI will be billed to.
+	You can use **Shift+Insert** to paste commands into the cloud shell, and **Ctrl+Insert** to copy text from the cloud shell to the clipboard.
 
-1. Now use the following command to create a general-purpose storage account in the "streaminglab-rg" resource group. Replace ACCOUNT_NAME with the name you wish to assign the storage account. The account name must be unique within Azure, so if the command fails because the storage-account name is already in use, change the name and try again. In addition, storage-account names must be from 3 to 24 characters in length and can contain only numbers and lowercase letters.
+1. Now use the following command to create a general-purpose storage account in the "streaminglab-rg" resource group. Replace ACCOUNT_NAME with the name you wish to assign the storage account.
 
 	```
 	az storage account create --name ACCOUNT_NAME --resource-group streaminglab-rg --location southcentralus --kind Storage --sku Standard_LRS
 	```
+
+	The account name must be unique within Azure, so if the command fails because the storage-account name is already in use, change the name and try again. In addition, storage-account names must be from 3 to 24 characters in length and can contain only numbers and lowercase letters.
 
 1. Before you can upload blobs to a storage account, you must create a container to store them in. Use the following command to create a container named "photos" in the storage account, replacing ACCOUNT_NAME with the name you assigned to the storage account in the previous step:
 
@@ -90,16 +89,22 @@ In this exercise, you will use the Azure CLI to create an Azure storage account 
 	az storage container create --name photos --account-name ACCOUNT_NAME
 	```
 
+1. Execute the following command in the Cloud Shell to list the access keys for the storage account, once more replacing ACCOUNT_NAME with the storage account's name:
+
+	```
+	az storage account keys list --account-name ACCOUNT_NAME
+	```
+
+1. Copy the primary access key from the output and paste it into a text file so you can retrieve it later. Remember that you can use **Ctrl+Insert** to copy text from the cloud shell to the clipboard.
+
 You now have a storage account for storing photos taken by your simulated cameras, and a container to store them in. Now let's create an IoT hub to receive events transmitted by the cameras.
 
 <a name="Exercise2"></a>
 ## Exercise 2: Create an IoT hub ##
 
-Azure Stream Analytics supports several types of input, including input from [Azure IoT hubs](https://azure.microsoft.com/services/iot-hub/). In the IoT world, data is easily transmitted to IoT hubs through field gateways (for devices that are not IP-capable) or cloud gateways (for devices that *are* IP-capable), and a single Azure IoT hub can handle millions of events per second from devices spread throughout the world. IoT hubs support secure two-way communications with the devices connected to them using a variety of transport protocols.
+Azure Stream Analytics supports several types of input, including input from [Azure IoT hubs](https://azure.microsoft.com/services/iot-hub/). In the IoT world, data is easily transmitted to IoT hubs through field gateways (for devices that are not IP-capable) or cloud gateways (for devices that *are* IP-capable), and a single Azure IoT hub can handle millions of events per second from devices spread throughout the world. IoT hubs support secure two-way communications with the devices connected to them using a variety of transport protocols. In this exercise, you will create an Azure IoT hub to receive input from a simulated camera array.
 
-In this exercise, you will create an Azure IoT hub to receive input from a simulated camera array.
-
-1. Use the following command to create an IoT Hub in the same region as the storage account you created in the previous exercise and place it in the "streaminglab-rg" resource group. Replace HUB_NAME with an IoT hub name, which must be unique across Azure and conform to DNS naming conventions.
+1. Execute the following command in the Cloud Shell to create an IoT Hub in the same region as the storage account you created in the previous exercise and place it in the "streaminglab-rg" resource group. Replace HUB_NAME with an IoT hub name, which must be unique across Azure and conform to DNS naming conventions.
 
 	```
 	az iot hub create --name HUB_NAME --resource-group streaminglab-rg --location southcentralus --sku F1 
@@ -126,7 +131,7 @@ The connection string that you just retrieved is important, because it will enab
 <a name="Exercise3"></a>
 ## Exercise 3: Deploy a simulated camera array ##
 
-Devices that transmit events to an Azure IoT hub must first be registered with that IoT hub. Once registered, a device can send events to the IoT hub using one of several protocols, including HTTPS, [AMPQ](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf), and [MQTT](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf). Calls must be authenticated, and IoT hubs support several forms of authentication as described in [Control access to IoT hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security). In this exercise, you will create a Node.js app that registers an array of simulated cameras with the IoT hub you created in the previous exercise.
+Devices that transmit events to an Azure IoT hub must be registered with that IoT hub. Once registered, a device can send events to the IoT hub using one of several protocols, including HTTPS, [AMQP](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf), and [MQTT](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf). Calls are authenticated, and IoT hubs support several forms of authentication as described in [Control access to IoT hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security). In this exercise, you will create a Node.js app that registers an array of simulated cameras with the IoT hub you created in the previous exercise.
 
 1. If Node.js isn't installed on your computer, go to https://nodejs.org/ and install it it now. You can determine whether Node is installed — and what version is installed — by opening a Command Prompt or terminal window and typing the following command:
 
@@ -262,13 +267,13 @@ Devices that transmit events to an Azure IoT hub must first be registered with t
 	Done
 	```
 
-1. Use the following command to confirm that 10 devices were registered with your IoT hub, replacing HUB_NAME with the IoT hub's name:
+1. Return to the Azure Portal and open the "streaminglab-rg" resource group that you created in [Exercise 1](#Exercise1). Then open the IoT hub you added to the resource group in [Exercise 2](#Exercise2). Click **IoT devices** in the menu on the left and confirm that 10 devices named ```polar_cam_0001```, ```polar_cam_0002```, and so on are registered with the IoT hub.
 
-	```
-	az iot device list --hub-name HUB_NAME
-	```
+    ![Viewing device registrations](Images/iot-hub-devices.png)
 
-Finish up by verifying that a file named **cameras.json** was created in the project directory Open the file and view its contents. Confirm that the ```key``` properties which are empty strings in **devices.json** have values in **cameras.json**.
+    _Viewing device registrations_
+
+Finish up by verifying that a file named **cameras.json** was created in the project directory Open the file and view its contents. Confirm that the ```key``` properties, which are empty strings in **devices.json**, have values in **cameras.json**.
 
 <a name="Exercise4"></a>
 ## Exercise 4: Test the simulated camera array ##
@@ -349,7 +354,7 @@ In this exercise, you will write code to test the camera array that you deployed
 
 1. Replace HUB_NAME on line 1 of **test.js** with the name of the IoT hub you created in [Exercise 2](#Exercise2), and ACCOUNT_NAME on line 2 with the name of the storage account that you created in [Exercise 1](#Exercise1).
 
-1. Return to the Command Prompt or terminal window and use the following command to list the access keys for the storage account, replacing ACCOUNT_NAME with the name of your storage account:
+1. Return to the Azure Cloud Shell and use the following command to list the access keys for the storage account, replacing ACCOUNT_NAME with the name of your storage account:
 
 	```
 	az storage account keys list --account-name ACCOUNT_NAME --resource-group streaminglab-rg
@@ -376,15 +381,7 @@ In this exercise, you will write code to test the camera array that you deployed
 	Event transmitted
 	```
 
-1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
-
-1. Click **Resource groups** in the ribbon on the left, and then click the "streaminglab-rg" resource group to view its contents.
-
-	![Opening the resource group](Images/open-resource-group.png)
-
-	_Opening the resource group_
-
-1. Click the storage account that you created in [Exercise 1](#Exercise1).
+1. Return to the Azure Portal and open the "streaminglab-rg" resource group that you created in [Exercise 1](#Exercise1). Then click the storage account.
 
 	![Opening the storage account](Images/open-storage-account.png)
 
@@ -402,31 +399,13 @@ In this exercise, you will write code to test the camera array that you deployed
 
 	_Opening the "photos" container_
 
-1. Click the blob named **image_19.jpg**.
-
-	![Opening the blob containing the photo uploaded to the container](Images/open-blob.png)
-
-	_Opening the blob containing the photo uploaded to the container_
-
-1. Click **Download** to download the blob. Confirm that it contains a small (64x64) grayscale polar-bear image.
+1. Click the blob named **image_19.jpg**. Then click **Download** to download the blob.
 
 	![Downloading the blob](Images/download-blob.png)
 
 	_Downloading the blob_
 
-1. Return to the "streaminglab-rg" resource group in the portal and click the IoT hub.
-
-	![Opening the IoT hub](Images/open-iot-hub.png)
-
-	_Opening the IoT hub_
-
-1. Confirm that at least one message has been received by the IoT hub, and that it has 10 devices registered. These are the simulated cameras that you registered in the previous exercise.
-
-	![IoT hub overview](Images/iot-hub-overview.png)
-
-	_IoT hub overview_
-
-If you would like to see a list of devices registered with the IoT hub, click **IoT Devices** in the menu on the left. If you then click one of the devices, you will find that individual devices can be enabled and disabled through the portal. Devices can also be enabled and disabled using the Azure CLI.
+Confirm that the blob contains a small (64x64) grayscale polar-bear image. Then open the IoT hub in the portal and confirm that it received at least one message. If it did, then your code is working correctly and you are ready to move on.
 
 <a name="Summary"></a>
 ## Summary ##

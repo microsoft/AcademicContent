@@ -134,7 +134,7 @@ The endpoint URL is the base URL to which calls to the Text Analytics API are pl
 
 1. If Visual Studio Code isn't installed on your PC, go to https://code.visualstudio.com/ and install it now.
 
-1. Start Visual Studio Code and use the **File** > **Open Folder...** command to open the "Classrates" directory containing the cloned repo — the directory that was created by the ```git``` command in Step 6.
+1. Start Visual Studio Code and use the **File** > **Open Folder...** command to open the "Classrates" directory containing the cloned repo — the directory that was created by the ```git``` command in Step 6. On MacOS use the **File** > **Open...** command.
 
 1. Select **Terminal** from Visual Studio Code's **View** menu to open an integrated terminal. Then execute the following command in the integrated terminal to install [Bootstrap](https://www.npmjs.com/package/bootstrap), [Express](https://www.npmjs.com/package/express), and other packages that Classrates requires:
 
@@ -175,7 +175,7 @@ Play around with the Web site and familiarize yourself with how it works. Feel f
 
 In this exercise, you will use the [Azure Portal](https://portal.azure.com) to create an Azure Web App and connect it to the Classrates repo that was created for you in GitHub when you forked the master repo. With this connection established, pushing changes from the local repo to the GitHub repo will automatically publish those changes to Azure — a process known as [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration).
 
-1. In the portal, click **+ Create a resource**, followed by **Web** and **Web App**.
+1. In the portal, click **+ Create a resource**, followed by **Web** and **Web App**. Be careful not to click on the _Quickstart tutorial_ link as this will navigate you to the docs to work through a tutorial.
 
     ![Creating an Azure Web App](Images/new-web-app.png)
 
@@ -195,23 +195,34 @@ In this exercise, you will use the [Azure Portal](https://portal.azure.com) to c
 
 	_Opening the Web App_
 
-1. Click **Deployment options** in the menu on the left side of the blade for the Azure Web App. Click **Choose Source**, and then click **GitHub**.
+1. Click **Deployment Center** in the menu on the left side of the blade for the Azure Web App. Select **GitHub**, then click the **Authorize** button.
 
-	![Specifying the deployment source](Images/specify-deployment-option.png)
+	![Authorizing GitHub as the deployment source](Images/specify-deployment-option.png)
 
-	_Specifying the deployment source_
+	_Authorizing GitHub as the deployment source_
 
-1. Click **Authorization** in the "Deployment option" blade, and then click the **Authorize** button in the "Authorization" blade. Follow the on-screen instructions to authorize Azure to access your GitHub account.
+1. Follow the on-screen instructions to authorize Azure to access your GitHub account. Once authorized you will see your GitHub user name in the GitHub option. If you still see "Not Authorized" you may need to refresh your browser window. Select **GitHub**, then click the **Continue** button.
 
-	![Allowing Azure to access your GitHub account](Images/authorize-azure.png)
+	![Selecting the deployment source](Images/select-github-for-deploy.png)
 
-	_Allowing Azure to access your GitHub account_
+	_Selecting the deployment source_
 
-1. Now that Azure has access to your GitHub account, you need to tell it which repo to use as a deployment source for the Azure Web App. Click **Choose project** in the "Deployment option" blade and select the Classrates repo. Make sure **Choose branch** is set to "master," and then click **OK** at the bottom of the blade.
+1. Select **App Service Kudu build server** as the build provider and click the **Continue** button.
+   
+	![Selecting the build provider](Images/specify-build-provider-option.png)
 
-	![Specifying the deployment project](Images/choose-project.png)
+	_Selecting the build provider_
 
-	_Specifying the deployment project_
+1. Select the Classrates repository, make sure **Branch** is set to "master," and then click **Continue**.
+
+	![Specifying the repository and branch](Images/configure-repo-branch.png)
+
+	_Specifying the repository and branch_
+
+1. Check the deployment details and click **Finish**.
+
+	![Confirming the deployment details](Images/confirm-deply-details.png)
+	_Confirming the deployment details_
 
 With the Azure Web App created and configured to use a GitHub repo as a deployment source, the next step is to commit the changes you made to Classrates in Visual Studio Code and push the changes to GitHub.
 

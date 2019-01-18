@@ -4,7 +4,7 @@
 
 ## Overview ##
 
-In this hands-on lab, you are acting as a new developer for a startup creating a short-term vacation rental sharing app called [ContosoBNB](https://contosobnb.azurewebsites.net/). One feature planned for the ContosoBNB app is to help property owners by suggesting a rental rate  based on recent data about similar rental properties in the local market.
+In this hands-on lab, you are acting as a new developer for a startup creating a short-term vacation rental sharing app called ContosoBNB. One feature planned for the ContosoBNB app is to help property owners by suggesting a rental rate  based on recent data about similar rental properties in the local market.
 
 To develop this feature, your team has recently obtained public data about rental properties in four cities in the United States, each in a distinct [comma-separated value (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) file. You have been tasked with finding the most recent rental data in these large files and also with finding a way to search for all rental properties that match any given criteria within a specific area.
 
