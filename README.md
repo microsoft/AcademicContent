@@ -11,7 +11,7 @@ This repo provides technical resources to help students and faculty learn about 
 Students can get free Azure credits to explore these resources here:
 
 * [Azure for Students](https://azure.microsoft.com/en-us/free/students/) | $100 in Azure for 12 months with free tier of services - no credit card required with academic verification
-* [Azure for Students Starter](https://azure.microsoft.com/en-us/free/students-starter-faq/) | Use select Azure products like App Services for free - no credit card required with academic verification
+* [Azure for Students Starter](https://azure.microsoft.com/en-us/free/students-starter-faq/) | use select Azure products like App Services for free - no credit card required with academic verification
 * [Azure Free Account](https://azure.microsoft.com/en-us/free/) | $200 in Azure for one month with free tier of services - requires a credit card and probably the best fit for faculty evaluating Azure for course instruction unless your organization has a grant or enterprise agreement.
 
 Your feedback is appreciated - please fork this repo and contribute!
@@ -57,7 +57,7 @@ We also have other great educator content to help you use Azure in the classroom
 |[Microsoft AI School](https://aischool.microsoft.com)|Content for students, developers and data scientists to get started and dive deep into the Microsoft AI platform and deep learning. |
 |[Microsoft Virtual Academy ](https://mva.microsoft.com/)|Hundrends of free online training by world-class experts to help you build your technical skills on the latest Microsoft technologies. |
 | [Technical Community Content](https://github.com/Microsoft/TechnicalCommunityContent) | Workshops from the community team. |
-| [Cognitive Tookit](https://docs.microsoft.com/en-us/cognitive-toolkit/Setup-Windows-Binary-Script) | Resources to set up Cognitive Toolkit using notebooks from product team. After installing tutorials will be in c:\repos\bindings\python\tutorials. |
+| [Cognitive Toolkit](https://docs.microsoft.com/en-us/cognitive-toolkit/Setup-Windows-Binary-Script) | Resources to set up Cognitive Toolkit using notebooks from product team. After installing tutorials will be in c:\repos\bindings\python\tutorials. |
 | [Research case studies](https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/) | Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too! |
 | [Microsoft Research Data Sets](http://aka.ms/datascience) | Data sets shared by Microsoft Research for academic use. |
 | [Machine Learning Data Sets](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-use-sample-datasets) | Data sets shared by Azure Machine Learning team to help explore machine learning. |
