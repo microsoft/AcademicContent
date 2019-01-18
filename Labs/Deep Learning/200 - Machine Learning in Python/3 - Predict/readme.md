@@ -41,17 +41,9 @@ Estimated time to complete this lab: **20** minutes.
 
 To create a machine-learning model, you need two datasets: one for training and one for testing. In practice, you often have only one dataset, so you split it into two datasets. In this exercise, you will perform an 80-20 split on the DataFrame you prepared in the previous lab so you can use it to train a machine-learning model. You will also separate the DataFrame into feature columns and label columns. The former contains the columns used as input to the model (for example, the flight's origin and destination and the scheduled departure time), while the latter contains the column that the model will attempt to predict — in this case, the ARR_DEL15 column which indicates whether a flight will arrive on time.
 
-1. Return to the Data Science VM that you worked with in the previous lab. If you are not connected to it, use [X2Go](https://wiki.x2go.org/doku.php/download:start) or the Xfce client of your choice to connect to the VM's Ubuntu desktop.
+1. Return to [Azure Notebooks](https://notebooks.azure.com) and to the notebook that you created in the first lab. If you closed the notebook after the previous lab, use the **Cell** -> **Run All** to rerun the all of the cells in the notebook after opening it.
 
-1. Open the Jupyter notebook that you worked with in the previous lab.
-
-	> An easy way to reopen the notebook is to double-click the Jupyter icon on the desktop. Once Jupyter opens in a browser, click **flights** to navigate to the "flights" directory, and **FlightData.ipynb** to open the notebook.
-
-	![The FlightData notebook](Images/dataframe.png)
-
-	_The FlightData notebook_
-
-1. Use the **Cell** -> **Run All** command to run the notebook. Then add a new cell to the notebook, enter the following statements, and press **Ctrl+Enter** to execute them: 
+1. In a new cell at the end of the notebook, enter and execute the following statements: 
 
 	```python
 	from sklearn.model_selection import train_test_split
@@ -81,9 +73,9 @@ Can you predict what you would see if you called ```shape``` on the other two Da
 
 There are many types of machine-learning models. One of the most common is the regression model, which uses one of a number of regression algorithms to produce a numeric value — for example, a person's age or the probability that a credit-card transaction is fraudulent. You will train a classification model, which seeks to resolve a set of inputs into one of a set of known outputs. A classic example of a classification model is one that examines e-mails and classifies them as "spam" or "not spam." Your model will be a binary classification model that predicts whether a flight will arrive on-time or late ("binary" because there are only two possible outputs).
 
-One of the benefits of using Sckit-learn is that you don't have to build these models — or implement the algorithms that they use — by hand. Sckit-learn includes a variety of classes for implementing common machine-learning models. One of them is [RandomForestClassifier](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html), which fits multiple decision trees to the data and uses averaging to boost the overall accuracy and control [overfitting](https://en.wikipedia.org/wiki/Overfitting). 
+One of the benefits of using Sckit-learn is that you don't have to build these models — or implement the algorithms that they use — by hand. Sckit-learn includes a variety of classes for implementing common machine-learning models. One of them is [RandomForestClassifier](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html), which fits multiple decision trees to the data and uses averaging to boost the overall accuracy and limit [overfitting](https://en.wikipedia.org/wiki/Overfitting). 
 
-1. Add a cell to the notebook. Use the following code to create a ```RandomForestClassifier``` object and train it by calling the [fit](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.fit) method.
+1. Execute the following code in a new cell to create a ```RandomForestClassifier``` object and train it by calling the [fit](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.fit) method.
 
 	```python
 	from sklearn.ensemble import RandomForestClassifier
@@ -120,7 +112,7 @@ There are several ways to measure the accuracy of a classification model. One of
 
 1. Before you compute the ROC AUC, you must generate *prediction probabilities* for the test set. These probabilities are estimates for each of the classes, or answers, the model can predict. For example, `[0.88199435,  0.11800565]` means that there's an 89% chance that a flight will arrive on time (ARR_DEL15 = 0) and a 12% chance that it won't (ARR_DEL15 = 1). The sum of the two probabilities adds up to 100%.
 
-	Add a cell to the notebook and use the following code to generate a set of prediction probabilities from the test data:
+	Run the following code to generate a set of prediction probabilities from the test data:
 
 	```python
 	from sklearn.metrics import roc_auc_score
@@ -183,6 +175,7 @@ There are several ways to measure the accuracy of a classification model. One of
 
 	```python
 	from sklearn.metrics import recall_score
+
 	recall_score(train_y, train_predictions)
 	```
 
@@ -199,7 +192,7 @@ In the real world, a trained data scientist would look for ways to make the mode
 <a name="Summary"></a>
 ## Summary ##
 
-In this lab, you learned how to split data into training and test sets, build a machine-learning model using Sckit-learn, and gauge the accuracy of the model. In the next lab  — [Using Microsoft's Data Science Virtual Machine to Build Predictive Machine-Learning Models, Part 4](../4%20-%20Visualize) — you will use the model to make some predictions and use the popular Python library [Matplotlib](https://matplotlib.org/) to visualize the results.
+In this lab, you learned how to split data into training and test sets, build a machine-learning model using Sckit-learn, and gauge the accuracy of the model. In the next lab  — [Using Python and Azure Notebooks to Build Predictive Machine-Learning Models, Part 4](../4%20-%20Visualize) — you will use the model to make some predictions and use the popular Python library [Matplotlib](https://matplotlib.org/) to visualize the results.
 
 ---
 

@@ -5,7 +5,7 @@
 
 In the real world, few datasets can be used as is to train machine-learning models. It is not uncommon for data scientists to spend 80% or more of their time on a project cleaning, preparing, and shaping the data — a process sometimes referred to as *data wrangling*. Typical actions include removing duplicate rows, removing rows or columns with missing values or algorithmically replacing the missing values, normalizing data, and selecting feature columns. A machine-learning model is only as good as the data it is trained with. Preparing the data is arguably the most crucial step in the machine-learning process. 
 
-In this lab, the second of four in a series, you will use the [Data Science Virtual Machine](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview) and the Jupyter notebook you created in the previous lab to wrangle the dataset that you imported. You will use the [Python Data Analysis Library](https://pandas.pydata.org/pandas-docs/stable/) (Pandas) to do the bulk of the work in transforming the data. The goal is to get the dataset ready to use in a machine-learning model, and to get first-hand experience with Pandas.
+In this lab, the second of four in a series, you will use the Jupyter notebook you created in the previous lab to wrangle the dataset that you imported. You will use the [Python Data Analysis Library](https://pandas.pydata.org/pandas-docs/stable/) (Pandas) to do the bulk of the work in transforming the data. The goal is to get the dataset ready to use in a machine-learning model, and to get first-hand experience with Pandas.
 
 ![](Images/road-map-2.png)
 
@@ -43,23 +43,13 @@ Before you can prepare a dataset, you need to understand its content and structu
 
 A [DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) is a two-dimensional labeled data structure. The columns in a DataFrame can be of different types, just like columns in a spreadsheet or database table. It is the most commonly used object in Pandas. In this exercise, you will examine the DataFrame — and the data inside it — more closely.
 
-1. Return to the Data Science VM that you created in the previous lab. If you are not connected to it, use [X2Go](https://wiki.x2go.org/doku.php/download:start) or the Xfce client of your choice to connect to the VM's Ubuntu desktop.
+1. Return to [Azure Notebooks](https://notebooks.azure.com) and to the notebook that you created in the previous lab. If you closed the notebook after the previous lab, use the **Cell** -> **Run All** to rerun the all of the cells in the notebook after opening it.
 
-1. Open the Jupyter notebook that you created in the previous lab.
-
-	> An easy way to reopen the notebook is to double-click the Jupyter icon on the desktop. Once Jupyter opens in a browser, click **flights** to navigate to the "flights" directory, and **FlightData.ipynb** to open the notebook.
-
-	![The FlightData notebook](Images/dataframe.png)
+	![The FlightData notebook](Images/load-dataset.png)
 
 	_The FlightData notebook_
 
-1. Use the **Cell** -> **Run All** command to run the notebook.
-
-	![Running the notebook](Images/run-all.png)
-
-	_Running the notebook_
-
-1. The code that you added to the notebook in the previous lab creates a DataFrame from **flightdata.csv** and calls [DataFrame.head](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.head.html) on it to display the first five rows. One of the first things you typically want to know about a dataset is how many rows it contains. To get a count, use the **Insert** -> **Insert Cell Below** command to insert a new cell into the notebook. Then type the following statement into the cell and run it by pressing **Ctrl+Enter**:
+1. The code that you added to the notebook in the previous lab creates a DataFrame from **flightdata.csv** and calls [DataFrame.head](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.head.html) on it to display the first five rows. One of the first things you typically want to know about a dataset is how many rows it contains. To get a count, type the following statement into an empty cell at the end of the notebook and run it:
 
 	```python
 	df.shape
@@ -110,7 +100,7 @@ The dataset includes a roughly even distribution of dates throughout the year, w
 
 One of the most important aspects of preparing a dataset for use in machine learning is selecting the "feature" columns that are relevant to the outcome you are trying to predict while filtering out columns that do not affect the outcome, could bias it in a negative way, or might produce [multicollinearity](https://en.wikipedia.org/wiki/Multicollinearity). Another important task is to eliminate missing values, either by deleting the rows or columns containing them or replacing them with meaningful values. In this exercise, you will eliminate extraneous columns and replace missing values in the remaining columns.
 
-1. One of the first things data scientists typically look for in a dataset is missing values. There's an easy way to check for missing values in Pandas. To demonstrate, add a new cell to the notebook and execute the following code: 
+1. One of the first things data scientists typically look for in a dataset is missing values. There's an easy way to check for missing values in Pandas. To demonstrate, execute the following code in a cell at the end of the notebook: 
 
 	```python
 	df.isnull().values.any()
@@ -122,7 +112,7 @@ One of the most important aspects of preparing a dataset for use in machine lear
 
     _Checking for missing values_
 
-1. The next step is to find out where the missing values are. Add another cell to the notebook and execute the following code:
+1. The next step is to find out where the missing values are. To do so, execute the following code:
 
 	```python
 	df.isnull().sum()
@@ -134,7 +124,7 @@ One of the most important aspects of preparing a dataset for use in machine lear
 
     _Number of  missing values in each column_
 
-1. Curiously, the 26th column ("Unnamed: 25") contains 11,231 missing values, which equals the number of rows in the dataset. This column was mistakenly created because the CSV file that you imported contains a comma at the end of each line. To eliminate that column, add a new cell to the notebook and execute the following code:
+1. Curiously, the 26th column ("Unnamed: 25") contains 11,231 missing values, which equals the number of rows in the dataset. This column was mistakenly created because the CSV file that you imported contains a comma at the end of each line. To eliminate that column, add the following code to the notebook and execute it:
 
 	```python
 	df = df.drop('Unnamed: 25', axis=1)
@@ -151,7 +141,7 @@ One of the most important aspects of preparing a dataset for use in machine lear
 
 	The next step, therefore, is to filter the dataset to eliminate columns that aren't relevant to a predictive model. For example, the aircraft's tail number probably has little bearing on whether a flight will arrive on time, and at the time you book a ticket, you have no way of knowing whether a flight will be cancelled, diverted, or delayed. By contrast, the scheduled departure time could have a *lot* to do with on-time arrivals. Because of the hub-and-spoke system used by most airlines, morning flights tend to be on time more often than afternoon or evening flights. And at some major airports, traffic stacks up during the day, increasing the likelihood that later flights will be delayed.
 
-	Pandas provides an easy way to filter out columns you don't want. Add a new cell to the notebook and execute the following code:
+	Pandas provides an easy way to filter out columns you don't want. Execute the following code in a new cell at the end of the notebook:
 
 	```python
 	df = df[["MONTH", "DAY_OF_MONTH", "DAY_OF_WEEK", "ORIGIN", "DEST", "CRS_DEP_TIME", "ARR_DEL15"]]
@@ -164,28 +154,28 @@ One of the most important aspects of preparing a dataset for use in machine lear
 
     _The filtered DataFrame_
 
-1. The only column that now contains missing values is the ARR_DEL15 column, which uses 0s to identify flights that arrived on time and 1s for flights that didn't. Add another cell to the notebook and use the following code to show the first five rows with missing values:
+1. The only column that now contains missing values is the ARR_DEL15 column, which uses 0s to identify flights that arrived on time and 1s for flights that didn't. Use the following code to show the first five rows with missing values:
 
 	```python
 	df[df.isnull().values.any(axis=1)].head()
 	```
 
-	Pandas represents missing values with "NaN," which stands for *Not a Number*. The output shows that these rows are indeed missing values in the ARR_DEL15 column:
+	Pandas represents missing values with ```NaN```, which stands for *Not a Number*. The output shows that these rows are indeed missing values in the ARR_DEL15 column:
 
     ![Rows with missing values](Images/rows-with-missing-values.png)
 
     _Rows with missing values_
 
-1. The reason these rows are missing ARR_DEL15 values is that they all correspond to flights that were canceled or diverted. You could call ```dropna``` on the DataFrame to remove these rows. But since a flight that is canceled or diverted to another airport could be considered "late," let's use the ```fillna``` method to replace the missing values with 1s.
+1. The reason these rows are missing ARR_DEL15 values is that they all correspond to flights that were canceled or diverted. You could call [dropna](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.dropna.html) on the DataFrame to remove these rows. But since a flight that is canceled or diverted to another airport could be considered "late," let's use the [fillna](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.fillna.html) method to replace the missing values with 1s.
 
-	Add a new cell to the notebook and use the following code to replace missing values in the ARR_DEL15 column with 1s and display rows 177 through 184:
+	Use the following code to replace missing values in the ARR_DEL15 column with 1s and display rows 177 through 184:
  
 	```python
 	df = df.fillna({'ARR_DEL15': 1})
 	df.iloc[177:185]
 	```
 
-	Confirm that the NaNs in rows 177, 179, and 184 were replaced with 1s indicating that the flights arrived late:
+	Confirm that the ```NaN```s in rows 177, 179, and 184 were replaced with 1s indicating that the flights arrived late:
 
     ![NaNs replaced with 1s](Images/missing-values-filled.png)
 
@@ -202,7 +192,7 @@ In addition, the dataset's ORIGIN and DEST columns contain airport codes that re
 
 In this exercise, you will "bin" the departure times in the CRS_DEP_TIME column and use Pandas' [get_dummies](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.get_dummies.html) method to create indicator columns from the ORIGIN and DEST columns.
 
-1. Add a cell to the notebook and use the following command to display the first five rows of the DataFrame:
+1. Use the following command to display the first five rows of the DataFrame:
 
 	```python
 	df.head()
@@ -214,7 +204,7 @@ In this exercise, you will "bin" the departure times in the CRS_DEP_TIME column 
 
 	_The DataFrame with unbinned departure times_
 
-1. In a new cell, execute the following statements to bin the departure times:
+1. Use the following statements to bin the departure times:
 
 	```python
 	import math
@@ -230,7 +220,7 @@ In this exercise, you will "bin" the departure times in the CRS_DEP_TIME column 
 
 	_The DataFrame with binned departure times_
 
-1. Add a cell to the notebook and use the following statements to generate indicator columns from the ORIGIN and DEST columns, while dropping the ORIGIN and DEST columns themselves:
+1. Now use the following statements to generate indicator columns from the ORIGIN and DEST columns, while dropping the ORIGIN and DEST columns themselves:
 
 	```python
 	df = pd.get_dummies(df, columns=['ORIGIN', 'DEST'])
@@ -250,7 +240,7 @@ The dataset looks very different than it did at the start, but it is now optimiz
 <a name="Summary"></a>
 ## Summary ##
 
-In this lab, you used Pandas to clean and prepare the flight dataset for use in machine learning. In addition to filtering the columns and replacing missing values, you binned departure times and created indicator columns that allow airport codes to be used as categorical values. Now proceed to the next lab  — [Using Microsoft's Data Science Virtual Machine to Build Predictive Machine-Learning Models, Part 3](../3%20-%20Predict) — and put the dataset to work using [Scikit-learn](http://scikit-learn.org/stable/). 
+In this lab, you used Pandas to clean and prepare the flight dataset for use in machine learning. In addition to filtering the columns and replacing missing values, you binned departure times and created indicator columns that allow airport codes to be used as categorical values. Now proceed to the next lab  — [Using Python and Azure Notebooks to Build Predictive Machine-Learning Models, Part 3](../3%20-%20Predict) — and put the dataset to work using [Scikit-learn](http://scikit-learn.org/stable/). 
 
 ---
 

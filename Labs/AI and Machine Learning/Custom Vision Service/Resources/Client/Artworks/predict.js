@@ -42,13 +42,13 @@ $(function () {
             }
         }).done(function (data) {
 
-            var predictions = data.Predictions;
-            var artists = [predictions.find(o => o.Tag === 'Picasso'), predictions.find(o => o.Tag === 'Rembrandt'), predictions.find(o => o.Tag === 'Pollock')];
-            var sortedArtists = _.sortBy(artists, 'Probability').reverse();
+            var predictions = data.predictions;
+            var artists = [predictions.find(o => o.tagName === 'Picasso'), predictions.find(o => o.tagName === 'Rembrandt'), predictions.find(o => o.tagName === 'Pollock')];
+            var sortedArtists = _.sortBy(artists, 'probability').reverse();
             var possibleArtist = sortedArtists[0];
 
-            if (possibleArtist.Probability > .5) {
-                $('#analysisResults').html('<div class="matchLabel">' + possibleArtist.Tag + ' (' + (possibleArtist.Probability * 100).toFixed(0) + '%)' + '</div>');
+            if (possibleArtist.probability > .5) {
+                $('#analysisResults').html('<div class="matchLabel">' + possibleArtist.tagName + ' (' + (possibleArtist.probability * 100).toFixed(0) + '%)' + '</div>');
             }
             else {
                 $('#analysisResults').html('<div class="noMatchLabel">Unknown artist</div>');

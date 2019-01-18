@@ -51,14 +51,13 @@ This hands-on lab includes the following exercises:
 Estimated time to complete this lab: **45** minutes.
 
 <a name="Exercise1"></a>
-
 ## Exercise 1: Create an Ubuntu Data Science VM ##
 
 The Data Science Virtual Machine for Linux is a virtual-machine image that simplifies getting started with data science. Multiple tools are already built, installed, and configured in order to get you up and running quickly. The NVIDIA GPU driver, [NVIDIA CUDA](https://developer.nvidia.com/cuda-downloads), and [NVIDIA CUDA Deep Neural Network](https://developer.nvidia.com/cudnn) (cuDNN) library are also included, as are [Jupyter](http://jupyter.org/), several sample Jupyter notebooks, and [TensorFlow](https://www.tensorflow.org/). All pre-installed frameworks are GPU-enabled but work on CPUs as well. In this exercise, you will create an instance of the Data Science Virtual Machine for Linux on Azure.
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
 
-1. Click **+ Create a resource** in the menu on the left side of the portal, and then type "data science" (without quotation marks) into the search box. Select **Data Science Virtual Machine for Linux (Ubuntu)** from the results list.
+1. Click **+ Create a resource** in the menu on the left side of the portal, and then type "data science" into the search box. Select **Data Science Virtual Machine for Linux (Ubuntu)** from the results list.
 
     ![Finding the Ubuntu Data Science VM](Images/new-data-science-vm.png)
 
@@ -66,40 +65,17 @@ The Data Science Virtual Machine for Linux is a virtual-machine image that simpl
 
 1. Take a moment to review the list of tools included in the VM. Then click **Create** at the bottom of the blade.
 
-1. Fill in the "Basics" blade as shown below. Provide a password that's at least 12 characters long containing a mix of uppercase letters, lowercase letters, numbers and special characters. *Be sure to remember the user name and password that you enter, because you will need them later in the lab.*
+1. Click **Create new** and enter a name for a new resource group to hold the Data Science VM. Enter a name for the VM and select the region closest to you. Click **Change size** and select **DS1_v2** as the VM size. (The default VM size is abut four times more powerful, but also costs about four times more. DS1_v2 is sufficient for the purposes of this lab, and it minimizes the cost to your Azure subscription.) Change "Authentication type" to **Password** and enter a user name and password for logging into the VM. Then click **Review + create** at the bottom of the blade. 
 
-    ![Entering basic information about the VM](Images/create-data-science-vm-1.png)
+    ![Creating a Data Science VM](Images/create-data-science-vm.png)
 
-    _Entering basic settings_
+    _Creating a Data Science VM_
 
-1. In the "Choose a size" blade, select **DS1_V2 Standard**, which provides a low-cost way to experiment with Data Science VMs. Then click the **Select** button at the bottom of the blade.
+1. Review the settings presented to you, and click **Create** at the bottom of the blade to begin deploying the VM.
 
-    ![Choosing a VM size](Images/create-data-science-vm-2.png)
-
-    _Choosing a VM size_
-
-1. Click **OK** at the bottom of the "Settings" blade. Review the information presented to you in the "Create" blade, and then click **Create** to start the VM creation process.
-
-    ![Creating the VM](Images/create-data-science-vm-3.png)
-
-    _Creating the VM_
-
-1. Click **Resource groups** in the menu on the left side of the portal. Then click the "data-science-rg" resource group.
-
-    ![Opening the resource group](Images/open-resource-group.png)
-
-    _Opening the resource group_
-
-1. Wait until "Deploying" changes to "Succeeded" indicating that DSVM and supporting Azure resources have been created. Deployment typically takes 5 minutes or less. Periodically click **Refresh** at the top of the blade to refresh the deployment status.
-
-    ![Monitoring the deployment status](Images/deployment-succeeded.png)
-
-    _Monitoring the deployment_
-
-Once the deployment has completed, proceed to the next exercise.
+Wait until the deployment is complete. It typically takes 5 minutes or less. Observe that the resource group you created contains more than just a virtual machine. It also contains a virtual disk for the VM, a storage account to hold the virtual disk, a virtual IP address, a network security group (NSG) that defines rules for inbound and outbound connections, and more. Placing Azure resources such as these in a resource group has many benefits, including the fact that you can view costs for the resource group as a whole, use role-based access control (RBAC) to restrict access to the resource group's resources, and delete all of the resources in the resource group at once by deleting the resource group itself.
 
 <a name="Exercise2"></a>
-
 ## Exercise 2: Connect to the Data Science VM ##
 
 In this exercise, you will connect remotely to the Ubuntu desktop in the VM that you created in the previous exercise. To do so, you need a client that supports [Xfce](https://xfce.org/), which is a lightweight desktop environment for Linux. For background, and for an overview of the various ways you can connect to a DSVM, see [How to access the Data Science Virtual Machine for Linux
@@ -107,17 +83,17 @@ In this exercise, you will connect remotely to the Ubuntu desktop in the VM that
 
 1. If you don't already have an Xfce client installed, download the [X2Go client](https://wiki.x2go.org/doku.php/download:start) and install it before continuing with this exercise. X2Go is a free and open-source Xfce solution that works on a variety of operating systems, including Windows and OS X. The instructions in this exercise assume you are using X2Go, but you may use any client that supports Xfce.
 
-1. Return to the "data-science-rg" resource group in the Azure portal. Click the "data-science-vm" resource to open it in the portal.
+1. Return to the Azure Portal and click the Data Science VM.
 
-    ![Opening the Data Science VM](Images/open-data-science-vm.png)
+	![Opening the virtual machine](Images/open-vm.png)
 
-    _Opening the Data Science VM_
+	_Opening the virtual machine_
 
-1. Hover over the IP address shown for the VM and click the **Copy** button that appears to copy the IP address to the clipboard.
+1. Hover the cursor over the VM's public IP address and cick the **Copy** button that appears next to it to copy the IP address to the clipboard.
 
-    ![Copying the VM's IP address](Images/copy-ip-address.png)
+	![Copying the IP address](Images/copy-ip-address.png)
 
-    _Copying the VM's IP address_
+	_Copying the IP address_
 
 1. Start the X2Go client and connect to the Data Science VM using the IP address on the clipboard and the user name you specified in the previous exercise. Connect via port **22** (the standard port used for SSH connections), and specify **XFCE** as the session type. Click the **OK** button to confirm your preferences.
 
@@ -148,7 +124,6 @@ In this exercise, you will connect remotely to the Ubuntu desktop in the VM that
 Now that you are connected, take a moment to explore the shortcuts on the desktop. These are shortcuts to the numerous data-science tools preinstalled in the VM, which include [Jupyter](http://jupyter.org/), [R Studio](https://www.rstudio.com/), and the [Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), among others.
 
 <a name="Exercise3"></a>
-
 ## Exercise 3: Train a TensorFlow model ##
 
 In this exercise, you will train an image-classification model built with [TensorFlow](https://www.tensorflow.org/) to recognize images that contain hot dogs. Rather than create the model from scratch, which would require vast amounts of computing power and tens or hundreds of thousands of images, you will customize a preexisting model, a practice known as [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning). Transfer learning allows you to achieve high levels of accuracy with as little as a few minutes of training time on a typical laptop or PC and as few as several dozen images.
@@ -211,9 +186,9 @@ Training the model involves little more than running a Python script that downlo
 
 1. Open a second terminal window and navigate to the "notebooks/tensorflow-for-poets-2" folder — the same one that is open in the first terminal window. Then use the following command to launch [TensorBoard](https://www.tensorflow.org/programmers_guide/summaries_and_tensorboard), which is a set of tools used to visualize TensorFlow models and gain insight into the transfer-learning process:
 
-     ```bash
-     tensorboard --logdir tf_files/training_summaries
-     ```
+	```bash
+	tensorboard --logdir tf_files/training_summaries
+	```
 
      > This command will fail if there is already an instance of TensorBoard running. If you are notified that port 6006 is already in use, use a ```pkill -f "tensorboard"``` command to kill the existing process. Then execute the ```tensorboard``` command again.
 
@@ -246,9 +221,9 @@ Training the model involves little more than running a Python script that downlo
 
 1. Wait for training to complete; it should take less than 5 minutes. Then check the output to determine the accuracy of the model. Your result may vary slightly from the one below because the training process involves a small amount of random estimation.
 
-      ![Gauging the model's accuracy](Images/running-transfer-learning.png)
-
-      _Gauging the model's accuracy_
+	![Gauging the model's accuracy](Images/running-transfer-learning.png)
+	
+	_Gauging the model's accuracy_
 
 1. Click the browser icon at the bottom of the desktop to open the browser installed in the Data Science VM. Then navigate to <http://0.0.0.0:6006> to connect to Tensorboard.
 
@@ -273,7 +248,6 @@ Training the model involves little more than running a Python script that downlo
 The script that you executed in Step 10 specified 500 training steps, which strikes a balance between accuracy and the time required for training. If you would like, try training the model again with a higher ```how_many_training_steps``` value such as 1000 or 2000. A higher step count generally results in higher accuracy, but at the expense of increased training time. Watch out for overfitting, which, as a reminder, is represented by the difference between the orange and blue lines in TensorBoard's Scalars display.
 
 <a name="Exercise4"></a>
-
 ## Exercise 4: Create a NotHotDog app ##
 
 In this exercise, you will use [Visual Studio Code](https://code.visualstudio.com/), Microsoft's free, cross-platform source-code editor which is preinstalled in the Data Science VM, to write a NotHotDog app in Python. The app will use [Tkinter](https://wiki.python.org/moin/TkInter), which is a popular GUI framework for Python, to implement its user interface, and it will allow you to select images from your local file system. Then it will pass those images to the model you trained in the previous exercise and tell you whether they contain a hot dog.
@@ -282,84 +256,87 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
 
 1. Create a new file named **classify.py** in the current folder. If Visual Studio Code offers to install the Python extension, click **Install** to install it. Copy the code below to the clipboard and use **Shift+Ins** to paste it into **classify.py**. Then save the file:
 
-    ```python
-    import tkinter as tk
-    from tkinter import messagebox, filedialog, font
-    from PIL import ImageTk, Image
-    import subprocess
+	```python
+	import tkinter as tk
+	from tkinter import messagebox, filedialog, font
+	from PIL import ImageTk, Image
+	import subprocess
+	import re
+	
+	def select_image_click(img_label):
+	    try:
+	        file = filedialog.askopenfilename()
+	
+	        img = Image.open(file)
+	        img = img.resize((300, 300))
+	        selected_img = ImageTk.PhotoImage(img)
+	
+	        img_label.configure(image=selected_img, width=240)
+	
+	        output = subprocess.check_output(["python",
+	            "../scripts/label_image.py",
+	            "--graph=retrained_graph_hotdog.pb",
+	            "--image={0}".format(file),
+	            "--labels=retrained_labels_hotdog.txt"])
+	
+	        highest = str(output).split("\\n")[3].split(" ")
+	
+	        if len(highest) == 3:
+	            index = re.search("\d", highest[2]).start()
+	            score = float(highest[2][index:-1])
+	            is_hotdog = True
+	        else:
+	            index = re.search("\d", highest[3]).start()
+	            score = float(highest[3][index:-1])
+	            is_hotdog = False	
 
-    def select_image_click(img_label):
-        try:
-            file = filedialog.askopenfilename()
-
-            img = Image.open(file)
-            img = img.resize((300, 300))
-            selected_img = ImageTk.PhotoImage(img)
-
-            img_label.configure(image=selected_img, width=240)
-
-            output = subprocess.check_output(["python",
-                "../scripts/label_image.py",
-                "--graph=retrained_graph_hotdog.pb",
-                "--image={0}".format(file),
-                "--labels=retrained_labels_hotdog.txt"])
-
-            highest = str(output).split("\\n")[3].split(" ")
-
-            if len(highest) == 3:
-                score = float(highest[2])
-                is_hotdog = True
-            else:
-                score = float(highest[3])
-                is_hotdog = False
-
-            if score > 0.95:
-                if is_hotdog:
-                    messagebox.showinfo("Result", "That's a hot dog!")
-                else:
-                    messagebox.showinfo("Result", "That's not a hot dog.")
-            else:
-                messagebox.showinfo("Result", "Can't tell.")
-
-        except FileNotFoundError as e:
-            messagebox.showerror("File not found", "File {0} was not found.".format(e.filename))
-
-    def run():
-        window = tk.Tk()
-
-        window.title("Hotdog or Not Hotdog")
-        window.geometry('400x600')
-
-        text_font = font.Font(size=18, family="Helvetica Neue")
-        welcome_text = tk.Label(window, text="Hot Dog or Not Hot Dog", font=text_font)
-        welcome_text.pack()
-
-        instructions_text = tk.Label(window, text="\n\nUse a neural network built with Tensorflow\n"
-            "to identify photos containing hot dogs")
-        instructions_text.pack(fill=tk.X)
-
-        select_btn = tk.Button(window, text="Select", bg="#0063B1", fg="white", width=5, height=1)
-        select_btn.pack(pady=30)
-
-        image_label = tk.Label(window)
-        image_label.pack()
-
-        select_btn.configure(command=lambda: select_image_click(image_label))
-        window.mainloop()
-
-    if __name__ == "__main__":
-        run()
-    ```
+	        if score > 0.90:
+	            if is_hotdog:
+	                messagebox.showinfo("Result", "That's a hot dog!")
+	            else:
+	                messagebox.showinfo("Result", "That's not a hot dog.")
+	        else:
+	            messagebox.showinfo("Result", "Can't tell.")
+	
+	    except FileNotFoundError as e:
+	        messagebox.showerror("File not found", "File {0} was not found.".format(e.filename))
+	
+	def run():
+	    window = tk.Tk()
+	
+	    window.title("Hotdog or Not Hotdog")
+	    window.geometry('400x600')
+	
+	    text_font = font.Font(size=18, family="Helvetica Neue")
+	    welcome_text = tk.Label(window, text="Hot Dog or Not Hot Dog", font=text_font)
+	    welcome_text.pack()
+	
+	    instructions_text = tk.Label(window, text="\n\nUse a neural network built with Tensorflow\n"
+	        "to identify photos containing hot dogs")
+	    instructions_text.pack(fill=tk.X)
+	
+	    select_btn = tk.Button(window, text="Select", bg="#0063B1", fg="white", width=5, height=1)
+	    select_btn.pack(pady=30)
+	
+	    image_label = tk.Label(window)
+	    image_label.pack()
+	
+	    select_btn.configure(command=lambda: select_image_click(image_label))
+	    window.mainloop()
+	
+	if __name__ == "__main__":
+	    run()
+	```
 
     They key code here is the call to ```subprocess.check_output```, which invokes the trained model by executing a Python script named **label_image.py** found in the "scripts" folder, passing in the image that the user selected. This script came from the repo that you cloned in the previous exercise.
 
 1. Use your favorite search engine to find a few food images — some containing hot dogs, and some not. Download these images and store them in the location of your choice in the VM's file system.
 
-1. Use Visual Studio Code's **View > Integrated Terminal** command to open an integrated terminal. Then execute the following command in the integrated terminal to run the app:
+1. Use Visual Studio Code's **View > Terminal** command to open an integrated terminal. Then execute the following command in the integrated terminal to run the app:
 
-     ```bash
-     python classify.py
-     ```
+	```bash
+	python classify.py
+	```
 
 1. Click the app's **Select** button and pick one of the hot-dog images you downloaded in Step 3. Wait for a message box to appear, indicating whether the image contains a hot dog. Did the model get it correct?
 
@@ -374,12 +351,17 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
 Continue feeding food images into the app until you're satisfied that it can identify images containing hot dogs. Don't expect it to be right 100% of the time, but do expect it to be right *most* of the time.
 
 <a name="Exercise5"></a>
-
 ## Exercise 5: Delete the Data Science VM ##
 
 In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Data Science VM. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because a Data Science VM is moderately expensive.
 
-1. Return to the blade for the resource group you created in Exercise 1. Then click the **Delete resource group** button at the top of the blade.
+1. Click **Resource groups** in the menu on the left side of the portal to show a list of resource groups. Then click the resource group that you created in [Exercise 1](#Exercise1).
+
+    ![Opening the resource group](Images/open-resource-group.png)
+
+    _Opening the resource group_
+
+1. Click **Delete resource group** at the top of the blade.
 
     ![Deleting the resource group](Images/delete-resource-group.png)
 
@@ -390,7 +372,6 @@ In this exercise, you will delete the resource group created in [Exercise 1](#Ex
 After a few minutes, the resource group and all of its resources will be deleted. Billing stops when you click **Delete**, so you're not charged for the time required to delete the resources. Similarly, billing doesn't start until the resources are fully and successfully deployed.
 
 <a name="Summary"></a>
-
 ## Summary ##
 
 The steps in this lab may be generalized to perform other types of image-classification tasks. For example, you could train the same TensorFlow model to recognize cat images or identify defective parts parts produced on an assembly line. Image classification is one of the most prevalent uses of machine learning today, and its usefulness will only increase over time. Now that you have a basis to work from, try creating some image-classification models of your own. You never know what might come of it!
