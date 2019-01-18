@@ -40,7 +40,7 @@ There is no cost associated with this lab because it doesn't require an Azure su
 <a name="Exercises"></a>
 ## Exercises ##
 
-- [Exercise 1: Create a library and a notebook](#Exercise1)
+- [Exercise 1: Create a project and a notebook](#Exercise1)
 - [Exercise 2: Upload data and create a scatter plot](#Exercise2)
 - [Exercise 3: Perform linear regression with NumPy](#Exercise3)
 - [Exercise 4: Perform linear regression with scikit-learn](#Exercise4)
@@ -51,29 +51,25 @@ There is no cost associated with this lab because it doesn't require an Azure su
 Estimated time to complete this lab: **45** minutes.
 
 <a name="Exercise1"></a>
-## Exercise 1: Create a library and a notebook ##
+## Exercise 1: Create a project and a notebook ##
 
-The first order of business is to create a new Azure Notebook. Azure Notebooks are contained in *libraries* whose primary purpose is to group related notebooks. In this exercise, you will create a new library and then create a notebook inside it.
+The first order of business is to create a new Azure notebook. Azure notebooks are contained in projects, whose primary purpose is to group related notebooks. In this exercise, you will create a new project and then create a notebook inside it.
 
-1. Navigate to https://notebooks.azure.com in your browser and sign in using your Microsoft account. Then click **Libraries**.
+1. Navigate to https://notebooks.azure.com in your browser and sign in using your Microsoft account. Click **My Projects** in the menu at the top of the page. Then click the **+ New Project** button at the top of the "My Projects" page.
 
-	![Navigating to the Libraries page](Images/add-library-1.png)
+1. Create a new project named "Lab Notebooks" or something similar.
 
-	_Navigating to the Libraries page_
+	![Creating a project](Images/add-project.png)
 
-1. Click **+ New Library**. Enter "My Notebooks" (without quotation marks) for the library name and "my-notebooks" as the library ID. Uncheck the **Public library** box, and then click **Create**.
+	_Creating a project_
 
-	![Creating a library](Images/add-library-2.png)
+1. Click **+ New** and select **Notebook** from the menu to add a notebook to the project.
 
-	_Creating a library_
+	![Adding a notebook to the project](Images/add-notebook-1.png)
 
-1. Click the **+** sign to add a notebook to the library.
+	_Adding a notebook to the project_
 
-	![Adding a notebook to the library](Images/add-notebook-1.png)
-
-	_Adding a notebook to the library_
-
-1. Name the notebook "Notebook HOL.ipynb" and select **Python 3.5 Notebook** as the item type. This will create a notebook with a Python 3.5 kernel. One of the strengths of Jupyter notebooks is that you can use different languages by choosing different kernels.
+1. Give the notebook a name such as "Notebook HOL.ipynb," and select **Python 3.6** as the language. This will create a notebook with a Python 3.6 kernel for executing Python code. One of the strengths of Azure notebooks is that you can use different languages by choosing different kernels.
 
 	![Creating a notebook](Images/add-notebook-2.png)
 
@@ -81,13 +77,13 @@ The first order of business is to create a new Azure Notebook. Azure Notebooks a
 
 	If you're curious, the .ipynb file-name extension stands for "IPython notebook." Jupyter notebooks were originally known as IPython (Interactive Python) notebooks, and they only supported Python as a programming language. The name Jupyter is a combination of Julia, Python, and R — the core programming languages that Jupyter supports.
 
-1. Click the new notebook. This will launch the notebook and allow you to start editing it.
+1. Click the notebook to open it for editing.
 
 	![Opening the notebook](Images/open-notebook.png)
 
 	_Opening the notebook_
 
-You can create additional libraries and notebooks as you work with Azure Notebooks. Libraries provide a means for grouping related notebooks. You can create notebooks from scratch, or you can upload existing notebooks. In the next exercise, you will build a notebook from scratch and learn the basics of working with cells.
+You can create additional projects and notebooks as you work with Azure Notebooks. You can create notebooks from scratch, or you can upload existing notebooks. And once a notebook is created or uploaded, you can take advantage of Azure compute resources to run the notebook and leverage popular Python libraries such as [Keras](https://keras.io/), [NumPy](http://www.numpy.org/), [Pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/), and [Scikit-learn](https://scikit-learn.org/stable/index.html).
 
 <a name="Exercise2"></a>
 ## Exercise 2: Upload data and create a scatter plot ##
@@ -153,7 +149,7 @@ The notebook editor currently shows an empty cell. In this exercise, you will ad
 
 1. Place the cursor in the empty cell at the bottom of the notebook. Change the cell type to **Markdown** and enter "Create a scatter plot" as the text.
 
-1. Add a **Code** cell and paste in the following code, which uses [Mapplotlib](http://matplotlib.org/) to create a scatter plot.
+1. Add a **Code** cell and paste in the following code, which uses [Matplotlib](http://matplotlib.org/) to create a scatter plot.
 
 	```python
 	plt.scatter(yearsBase, meanBase)
@@ -307,27 +303,23 @@ Creating slide shows is easy. But what if you want to share a notebook with coll
 <a name="Exercise7"></a>
 ## Exercise 7: Share a notebook ##
 
-One of the value-added features of Azure Notebooks is that it provides a cloud-based hub for sharing notebooks. In this exercise, you will share the notebook you created in previous exercises.
+One of the value-added features of Azure Notebooks is that it provides a cloud-based hub for sharing notebooks. In this exercise, you will share the project containing the notebook that you created.
 
 1. Select **File** -> **Close and Halt** to close the notebook.
 
-	![Closing the notebook](Images/share-1.png)
+	![Closing the notebook](Images/close-notebook.png)
 
 	_Closing the notebook_
 
-1. Click **Settings** to edit the library's settings. Check the **Public library** box to make the library public, and then click **Save**.
+1. Click **Share**, and then select **Copy Link** from the drop-down menu.
 
-	![Making the library public](Images/share-2.png)
-
-	_Making the library public_
-
-1. Click **Share**. Notebooks can be shared by links, on social media, and through email. To demonstrate, click **Copy to clipboard** to copy a link to the notebook to the clipboard. Then paste the link into a separate browser window and confirm that the notebook appears there. Finish up by clicking **Close** to close the share dialog.
-
-	![Sharing by link](Images/share-3.png)
+	![Sharing by link](Images/share-project.png)
 
 	_Sharing by link_
 
-Another way to share a notebook is to download it as a .ipynb file and send the .ipynb file to whomever you wish to share it with. You can download a notebook by clicking the **Download** button. Downloading .ipynb files is also useful for making local copies of your notebooks. You can even run them in other Jupyter environments if you would like because there is nothing proprietary about Azure Notebooks.
+1. Paste the link into a separate private or incognito browser window and confirm that the project appears there. Click the "Notebook HOL" notebook and confirm that you can open it and run it.
+
+Another way to share a notebook is to download it as a .ipynb file and send the .ipynb file to whomever you wish to share it with.  Downloading .ipynb files is also useful for making local copies of your notebooks. You can even run them in other Jupyter environments if you would like because there is nothing proprietary about Azure Notebooks.
 
 <a name="Summary"></a>
 ## Summary ##

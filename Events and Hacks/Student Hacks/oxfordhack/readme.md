@@ -4,8 +4,9 @@
 - Wear Microsoft branded gear!
 - Check in between 8 - 9am to get mentor creds + come to booth to say hi
 - Point students to [aka.ms/hackwithazure](https://aka.ms/hackwithazure)!
+- [Join the Slack](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fjoin.slack.com%2Ft%2Fparticipant-oh2018%2Fshared_invite%2FenQtNDg0NjE5NTIyMTYxLTU0YzE5MTJiNmY4ZmY5NjNiYjAwMzkyNzFjMmE0ZWZiNjM2MTAwYzY5OTdjYzAzOWZmZDM3YzFiYzY3NTlhYzI&data=02%7C01%7CShana.Matthews%40microsoft.com%7C05e93caba4e84fe98f3008d650699932%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636784811830767844&sdata=3SOUzUXP8k3iDAzhAHCfeHCzTpTkbGCSR%2FF%2FDYXlj1c%3D&reserved=0)
 - [Cognitive services resources](../cog_services_mentor.md) (slack, bug reports, etc.)
-- [Judging form link]() -- TBD
+- [Judging form link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUQkhWSTY1UlpRWTNHRVAxNlIxMTJVUlBYRy4u) 
 
 ### Key times:
 Please be around for these key times when we'll need the most help:
@@ -56,7 +57,7 @@ Address: Andrew Wiles Building, University of Oxford, Radcliffe Observatory Quar
 ## Booth talking points
 - [aka.ms/hackwithazure](https://aka.ms/hackwithazure) - tutorials and troubleshooting!
 - Apply for a job at Microsoft (expect a LOT of interest in this)
-   - Apply for internship or fulltime jobs at careers.microsoft.com
+   - Apply for internship or fulltime jobs at [careers.microsoft.com](https://careers.microsoft.com/)
    - Online applications only, we do not accept paper resumes.
    - Refer recruiting questions to University recruiting or Microsoft full time employees.
 - Free Azure through Azure for Students
@@ -67,7 +68,7 @@ Address: Andrew Wiles Building, University of Oxford, Radcliffe Observatory Quar
    - If verification code does not work, Shana has Azure passes student can activate
 - Enter to win Azure API prize
    - Use Azure in your hackathon and qualify for Azure API prize
-   - Prize is 4 Xbox One S 1TB
+   - Prize is 4 Xbox One X 1TB
    - Find tutorials to learn Azure at docs.microsoft.com or at our 5pm workshop
 
      
@@ -90,7 +91,7 @@ We're going to be judging projects that used Azure for the Azure Champ Challenge
 
 [Judging info](../judging)
 
-[Judging form link]() -- TBD
+[Judging form link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRz_m6h1IaXlHh-JzkM0298RUQkhWSTY1UlpRWTNHRVAxNlIxMTJVUlBYRy4u)
 
 [Terms & Conditions for Azure prize]() -- TBD
 

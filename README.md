@@ -1,6 +1,6 @@
 # Tech Resources for Computer Science and Academic Communities
 
-*The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
+*The content and the code in this repo are intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
 
 **Source:** https://github.com/microsoft/computerscience
 
@@ -11,7 +11,7 @@ This repo provides technical resources to help students and faculty learn about 
 Students can get free Azure credits to explore these resources here:
 
 * [Azure for Students](https://azure.microsoft.com/en-us/free/students/) | $100 in Azure for 12 months with free tier of services - no credit card required with academic verification
-* [Azure for Students Starter](https://azure.microsoft.com/en-us/free/students-starter-faq/) | use select Azure products like App Services for free - no credit card required with academic verification
+* [Azure for Students Starter](https://azure.microsoft.com/en-us/free/students-starter-faq/) | Use select Azure products like App Services for free - no credit card required with academic verification
 * [Azure Free Account](https://azure.microsoft.com/en-us/free/) | $200 in Azure for one month with free tier of services - requires credit card and probably the best fit for faculty evaluating Azure for course instruction unless your organization has a grant or enterprise agreement.
 
 Your feedback is appreciated - please fork this repo and contribute!

@@ -29,34 +29,27 @@ This hands-on lab includes the following exercises:
 - [Exercise 1: Import Matplotlib](#Exercise1)
 - [Exercise 2: Predict on-time arrivals](#Exercise2)
 - [Exercise 3: Plot predictions](#Exercise3)
-- [Exercise 4: Delete the Data Science VM](#Exercise4)
 
 Estimated time to complete this lab: **20** minutes.
 
 <a name="Exercise1"></a>
 ## Exercise 1: Import Matplotlib ##
 
-In this exercise, you will import Matplotlib into the Jupyter notebook you have been working with and configure the notebook to support inline Matplotlib output.
+In this exercise, you will import Matplotlib into the notebook you have been working with and configure the notebook to support inline Matplotlib output.
 
-1. Return to the Data Science VM that you worked with in the previous lab. If you are not connected to it, use [X2Go](https://wiki.x2go.org/doku.php/download:start) or the Xfce client of your choice to connect to the VM's Ubuntu desktop.
+1. Return to [Azure Notebooks](https://notebooks.azure.com) and to the notebook that you created in the first lab. If you closed the notebook after the previous lab, use the **Cell** -> **Run All** to rerun the all of the cells in the notebook after opening it.
 
-1. Open the Jupyter notebook that you worked with in the previous lab.
-
-	> An easy way to reopen the notebook is to double-click the Jupyter icon on the desktop. Once Jupyter opens in a browser, click **flights** to navigate to the "flights" directory, and **FlightData.ipynb** to open the notebook.
-
-	![The FlightData notebook](Images/dataframe.png)
-
-	_The FlightData notebook_
-
-1. Use the **Cell** -> **Run All** command to run the notebook. Then add a cell to the notebook and execute the following statements. Ignore any warning messages that are displayed related to font caching:
+1. Execute the following statements in a new cell at the end of the notebook. Ignore any warning messages that are displayed related to font caching:
 
 	```python
 	%matplotlib inline
 	import matplotlib.pyplot as plt
 	import seaborn as sns
+
+	sns.set()
 	```
 
-	The first statement is one of several [magic commands](http://ipython.readthedocs.io/en/stable/interactive/magics.html) supported by the Python kernel that you selected when you created the notebook. It enables Jupyter to render Matplotlib output in a notebook without making repeated calls to [show](https://matplotlib.org/devdocs/api/_as_gen/matplotlib.pyplot.show.html). And it must appear before any references to Matplotlib itself.
+	The first statement is one of several [magic commands](http://ipython.readthedocs.io/en/stable/interactive/magics.html) supported by the Python kernel that you selected when you created the notebook. It enables Jupyter to render Matplotlib output in a notebook without making repeated calls to [show](https://matplotlib.org/devdocs/api/_as_gen/matplotlib.pyplot.show.html). And it must appear before any references to Matplotlib itself. The final statement configures [Seaborn](https://seaborn.pydata.org/) to enhance the output from Matplotlib.
 
 1. To see Matplotlib at work, execute the following code in a new cell to plot the [ROC curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) for the machine-learning model you built in the previous lab: 
 
@@ -83,7 +76,7 @@ The dotted line in the middle of the graph represents a 50-50 chance of obtainin
 
 The reason you built a machine-learning model is to predict whether a flight will arrive on time or late. In this exercise, you will write a Python function that calls the machine-learning model you built in the previous lab to compute the likelihood that a flight will be on time. Then you will use the function to analyze several flights.
 
-1. Add a cell to the notebook and enter the following function definition. Then press **Ctrl+Enter** to execute the cell.
+1. Enter the following function definition in a new cell, and then run the cell.
 
 	```python
 	def predict_delay(departure_date_time, origin, destination):
@@ -124,7 +117,7 @@ The reason you built a machine-learning model is to predict whether a flight wil
 
 	Note that dates input to the ```predict_delay``` function use the international date format ```dd/mm/year```.
 
-1. Add a cell to the notebook and use the code below to compute the probability that a flight from New York to Atlanta on the evening of October 1 will arrive on time. Note that the year you enter is irrelevant because it isn't used by the model.
+1. Use the code below to compute the probability that a flight from New York to Atlanta on the evening of October 1 will arrive on time. Note that the year you enter is irrelevant because it isn't used by the model.
 
 	```python
 	predict_delay('1/10/2018 21:45:00', 'JFK', 'ATL')
@@ -159,7 +152,7 @@ You now have an easy way to predict, with a single line of code, whether a fligh
 
 In this exercise, you will combine the ```predict_delay``` function you created in the previous exercise with Matplotlib to produce side-by-side comparisons of the same flight on consecutive days and flights with the same origin and destination at different times throughout the day. 
 
-1. Add a new cell to the notebook and execute the following code to plot the probability of on-time arrivals for an evening flight from JFK to ATL over a range of days:
+1. Execute the following code to plot the probability of on-time arrivals for an evening flight from JFK to ATL over a range of days:
 
 	```python
 	import numpy as np
@@ -196,40 +189,18 @@ In this exercise, you will combine the ```predict_delay``` function you created 
 
 If you are new to Matplotlib and would like to learn more about it, you will find an excellent tutorial at https://www.labri.fr/perso/nrougier/teaching/matplotlib/. There is *much* more to Matplotlib than what was shown here, which is one reason why it is so popular in the Python community.
 
-<a name="Exercise4"></a>
-## Exercise 4: Delete the Data Science VM ##
-
-In this exercise, you will delete the resource group containing the Data Science VM and the associated resources. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because a Data Science VM is moderately expensive.
-
-1. Click **Resource groups** in the menu on the left side of the portal to show a list of resource groups. Then click the resource group containing the Data Science VM.
-
-    ![Opening the resource group](Images/open-resource-group.png)
-
-    _Opening the resource group_
-
-1. Click **Delete resource group** at the top of the blade.
-
-    ![Deleting the resource group](Images/delete-resource-group.png)
-
-    _Deleting the resource group_
-
-1. For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group. Then click the **Delete** button to remove all traces of this lab from your Azure subscription.
-
-After a few minutes, the resource group and all of its resources will be deleted. Billing stops when you click **Delete**, so you're not charged for the time required to delete the resources. Similarly, billing doesn't start until the resources are fully and successfully deployed.
-
 <a name="Summary"></a>
 ## Summary ##
 
 In four hands-on labs, you learned how to:
 
-- Create a Data Science VM in Azure
-- Import data into the VM using ```curl```
-- Create a Jupyter notebook in the VM
+- Create a notebook in Azure Notebooks
+- Import data into a notebook using ```curl```
 - Use [Pandas](https://pandas.pydata.org/pandas-docs/stable/) to clean and prepare data
 - Use [Scikit-learn](http://scikit-learn.org/stable/) to build a machine-learning model
 - Use [Matplotlib](https://matplotlib.org/) to visualize the results
 
-Pandas, Scikit-learn, and Matplotlib are three of the most popular Python libraries on the planet. With them, you can prepare data for use in machine learning, build sophisticated machine-learning models from the data, and chart the output. They are among dozens of tools preinstalled in Microsoft's Data Science VM, and they are just the tip of the iceberg in terms of what you can do with it. For more information, see https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-tools-overview.
+Pandas, Scikit-learn, and Matplotlib are among the most popular Python libraries on the planet. With them, you can prepare data for use in machine learning, build sophisticated machine-learning models from the data, and chart the output. Jupyter notebooks provide a ready-made environment for using these libraries, and Azure Notebooks give you easy access to Jupyter notebooks without requiring you to install any software or set up a Jupyter environment on a server.
 
 ---
 
