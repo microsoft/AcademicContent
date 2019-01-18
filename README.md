@@ -62,4 +62,4 @@ We also have other great educator content to help you use Azure in the classroom
 | [MS MARCO](http://www.msmarco.org) | Microsoft MAchine Reading COmprehension Dataset generated from real Bing user queries and search results. |
 | [IOT School](https://iotschool.microsoft.com/) | Resources for learning about Azure IoT solutions, platform services and industry-leading edge technologies. |
 | [AI Labs](https://www.ailab.microsoft.com/) | Experience, learn and code the latest breakthrough AI innovations by Microsoft. |
-|[Channel9](https://channel9.msdn.com/) | Videos for developers from people building Microsoft products and services. | 
+| [Channel9](https://channel9.msdn.com/) | Videos for developers from people building Microsoft products and services. | 
