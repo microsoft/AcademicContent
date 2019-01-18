@@ -477,34 +477,35 @@ In this exercise, you will use the Computer Vision API to generate a caption for
 
 1. If the endpoint URL you just added to **Web.config** doesn't end with "/vision/v1.0", add it. The complete URL should look something like this: https://eastus.api.cognitive.microsoft.com/vision/v1.0.
 
-1. In Solution Explorer, right-click the project and use the **Manage NuGet Packages...** command to install a package named **Microsoft.ProjectOxford.Vision**. This package contains types for calling the Computer Vision API. As usual, approve any changes and licenses that are presented to you.
+1. In Solution Explorer, right-click the project and use the **Manage NuGet Packages...** command to install a package named **Microsoft.Azure.CognitiveServices.Vision.ComputerVision**. This package contains types for calling the Computer Vision API. As usual, approve any changes and licenses that are presented to you.
 
-    ![Installing Microsoft.ProjectOxford.Vision](Images/install-vision-package.png)
+    ![Installing Microsoft.Azure.CognitiveServices.Vision.ComputerVision](Images/install-vision-package.png)
 
-    _Installing Microsoft.ProjectOxford.Vision_
+    _Installing Microsoft.Azure.CognitiveServices.Vision.ComputerVision_
 
 1. Open **HomeController.cs** in the project's "Controllers" folder and add the following ```using``` statement at the top of the file:
 
 	```C#
-	using Microsoft.ProjectOxford.Vision;
+	using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+    using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 	```
 
 1. Add the following statements to the ```Upload``` method, immediately after the block of code that begins with the comment "Generate a thumbnail and save it in the thumbnails container." This code passes the URL of the blob containing the image that was uploaded to the Computer Vision API, and requests that Computer Vision generate a description for the image. In addition to generating a description, the Computer Vision API also generates a list of keywords describing what it sees in the image. Your code stores the computer-generated description and the keywords in the blob's metadata so they can be retrieved later on.
 
 	```C#
     // Submit the image to Azure's Computer Vision API
-	VisionServiceClient vision = new VisionServiceClient(
-	    ConfigurationManager.AppSettings["SubscriptionKey"],
-	    ConfigurationManager.AppSettings["VisionEndpoint"]
-	);
+    ComputerVisionClient vision = new ComputerVisionClient(
+        new ApiKeyServiceClientCredentials(ConfigurationManager.AppSettings["SubscriptionKey"]),
+        new System.Net.Http.DelegatingHandler[] { });
+    vision.Endpoint = ConfigurationManager.AppSettings["VisionEndpoint"];
 
-    VisualFeature[] features = new VisualFeature[] { VisualFeature.Description };
+    VisualFeatureTypes[] features = new VisualFeatureTypes[] { VisualFeatureTypes.Description };
     var result = await vision.AnalyzeImageAsync(photo.Uri.ToString(), features);
 
     // Record the image description and tags in blob metadata
     photo.Metadata.Add("Caption", result.Description.Captions[0].Text);
 
-    for (int i = 0; i < result.Description.Tags.Length; i++)
+    for (int i = 0; i < result.Description.Tags.Count; i++)
     {
         string key = String.Format("Tag{0}", i);
         photo.Metadata.Add(key, result.Description.Tags[i]);
@@ -519,12 +520,12 @@ In this exercise, you will use the Computer Vision API to generate a caption for
     foreach (IListBlobItem item in container.ListBlobs())
     {
         var blob = item as CloudBlockBlob;
-
+    
         if (blob != null)
         {
             blob.FetchAttributes(); // Get blob metadata
             var caption = blob.Metadata.ContainsKey("Caption") ? blob.Metadata["Caption"] : blob.Name;
-
+    
             blobs.Add(new BlobInfo()
             {
                 ImageUri = blob.Uri.ToString(),
