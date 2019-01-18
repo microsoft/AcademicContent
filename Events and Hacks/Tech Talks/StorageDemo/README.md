@@ -5,7 +5,7 @@ Demo for Azure Storage
 
 # Technical Prerequisites:
 
-Microsoft Azure Account 
+To get Microsoft Azure Account (Student Starter Account)
 see https://catalog.imagine.microsoft.com/en-us/Catalog/Product/99 
 
 #Step by Step Guides
@@ -64,5 +64,5 @@ add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountN
   
 # Resources
 -   The Container Channel: https://channel9.msdn.com/
--   Azure Documentation http://azure.microsoft.com 
+-   Azure Documentation https://docs.microsoft.com/en-us/azure/ 
 
