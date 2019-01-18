@@ -2,7 +2,7 @@
 
 Source: [https://github.com/Microsoft/computerscience/tree/master/Events%20and%20Hacks/Tech%20Talks](.)
 
-Tech Talks seek to inspire and educate students on topics that are emerging in the tech industry or are developer career-focused. We want them to compliment a computer science education in a more informal forum like a pre-hackathon talk, within student groups, or other visiting campus speaking or meetups. Each contains a presentation as well as speaker notes and coding demos. They are generally designed to be about 1 hour with Q&A - feel free edit them down to fit desired length. New contributions are welcome.
+Tech Talks seek to inspire and educate students on topics that are emerging in the tech industry or are developer career-focused. We want them to complement a computer science education in a more informal forum like a pre-hackathon talk, within student groups, or other visiting campus speaking or meetups. Each contains a presentation as well as speaker notes and coding demos. They are generally designed to be about 1 hour with Q&A - feel free edit them down to fit desired length. New contributions are welcome.
 
 If you want to report any issues we need to fix. Please log an [issue](https://github.com/Microsoft/computerscience/issues). Include the content section (Tech Talk, Workshop, Course Content), module number and title, along with any error messages and screenshots.
 
@@ -12,7 +12,7 @@ If you want to report any issues we need to fix. Please log an [issue](https://g
 
 | Title | Link | Description |
 | ----- | ---- | ----------- |
-| A Career in Technical Evangelism: What we really do | [Presentation](./Tech%20Talk%20-%20A%20career%20in%20developer%20evangelism.pptx) | Do you love sharing technology with other people as much as you love building things yourself? Want to help others be successful while building your commmunication and coding skills in parallel? Learn about this exciting career path from people who live it everyday. |
+| A Career in Technical Evangelism: What we really do | [Presentation](./Tech%20Talk%20-%20A%20career%20in%20developer%20evangelism.pptx) | Do you love sharing technology with other people as much as you love building things yourself? Want to help others be successful while building your communication and coding skills in parallel? Learn about this exciting career path from people who live it every day. |
 | Setting-up the Perfect Online Resume for Student Devs | [Presentation](./Tech%20Talk%20-%20Setting%20up%20the%20Perfect%20Online%20Resume%20for%20Student%20Devs.pptx) | Ready to share your talent with startups, agencies, and big tech companies? There's nothing better than showing them. Take the first step by creating your own online resume and portfolio of projects, hosted in the Azure Cloud. |
 | Your First Startup: How to move investors to YES! | [Presentation](./Tech%20Talk%20-%20How%20to%20move%20investors%20to%20Yes.pptx) | Thinking about building the next great thing? Deciding to bootstrap or raise some capital? This talk guides you through the realities, the process, and how to pitch investors towards your big career breakthrough. |
 
