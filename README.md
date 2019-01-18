@@ -54,6 +54,8 @@ We also have other great educator content to help you use Azure in the classroom
 
 | Resource | |
 | - | - |
+|[Microsoft AI School](https://aischool.microsoft.com)|Content for students, developers and data scientists to get started and dive deep into the Microsoft AI platform and deep learning. |
+|[Microsoft Virtual Academy ](https://mva.microsoft.com/)|Hundrends of free online training by world-class experts to help you build your technical skills on the latest Microsoft technologies. |
 | [Technical Community Content](https://github.com/Microsoft/TechnicalCommunityContent) | Workshops from the community team. |
 | [Cognitive Tookit](https://docs.microsoft.com/en-us/cognitive-toolkit/Setup-Windows-Binary-Script) | Resources to set up Cognitive Toolkit using notebooks from product team. After installing tutorials will be in c:\repos\bindings\python\tutorials. |
 | [Research case studies](https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/) | Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too! |
