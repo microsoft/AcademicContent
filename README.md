@@ -61,7 +61,5 @@ We also have other great educator content to help you use Azure in the classroom
 | [Machine Learning Data Sets](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-use-sample-datasets) | Data sets shared by Azure Machine Learning team to help explore machine learning. |
 | [MS MARCO](http://www.msmarco.org) | Microsoft MAchine Reading COmprehension Dataset generated from real Bing user queries and search results. |
 | [IOT School](https://iotschool.microsoft.com/) | Resources for learning about Azure IoT solutions, platform services and industry-leading edge technologies. |
-| [AI School](https://aischool.microsoft.com/) | Find information, learning materials and resources about Artificial Intelligence. |
 | [AI Labs](https://www.ailab.microsoft.com/) | Experience, learn and code the latest breakthrough AI innovations by Microsoft. |
-| [MVA](https://mva.microsoft.com/) | Curated collection of courses by Microsoft to help build your skills. | 
 |[Channel9](https://channel9.msdn.com/) | Videos for developers from people building Microsoft products and services. | 
