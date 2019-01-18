@@ -305,7 +305,7 @@ The Azure Function you created in [Exercise 2](#Exercise2) loads a subscription 
 
     _Viewing application settings_
 
-1. Scroll down to the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the **Value** box. Then add a setting named "VisionEndpoint" and set its value to the endpoint URL you saved in Step 4. Finish up by clicking **Save** at the top of the blade.
+1. Scroll down to the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the **Value** box. Then add a setting named "VisionEndpoint" and set its value to the endpoint URL you saved in Step 4. Add "vision/v1.0" to the end of the URL if it isn't already there. Finish up by clicking **Save** at the top of the blade.
 
     ![Adding application settings](Images/add-keys.png)
 

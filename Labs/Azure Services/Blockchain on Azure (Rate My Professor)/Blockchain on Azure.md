@@ -58,13 +58,15 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
 1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). If you are asked to sign in, do so using your Microsoft account.
 
-1. In the portal, click **+ Create a resource**, followed by **Blockchain** and **Ethereum Proof-of-Work Consortium**.
+1. In the portal, click **+ Create a resource**. Type "proof of work" into the search box and select **Ethereum Proof-of-Work Consortium** from the drop-down list.
 
     ![Creating an Ethereum blockchain](Images/new-blockchain.png)
 
     _Creating an Ethereum blockchain_
 
-1. Fill in the "Basics" blade as shown below, providing a password that's at least 12 characters long containing a mix of uppercase letters, lowercase letters, numbers, and special characters. Select the region nearest you, and then click **OK**. *Remember the password that you entered, because you will need it in the next exercise*.
+1. Review the information presented to you and click **Create** at the bottom of the blade.
+
+1. Fill in the "Basics" blade as shown below, providing a password that's at least 12 characters long containing a mix of uppercase letters, lowercase letters, numbers, and special characters. Click **Create new** under "Resource group" and enter a resource-group name to place the resources in a new resource group. Select the region nearest you, and then click **OK**. *Remember the password that you entered, because you will need it in the next exercise*.
 
     ![Entering basic settings](Images/blockchain-settings-1.png)
 
@@ -86,9 +88,15 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
     _Entering Ethereum settings_
 
+1. In the "OMS" blade, select the region closest to you. Then click **OK** at the bottom of the blade.
+
+    ![Specifying the OMS region](Images/blockchain-settings-4.png)
+
+    _Specifying the OMS region_
+
 1. Review the settings in the "Summary" blade and click **OK** at the bottom of the blade. Then click the **Create** button at the bottom of the "Create" blade to begin the deployment.
 
-1. Click **Resource groups** in the ribbon on the left. Then click the resource group named "blockchain-lab-rg." Wait until "Deploying" changes to "Succeeded" in the resource-group blade indicating that the Blockchain network and all of its resources have been deployed.
+1. Click **Resource groups** in the ribbon on the left. Then click the resource group whose name you specified in Step 4. Wait until "Deploying" changes to "Succeeded" in the resource-group blade indicating that the Blockchain network and all of its resources have been deployed.
 
     ![Monitoring the deployment](Images/deployment-succeeded.png)
 
@@ -103,7 +111,7 @@ When it created the Ethereum network, Azure also created a *coinbase* account to
 
 Every transaction performed in a blockchain must be "fueled" by an account. This coinbase account will fuel transactions that allow comments and ratings to be recorded in the blockchain. Before the coinbase account can be used, however, it must be unlocked. In this exercise, you will use SSH to connect to the Ethereum network you deployed in the previous exercise and execute a series of commands to unlock the account and retrieve its address.
 
-1. Return to the "blockchain-lab-rg" resource group in the Azure portal. Click **Deployments** in the menu on the left, and then click **microsoft-azure-blockchain**.
+1. Return to the resource group that you created for the Blockchain network in the Azure portal. Click **Deployments** in the menu on the left, and then click **microsoft-azure-blockchain**.
 
     ![Opening the blockchain](Images/open-blockchain.png)
 
@@ -417,7 +425,7 @@ The Web site is currently running locally. As an optional exercise, consider dep
 
 In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Ethereum network. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because the resources in it are relatively expensive.
 
-1. Return to the blade for the resource group you created in Exercise 1. Then click the **Delete** button at the top of the blade.
+1. Return to the blade for the resource group you created in Exercise 1. Then click **Delete resource group** at the top of the blade.
 
     ![Deleting the resource group](Images/delete-resource-group.png)
 

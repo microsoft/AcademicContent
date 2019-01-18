@@ -43,27 +43,23 @@ Estimated time to complete this lab: **40** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Create an Azure notebook ##
 
-The first order of business is to create a new Azure notebook. Azure notebooks are contained in *libraries* whose primary purpose is to group related notebooks. In this exercise, you will create a new library and then create a notebook inside it.
+The first order of business is to create a new Azure notebook. Azure notebooks are contained in projects, whose primary purpose is to group related notebooks. In this exercise, you will create a new project and then create a notebook inside it.
 
-1. Navigate to https://notebooks.azure.com in your browser and sign in using your Microsoft account. Then click **Libraries**.
+1. Navigate to https://notebooks.azure.com in your browser and sign in using your Microsoft account. Click **My Projects** in the menu at the top of the page. Then click the **+ New Project** button at the top of the "My Projects" page.
 
-	![Navigating to the Libraries page](Images/add-library-1.png)
+1. Create a new project named "Keras" or something similar. You may uncheck the "Public" box if you'd like, but making the project public allows the notebooks in it to be shared with others through links, social media, or e-mail. If you're unsure which to choose, you can easily change a project to public or private later on.
 
-	_Navigating to the Libraries page_
+	![Creating a project](Images/add-project.png)
 
-1. Click **+ New Library**. Then create a new library named "Keras." You may uncheck the "Public library" box if you'd like, but making the library public allows the notebooks in it to be shared with others through links, social media, or e-mail. If you're unsure which to choose, you can easily change a notebook to public or private later on.
+	_Creating a project_
 
-	![Creating a library](Images/add-library-2.png)
+1. Click **+ New** and select **Notebook** from the menu to add a notebook to the project.
 
-	_Creating a library_
+	![Adding a notebook to the project](Images/add-notebook-1.png)
 
-1. Click the **+** sign to add a notebook to the library.
+	_Adding a notebook to the project_
 
-	![Adding a notebook to the library](Images/add-notebook-1.png)
-
-	_Adding a notebook to the library_
-
-1. Name the notebook "Keras Lab.ipynb" and select **Python 3.5 Notebook** as the item type. This will create a notebook with a Python 3.5 kernel. One of the strengths of Jupyter notebooks is that you can use different languages by choosing different kernels.
+1. Give the notebook a name such as "Keras Lab.ipynb," and select **Python 3.6** as the language. This will create a notebook with a Python 3.6 kernel for executing Python code. One of the strengths of Azure notebooks is that you can use different languages by choosing different kernels.
 
 	![Creating a notebook](Images/add-notebook-2.png)
 
@@ -71,13 +67,13 @@ The first order of business is to create a new Azure notebook. Azure notebooks a
 
 	If you're curious, the .ipynb file-name extension stands for "IPython notebook." Jupyter notebooks were originally known as IPython (Interactive Python) notebooks, and they only supported Python as a programming language. The name Jupyter is a combination of Julia, Python, and R — the core programming languages that Jupyter supports.
 
-1. Click the new notebook. This will launch the notebook and allow you to start editing it.
+1. Click the notebook to open it for editing.
 
 	![Opening the notebook](Images/open-notebook.png)
 
 	_Opening the notebook_
 
-You can create additional libraries and notebooks as you work with Azure Notebooks. You can create notebooks from scratch, or you can upload existing notebooks. In the next exercise, you will use the notebook you created to build a neural network from scratch.
+You can create additional projects and notebooks as you work with Azure Notebooks. You can create notebooks from scratch, or you can upload existing notebooks. And once a notebook is created or uploaded, you can take advantage of Azure compute resources to run the notebook and leverage popular Python libraries such as [Keras](https://keras.io/), [NumPy](http://www.numpy.org/), [Pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/), and [Scikit-learn](https://scikit-learn.org/stable/index.html).
 
 <a name="Exercise2"></a>
 ## Exercise 2: Build and train a neural network ##
@@ -132,7 +128,7 @@ In this exercise, you will use Keras to build and train a neural network that an
 
     _Dictionary mapping words to integers_
 
-1. As you have seen, each review in the dataset is encoded as a collection of integers rather than words. Is it possible reverse-encode a review so you can see the original text that comprised it? Enter the following statements into a new cell and execute them to show the first review in `x_train` in textual format:
+1. As you have seen, each review in the dataset is encoded as a collection of integers rather than words. Is it possible to reverse-encode a review so you can see the original text that comprised it? Enter the following statements into a new cell and execute them to show the first review in `x_train` in textual format:
 
 	```python
 	word_dict = imdb.get_word_index()

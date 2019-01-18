@@ -1,10 +1,10 @@
 # Tech Resources for Computer Science and Academic Communities
 
-*The content and code on this repo is intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
+*The content and the code in this repo are intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
 
 **Source:** https://github.com/microsoft/computerscience
 
-This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and devops. It also includes interesting tech talks and engaging, fun tech challenges that Microsoft leads at student hackathons and [Imagine Cup](http://www.imaginecup.com).
+This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and DevOps. It also includes interesting tech talks and engaging, fun tech challenges that Microsoft leads at student hackathons and [Imagine Cup](http://www.imaginecup.com).
 
 **Important:** We are migrating to [Microsoft Learn](https://docs.microsoft.com/learn/) | If you can't find what you're looking for in this repo, check out the 60+ labs on Microsoft Learn too. Many of these labs have their own built-in Azure sandbox making it easier for faculty and students to learn without requiring an Azure Subscription.
 
@@ -16,7 +16,7 @@ Students can get free Azure credits to explore these resources here:
 
 Your feedback is appreciated - please fork this repo and contribute!
 
-To report any issues, please [log a GitHub issue](Issues). Include the content section, module number and title, along with any error messages and screenshots.
+To report any issues, please log a GitHub issue. Include the content section, module number, and title, along with any error messages and screenshots.
 
 ## Learn by doing with our [hands-on labs](Labs)
 
@@ -54,9 +54,14 @@ We also have other great educator content to help you use Azure in the classroom
 
 | Resource | |
 | - | - |
+|[Microsoft AI School](https://aischool.microsoft.com)|Content for students, developers and data scientists to get started and dive deep into the Microsoft AI platform and deep learning. |
+|[Microsoft Virtual Academy ](https://mva.microsoft.com/)|Hundrends of free online training by world-class experts to help you build your technical skills on the latest Microsoft technologies. |
 | [Technical Community Content](https://github.com/Microsoft/TechnicalCommunityContent) | Workshops from the community team. |
 | [Cognitive Toolkit](https://docs.microsoft.com/en-us/cognitive-toolkit/Setup-Windows-Binary-Script) | Resources to set up Cognitive Toolkit using notebooks from product team. After installing tutorials will be in c:\repos\bindings\python\tutorials. |
 | [Research case studies](https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/) | Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too! |
 | [Microsoft Research Data Sets](http://aka.ms/datascience) | Data sets shared by Microsoft Research for academic use. |
 | [Machine Learning Data Sets](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-use-sample-datasets) | Data sets shared by Azure Machine Learning team to help explore machine learning. |
 | [MS MARCO](http://www.msmarco.org) | Microsoft MAchine Reading COmprehension Dataset generated from real Bing user queries and search results. |
+| [IOT School](https://iotschool.microsoft.com/) | Resources for learning about Azure IoT solutions, platform services and industry-leading edge technologies. |
+| [AI Labs](https://www.ailab.microsoft.com/) | Experience, learn and code the latest breakthrough AI innovations by Microsoft. |
+| [Channel9](https://channel9.msdn.com/) | Videos for developers from people building Microsoft products and services. | 

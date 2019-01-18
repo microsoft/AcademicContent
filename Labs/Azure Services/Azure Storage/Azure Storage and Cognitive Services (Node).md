@@ -72,12 +72,10 @@ The [Azure Portal](https://portal.azure.com) allows you to perform basic storage
 
     _Creating a storage account_
 
-1. In the ensuing "Create storage account" blade, enter a name for the new storage account in **Name** field. The name is important, because it forms one part of the URL through which blobs created under this account are accessed.
+1. Enter a unique name for the storage account in **Name** field and make sure a green check mark appears next to it. The name is important, because it forms one part of the URL through which blobs created under this account are accessed. Place the storage account in a new resource group named "IntellipixResources," and select the region nearest you. Finish up by clicking the **Review + create** button at the bottom of the blade to create the new storage account.
 
 	> Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure. If someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the **Name** field.
-
-	Once you have a name that Azure will accept, make sure **Resource manager** is selected as the deployment model and **General purpose** is selected as the account type. Then select **Create new** under **Resource group** and enter "IntellipixResources" as the resource-group name. Select the **Location** nearest you, and finish up by clicking the **Create** button at the bottom of the blade to create the new storage account.
-    
+   
 	![Specifying parameters for a new storage account](Images/create-storage-account.png)
 
     _Specifying parameters for a new storage account_
@@ -499,7 +497,7 @@ In this exercise, you will create a new Web app in Visual Studio Code and add co
 	
 	This is the code that executes in Node.js on the server. Points of interest include the *saveImageToAzure* function, which saves an uploaded image in blob storage using APIs in the Azure Storage Client Library for Node.js, the *createThumbnailFromImage* function, which uses the Computer Vision API to generate an image thumbnail, and the *analyzeImage* function, which uses the Computer Vision API to generate a caption and a list of keywords describing the image. Another function you might care to inspect is *saveAnalysisResults*, which writes the caption and keywords to blob metadata. Finally, take a moment to examine the *listBlobsMiddleware* function, which enumerates the photos uploaded to the site by enumerating the blobs in the "photos" container. 
 
-1. Replace *vision_api_endpoint* on line 8 with the Computer Vision API endpoint that you saved in Exercise 3, Step 4.
+1. Replace *vision_api_endpoint* on line 8 with the Computer Vision API endpoint that you saved in Exercise 3, Step 4. Add "vision/v1.0" to the end of the URL if it isn't already there.
 
 1. Place the mouse cursor over "INTELLIPIX" in Visual Studio Code's Explorer window and click the **New Folder** button that appears. Name the new folder "src" (without quotation marks).
 

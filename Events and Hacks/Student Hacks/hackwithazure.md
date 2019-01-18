@@ -1,6 +1,10 @@
 # Hack with Azure - aka.ms/hackwithazure
 Share the love: [aka.ms/hackwithazure](https://aka.ms/hackwithazure)
 
+## Quick links
+- Free $100 credit: https://aka.ms/azureforstudents
+- Take survey to get tshirt or socks: https://aka.ms/azure-hackathon
+
 ## What is Azure?
 Azure is a cloud computing platform (similar to AWS and Google Cloud Platform). We offer a broad range of services for developers to create with. 
 
@@ -11,30 +15,16 @@ In particular, Azure has great, beginner-friendly services to help you use...
 - [Containers (Docker/Kubernetes)](https://docs.microsoft.com/en-us/azure/aks/)
 - [Bots](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0)
 
-...in your hacks!
+...in your hacks! 
 
-Check the docs on how to [get started with Azure](https://docs.microsoft.com/en-us/azure/#pivot=get-started&panel=get-started1).
+[Check the docs](https://docs.microsoft.com/en-us/azure/#pivot=get-started&panel=get-started1) on how to get started with Azure. We offer a full range of labs with [Microsoft Learn](https://docs.microsoft.com/en-us/learn/).
 
 ## How to get free Azure credits
 [aka.ms/azure4students](https://aka.ms/azure4students) - use your @<yourschool>.edu email to get $100 Azure credit plus free services  without a credit card.
   
 Not working? Come to the Microsoft booth and we'll get it fixed.
 
-**WARNING: UT Austin students - do NOT use your @edu account.** 
-
-*University of Washington, Georgia Tech, MIT, and all other students can ignore this part :)*
-
-> UT Austin students will use a Microsoft account (MSA) to get your $100 credit from Azure for Students. 
->
-> You may already have an MSA (@outlook.com or @hotmail.com email, or could be associated with any other email address). If you don't, you can create one at [https://signup.live.com/](https://signup.live.com/) or as part of the instructions below.
->
-> Steps to redeem $100 credit for UT Austin students:
-> - Open up [aka.ms/azure4students](https://aka.ms/azure4students) in an in private browser window
-> - Log in with your MSA email or create a new MSA (**NOT** your @utexas email)
-> - Choose to verify with your @utexas email address. This will send an email to your utexas email inbox. 
-> - Click the link from that email to verify your student status and redeem your free Azure credits.
-> - Remember to always sign in to [portal.azure.com](portal.azure.com) with your MSA
-
+You may already have a Microsoft account (@outlook.com or @hotmail.com email, or could be associated with any other email address). If you don't, you can create one at [https://signup.live.com/](https://signup.live.com/) or as a part of the instructions below.
 
 ## Azure hackathon prize
 Use any Azure service (like, any of them...) and enter our Azure prize (Azure Champ Challenge). Winners will recieve an Xbox One X for each team member and your hack will be entered into our Imagine Cup competition (the grand prize last year was a mentoring session with CEO Satya and $85k).
@@ -43,15 +33,7 @@ See below for details.
 
 ## So you want to work (or intern) at Microsoft?
 Apply for internship or fulltime jobs at [careers.microsoft.com](careers.microsoft.com)!
-We do not accept paper resumes and none of us are recruiters, but if you catch us with a free moment we're happy to tell you about our personal experiences going through the recruiting process.
-
-## Demos from Azure workshop
-https://notebooks.azure.com/shana/libraries/demos
-- [Text analytics - alpacas on reddit](https://notebooks.azure.com/shana/libraries/demos/html/cogservices_textanalytics.ipynb)
-- [Speech to text/translation](https://notebooks.azure.com/shana/libraries/demos/html/cogservices_translate.ipynb)
-- [Vision - coral reefs & scuba divers](https://notebooks.azure.com/shana/libraries/demos/html/cogservices_vision.ipynb)
-
-(sorry, the speech to text one doesn't work on azure notebooks, but you can download the .ipynb and run it locally on Jupyter 😃)
+Most of us aren't recruiters (and we can't guarantee that we will have one with us), but if you catch us with a free moment we're happy to tell you about our personal experiences going through the recruiting process.
 
 ## Tutorials
 ### Add AI
@@ -74,6 +56,9 @@ https://docs.microsoft.com/en-us/azure/app-service-mobile/
 
 ### Add a bot
 https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-3.0
+
+### Build with Mixed Reality and Azure
+https://github.com/Microsoft/mixedreality-azure-samples
 
 ### Use Tensorflow (or Keras, or CNTK, or Theano, or ...) without installing anything
 https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview
