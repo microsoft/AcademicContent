@@ -1,7 +1,7 @@
 # Azure Labs
 
 ## FYI: many of these labs are being moved to [Microsoft Learn](docs.microsoft.com/learn). 
-Microsoft Learn gives you the ability to run all of these (and more!) great labs for free - without using your Azure credits. Check it out at <docs.microsoft.com/learn>!
+Microsoft Learn gives you the ability to run all of these (and more!) great labs for free - without using your Azure credits. Check it out at [docs.microsoft.com/learn](docs.microsoft.com/learn)!
 
 Azure Labs is a collection of hands-on coding labs designed to help Computer Science faculty and students learn how to deploy solutions to the Azure cloud involving common scenarios such as Web development, AI and machine learning, data science, and IoT using cross-platform technologies. Most labs are compatible with Windows, macOS, or Linux and take 60 to 90 minutes to complete.
 
