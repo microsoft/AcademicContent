@@ -3,7 +3,6 @@ Share the love: [aka.ms/hackwithazure](https://aka.ms/hackwithazure)
 
 ## Quick links
 - Free $100 credit: https://aka.ms/azureforstudents
-- Take survey to get tshirt or socks: https://aka.ms/azure-hackathon
 
 ## What is Azure?
 Azure is a cloud computing platform (similar to AWS and Google Cloud Platform). We offer a broad range of services for developers to create with. 
@@ -27,7 +26,7 @@ Not working? Come to the Microsoft booth and we'll get it fixed.
 You may already have a Microsoft account (@outlook.com or @hotmail.com email, or could be associated with any other email address). If you don't, you can create one at [https://signup.live.com/](https://signup.live.com/) or as a part of the instructions below.
 
 ## Azure hackathon prize
-Use any Azure service (like, any of them...) and enter our Azure prize (Azure Champ Challenge). Winners will recieve an Xbox One X for each team member and your hack will be entered into our Imagine Cup competition (the grand prize last year was a mentoring session with CEO Satya and $85k).
+Use any Azure service (like, any of them...) and enter our Azure prize (Azure Champ) challenge. Winners will recieve an Xbox One X for each member of their team!
 
 See below for details.
 
