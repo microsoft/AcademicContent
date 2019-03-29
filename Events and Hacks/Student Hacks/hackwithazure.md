@@ -106,17 +106,4 @@ The primary requirement is that your hack project include Azure in some way. Ple
 
 
 ### I want to enter my winning hack project into Imagine Cup
-1.	Review the 2019 [Imagine Cup Rules and Regulations](https://imaginemedia.blob.core.windows.net/content/IC19%20Official%20Rules%20and%20Regulations-ecd22e3bba83.pdf)
-2.	Up to three team members visit [ImagineCup.com](http://imaginecup.com) and Register for the 2019 Imagine Cup
-3.	Once registered, gather the required materials to [submit](https://imagine.microsoft.com/submission/competition/17773) to the **Americas** Online Semifinals. 
-    - Create a team of up to 3 members: 
-        - The team can be created before submitting at the [Account page](https://imaginecup.microsoft.com/en-us/account) or at the time of submission. 
-    - Submit the required materials prior to the **Americas** deadline **09:59:59 GMT+0 on Saturday, March 2, 2019** including 
-        - Project Title & Description
-        - Project Proposal (Word, PDF or PPT document detailing the project)
-        - Software Upload (Package your project so that our judges can evaluate your solution – Zip file or link to project)
-        - Software Instructions (Instructions on how to install and interact with the project)
-        - Presentation Video (3min pitch and demo video as if presenting to live judges).
-        - Inquire with your Microsoft rep for the Event Code
-4.	The winning projects for this Hack will be evaluated against other winning projects in for a spot at the Regional Final.
-     - All teams not chosen to advance will be given a second chance by being evaluated against all Imagine Cup teams in their region for the remaining spots at the Regional Final.
+Unfortunately, entry for the 2019 Imagine Cup has closed. However, if your team wins and is interested in entering the 2020 Imagine Cup, please let one of the Microsoft representatives know!
