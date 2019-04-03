@@ -269,7 +269,7 @@ An Azure Function written in JavaScript has been created and configured and the 
 
 The Azure Function you created in [Exercise 2](#Exercise2) loads a subscription key for the Microsoft Cognitive Services Computer Vision API from application settings. This key is required in order for your code to call the Computer Vision API, and is transmitted in an HTTP header in each call. It also loads the base URL for the Computer Vision API (which varies by data center) from application settings. In this exercise, you will subscribe to the Computer Vision API, and then add an access key and a base URL to application settings.
 
-1. In the Azure Portal, click **+ Create a resource**, followed by **AI + Cognitive Services** and **Computer Vision API**.
+1. In the Azure Portal, click **+ Create a resource**, followed by **AI + Machine Learning** and **Computer Vision**.
 
     ![Creating a new Computer Vision API subscription](Images/new-vision-api.png)
 
@@ -305,7 +305,7 @@ The Azure Function you created in [Exercise 2](#Exercise2) loads a subscription 
 
     _Viewing application settings_
 
-1. Scroll down to the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the **Value** box. Then add a setting named "VisionEndpoint" and set its value to the endpoint URL you saved in Step 4. Finish up by clicking **Save** at the top of the blade.
+1. Scroll down to the "App settings" section. Add a new app setting named "SubscriptionKey" (without quotation marks), and paste the subscription key that is on the clipboard into the **Value** box. Then add a setting named "VisionEndpoint" and set its value to the endpoint URL you saved in Step 4. Add "vision/v1.0" to the end of the URL if it isn't already there. Finish up by clicking **Save** at the top of the blade.
 
     ![Adding application settings](Images/add-keys.png)
 

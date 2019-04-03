@@ -1,11 +1,11 @@
 <a name="HOLTitle"></a>
-# Building Interactive Notebooks with Azure Notebooks #
+# Building Jupyter Notebooks with Azure Notebooks #
 
-[Azure Notebooks](https://notebooks.azure.com/) provides a cloud-based solution for editing and running [Jupyter](http://jupyter.org/) notebooks. Jupyter is an environment based on [IPython](https://ipython.org/) that facilitates interactive programming and data analysis using a variety of programming languages. Jupyter notebooks enjoy widespread use in research and academia for mathematical modeling, machine learning, statistical analysis, and for teaching and learning how to code.
+[Azure Notebooks](https://notebooks.azure.com/) is a cloud-based platform for building and running [Jupyter](http://jupyter.org/) notebooks. Jupyter is an environment based on [IPython](https://ipython.org/) that facilitates interactive programming and data analysis using a variety of programming languages, including Python. Jupyter notebooks enjoy widespread use in research and academia for mathematical modeling, machine learning, statistical analysis, and for teaching and learning how to code.
 
-Notebooks are composed of *cells*, some of which contain code that runs interactively. Code is executed by a *kernel*, which provides an isolated environment for the notebook to run in. The popular IPython kernel supports code written in Python, but [dozens of other kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) are available supporting other languages. Azure Notebooks support Python, R, and F# out of the box. They also support the installation of the numerous packages and libraries that are commonly used in research. 
+Azure Notebooks provide Jupyter as a service for free. It's a convenient way to build notebooks and share them with others without having to install and manage a Jupyter server. And it's completely Web-based, making it an ideal solution for collaborating online. In this lab, you will create an Azure Notebook and use three popular Python libraries — [scikit-learn](http://scikit-learn.org/stable/index.html), [NumPy](http://www.numpy.org/), and [Seaborn](https://seaborn.pydata.org/) — to analyze climate data collected by NASA. Then you will create a slide show from the notebook and share the notebook so others can experiment with it, too.
 
-Azure Notebooks provides Jupyter as a service for free, so anyone can use it. It's a convenient way to build notebooks and share them with others without having to install and manage a Jupyter server. And it's completely Web-based, making it an ideal solution for collaborating online. 
+![](Images/scatter-plot.png)
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -14,7 +14,7 @@ In this hands-on lab, you will learn how to:
 
 - Create a notebook in Azure Notebooks
 - Upload, manipulate, and visualize data in a notebook
-- Create a slideshow from a notebook
+- Create a slide show from a notebook
 - Share notebooks online
 
 <a name="Prerequisites"></a>
@@ -40,64 +40,50 @@ There is no cost associated with this lab because it doesn't require an Azure su
 <a name="Exercises"></a>
 ## Exercises ##
 
-- [Exercise 1: Create a library and a notebook](#Exercise1)
+- [Exercise 1: Create a project and a notebook](#Exercise1)
 - [Exercise 2: Upload data and create a scatter plot](#Exercise2)
 - [Exercise 3: Perform linear regression with NumPy](#Exercise3)
 - [Exercise 4: Perform linear regression with scikit-learn](#Exercise4)
 - [Exercise 5: Analyze the data with Seaborn](#Exercise5)
-- [Exercise 6: Create a slideshow](#Exercise6)
+- [Exercise 6: Create a slide show](#Exercise6)
 - [Exercise 7: Share a notebook](#Exercise7)
 
 Estimated time to complete this lab: **45** minutes.
 
 <a name="Exercise1"></a>
-## Exercise 1: Create a library and a notebook ##
+## Exercise 1: Create a project and a notebook ##
 
-The first order of business is to create a library and a notebook to go in it.
+The first order of business is to create a new Azure notebook. Azure notebooks are contained in projects, whose primary purpose is to group related notebooks. In this exercise, you will create a new project and then create a notebook inside it.
 
-1. Navigate to https://notebooks.azure.com in your browser and sign in using your Microsoft account. Then click **Libraries**.
+1. Navigate to https://notebooks.azure.com in your browser and sign in using your Microsoft account. Click **My Projects** in the menu at the top of the page. Then click the **+ New Project** button at the top of the "My Projects" page.
 
-	![Navigating to the Libraries page](Images/azure-notebooks-1.png)
+1. Create a new project named "Lab Notebooks" or something similar.
 
-	_Navigating to the Libraries page_
+	![Creating a project](Images/add-project.png)
 
-1. Click **+ New Library**.
+	_Creating a project_
 
-	![Adding a library](Images/azure-notebooks-2.png)
+1. Click **+ New** and select **Notebook** from the menu to add a notebook to the project.
 
-	_Adding a library_
+	![Adding a notebook to the project](Images/add-notebook-1.png)
 
-1. Enter "Notebook HOL" (without quotation marks) for the library name, "notebook-hol" for the library ID, and "Azure Notebook lab" for the library description. Uncheck the **Public Library** box, and then click **Create**.
+	_Adding a notebook to the project_
 
-	![Creating a library](Images/azure-notebooks-3.png)
+1. Give the notebook a name such as "Notebook HOL.ipynb," and select **Python 3.6** as the language. This will create a notebook with a Python 3.6 kernel for executing Python code. One of the strengths of Azure notebooks is that you can use different languages by choosing different kernels.
 
-	_Creating a library_
-
-1. Click the library you just added.
-
-	![Opening the library](Images/azure-notebooks-4.png)
-
-	_Opening the library_
-
-1. Click **+ New** to add a notebook to the library.
-
-	![Adding a notebook](Images/azure-notebooks-5.png)
-
-	_Adding a notebook_
-
-1. Click the **New** tab. Enter "Notebook HOL.ipynb" into the box below for the notebook name and select **Python 3.5** as the language. Then click the **New** button.
-
-	![Creating a notebook](Images/azure-notebooks-6.png)
+	![Creating a notebook](Images/add-notebook-2.png)
 
 	_Creating a notebook_
 
-1. Click the new notebook. This will launch the notebook in Jupyter and allow you to start editing it.
+	If you're curious, the .ipynb file-name extension stands for "IPython notebook." Jupyter notebooks were originally known as IPython (Interactive Python) notebooks, and they only supported Python as a programming language. The name Jupyter is a combination of Julia, Python, and R — the core programming languages that Jupyter supports.
 
-	![Opening the notebook](Images/azure-notebooks-7.png)
+1. Click the notebook to open it for editing.
+
+	![Opening the notebook](Images/open-notebook.png)
 
 	_Opening the notebook_
 
-You can create additional libraries and notebooks as you work with Azure Notebooks. Libraries are essentially a way of grouping related notebooks. You can create notebooks from scratch, or you can upload existing notebooks. In the next exercise, you will build a notebook from scratch and learn the basics of working with cells.
+You can create additional projects and notebooks as you work with Azure Notebooks. You can create notebooks from scratch, or you can upload existing notebooks. And once a notebook is created or uploaded, you can take advantage of Azure compute resources to run the notebook and leverage popular Python libraries such as [Keras](https://keras.io/), [NumPy](http://www.numpy.org/), [Pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/), and [Scikit-learn](https://scikit-learn.org/stable/index.html).
 
 <a name="Exercise2"></a>
 ## Exercise 2: Upload data and create a scatter plot ##
@@ -108,6 +94,8 @@ Jupyter notebooks are composed of *cells*. Each cell is assigned one of four typ
 - **Code** for entering code that runs interactively
 - **Raw NBConvert** for entering data inline
 - **Heading** for section headers   
+
+Code entered into code cells is executed by a *kernel*, which provides an isolated environment for the notebook to run in. The popular IPython kernel supports code written in Python, but [dozens of other kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) are available supporting other languages. Azure Notebooks support Python, R, and F# out of the box. They also support the installation of the numerous packages and libraries that are commonly used in research.
 
 The notebook editor currently shows an empty cell. In this exercise, you will add content to that cell and add other cells to import Python packages such as [NumPy](http://www.numpy.org/), load a pair of NASA data files containing [climate data](https://data.giss.nasa.gov/gistemp/graphs_v3/), and create a scatter plot from the data.
 
@@ -161,7 +149,7 @@ The notebook editor currently shows an empty cell. In this exercise, you will ad
 
 1. Place the cursor in the empty cell at the bottom of the notebook. Change the cell type to **Markdown** and enter "Create a scatter plot" as the text.
 
-1. Add a **Code** cell and paste in the following code, which uses [Mapplotlib](http://matplotlib.org/) to create a scatter plot.
+1. Add a **Code** cell and paste in the following code, which uses [Matplotlib](http://matplotlib.org/) to create a scatter plot.
 
 	```python
 	plt.scatter(yearsBase, meanBase)
@@ -280,9 +268,9 @@ One of the cool things about Azure Notebooks — and Python in general — is th
 Notice how the how the data points for the first 100 years conform nicely to the predicted values, but the data points from roughly 1980 forward do not. It is models such as these that lead scientists to believe that climate change is accelerating.
 
 <a name="Exercise6"></a>	
-## Exercise 6: Create a slideshow ##
+## Exercise 6: Create a slide show ##
 
-What if you wanted to take a notebook you've created and use it in a presentation? You can use create slideshows from the cells in a notebook and play them back when it's presentation time. In this exercise, you will create a slideshow from the notebook you built in the previous exercises.
+What if you wanted to take a notebook you've created and use it in a presentation? You can use create slide shows from the cells in a notebook and play them back when it's presentation time. In this exercise, you will create a slide show from the notebook you built in the previous exercises.
 
 1. Scroll up to the top of the notebook. Then select **View** -> **Cell Toolbar** -> **Slideshow**. This will display a **Slide Type** drop-down in each cell for specifying how individual cells behave during a slide show.
 
@@ -298,62 +286,40 @@ What if you wanted to take a notebook you've created and use it in a presentatio
 
 1. Click the **Slideshow** button to play the slide show. 
 
-	![Starting the slideshow](Images/slideshow-3.png)
+	![Starting the slide show](Images/slideshow-3.png)
 
-	_Starting the slideshow_
+	_Starting the slide show_
 
-1. Maximize the browser window (or switch the browser to full-screen mode if your browser supports it). Then use the arrow buttons in the lower-right corner of the page (or the left and right arrows keys on the keyboard) to navigate backward and forward in the slideshow.
+1. Maximize the browser window (or switch the browser to full-screen mode if your browser supports it). Then use the arrow buttons in the lower-right corner of the page (or the left and right arrows keys on the keyboard) to navigate backward and forward in the slide show.
 
-	![Viewing the slideshow](Images/slideshow-4.png)
+	![Viewing the slide show](Images/slideshow-4.png)
 
-	_Viewing the slideshow_
+	_Viewing the slide show_
 
-1. When you're finished, click the **X** in the upper-left corner of the page to end the slideshow.
+1. When you're finished, click the **X** in the upper-left corner of the page to end the slide show.
 
-Creating slideshows is easy. But what if you want to share a notebook with colleagues so they can use it, too? That is the subject of the next exercise.
+Creating slide shows is easy. But what if you want to share a notebook with colleagues so they can use it, too? That is the subject of the next exercise.
 
 <a name="Exercise7"></a>
 ## Exercise 7: Share a notebook ##
 
-One of the value-added features of Azure Notebooks is that it provides a cloud-based hub for sharing notebooks. In this exercise, you will share the notebook you created in previous exercises.
+One of the value-added features of Azure Notebooks is that it provides a cloud-based hub for sharing notebooks. In this exercise, you will share the project containing the notebook that you created.
 
 1. Select **File** -> **Close and Halt** to close the notebook.
 
-	![Closing the notebook](Images/share-1.png)
+	![Closing the notebook](Images/close-notebook.png)
 
 	_Closing the notebook_
 
-1. Click **Edit** to edit the library.
+1. Click **Share**, and then select **Copy Link** from the drop-down menu.
 
-	![Editing the library](Images/share-2.png)
-
-	_Editing the library_
-
-1. Check the **Public Library** box to make the library public, and then click **Save**.
-
-	![Making the library public](Images/share-3.png)
-
-	_Making the library public_
-
-1. Click **Share**.
-
-	![Sharing the library](Images/share-4.png)
-
-	_Sharing the library_
-
-1. Notebooks can be shared by links, on social media, and through email. To demonstrate, click **Copy to clipboard** to copy a link to the notebook to the clipboard. Then paste the link into a separate browser window and confirm that the notebook appears there. Finish up by clicking **Close** to close the share dialog.
-
-	![Sharing by link](Images/share-5.png)
+	![Sharing by link](Images/share-project.png)
 
 	_Sharing by link_
 
-1. Another way to share a notebook is to download it as a .ipynb file and send the .ipynb file to whomever you wish to share it with. To download the notebook, click **Download**.
+1. Paste the link into a separate private or incognito browser window and confirm that the project appears there. Click the "Notebook HOL" notebook and confirm that you can open it and run it.
 
-	![Downloading a notebook](Images/share-6.png)
-
-	_Downloading a notebook_
-
-Downloading .ipynb files is also useful for making local copies of your notebooks. You can even run them in other Jupyter environments if you would like because there is nothing proprietary about Azure Notebooks.
+Another way to share a notebook is to download it as a .ipynb file and send the .ipynb file to whomever you wish to share it with.  Downloading .ipynb files is also useful for making local copies of your notebooks. You can even run them in other Jupyter environments if you would like because there is nothing proprietary about Azure Notebooks.
 
 <a name="Summary"></a>
 ## Summary ##
@@ -362,4 +328,4 @@ The [Azure Notebooks Web site](https://notebooks.azure.com/) contains several sa
 
 ---
 
-Copyright 2017 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT. 
+Copyright 2018 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT. 
