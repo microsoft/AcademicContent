@@ -228,7 +228,7 @@ In this exercise, you will modify the Azure Function that you created in the pre
 1. Open the Azure Function contained in the Function App. Replace the function code with the following code:
 
 	```javascript
-	module.exports = async function (context, req) {
+	module.exports = function (context, req) {
 	    var predictionUrl = 'PREDICTION_URL';
 	    var predictionKey = 'PREDICTION_KEY';
 	    var storageAccountName = 'ACCOUNT_NAME';
@@ -293,8 +293,15 @@ In this exercise, you will modify the Azure Function that you created in the pre
 	        
 	            var config = 
 	            {
-	                userName: databaseUsername,
-	                password: databasePassword,
+	                authentication:
+	                {
+	                    options:
+	                    {
+	                        userName: databaseUsername,
+	                        password: databasePassword
+	                    },
+	                    type: 'default'
+	                },
 	                server: databaseServer,
 	                options: 
 	                {
@@ -321,10 +328,12 @@ In this exercise, you will modify the Azure Function that you created in the pre
 	
 	                    dbRequest.on('error', err => {
 	                        context.log(err);
+	                        context.done();
 	                    });
 	
 	                    dbRequest.on('requestCompleted', () => {
 	                        // Request completed
+	                        context.done();
 	                    });
 	
 	                    connection.execSql(dbRequest);
