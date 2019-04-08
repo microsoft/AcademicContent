@@ -2,7 +2,7 @@
 Share the love: [aka.ms/hackwithazure](https://aka.ms/hackwithazure)
 
 ## Quick links
-- Free $100 credit: https://aka.ms/azureforstudents
+- [Free $100 Azure credit!!] https://aka.ms/azureforstudents?WT.mc_id=hackwithazure-hackathon-cxa
 
 ## What is Azure?
 Azure is a cloud computing platform (similar to AWS and Google Cloud Platform). We offer a broad range of services for developers to create with. 
