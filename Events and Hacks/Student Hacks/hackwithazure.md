@@ -2,24 +2,24 @@
 Share the love: [aka.ms/hackwithazure](https://aka.ms/hackwithazure)
 
 ## Quick links
-- [Free $100 Azure credit!!] https://aka.ms/azureforstudents?WT.mc_id=hackwithazure-hackathon-cxa
+- [Free $100 Azure credit!!] (https://aka.ms/azureforstudents?WT.mc_id=hackwithazure-hackathon-cxa)
 
 ## What is Azure?
 Azure is a cloud computing platform (similar to AWS and Google Cloud Platform). We offer a broad range of services for developers to create with. 
 
 In particular, Azure has great, beginner-friendly services to help you use...
-- [AI/Machine Learning](https://azure.microsoft.com/en-us/overview/ai-platform/)
-- [Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/)
-- [Web Apps](https://docs.microsoft.com/en-us/azure/app-service/)
-- [Containers (Docker/Kubernetes)](https://docs.microsoft.com/en-us/azure/aks/)
-- [Bots](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0)
+- [AI/Machine Learning](https://azure.microsoft.com/en-us/overview/ai-platform/?WT.mc_id=hackwithazure-hackathon-cxa)
+- [Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/?WT.mc_id=hackwithazure-hackathon-cxa)
+- [Web Apps](https://docs.microsoft.com/en-us/azure/app-service/?WT.mc_id=hackwithazure-hackathon-cxa)
+- [Containers (Docker/Kubernetes)](https://docs.microsoft.com/en-us/azure/aks/?WT.mc_id=hackwithazure-hackathon-cxa)
+- [Bots](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0?WT.mc_id=hackwithazure-hackathon-cxa)
 
 ...in your hacks! 
 
-[Check the docs](https://docs.microsoft.com/en-us/azure/#pivot=get-started&panel=get-started1) on how to get started with Azure. We offer a full range of labs with [Microsoft Learn](https://docs.microsoft.com/en-us/learn/).
+[Check the docs](https://docs.microsoft.com/en-us/azure/#pivot=get-started&panel=get-started1?WT.mc_id=hackwithazure-hackathon-cxa) on how to get started with Azure. We offer a full range of labs with [Microsoft Learn](https://docs.microsoft.com/en-us/learn/?WT.mc_id=hackwithazure-hackathon-cxa).
 
 ## How to get free Azure credits
-[aka.ms/azure4students](https://aka.ms/azure4students) - use your @<yourschool>.edu email to get $100 Azure credit plus free services  without a credit card.
+[aka.ms/azure4students](https://aka.ms/azure4students?WT.mc_id=hackwithazure-hackathon-cxa) - use your @<yourschool>.edu email to get $100 Azure credit plus free services  without a credit card.
   
 Not working? Come to the Microsoft booth and we'll get it fixed.
 
@@ -36,28 +36,21 @@ Most of us aren't recruiters (and we can't guarantee that we will have one with 
 
 ## Tutorials
 ### Add AI
-What cog services exist? https://azure.microsoft.com/en-us/services/cognitive-services/directory/ 
+[What cog services exist?] (https://azure.microsoft.com/en-us/services/cognitive-services/directory/?WT.mc_id=hackwithazure-hackathon-cxa)
 
-How do I use them? https://docs.microsoft.com/en-us/azure/cognitive-services/
+[How do I use these services?] (https://docs.microsoft.com/en-us/azure/cognitive-services/?WT.mc_id=hackwithazure-hackathon-cxa)
 
-#### Go further with custom vision service
-https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier
+#### [Go further with custom vision service] (https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier?WT.mc_id=hackwithazure-hackathon-cxa)
 
-#### Go further with Azure Machine Learning services
-https://docs.microsoft.com/en-us/azure/machine-learning/
+#### [Go further with Azure Machine Learning services] (https://docs.microsoft.com/en-us/azure/machine-learning/?WT.mc_id=hackwithazure-hackathon-cxa)
 
-### Make a web app
-https://docs.microsoft.com/en-us/azure/app-service/app-service-web-overview
+### [Make a web app] (https://docs.microsoft.com/en-us/azure/app-service/app-service-web-overview?WT.mc_id=hackwithazure-hackathon-cxa)
 
-#### For mobile apps
-https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
-https://docs.microsoft.com/en-us/azure/app-service-mobile/
+#### [For mobile apps] (https://docs.microsoft.com/en-us/azure/app-service-mobile/?WT.mc_id=hackwithazure-hackathon-cxa?WT.mc_id=hackwithazure-hackathon-cxa)
 
-### Add a bot
-https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-3.0
+### [Add a bot] (https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-3.0?WT.mc_id=hackwithazure-hackathon-cxa)
 
-### Build with Mixed Reality and Azure
-https://github.com/Microsoft/mixedreality-azure-samples
+### [Build with Mixed Reality and Azure] (https://github.com/Microsoft/mixedreality-azure-samples?WT.mc_id=hackwithazure-hackathon-cxa)
 
 ### Use Tensorflow (or Keras, or CNTK, or Theano, or ...) without installing anything
 https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview
@@ -65,11 +58,9 @@ https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-mac
 ### Play with Python (and TensorFlow/Theano/Sci-kit learn/etc.) in a browser
 https://notebooks.azure.com/
 
-### Publish an API hosted in the cloud
-https://docs.microsoft.com/en-us/azure/api-management/
+### [Publish an API hosted in the cloud] (https://docs.microsoft.com/en-us/azure/api-management/?WT.mc_id=hackwithazure-hackathon-cxa)
 
-### Azure functions for data streaming
-https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview
+### [Azure functions for data streaming] (https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview?WT.mc_id=hackwithazure-hackathon-cxa)
 
 ### Use the most popular IDE~ to get coding fast
 [Get Visual Studio Code](https://code.visualstudio.com/?wt.mc_id=DX_841432)
@@ -77,9 +68,9 @@ https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview
 ~according to Stack Overflow's [dev survey 2018 😊](https://insights.stackoverflow.com/survey/2018/#technology-most-popular-development-environments)
 
 ## Other useful links
-[Azure Docs](https://docs.microsoft.com/azure) - Reference for all things Azure (and a lot of open source too).
+[Azure Docs](https://docs.microsoft.com/azure?WT.mc_id=hackwithazure-hackathon-cxa) - Reference for all things Azure (and a lot of open source too).
 
-[Microsoft Learn](https://docs.microsoft.com/learn/) - Full tutorials on the most common developer topics like building a website or spinning-up a virtual machine.
+[Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=hackwithazure-hackathon-cxa) - Full tutorials on the most common developer topics like building a website or spinning-up a virtual machine.
 
 [Azure Student Labs](https://aka.ms/azurestudentlabs) - Our repository of labs geared for computer science students that you can learn from. Find them at [aka.ms/azurestudentlabs](https://aka.ms/azurestudentlabs)
 
