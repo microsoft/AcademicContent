@@ -19,7 +19,7 @@
   "dependencies": {
     "body-parser": "1.9.2",
     "express": "4.10.1",
-    "morgan": "1.5.0"
+    "morgan": "1.9.1"
   },
   "devDependencies": {
     "expect.js": "0.3.1",
