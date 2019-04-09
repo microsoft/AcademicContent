@@ -4,7 +4,9 @@ the Student Zone booth, or are looking for resources for engaging your local com
 education products, check out all of the links below!
 
 ## Microsoft Education Products
+- [Azure Lab Services](https://azure.microsoft.com/en-us/services/lab-services/)
 - [MakeCode](https://www.microsoft.com/en-us/makecode?rtc=1)
 - [Minecraft Education Edition](https://education.minecraft.net/)
+- [TEALS](http://tealsk12.org/)
 
 ## Workshop Starter Code
