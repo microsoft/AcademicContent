@@ -88,9 +88,8 @@ How do I use these services? [https://docs.microsoft.com/en-us/azure/cognitive-s
 
 ## Prize details
 ### What's our hack prize?
-Each member of your team (up to 4 people) will win a
-[XBOX ONE X 1TB](https://www.xbox.com/en-us/xbox-one-x).
-The primary requirement is that your hack project include Azure in some way. Please be sure to read the Terms & Conditions for Azure Prize specific to *your* hackathon. Ask Microsoft representitves for the link!
+Each member of your team (up to 4 people) will win a backpack full of swag and prizes.
+The primary requirement is that your hack project includes Azure in some way. Please be sure to read the Terms & Conditions for Azure Prize specific to *your* hackathon. Ask Microsoft representitves for the link!
 
 ### How do I win? What's the judging criteria?
 
