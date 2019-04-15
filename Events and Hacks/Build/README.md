@@ -5,7 +5,8 @@ education products, check out all of the links below!
 
 ## Microsoft Education Products
 - [Azure for Students (free $100 credit)](https://azure.microsoft.com/en-us/free/students/?WT.mc_id=build2019studentoffer)
-- [Azure Lab Services](https://azure.microsoft.com/en-us/services/lab-services/)
+- [Azure Lab Services](https://azure.microsoft.com/en-us/services/lab-services/?WT.mc_id=jrdevdays-build2019-cxa)
+- [Microsoft Learn](https://docs.microsoft.com/en-us/learn/?WT.mc_id=jrdevdays-build2019-cxa)
 - Devices?
 - [Hacking STEM](https://www.microsoft.com/en-us/education/education-workshop/default.aspx)
 - Imagine Academy
