@@ -1,6 +1,8 @@
 # Azure Cognitive Services Project
 Azure Cognitive Services are a set of intelligent algorithms that give your apps the power to see, hear, speak, understand, and interpret what your users need through natural communication. Basically, the ability to easily add AI to any simple application you’re building. 
 
+Watch Dr. Sarah Guthals give an intro to this project [here](https://www.youtube.com/watch?v=_zGi2k59cXo&feature=youtu.be).
+
 Through this pilot TEALS project, students will be able to explore Azure Cognitive Services to get an idea of the vast ideas they could bring to life with the power of Azure. Students will be exposed to:
 -	Python
 -	Azure Notebooks (Jupyter Notebooks)
