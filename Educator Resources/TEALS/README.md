@@ -26,4 +26,7 @@ Finally, the students would have a conversation about ethics and AI, focusing on
 Using that same simple example:
 If you gathered all of the images from Instagram, counted all of the ones featuring dogs and cats and mapped those counts, that wouldn't account for all of the people who don't have Instagram, don't have public Instagrams, and/or don't post pictures of their pets online. So if you actually made an assumption about where dogs would be most likely to be adopted over cats based soley on this data gathering exercise, you may be not accounting for the fact that people who have cats simply don't post their pictures on Instagram.
 
-Access to the curriculum will be available in this repo on April 22nd and if you're interested in using this curriculum, reach out to Sarah Guthals (sarah.guthals@microsoft.com) to get started.
+If you're interested in using this curriculum, reach out to Sarah Guthals (sarah.guthals@microsoft.com) to get started.
+
+Teacher Guide: https://notebooks.azure.com/sguthals/projects/sp19-azure-teachers-guide
+Student Guide: https://notebooks.azure.com/sguthals/projects/sp19-teals-azure-project
