@@ -28,5 +28,5 @@ If you gathered all of the images from Instagram, counted all of the ones featur
 
 If you're interested in using this curriculum, reach out to Sarah Guthals (sarah.guthals@microsoft.com) to get started.
 
-Teacher Guide: https://notebooks.azure.com/sguthals/projects/sp19-azure-teachers-guide
+Teacher Guide: https://notebooks.azure.com/sguthals/projects/sp19-azure-teachers-guide  
 Student Guide: https://notebooks.azure.com/sguthals/projects/sp19-teals-azure-project
