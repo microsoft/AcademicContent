@@ -4,15 +4,15 @@ the Student Zone booth, or are looking for resources for engaging your local com
 education products, check out all of the links below!
 
 ## Microsoft Education Products
-- [Azure for Students (free $100 credit)](https://azure.microsoft.com/en-us/free/students/?WT.mc_id=build2019studentoffer)
-- [Azure Lab Services](https://azure.microsoft.com/en-us/services/lab-services/?WT.mc_id=jrdevdays-build2019-cxa)
-- [Microsoft Learn](https://docs.microsoft.com/en-us/learn/?WT.mc_id=jrdevdays-build2019-cxa)
+- [Azure for Students (free $100 credit)](https://azure.microsoft.com/free/students/?WT.mc_id=build2019studentoffer)
+- [Azure Lab Services](https://azure.microsoft.com/services/lab-services/?WT.mc_id=jrdevdays-build2019-cxa)
+- [Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=jrdevdays-build2019-cxa)
 - Devices?
-- [Hacking STEM](https://www.microsoft.com/en-us/education/education-workshop/default.aspx)
+- [Hacking STEM](https://www.microsoft.com/education/education-workshop/default.aspx)
 - Imagine Academy
-- [Imagine Cup](https://imaginecup.microsoft.com/en-us/Events?id=0)
-- [MakeCode](https://www.microsoft.com/en-us/makecode?rtc=1)
-- [Microsoft Education](https://www.microsoft.com/en-us/education)
+- [Imagine Cup](https://imaginecup.microsoft.com/Events?id=0)
+- [MakeCode](https://www.microsoft.com/makecode?rtc=1)
+- [Microsoft Education](https://www.microsoft.com/education)
 - [Minecraft Education Edition](https://education.minecraft.net/)
 - OneNote
 - [TEALS](http://tealsk12.org/)
