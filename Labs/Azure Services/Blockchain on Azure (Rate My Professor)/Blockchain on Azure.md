@@ -113,25 +113,25 @@ When it created the Ethereum network, Azure also created a *coinbase* account to
 
 Every transaction performed in a blockchain must be "fueled" by an account. This coinbase account will fuel transactions that allow comments and ratings to be recorded in the blockchain. Before the coinbase account can be used, however, it must be unlocked. In this exercise, you will use SSH to connect to the Ethereum network you deployed in the previous exercise and execute a series of commands to unlock the account and retrieve its address.
 
-1. Return to the resource group that you created for the Blockchain network in the Azure portal. Click **Deployments** in the menu on the left, and then click **microsoft-azure-blockchain**.
+1. Return to the resource group that you created for the Blockchain network in the Azure portal. Click **Deployments** in the menu on the left, and then click the resource whose name begins with "microsoft-azure-blockchain."
 
     ![Opening the blockchain](Images/open-blockchain.png)
 
     _Opening the blockchain_
 
-1. Click **Outputs** in the menu on the left, and then click the **Copy** button next to SSH-TO-FIRST-TX-NODE-REGION1 to copy the SSH command to the clipboard.
+1. Click **Outputs** in the menu on the left, and then click the **Copy** button next to "ssh_to_first_vl_node_region1" to copy the SSH command to the clipboard.
 
     ![Copying the SSH command](Images/copy-ssh-command.png)
 
     _Copying the SSH command_
 
-1. Click the **Cloud Shell** button in the toolbar at the top of the portal to open a cloud shell. The Azure cloud shell provides an environment for executing Bash and PowerShell commands without leaving the portal. You can use **Shift+Insert** to paste commands into the cloud shell, and **Ctrl+Insert** to copy text from the cloud shell to the clipboard.
+1. Click the **Cloud Shell** button in the toolbar at the top of the portal to open a cloud shell. The [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) provides an environment for executing Bash and PowerShell commands without leaving the portal. You can use **Shift+Insert** to paste commands into the cloud shell, and **Ctrl+Insert** to copy text from the cloud shell to the clipboard.
 
-    ![Opening the Azure cloud shell](Images/cloud-shell.png)
+    ![Opening the Azure Cloud Shell](Images/cloud-shell.png)
 
-    _Opening the Azure cloud shell_
+    _Opening the Azure Cloud Shell_
 
-1. Make sure **Bash** is the language selected in the upper-left corner of the cloud shell. Press **Shift+Insert**  to paste the ```ssh``` command that is on the clipboard into the cloud shell. Then press **Enter** to execute the command. If you are prompted with a security warning informing you that the authenticity of the host can't be established and asking if you want to connect anyway, type "yes" and press **Enter**.
+1. If asked to choose a language, choose **Bash**. Then make sure **Bash** is selected in the upper-left corner of the cloud shell. Press **Shift+Insert**  to paste the ```ssh``` command that is on the clipboard into the cloud shell. Then press **Enter** to execute the command. If you are prompted with a security warning informing you that the authenticity of the host can't be established and asking if you want to connect anyway, type "yes" and press **Enter**.
 
 1. When prompted for a password, enter the password you entered in Exercise 1, Step 3.
 
