@@ -92,9 +92,9 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
 1. In the "Monitoring" blade, select the region closest to you. Then click **OK** at the bottom of the blade.
 
-    ![Specifying the OMS region](Images/blockchain-settings-4.png)
+    ![Specifying the monitoring region](Images/blockchain-settings-4.png)
 
-    _Specifying the OMS region_
+    _Specifying the monitoring region_
 
 1. Review the settings in the "Summary" blade and click **OK** at the bottom of the blade. Then click the **Create** button at the bottom of the "Create" blade to begin the deployment.
 
