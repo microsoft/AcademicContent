@@ -10,7 +10,7 @@ Anyone can build a Blockchain network and use it to host blockchains. Microsoft 
 
 Ethereum was one of the first general-purpose Blockchain implementations. The software is open-source and is the basis for Ethereum's own cryptocurrency known as [Ether](https://www.ethereum.org/ether). You can deploy Ethereum networks of your own and use its Blockchain implementation however you wish. Among other features, Ethereum supports [smart contracts](https://en.wikipedia.org/wiki/Smart_contract), which are written in languages such as [Solidity](https://en.wikipedia.org/wiki/Solidity) and then compiled into bytecode and deployed to the blockchain for execution.
 
-In this lab, you will deploy an Ethereum network on Azure and create a custom blockchain. Then you will build a Web site named "Profrates" for rating professors that stores the comments and ratings that users enter in the blockchain. Along the way, you will get first-hand experience running Blockchain networks on Azure, as well as writing smart contracts for Ethereum and using them to store digital records in such a way that they cannot be altered.
+In this lab, you will deploy an [Ethereum proof-of-authority network](https://docs.microsoft.com/azure/blockchain/templates/ethereum-poa-deployment) on Azure and use it to host a custom blockchain. Then you will build a Web site named "Profrates" for rating professors that stores the comments and ratings that users enter in the blockchain. Along the way, you will get first-hand experience running Blockchain networks on Azure, as well as writing smart contracts for Ethereum and using them to store digital records in such a way that they cannot be altered.
 
 ![Profrates app](Images/header.png)
 
@@ -58,13 +58,11 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
 1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). If you are asked to sign in, do so using your Microsoft account.
 
-1. In the portal, click **+ Create a resource**. Type "proof of work" into the search box and select **Ethereum Proof-of-Work Consortium** from the drop-down list.
+1. In the portal, click **+ Create a resource**. Click **Blockchain**, and then click **Ethereum Proof-of-Authority Consortium**.
 
     ![Creating an Ethereum blockchain](Images/new-blockchain.png)
 
     _Creating an Ethereum blockchain_
-
-1. Review the information presented to you and click **Create** at the bottom of the blade.
 
 1. Fill in the "Basics" blade as shown below, providing a password that's at least 12 characters long containing a mix of uppercase letters, lowercase letters, numbers, and special characters. Click **Create new** under "Resource group" and enter a resource-group name to place the resources in a new resource group. Select the region nearest you, and then click **OK**. *Remember the password that you entered, because you will need it in the next exercise*.
 
@@ -80,15 +78,19 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
 1. Click **OK** at the bottom of the "Network Size and Performance" blade to accept the default settings for VM sizes, number of nodes, and so on.
 
-1. In the "Ethereum Settings" blade, set Consortium Member Id to **123** and enter a password in four places as the Ethereum account password and private key passphrase. Then click **OK**. Once again, *remember the password that you entered, because you will need it in the next exercise*.
+1. In the "Ethereum Settings" blade, set **Consortium Member Id** to **123**. Paste the following value into the **Admin Ethereum Address** box, and then click **OK**.
 
-	> The member ID is used to avoid IP collisions when multiple organizations are deployed to a single Ethereum network. Because you aren't sharing the network with other organizations, the ID that you enter is unimportant.
+	```
+	0x1111111100000000111111110000000011111111
+	```
+
+	The consortium member ID is used to avoid IP collisions when multiple organizations are deployed to a single Ethereum network. Because you aren't sharing the network with other organizations, the ID that you enter is not important. The admin address that you enter identifies a service principal that is granted admin privileges on the network. The actual value is unimportant; any 40-digit hex address will do.
 
     ![Entering Ethereum settings](Images/blockchain-settings-3.png)
 
     _Entering Ethereum settings_
 
-1. In the "OMS" blade, select the region closest to you. Then click **OK** at the bottom of the blade.
+1. In the "Monitoring" blade, select the region closest to you. Then click **OK** at the bottom of the blade.
 
     ![Specifying the OMS region](Images/blockchain-settings-4.png)
 
@@ -96,7 +98,7 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
 1. Review the settings in the "Summary" blade and click **OK** at the bottom of the blade. Then click the **Create** button at the bottom of the "Create" blade to begin the deployment.
 
-1. Click **Resource groups** in the ribbon on the left. Then click the resource group whose name you specified in Step 4. Wait until "Deploying" changes to "Succeeded" in the resource-group blade indicating that the Blockchain network and all of its resources have been deployed.
+1. Click **Resource groups** in the ribbon on the left. Then click the resource group whose name you specified in Step 3. Wait until "Deploying" changes to "Succeeded" in the resource-group blade indicating that the Blockchain network and all of its resources have been deployed.
 
     ![Monitoring the deployment](Images/deployment-succeeded.png)
 
