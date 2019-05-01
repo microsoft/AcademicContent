@@ -113,7 +113,19 @@ When it created the Ethereum network, Azure also created a *coinbase* account to
 
 Every transaction performed in a blockchain must be "fueled" by an account. This coinbase account will fuel transactions that allow comments and ratings to be recorded in the blockchain. Before the coinbase account can be used, however, it must be unlocked. In this exercise, you will use SSH to connect to the Ethereum network you deployed in the previous exercise and execute a series of commands to unlock the account and retrieve its address.
 
-1. Return to the resource group that you created for the Blockchain network in the Azure portal. Click **Deployments** in the menu on the left, and then click the resource whose name begins with "microsoft-azure-blockchain."
+1. Return to the resource group that you created for the Blockchain network in the Azure portal and click the Network Security Group resource.
+
+    ![Opening the Network Security Group](Images/open-nsg.png)
+
+    _Opening the Network Security Group_
+
+1. Click **Inbound security rules** in the menu on the left. If the "allow-ssh" rule is set to **Deny** rather than **Allow**, click the rule and change **Action** to **Allow**. Then click **Save**.
+
+    ![Allowing SSH](Images/allow-ssh.png)
+
+    _Allowing SSH_
+
+1. Return to the resource group and click **Deployments** in the menu on the left. Then click the resource whose name begins with "microsoft-azure-blockchain."
 
     ![Opening the blockchain](Images/open-blockchain.png)
 
