@@ -3,7 +3,7 @@
 ## AI Services
 - Seeing AI: https://www.microsoft.com/en-us/seeing-ai/
 - Intelligent Kiosk: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk
-- Sentiment analysis & GitHub example: https://notebooks.azure.com/shana/projects/CogPy
+- Sentiment analysis example: https://notebooks.azure.com/shana/projects/demos
 
 
 ## Yoga at your desk
