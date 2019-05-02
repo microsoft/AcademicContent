@@ -16,3 +16,4 @@
 ## Visual Studio Code
 - VS Code source code: https://github.com/Microsoft/vscode
 - Install VS Code Insiders: https://code.visualstudio.com/insiders/
+- GitLens for VS Code: https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
