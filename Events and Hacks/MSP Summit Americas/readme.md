@@ -1,4 +1,4 @@
-# Resources from the summit
+# Resources from the MSP Americas Summit
 
 ## AI Services
 - Seeing AI: https://www.microsoft.com/en-us/seeing-ai/
