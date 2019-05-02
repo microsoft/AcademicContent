@@ -12,3 +12,7 @@
 ## Yoga at your desk
 - Wrists and hands: https://youtu.be/bmznCBGMVaU
 - Neck and shoulders: https://youtu.be/-HRSxAxMJO8
+
+## Visual Studio Code
+- VS Code source code: https://github.com/Microsoft/vscode
+- Install VS Code Insiders: https://code.visualstudio.com/insiders/
