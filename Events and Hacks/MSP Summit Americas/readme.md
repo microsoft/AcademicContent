@@ -4,7 +4,9 @@
 - Seeing AI: https://www.microsoft.com/en-us/seeing-ai/
 - Intelligent Kiosk: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk
 - Sentiment analysis example: https://notebooks.azure.com/shana/projects/demos
-- Azure Functions: https://github.com/Azure/Azure-Functions
+
+## Azure Functions
+- Azure Functions source code: https://github.com/Azure/Azure-Functions
 
 
 ## Yoga at your desk
