@@ -9,15 +9,19 @@ education products, check out all of the links below!
 - [Azure for Students (free $100 credit)](https://azure.microsoft.com/free/students/?WT.mc_id=build2019studentoffer)
 
 ## DIY Zone - Projects
-[Micro:bit Project Ideas – MakeCode ] (https://makecode.microbit.org/)
-[Micro:bit Project Ideas – Microbit.org ] (https://microbit.org/ideas/)
- 
-[Circuit Playground Express Project Ideas – MakeCode ] (https://makecode.adafruit.com/)
-[Circuit Playground Express Project Ideas – Adafruit ] (https://learn.adafruit.com/category/express)
- 
-[Minecraft Tutorials and Sample Mods ] (https://minecraft.makecode.com/)
- 
-[MakeCode Arcade Tutorials and Sample Games ] (https://arcade.makecode.com/)
+[Micro:bit Project Ideas – MakeCode ](https://makecode.microbit.org/)  
+[Micro:bit Project Ideas – Microbit.org ](https://microbit.org/ideas/)  
+[Circuit Playground Express Project Ideas – MakeCode ](https://makecode.adafruit.com/)  
+[Circuit Playground Express Project Ideas – Adafruit ](https://learn.adafruit.com/category/express)  
+[Minecraft Tutorials and Sample Mods ](https://minecraft.makecode.com/)  
+[MakeCode Arcade Tutorials and Sample Games ](https://arcade.makecode.com/)
+
+## Tech Talk and Workshop Projects
+| Time | Type | Title | Presenter(s) |
+| ---------------- | --------- | ------------- | ------ |
+| 10:15 - 10:30am  | Tech Talk | The Cloud 101 | Heather Brevard and Michael Aldrige |
+| 10:45 - 11:15am  | Workshop  | Build Your Own Virtual Reality Game! | Cassie Siljander |
+| 11: 30 - 11:45am | Tech Talk | 
 
 ## Information for After Build
 - [Azure Lab Services](https://azure.microsoft.com/services/lab-services/?WT.mc_id=jrdevdays-build2019-cxa)
