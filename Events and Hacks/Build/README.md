@@ -30,10 +30,10 @@ education products, check out all of the links below!
 ### Tuesday
 | Time | Type | Title | Presenter(s) | Tutorial | 
 | ---------------- | --------- | ------------- | ------ | ----- | 
-| 8:45 - 9:15am  | Workshop  | Build a friend detector bracelet with micro:bit | Jim Bennett | [Instructions](aka.ms/FriendDetector) |
+| 8:45 - 9:15am  | Workshop  | Build a friend detector bracelet with micro:bit | Jim Bennett | [Instructions](https://aka.ms/FriendDetector) |
 | 10:00 - 10:30am  | Workshop  | HackingSTEM Build a Model Robotic Hand | Jacob Blickenstaff | | 
 | 11:45am - 12:15pm    | Workshop  | Can Polar Bears Help Predict Global Climate Change? Find out with Azure AI and IoT! | Justin Garrett | [Instructions](https://docs.microsoft.com/en-us/learn/modules/build-ml-model-with-azure-stream-analytics/) |
-| 12:30 - 1:00pm    | Workshop  | How Computers Talk to Each Other | Jasmine Greenaway | [Instructions](Aka.ms/computers-talk) |
+| 12:30 - 1:00pm    | Workshop  | How Computers Talk to Each Other | Jasmine Greenaway | [Instructions](https://aka.ms/computers-talk) |
 | 2:45 - 3:15pm | Workshop | Amy Boyd and Max Shen | Build the popular 'Hot Dog' or 'Not Hot Dog' app in 30 mins using Machine Learning | [Instructions](https://aka.ms/hotdogapp) |
 | 4:00 - 6:00pm | Live Coding | Scott Hanselman | Building Together with Scott and Friends | | 
 
