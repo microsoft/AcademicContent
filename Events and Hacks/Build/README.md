@@ -34,11 +34,9 @@ education products, check out all of the links below!
 | Time | Type | Title | Presenter(s) | Tutorial | 
 | ---------------- | --------- | ------------- | ------ | ----- | 
 | 8:45 - 9:15am  | Workshop  | Build a friend detector bracelet with micro:bit | Jim Bennett | [Instructions](https://aka.ms/FriendDetector) |
-| 10:00 - 10:30am  | Workshop  | HackingSTEM Build a Model Robotic Hand | Jacob Blickenstaff | | 
 | 11:45am - 12:15pm    | Workshop  | Can Polar Bears Help Predict Global Climate Change? Find out with Azure AI and IoT! | Justin Garrett | [Instructions](https://docs.microsoft.com/en-us/learn/modules/build-ml-model-with-azure-stream-analytics/) |
 | 12:30 - 1:00pm    | Workshop  | How Computers Talk to Each Other | Jasmine Greenaway | [Instructions](https://aka.ms/computers-talk) |
-| 2:45 - 3:15pm | Workshop | Amy Boyd and Max Shen | Build the popular 'Hot Dog' or 'Not Hot Dog' app in 30 mins using Machine Learning | [Instructions](https://aka.ms/hotdogapp) |
-| 4:00 - 6:00pm | Live Coding | Scott Hanselman | Building Together with Scott and Friends | | 
+| 2:45 - 3:15pm | Workshop | Build the popular 'Hot Dog' or 'Not Hot Dog' app in 30 mins using Machine Learning | Amy Boyd and Max Shen | [Instructions](https://aka.ms/hotdogapp) |
 
 
 ### Wednesday
@@ -47,7 +45,6 @@ education products, check out all of the links below!
 | 8:45 - 9:15am  | Workshop  | Build a quirky Banana Fact API using Azure Functions | Jenn Jinhong | [Instructions](https://github.com/JennJin/quirkyBananaFactsAPI) |
 | 10:00 - 10:30am  | Workshop  | Train a custom image classifier...All from the Command Line | Lee Stott | [Instructions](https://github.com/leestott/Building-Microsoft-Custom-Vision-AI-Model-and-Apps/)| 
 | 11:45am - 12:15pm    | Workshop  | VSCode: Your Tool from Student to ProDev | Sana Ajani and Xiaokai He | [Instructions](https://github.com/sana-ajani/build2019-workshop) |
-| 5:15 - 5:45pm | Workshop | The Cloud is more than just a think in the Sky | Heather Brevard and Michael Aldridge |  |
 
 ## Information for After Build
 - [Azure Lab Services](https://azure.microsoft.com/services/lab-services/?WT.mc_id=jrdevdays-build2019-cxa)
