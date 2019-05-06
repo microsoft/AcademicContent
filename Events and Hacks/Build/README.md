@@ -19,6 +19,7 @@ education products, check out all of the links below!
 [Build a Mobile App with Xamarin!](https://review.docs.microsoft.com/en-us/learn-xamarin-pr/paths/build-mobile-apps-with-xamarin-forms/?branch=beta)
 [Try .NET in the Browser!](https://trialinteractivedotnet.azurewebsites.net/)
 [Explore Azure Cognitive Services in Azure Notebooks](https://notebooks.azure.com/sarah-guthals/projects/buildstudentzone)
+[Make Your Own Emotion Detector Animation](https://github.com/Wicklets/FaceDetectionWithAzure)
 
 ## Workshop Projects
 ### Monday
