@@ -57,3 +57,12 @@ education products, check out all of the links below!
 - [TEALS](http://tealsk12.org/)
 - [VS Code](https://code.visualstudio.com/)
 
+# Full Schedule
+## Monday
+![Monday](Screen%20Shot%202019-05-06%20at%207.55.47%20AM.png)  
+
+## Tuesday
+![Tuesday](Screen%20Shot%202019-05-06%20at%207.56.15%20AM.png)
+
+## Wednesday
+![Wednesday](Screen%20Shot%202019-05-06%20at%207.56.30%20AM.png)
