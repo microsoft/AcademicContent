@@ -28,6 +28,7 @@ education products, check out all of the links below!
 | 10:45 - 11:15am  | Workshop  | Build Your Own Virtual Reality Game! | Cassie Siljander | [Instructions](https://aka.ms/WorkshopWebVR) |
 | 12:00 - 12:30pm  | Workshop  | Finding Yourself with Facial Recognition | Christopher Harrison | [Instructions](https://github.com/GeekTrainer/face-api-workshop) | 
 | 1:15 - 1:45pm    | Workshop  | Coding with Friends on GitHub | Ji Eun Kwon and Shana Matthews | [Instructions](https://github.com/shanamatthews/build-github-workshop/blob/master/README.md) |
+| 2:30 - 2:45pm | Workshop | #GenerationAI | America and Penelope: Cybercode Twins | [Instructions](http://bit.ly/309JMJ4) |
 | 5:30 - 6:00pm    | Workshop  | Share Your Website with the World! | Orko Momin | [Instructions](https://github.com/orktopus/build-homepage-tutorial) |
 
 ### Tuesday
