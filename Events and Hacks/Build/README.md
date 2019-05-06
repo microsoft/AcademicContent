@@ -16,7 +16,7 @@ education products, check out all of the links below!
 [Circuit Playground Express Project Ideas – Adafruit ](https://learn.adafruit.com/category/express)  
 [Minecraft Tutorials and Sample Mods ](https://minecraft.makecode.com/)  
 [MakeCode Arcade Tutorials and Sample Games ](https://arcade.makecode.com/)  
-[Build a Mobile App with Xamarin!](https://aka.ms/MSBuild2019_StudentZone)  
+[Build a Mobile App with Xamarin!](https://github.com/shanamatthews/Build2019-Xamarin/blob/master/README.md)  
 [Try .NET in the Browser!](https://trialinteractivedotnet.azurewebsites.net/)  
 [Explore Azure Cognitive Services in Azure Notebooks](https://notebooks.azure.com/sarah-guthals/projects/buildstudentzone)  
 [Make Your Own Emotion Detector Animation](https://github.com/Wicklets/FaceDetectionWithAzure)  
