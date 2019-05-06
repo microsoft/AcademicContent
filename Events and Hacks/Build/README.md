@@ -16,7 +16,9 @@ education products, check out all of the links below!
 [Circuit Playground Express Project Ideas – Adafruit ](https://learn.adafruit.com/category/express)  
 [Minecraft Tutorials and Sample Mods ](https://minecraft.makecode.com/)  
 [MakeCode Arcade Tutorials and Sample Games ](https://arcade.makecode.com/)
-[Xamarin]()
+[Build a Mobile App with Xamarin!](https://review.docs.microsoft.com/en-us/learn-xamarin-pr/paths/build-mobile-apps-with-xamarin-forms/?branch=beta)
+[Try .NET in the Browser!](https://trialinteractivedotnet.azurewebsites.net/)
+[Explore Azure Cognitive Services in Azure Notebooks](https://notebooks.azure.com/sarah-guthals/projects/buildstudentzone)
 
 ## Workshop Projects
 ### Monday
@@ -42,7 +44,7 @@ education products, check out all of the links below!
 | Time | Type | Title | Presenter(s) | Tutorial | 
 | ---------------- | --------- | ------------- | ------ | ----- | 
 | 8:45 - 9:15am  | Workshop  | Build a quirky Banana Fact API using Azure Functions | Jenn Jinhong | [Instructions](https://github.com/JennJin/quirkyBananaFactsAPI) |
-| 10:00 - 10:30am  | Workshop  | Train a custom image classifier...All from the Command Line | Lee Stott | [Instructions]()| 
+| 10:00 - 10:30am  | Workshop  | Train a custom image classifier...All from the Command Line | Lee Stott | [Instructions](https://github.com/leestott/Building-Microsoft-Custom-Vision-AI-Model-and-Apps/)| 
 | 11:45am - 12:15pm    | Workshop  | VSCode: Your Tool from Student to ProDev | Sana Ajani and Xiaokai He | [Instructions](https://github.com/sana-ajani/build2019-workshop) |
 | 5:15 - 5:45pm | Workshop | Heather Brevard and Michael Aldridge | The Cloud is more than just a think in the Sky | [Instructions]() |
 
