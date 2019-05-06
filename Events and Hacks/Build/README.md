@@ -15,11 +15,11 @@ education products, check out all of the links below!
 [Circuit Playground Express Project Ideas – MakeCode ](https://makecode.adafruit.com/)  
 [Circuit Playground Express Project Ideas – Adafruit ](https://learn.adafruit.com/category/express)  
 [Minecraft Tutorials and Sample Mods ](https://minecraft.makecode.com/)  
-[MakeCode Arcade Tutorials and Sample Games ](https://arcade.makecode.com/)
-[Build a Mobile App with Xamarin!](https://review.docs.microsoft.com/en-us/learn-xamarin-pr/paths/build-mobile-apps-with-xamarin-forms/?branch=beta)
-[Try .NET in the Browser!](https://trialinteractivedotnet.azurewebsites.net/)
-[Explore Azure Cognitive Services in Azure Notebooks](https://notebooks.azure.com/sarah-guthals/projects/buildstudentzone)
-[Make Your Own Emotion Detector Animation](https://github.com/Wicklets/FaceDetectionWithAzure)
+[MakeCode Arcade Tutorials and Sample Games ](https://arcade.makecode.com/)  
+[Build a Mobile App with Xamarin!](https://review.docs.microsoft.com/en-us/learn-xamarin-pr/paths/build-mobile-apps-with-xamarin-forms/?branch=beta)  
+[Try .NET in the Browser!](https://trialinteractivedotnet.azurewebsites.net/)  
+[Explore Azure Cognitive Services in Azure Notebooks](https://notebooks.azure.com/sarah-guthals/projects/buildstudentzone)  
+[Make Your Own Emotion Detector Animation](https://github.com/Wicklets/FaceDetectionWithAzure)  
 
 ## Workshop Projects
 ### Monday
