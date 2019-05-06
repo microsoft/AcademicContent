@@ -46,7 +46,7 @@ education products, check out all of the links below!
 | 8:45 - 9:15am  | Workshop  | Build a quirky Banana Fact API using Azure Functions | Jenn Jinhong | [Instructions](https://github.com/JennJin/quirkyBananaFactsAPI) |
 | 10:00 - 10:30am  | Workshop  | Train a custom image classifier...All from the Command Line | Lee Stott | [Instructions](https://github.com/leestott/Building-Microsoft-Custom-Vision-AI-Model-and-Apps/)| 
 | 11:45am - 12:15pm    | Workshop  | VSCode: Your Tool from Student to ProDev | Sana Ajani and Xiaokai He | [Instructions](https://github.com/sana-ajani/build2019-workshop) |
-| 5:15 - 5:45pm | Workshop | Heather Brevard and Michael Aldridge | The Cloud is more than just a think in the Sky | [Instructions]() |
+| 5:15 - 5:45pm | Workshop | The Cloud is more than just a think in the Sky | Heather Brevard and Michael Aldridge |  |
 
 ## Information for After Build
 - [Azure Lab Services](https://azure.microsoft.com/services/lab-services/?WT.mc_id=jrdevdays-build2019-cxa)
