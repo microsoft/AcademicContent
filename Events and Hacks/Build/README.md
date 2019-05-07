@@ -23,6 +23,7 @@ education products, check out all of the links below!
 
 ## Challenges
 <img width="1138" alt="Screen Shot 2019-05-07 at 12 41 07 PM" src="https://user-images.githubusercontent.com/1314285/57328135-6f51a280-70c5-11e9-82fe-85bb1de32c17.png">  
+
 [GitHub Octodex](https://octodex.github.com/)
 
 ## Workshop Projects
