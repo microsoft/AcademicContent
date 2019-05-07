@@ -19,7 +19,11 @@ education products, check out all of the links below!
 [Build a Mobile App with Xamarin!](https://aka.ms/MSBuild2019_StudentZone)  
 [Try .NET in the Browser!](https://trialinteractivedotnet.azurewebsites.net/)  
 [Explore Azure Cognitive Services in Azure Notebooks](https://notebooks.azure.com/sarah-guthals/projects/buildstudentzone)  
-[Make Your Own Emotion Detector Animation](https://github.com/Wicklets/FaceDetectionWithAzure)  
+[Make Your Own Emotion Detector Animation](https://github.com/Wicklets/FaceDetectionWithAzure) 
+
+## Challenges
+<img width="1138" alt="Screen Shot 2019-05-07 at 12 41 07 PM" src="https://user-images.githubusercontent.com/1314285/57328135-6f51a280-70c5-11e9-82fe-85bb1de32c17.png">
+[GitHub Octodex](https://octodex.github.com/)
 
 ## Workshop Projects
 ### Monday
