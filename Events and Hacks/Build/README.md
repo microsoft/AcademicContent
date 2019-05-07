@@ -44,6 +44,8 @@ education products, check out all of the links below!
 | 12:30 - 1:00pm    | Workshop  | How Computers Talk to Each Other | Jasmine Greenaway | [Instructions](https://aka.ms/computers-talk) |
 | 2:45 - 3:15pm | Workshop | Build the popular 'Hot Dog' or 'Not Hot Dog' app in 30 mins using Machine Learning | Amy Boyd and Max Shen | [Instructions](https://aka.ms/hotdogapp) |
 
+Copy for Try.NET:  
+dotnet tool install -g --version 1.0.8010001-alpha-9c8fa322 --configfile nuget.config dotnet-try
 
 ### Wednesday
 | Time | Type | Title | Presenter(s) | Tutorial | 
