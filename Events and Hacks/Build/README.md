@@ -20,6 +20,7 @@ education products, check out all of the links below!
 [Try .NET in the Browser!](https://trialinteractivedotnet.azurewebsites.net/)  
 [Explore Azure Cognitive Services in Azure Notebooks](https://notebooks.azure.com/sarah-guthals/projects/buildstudentzone)  
 [Make Your Own Emotion Detector Animation](https://github.com/Wicklets/FaceDetectionWithAzure) 
+[Python app in Azure App Service Tutorial](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-python?toc=%2Fpython%2Fazure%2FTOC.json)
 
 ## Challenges
 <img width="1138" alt="Screen Shot 2019-05-07 at 12 41 07 PM" src="https://user-images.githubusercontent.com/1314285/57328135-6f51a280-70c5-11e9-82fe-85bb1de32c17.png">  
