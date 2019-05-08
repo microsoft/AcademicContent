@@ -9,6 +9,12 @@ education products, check out all of the links below!
 - [Azure for Students (free $100 credit)](https://azure.microsoft.com/free/students/?WT.mc_id=build2019studentoffer)
 - [GitHub Free Personal Account](https://github.com/)
 
+## MakeCode Projects
+[MakeCode Arcade](https://github.com/microsoft/computerscience/blob/master/Events%20and%20Hacks/Build/Buildit%20MakeCode%20Arcade.pptx)
+[MakeCode Circuit Playground](https://github.com/microsoft/computerscience/blob/master/Events%20and%20Hacks/Build/Buildit%20MakeCode%20for%20CPX.pptx)
+[MakeCode Minecraft](https://github.com/microsoft/computerscience/blob/master/Events%20and%20Hacks/Build/Buildit%20MakeCode%20for%20Minecraft.pptx)
+[MakeCode micro:bit](https://github.com/microsoft/computerscience/blob/master/Events%20and%20Hacks/Build/Buildit%20MakeCode%20for%20the%20microbit.pptx)
+
 ## DIY Zone - Projects
 [Micro:bit Project Ideas – MakeCode ](https://makecode.microbit.org/)  
 [Micro:bit Project Ideas – Microbit.org ](https://microbit.org/ideas/)  
