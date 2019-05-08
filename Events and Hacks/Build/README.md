@@ -51,7 +51,7 @@ dotnet tool install -g --version 1.0.8010001-alpha-9c8fa322 --configfile nuget.c
 ### Wednesday
 | Time | Type | Title | Presenter(s) | Tutorial | 
 | ---------------- | --------- | ------------- | ------ | ----- | 
-| 8:45 - 9:15am  | Workshop  | Build a quirky Banana Fact API using Azure Functions | Jenn Jinhong | [Instructions](https://github.com/JennJin/quirkyBananaFactsAPI) |
+| 8:45 - 9:15am  | Workshop  | Build a quirky Banana Fact API using Azure Functions | Jenn Jinhong | [Instructions](https://github.com/JennJin/quirkyBananaFactsAPI) [ref1](https://restful.io/an-introduction-to-api-s-cee90581ca1b) [ref2](https://scotch.io/tutorials/getting-started-with-azure-functions-using-vs-code-zero-to-deploy) |
 | 10:00 - 10:30am  | Workshop  | Train a custom image classifier...All from the Command Line | Lee Stott | [Instructions](https://github.com/leestott/Building-Microsoft-Custom-Vision-AI-Model-and-Apps/)| 
 | 11:45am - 12:15pm    | Workshop  | VSCode: Your Tool from Student to ProDev | Sana Ajani and Xiaokai He | [Instructions](https://github.com/sana-ajani/build2019-workshop) |
 
