@@ -1,9 +1,5 @@
 # Build 2019 
-Thank you so much for joining us at Build this year! From here you can find everything you need to get started on the activities in the booth. 
-
-And if you're looking to continue working on any of the fun projects from
-the Student Zone booth when you get home, or are looking for resources for engaging your local community or schools in any of the Microsoft
-education products, check out all of the links below!
+Thank you for joining us in the first ever Student Zone at Microsoft Build!  The fun doesn’t stop just because the conference ends, are you looking to continue working on the fun projects or engaging your local community and schools in any of the Microsoft education products? Then check out all of the links below and continue exploring all we have to offer!
 
 ## DIY Zone - Getting Started
 - [Azure for Students (free $100 credit)](https://azure.microsoft.com/free/students/?WT.mc_id=build2019studentoffer)
@@ -26,42 +22,28 @@ education products, check out all of the links below!
 [Try .NET in the Browser!](https://trialinteractivedotnet.azurewebsites.net/)  
 [Explore Azure Cognitive Services in Azure Notebooks](https://notebooks.azure.com/sarah-guthals/projects/buildstudentzone)  
 [Make Your Own Emotion Detector Animation](https://github.com/Wicklets/FaceDetectionWithAzure) 
-[Python app in Azure App Service Tutorial](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-python?toc=%2Fpython%2Fazure%2FTOC.json)
-
-## Challenges
-<img width="1138" alt="Screen Shot 2019-05-07 at 12 41 07 PM" src="https://user-images.githubusercontent.com/1314285/57328135-6f51a280-70c5-11e9-82fe-85bb1de32c17.png">  
-
-[GitHub Octodex](https://octodex.github.com/)
-
-## Workshop Projects
-### Monday
-| Time | Type | Title | Presenter(s) | Tutorial | 
-| ---------------- | --------- | ------------- | ------ | ----- | 
-| 10:45 - 11:15am  | Workshop  | Build Your Own Virtual Reality Game! | Cassie Siljander | [Instructions](https://aka.ms/WorkshopWebVR) |
-| 12:00 - 12:30pm  | Workshop  | Finding Yourself with Facial Recognition | Christopher Harrison | [Instructions](https://github.com/GeekTrainer/face-api-workshop) | 
-| 1:15 - 1:45pm    | Workshop  | Coding with Friends on GitHub | Ji Eun Kwon and Shana Matthews | [Instructions](https://github.com/shanamatthews/build-github-workshop/blob/master/README.md) |
-| 2:30 - 2:45pm | Workshop | #GenerationAI | America and Penelope: Cybercode Twins | [Instructions](http://bit.ly/309JMJ4) |
-| 5:30 - 6:00pm    | Workshop  | Share Your Website with the World! | Orko Momin | [Instructions](https://github.com/orktopus/build-homepage-tutorial) |
-
-### Tuesday
-| Time | Type | Title | Presenter(s) | Tutorial | 
-| ---------------- | --------- | ------------- | ------ | ----- | 
-| 8:45 - 9:15am  | Workshop  | Build a friend detector bracelet with micro:bit | Jim Bennett | [Instructions](https://aka.ms/FriendDetector) |
-| 11:45am - 12:15pm    | Workshop  | Can Polar Bears Help Predict Global Climate Change? Find out with Azure AI and IoT! | Justin Garrett | [Instructions](https://docs.microsoft.com/en-us/learn/modules/build-ml-model-with-azure-stream-analytics/) |
-| 12:30 - 1:00pm    | Workshop  | How Computers Talk to Each Other | Jasmine Greenaway | [Instructions](https://aka.ms/computers-talk) |
-| 2:45 - 3:15pm | Workshop | Build the popular 'Hot Dog' or 'Not Hot Dog' app in 30 mins using Machine Learning | Amy Boyd and Max Shen | [Instructions](https://aka.ms/hotdogapp) |
+[Python app in Azure App Service Tutorial](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-python?toc=%2Fpython%2Fazure%2FTOC.json)  
 
 Copy for Try.NET:  
 dotnet tool install -g --version 1.0.8010001-alpha-9c8fa322 --configfile nuget.config dotnet-try
 
-### Wednesday
-| Time | Type | Title | Presenter(s) | Tutorial | 
-| ---------------- | --------- | ------------- | ------ | ----- | 
-| 8:45 - 9:15am  | Workshop  | Build a quirky Banana Fact API using Azure Functions | Jenn Jinhong | [Instructions](https://github.com/JennJin/quirkyBananaFactsAPI) [ref1](https://restful.io/an-introduction-to-api-s-cee90581ca1b) [ref2](https://scotch.io/tutorials/getting-started-with-azure-functions-using-vs-code-zero-to-deploy) |
-| 10:00 - 10:30am  | Workshop  | Train a custom image classifier...All from the Command Line | Lee Stott | [Instructions](https://github.com/leestott/Building-Microsoft-Custom-Vision-AI-Model-and-Apps/)| 
-| 11:45am - 12:15pm    | Workshop  | VSCode: Your Tool from Student to ProDev | Sana Ajani and Xiaokai He | [Instructions](https://github.com/sana-ajani/build2019-workshop) |
+## Workshop Projects
+| Title | Presenter(s) | Tutorial | 
+| ------------- | ------ | ----- | 
+| Build Your Own Virtual Reality Game! | Cassie Siljander | [Instructions](https://aka.ms/WorkshopWebVR) |
+| Finding Yourself with Facial Recognition | Christopher Harrison | [Instructions](https://github.com/GeekTrainer/face-api-workshop) | 
+| Coding with Friends on GitHub | Ji Eun Kwon and Shana Matthews | [Instructions](https://github.com/shanamatthews/build-github-workshop/blob/master/README.md) |
+| #GenerationAI | America and Penelope: Cybercode Twins | [Instructions](http://bit.ly/309JMJ4) |
+| Share Your Website with the World! | Orko Momin | [Instructions](https://github.com/orktopus/build-homepage-tutorial) |
+| Build a friend detector bracelet with micro:bit | Jim Bennett | [Instructions](https://aka.ms/FriendDetector) |
+| Can Polar Bears Help Predict Global Climate Change? Find out with Azure AI and IoT! | Justin Garrett | [Instructions](https://docs.microsoft.com/en-us/learn/modules/build-ml-model-with-azure-stream-analytics/) |
+| How Computers Talk to Each Other | Jasmine Greenaway | [Instructions](https://aka.ms/computers-talk) |
+| Build the popular 'Hot Dog' or 'Not Hot Dog' app in 30 mins using Machine Learning | Amy Boyd and Max Shen | [Instructions](https://aka.ms/hotdogapp) |
+| Build a quirky Banana Fact API using Azure Functions | Jenn Jinhong | [Instructions](https://github.com/JennJin/quirkyBananaFactsAPI) [ref1](https://restful.io/an-introduction-to-api-s-cee90581ca1b) [ref2](https://scotch.io/tutorials/getting-started-with-azure-functions-using-vs-code-zero-to-deploy) |
+| Train a custom image classifier...All from the Command Line | Lee Stott | [Instructions](https://github.com/leestott/Building-Microsoft-Custom-Vision-AI-Model-and-Apps/)| 
+| VSCode: Your Tool from Student to ProDev | Sana Ajani and Xiaokai He | [Instructions](https://github.com/sana-ajani/build2019-workshop) |
 
-## Information for After Build
+## Other Tools and Services Available
 - [Azure Lab Services](https://azure.microsoft.com/services/lab-services/?WT.mc_id=jrdevdays-build2019-cxa)
 - [Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=jrdevdays-build2019-cxa)
 - [Hacking STEM](https://www.microsoft.com/education/education-workshop/default.aspx)
@@ -71,13 +53,3 @@ dotnet tool install -g --version 1.0.8010001-alpha-9c8fa322 --configfile nuget.c
 - [Minecraft Education Edition](https://education.minecraft.net/)
 - [TEALS](http://tealsk12.org/)
 - [VS Code](https://code.visualstudio.com/)
-
-# Full Schedule
-## Monday
-![Monday](Screen%20Shot%202019-05-06%20at%207.55.47%20AM.png)  
-
-## Tuesday
-![Tuesday](Screen%20Shot%202019-05-06%20at%207.56.15%20AM.png)
-
-## Wednesday
-![Wednesday](Screen%20Shot%202019-05-06%20at%207.56.30%20AM.png)
