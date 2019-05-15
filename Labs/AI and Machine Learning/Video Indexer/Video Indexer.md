@@ -152,7 +152,7 @@ Video Indexer provides a wealth of information regarding each video that it inde
 
 The Video Indexer portal provides a window into the videos that you index and lets you see the information extracted from them. But the real power of Video Indexer lies in the [Video Indexer API](https://docs.microsoft.com/en-us/azure/cognitive-services/video-indexer/video-indexer-use-apis), which lets you submit videos for indexing programmatically and access the results using a REST API. In [Exercise 4](#Exercise4), you will build an app that uses this API to expose content in the videos you indexed in [Exercise 1](#Exercise1). But to call the API, you must first subscribe to it and obtain an API key that is transmitted in each request. In this exercise, you will create a Video Indexer API subscription and retrieve the API key created for it.
 
-1. Open the [Video Indexer API portal](https://api-portal.videoindexer.ai/ "Video Indexer API portal") in your browser and click **SIGN IN** in the top-right corner. Sign in with your Microsoft account — the same one you used to sign in to the Video Indexer portal. Answer **Yes** if prompted to let this app access your info.
+1. Open the [Video Indexer API portal](https://api-portal.videoindexer.ai/) in your browser and click **SIGN IN** in the top-right corner. Sign in with your Microsoft account — the same one you used to sign in to the Video Indexer portal. Answer **Yes** if prompted to let this app access your info.
 
 1. Click **Products**, and then click **Authorization**. 
 
@@ -171,7 +171,7 @@ Now that you have an API key, you can write apps that call the Video Indexer API
 <a name="Exercise4"></a>
 ## Exercise 4: Build an app that uses Video Indexer ##
 
-[Visual Studio Code](http://code.visualstudio.com) is a free, lightweight, and powerful source-code editor available for Windows, macOS, and Linux. It supports a variety of popular programming languages including JavaScript, and it features built-in support for Git. In this exercise, you will use Visual Studio Code to run an app named Video Explorer that surfaces content from the videos you indexed in Exercise 1. Because the app is written with [Node.js](https://nodejs.org/en/) and [Electron](https://electronjs.org/), it, too, can run on Windows, macOS, and Linux. The source code is provided for you. All you have to do is insert the API key that you retrieved in the previous exercise.
+[Visual Studio Code](http://code.visualstudio.com) is a free, lightweight, and powerful source-code editor available for Windows, macOS, and Linux. It supports a variety of popular programming languages including JavaScript, and it features built-in support for Git. In this exercise, you will use Visual Studio Code to run an app named Video Explorer that surfaces content from the videos you indexed in [Exercise 1](#Exercise1). Because the app is written with [Node.js](https://nodejs.org/) and [Electron](https://electronjs.org/), it, too, can run on Windows, macOS, and Linux. The source code is provided for you. All you have to do is insert the API key that you retrieved in the previous exercise.
 
 1. If Node.js isn't installed on your PC, go to https://nodejs.org/ and install the latest LTS version. You can determine whether Node is installed by opening a Command Prompt or terminal window and typing the following command:
 
@@ -195,22 +195,21 @@ Now that you have an API key, you can write apps that call the Video Indexer API
 
 1. Use the EXPLORER panel in Visual Studio code to open the file named **search.js**. Replace SUBSCRIPTION_KEY on line 2 with the API key you retrieved in the previous exercise.
 
-	![Editing search.js to replace SUBSCRIPTION_ID](Images/vs-code.png)
+	![Adding the subscription key](Images/vs-code.png)
 
-	_Editing search.js to replace SUBSCRIPTION_ID_
+	_Adding the subscription key_
 
-1. Open the [Video Indexer portal](https://www.videoindexer.ai/ "Video Indexer portal"), if not already open from [Exercise 2](#Exercise2 "Exercise 2"), click the profile icon in the upper-right corner, select **Settings**, ensure the **Account** tab is selected, then click **Copy** to copy your Account ID to the clipboard.
+1. Return to the [Video Indexer API portal](https://www.videoindexer.ai/), click the profile icon in the upper-right corner, and select **Settings** from the menu. Ensure that the "Account" tab is selected. Then click **Copy** to copy your Account ID to the clipboard.
 
-	![Copying the Video Indexer Account ID](Images/portal-copy-account-id.png)
+	![Copying the Video Indexer account ID](Images/portal-copy-account-id.png)
 
-	_Copying the Video Indexer Account ID_
+	_Copying the Video Indexer account ID_
 
-1. Return to Visual Studio Code, and replace ACCOUNT_ID on line 3 with the Account ID you retrieved in the previous step.
+1. Return to Visual Studio Code and replace ACCOUNT_ID on line 3 with the account ID retrieved in the previous step.
 
-	![Editing search.js to replace ACCOUNT_ID](Images/vs-code-account-id.png)
+	![Adding the account ID](Images/vs-code-account-id.png)
 
-	_Editing search.js to replace ACCOUNT_ID_
-
+	_Adding the account ID_
 
 1. Execute the following command in Visual Studio Code's integrated terminal to start the app:
 
