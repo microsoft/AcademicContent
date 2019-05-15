@@ -10,7 +10,7 @@ Anyone can build a Blockchain network and use it to host blockchains. Microsoft 
 
 Ethereum was one of the first general-purpose Blockchain implementations. The software is open-source and is the basis for Ethereum's own cryptocurrency known as [Ether](https://www.ethereum.org/ether). You can deploy Ethereum networks of your own and use its Blockchain implementation however you wish. Among other features, Ethereum supports [smart contracts](https://en.wikipedia.org/wiki/Smart_contract), which are written in languages such as [Solidity](https://en.wikipedia.org/wiki/Solidity) and then compiled into bytecode and deployed to the blockchain for execution.
 
-In this lab, you will deploy an Ethereum network on Azure and create a custom blockchain. Then you will build a Web site named "Profrates" for rating professors that stores the comments and ratings that users enter in the blockchain. Along the way, you will get first-hand experience running Blockchain networks on Azure, as well as writing smart contracts for Ethereum and using them to store digital records in such a way that they cannot be altered.
+In this lab, you will deploy an [Ethereum proof-of-authority network](https://docs.microsoft.com/azure/blockchain/templates/ethereum-poa-deployment) on Azure and use it to host a custom blockchain. Then you will build a Web site named "Profrates" for rating professors that stores the comments and ratings that users enter in the blockchain. Along the way, you will get first-hand experience running Blockchain networks on Azure, as well as writing smart contracts for Ethereum and using them to store digital records in such a way that they cannot be altered.
 
 ![Profrates app](Images/header.png)
 
@@ -58,13 +58,11 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
 1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). If you are asked to sign in, do so using your Microsoft account.
 
-1. In the portal, click **+ Create a resource**. Type "proof of work" into the search box and select **Ethereum Proof-of-Work Consortium** from the drop-down list.
+1. In the portal, click **+ Create a resource**. Click **Blockchain**, and then click **Ethereum Proof-of-Authority Consortium**.
 
     ![Creating an Ethereum blockchain](Images/new-blockchain.png)
 
     _Creating an Ethereum blockchain_
-
-1. Review the information presented to you and click **Create** at the bottom of the blade.
 
 1. Fill in the "Basics" blade as shown below, providing a password that's at least 12 characters long containing a mix of uppercase letters, lowercase letters, numbers, and special characters. Click **Create new** under "Resource group" and enter a resource-group name to place the resources in a new resource group. Select the region nearest you, and then click **OK**. *Remember the password that you entered, because you will need it in the next exercise*.
 
@@ -80,23 +78,27 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
 1. Click **OK** at the bottom of the "Network Size and Performance" blade to accept the default settings for VM sizes, number of nodes, and so on.
 
-1. In the "Ethereum Settings" blade, set Consortium Member Id to **123** and enter a password in four places as the Ethereum account password and private key passphrase. Then click **OK**. Once again, *remember the password that you entered, because you will need it in the next exercise*.
+1. In the "Ethereum Settings" blade, set **Consortium Member Id** to **123**. Paste the following value into the **Admin Ethereum Address** box, and then click **OK**.
 
-	> The member ID is used to avoid IP collisions when multiple organizations are deployed to a single Ethereum network. Because you aren't sharing the network with other organizations, the ID that you enter is unimportant.
+	```
+	0x1111111100000000111111110000000011111111
+	```
+
+	The consortium member ID is used to avoid IP collisions when multiple organizations are deployed to a single Ethereum network. Because you aren't sharing the network with other organizations, the ID that you enter is not important. The admin address that you enter identifies a service principal that is granted admin privileges on the network. The actual value is unimportant; any 40-digit hex address will do.
 
     ![Entering Ethereum settings](Images/blockchain-settings-3.png)
 
     _Entering Ethereum settings_
 
-1. In the "OMS" blade, select the region closest to you. Then click **OK** at the bottom of the blade.
+1. In the "Monitoring" blade, select the region closest to you. Then click **OK** at the bottom of the blade.
 
-    ![Specifying the OMS region](Images/blockchain-settings-4.png)
+    ![Specifying the monitoring region](Images/blockchain-settings-4.png)
 
-    _Specifying the OMS region_
+    _Specifying the monitoring region_
 
 1. Review the settings in the "Summary" blade and click **OK** at the bottom of the blade. Then click the **Create** button at the bottom of the "Create" blade to begin the deployment.
 
-1. Click **Resource groups** in the ribbon on the left. Then click the resource group whose name you specified in Step 4. Wait until "Deploying" changes to "Succeeded" in the resource-group blade indicating that the Blockchain network and all of its resources have been deployed.
+1. Click **Resource groups** in the ribbon on the left. Then click the resource group whose name you specified in Step 3. Wait until "Deploying" changes to "Succeeded" in the resource-group blade indicating that the Blockchain network and all of its resources have been deployed.
 
     ![Monitoring the deployment](Images/deployment-succeeded.png)
 
@@ -111,25 +113,37 @@ When it created the Ethereum network, Azure also created a *coinbase* account to
 
 Every transaction performed in a blockchain must be "fueled" by an account. This coinbase account will fuel transactions that allow comments and ratings to be recorded in the blockchain. Before the coinbase account can be used, however, it must be unlocked. In this exercise, you will use SSH to connect to the Ethereum network you deployed in the previous exercise and execute a series of commands to unlock the account and retrieve its address.
 
-1. Return to the resource group that you created for the Blockchain network in the Azure portal. Click **Deployments** in the menu on the left, and then click **microsoft-azure-blockchain**.
+1. Return to the resource group that you created for the Blockchain network in the Azure portal and click the Network Security Group resource.
+
+    ![Opening the Network Security Group](Images/open-nsg.png)
+
+    _Opening the Network Security Group_
+
+1. Click **Inbound security rules** in the menu on the left. If the "allow-ssh" rule is set to **Deny** rather than **Allow**, click the rule and change **Action** to **Allow**. Then click **Save**.
+
+    ![Allowing SSH](Images/allow-ssh.png)
+
+    _Allowing SSH_
+
+1. Return to the resource group and click **Deployments** in the menu on the left. Then click the resource whose name begins with "microsoft-azure-blockchain."
 
     ![Opening the blockchain](Images/open-blockchain.png)
 
     _Opening the blockchain_
 
-1. Click **Outputs** in the menu on the left, and then click the **Copy** button next to SSH-TO-FIRST-TX-NODE-REGION1 to copy the SSH command to the clipboard.
+1. Click **Outputs** in the menu on the left, and then click the **Copy** button next to "ssh_to_first_vl_node_region1" to copy the SSH command to the clipboard.
 
     ![Copying the SSH command](Images/copy-ssh-command.png)
 
     _Copying the SSH command_
 
-1. Click the **Cloud Shell** button in the toolbar at the top of the portal to open a cloud shell. The Azure cloud shell provides an environment for executing Bash and PowerShell commands without leaving the portal. You can use **Shift+Insert** to paste commands into the cloud shell, and **Ctrl+Insert** to copy text from the cloud shell to the clipboard.
+1. Click the **Cloud Shell** button in the toolbar at the top of the portal to open a cloud shell. The [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) provides an environment for executing Bash and PowerShell commands without leaving the portal. You can use **Shift+Insert** to paste commands into the cloud shell, and **Ctrl+Insert** to copy text from the cloud shell to the clipboard.
 
-    ![Opening the Azure cloud shell](Images/cloud-shell.png)
+    ![Opening the Azure Cloud Shell](Images/cloud-shell.png)
 
-    _Opening the Azure cloud shell_
+    _Opening the Azure Cloud Shell_
 
-1. Make sure **Bash** is the language selected in the upper-left corner of the cloud shell. Press **Shift+Insert**  to paste the ```ssh``` command that is on the clipboard into the cloud shell. Then press **Enter** to execute the command. If you are prompted with a security warning informing you that the authenticity of the host can't be established and asking if you want to connect anyway, type "yes" and press **Enter**.
+1. If asked to choose a language, choose **Bash**. Then make sure **Bash** is selected in the upper-left corner of the cloud shell. Press **Shift+Insert**  to paste the ```ssh``` command that is on the clipboard into the cloud shell. Then press **Enter** to execute the command. If you are prompted with a security warning informing you that the authenticity of the host can't be established and asking if you want to connect anyway, type "yes" and press **Enter**.
 
 1. When prompted for a password, enter the password you entered in Exercise 1, Step 3.
 

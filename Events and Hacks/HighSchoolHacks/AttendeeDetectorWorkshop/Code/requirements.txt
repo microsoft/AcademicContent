@@ -1,0 +1,5 @@
+opencv-python
+flask
+azure-cognitiveservices-vision-face
+azure.cosmos
+requests

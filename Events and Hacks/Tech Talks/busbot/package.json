@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "botbuilder": "^3.2.3",
-    "request": "^2.74.0",
+    "request": "^2.88.0",
     "restify": "^4.1.1",
     "tfl.api": "^1.5.1"
   }

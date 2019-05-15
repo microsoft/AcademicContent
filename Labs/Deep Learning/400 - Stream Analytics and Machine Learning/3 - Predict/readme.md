@@ -1,6 +1,6 @@
 ![](Images/header.png)
 
-[Microsoft Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/ "Microsoft Cognitive Services") is a suite of services and APIs backed by machine learning that enables developers to incorporate intelligent features such as facial recognition in photos and videos, sentiment analysis in text, and language understanding into their applications. Microsoft's [Custom Vision Service](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) is among the newest members of the Cognitive Services suite. Its purpose is to create image-classification models that "learn" from labeled images you provide. Want to know if a photo contains a picture of a flower? Train the Custom Vision Service with a collection of flower images, and it can tell you whether the next image includes a flower — or even what type of flower it is.
+[Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a suite of services and APIs backed by machine learning that enables developers to incorporate intelligent features such as facial recognition in photos and videos, sentiment analysis in text, and language understanding into their applications. Microsoft's [Custom Vision Service](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) is among the newest members of the Cognitive Services suite. Its purpose is to create image-classification models that "learn" from labeled images you provide. Want to know if a photo contains a picture of a flower? Train the Custom Vision Service with a collection of flower images, and it can tell you whether the next image includes a flower — or even what type of flower it is.
 
 The Custom Vision Service exposes two APIs: the [Custom Vision Training API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3) and the [Custom Vision Prediction API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814). You can build, train, and test image-classification models using the [Custom Vision Service portal](https://www.customvision.ai/), or you can build, train, and test them using the Custom Vision Training API. Once a model is trained, you can use the Custom Vision Prediction API to build apps that utilize it. Both are REST APIs that can be called from a variety of programming languages.
 
@@ -54,9 +54,9 @@ In this exercise, you will create a new Custom Vision Service project. Then you 
 
     _Signing in to the Custom Vision Service portal_
 
-1. Click **New Project** to display the "New project" dialog. Enter a project name, ensure that **General** is selected as the domain and **Multiclass** as the classification type, and click **Create project**.
+1. Click **+ NEW PROJECT** to display the "Create new project" dialog. Enter a project name and either select the "streaminglab-rg" resource group if it appears in the drop-down list, or create a new resource group if it doesn't. (Note that the lower half of the dialog might not appear until a resource group has been selected.) Ensure that **General** is selected as the domain and **Multiclass** as the classification type. Then click **Create project**.
 
-	> A domain optimizes a model for specific types of images. For example, if your goal is to classify food images by the types of food they contain or the ethnicity of the dishes, then it might be helpful to select the Food domain. For scenarios that don't match any of the offered domains, or if you are unsure of which domain to choose, select the General domain.
+	> A domain optimizes a model for specific types of images. For example, if your goal is to classify food images by the types of food they contain or the ethnicity of the dishes, then it is helpful to select the Food domain. For scenarios that don't match any of the offered domains, or if you are unsure of which domain to choose, select the General domain.
 
 	![Creating a Custom Vision Service project](Images/new-project.png)
 
@@ -103,6 +103,8 @@ In this exercise, you will train the model using the images that you tagged and 
 
 	**Precision** and **recall** are separate but related  measures of the model's accuracy. Suppose the model was presented with three polar-bear images and three walrus images, and that it correctly identified two of the polar-bear images as polar-bear images, but incorrectly identified two of the walrus images as polar-bear images. In this case, the precision would be 50% (two of the four images it classified as polar-bear images actually are polar-bear images), while its recall would be 67% (it correctly identified two of the three polar-bear images as polar-bear images). You can learn more about precision and recall from https://en.wikipedia.org/wiki/Precision_and_recall.
 
+	**AP**, short for *Average Precision*, is a third measurement of the model's accuracy. Whereas precision measures the false-positive rate and recall measures the false-negative rate, AP is a mean of false-positive rates computed across a range of thresholds. For more information, see [Understanding the mAP Evaluation Metric for Object Detection](https://medium.com/@timothycarlen/understanding-the-map-evaluation-metric-for-object-detection-a07fe6962cf3).
+
 1. Now let's test the model using the portal's Quick Test feature, which allows you to submit images to the model and see how it classifies them using the knowledge gained during training.
 
 	Click the **Quick Test** button at the top of the page. Then click **Browse local files**, browse to the "Testing Images/Polar Bear" directory in the resources accompanying this lab, and select any one of the test images in that directory.
@@ -117,11 +119,11 @@ In this exercise, you will train the model using the images that you tagged and 
 
 1. The "Testing Images" directory in the lab resources contains subdirectories with a total of 30 different images for testing. Perform additional quick tests using these images until you are satisfied that the model is reasonably adept at predicting whether an image contains a polar bear.
 
-1. Return to the "Performance" tab in your project and click **Make default** to make sure the latest iteration of the model is the default iteration (the one that will be exposed as a Web service). Then click **Prediction URL**.
+1. Return to the project and click **Publish**. Enter a name for this iteration of the model. Then click **Prediction URL**.
 
-	![Specifying the default iteration](Images/prediction-url.png)
+	![Publishing the current iteration of the model](Images/prediction-url.png)
 
-    _Specifying the default iteration_ 
+    _Publishing the current iteration of the model_ 
 
 1. The ensuing dialog lists two URLs: one for uploading images via URL, and another for uploading images as byte streams. Copy the former to the clipboard, and then paste it into your favorite text editor so you can retrieve it later. Do the same for the ```Prediction-Key``` value underneath the URL. This value must be passed in each call to the prediction URL. 
 
@@ -156,7 +158,7 @@ In this exercise, you will use the Azure Cloud Shell to create an Azure SQL data
 	az sql db create --resource-group streaminglab-rg --server SERVER_NAME --name DATABASE_NAME --service-objective S0
 	```
 
-1. Go to the database server in the [Azure Portal](https://portal.azure.com) and click **Firewall / Virtual Networks** in the menu on the left. Turn on **Allow access to Azure services** and click **Save** at the top of the blade to allow other Azure services to connect to the server.
+1. Go to the database server in the [Azure Portal](https://portal.azure.com) and click **Firewalls and virtual networks** in the menu on the left. Turn on **Allow access to Azure services** to allow other Azure services to connect to the server, and click **+ Add client IP** so you can connect to the database from Power BI Desktop in the next lab. Then click **Save** at the top of the blade to save these changes.
 
 	![Allowing Azure to access the database server](Images/configure-database-server.png)
 
@@ -228,7 +230,7 @@ In this exercise, you will modify the Azure Function that you created in the pre
 1. Open the Azure Function contained in the Function App. Replace the function code with the following code:
 
 	```javascript
-	module.exports = async function (context, req) {
+	module.exports = function (context, req) {
 	    var predictionUrl = 'PREDICTION_URL';
 	    var predictionKey = 'PREDICTION_KEY';
 	    var storageAccountName = 'ACCOUNT_NAME';
@@ -237,7 +239,7 @@ In this exercise, you will modify the Azure Function that you created in the pre
 	    var databaseName = 'DATABASE_NAME';
 	    var databaseUsername = 'ADMIN_USERNAME';
 	    var databasePassword = 'ADMIN_PASSWORD';
-	
+
 	    // Parse input
 	    var input = JSON.parse(req.rawBody)[0];
 	    var id = input.deviceid;
@@ -282,6 +284,7 @@ In this exercise, you will modify the Azure Function that you created in the pre
 	    request(options, (err, res, body) => {
 	        if (err) {
 	            context.log(err);
+	            context.done();
 	        }
 	        else {
 	            var probability =  body.predictions.find(p => p.tagName.toLowerCase() === 'polar bear').probability;          
@@ -293,8 +296,15 @@ In this exercise, you will modify the Azure Function that you created in the pre
 	        
 	            var config = 
 	            {
-	                userName: databaseUsername,
-	                password: databasePassword,
+	                authentication:
+	                {
+	                    type: 'default',
+	                    options:
+	                    {
+	                        userName: databaseUsername,
+	                        password: databasePassword
+	                    }
+	                },
 	                server: databaseServer,
 	                options: 
 	                {
@@ -308,6 +318,7 @@ In this exercise, you will modify the Azure Function that you created in the pre
 	            connection.on('connect', (err) => {
 	                if (err) {
 	                    context.log(err)
+	                    context.done();
 	                }
 	                else {
 	                    var query = "INSERT INTO dbo.PolarBears (CameraID, Latitude, Longitude, URL, Timestamp, IsPolarBear) " +
@@ -316,15 +327,17 @@ In this exercise, you will modify the Azure Function that you created in the pre
 	                    dbRequest = new Request(query, err => {
 	                        if (err) {
 	                            context.log(err);
+	                            context.done();
 	                        }
 	                    });
 	
 	                    dbRequest.on('error', err => {
 	                        context.log(err);
+	                        context.done();
 	                    });
 	
 	                    dbRequest.on('requestCompleted', () => {
-	                        // Request completed
+	                        context.done();
 	                    });
 	
 	                    connection.execSql(dbRequest);
