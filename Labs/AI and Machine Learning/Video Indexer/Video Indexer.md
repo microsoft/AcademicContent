@@ -199,7 +199,7 @@ Now that you have an API key, you can write apps that call the Video Indexer API
 
 	_Adding the subscription key_
 
-1. Return to the [Video Indexer API portal](https://www.videoindexer.ai/), click the profile icon in the upper-right corner, and select **Settings** from the menu. Ensure that the "Account" tab is selected. Then click **Copy** to copy your Account ID to the clipboard.
+1. Return to the [Video Indexer API portal](https://www.videoindexer.ai/), click the profile icon in the upper-right corner, and select **Settings** from the menu. Ensure that the "Account" tab is selected. Then click **Copy** to copy your account ID to the clipboard.
 
 	![Copying the Video Indexer account ID](Images/portal-copy-account-id.png)
 
