@@ -5,7 +5,7 @@ const path = require('path')
 let win
 
 function createWindow() {
-   win = new BrowserWindow({width: 880, height: 700})
+   win = new BrowserWindow({width: 1000, height: 700})
 
    win.setMenu(null); 
    win.setIcon(path.join(__dirname, 'assets/icons/ico/app.ico'));    

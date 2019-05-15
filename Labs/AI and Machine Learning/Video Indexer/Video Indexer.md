@@ -5,7 +5,7 @@
 
 ![Microsoft Video Indexer](Images/video-indexer.jpg)
 
-Video Indexer is both a service and an API. The service is accessed through a Web portal. It allows you to upload videos and examine the information generated from them. The [Video Indexer API](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5a37a5a80dc5610d2cc48221) is a REST API that does everything the portal does, and also allows you to access the information that is generated when videos are indexed.
+Video Indexer is both a service and an API. The service is accessed through a Web portal. It allows you to upload videos and examine the information generated from them. The [Video Indexer API](https://api-portal.videoindexer.ai/docs/services/) is a REST API that does everything the portal does, and also allows you to access the information that is generated when videos are indexed.
 
 In this lab, you will learn how to use Video Indexer to analyze videos and extract actionable information and insights. Then you will build an app named Video Explorer that uses the Video Indexer API to make content in the videos that you indexed searchable.
 
@@ -60,7 +60,7 @@ In this exercise, you will use the Video Indexer portal to index three short edu
 
     _Getting started with Video Indexer_
 
-1. Click the **Upload** button. Then click **enter file url** to upload a video from a URL.
+1. Click the **Upload** button. Then click **enter a file url** to upload a video from a URL.
 
     ![Uploading a video](Images/portal-click-upload.png)
 
@@ -76,13 +76,13 @@ In this exercise, you will use the Video Indexer portal to index three short edu
 
     _Starting the upload_
 
-1. Wait for the upload to complete and indexing to begin. The indexing process typically requires 5 to 10 minutes. While waiting for the video to be indexed, upload a second video:
+1. Wait for the upload to complete and indexing to begin. The indexing process typically requires 5 to 10 minutes. While waiting for the video to be indexed, upload a second video, entering "Microsoft in Education" as the video name:
 
 	```
 	https://topcs.blob.core.windows.net/public/Microsoft-in-Education_mid.mp4
 	```
 
-1. Once the upload of the second video has completed, upload a third video:
+1. Once the upload of the second video has completed, upload a third video and name it "Machine Learning in IoT Solutions":
 
 	```
 	https://topcs.blob.core.windows.net/public/Machine-Learning-in-IoT-solutions_high.mp4
@@ -107,17 +107,17 @@ Video Indexer automatically generates video transcripts based on its built-in sp
 	
 	_Playing a video_
 
-1. Take a moment to explore the information that Video Indexer generated from the video. The "Insights" tab shows people featured in the video, keywords generated from the video, objects identified in the video ("Annotations"), and brands and products featured in the video. You can click the right arrow next to any of these items and cycle through the corresponding points in the video.
+1. Take a moment to explore the information that Video Indexer generated from the video. The "Insights" tab shows people featured in the video, keywords generated from the video, topics identified in the video, brands featured in the video, and even emotions found in the video. You can click **Play next** for any of these items and cycle through the corresponding points in the video.
 
-	In this example, Video indexer found four people in the video. It was unable to identify them because they don't appear in its database of famous people. However, you can lend a helping hand by identifying them yourself. Enable editing by clicking the **Edit** toggle switch in the upper-right corner. Then click the pencil icon next to "Unknown #2" and enter "Sonya Koptyev" as the person's name. Finish up by pressing **Enter** to save the change.
+	In this example, Video indexer found two people in the video. It was unable to identify them because they don't appear in its database of famous people. However, you can lend a helping hand by identifying them yourself. Enable editing by clicking the **Edit** icon in the upper-right corner. Then click the pencil icon next to "Unknown #1" and enter "Sonya Koptyev" as the person's name. Finish up by pressing **Enter** to save the change.
 
 	![Editing a person's name](Images/edit-speaker.png)
 
 	_Editing a person's name_ 
 
-1. Repeat this step for the gentleman in the video. His name is Seth Juarez.
+1. Repeat this step for the "Unknown #2" in the video. This person's name is "Seth Juarez".
 
-1. Want to see a full transcript of the video? Click **Transcript** at the top of the page. Video Indexer uses a deep neural network (DNN) to aid in converting speech to text, but such conversions are rarely perfect. Here, too, you can help out by editing words and phrases that weren't converted properly. To demonstrate, switch to editing mode and change "Morris" to "Juarez" and "sohei shouyi" to "So AI show AI."
+1. Want to see a full transcript of the video? Click **Timeline** at the top of the page. Video Indexer uses a deep neural network (DNN) to aid in converting speech to text, but such conversions are rarely perfect. Here, too, you can help out by editing words and phrases that weren't converted properly. To demonstrate, make sure you're still in editing mode and change "High Amsonia captive." to "Hi, I'm Sonya Koptyev."
 
 	![Editing a transcript](Images/edit-transcript.png)
 
@@ -125,50 +125,42 @@ Video Indexer automatically generates video transcripts based on its built-in sp
 
 1. Scroll through the transcript looking for other words and phrases that weren't transcribed correctly and take a moment to fix them.
 
-	> Tip: When you select a block of text to be edited, you can click the Play button to its right to jump to that point in the video and listen to what was said.
+	> Tip: When you select a block of text in the timeline with edit mode off, the video will jump to that point in the video so you can listen to what was said.
 
-1. Once a video is indexed, you can search its contents. Type "suggestion" into the search box at the top of the page and press **Enter.** Confirm that the search results include four instances in which the word "suggestion" was spoken in the video. The sound icon on the left indicates the content was spoken. But Video Indexer isn't limited to searching for spoken content.
+1. Once a video is indexed, you can search its contents. Type "suggestion" into the search box at the top of the page and press **Enter.** Confirm that the search results include four instances in which the word "suggestion" was found in the video.
 
-	![Search results containing spoken content](Images/portal-search-results.png)
+	![Search results containing timeline content](Images/portal-search-results.png)
 
-	_Search results containing spoken content_
+	_Search results containing timeline content_
 
-1. Search for the word "intelligence." This time, the results include instances in which "intelligence" wasn't spoken, but instead were extracted using optical character recognition (OCR).
+1. Click **Insights**, and then search for the word "intelligence." This time, the results are conceptual topics that include the search term.
 
-1. Video Indexer has the ability to translate transcripts into a variety of languages, including German, Dutch, Spanish, French, Czech, Korean, and Japanese. To demonstrate, click **Transcript** again, and select a language other than English from the language drop-down on the right.
+	![Search results containing topic content](Images/portal-search-topic-results.png)
+
+	_Search results containing topic content_
+
+1. Video Indexer has the ability to translate transcripts into a variety of languages, including German, Dutch, Spanish, French, Czech, Korean, and Japanese. To demonstrate, click **Timeline** again, click the world icon, and select a language other than English from the drop-down list.
 
 	![Video transcript translated into French](Images/french-transcript.png)
 
 	_Video transcript translated into French_
 
-The Video Indexer portal provides access to additional insights and other valuable information, including aggregated topics, faces, and sentiment. Better yet, these capabilities are available programmatically via the Video Indexer API.
+Video Indexer provides a wealth of information regarding each video that it indexes, and this information is available not only in the portal, but through the Video Indexer API.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Create a Video Indexer API subscription ##
 
-The Video Indexer portal provides a window into the videos that you index and lets you see the information extracted from them. But the real power of Video Indexer lies in the [Video Indexer API](https://docs.microsoft.com/en-us/azure/cognitive-services/video-indexer/video-indexer-use-apis), which lets you submit videos for indexing programmatically and access the results using a REST API. In Exercise 4, you will build an app that uses this API to expose content in the videos you indexed in Exercise 1. But to call the API, you must first subscribe to it and obtain an API key that is transmitted in each request. In this exercise, you will create a Video Indexer API subscription and retrieve the API key created for it.
+The Video Indexer portal provides a window into the videos that you index and lets you see the information extracted from them. But the real power of Video Indexer lies in the [Video Indexer API](https://docs.microsoft.com/en-us/azure/cognitive-services/video-indexer/video-indexer-use-apis), which lets you submit videos for indexing programmatically and access the results using a REST API. In [Exercise 4](#Exercise4), you will build an app that uses this API to expose content in the videos you indexed in [Exercise 1](#Exercise1). But to call the API, you must first subscribe to it and obtain an API key that is transmitted in each request. In this exercise, you will create a Video Indexer API subscription and retrieve the API key created for it.
 
-1. Open the [Video Indexer API portal](https://videobreakdown.portal.azure-api.net/ "Video Indexer API portal") in your browser and sign in with your Microsoft account — the same one you used to sign in to the Video Indexer portal. Answer **Yes** if prompted to let this app access your info.
+1. Open the [Video Indexer API portal](https://api-portal.videoindexer.ai/ "Video Indexer API portal") in your browser and click **SIGN IN** in the top-right corner. Sign in with your Microsoft account — the same one you used to sign in to the Video Indexer portal. Answer **Yes** if prompted to let this app access your info.
 
-1. Enter your e-mail address and first and last name. Then click the **Sign up** button.
-  
-	![Signing up for a Video Indexer API subscription](Images/portal-enter-signup-info.png)
+1. Click **Products**, and then click **Authorization**. 
 
-    _Signing up for a Video Indexer API subscription_
+	![Signing up for the Authorization APIs](Images/free-preview.png)
 
-1. Click **Products**, followed by **Free Preview**. 
+    _Signing up for the Authorization APIs_
 
-	![Signing up for a free preview](Images/free-preview.png)
-
-    _Signing up for a free preview_
-
-1. Click the **Subscribe** button. Then check the box indicating that you agree to the terms of use and click **Confirm**.
-
-	![Subscribing to the Video Indexer API](Images/create-subscription.png)
-
-    _Subscribing to the Video Indexer API_
-
-1. Click **Show** to the right of "Primary key". Copy the API key to the clipboard, and then click **Hide** to hide it again. 
+1. Click the **Subscribe** button. Click **Show** to the right of "Primary key". Copy the API key to the clipboard, and then click **Hide** to hide it again. 
 
 	![Copying the API key to the clipboard](Images/copy-api-key.png)
 
@@ -195,17 +187,30 @@ Now that you have an API key, you can write apps that call the Video Indexer API
 
 1. Start Visual Studio Code and use the **File** > **Open Folder...** command to open the "Video Explorer" folder.
 
-1. Select **Integrated Terminal** from Visual Studio Code's **View** menu to open an integrated terminal. Then execute the following command in the integrated terminal to install [Electron](https://electronjs.org/) and other packages that the app requires:
+1. Select **Terminal** from Visual Studio Code's **View** menu to open an integrated terminal. Then execute the following command in the integrated terminal to install [Electron](https://electronjs.org/) and other packages that the app requires:
 
 	```
 	npm install
 	```
 
-1. Use the EXPLORER panel in Visual Studio code to open the file named **search.js**. Replace SUBSCRIPTION_KEY on line 2 with the API key you retrieved in the previous exercise. Then save the file.
+1. Use the EXPLORER panel in Visual Studio code to open the file named **search.js**. Replace SUBSCRIPTION_KEY on line 2 with the API key you retrieved in the previous exercise.
 
-	![Editing search.js](Images/vs-code.png)
+	![Editing search.js to replace SUBSCRIPTION_ID](Images/vs-code.png)
 
-	_Editing search.js_
+	_Editing search.js to replace SUBSCRIPTION_ID_
+
+1. Open the [Video Indexer portal](https://www.videoindexer.ai/ "Video Indexer portal"), if not already open from [Exercise 2](#Exercise2 "Exercise 2"), click the profile icon in the upper-right corner, select **Settings**, ensure the **Account** tab is selected, then click **Copy** to copy your Account ID to the clipboard.
+
+	![Copying the Video Indexer Account ID](Images/portal-copy-account-id.png)
+
+	_Copying the Video Indexer Account ID_
+
+1. Return to Visual Studio Code, and replace ACCOUNT_ID on line 3 with the Account ID you retrieved in the previous step.
+
+	![Editing search.js to replace ACCOUNT_ID](Images/vs-code-account-id.png)
+
+	_Editing search.js to replace ACCOUNT_ID_
+
 
 1. Execute the following command in Visual Studio Code's integrated terminal to start the app:
 
@@ -223,10 +228,10 @@ Try other search terms such as "AI," "awesome," and "Microsoft." The results wil
 <a name="Summary"></a>
 ## Summary ##
 
-The [Video Indexer API](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5a37a5a80dc5610d2cc48221) is a rich one that includes methods for uploading videos for indexing, searching indexed videos, retrieving and modifying transcripts, monitoring the processing state as a video is being indexed, and more. One of the more powerful methods is [Get Breakdown](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5a37a5a80dc5610d2cc48219?), which returns a "breakdown" of a video containing the same kind of detailed information found in the Video Indexer portal after a video is indexed.
+The [Video Indexer API](https://api-portal.videoindexer.ai/docs/services/) is a rich one that includes methods for uploading videos for indexing, searching indexed videos, retrieving and modifying transcripts, monitoring the processing state as a video is being indexed, and more. One of the more powerful methods is [Get Video Index](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Index?), which returns the indexed content of a video containing the same kind of detailed information found in the Video Indexer portal after a video is indexed.
 
-Video Explorer uses the [Search](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5a37a5a80dc5610d2cc48224?) method, which is just one of more than 30 methods featured in the Video Indexer API. You could leverage additional APIs to make Video Explorer richer and more interactive. For example, you could allow users to search for people that appear in a video, or search specifically for text that is extracted via OCR. You could even use the [Get Player Widget URL](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5a37a5a80dc5610d2cc4821b?) method to embed a video player in the app. Feel free to use these APIs to expand Video Explorer and customize it to fit your needs, and learn more about Video Indexer in the process.
+Video Explorer uses the [Search Videos](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?) method, which is just one of more than 30 methods featured in the Video Indexer API. You could leverage additional APIs to make Video Explorer richer and more interactive. For example, you could allow users to search for people that appear in a video, or search specifically for text that is extracted via OCR. You could even use the [Get Video Player Widget URL](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Player-Widget?) method to embed a video player in the app. Feel free to use these APIs to expand Video Explorer and customize it to fit your needs, and learn more about Video Indexer in the process.
 
 ---
 
-Copyright 2018 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
+Copyright 2019 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at https://opensource.org/licenses/MIT.
