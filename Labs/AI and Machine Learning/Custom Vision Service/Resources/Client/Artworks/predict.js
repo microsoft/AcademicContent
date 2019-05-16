@@ -38,7 +38,7 @@ $(function () {
             processData: false,
             headers: {
                 "Prediction-Key": predictionKey,
-                "Content-Type": "multipart/form-data"
+                "Content-Type": "application/octet-stream"
             }
         }).done(function (data) {
 
