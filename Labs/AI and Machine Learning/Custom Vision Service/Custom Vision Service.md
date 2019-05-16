@@ -34,6 +34,7 @@ The following are required to complete this hands-on lab:
 ### Resources ###
 
 [Click here](https://a4r.blob.core.windows.net/public/cvs-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+The predict.js is old version api , so you must change "Client\Artworks\predict.js" file from [here](https://github.com/microsoft/computerscience/tree/master/Labs/AI%20and%20Machine%20Learning/Custom%20Vision%20Service/Resources/Client/Artworks)
 
 <a name="Cost"></a>
 ### Cost ###
