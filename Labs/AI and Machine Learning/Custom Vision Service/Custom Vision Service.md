@@ -103,7 +103,7 @@ In this exercise, you will add images of famous paintings by Picasso, Pollock, a
 
     _Adding images to the project_ 
  
-1. Browse to the "Artists\Picasso" folder in the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/cvs-resources.zip), select all of the files in the folder, and click **Open**.
+1. Browse to the "Artists\Picasso" folder in the [resources that accompany this lab](https://topcs.blob.core.windows.net/public/cvs-resources.zip), select all of the files in the folder, and click **Open**.
 
 	![Uploading Picasso images](Images/fe-browse-picasso-01.png)
 
