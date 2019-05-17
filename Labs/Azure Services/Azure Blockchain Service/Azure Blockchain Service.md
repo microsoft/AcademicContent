@@ -1,6 +1,6 @@
 <a name="HOLTitle"></a>
 
-# Build a Tamper-Proof Ratings System with Blockchain on Azure #
+# Build a Tamper-Proof Ratings System with Azure Blockchain Service #
 
 [Blockchain](https://en.wikipedia.org/wiki/Blockchain) is one of the world's most talked-about technologies, and one that has the potential to fundamentally change the way we use the Internet. Originally designed for [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin), Blockchain remains the technology behind that digital currency but is not limited to applications involving virtual money. In the words of Dan Tapscott, author, TED speaker, and Executive Director of the [Blockchain Research Institute](https://www.blockchainresearchinstitute.org/), "Blockchain is an incorruptible digital ledger of economic transactions that can be programmed to record not just financial transactions, but virtually everything of value." One of the more inventive uses for Blockchain is to implement tamper-proof digital voting systems, a concept that is being actively explored [in the U.S. and abroad](https://venturebeat.com/2016/10/22/blockchain-tech-could-fight-voter-fraud-and-these-countries-are-testing-it/).
 
@@ -32,9 +32,9 @@ In this hands-on lab, you will learn how to:
 <a name="Cost"></a>
 ### Cost ###
 
-![Cost](Images/cost-3.png)
+![Cost](Images/cost-2.png)
 
-The cost of this lab is **high**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
+The cost of this lab is **moderate**. For an overview of cost ratings, refer to [Explanation of Costs](../../Costs.md).
 
 <a name="Exercises"></a>
 ## Exercises ##
