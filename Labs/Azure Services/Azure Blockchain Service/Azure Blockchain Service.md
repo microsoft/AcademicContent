@@ -151,7 +151,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 1. If you are running Windows, open a PowerShell window running **as an administrator**. Then execute the following command to install [Windows-Build-Tools](https://www.npmjs.com/package/windows-build-tools), which enables native Node modules to be compiled on Windows:
 
 	```shell
-	npm install -g --production windows-build-tools
+	npm install -g -production windows-build-tools
 	```
 
 	This command might take 5 minutes or more to complete, so be patient!
