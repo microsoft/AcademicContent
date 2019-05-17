@@ -8,9 +8,7 @@ Blockchain gets its name from the manner in which it stores data. Transactions s
 
 Anyone can build a Blockchain network and use it to host blockchains. Microsoft Azure makes it incredibly simple to do both by supporting Blockchain-as-a-Service. A few button clicks in the Azure Portal are sufficient to deploy a network of virtual machines provisioned with popular Blockchain implementations such as [Ethereum](https://www.ethereum.org/), [Corda](https://www.corda.net/), or [Hyperledger Fabric](https://www.hyperledger.org/projects/fabric).
 
-Ethereum was one of the first general-purpose Blockchain implementations. The software is open-source and is the basis for Ethereum's own cryptocurrency known as [Ether](https://www.ethereum.org/ether). You can deploy Ethereum networks of your own and use its Blockchain implementation however you wish. Among other features, Ethereum supports [smart contracts](https://en.wikipedia.org/wiki/Smart_contract), which are written in languages such as [Solidity](https://en.wikipedia.org/wiki/Solidity) and then compiled into bytecode and deployed to the blockchain for execution.
-
-In this lab, you will deploy an [Ethereum proof-of-authority network](https://docs.microsoft.com/azure/blockchain/templates/ethereum-poa-deployment) on Azure and use it to host a custom blockchain. Then you will build a Web site named "Profrates" for rating professors that stores the comments and ratings that users enter in the blockchain. Along the way, you will get first-hand experience running Blockchain networks on Azure, as well as writing smart contracts for Ethereum and using them to store digital records in such a way that they cannot be altered.
+In this lab, you will deploy an [Azure Blockchain Service](https://azure.microsoft.com/solutions/blockchain/) and use it to host a custom blockchain. Then you will build a Web site named "Profrates" for rating professors that stores the comments and ratings that users enter in the blockchain. Along the way, you will get first-hand experience running Blockchain networks on Azure, as well as writing smart contracts and using them to store digital records in such a way that they cannot be altered.
 
 ![Profrates app](Images/header.png)
 
@@ -19,7 +17,7 @@ In this lab, you will deploy an [Ethereum proof-of-authority network](https://do
 
 In this hands-on lab, you will learn how to:
 
-- Deploy an Ethereum blockchain network on Azure
+- Deploy a blockchain on Azure
 - Write smart contracts in Solidity
 - Deploy smart contracts to Ethereum networks
 - Invoke smart contracts from Node.js
@@ -54,7 +52,7 @@ Estimated time to complete this lab: **60** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Create a blockchain on Azure ##
 
-In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain network in the cloud. [Ethereum](https://www.ethereum.org/) is a platform for running decentralized applications that rely on smart contracts, and it is offered as a service in Azure. For a great introduction to Ethereum, its history, and its uses, see [What is Ethereum? A Step-by-Step Beginners Guide](https://blockgeeks.com/guides/ethereum/).
+In this exercise, you will use the Azure Portal to deploy an Azure Blockchain Service that hosts an Ethereum blockchain. [Ethereum](https://www.ethereum.org/) is a platform for running decentralized applications that rely on smart contracts, and it is offered as a service in Azure. For a great introduction to Ethereum, its history, and its uses, see [What is Ethereum? A Step-by-Step Beginners Guide](https://blockgeeks.com/guides/ethereum/).
 
 1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). If you are asked to sign in, do so using your Microsoft account.
 
@@ -74,7 +72,7 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
 	_Creating a blockchain member_
 
-	The protocol that you selected is [Quorum](https://blockchainatberkeley.blog/introduction-to-quorum-blockchain-for-the-financial-sector-58813f84e88c), which is currently the only validation protocol supported in Azure Blockchain Service. A protocol is a way in which transactions are validated on a blockchain. Some popular ones include Proof-of-Work, Proof-of-Authority, and Proof-of-Stake. Each protocol emphasizes different aspects of transaction validation, but have trade-offs related to performance and scalability. Other protocols will be added in the future.
+	The protocol that you selected is [Quorum](https://blockchainatberkeley.blog/introduction-to-quorum-blockchain-for-the-financial-sector-58813f84e88c), which is currently the only validation protocol supported in Azure Blockchain Service. A protocol is a way in which transactions are validated on a blockchain. Popular protocols include Proof-of-Work, Proof-of-Authority, and Proof-of-Stake. Each protocol emphasizes different aspects of transaction validation, but have trade-offs related to performance and scalability. Other protocols will likely be added to Azure Blockchain Service in the future.
 
 1. Review the settings presented to you, and then click **Create**.
 
@@ -140,7 +138,7 @@ Now that the account is unlocked, you are ready to start using the network to ex
 
 Ethereum blockchains use smart contracts to broker transactions. A smart contract is a program that runs on blockchain transaction nodes in [Ethereum Virtual Machines](https://themerkle.com/what-is-the-ethereum-virtual-machine/). Ethereum developers often use the popular [Truffle](http://truffleframework.com/) framework to develop smart contracts. In this exercise, you will set up a Truffle development environment, compile a smart contract, and deploy it to the blockchain.
 
-1. If Node.js isn't installed on your computer, go to <https://nodejs.org> and install the latest LTS version for your operating system. If you aren't sure whether Node.js is installed, open a Command Prompt or terminal window and execute the following command:
+1. If Node.js isn't installed on your computer, go to <https://nodejs.org> and install the latest LTS version for your operating system. If you aren't sure whether Node.js is installed, open a Command Prompt or terminal and execute the following command:
 
 	```shell
 	node --version
@@ -151,10 +149,10 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 1. If you are running Windows, open a PowerShell window running **as an administrator**. Then execute the following command to install [Windows-Build-Tools](https://www.npmjs.com/package/windows-build-tools), which enables native Node modules to be compiled on Windows:
 
 	```shell
-	npm install -g -production windows-build-tools
+	npm install -g --production windows-build-tools
 	```
 
-	This command might take 5 minutes or more to complete, so be patient!
+	This command might take 5 minutes or more to complete, so be patient! You may close the PowerShell window once the install has completed.
 
 1. Create a directory named "truffle" in the location of your choice on your hard disk.
 
