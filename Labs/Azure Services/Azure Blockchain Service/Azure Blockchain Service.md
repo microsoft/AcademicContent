@@ -150,11 +150,10 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
 1. Create a directory named "truffle" in the location of your choice on your hard disk.
 
-1. If you are using macOS or Linux, open a terminal window. If you are using Windows, open a PowerShell window. In the terminal or PowerShell window, ```cd``` to the "truffle" directory you created in the previous step and use the following commands to install Truffle and Web3:
+1. If you are using macOS or Linux, open a terminal window. If you are using Windows, open a PowerShell window. In the terminal or PowerShell window, ```cd``` to the "truffle" directory you created in the previous step and use the following command to install Truffle:
 
 	```shell
 	npm install -g truffle
-	npm install -g web3
 	```
 
 1. Now use the following command to initialize a Truffle project in the current directory. This will download a few Solidity scripts and install them, and create a scaffolding in the "truffle" folder.
