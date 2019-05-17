@@ -372,9 +372,9 @@ Smart contracts are designed to be used by applications that use the blockchain 
 The Web site is currently running locally. As an optional exercise, consider deploying it to the cloud as an Azure Web App so you can access it from anywhere. For a hands-on introduction to deploying Web apps as Azure Web Apps, refer to [Deploying a Cognitive Services Web Site to Azure via GitHub](../../Web%20Development/Azure%20Web%20Apps%20and%20GitHub/Deploying%20a%20Cognitive%20Services%20Web%20Site%20to%20Azure%20via%20GitHub.md).
 
 <a name="Exercise5"></a>
-## Exercise 5: Delete the blockchain network ##
+## Exercise 5: Delete the Blockchain Service ##
 
-In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Blockchain service. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because the resources in it are relatively expensive.
+In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Blockchain Service. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because the resources in it are relatively expensive.
 
 1. Click **Resource groups** in the menu on the left side of the portal. Open the "blockchain-lab-rg" resource group. Then click **Delete resource group** at the top of the blade.
 
