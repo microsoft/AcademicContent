@@ -5,12 +5,11 @@ var path = require('path');
 var app = express();
 
 var etherUrl = "ENDPOINT_URL";
-var account = "ACCOUNT_ADDRESS";
+var account = "ACCOUNT_ADDRES";
 var contract = "CONTRACT_ADDRESS";
 
 var httpPort = 8080;
-var web3 = new Web3();
-web3.setProvider(new web3.providers.HttpProvider(etherUrl));
+var web3 = new Web3(new Web3.providers.HttpProvider(etherUrl));
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -113,44 +112,52 @@ var abi = [
 contractInstance = new web3.eth.Contract(abi, contract);
 
 app.get("/count", function (req, res) {
-	contractInstance.methods.getRatingsCount().call(function(error, count) {
+
+	contractInstance.methods.getRatingsCount().call({from: account}, (error, result) => {
 		if (error) {
+			console.error(error);
 			res.status(500).send(error);
 		}
 		else {
 			res.status = 200;
-			res.json(count);
+			console.log ("Count: " + result)
+			res.json(parseInt(result));
 		}
 	});
+	
+	
+	
 });
 
 app.get("/rating/:index", function (req, res) {
-	contractInstance.methods.getRating(parseInt(req.params.index)).call(function(error, comment) {
+	contractInstance.methods.getRating(parseInt(req.params.index)).call({from: account}, (error, result) => {
 		if (error) {
+			console.error(error);
 			res.status(500).send(error);
 		}
 		else {
 			res.status = 200;
 			res.json({
-				"professorID": parseInt(comment.professorID),
-				"comment": comment.comment,
-				"stars": parseInt(comment.stars)
+				"professorID": parseInt(result.professorID),
+				"comment": result.comment,
+				"stars": parseInt(result.stars)
 			});
 		}
 	});
 });
 
-app.post("/add", function (req, res) {
-	contractInstance.methods.addRating(parseInt(req.body.professorId), req.body.comment, parseInt(req.body.stars)).send({ from: account, gas:500000 }, function(error, transactionHash) {
-		if (error) {
-			res.status(500).send(error)	;
-		}
-		else {
-			res.status = 200;
-			res.json({ id: 0 });
-		}
-	});			
-});
+	app.post("/add", function (req, res) {
+		contractInstance.methods.addRating(parseInt(req.body.professorId), req.body.comment, parseInt(req.body.stars)).send({ from: account, gas:500000 }, (error, result) => {
+			if (error) {
+				console.error(error)
+				res.status(500).send(error)	;
+			}
+			else {
+				res.status = 200;
+				res.json({ id: 0 });
+			}
+		});
+	});
 
 app.listen(httpPort, function () {
 	console.log("Listening on port " + httpPort);

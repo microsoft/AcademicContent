@@ -1,6 +1,6 @@
 <a name="HOLTitle"></a>
 
-# Building a Tamper-Proof Ratings System with Blockchain on Azure #
+# Build a Tamper-Proof Ratings System with Blockchain on Azure #
 
 [Blockchain](https://en.wikipedia.org/wiki/Blockchain) is one of the world's most talked-about technologies, and one that has the potential to fundamentally change the way we use the Internet. Originally designed for [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin), Blockchain remains the technology behind that digital currency but is not limited to applications involving virtual money. In the words of Dan Tapscott, author, TED speaker, and Executive Director of the [Blockchain Research Institute](https://www.blockchainresearchinstitute.org/), "Blockchain is an incorruptible digital ledger of economic transactions that can be programmed to record not just financial transactions, but virtually everything of value." One of the more inventive uses for Blockchain is to implement tamper-proof digital voting systems, a concept that is being actively explored [in the U.S. and abroad](https://venturebeat.com/2016/10/22/blockchain-tech-could-fight-voter-fraud-and-these-countries-are-testing-it/).
 
@@ -58,132 +58,82 @@ In this exercise, you will use the Azure Portal to deploy an Ethereum Blockchain
 
 1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). If you are asked to sign in, do so using your Microsoft account.
 
-1. In the portal, click **+ Create a resource**. Click **Blockchain**, and then click **Ethereum Proof-of-Authority Consortium**.
+1. In the portal, click **+ Create a resource**. Click **Blockchain**, and then click **Azure Blockchain Service (preview)**.
 
-    ![Creating an Ethereum blockchain](Images/new-blockchain.png)
+    ![Creating an Ethereum blockchain](Images/new-azure-blockchain-service.png)
 
-    _Creating an Ethereum blockchain_
+    _Creating a blockchain service_
 
-1. Fill in the "Basics" blade as shown below, providing a password that's at least 12 characters long containing a mix of uppercase letters, lowercase letters, numbers, and special characters. Click **Create new** under "Resource group" and enter a resource-group name to place the resources in a new resource group. Select the region nearest you, and then click **OK**. *Remember the password that you entered, because you will need it in the next exercise*.
+1. Fill in the blade as shown below to create a blockchain member. This "member" will be the first in a new consortium blockchain. Consortium blockchains allow multiple members to each have a stake in the blockchain, but no one member controls the entire blockchain.
 
-    ![Entering basic settings](Images/blockchain-settings-1.png)
+	Use the **Create new** links to create a new resource group and a new consortium. The consortium name must be unique within Azure, so you will probably have to use something other than "ratemyprof." Use the **Change** link to change from the Standard pricing model to Basic in order to minimize cost. Then click **Review + create** at the bottom of the blade.
 
-    _Entering basic settings_
+	> Be sure to remember the passwords you enter, because you will need them later.
 
-1. In the "Deployment regions" blade, make sure **Number of regions** is set to 1 and select the region closest to you. Then click **OK** at the bottom of the blade.
+	![Creating an Ethereum blockchain](Images/create-blockchain-member.png)
 
-    ![Specifying deployment regions](Images/blockchain-settings-2.png)
+	_Creating a blockchain member_
 
-    _Specifying deployment regions_
+	The protocol that you selected is [Quorum](https://blockchainatberkeley.blog/introduction-to-quorum-blockchain-for-the-financial-sector-58813f84e88c), which is currently the only validation protocol supported in Azure Blockchain Service. A protocol is a way in which transactions are validated on a blockchain. Some popular ones include Proof-of-Work, Proof-of-Authority, and Proof-of-Stake. Each protocol emphasizes different aspects of transaction validation, but have trade-offs related to performance and scalability. Other protocols will be added in the future.
 
-1. Click **OK** at the bottom of the "Network Size and Performance" blade to accept the default settings for VM sizes, number of nodes, and so on.
+1. Review the settings presented to you, and then click **Create**.
 
-1. In the "Ethereum Settings" blade, set **Consortium Member Id** to **123**. Paste the following value into the **Admin Ethereum Address** box, and then click **OK**.
-
-	```
-	0x1111111100000000111111110000000011111111
-	```
-
-	The consortium member ID is used to avoid IP collisions when multiple organizations are deployed to a single Ethereum network. Because you aren't sharing the network with other organizations, the ID that you enter is not important. The admin address that you enter identifies a service principal that is granted admin privileges on the network. The actual value is unimportant; any 40-digit hex address will do.
-
-    ![Entering Ethereum settings](Images/blockchain-settings-3.png)
-
-    _Entering Ethereum settings_
-
-1. In the "Monitoring" blade, select the region closest to you. Then click **OK** at the bottom of the blade.
-
-    ![Specifying the monitoring region](Images/blockchain-settings-4.png)
-
-    _Specifying the monitoring region_
-
-1. Review the settings in the "Summary" blade and click **OK** at the bottom of the blade. Then click the **Create** button at the bottom of the "Create" blade to begin the deployment.
-
-1. Click **Resource groups** in the ribbon on the left. Then click the resource group whose name you specified in Step 3. Wait until "Deploying" changes to "Succeeded" in the resource-group blade indicating that the Blockchain network and all of its resources have been deployed.
-
-    ![Monitoring the deployment](Images/deployment-succeeded.png)
-
-    _Monitoring the deployment_
-
-Deployment will probably take 10 to 15 minutes. You can click the **Refresh** button at the top of the blade to refresh the deployment status. Once the deployment has completed, proceed to the next exercise.
+Deployment will probably take 10 to 15 minutes. Wait for the deployment to complete, and then click **Go to resource**.	
 
 <a name="Exercise2"></a>
-## Exercise 2: Unlock the coinbase account ##
+## Exercise 2: Unlock the account ##
 
-When it created the Ethereum network, Azure also created a *coinbase* account to support transactions performed in the blockchain. The name "coinbase" is misleading. It alludes to the fact that Blockchain is often used as the basis for digital currencies. But Blockchain can be used for much more than that, as you are in the process of demonstrating.
+In order to deploy smart contracts to a consortium blockchain, you must first unlock the account that was created when the blockchain was deployed. You can do this with [Geth](https://github.com/ethereum/go-ethereum/wiki/geth), which is a client for interacting with blockchain nodes from the command line.
 
-Every transaction performed in a blockchain must be "fueled" by an account. This coinbase account will fuel transactions that allow comments and ratings to be recorded in the blockchain. Before the coinbase account can be used, however, it must be unlocked. In this exercise, you will use SSH to connect to the Ethereum network you deployed in the previous exercise and execute a series of commands to unlock the account and retrieve its address.
+1. Download `Geth` from the [Geth website](https://geth.ethereum.org/downloads/) and install it. Versions are available for Windows, macOS, and Linux.
 
-1. Return to the resource group that you created for the Blockchain network in the Azure portal and click the Network Security Group resource.
+	![Installing Geth](Images/install-geth.png)
 
-    ![Opening the Network Security Group](Images/open-nsg.png)
+	_Installing Geth_
 
-    _Opening the Network Security Group_
+	The Windows download is an installer that installs `Geth`. After installion is complete, open a Command Prompt window. The installer will attempt to add the install location to the PATH environmental variable, but if this is not possible, you will be notified that PATH wasn't updated. If this happens, simply change directories to the install path, which is usually "C:\Program Files\Geth." 
 
-1. Click **Inbound security rules** in the menu on the left. If the "allow-ssh" rule is set to **Deny** rather than **Allow**, click the rule and change **Action** to **Allow**. Then click **Save**.
+	For macOS and Linux, open a terminal session and extract the contents of the **tar.gz** file you downloaded (for example, **tar xvzf geth-linux-amd64-1.8.27-4bcc0a37.tar.gz**) and change directories to the path the extraction process created.
 
-    ![Allowing SSH](Images/allow-ssh.png)
+1. Return to the Azure Portal and click the **Copy** button next to "Member account" to copy the account address to the clipboard. Paste it into a text file so you can easily retrieve it later.
 
-    _Allowing SSH_
+	![Copying the account address](Images/copy-account.png)
 
-1. Return to the resource group and click **Deployments** in the menu on the left. Then click the resource whose name begins with "microsoft-azure-blockchain."
+	_Copying the account address_
 
-    ![Opening the blockchain](Images/open-blockchain.png)
+1. Click **Transaction nodes** in the menu on the left side of the blade. Then click the link to your node.
 
-    _Opening the blockchain_
+	![Browsing to a node](Images/browse-to-node.png)
 
-1. Click **Outputs** in the menu on the left, and then click the **Copy** button next to "ssh_to_first_vl_node_region1" to copy the SSH command to the clipboard.
+	_Browsing to a node_
 
-    ![Copying the SSH command](Images/copy-ssh-command.png)
+1. Click **Access keys**. Then copy the HTTPS URL for "Access key 1" to the clipboard, and paste the URL into a text file so you can retrieve it later.
 
-    _Copying the SSH command_
+	![Copying the URL and access key](Images/access-keys.png)
 
-1. Click the **Cloud Shell** button in the toolbar at the top of the portal to open a cloud shell. The [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) provides an environment for executing Bash and PowerShell commands without leaving the portal. You can use **Shift+Insert** to paste commands into the cloud shell, and **Ctrl+Insert** to copy text from the cloud shell to the clipboard.
+	_Copying the URL and access key_
 
-    ![Opening the Azure Cloud Shell](Images/cloud-shell.png)
+1. If you are running Windows, return to the Command Prompt window and execute the following command to connect to your node with `Geth`, replacing HTTPS_URL with the URL on the clipboard:
 
-    _Opening the Azure Cloud Shell_
-
-1. If asked to choose a language, choose **Bash**. Then make sure **Bash** is selected in the upper-left corner of the cloud shell. Press **Shift+Insert**  to paste the ```ssh``` command that is on the clipboard into the cloud shell. Then press **Enter** to execute the command. If you are prompted with a security warning informing you that the authenticity of the host can't be established and asking if you want to connect anyway, type "yes" and press **Enter**.
-
-1. When prompted for a password, enter the password you entered in Exercise 1, Step 3.
-
-1. Execute the following command in the cloud shell to attach to the first node in the Ethereum network. [geth](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options), which is short for "go-ethereum," is a multipurpose command for managing Ethereum networks.
-
-	```shell
-	geth attach
+	```
+	geth attach HTTPS_URL
 	```
 
-1. Now execute the following command to unlock the coinbase account, substituting the password you entered in Exercise 1, Step 6 for PASSWORD:
+	If you are running macOs or Linux instead, return to the terminal session and execute this command, replacing HTTPS_URL with the URL on the clipboard: 
 
-	```shell
-	web3.personal.unlockAccount(web3.personal.listAccounts[0],"PASSWORD",28800)
+	```
+	 ./geth attach HTTPS_URL
 	```
 
-    This will allow you to perform transactions using the coinbase account for up to 8 hours (28,800 seconds). Make sure that the output from the command is the word "true," as shown below.
+1. Now use the following command to unlock the account, replacing ACCOUNT_ADDRESS with the account address you copied in Step 2 and PASSWORD with the transaction-node password you specified in the previous exercise:
 
-    ![Unlocking the account](Images/unlock-account.png)
-
-    _Unlocking the account_
-
-1. Now use the following command to get the address of the coinbase account:
-
-	```shell
-	web3.personal.listAccounts[0]
+	```
+	web3.personal.unlockAccount("ACCOUNT_ADDRESS", "PASSWORD", 28800)
 	```
 
-    The output will be a hex value similar to this one:
+	Confirm that the output from the command is the word "true." This command uses the `web3` client built into `Geth`. 28800 is the length of time in seconds that the account will remain unlocked.
 
-	```shell
-	0xd19cc89f0c9c1bf8280b9c8ec8125bd0e028ee51
-	```
-
-    Copy this value to the clipboard and **paste it into a text file** so you can easily retrieve it later.
-
-1. Type ```exit``` into the cloud shell to detach from Ethereum.
-
-1. Type ```exit``` again to close the SSH connection.
-
-Now that the coinbase account is unlocked, you are ready to start using the network to execute transactions on the blockchain. To code those transactions, you will create and then deploy a smart contract.
+Now that the account is unlocked, you are ready to start using the network to execute transactions on the blockchain. To code those transactions, you will create and then deploy a smart contract.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Deploy a smart contract ##
@@ -200,10 +150,11 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
 1. Create a directory named "truffle" in the location of your choice on your hard disk.
 
-1. If you are using macOS or Linux, open a terminal window. If you are using Windows, open a PowerShell window. In the terminal or PowerShell window, ```cd``` to the "truffle" directory you created in the previous step and use the following command to install Truffle:
+1. If you are using macOS or Linux, open a terminal window. If you are using Windows, open a PowerShell window. In the terminal or PowerShell window, ```cd``` to the "truffle" directory you created in the previous step and use the following commands to install Truffle and Web3:
 
 	```shell
 	npm install -g truffle
+	npm install -g web3
 	```
 
 1. Now use the following command to initialize a Truffle project in the current directory. This will download a few Solidity scripts and install them, and create a scaffolding in the "truffle" folder.
@@ -214,82 +165,66 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
 1. If Visual Studio Code isn't installed on your PC, go to https://code.visualstudio.com/ and install it now. Visual Studio Code is a free, lightweight source-code editor for Windows, macOS, and Linux. It features IntelliSense, integrated Git support, and much more.
 
-1. Start Visual Studio Code and use the **File** > **Open Folder...** command to open the "truffle" directory that you created in Step 2. Confirm that the directory contains a pair of files named **truffle.js** and **truffle-config.js**, as shown below. These files are part of the scaffolding created by the ```truffle init``` command.
+1. Start Visual Studio Code and use the **File** > **Open Folder...** command to open the "truffle" directory that you created in Step 2. Confirm that the directory contains a file named **truffle-config.js**, as shown below. This file is part of the scaffolding created by the ```truffle init``` command.
 
 	![Visual Studio Code](Images/visual-studio-code.png)
 
 	_Visual Studio Code_
 
-1. Open **truffle.js** in Visual Studio Code and replace its contents with the following statements: 
+1. Open **truffle-config.js** in Visual Studio Code and replace its contents with the following statements: 
 
 	```javascript
+	var Web3 = require("Web3");
+
 	module.exports = {
-	  networks: {
-	    development: {
-	      host: "ENDPOINT_URL",
-	      port: PORT_NUMBER,
-	      network_id: "*", // Match any network id
-	      gas: 4712388
-	    }
-	  }
-	};
+			networks: {
+			development: {
+				provider: function() {
+					return new Web3.providers.HttpProvider('<YOUR URL HERE>');
+				},
+				network_id: "*", // Match any network id
+				gas: 4712388,
+				gasPrice:0
+			}
+		}
+	}
+
 	```
 
-1. Return to the Azure portal and click the **Copy** button to the right of ETHEREUM-RPC-ENDPOINT to copy the endpoint URL to the clipboard. This URL is important, because it allows apps to make JSON-RPC calls to the Ethereum network to deploy smart contracts and perform other blockchain-related tasks.
-
-    ![Copying the endpoint URL](Images/copy-endpoint.png)
-
-    _Copying the endpoint URL_
-
-1. Return to **truffle.js** in Visual Studio Code. Replace ENDPOINT_URL on line 4 with the URL on the clipboard. Then remove the leading "http://" and the trailing port number (for example, ":8545"), and replace PORT_NUMBER on line 5 with the port number you removed from the URL. The modified file should look something like this:
-
-	```javascript
-	module.exports = {
-	  networks: {
-	    development: {
-	      host: "labng2-dns-reg1.eastus.cloudapp.azure.com",
-	      port: 8545,
-	      network_id: "*", // Match any network id
-	      gas: 4712388
-	    }
-	  }
-	};
-	```
-
-	Once these changes are made, save the file.
+1. Replace HTTPS_URL on line 7 with the URL you copied from the Azure Portal in the previous exercise. Then save the file.
 
 1. Create a file named **profrates.sol** in the subdirectory named "contracts" and paste in the following code. Then save the file.
 
 	```javascript
-	pragma solidity ^0.4.16;
-	
+	pragma solidity ^0.5.0;
+
 	contract profrates {
-	
-	    event newRating(uint id);
-	
-	    struct Rating {
-	        uint professorID;
-	        string comment;
-	        uint stars;
-	    }
-	
-	    Rating[] ratings;
-	
-	    function addRating(uint professorID, string comment, uint stars) public returns (uint ratingID) {
-	        ratingID = ratings.length;
-	        ratings[ratings.length++] = Rating(professorID, comment, stars);
-	        emit newRating(ratingID);
-	    }
-	
-	    function getRatingsCount() constant public returns (uint count) {
-	        return ratings.length;
-	    }
-	
-	    function getRating(uint index) constant public returns (uint professorID, string comment, uint stars) {
-	        professorID = ratings[index].professorID;
-	        comment = ratings[index].comment;
-	        stars = ratings[index].stars;
-	    }
+
+		event newRating(uint id);
+
+		struct Rating {
+			uint professorID;
+			string comment;
+			uint stars;
+		}
+
+		Rating[] ratings;
+
+		function addRating(uint professorID, string memory comment, uint stars) public returns (uint ratingID) {
+			ratingID = ratings.length;
+			ratings[ratings.length++] = Rating(professorID, comment, stars);
+			emit newRating(ratingID);
+		}
+
+		function getRatingsCount() view public returns (uint count) {
+			return ratings.length;
+		}
+
+		function getRating(uint index) view public returns (uint professorID, string memory comment, uint stars) {
+			professorID = ratings[index].professorID;
+			comment = ratings[index].comment;
+			stars = ratings[index].stars;
+		}
 	}
 	```
 
@@ -307,7 +242,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
     This is the code that deploys the contract to the blockchain.
 
-1. Select **Integrated Terminal** from Visual Studio Code's **View** menu to open an integrated terminal. If you are using Windows, make sure the language selected for the integrated terminal is PowerShell. Then execute the following command in the integrated terminal to compile the  contract:
+1. Select **Terminal** from Visual Studio Code's **View** menu to open an integrated terminal. If you are using Windows, make sure the language selected for the integrated terminal is PowerShell. Then execute the following command in the integrated terminal to compile the  contract:
 
 	```shell
 	truffle compile
@@ -319,9 +254,15 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 	truffle deploy
 	```
 
-1. Copy the address of the "profrates" contract shown in the command output to the clipboard and **paste it into a text file** so you can easily retrieve it later.
+1. Use the following command to get the address of the contract:
 
-	![Saving the contract address](Images/copy-contract-address.png)
+	```shell
+	truffle networks
+	```
+
+1. Copy the address of the "profrates" contract shown in the command output to the clipboard and paste it into a text file so you can easily retrieve it later.
+
+	![Saving the contract address](Images/addresses.png)
 
 	_Saving the contract address_
 
@@ -348,22 +289,16 @@ Smart contracts are designed to be used by applications that use the blockchain 
 	npm install
 	```
 
-1. Return to the Azure portal and click the **Copy** button to the right of ETHEREUM-RPC-ENDPOINT to copy the endpoint URL to the clipboard as you did in Exercise 3, Step 8.
+1. Return to Visual Studio Code and open **index.js**. Replace ENDPOINT_URL on line 7 with the URL you copied from the Azure Portal for your node..
 
-    ![Copying the endpoint URL](Images/copy-endpoint.png)
-
-    _Copying the endpoint URL_
-
-1. Return to Visual Studio Code and open **index.js**. Replace ENDPOINT_URL on line 7 with the Ethereum RPC endpoint that's on the clipboard.
-
-1. Replace ACCOUNT_ADDRESS on line 8 with the account address you saved in Exercise 2, Step 8.
+1. Replace ACCOUNT_ADDRESS on line 8 with the account address you saved in Exercise 2, Step 2.
 
 1. Replace CONTRACT_ADDRESS on line 9 with the contract address you saved in Exercise, 3, Step 14. Then save your changes to **index.js**. The modified lines should look something like this:
 
 	```javascript
-	var etherUrl = "http://labng2-dns-reg1.eastus.cloudapp.azure.com:8545";
-	var account = "0xd19cc89f0c9c1bf8280b9c8ec8125bd0e028ee51";
-	var contract = "0x5402c34df62e6a8a3fc8d4f078c5495dd051dde9";
+	var etherUrl = "https://profrates.blockchain.azure.com:3200/3Zex...INvh";
+	var account = "0xb0d158c41e38035943080850236bee8f05095317";
+	var contract = "0xEF317Aa0B20cd73F0c4baDbFc690EC354063bd40";
 	```
 
 1. Execute the following command in Visual Studio Code's integrated terminal to start the Web app:
@@ -402,16 +337,18 @@ Smart contracts are designed to be used by applications that use the blockchain 
 
 	```javascript
 	app.post("/add", function (req, res) {
-	    contractInstance.methods.addRating(parseInt(req.body.professorId), req.body.comment, parseInt(req.body.stars)).send({ from: account, gas:500000 }, function(error, transactionHash) {
-	        if (error) {
-	            res.status(500).send(error);
-	        }
-	        else {
-	            res.status = 200;
-	            res.json({ id: 0 });
-	        }
-	    });
+		contractInstance.methods.addRating(parseInt(req.body.professorId), req.body.comment, parseInt(req.body.stars)).send({ from: account, gas:500000 }, (error, result) => {
+			if (error) {
+				console.error(error)
+				res.status(500).send(error)	;
+			}
+			else {
+				res.status = 200;
+				res.json({ id: 0 });
+			}
+		});
 	});
+
 	```
 
     The real work is performed by the call to ```contractInstance```, which is initialized this way:
@@ -437,9 +374,9 @@ The Web site is currently running locally. As an optional exercise, consider dep
 <a name="Exercise5"></a>
 ## Exercise 5: Delete the blockchain network ##
 
-In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Ethereum network. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because the resources in it are relatively expensive.
+In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Blockchain service. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because the resources in it are relatively expensive.
 
-1. Return to the blade for the resource group you created in Exercise 1. Then click **Delete resource group** at the top of the blade.
+1. Click **Resource groups** in the menu on the left side of the portal. Open the "blockchain-lab-rg" resource group. Then click **Delete resource group** at the top of the blade.
 
     ![Deleting the resource group](Images/delete-resource-group.png)
 
@@ -456,4 +393,4 @@ This is just one example of the kinds of apps you can build with Blockchain, and
 
 ---
 
-Copyright 2018 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <https://opensource.org/licenses/MIT.>
+Copyright 2019 Microsoft Corporation. All rights reserved. Except where otherwise noted, these materials are licensed under the terms of the MIT License. You may use them according to the license as is most appropriate for your project. The terms of this license can be found at <https://opensource.org/licenses/MIT.>
