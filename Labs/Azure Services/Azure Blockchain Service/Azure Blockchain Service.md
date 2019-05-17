@@ -148,11 +148,20 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
     If you don't see a Node.js version number, then Node.js isn't installed.
 
-1. Create a directory named "truffle" in the location of your choice on your hard disk.
-
-1. If you are using macOS or Linux, open a terminal window. If you are using Windows, open a PowerShell window. In the terminal or PowerShell window, ```cd``` to the "truffle" directory you created in the previous step and use the following command to install Truffle:
+1. If you are running Windows, open a PowerShell window running **as an administrator**. Then execute the following command to install [Windows-Build-Tools](https://www.npmjs.com/package/windows-build-tools), which enables native Node modules to be compiled on Windows:
 
 	```shell
+	npm install -g --production windows-build-tools
+	```
+
+	This command might take 5 minutes or more to complete, so be patient!
+
+1. Create a directory named "truffle" in the location of your choice on your hard disk.
+
+1. If you are using macOS or Linux, open a terminal window. If you are using Windows, open a PowerShell window. (There is no need to run as administrator this time.) In the terminal or PowerShell window, ```cd``` to the "truffle" directory you created in the previous step and use the following commands to install Truffle and its dependencies:
+
+	```shell
+	npm install -g ethereumjs-testrpc 
 	npm install -g truffle
 	```
 
@@ -179,7 +188,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 			networks: {
 			development: {
 				provider: function() {
-					return new Web3.providers.HttpProvider('<YOUR URL HERE>');
+					return new Web3.providers.HttpProvider('HTTPS_URL');
 				},
 				network_id: "*", // Match any network id
 				gas: 4712388,
@@ -271,14 +280,6 @@ The contract is now present in the blockchain and waiting to be invoked. All you
 ## Exercise 4: Invoke the contract from a Web app ##
 
 Smart contracts are designed to be used by applications that use the blockchain for secure transactions. In this exercise, you will run a Web app written in Node.js that uses the "profrates" contract. The app allows users to rate professors from one to five stars and enter comments to go with the ratings. The data is stored in the blockchain. The app uses a library named [web3.js](https://github.com/ethereum/web3.js/), which wraps the [Ethereum RPC API](https://ethereumbuilders.gitbooks.io/guide/content/en/ethereum_json_rpc.html) and dramatically simplifies code for interacting with smart contracts. Note that there are also web3 libraries available for other languages, including .NET, Java and Python.
-
-1. If you are running Windows, open a PowerShell window running **as an administrator**. Then execute the following command to install [Windows-Build-Tools](https://www.npmjs.com/package/windows-build-tools), which enables native Node modules to be compiled on Windows:
-
-	```shell
-	npm install -g --production windows-build-tools
-	```
-
-	This command might take 5 minutes or more to complete, so be patient!
 
 1. Create a directory named "Profrates" to serve as the project directory for the Web site. Download the zip file containing the [source code for the Web site](https://topcs.blob.core.windows.net/public/profrates-resources.zip) and copy its contents into the "Profrates" directory.
 
