@@ -156,7 +156,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
 1. Create a directory named "truffle" in the location of your choice on your hard disk.
 
-1. If you are using macOS or Linux, open a terminal window. If you are using Windows, open a PowerShell window. (There is no need to run as administrator this time.) In the terminal or PowerShell window, ```cd``` to the "truffle" directory you created in the previous step and use the following commands to install Truffle and its dependencies:
+1. If you are using macOS or Linux, open a terminal. If you are using Windows, open a PowerShell window. (There is no need to run as administrator this time.) In the terminal or PowerShell window, ```cd``` to the "truffle" directory you created in the previous step and use the following commands to install Truffle and its dependencies:
 
 	```shell
 	npm install -g ethereumjs-testrpc 
@@ -266,7 +266,7 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 	truffle networks
 	```
 
-1. Copy the address of the "profrates" contract shown in the command output to the clipboard and paste it into a text file so you can easily retrieve it later.
+1. Copy the address of the "profrates" contract shown in the command output to the clipboard and paste it into a text file so you can retrieve it later.
 
 	![Saving the contract address](Images/addresses.png)
 
@@ -287,11 +287,11 @@ Smart contracts are designed to be used by applications that use the blockchain 
 	npm install
 	```
 
-1. Return to Visual Studio Code and open **index.js**. Replace ENDPOINT_URL on line 7 with the URL you copied from the Azure Portal for your node..
+1. Return to Visual Studio Code and open **index.js**. Replace ENDPOINT_URL on line 7 with the HTTPS URL you copied from the Azure Portal in Exercise 2, Step 4.
 
-1. Replace ACCOUNT_ADDRESS on line 8 with the account address you saved in Exercise 2, Step 2.
+1. Replace ACCOUNT_ADDRESS on line 8 with the account address you copied from the Azure Portal in Exercise 2, Step 2.
 
-1. Replace CONTRACT_ADDRESS on line 9 with the contract address you saved in Exercise, 3, Step 14. Then save your changes to **index.js**. The modified lines should look something like this:
+1. Replace CONTRACT_ADDRESS on line 9 with the contract address you saved in Exercise, 3, Step 15. Then save your changes to **index.js**. The modified lines should look something like this:
 
 	```javascript
 	var etherUrl = "https://profrates.blockchain.azure.com:3200/3Zex...INvh";
@@ -372,7 +372,7 @@ The Web site is currently running locally. As an optional exercise, consider dep
 <a name="Exercise5"></a>
 ## Exercise 5: Delete the Blockchain Service ##
 
-In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Blockchain Service. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because the resources in it are relatively expensive.
+In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Blockchain Service. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it.
 
 1. Click **Resource groups** in the menu on the left side of the portal. Open the "blockchain-lab-rg" resource group. Then click **Delete resource group** at the top of the blade.
 
