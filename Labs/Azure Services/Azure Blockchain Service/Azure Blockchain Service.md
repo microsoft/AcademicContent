@@ -183,18 +183,17 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 	var Web3 = require("Web3");
 
 	module.exports = {
-			networks: {
-			development: {
-				provider: function() {
-					return new Web3.providers.HttpProvider('HTTPS_URL');
-				},
-				network_id: "*", // Match any network id
-				gas: 4712388,
-				gasPrice:0
-			}
-		}
+	    networks: {
+	        development: {
+	            provider: function() {
+	                return new Web3.providers.HttpProvider('HTTPS_URL');
+	            },
+	            network_id: "*", // Match any network id
+	            gas: 4712388,
+	            gasPrice:0
+	        }
+	    }
 	}
-
 	```
 
 1. Replace HTTPS_URL on line 7 with the URL you copied from the Azure Portal in the previous exercise. Then save the file.
@@ -206,31 +205,31 @@ Ethereum blockchains use smart contracts to broker transactions. A smart contrac
 
 	contract profrates {
 
-		event newRating(uint id);
+	    event newRating(uint id);
 
-		struct Rating {
-			uint professorID;
-			string comment;
-			uint stars;
-		}
+	    struct Rating {
+	        uint professorID;
+	        string comment;
+	        uint stars;
+	    }
 
-		Rating[] ratings;
+	    Rating[] ratings;
 
-		function addRating(uint professorID, string memory comment, uint stars) public returns (uint ratingID) {
-			ratingID = ratings.length;
-			ratings[ratings.length++] = Rating(professorID, comment, stars);
-			emit newRating(ratingID);
-		}
+	    function addRating(uint professorID, string memory comment, uint stars) public returns (uint ratingID) {
+	        ratingID = ratings.length;
+	        ratings[ratings.length++] = Rating(professorID, comment, stars);
+	        emit newRating(ratingID);
+	    }
 
-		function getRatingsCount() view public returns (uint count) {
-			return ratings.length;
-		}
+	    function getRatingsCount() view public returns (uint count) {
+	        return ratings.length;
+	    }
 
-		function getRating(uint index) view public returns (uint professorID, string memory comment, uint stars) {
-			professorID = ratings[index].professorID;
-			comment = ratings[index].comment;
-			stars = ratings[index].stars;
-		}
+	    function getRating(uint index) view public returns (uint professorID, string memory comment, uint stars) {
+	        professorID = ratings[index].professorID;
+	        comment = ratings[index].comment;
+	        stars = ratings[index].stars;
+	    }
 	}
 	```
 
@@ -335,16 +334,16 @@ Smart contracts are designed to be used by applications that use the blockchain 
 
 	```javascript
 	app.post("/add", function (req, res) {
-		contractInstance.methods.addRating(parseInt(req.body.professorId), req.body.comment, parseInt(req.body.stars)).send({ from: account, gas:500000 }, (error, result) => {
-			if (error) {
-				console.error(error)
-				res.status(500).send(error)	;
-			}
-			else {
-				res.status = 200;
-				res.json({ id: 0 });
-			}
-		});
+	    contractInstance.methods.addRating(parseInt(req.body.professorId), req.body.comment, parseInt(req.body.stars)).send({ from: account, gas:500000 }, (error, result) => {
+	        if (error) {
+	            console.error(error)
+	            res.status(500).send(error)	;
+	        }
+	        else {
+	            res.status = 200;
+	            res.json({ id: 0 });
+	        }
+	    });
 	});
 
 	```
