@@ -53,3 +53,4 @@ dotnet tool install -g --version 1.0.8010001-alpha-9c8fa322 --configfile nuget.c
 - [Minecraft Education Edition](https://education.minecraft.net/)
 - [TEALS](http://tealsk12.org/)
 - [VS Code](https://code.visualstudio.com/)
+- [GitHub Student Developer Pack](https://education.github.com/pack)
