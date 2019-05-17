@@ -66,7 +66,7 @@ In this exercise, you will use the Azure Portal to deploy an Azure Blockchain Se
 
 	Use the **Create new** links to create a new resource group and a new consortium. The consortium name must be unique within Azure, so you will probably have to use something other than "ratemyprof." Use the **Change** link to change from the Standard pricing model to Basic in order to minimize cost. Then click **Review + create** at the bottom of the blade.
 
-	> Be sure to remember the passwords you enter, because you will need them later.
+	> Be sure to remember the passwords you enter. You will need the member-account password in the next exercise.
 
 	![Creating an Ethereum blockchain](Images/create-blockchain-member.png)
 
@@ -123,7 +123,7 @@ In order to deploy smart contracts to a consortium blockchain, you must first un
 	 ./geth attach HTTPS_URL
 	```
 
-1. Now use the following command to unlock the account, replacing ACCOUNT_ADDRESS with the account address you copied in Step 2 and PASSWORD with the transaction-node password you specified in the previous exercise:
+1. Now use the following command to unlock the account, replacing ACCOUNT_ADDRESS with the account address you copied in Step 2 and PASSWORD with the member-account password you specified in the previous exercise:
 
 	```
 	web3.personal.unlockAccount("ACCOUNT_ADDRESS", "PASSWORD", 28800)
