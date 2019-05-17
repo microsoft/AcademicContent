@@ -27,5 +27,3 @@ Teacher demonstrates Cognitive API code examples to prepare students for Compute
 
 ## Week 4
 Students will present their Project Conclusions. They will discuss considerations with data and apply these to their project. Additional cognitive services may be experimented with.
-
-To get started, clone this GitHub Repository:
