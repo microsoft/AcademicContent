@@ -28,4 +28,4 @@ Learn about it [here](https://azure.microsoft.com/en-us/blog/host-multiplayer-mi
 ## Image Data Predicting Climate Change
 In collaboration with HackingSTEM and NASA, we have a introduction to Machine Learning for middle and high school students. With
 Excel and a simple web app, students can learn about how color in images can help us understand how our climate is changing, 
-and then mimic a machine learning model to understand how Azure helps do this at scale. Check out the lesson [here](https://preview.education.microsoft.com/hackingStem/lesson/nv3zo6ad)
+and then mimic a machine learning model to understand how Azure helps do this at scale. Check out the lesson [here](https://preview.education.microsoft.com/hackingStem/lesson/nv3zo6ad) and the machine learning demo [here](https://nasa-on-azure.azurewebsites.net/)
