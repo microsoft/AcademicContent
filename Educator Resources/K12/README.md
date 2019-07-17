@@ -3,6 +3,14 @@ Azure Education can include a number of different areas. This repo will be kept 
 that are likely to be a good fit for novices in the K-12 space.
 
 # Current Offerings
+## Azure for Students Starter
+A free Azure account with access to educational services and no credit card required to sign up. You can learn more about
+it [here](https://azure.microsoft.com/en-us/free/students/starter/)
+
+## Azure for Students
+A free Azure account plus a $100 credit for students 18+ and no credit card required to sign up. You can learn more about it
+[here](https://azure.microsoft.com/en-us/free/students/)
+
 ## Introduction to Data Science
 We've developed a ~30 hour workshop for adults interested in learning about Python and Data Science, but this curriculum is also
 effective for high school students. You can find this [here](https://github.com/microsoft/computerscience/tree/master/Educator%20Resources/Reactor%20Workshops/Data%20Science)
