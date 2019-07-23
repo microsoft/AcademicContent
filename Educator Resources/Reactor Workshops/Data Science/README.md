@@ -9,3 +9,4 @@ If you're interested, you can share your capstone projects with other Reactor at
 | Workshop Date | Track | Location | Capstone Title | 1 Sentence Description | Azure Notebook Link | Your Name | 
 | ------------- | ----- | -------- | -------------- | ---------------------- | ------------------- | --------- | 
 | July 1st      |   1   | San Diego | Flight Delays | Understanding Flight Delays for four major airports to predict wait times | [Flight Project.ipynb](https://datascienceworkshop-sguthals.notebooks.azure.com/j/notebooks/FlightProject.ipynb) | Sarah Guthals | 
+| July 1st      |   1   | San Diego | Flight Delays | Understanding Flight Delays for four major airports to predict wait times | [Flight Project.ipynb](https://datascienceworkshop-sguthals.notebooks.azure.com/j/notebooks/FlightProject.ipynb) | Sarah Guthals | 
