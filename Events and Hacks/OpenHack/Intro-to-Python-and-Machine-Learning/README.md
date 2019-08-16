@@ -2,8 +2,8 @@
 
 <br />
 
-1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://notebooks.azure.com/import/gh/microsoft/computerscience/tree/master/Events%20and%20Hacks/OpenHack/Intro-to-Python-and-Machine-Learning)
-[Import notebooks ](https://notebooks.azure.com/import/gh/microsoft/computerscience/tree/master/Events%20and%20Hacks/OpenHack/Intro-to-Python-and-Machine-Learning/) into Azure Notebooks (it's free!).   
+1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://notebooks.azure.com/import/gh/evilches/Intro-to-Python-and-Machine-Learning/)
+[Import notebooks ](https://notebooks.azure.com/import/gh/evilches/Intro-to-Python-and-Machine-Learning/) into Azure Notebooks (it's free!).   
     <br />
     <table border="3" width="700px"><tr><td>
   	<img src="Graphics/import_notebooks1.png" width="700" title="Import Notebooks into Azure Notebooks URL" alt="Import Notebooks into Azure Notebooks URL"/>
