@@ -9,7 +9,8 @@ You can get started by creating an account on Azure. There's three different opt
 
 ## Bootstrapping projects
 
-By using [Web Template Studio](https://github.com/microsoft/WebTemplateStudio/blob/dev/docs/install.md), an extension for [Visual Studio Code](https://code.visualstudio.com/), you can quickly scaffold a project using [React](https://reactjs.org/), [Angular](https://angular.io/) or [Vue.js](https://vuejs.org/), with a [Node.js](https://nodejs.org) or [Flask](https://flask.palletsprojects.com/) back end. Web Template Studio was built by [interns](https://mcec.microsoft.ca/internships/) at the [Microsoft Garage in Vancouver](https://www.microsoft.com/garage/about/), for students, by students.
+- [Web Template Studio](https://github.com/microsoft/WebTemplateStudio/blob/dev/docs/install.md) is an extension for [Visual Studio Code](https://code.visualstudio.com/) which your team can use to quickly scaffold a project using [React](https://reactjs.org/), [Angular](https://angular.io/) or [Vue.js](https://vuejs.org/), with a [Node.js](https://nodejs.org) or [Flask](https://flask.palletsprojects.com/) back end. Web Template Studio was built by [interns](https://mcec.microsoft.ca/internships/) at the [Microsoft Garage in Vancouver](https://www.microsoft.com/garage/about/), for students, by students.
+- [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/overview) is a "blade" or page on the [Azure Portal](https://portal.azure.com) designed for students. From Education Hub you can access a set of templates to help quickly create resources on Azure, including components for IoT, Blockchain and Bot Services.
 
 ## What is Azure?
 
