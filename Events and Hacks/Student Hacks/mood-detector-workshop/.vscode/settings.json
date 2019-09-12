@@ -1,0 +1,17 @@
+{
+  "python.linting.pylintEnabled": true,
+  "azureFunctions.projectRuntime": "~2",
+  "azureFunctions.projectLanguage": "Python",
+  "azureFunctions.deploySubpath": "Function/Function.zip",
+  "azureFunctions.preDeployTask": "func: pack",
+  "files.exclude": {
+    "obj": true,
+    "bin": true
+  },
+  "azureFunctions.pythonVenv": ".env",
+"debug.internalConsoleOptions": "neverOpen",
+"python.pythonPath": "/Library/Frameworks/Python.framework/Versions/3.7/bin/python3",
+"appService.zipIgnorePattern": [
+    ".vscode{,/**}"
+]
+}
