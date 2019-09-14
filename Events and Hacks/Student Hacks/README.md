@@ -41,6 +41,7 @@ We offer a full suite of courses on [Microsoft Learn](https://docs.microsoft.com
 - [Azure Student Labs](https://aka.ms/azurestudentlabs) - Our repository of labs geared for computer science students that you can learn from. Find them at [aka.ms/azurestudentlabs](https://aka.ms/azurestudentlabs)
 - [Microsoft Student Partners](https://imagine.microsoft.com/msp?WT.mc_id=hackwithazure-hackathon-cxa) - We are a community of university students around the world with an interest in technology. Coding is our shared common language. You might find yourself leading your own hackathon, mentoring computer science students, or unlocking the next great idea with your team – it’s all up to you. The program is all about gaining leadership experiences and getting access to resources and develop your technical and career skills. And we have a lot of fun too.
 - [Imagine Cup](https://imaginecup.microsoft.com/?WT.mc_id=hackwithazure-hackathon-cxa) - If you really like today’s challenges, we encourage you to consider taking the next step with Imagine Cup. Imagine Cup is a global competition for the next generation of students. Team up, and use your creativity, passion, and knowledge of technology to create applications that shape how we live, work, and play. Every year, tens of thousands of students from across the globe compete for cash, travel, and prizes and for the honor of taking home the Imagine Cup!
+- [Internships and Full Time Opportunities](https://careers.microsoft.com/students/us/en/) - Are you interested in working at Microsoft? Check out the internship and full time opportunities for students and recent graduates at the link above. We have roles for students ranging all the way from freshmen students to PhD candidates!
 
 ## Azure Prize
 
@@ -56,7 +57,8 @@ We offer a full suite of courses on [Microsoft Learn](https://docs.microsoft.com
 
 ### What can our team win?
 
-Each member of your team (up to 4 people) will win a backpack full of swag and prizes. The primary requirement is that your hack project includes Azure in some way. Please be sure to read the Terms & Conditions for Azure Prize specific to *your* hackathon. Ask the on-site Microsoft representatives for full details!
+Our prizes vary by hackathon. Visit the Microsoft table at your event to learn more about the prizes at your hack!
+The primary requirement is that your hack project includes Azure in some way. Please be sure to read the Terms & Conditions for Azure Prize specific to *your* hackathon. Ask the on-site Microsoft representatives for full details!
 
 ### I want to enter my winning hack project into Imagine Cup
 
