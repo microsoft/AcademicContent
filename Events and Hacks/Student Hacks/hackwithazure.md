@@ -49,15 +49,15 @@ We offer a full suite of courses on [Microsoft Learn](https://docs.microsoft.com
 | Criteria | Points |
 | -------- | ------ |
 | Does the project address a clear need, problem, or opportunity and is the solution clearly explained? | /10 |
-| Does the project include innovations in technical design and/or implementation of services (e.g., Cognitive Services, Machine Learning) and/or User Experience? | /20 |
+| Does the project use Azure and include innovations in technical design and/or implementation of services (e.g., Cognitive Services, Machine Learning) and/or User Experience? | /20 |
 | Does the project have a clear target market or audience? | /5 |
 | Is the project’s purpose and basic functionality easily understood? | /5 |
 | Does the project have a professional degree of production in terms of performance, user interface, visuals, and audio? | /10 |
 
 ### What can our team win?
 
-Each member of your team (up to 4 people) will win a backpack full of swag and prizes. The primary requirement is that your hack project includes Azure in some way. Please be sure to read the Terms & Conditions for Azure Prize specific to *your* hackathon. Ask the on-site Microsoft representatives for full details!
+Each member of your team (up to 4 people) will win a Surface Go computer + keyboard. The winning team will also receive $1,000 USD to donate to the charity of their choosing. The primary requirement is that your hack project includes Azure in some way - read the above judging criteria for more details. Please be sure to read the Terms & Conditions for Azure Prize specific to *your* hackathon and ask the on-site Microsoft representatives for more information!
 
 ### I want to enter my winning hack project into Imagine Cup
 
-The winning team also receives expedited entry into the 2020 Imagine Cup regional finals! Each winning team will have two separate chances to gain entry.
+The winning team also receives expedited entry into the [2020 Imagine Cup Regional Finals](https://imaginecup.microsoft.com/?WT.mc_id=hackwithazure-hackathon-cxa)! Each winning team will have two separate chances to gain entry.
