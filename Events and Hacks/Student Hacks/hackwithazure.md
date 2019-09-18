@@ -2,7 +2,7 @@
 
 ## Getting started
 
-You can get started by creating an account on Azure. There's three different options available, depending on your current status as a student.
+You can get started by creating an account on Azure. There are two options available, depending on your current status as a student.
 
 - [Azure for Students](https://azure.microsoft.com/free/students/?WT.mc_id=hackwithazure-hackathon-cxa) | $100 in Azure for 12 months with free tier of services - no credit card required with academic verification
 - [Azure for Students Starter](https://azure.microsoft.com/free/students-starter-faq/?WT.mc_id=hackwithazure-hackathon-cxa) | use select Azure products like App Services for free - no credit card required with academic verification
@@ -20,7 +20,7 @@ Using Azure you can run serverless code using [Azure Functions](https://azure.mi
 
 ## Learning Azure
 
-To help get you started, we created three separate workshops. These workshops contain hands on exercises, to help get you up and running quickly with various technologies
+To help get you started, we've created three separate workshops. These workshops contain hands-on exercises to help get you up and running quickly with various technologies.
 
 - [Web and Artificial Intelligence](./mood-detector-workshop): Azure provides powerful AI tools, wrapped up in APIs that you can use from your apps to add intelligence without being an AI expert. In this hands-on workshop you will build a [Python](https://python.org) app that takes advantage of one of these APIs to detect emotions in faces, alerting you if you have a sad face too often. This app will be in two parts, one part that runs on the desktop and takes photos, and another that runs in the cloud to analyse photos and store the emotions detected.
 - [Machine Learning](./endangered-animal-detector/): In this workshop you will create a cloud application that will help detect endangered animals in the wild. Being able to analyse the contents of images and act on the information is a great intelligent feature than can enhance your application.
@@ -28,7 +28,7 @@ To help get you started, we created three separate workshops. These workshops co
 
 ## Other learning resources
 
-We offer a full suite of courses on [Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=hackwithazure-hackathon-cxa). Here's a few courses you might find interesting:
+We offer a full suite of courses on [Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=hackwithazure-hackathon-cxa). Here are a few courses you might find interesting:
 
 - [Create an FAQ chatbot with QnA Maker and Azure Bot Service](https://docs.microsoft.com/learn/modules/build-a-faq-chat-bot-with-qna-maker-and-azure-bot-service/index?WT.mc_id=hackwithazure-hackathon-cxa)
 - [Create a web application with App Services](https://docs.microsoft.com/azure/app-service/overview?WT.mc_id=hackwithazure-hackathon-cxa)
