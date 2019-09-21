@@ -56,7 +56,7 @@ We offer a full suite of courses on [Microsoft Learn](https://docs.microsoft.com
 
 ### What can our team win?
 
-Each member of your team (up to 4 people) will win a Surface Go computer + keyboard. The winning team will also receive $1,000 USD to donate to the charity of their choosing. The primary requirement is that your hack project includes Azure in some way - read the above judging criteria for more details. Please be sure to read the Terms & Conditions for Azure Prize specific to *your* hackathon and ask the on-site Microsoft representatives for more information!
+Our prizes vary by hackathon. Visit the Microsoft table at your event to learn more about the prizes at your hack! The primary requirement is that your hack project includes Azure in some way. Please be sure to read the Terms & Conditions for Azure Prize specific to your hackathon. Ask the on-site Microsoft representatives for full details!
 
 ### I want to enter my winning hack project into Imagine Cup
 
