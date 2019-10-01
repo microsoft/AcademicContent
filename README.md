@@ -22,7 +22,7 @@ To report any issues, please log a GitHub issue. Include the content section, mo
 
 Check out our hands-on labs that can be used on your own or in the classroom. They also make for fun, easy-to-run workshops!
 
-| Lab Categories | |
+| Lab Categories | Description |
 | - | - |
 | [AI and Machine Learning](Labs/AI%20and%20Machine%20Learning) | Build bots and apps backed by AI and ML using Azure and Azure Cognitive Services. |
 | [Azure Services](Labs/Azure%20Services) | Deploy serverless code with Azure Functions, run Docker containers, use Azure to build Blockchain networks and more. |
