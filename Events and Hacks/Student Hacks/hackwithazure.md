@@ -42,9 +42,19 @@ We offer a full suite of courses on [Microsoft Learn](https://docs.microsoft.com
 - [Microsoft Student Partners](https://imagine.microsoft.com/msp/?WT.mc_id=hackwithazure-hackathon-cxa) - We are a community of university students around the world with an interest in technology. Coding is our shared common language. You might find yourself leading your own hackathon, mentoring computer science students, or unlocking the next great idea with your team – it’s all up to you. The program is all about gaining leadership experiences and getting access to resources and develop your technical and career skills. And we have a lot of fun too.
 - [Imagine Cup](https://imaginecup.microsoft.com/?WT.mc_id=hackwithazure-hackathon-cxa) - If you really like today’s challenges, we encourage you to consider taking the next step with Imagine Cup. Imagine Cup is a global competition for the next generation of students. Team up, and use your creativity, passion, and knowledge of technology to create applications that shape how we live, work, and play. Every year, tens of thousands of students from across the globe compete for cash, travel, and prizes and for the honor of taking home the Imagine Cup!
 
+## I want to enter my hack project into Imagine Cup
+
+If your team has a project you think is exceptionally cool, you should absolutely enter it into the [2020 Imagine Cup](https://imaginecup.microsoft.com/?WT.mc_id=hackwithazure-hackathon-cxa)! And if there's an Azure Prize, the winning team will have two separate chances to gain entry!
+
 ## Azure Prize
 
-### How do I win? What's the judging criteria?
+Are you presently at a hackathon? If so, talk to the onsite Microsoft representatives to ask about a possible Azure Prize!
+
+### What can our team win?
+
+Our prizes vary by hackathon. Visit the Microsoft table at your event to learn more about the prizes at your hack! The primary requirement is that your hack project includes Azure in some way. Please be sure to read the Terms & Conditions for Azure Prize specific to your hackathon. Ask the on-site Microsoft representatives for full details!
+
+### What's the judging criteria?
 
 | Criteria | Points |
 | -------- | ------ |
@@ -53,11 +63,3 @@ We offer a full suite of courses on [Microsoft Learn](https://docs.microsoft.com
 | Does the project have a clear target market or audience? | /5 |
 | Is the project’s purpose and basic functionality easily understood? | /5 |
 | Does the project have a professional degree of production in terms of performance, user interface, visuals, and audio? | /10 |
-
-### What can our team win?
-
-Our prizes vary by hackathon. Visit the Microsoft table at your event to learn more about the prizes at your hack! The primary requirement is that your hack project includes Azure in some way. Please be sure to read the Terms & Conditions for Azure Prize specific to your hackathon. Ask the on-site Microsoft representatives for full details!
-
-### I want to enter my winning hack project into Imagine Cup
-
-The winning team also receives expedited entry into the [2020 Imagine Cup Regional Finals](https://imaginecup.microsoft.com/?WT.mc_id=hackwithazure-hackathon-cxa)! Each winning team will have two separate chances to gain entry.
