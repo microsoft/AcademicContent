@@ -50,6 +50,15 @@ We also have other great educator content to help you use Azure in the classroom
 | [Azure Guides](Educator%20Resources/Azure%20Guides) | Discover what Azure technologies apply to different teaching areas. |
 | [Course Content](Educator%20Resources/Complimentary%20Course%20Content) | Learning modules to complement existing course instruction. Includes presentations, speaker notes, and hands-on labs. |
 
+## Attend our [Reactor Workshops](https://github.com/microsoft/reactors)
+
+We focus on developing high-quality content for all Cloud, Data Science, Machine Learning, and AI learners. Through workshops, tech talks, and hackathons hosted around the world, come learn and apply new skills to what you're interested in!
+
+| Resource | |
+| - | - |
+| [Reactor Workshops](https://github.com/microsoft/reactors) | Content for our First Party Reactor Workshops can be found here. |
+| [Reactor Locations](https://developer.microsoft.com/en-us/reactor/) | Find out schedules, learn more about each space, and see where we are opening a Reactor near you! | 
+
 ## Content from other sources
 
 | Resource | |
