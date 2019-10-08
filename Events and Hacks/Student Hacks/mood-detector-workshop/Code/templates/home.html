@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+    <body>
+        <table border = 1>
+            <tr>
+                <th>Emotion</th>
+            </tr>
+            {% for row in result %}
+                <tr>
+                    <td> {{ row.emotion }} </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

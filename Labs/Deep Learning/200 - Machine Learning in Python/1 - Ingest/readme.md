@@ -60,7 +60,7 @@ The first order of business is to create a new Azure notebook. Azure notebooks a
 
 	_Adding a notebook to the project_
 
-1. Give the notebook a name such as "On-Time Flight Arrivals.ipynb," and select **Python 3.6** as the language. This will create a notebook with a Python 3.6 kernel for executing Python code. One of the strengths of Azure notebooks is that you can use different languages by choosing different kernels.
+1. Give the notebook a name such as "On-Time Flight Arrivals.ipynb", and select **Python 3.6** as the language. This will create a notebook with a Python 3.6 kernel for executing Python code. One of the strengths of Azure notebooks is that you can use different languages by choosing different kernels.
 
 	![Creating a notebook](Images/add-notebook-2.png)
 

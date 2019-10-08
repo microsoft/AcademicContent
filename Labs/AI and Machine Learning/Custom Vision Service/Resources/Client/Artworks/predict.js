@@ -47,7 +47,7 @@ $(function () {
             var sortedArtists = _.sortBy(artists, 'probability').reverse();
             var possibleArtist = sortedArtists[0];
 
-            if (possibleArtist.probability > .5) {
+            if (possibleArtist.probability > 0.9) {
                 $('#analysisResults').html('<div class="matchLabel">' + possibleArtist.tagName + ' (' + (possibleArtist.probability * 100).toFixed(0) + '%)' + '</div>');
             }
             else {
