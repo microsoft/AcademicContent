@@ -33,7 +33,6 @@ If you want to report any issues we need to fix. Please log an [issue](https://g
 | ----- | ---- | ----------- |
 | Azure Compute Cloud - Introduction to Service Fabric and Azure Compute | [Presentation](./Tech%20Talk%20-%20Azure%20compute%20cloud.pptx) | Understand all about Compute Offerings from VMs to Container Services. |
 | Microsoft and Containers - So what are Containers | [Presentation](./Tech%20Talk%20-%20Microsoft%20and%20Containers.pptx) [Demos](./ContainerDemo) | Understand Containers we discuss the difference between Windows Server Containers, Hyper V Containers, Docker on Windows, Azure Container and share examples and demos for each with details on the docker release pipeline. |
-| Azure Storage Overview - Using Microsoft Azure for Storage Services | [Presentation](./Tech%20Talk%20-%20Azure%20StorageOverview.pptx) | Understand Microsoft Azure Storage Services Demos are located in storage Demo Folder. |
 
 ### Other topics of interest
 
