@@ -4,6 +4,9 @@ In this 60 min workshop you will create a cloud application that will **help det
 
 You will build a prototype application infused with intelligence using Azure Platform-as- a-Service (PaaS) offerings such as [Azure Custom Vision service](https://www.customvision.ai), [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview) and [Bonus] [Microsoft PowerApps's](https://docs.microsoft.com/en-us/powerapps/#pivot=home&panel=maker) platforms. By linking these services together you can build reliable, scalable AI applications and get your users testing them as soon as possible.
 
+# Video Walkthrough
+If you're delivering or re-using this workshop, be sure to watch the video beforehand! The train-the-trainer video showing a walkthrough of this workshop can be found [here.](https://www.youtube.com/watch?v=iR07ZShptyI&feature=youtu.be)
+
 # Pre-Requisties for your machine:
 
 * Clone this repository to your local machine to gain images and code samples you need for the app: git clone <<ENTER LINK>> or choose 'Clone or Download' green button and then 'Download ZIP'
