@@ -63,10 +63,10 @@ We focus on developing high-quality content for all Cloud, Data Science, Machine
 
 | Resource | |
 | - | - |
+|[Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)|Cloud architecture guides, reference architectures, and example workloads for how to put the pieces of the cloud together |
 |[Microsoft AI School](https://aischool.microsoft.com)|Content for students, developers and data scientists to get started and dive deep into the Microsoft AI platform and deep learning. |
 |[Microsoft Learn](https://docs.microsoft.com/en-us/learn/)|Hundrends of free online training by world-class experts to help you build your technical skills on the latest Microsoft technologies. |
 | [Technical Community Content](https://github.com/Microsoft/TechnicalCommunityContent) | Workshops from the community team. |
-| [Cognitive Toolkit](https://docs.microsoft.com/en-us/cognitive-toolkit/Setup-Windows-Binary-Script) | Resources to set up Cognitive Toolkit using notebooks from product team. After installing tutorials will be in c:\repos\bindings\python\tutorials. |
 | [Research case studies](https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/) | Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too! |
 | [Microsoft Research Data Sets](http://aka.ms/datascience) | Data sets shared by Microsoft Research for academic use. |
 | [Machine Learning Data Sets](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-use-sample-datasets) | Data sets shared by Azure Machine Learning team to help explore machine learning. |
