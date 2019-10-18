@@ -37,6 +37,7 @@ Want to host an event at your school? We can help with the resources below!
 
 | Resource | |
 | - | - |
+| [Hack with Azure](https://aka.ms/hackwithazure) | If you are looking to run a hack with Azure, or are a student attending a hack and using Azure, this repository contains a collection of resources designed to help you. You will find links to learning, tooling to help create resources, information on Imagine Cup, and other goodies. |
 | [Events and Hacks](Events%20and%20Hacks) | These are keynotes and hack workshops that Microsoft has produced for student events. Feel free to use. Most slides also contain suggested demos and talk tracks. There's also pre-packaged coding challenge to help students explore machine learning. |
 | [Tech Talks](Events%20and%20Hacks/Tech%20Talks) | One-off presentations on emerging or innovative tech topics with speakers notes and demos. |
 
