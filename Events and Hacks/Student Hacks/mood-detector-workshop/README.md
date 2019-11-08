@@ -5,6 +5,7 @@ This workshop shows how to build a web app using [Python](https://www.python.org
 This workshop is designed for students, and can be run using the free services available as part of the [Azure for students](https://azure.microsoft.com/free/students/?WT.mc_id=pythonworkshop-github-jabenn) offer.
 
 ## Video Walkthrough
+
 If you're delivering or re-using this workshop, be sure to watch the video beforehand. The train-the-trainer video showing a walkthrough of this workshop can be found [here.](https://www.youtube.com/watch?v=_Cg2MlVByJQ&feature=youtu.be)
 
 ## Prerequisites
@@ -12,11 +13,30 @@ If you're delivering or re-using this workshop, be sure to watch the video befor
 To complete this workshop, you will need:
 
 * An Azure account. Sign up for free using [Azure for students](https://azure.microsoft.com/free/students/?WT.mc_id=pythonworkshop-github-jabenn), or the [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=pythonworkshop-github-jabenn) if you are not at an academic institution.
-* [Python 3](https://www.python.org/downloads/).
+
+* Python 3.7
   
-  > If you are using Windows you will need to restart your machine after installing to ensure you can use Python and Pip from the command line.
+  > At the time of writing the OpenCV library used by this workshop does **NOT** support Python 3.8, it only supports up to 3.7. You **MUST** install 3.7 and assign this to your PATH for this workshop to work.
+
+  * **Windows:**
+
+    You can install Python 3.7 from the Windows Store. This configures Python correctly on your PATH, and there are no further steps.
+
+    If you don't want to use the store, you can install from the [Python 3.7 Downloads page](https://www.python.org/downloads/release/python-375/). If you do this, ensure you check the *Add Python 3.7 to PATH* option.
+
+    ![The python installer dialog highlighting the Add Python 3.7 to PATH option](./Images/PythonInstaller.png)
+
+  * **macOS**
+  
+    You can install Python 3.7 from the [Python 3.7 Downloads page](https://www.python.org/downloads/release/python-375/).
+
+    When Python is installed it will open a Finder window. Run the following scripts from inside that Finder window to set up certificates and add Python to your PATH:
+
+    1. `Update Shell Profile.command`
+    1. `Install Certificates.command`
 
 * [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=pythonworkshop-github-jabenn)
+
 * The [Python Extension for Visual Studio Code](https://marketplace.visualstudio.com/itemdetails?itemName=ms-python.python&WT.mc_id=pythonworkshop-github-jabenn). This can be installed from inside VS Code using the *Extensions* tab.
   
   ![The Python extension in Visual Studio Code](./Images/PythonExtension.png)
@@ -34,6 +54,16 @@ To complete this workshop, you will need:
 * A laptop with a Web Cam, or an external camera.
 
 This workshop works on MacOS and Windows.
+
+## Testing the installation of the tools
+
+To verify that everything is installed correctly:
+
+1. Launch Visual Studio Code. If you already had it installed and running before installing Python or the Azure extensions, you will need to restart it.
+2. Open the Terminal using the *Terminal -> New Terminal* menu option or pressing *CTRL+~*
+3. Type `python --version`. You should see the version as Python 3.7.x
+
+   ![The VS Code Terminal showing a Python version of 3.7.5](./Images/PythonVersion.png)
 
 ## The Mood Detector app
 
