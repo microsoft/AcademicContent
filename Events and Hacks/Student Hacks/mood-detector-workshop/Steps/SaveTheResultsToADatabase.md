@@ -1,6 +1,6 @@
 # Save the face details to a database
 
-In the [previous step](./AnalyseThePhotoUsingAI.md) you analyzed the image for faces using AI, checking each face for emotion. In this step you will save the results of the analysis into a database.
+In the [previous step](./AnalyseThePhotoUsingAI.md) you analyzed the image for faces using AI, checking each face for emotion. In this step you will create a Cosmos DB collection, and save the results of the analysis into this collection.
 
 ## Cosmos DB account
 
@@ -114,26 +114,6 @@ There is a Cosmos DB client available as a Python package.
 
 * Save the file
 
-## Deploy the code
-
-* Open the command palette:
-  * On Windows, press Ctrl+Shift+P
-  * On MacOS, press Cmd+Shift+P
-
-* Select *Azure App Service: Deploy to Web App...*
-  
-  ![The command palette showing the Azure App Service: Deploy to Web App option](../Images/CommandPaletteDeployAppService.png)
-
-* A dialog will pop up asking if you want to overwrite the existing deployment. Select the **Deploy** button.
-  
-  ![The overwrite existing deploy dialog](../Images/OverwriteDeploy.png)
-
-* A popup will appear showing the deployment progress. You can monitor the progress from the *Output* window by selecting *View -> Output* and selecting *Azure App Service* from the window selector.
-  
-  ![The deploy progress dialog](../Images/DeployProgress.png)
-
-* Open the web site in your browser to verify that everything is working correctly.
-
 ## What does this code do
 
 The overall flow of this code is:
@@ -177,4 +157,4 @@ The `doc` object contains the face information, and it is inserted into the coll
 
 ## Next steps
 
-In this step you created a Cosmos DB collection, and saved the results of the analysis into a database. In the [next step](./ReturnTheEmotionCount.md) you will return the count of each emotion from this Web Api.
+In this step you created a Cosmos DB collection, and saved the results of the analysis into this collection. In the [next step](./ReturnTheEmotionCount.md) you will return the count of each emotion from this Web Api.

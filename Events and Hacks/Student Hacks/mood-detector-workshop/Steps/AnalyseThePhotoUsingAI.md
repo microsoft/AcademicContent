@@ -234,4 +234,4 @@ The `emotion` value on the document is set to the most likely emotion using the 
 
 ## Next step
 
-In this step you analyzed the image for faces using AI, checking each face for emotion. In the [next step](./SaveTheResultsToADatabase.md) you will save the results of the analysis into a database.
+In this step you analyzed the image for faces using AI, checking each face for emotion. In the [next step](./SaveTheResultsToADatabase.md) you will create a Cosmos DB collection, and save the results of the analysis into this collection.
