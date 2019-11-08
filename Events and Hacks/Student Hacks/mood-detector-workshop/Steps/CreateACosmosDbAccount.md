@@ -24,7 +24,7 @@ In this step you will start the creation of a Cosmos DB Account. This can take a
   
   ![The command palette showing the select subscription option](../Images/SelectDeploySubscription.png)
 
-* Give your account a name. This only needs to be unique to you, and needs to be between 3 and 31 characters and only contain letters, numbers or '-'.
+* Give your account a name. This needs to be unique as it will be a part of a URL used to access the database, and needs to be between 3 and 31 characters and only contain letters, numbers or '-'.
   
   ![The command palette showing the name the cosmos account option](../Images/NameCosmosAccount.png)
 
