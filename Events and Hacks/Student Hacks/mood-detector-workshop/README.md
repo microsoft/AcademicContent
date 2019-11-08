@@ -16,7 +16,7 @@ To complete this workshop, you will need:
 
 * Python 3.7
   
-  > At the time of writing the OpenCV library that will be used does **NOT** support Python 3.8, it only supports up to 3.7. You **MUST** install 3.7 and assign this to your PATH for this workshop to work.
+  > At the time of writing the OpenCV library used by this workshop does **NOT** support Python 3.8, it only supports up to 3.7. You **MUST** install 3.7 and assign this to your PATH for this workshop to work.
 
   * **Windows:**
 
