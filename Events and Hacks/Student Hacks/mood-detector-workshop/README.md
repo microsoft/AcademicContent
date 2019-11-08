@@ -20,7 +20,7 @@ To complete this workshop, you will need:
 
   * **Windows:**
 
-    You can install Python 3.7 from the Windows Store. This configures Python correctly on your PATH, and there are no further steps.
+    You can install Python 3.7 from the [Windows Store](https://www.microsoft.com/en-us/p/python-37/9nj46sx7x90p?activetab=pivot:overviewtab). This configures Python correctly on your PATH, and there are no further steps.
 
     If you don't want to use the store, you can install from the [Python 3.7 Downloads page](https://www.python.org/downloads/release/python-375/). If you do this, ensure you check the *Add Python 3.7 to PATH* option.
 
@@ -69,7 +69,7 @@ To verify that everything is installed correctly:
 
 The mood detector is a Python app. It uses a library called [OpenCV](https://opencv.org) which is accessible from Python to access the Web Cam and take a picture. Once a picture has been taken, this app will send it to a Web Api built in Python, using a framework called [Flask](http://flask.pocoo.org) and running in the cloud. This is a special type of web site address that doesn't return a web page, but instead allows you to send and receive data.
 
-The Web Api will take the picture, and analyze it using the [Azure Face Api](https://azure.microsoft.com/services/cognitive-services/face/?WT.mc_id=pythonworkshop-github-jabenn) from [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=pythonworkshop-github-jabenn). This is an AI service that can recognize faces in images, as well as estimating the age of the face, if the person is smiling amongst other things. The Web Api will use this service to detect the emotion of all the faces. This will then be saved into a database called [CosmosDB](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=pythonworkshop-github-jabenn). This is a document database - instead of storing data in rows and columns in tables, it stored data as documents. These documents contain key/value pairs of data stored in a format called [JSON](https://www.json.org). It will also return a count of emotions.
+The Web Api will take the picture, and analyze it using the [Azure Face Api](https://azure.microsoft.com/services/cognitive-services/face/?WT.mc_id=pythonworkshop-github-jabenn) from [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=pythonworkshop-github-jabenn). This is an AI service that can recognize faces in images, as well as estimating the age of the face, if the person is smiling amongst other things. The Web Api will use this service to detect the emotion of all the faces. This will then be saved into a database called [CosmosDB](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=pythonworkshop-github-jabenn). This is a document database - instead of storing data in rows and columns in tables, it stores data as documents. These documents contain key/value pairs of data stored in a format called [JSON](https://www.json.org). The Web Api will also return a count of emotions.
 
 The python app will use this count and ask the user if they are ok if the number of sad faces is greater than 3. This is a simple demo around how this technology could be used for a self care app.
 
@@ -102,14 +102,15 @@ The steps for this workshop are:
 1. [Build an app to take a photo](./Steps/BuildAnAppToTakeAPhoto.md)
 2. [Create a Flask Web App](./Steps/CreateAFlaskWebApp.md)
 3. [Deploy the Web App to Azure](./Steps/DeployTheWebAppToTheCloud.md)
-4. [Add a Web Api to accept a photo](./Steps/AddWebApi.md)
-5. [Analyse the photo using AI](./Steps/AnalyseThePhotoUsingAI.md)
-6. [Save the face details to a database](./Steps/SaveTheResultsToADatabase.md)
-7. [Return the count of each emotion](./Steps/ReturnTheEmotionCount.md)
-8. [Call the web Api from the app](./Steps/CallTheWebApiFromDesktop.md)
-9. [Alert the user if sad faces are found too often](./Steps/AlertTheUser.md)
-10. [Add a web page to view the results](./Steps/ViewTheResults.md)
-11. [Clean up](./Steps/CleanUp.md)
+4. [Create a Cosmos DB Account](./Steps/CreateACosmosDbAccount.md)
+5. [Add a Web Api to accept a photo](./Steps/AddWebApi.md)
+6. [Analyse the photo using AI](./Steps/AnalyseThePhotoUsingAI.md)
+7. [Save the face details to a database](./Steps/SaveTheResultsToADatabase.md)
+8. [Return the count of each emotion](./Steps/ReturnTheEmotionCount.md)
+9. [Call the web Api from the app](./Steps/CallTheWebApiFromDesktop.md)
+10. [Alert the user if sad faces are found too often](./Steps/AlertTheUser.md)
+11. [Add a web page to view the results](./Steps/ViewTheResults.md)
+12. [Clean up](./Steps/CleanUp.md)
 
 ## Code
 
