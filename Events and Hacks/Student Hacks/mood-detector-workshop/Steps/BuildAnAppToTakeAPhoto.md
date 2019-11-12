@@ -26,7 +26,7 @@ This app will need the OpenCV Python package. This can be installed from [Pip](h
 * In the terminal run the following command:
 
   ```sh
-  pip install opencv-python
+  pip3 install opencv-python
   ```
 
   > If you see the following error:

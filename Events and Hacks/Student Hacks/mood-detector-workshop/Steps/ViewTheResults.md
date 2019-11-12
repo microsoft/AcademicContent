@@ -32,7 +32,7 @@ Templates live in a folder called `templates`.
     <body>
       <table border = 1>
         <tr>
-          <td>Emotion</td>
+          <th>Emotion</th>
         </tr>
         {% for row in result %}
           <tr>
@@ -51,7 +51,7 @@ Templates live in a folder called `templates`.
 * At the start of the file import the `render_template` member from the flask module by adding it to the existing import statement
   
   ```python
-  from flask import Flask, request, render_template
+  from flask import Flask, request, jsonify, render_template
   ```
 
 * Replace the `home` function with the following code:
@@ -132,6 +132,13 @@ This code is part of the templating syntax. It tells the templating engine to lo
 This is also template code. For each `row` in the `results`, this code outputs an HTML table row with three cells containing the values of the `emotion` property of the `row`.
 
 ### The `app.py` file
+
+```python
+from flask import Flask, request, jsonify, render_template
+```
+
+This tells the Python compiler that we want to use code in the `render_template` module. This module was installed as part of the `flask` package.
+
 
 ```python
 docs = list(client.ReadItems(cosmos_collection_link))
