@@ -1,13 +1,9 @@
 # Microsoft Azure Skills Workshop for Faculty
-Welcome to Microsoft Azure Workshop Content Repo, explore Azure (cloud computing services) and it's Artificial Intelligence capabilities.
-
-This repo will help you navigate Azure and identify the Azure services to enable data science in your research or classroom. What AI solutions and services are offered by Azure? How do I stream data from a device? How do I store different types of data? How can I extract information from across multiple documents and databases? How do I get the processing power I need for compute intense activities?
+Welcome to Microsoft Azure skills workshop! This workshop will help you navigate Azure and identify the Azure services to enable data science in your research or classroom. What AI solutions and services are offered by Azure? How do I stream data from a device? How do I store different types of data? How can I extract information from across multiple documents and databases? How do I get the processing power I need for compute intense activities?
 
 To complete the workshops you will require an Azure subscription. Follow the instructions [here](AzureSignUpPersonalAccount.md) to activate your Azure subscription and credits.
 
 If you are unable to attend the entire workshop, use the resources below to learn the material at your own pace. 
-
-<!-- Your feedback is appreciated as we continue to improve this workshop.  -->
 
 The content is divided up into two sections:
 1. [Azure Overview](#Azure-Overview)
@@ -80,14 +76,14 @@ The Computer Vision API provides developers with access to advanced algorithms f
 
 | Name | Type | Estimated time to complete | Abstract | Hyperlink |
 | --- | --- | --- | --- | --- |
-| Process images with the Computer Vision service | Hands-On | 30 minLearn | Use the Computer Vision API to analyze images for insights, extract text from images, and generate high-quality thumbnails. | [https://docs.microsoft.com/en-us/learn/modules/create-computer-vision-service-to-classify-images/](https://docs.microsoft.com/en-us/learn/modules/create-computer-vision-service-to-classify-images/) |
+| Process images with the Computer Vision service | Hands-On | 30 minutes | Use the Computer Vision API to analyze images for insights, extract text from images, and generate high-quality thumbnails. | [https://docs.microsoft.com/en-us/learn/modules/create-computer-vision-service-to-classify-images/](https://docs.microsoft.com/en-us/learn/modules/create-computer-vision-service-to-classify-images/) |
 
 #### Using Custom Vision
 Azure Custom Vision is a cognitive service that lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent classes) to images, according to their visual characteristics. Unlike the Computer Vision service, Custom Vision allows you to determine the labels to apply.
 
 | Name | Type | Estimated time to complete | Abstract | Hyperlink |
 | --- | --- | --- | --- | --- |
-| Classify images with the Microsoft Custom Vision Service | Hands-On | 40 mi Learn | Create, train and test a custom image classification model using the Custom Vision Service to accurately identify paintings from famous artists. | [https://docs.microsoft.com/en-us/learn/modules/classify-images-with-custom-vision-service/](https://docs.microsoft.com/en-us/learn/modules/classify-images-with-custom-vision-service/) |
+| Classify images with the Microsoft Custom Vision Service | Hands-On | 40 minutes | Create, trian and test a custom image classification model using the Custom Vision Service to accurately identify paintings from famous artists. | [https://docs.microsoft.com/en-us/learn/modules/classify-images-with-custom-vision-service/](https://docs.microsoft.com/en-us/learn/modules/classify-images-with-custom-vision-service/) |
 
 ### IoT through IoT Hub
 IoT Hub is a managed service that acts as a central message hub for bi-directional communication between your IoT application and the devices it manages. You can use Azure IoT Hub to build IoT solutions with reliable and secure communications between millions of IoT devices and a cloud-hosted solution backend. You can connect virtually any device to IoT Hub.
