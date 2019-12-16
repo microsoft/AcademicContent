@@ -26,8 +26,8 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- A Microsoft account. If you don't have one, [sign up for free](https://account.microsoft.com/account).
-- An active Microsoft Azure subscription. If you don't have one [sign up for free](https://azure.microsoft.com/free).
+- A Microsoft account. If you don't have one, [sign up for Microsoft for free](https://account.microsoft.com/account).
+- An active Microsoft Azure subscription. If you don't have one [sign up for Azure for free](https://azure.microsoft.com/free).
 - Microsoft [Visual Studio Code](http://code.visualstudio.com)
 - [Node.js](https://nodejs.org)
 
@@ -35,8 +35,8 @@ The following are required to complete this hands-on lab:
 ### Resources ###
 
 
-[Click here](https://a4r.blob.core.windows.net/public/cvs-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
-The predict.js is old version api , so you must change "Client\Artworks\predict.js" file from [here](https://github.com/microsoft/computerscience/tree/master/Labs/AI%20and%20Machine%20Learning/Custom%20Vision%20Service/Resources/Client/Artworks)
+[Lab Resource Download](https://a4r.blob.core.windows.net/public/cvs-resources.zip), click to download a zip of all of the lab resources. Copy the contents of the zip file into a folder on your hard disk.
+The predict.js is old version api , so you must change "Client\Artworks\predict.js" file from [Custom Vision Resources](https://github.com/microsoft/computerscience/tree/master/Labs/AI%20and%20Machine%20Learning/Custom%20Vision%20Service/Resources/Client/Artworks)
 
 
 <a name="Cost"></a>

@@ -1,6 +1,6 @@
 # Return the count of each emotion from the Web Api
 
-In the [previous step](./SaveTheResultsToADatabase.md) you created a Cosmos DB collection, and saved the results of the analysis into a database. In this step you will return the count of each emotion from this Web Api.
+In the [previous step](./SaveTheResultsToADatabase.md) you created a Cosmos DB collection, and saved the results of the analysis into this collection. In this step you will return the count of each emotion from this Web Api.
 
 ## Extracting and manipulating the data
 

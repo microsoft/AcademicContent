@@ -26,8 +26,15 @@ This app will need the OpenCV Python package. This can be installed from [Pip](h
 * In the terminal run the following command:
 
   ```sh
-  pip install opencv-python
+  pip3 install opencv-python
   ```
+
+  > If you see the following error:
+  >
+  > **ERROR: Could not find a version that satisfies the requirement opencv-python (from versions: none)**
+  > **ERROR: No matching distribution found for opencv-python**
+  >
+  > Then you are running a newer version of Python than the one supported by OpenCV. At the time of writing Python 3.8 has been released, and is not supported by OpenCV. You will need to downgrade to Python 3.7
 
 ## Create a file for the code
 

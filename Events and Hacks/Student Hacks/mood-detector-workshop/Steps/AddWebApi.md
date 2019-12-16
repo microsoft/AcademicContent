@@ -1,6 +1,6 @@
 # Add a Web Api route to the Flask app
 
-In the [previous step](./DeployTheWebAppToTheCloud.md) you deployed your Web App to the cloud, hosted in Azure. In this step you will add a route to this app to provide a Web Api to accept a photo that can be sent by the app.
+In the [previous step](./CreateACosmosDbAccount.md) you created a Cosmos DB account that can be used to store face analysis results. In this step you will add a route to this app to provide a Web Api to accept a photo that can be sent by the app.
 
 ## Defining a route to receive image data
 

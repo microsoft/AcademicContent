@@ -22,6 +22,10 @@ You can configure an Azure App Service and deploy your code from inside Visual S
   
   ![The command palette showing the Azure App Service: Deploy to Web App option](../Images/CommandPaletteDeployAppService.png)
 
+* You will be asked what code you want to deploy. This option will automatically select the folder with your code in it, so select that.
+
+  ![The command palette showing the deployment source option](../Images/SelectDeployFolder.png)
+
 * If you have never signed into Azure from Visual Studio Code before, you will be asked to sign in.
   * Select *Sign in to Azure...*
   * Your browser will be launched, and you can sign in with your Azure account.
@@ -33,6 +37,8 @@ You can configure an Azure App Service and deploy your code from inside Visual S
 
 * Select *+ Create New Web App*
 
+  There are 2 *Create New Web App* options, one marked as *Advanced*. You want the normal one, **not** the *Advanced* one.
+
   ![The command palette showing the create web app option](../Images/CreateNewWebApp.png)
 
 * Give your web app a name. This will be part of the public web site address, so needs to be unique across the world. For example, I might use `jimspythonwebapp2019`.
@@ -43,13 +49,9 @@ You can configure an Azure App Service and deploy your code from inside Visual S
 
   ![The command palette showing the select runtime option](../Images/SelectPythonRuntime.png)
 
-* The App Service will be created You will see a progress bar on the bottom right, and this will show you once it is complete. You can monitor the progress from the *Output* window by selecting *View -> Output* and selecting *Azure App Service* from the window selector..
+* The App Service will start being created. You will see a progress bar on the bottom right, and this will show you once it is complete. You can monitor the progress from the *Output* window by selecting *View -> Output* and selecting *Azure App Service* from the window selector..
 
   ![The create app service progress bar](../Images/CreateWebAppProgress.png)
-
-* Once the App Service has been created, you will be asked what code you want to deploy. This option will automatically select the folder with your code in it, so select that.
-
-  ![The command palette showing the deployment source option](../Images/SelectDeployFolder.png)
 
 * Some popups wil appear asking if you want to make configuration changes to speed up deployment and always deploy this web app. Select **Yes** for both.
   
@@ -67,6 +69,14 @@ You can configure an Azure App Service and deploy your code from inside Visual S
 
 * Try this from different devices such as your phone. This web site is available anywhere.
 
+## Resource groups
+
+In Azure, resources such as App Service or AI services must belong to a Resource Group. Resource Groups are logical groupings of resources, grouped any way that makes sense to you. Every resource has to belong to one and only one Resource Group.
+
+Resource Groups are useful as you can use them to group resources together that make up an application. You can view all resources in the group, and manage them together, for example if you want to delete all the resources you can delete the Resource Group and all resources in it will be deleted.
+
+When your App Service was created, it would have been created inside a new Resource Group, probably named something like `appsvc_linux_centralus`. We will be adding all new resources to this Resource Group in the remainder of this workshop, and deleting this Resource Group at the end to remove all resources.
+
 ## Next step
 
-In this step you deployed your Web App to the cloud, hosted in Azure. In the [next step](./AddWebApi.md), you will add a route to this app to provide a Web Api to accept a photo that can be sent by the app.
+In this step you deployed your Web App to the cloud, hosted in Azure. In the [next step](./CreateACosmosDbAccount.md), you will create a Cosmos DB account that can be used to store face analysis results.

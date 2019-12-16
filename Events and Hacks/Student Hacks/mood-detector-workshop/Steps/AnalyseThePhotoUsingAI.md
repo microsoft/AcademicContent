@@ -8,7 +8,7 @@ AI, or Artificial Intelligence is where computers can perform tasks normally ass
 
 You can train Machine Learning models yourself, or you can use models created by others. Microsoft has a range of these pre-trained models available, called [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=pythonworkshop-github-jabenn). These models include recognizing images, recognizing speech, or translating between different languages.
 
-One of the models, the [Face Api](https://azure.microsoft.com/services/cognitive-services/face/?WT.mc_id=pythonworkshop-github-jabenn), can be used to look for faces in an image. If it finds any, it can guess the emotion shown on the face (happiness, sadness etc.), tell if the person is smiling, look for hair color, facial hair, even estimate the persons age. We can use this Api in our app to look for faces in the uploaded image,and predict the emotion being displayed on each face.
+One of the models, the [Face Api](https://azure.microsoft.com/services/cognitive-services/face/?WT.mc_id=pythonworkshop-github-jabenn), can be used to look for faces in an image. If it finds any, it can guess the emotion shown on the face (happiness, sadness etc.), tell if the person is smiling, look for hair color, facial hair, even estimate the persons age. We can use this Api in our app to look for faces in the uploaded image, and predict the emotion being displayed on each face.
 
 ## Sign up for a Face Api subscription key
 
@@ -25,11 +25,18 @@ Before you can use the Face Api, you will need a subscription key. You can get t
 * Select *Face*, then select the **Create** button.
 
 * Enter the required details:
-  * Give this a name. This only needs to be unique to you.
+  * Give this a name. This needs to be globally unique as this will become part of a URL you need to call to find faces in the image.
+
   * Select the Azure Subscription you want to use.
+
   * Choose a location to run this code. Azure has 'regions' all around the world, a region being a group of data centers full of computers and other cloud hardware. Choose a region closest to you.
+
   * Select the pricing tier. With this app, you will make less than 20 calls a minute, and less than 30,000 calls a month then select *F0*, the free tier. There is a paid tier for apps that need to use the service more often.
-  * Select the resource group you want to run the code in. One would have been created for you when you deployed the web app in an earlier step called something like `appsvc_rg_linux_centralus`, so select this one.
+
+    > You can only have one free tier of each Azure Service, so if you have already created a free tier Face API resource before you will either need to use a paid tier, or connect to the existing resource.
+
+  * Select the resource group you want to run the code in. One would have been created for you when you deployed the web app in an earlier step called something like `appsvc_linux_centralus`, so select this one.
+
   * Select the **Create** button.
 
     > Everything you create in Azure, such as access to the Face Api, App Services, and databases are called Resources. Resource groups are a way to group resources together so you can manage them in bulk. By having everything for this workshop in the same resource group makes it easy to delete everything at the end when you have finished.
@@ -40,9 +47,7 @@ Before you can use the Face Api, you will need a subscription key. You can get t
   
   ![The notification showing the face resource created](../Images/FaceCreated.png)
 
-* From the resource, head to the *Overview* tab. Take a note of the *Endpoint* as you will need this later.
-
-* Head to the *Keys* tab. Keep a note of one of the keys as you will need this later.
+* From the resource, head to the *Quick Start* tab. Take a note of the *Key1* and *Endpoint* as you will need these later.
 
 ## Install the Face Api package
 
@@ -61,7 +66,7 @@ The Face Api is available as a Python package.
 * Install the new package from the terminal using the following command:
   
   ```sh
-  pip install -r requirements.txt
+  pip3 install -r requirements.txt
   ```
 
 ## Write the code
@@ -75,18 +80,18 @@ The Face Api is available as a Python package.
   from msrest.authentication import CognitiveServicesCredentials
   import io
   import uuid
-  ``
+  ```
 
 * Create two variables for the Face Api endpoint and key that you noted down earlier. Add this code just above the `upload_image` function, above the route declaration.
 
   ```python
-  face_api_endpoint = 'https://centralus.api.cognitive.microsoft.com'
+  face_api_endpoint = '<endpoint>'
   face_api_key = '<key>'
   ```
   
-  Replace the `face_api_endpoint` with the first part of the endpoint you noted down earlier. You don't need the `/face/v1.0` part.
+  Replace the `<endpoint>` with the first part of the endpoint you noted down earlier from the Face Api Resource Quick start. You don't need the `/face/v1.0` part.
 
-  Replace the value of `face_api_key` with one of your keys. It doesn't matter which one.
+  Replace the `<key>` with one the key you noted down earlier from the Face Api Resource Quick start.
 
   > This key is being added to code simply for convenience when building your first app. In a real-world app, you would define keys like this in application settings and extract them using environment variables. You can read more on this in the [App Service documentation](https://docs.microsoft.com/azure/app-service/containers/how-to-configure-python#access-environment-variables?WT.mc_id=pythonworkshop-github-jabenn).
 
@@ -144,7 +149,7 @@ import uuid
 This tells the Python compiler that we want to use code in the `FaceClient` module from the `azure-cognitiveservices-vision-face` package, as well as the `CognitiveServicesCredentials` from the `msrest-authentication` package. The `msrest-authentication` package was not installed directly, but is a dependency of the `azure-cognitiveservices-vision-face` package, so it gets installed automatically. It also tells the python compiler that we want to use `io` and `uuid` from the Python standard libraries
 
 ```python
-face_api_endpoint = 'https://centralus.api.cognitive.microsoft.com'
+face_api_endpoint = '<endpoint>'
 face_api_key = '<key>'
 ```
 
@@ -229,4 +234,4 @@ The `emotion` value on the document is set to the most likely emotion using the 
 
 ## Next step
 
-In this step you analyzed the image for faces using AI, checking each face for emotion. In the [next step](./SaveTheResultsToADatabase.md) you will save the results of the analysis into a database.
+In this step you analyzed the image for faces using AI, checking each face for emotion. In the [next step](./SaveTheResultsToADatabase.md) you will create a Cosmos DB collection, and save the results of the analysis into this collection.

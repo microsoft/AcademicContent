@@ -21,7 +21,7 @@ Web Apis can be called from Python, passing data to and receiving data from the 
 * Install the new package from the terminal using the following command:
   
   ```sh
-  pip install -r requirements.txt
+  pip3 install -r requirements.txt
   ```
 
 ## Write the code
