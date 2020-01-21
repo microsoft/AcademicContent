@@ -28,7 +28,7 @@ Tool / framework / engine of your choice
 #Unity3d 
 - Nightmare sample in UWP format works on any windows 10 device
 #Windows UWP 
-- Sample UWP app which uses Windows Speach Sythersier to build a simple event handler on a button which says hello world - app works on any windows 10 device
+- Sample UWP app which uses Windows Speech Synthesizer to build a simple event handler on a button which says hello world - app works on any windows 10 device
 
 - All demos are available in zip format at https://1drv.ms/f/s!ApYaqlSUIllgxvlgKr4v57yGWlMK7g
   
