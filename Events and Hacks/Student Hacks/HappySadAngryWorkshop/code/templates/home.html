@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Happy, Sad, Angry</title>
+    </head>
+    <body>
+        <h1>Give me your best {{ page_data.emotion }} face</h1>
+        <video id="video" autoplay></video>
+        <br/>
+        <button id="capture">Capture emotion</button>
+        <h1 id="message"></h1>
+
+        <script type="text/javascript">
+            window.addEventListener("DOMContentLoaded", function() {
+                var video = document.getElementById('video');
+
+                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                    const getImage = async () => {
+                        video.srcObject = await navigator.mediaDevices.getUserMedia({ video: true })
+                        video.play();
+                    }
+                    getImage()
+                }
+
+                var message = document.getElementById('message');
+                
+                document.getElementById('capture').addEventListener('click', function() {
+                    var canvas = document.createElement('canvas');
+                    canvas.width = 640;
+                    canvas.height = 480;
+
+                    var context = canvas.getContext('2d');
+                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                    var data = {
+                        'image_base64': canvas.toDataURL("image/png"),
+                        'emotion': '{{ page_data.emotion }}'
+                    }
+
+                    const getResult = async () => {
+                        var result = await fetch('result', {
+                            method: 'POST',
+                            body: JSON.stringify(data),
+                            headers: { 'Content-Type': 'application/json' }
+                        })
+
+                        var jsonResult = await result.json()
+                        message.textContent = jsonResult.message
+                    }
+                    getResult()
+                });
+            })
+        </script>
+    </body>
+</html>
