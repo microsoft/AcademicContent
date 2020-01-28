@@ -1,0 +1,21 @@
+name: Markdown lint
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: nosborn/github-action-markdown-cli@v1.1
+    - name: markdownlint-cli
+    #- with:
+      # configuration file (JSON or YAML)
+        #config_file: # optional
+      # files, directories, or globs
+      #files: 
+      # files to ignore/exclude
+      #ignore_files: # optional
+      # custom rule files
+      #rules: # optional
