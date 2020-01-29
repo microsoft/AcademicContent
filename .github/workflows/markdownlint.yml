@@ -8,15 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: markdownlint-cli
-        uses: nosborn/github-action-markdown-cli@v1.1
-        id: markdownlint
-    #- with:
-      # configuration file (JSON or YAML)
-        #config_file: # optional
-      # files, directories, or globs
-      #files: 
-      # files to ignore/exclude
-      #ignore_files: # optional
-      # custom rule files
-      #rules: # optional
+     - name: markdownlint-cli
+       uses: nosborn/github-action-markdown-cli@v1.1.1
+       with:
+          files: .
+          config_file: ".markdownlint.yaml"
+          ignore_files: "examples/ignore/*"
+          rules: "examples/rules/custom.js"
