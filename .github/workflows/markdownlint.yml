@@ -4,12 +4,13 @@ on: [push]
 
 jobs:
   build:
-
+    name: Markdown lint
     runs-on: ubuntu-latest
 
     steps:
-    - uses: nosborn/github-action-markdown-cli@v1.1
-    - name: markdownlint-cli
+      - name: markdownlint-cli
+        uses: nosborn/github-action-markdown-cli@v1.1
+        id: markdownlint
     #- with:
       # configuration file (JSON or YAML)
         #config_file: # optional
