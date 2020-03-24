@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 
+if [ "$1" == "" ]; then
+    echo "Usage: ./deploy.sh <org>"
+    echo "Where <org> is the name of the GitHub org to push to"
+    exit -1
+fi
+
 # abort on errors
 set -e
 
@@ -20,6 +26,6 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:jimbobbennett/computerscience.git master:gh-pages
+git push -f git@github.com:$1/computerscience.git master:gh-pages
 
 cd -
