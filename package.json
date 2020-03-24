@@ -10,7 +10,7 @@
 	"author": "",
 	"license": "MIT",
 	"dependencies": {
-		"vuepress": "^1.2.0"
+		"vuepress": "^1.4.0"
 	},
 	"repository": {
 		"type": "git",

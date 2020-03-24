@@ -94,7 +94,7 @@ We love contributions! Please read the [contribution guide](./CONTRIBUTING.md) b
 
 ## Event content
 
-* 🇬🇧🧠🕸 [Microsoft Ignite | The Tour learning paths](https://github.com/microsoft/ignite-learning-paths-training) - train the trainer content for the learning paths taught at Microsoft Ignite | The Tour
+* 🇬🇧🧠🕸 [Microsoft Ignite - The Tour learning paths](https://github.com/microsoft/ignite-learning-paths-training) - train the trainer content for the learning paths taught at Microsoft Ignite | The Tour
 
 * 🇬🇧🧠🕸 [How do I even?](https://www.howdoieven.dev) - a selection of workshops to run at events
 
