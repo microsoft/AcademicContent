@@ -1,8 +1,0 @@
-
-FROM microsoft/windowsservercore:latest
-
-LABEL Description="IIS" Vendor="Microsoft" Version="10"
-
-RUN powershell -Command Add-WindowsFeature Web-Server
-
-CMD [ "powershell" ]

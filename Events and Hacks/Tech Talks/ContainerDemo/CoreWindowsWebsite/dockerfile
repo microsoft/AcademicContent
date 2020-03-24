@@ -1,9 +1,0 @@
-FROM coreiis:latest
-
-ADD WinVMConfiguration.ps1 /
-
-SHELL ["powershell","-command"]
-RUN . .\WinVMConfiguration.ps1; WinVMConfiguration
-RUN Start-DSCConfiguration -Path "c:\\WinVMConfiguration\\" -Force -Wait
-
-CMD powershell 
