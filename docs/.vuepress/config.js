@@ -10,7 +10,7 @@ module.exports = {
 		editLinkText: 'Help us improve this page!',
 		nav: [
 			{ text: 'Home', link: '/' },
-			{ text: 'Code of Conduct', link: '/CODE_OF_CONDUCT' },
+			{ text: 'Code of Conduct', link: 'https://opensource.microsoft.com/codeofconduct/' },
 			{ text: 'Contribute', link: '/CONTRIBUTING' },
 		],
 		sidebar: [
