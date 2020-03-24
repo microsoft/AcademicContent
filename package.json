@@ -1,0 +1,23 @@
+{
+	"name": "academic-repo",
+	"version": "1.0.0",
+	"description": "Academic Content Repository",
+	"scripts": {
+		"docs:build": "vuepress build docs",
+		"dev": "vuepress dev docs"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"dependencies": {
+		"vuepress": "^1.2.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jlooper/academic-repository.git"
+	},
+	"bugs": {
+		"url": "https://github.com/jlooper/academic-repository/issues"
+	},
+	"homepage": "https://github.com/jlooper/academic-repository#readme"
+}
