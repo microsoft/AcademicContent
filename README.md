@@ -2,9 +2,17 @@
 
 This repository lists content suitable for students/faculty to learn Azure and other Microsoft technologies.
 
+## Signing up for Azure
+
+You can get free Azure credits to explore these resources here:
+
+* [Azure for Students](https://azure.microsoft.com/free/students/?WT.mc_id=academiccontent-github-cxa) | $100 in Azure for 12 months with free tier of services - no credit card required with academic verification
+* [Azure for Students Starter](https://azure.microsoft.com/free/students-starter-faq/?WT.mc_id=academiccontent-github-cxa) | use select Azure products like App Services for free - no credit card required with academic verification
+* [Azure Free Account](https://azure.microsoft.com/free/?WT.mc_id=academiccontent-github-cxa) | $200 in Azure for one month with free tier of services - requires a credit card and probably the best fit for faculty evaluating Azure for course instruction unless your organization has a grant or enterprise agreement.
+
 ## Structure of this repository
 
-THis repository is designed to build a [VuePress](https://vuepress.vuejs.org) site that is hosted using GitHub Pages.
+This repository is designed to build a [VuePress](https://vuepress.vuejs.org) site that is hosted using GitHub Pages.
 
 The content of this site lives in the [docs](./docs) folder. The main page is constructed from the [README.md](./docs/README.md) in that folder, and the side bar is made of the contents of the [content](./docs/content) folder.
 
