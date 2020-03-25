@@ -28,17 +28,18 @@ Although the repo is in English, the content it links to is in multiple language
 
 ## Where will this content live?
 
-All the content lives in external repositories, this repo just contains a curated list of links.
+Currently all the content lives in external repositories, this repo just contains a curated list of links. We will be looking to move some content 'in house' and bring it into this repo in the future.
 
 ## How can I add links?
 
-Raise a PR! If you have links you would like to add, please raise a PR adding them to the [README.md](./README.md).
+Raise a PR! If you have links you would like to add, please raise a PR adding them to the relevant section.
 
-The readme is divided into a number of sections:
+The content is divided into a number of sections:
 
-* [Learning content](https://github.com/jimbobbennett/MicrosoftAcademicContent/blob/master/README.md#learning-content) - add content here that is designed for learning, such as curriculum, content for educators, or for student groups to learn from
-* [Hackathon content](https://github.com/jimbobbennett/MicrosoftAcademicContent/blob/master/README.md#hackathon-content) - add content here designed for student hackathons, such as workshops and templates to help get started quickly.
-* [Event content](https://github.com/jimbobbennett/MicrosoftAcademicContent/blob/master/README.md#event-content) - add content here designed for events such as on-campus meetups or computer society events
+* [Learning content](./docs/content/learning-content.md) - add content here that is designed for learning, such as curriculum, content for educators, or for student groups to learn from
+* [Hackathon content](h./docs/content/hackathon-content.md) - add content here designed for student hackathons, such as workshops and templates to help get started quickly.
+* [Event content](./docs/content/event-content.md) - add content here designed for events such as on-campus meetups or computer society events
+* [K-12](./docs/content/k-12-content.md) - add content here designed for students at K-12 level (ages 4-18), or folks completely new to coding
 
 When you add a link please add the following:
 
