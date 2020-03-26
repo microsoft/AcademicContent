@@ -21,4 +21,7 @@ jobs:
     - name: 'npm install'
       run: npm install
     - name: 'Deploy to GitHub pages'
-      run: ./deploy.sh microsoft
+      run: |
+        git config --global user.email "caat@microsoft.com"
+        git config --global user.name "Bit"
+        ./deploy.sh microsoft
