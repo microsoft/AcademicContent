@@ -1,5 +1,5 @@
 module.exports = {
-    base: '/computerscience/',
+    base: '/AcademicContent/',
 	title: 'Academic Content for Students and Researchers',
 	description: 'Curated workshops, articles, curriculum and more for teachers and students',
 	themeConfig: {
