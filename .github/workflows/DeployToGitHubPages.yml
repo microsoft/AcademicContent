@@ -24,4 +24,4 @@ jobs:
       run: |
         git config --global user.email "caat@microsoft.com"
         git config --global user.name "Bit"
-        ./deploy.sh microsoft
+        ./deploy.sh microsoft ${{ secrets.GITHUB_USER }} ${{ secrets.GITHUB_TOKEN }}
