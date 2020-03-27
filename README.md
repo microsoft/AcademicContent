@@ -18,13 +18,13 @@ To build these docs, you will need [npm](https://www.npmjs.com/get-npm) installe
 npm install vuepress
 ```
 
-To build the docs, use the [`deploy.sh`](./deploy.sh) script. This script will build the docs, then push them to the `gh-pages` branch of a given fork of this project. You pass the GitHub user/org name to the script. This way you can test the build offline, then push to the parent as part of an automated script.
+To build the docs, use the [`deploy.sh`](./deploy.sh) script. This script will build the docs, then push them to the `gh-pages` branch of a given fork of this project. You pass the GitHub user/org name to the script. This way you can test the build offline.
 
 ```sh
-deploy.sh <org>
+deploy.sh <org> <username> <password>
 ```
 
-> Do not push to the `gh-pages` branch manually, as this branch is completely rebuilt during the deploy, overwriting all history.
+This repo has an action set up to automatically rebuild the docs whenever new changes are merged in.
 
 ## Contributing
 

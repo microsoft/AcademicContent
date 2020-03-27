@@ -1,0 +1,27 @@
+# When something is pushed to master, rebuild the docs
+
+on:
+  push:
+    branches:
+    - master
+
+env:
+  NODE_VERSION: '10.x'                # set this to the node version to use
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    - name: 'npm install'
+      run: npm install
+    - name: 'Deploy to GitHub pages'
+      run: |
+        git config --global user.email "caat@microsoft.com"
+        git config --global user.name "Bit"
+        ./deploy.sh microsoft microsoft ${{ secrets.GITHUB_TOKEN }}
