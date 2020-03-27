@@ -24,7 +24,9 @@ Although most of this content is aimed at the higher education space, there is c
 
 Anything that is either platform agnostic (such as programming language content), or focuses on Azure. As long as the content is applicable to the academic audiences described above, please add it.
 
-Although the repo is in English, the content it links to is in multiple languages. We'd love as much international content as possible.
+## What language should content be in?
+
+Although the repo is in English, the content it links to is in multiple languages. We'd love as much international content as possible!
 
 ## Where will this content live?
 
