@@ -11,3 +11,7 @@ A selection of workshops to run at events
 ## 🇬🇧🧠🕸 [Fake call workshop](https://github.com/ChloeCodesThings/FakeCallWorkshop)
 
 Materials to build your own fake boyfriend/boss/sibling/co-worker call with Azure & Twilio
+
+## 🇬🇧🧠 Build Smarter Applications with Microsoft AI - ILTA Webinar
+
+Materials and a video from a webinar around how to build Smarter Applications with Microsoft AI - ILTA Webinar
