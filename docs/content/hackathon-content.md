@@ -1,8 +1,8 @@
 # Hackathon Content
 
-## 🇬🇧🧠🕸 [Student hack workshops](https://github.com/microsoft/computerscience/tree/master/Events%20and%20Hacks/Student%20Hacks)
+## 🇬🇧🧠🕸 [Hack with Azure](https://github.com/microsoft/hackwithazure)
 
-train the trainer materials and workshop materials for hands on hacks
+Resources for students at hackathons
 
 ## 🇬🇧🧠🕸 [Hackathon starter templates](https://gist.github.com/jimbobbennett/5fba488e0722f089b306f83695b2e365)
 
@@ -40,6 +40,3 @@ How to use the Microsoft Face API
 
 How to connect a Domain.com domain name to an Azure web app when at an MLH hackathon
 
-## 🇬🇧🧠🕸 [Hack with Azure](https://github.com/microsoft/hackwithazure)
-
-Resources for students at hackathons

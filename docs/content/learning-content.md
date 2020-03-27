@@ -72,10 +72,6 @@ Shows how to set a connection string on an MXChip in code, useful in a computing
 
 A hands on lab to build an Agrotech solution using a Raspberry Pi and Azure IoT Central
 
-## 🇬🇧🕸 [Computer science repo](https://github.com/microsoft/computerscience)
-
-The Microsoft computer science repo with a wide range of content
-
 ## 🇬🇧🕸 [React book](https://softchris.github.io/books/react/)
 
 An eBook on learning React
