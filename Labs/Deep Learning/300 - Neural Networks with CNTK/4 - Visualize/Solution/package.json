@@ -1,0 +1,16 @@
+{
+  "name": "node-app",
+  "version": "1.0.0",
+  "description": "A Node app to use trained CNTK models for the MNIST dataset.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Blaize Stewart",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
+}

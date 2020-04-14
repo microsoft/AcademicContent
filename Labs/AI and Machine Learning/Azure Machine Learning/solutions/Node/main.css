@@ -1,0 +1,25 @@
+
+.pixel-grid {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.pixel-grid > div {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.pixel-grid > div > div {
+    margin: 0 2px;
+    padding: 0;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #CCCCFF;
+}
+
+.pixel-grid div.selected {
+    background-color: #0000FF;
+}

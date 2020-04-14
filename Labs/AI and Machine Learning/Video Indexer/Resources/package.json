@@ -1,0 +1,12 @@
+{
+  "name": "videoexplorer",
+  "displayName": "Video Explorer",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron-prebuilt": "^1.4.13",
+    "underscore": "~1.8.3"
+  }
+}
