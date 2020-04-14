@@ -1,0 +1,55 @@
+/* Custom background color for the nav-bar element. */
+.navbar {
+    background-color: #d9edf7;    /*matches bg-info*/
+    background-image: none;
+    background-repeat: no-repeat;
+    filter: none;
+}
+
+/* Support for custom-looking File Selection button. */
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+/* Styling/framing for the image elements. */
+img {
+    width: 192px;
+    background-color: white;
+    padding: 5px 5px 30px 5px;
+    cursor: pointer;
+}
+
+/* Custom queries for force line breaks depending on the resolution. */
+@media (min-width: 1200px) {
+.col-lg-2:nth-child(6n+1) {
+        clear: both;
+    }
+}
+
+@media (min-width: 992pxpx) and (max-width: 1200px) {
+    .col-md-4:nth-child(3n+1) {
+        clear: both;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .col-sm-6:nth-child(2n+1) {
+        clear: both;
+    }
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html />
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Artworks</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+    <script src="predict.js"></script>
+</head>
+
+<body>
+    <form>
+        <img src="assets/images/header.png"/>
+        <h1>welcome to <strong>artworks</strong></h1>
+        <div>Use a neural network trained with the Microsoft Cognitive Toolkit to identify paintings by Monet, Picasso, and Van Gogh.</div>
+        <input type="button" id="select_button" value="Select" />
+        <div style="position: relative; display:flex;justify-content:center;align-items:center">
+            <img  id="previewImage" width="240" />
+            <div id="loader" class="loader" style="display: none; position: absolute"></div>
+        </div>
+    </form>
+</body>
+
+</html>
