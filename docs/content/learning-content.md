@@ -82,4 +82,4 @@ Video series covering learning Python from scratch
 
 ## 🇬🇧🕸 [Building Web APIs with Flask](https://www.youtube.com/watch?v=WdY7tZY2jcs&list=PLG8WGLcszzgUATIteQTzPBPYJbiBbaymY) -
 
-Video series shpwing how to build Web APIs with Flask
+Video series showing how to build Web APIs with Flask
