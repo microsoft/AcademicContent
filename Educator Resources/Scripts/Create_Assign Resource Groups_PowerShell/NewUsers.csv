@@ -1,0 +1,4 @@
+UserPrincipalName,DisplayName,FirstName,LastName,Password,DomainName
+Student01@***.ac.uk,Student01 User,Student01,User,Password1#,nonfed.***.ac.uk
+Student02@***.ac.uk,Student02 User,Student02,User,Password1#,nonfed.***.ac.uk
+Student03@***.ac.uk,Student03 User,Student03,User,Password1#,nonfed.***.ac.uk

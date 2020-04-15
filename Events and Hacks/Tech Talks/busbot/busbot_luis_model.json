@@ -1,0 +1,1502 @@
+{
+  "luis_schema_version": "1.3.0",
+  "name": "busbot",
+  "desc": "",
+  "culture": "en-us",
+  "intents": [
+    {
+      "name": "findbylocation"
+    },
+    {
+      "name": "greeting"
+    },
+    {
+      "name": "detailedquery"
+    },
+    {
+      "name": "None"
+    },
+    {
+      "name": "setlocation"
+    },
+    {
+      "name": "findbybusnum"
+    }
+  ],
+  "entities": [
+    {
+      "name": "towards"
+    },
+    {
+      "name": "busnum"
+    },
+    {
+      "name": "busstop"
+    }
+  ],
+  "composites": [],
+  "bing_entities": [],
+  "actions": [
+    {
+      "actionName": "detailedquery",
+      "intentName": "detailedquery",
+      "actionParameters": [
+        {
+          "parameterName": "busnum",
+          "entityName": "busnum",
+          "required": false
+        },
+        {
+          "parameterName": "busstop",
+          "entityName": "busstop",
+          "required": false
+        },
+        {
+          "parameterName": "towards",
+          "entityName": "towards",
+          "required": false
+        }
+      ]
+    },
+    {
+      "actionName": "findbybusnum",
+      "intentName": "findbybusnum",
+      "actionParameters": [
+        {
+          "parameterName": "busnum",
+          "entityName": "busnum",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "model_features": [],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "when is the next 28 coming to townmead road stop",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busstop",
+          "startPos": 8,
+          "endPos": 8
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "when is the next bus",
+      "intent": "findbylocation",
+      "entities": []
+    },
+    {
+      "text": "when is the 28 coming",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "when is the next 28",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "when is the 295 coming",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "when is the next bus to wandsworth from fulham broadway",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 8,
+          "endPos": 8
+        },
+        {
+          "entity": "busstop",
+          "startPos": 9,
+          "endPos": 9
+        },
+        {
+          "entity": "towards",
+          "startPos": 6,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "next bus",
+      "intent": "findbylocation",
+      "entities": []
+    },
+    {
+      "text": "when is the next bus coming",
+      "intent": "findbylocation",
+      "entities": []
+    },
+    {
+      "text": "next 28",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "when is the next 65 coming",
+      "intent": "findbybusnum",
+      "entities": []
+    },
+    {
+      "text": "when is the next 88",
+      "intent": "findbybusnum",
+      "entities": []
+    },
+    {
+      "text": "when is the 54 coming to fulhambroadway",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busnum",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "when is the 28 towards wandsworth coming to fulham broadway",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 8,
+          "endPos": 8
+        },
+        {
+          "entity": "busstop",
+          "startPos": 9,
+          "endPos": 9
+        },
+        {
+          "entity": "busnum",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "towards",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "when is the next 28 coming",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "next 1",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "next 57",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "when is the next 56",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "next 99",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "estimated arrival of the 28",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "arrival of 77",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "28",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 0,
+          "endPos": 0
+        }
+      ]
+    },
+    {
+      "text": "391",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 0,
+          "endPos": 0
+        }
+      ]
+    },
+    {
+      "text": "expected arrival of next bus",
+      "intent": "findbylocation",
+      "entities": []
+    },
+    {
+      "text": "when is the bus coming",
+      "intent": "findbylocation",
+      "entities": []
+    },
+    {
+      "text": "when is the next 28 coming to townmead road",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busstop",
+          "startPos": 8,
+          "endPos": 8
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "when is the 295 coming to fulham broadway",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busnum",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "when is the 291 coming to wandsworth",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busnum",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "when is the 291 coming towards wandsworth",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "towards",
+          "startPos": 6,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "when is the next 28 to fulham broadway",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "towards",
+          "startPos": 7,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "when is the next bus coming to victoria",
+      "intent": "findbylocation",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "when is the 28 towards islington coming to townmead road",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 8,
+          "endPos": 8
+        },
+        {
+          "entity": "busstop",
+          "startPos": 9,
+          "endPos": 9
+        },
+        {
+          "entity": "busnum",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "towards",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "when is the next 391 coming to townmean road stop",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busstop",
+          "startPos": 8,
+          "endPos": 8
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "when is the next 66 coming to fulham broadway towards picadilly",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busstop",
+          "startPos": 8,
+          "endPos": 8
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 10,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "when is the next 77 to wandsworth",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 6,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "when is the next 65 coming to fulham broadway towards kings cross",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busstop",
+          "startPos": 8,
+          "endPos": 8
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 10,
+          "endPos": 10
+        },
+        {
+          "entity": "towards",
+          "startPos": 11,
+          "endPos": 11
+        }
+      ]
+    },
+    {
+      "text": "next 28 from fulham towards kings cross",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "busnum",
+          "startPos": 1,
+          "endPos": 1
+        },
+        {
+          "entity": "towards",
+          "startPos": 5,
+          "endPos": 5
+        },
+        {
+          "entity": "towards",
+          "startPos": 6,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "next 88 from islington to townmead",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "busnum",
+          "startPos": 1,
+          "endPos": 1
+        },
+        {
+          "entity": "towards",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "295 at fulham broadway",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 2,
+          "endPos": 2
+        },
+        {
+          "entity": "busstop",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "busnum",
+          "startPos": 0,
+          "endPos": 0
+        }
+      ]
+    },
+    {
+      "text": "28 at townmead road",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 2,
+          "endPos": 2
+        },
+        {
+          "entity": "busstop",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "busnum",
+          "startPos": 0,
+          "endPos": 0
+        }
+      ]
+    },
+    {
+      "text": "hi",
+      "intent": "greeting",
+      "entities": []
+    },
+    {
+      "text": "when is the next 28 from fulham broadway towards clapham junction",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 9,
+          "endPos": 9
+        },
+        {
+          "entity": "towards",
+          "startPos": 10,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "when is the next bus to clapham junction",
+      "intent": "findbylocation",
+      "entities": [
+        {
+          "entity": "towards",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "towards",
+          "startPos": 7,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "x",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "fulham broadway",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "c",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "help",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "hello",
+      "intent": "greeting",
+      "entities": []
+    },
+    {
+      "text": "hey",
+      "intent": "greeting",
+      "entities": []
+    },
+    {
+      "text": "good morning",
+      "intent": "greeting",
+      "entities": []
+    },
+    {
+      "text": "good afternoon",
+      "intent": "greeting",
+      "entities": []
+    },
+    {
+      "text": "hiya",
+      "intent": "greeting",
+      "entities": []
+    },
+    {
+      "text": "heyo",
+      "intent": "greeting",
+      "entities": []
+    },
+    {
+      "text": "yo",
+      "intent": "greeting",
+      "entities": []
+    },
+    {
+      "text": "evening",
+      "intent": "greeting",
+      "entities": []
+    },
+    {
+      "text": "when is the next 28 from townmead road to fulham",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 9,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "set location",
+      "intent": "setlocation",
+      "entities": []
+    },
+    {
+      "text": "change location",
+      "intent": "setlocation",
+      "entities": []
+    },
+    {
+      "text": "location",
+      "intent": "setlocation",
+      "entities": []
+    },
+    {
+      "text": "im no longer in that location",
+      "intent": "setlocation",
+      "entities": []
+    },
+    {
+      "text": "ive moved",
+      "intent": "setlocation",
+      "entities": []
+    },
+    {
+      "text": "i've moved",
+      "intent": "setlocation",
+      "entities": []
+    },
+    {
+      "text": "im not there",
+      "intent": "setlocation",
+      "entities": []
+    },
+    {
+      "text": "wrong bus stop",
+      "intent": "setlocation",
+      "entities": []
+    },
+    {
+      "text": "• when is the next 295 towards clapham junction coming to fulham broadway",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 11,
+          "endPos": 11
+        },
+        {
+          "entity": "busstop",
+          "startPos": 12,
+          "endPos": 12
+        },
+        {
+          "entity": "busnum",
+          "startPos": 5,
+          "endPos": 5
+        },
+        {
+          "entity": "towards",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "towards",
+          "startPos": 8,
+          "endPos": 8
+        }
+      ]
+    },
+    {
+      "text": "when is the next 295 towards clapham junction coming to fulham broadway",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 10,
+          "endPos": 10
+        },
+        {
+          "entity": "busstop",
+          "startPos": 11,
+          "endPos": 11
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "towards",
+          "startPos": 7,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "295",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 0,
+          "endPos": 0
+        }
+      ]
+    },
+    {
+      "text": "when is the next 295 from townmead road to fulham",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 9,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "when is the next 28 from townmead road to wandsworth",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 9,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "/start",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "when is the next 296 from fulham broadway to clapham",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 9,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "when is the next 28 from townmead to fulham",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 8,
+          "endPos": 8
+        }
+      ]
+    },
+    {
+      "text": "when is the next 295 from townmead road to clapham",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 9,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "new bus",
+      "intent": "findbylocation",
+      "entities": []
+    },
+    {
+      "text": "when is the next 295 from fulham broadway to clapham",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 9,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "when is the next 295 from fulhambroadway to clapham",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 8,
+          "endPos": 8
+        }
+      ]
+    },
+    {
+      "text": "when is the c3 from wandsworth bridge to earl's court coming",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 5,
+          "endPos": 5
+        },
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busnum",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "towards",
+          "startPos": 8,
+          "endPos": 8
+        },
+        {
+          "entity": "towards",
+          "startPos": 9,
+          "endPos": 9
+        },
+        {
+          "entity": "towards",
+          "startPos": 10,
+          "endPos": 10
+        },
+        {
+          "entity": "towards",
+          "startPos": 11,
+          "endPos": 11
+        }
+      ]
+    },
+    {
+      "text": "when is the next c3 from wandsworth bridge to earls court",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 9,
+          "endPos": 9
+        },
+        {
+          "entity": "towards",
+          "startPos": 10,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "when is the c3",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "when is the next c3 coming",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "when is the next 424 coming",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "when is the next c5",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "when is the 1 coming",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "c3",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 0,
+          "endPos": 0
+        }
+      ]
+    },
+    {
+      "text": "next",
+      "intent": "findbylocation",
+      "entities": []
+    },
+    {
+      "text": "bus",
+      "intent": "findbylocation",
+      "entities": []
+    },
+    {
+      "text": "lilian: when is the next 28 from townmead to",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 8,
+          "endPos": 8
+        },
+        {
+          "entity": "busnum",
+          "startPos": 6,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "heya",
+      "intent": "greeting",
+      "entities": []
+    },
+    {
+      "text": "d",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "s",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "session.begindialog('/checkarrivals');",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "25",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 0,
+          "endPos": 0
+        }
+      ]
+    },
+    {
+      "text": "fulham",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "when is the 295 from townmead to clapham coming",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 5,
+          "endPos": 5
+        },
+        {
+          "entity": "busnum",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "towards",
+          "startPos": 7,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "when is the next bus from clapham to fulham",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "towards",
+          "startPos": 8,
+          "endPos": 8
+        }
+      ]
+    },
+    {
+      "text": "when is the next 28 from townmead road to",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "when is the 28 from townmead to fulham",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 5,
+          "endPos": 5
+        },
+        {
+          "entity": "busnum",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "towards",
+          "startPos": 7,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "lilian: when is the next 28 from townmead to wandsworth",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 8,
+          "endPos": 8
+        },
+        {
+          "entity": "busnum",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "towards",
+          "startPos": 10,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "when is the next 28 bus",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "when is the next 295",
+      "intent": "findbybusnum",
+      "entities": [
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "• when is the next 28 from townmead to wandsworth",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busnum",
+          "startPos": 5,
+          "endPos": 5
+        },
+        {
+          "entity": "towards",
+          "startPos": 9,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "he",
+      "intent": "greeting",
+      "entities": []
+    },
+    {
+      "text": "• when is the next 28 from townmead road to wandsworth",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "busstop",
+          "startPos": 8,
+          "endPos": 8
+        },
+        {
+          "entity": "busnum",
+          "startPos": 5,
+          "endPos": 5
+        },
+        {
+          "entity": "towards",
+          "startPos": 10,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "hiy",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "when is the next 28 from townmead to wandsworth",
+      "intent": "detailedquery",
+      "entities": [
+        {
+          "entity": "busstop",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "busnum",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "towards",
+          "startPos": 8,
+          "endPos": 8
+        }
+      ]
+    },
+    {
+      "text": "loc",
+      "intent": "setlocation",
+      "entities": []
+    },
+    {
+      "text": "move",
+      "intent": "setlocation",
+      "entities": []
+    },
+    {
+      "text": "i'm not there",
+      "intent": "setlocation",
+      "entities": []
+    }
+  ]
+}

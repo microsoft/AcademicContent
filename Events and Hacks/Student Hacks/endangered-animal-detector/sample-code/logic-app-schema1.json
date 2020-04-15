@@ -1,0 +1,66 @@
+{
+    "properties": {
+        "data": {
+            "properties": {
+                "api": {
+                    "type": "string"
+                },
+                "blobType": {
+                    "type": "string"
+                },
+                "clientRequestId": {
+                    "type": "string"
+                },
+                "contentLength": {
+                    "type": "integer"
+                },
+                "contentType": {
+                    "type": "string"
+                },
+                "eTag": {
+                    "type": "string"
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "sequencer": {
+                    "type": "string"
+                },
+                "storageDiagnostics": {
+                    "properties": {
+                        "batchId": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "dataVersion": {
+            "type": "string"
+        },
+        "eventTime": {
+            "type": "string"
+        },
+        "eventType": {
+            "type": "string"
+        },
+        "id": {
+            "type": "string"
+        },
+        "metadataVersion": {
+            "type": "string"
+        },
+        "subject": {
+            "type": "string"
+        },
+        "topic": {
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

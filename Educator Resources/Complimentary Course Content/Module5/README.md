@@ -1,0 +1,13 @@
+# Module 5 - Data Science and Machine Learning
+
+The module introduces the fundamental concepts of data science and machine learning using Spark and Spark Machine Learning library. Thus, at the end of the course, students should know the fundamental concepts of machine learning and be adapt Spark for machine learning and data science to predict the trend and patterns of massive data sets.
+
+| Lesson | Title | Lab | Objectives |
+| ------ | ----- | --- | ---------- |
+| 1 | [Data Science and Machine Learning Overview](./Lessons/Module5_Lesson1%20Data%20Science%20and%20Machine%20Learning%20Overview.pptx) | | The basics of data science. Machine learning basics. Machine learning feature representation and modeling. |
+| 2 | [Spark MLlib and Data Types](./Lessons/Module5_Lesson2%20Spark%20MLlib%20and%20Data%20Types.pptx) | |  The fundamentals of Spark. Major components of Spark programming. How Spark Machine learning library works. Spark data types. |
+| 3 | [Spark ML Overview and Spark on Azure](./Lessons/Module5_Lesson3%20Spark%20ML%20Overview%20and%20Spark%20on%20Azure.pptx) | [Lab](./Labs/Module%205%20Lesson%203%20Creating%20Spark%20Cluster%20Lab.docx) | Recognize the Spark ML API. Demonstrate how a Spark Cluster is configured on top of HDInsight Cluster. Explain some features available in Azure HDInsight Spark Clusters. |
+| 4 | [Spark MLlib Basic Statistics](./Lessons/Module5_Lesson4%20Spark%20MLlib%20Basic%20Statistics.pptx) | [Lab](./Labs/Module%205%20Lesson%204%20Pipeline%20ML%20Lab.docx) | How to use basic statistics functions provided by MLlib. The input data types for these functions. How data types affect the functionality of the statistical methods. |
+| 5 | [Clustering](./Lessons/Module5_Lesson5%20Clustering.pptx) | [Lab](./Labs/Module%205%20Lesson%205%20Clustering%20Lab.docx) | Understand what a clustering algorithm does. Understand supervised and unsupervised learning. Recognize the K-Means algorithm. Run K-Means on Spark MLlib. |
+| 6 | [Regression](./Lessons/Module5_Lesson6%20Regression.pptx) | | Formally define the regression model. Define how to model using simple linear regression. Understand how to model using linear regression. Understand overfitting and underfitting the model. Understand what a regularization term accomplishes. |
+| 7 | [Regression and Classification](./Lessons/Module5_Lesson7%20Regression%20and%20Classification.pptx) | [Lab](./Labs/Module%205%20Lesson%207%20Binary%20Classification%20Lab.docx) | Explain what regularizers accomplish. Understand cross-validation procedures. Understand nested cross-validation procedures. Define a classification problem. Represent classification errors. Explain loss functions. Understand logistic regression. Utilize Spark MLlib to implement logistic regression. |

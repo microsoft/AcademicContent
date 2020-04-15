@@ -1,0 +1,17 @@
+{
+  "name": "busbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lilian Kasem",
+  "license": "ISC",
+  "dependencies": {
+    "botbuilder": "^3.2.3",
+    "request": "^2.88.0",
+    "restify": "^4.1.1",
+    "tfl.api": "^1.5.1"
+  }
+}
