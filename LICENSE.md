@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Microsoft/AcademicContent
+MSFTImagine/computerscience
 
 Copyright (c) Microsoft Corporation
 All rights reserved. 

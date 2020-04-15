@@ -1,0 +1,11 @@
+{
+  "name": "node-example",
+  "version": "1.0.1",
+  "dependencies": {
+	  "mongodb": "2.0.35",
+	  "url": ""
+  },
+  "engines": {
+    "node": ">=0.6.x"
+  }
+}

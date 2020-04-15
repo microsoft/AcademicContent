@@ -1,0 +1,45 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "baseresourcegroup": {
+      "value": "Base"
+    },
+    "storageAccountName": {
+      "value": "store45649fkwl"
+    },
+    "publisher": {
+      "value": "MicrosoftWindowsServer"
+    },
+    "offer": {
+      "value": "WindowsServer"
+    },
+    "sku": {
+      "value": "2012-R2-Datacenter"
+    },
+    "virtualMachineName": {
+      "value": "server1"
+    },
+    "virtualMachineSize": {
+      "value": "Standard_A3"
+    },
+    "adminUsername": {
+      "value": "adminguy"
+    },
+    "adminPassword": {
+      "value": "blah"
+    },
+    "virtualNetworkName": {
+      "value": "baseVNet"
+    },
+    "downloadfile1": {
+      "value": "https://store45649fkwl.blob.core.windows.net/scripts/doWork.ps1"
+    },
+    "subnetName": {
+      "value": "Subnet"
+    },
+    "publicIpAddressType": {
+      "value": "Dynamic"
+    }
+  }
+}

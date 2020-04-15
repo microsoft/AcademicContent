@@ -1,0 +1,3 @@
+flask
+python-dotenv
+azure-cognitiveservices-vision-face

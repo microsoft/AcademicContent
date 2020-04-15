@@ -1,0 +1,46 @@
+<!DOCTYPE html />
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" /> 
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+    <script src="predict.js"></script>
+</head>
+
+<body>
+    <form>
+        <label>Origin</label>
+        <select id="origin">
+            <option value="ATL">ATL</option>
+            <option value="DTW">DTW</option>
+            <option value="JFK">JFK</option>
+            <option value="MSP">MSP</option>
+            <option value="SEA">SEA</option>
+        </select>
+
+        <label>Destination</label>
+        <select id="destination">
+            <option value="ATL">ATL</option>
+            <option value="DTW">DTW</option>
+            <option value="JFK">JFK</option>
+            <option value="MSP">MSP</option>
+            <option value="SEA" selected>SEA</option>
+        </select>
+
+        <label>Date of Travel</label>
+        <input type="date" id="traveldate" />
+
+        <label>Departure Time</label>
+        <select id="departuretime">
+            <option value="8">8:20 a.m.</option>
+            <option value="11">11:15 a.m.</option>
+            <option value="13">1:20 p.m.</option>
+            <option value="16">4:55 p.m.</option>
+            <option value="19">7:35 p.m.</option>
+        </select>
+
+        <input type="button" id="analyze_button" value="Analyze" /> 
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "rest-api-express",
+  "version": "0.0.5",
+  "description": "",
+  "main": "express.js",
+  "scripts": {
+    "start": "sh start.sh",
+    "test": "sh test.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azat-co/rest-api-express.git"
+  },
+  "author": "Azat Mardan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/azat-co/rest-api-express/issues"
+  },
+  "dependencies": {
+    "azure-storage": "^1.0.1",
+    "body-parser": "1.9.2",
+    "express": "4.10.1",
+    "morgan": "1.9.1"
+  },
+  "devDependencies": {
+    "expect.js": "0.3.1",
+    "mocha": "2.5.3",
+    "superagent": ">=3.7.0"
+  }
+}
