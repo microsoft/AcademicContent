@@ -8,10 +8,10 @@ Train the trainer content for the learning paths taught at Microsoft Ignite | Th
 
 A selection of workshops to run at events
 
-### :spider_web: A Workshop to host a students resume live on an Azure App Service.
+## :gb: :spider_web: A Workshop to host a students resume live on an Azure App Service.
 (I have conducted this workshop atleast 6 times. Approx time needed for the successful completion of this workshop - 4hrs minimum)
 
-#### Need for such event?
+### Need for such event?
 - Usually students find it engaging if the content of the workshop will help them in their placements and job hiring procedure.
 - Students are all the time engaged in maintaining their portfolio and resume.
 - Making this website will give them a final product that will fulfill their goal of making a live resume as well as teach them Azure App Services
