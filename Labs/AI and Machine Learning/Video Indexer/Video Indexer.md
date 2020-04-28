@@ -35,10 +35,10 @@ There is no cost associated with this lab because it doesn't require an Azure su
 
 This hands-on lab includes the following exercises:
 
-- [Exercise 1: Index a collection of videos](#Exercise1)
-- [Exercise 2: Explore an indexed video in the portal](#Exercise2)
-- [Exercise 3: Create a Video Indexer API subscription](#Exercise3)
-- [Exercise 4: Build an app that uses Video Indexer](#Exercise4)
+- [Exercise 1: Index a collection of videos](#exercise-1-index-a-collection-of-videos)
+- [Exercise 2: Explore an indexed video in the portal](#exercise-2-explore-an-indexed-video-in-the-portal)
+- [Exercise 3: Create a Video Indexer API subscription](#exercise-3-create-a-video-indexer-api-subscription)
+- [Exercise 4: Build an app that uses Video Indexer](#exercise-4-build-an-app-that-uses-video-indexer)
 
 Estimated time to complete this lab: **30 to 40** minutes.
 
@@ -166,7 +166,7 @@ Now that you have an API key, you can write apps that call the Video Indexer API
 
 ## Exercise 4: Build an app that uses Video Indexer
 
-[Visual Studio Code](http://code.visualstudio.com) is a free, lightweight, and powerful source-code editor available for Windows, macOS, and Linux. It supports a variety of popular programming languages including JavaScript, and it features built-in support for Git. In this exercise, you will use Visual Studio Code to run an app named Video Explorer that surfaces content from the videos you indexed in [Exercise 1](#Exercise1). Because the app is written with [Node.js](https://nodejs.org/) and [Electron](https://electronjs.org/), it, too, can run on Windows, macOS, and Linux. The source code is provided for you. All you have to do is insert the API key that you retrieved in the previous exercise.
+[Visual Studio Code](http://code.visualstudio.com) is a free, lightweight, and powerful source-code editor available for Windows, macOS, and Linux. It supports a variety of popular programming languages including JavaScript, and it features built-in support for Git. In this exercise, you will use Visual Studio Code to run an app named Video Explorer that surfaces content from the videos you indexed in [Exercise 1](#exercise-1-index-a-collection-of-videos). Because the app is written with [Node.js](https://nodejs.org/) and [Electron](https://electronjs.org/), it, too, can run on Windows, macOS, and Linux. The source code is provided for you. All you have to do is insert the API key that you retrieved in the previous exercise.
 
 1. If Node.js isn't installed on your PC, go to [nodejs.org](https://nodejs.org/) and install the latest LTS version. You can determine whether Node is installed by opening a Command Prompt or terminal window and typing the following command:
 
