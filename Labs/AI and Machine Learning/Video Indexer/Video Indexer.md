@@ -1,10 +1,10 @@
 # Using Video Indexer to Extract Video Insights
 
-[Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a suite of services and APIs backed by machine learning that enables developers to incorporate intelligent features such as facial recognition in photos and videos, sentiment analysis in text, and language understanding into their applications. [Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) is one of the newest members of the Cognitive Services family. Its purpose is to transform raw video content into content that is searchable, discoverable, and more engaging to the user. Want to generate a video transcript, index words spoken in the video or written on a whiteboard, or create a list of keywords from topics discussed in the video? Video Indexer can do all this and more. It can even find individuals in the video, and sometimes tell who they are.
+[Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=academiccontent-github-cxa) is a suite of services and APIs backed by machine learning that enables developers to incorporate intelligent features such as facial recognition in photos and videos, sentiment analysis in text, and language understanding into their applications. [Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/?WT.mc_id=academiccontent-github-cxa) is one of the newest members of the Cognitive Services family. Its purpose is to transform raw video content into content that is searchable, discoverable, and more engaging to the user. Want to generate a video transcript, index words spoken in the video or written on a whiteboard, or create a list of keywords from topics discussed in the video? Video Indexer can do all this and more. It can even find individuals in the video, and sometimes tell who they are.
 
 ![Microsoft Video Indexer](Images/video-indexer.jpg)
 
-Video Indexer is both a service and an API. The service is accessed through a Web portal. It allows you to upload videos and examine the information generated from them. The [Video Indexer API](https://api-portal.videoindexer.ai/docs/services/) is a REST API that does everything the portal does, and also allows you to access the information that is generated when videos are indexed.
+Video Indexer is both a service and an API. The service is accessed through a Web portal. It allows you to upload videos and examine the information generated from them. The [Video Indexer API](https://api-portal.videoindexer.ai/docs/services/?WT.mc_id=academiccontent-github-cxa) is a REST API that does everything the portal does, and also allows you to access the information that is generated when videos are indexed.
 
 In this lab, you will learn how to use Video Indexer to analyze videos and extract actionable information and insights. Then you will build an app named Video Explorer that uses the Video Indexer API to make content in the videos that you indexed searchable.
 
@@ -21,8 +21,8 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft personal account. If you don't have one, [sign up for free](https://account.microsoft.com/account).
-- [Visual Studio Code](http://code.visualstudio.com)
+- An active Microsoft personal account. If you don't have one, [sign up for free](https://account.microsoft.com/account?WT.mc_id=academiccontent-github-cxa).
+- [Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academiccontent-github-cxa)
 - [Node.js](https://nodejs.org)
 
 ## Cost
@@ -46,7 +46,7 @@ Estimated time to complete this lab: **30 to 40** minutes.
 
 In this exercise, you will use the Video Indexer portal to index three short educational videos created by Microsoft. You can upload videos from your local file system, or provide video URLs. The videos you will index are publicly available MP4s that have been loaded into Azure blob storage, so you will upload them by URL.
 
-1. Open the [Video Indexer portal](https://www.videoindexer.ai/) in your browser and select **Get Started**. Then select **Sign in with your work account (AAD)** to sign in with a work or school account, or **Sign in with your personal Microsoft account** to use a personal Microsoft account. Answer **Yes** if prompted to let this app access your info.
+1. Open the [Video Indexer portal](https://www.videoindexer.ai/?WT.mc_id=academiccontent-github-cxa) in your browser and select **Get Started**. Then select **Sign in with your work account (AAD)** to sign in with a work or school account, or **Sign in with your personal Microsoft account** to use a personal Microsoft account. Answer **Yes** if prompted to let this app access your info.
 
     > You can also sign in using your Facebook account or other account types, but for these exercises, you should sign in with your Microsoft account.
 
@@ -142,9 +142,9 @@ Video Indexer provides a wealth of information regarding each video that it inde
 
 ## Exercise 3: Create a Video Indexer API subscription
 
-The Video Indexer portal provides a window into the videos that you index and lets you see the information extracted from them. But the real power of Video Indexer lies in the [Video Indexer API](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis), which lets you submit videos for indexing programmatically and access the results using a REST API. In [Exercise 4](#exercise-4-build-an-app-that-uses-video-indexer), you will build an app that uses this API to expose content in the videos you indexed in [Exercise 1](#exercise-1-index-a-collection-of-videos). But to call the API, you must first subscribe to it and obtain an API key that is transmitted in each request. In this exercise, you will create a Video Indexer API subscription and retrieve the API key created for it.
+The Video Indexer portal provides a window into the videos that you index and lets you see the information extracted from them. But the real power of Video Indexer lies in the [Video Indexer API](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis?WT.mc_id=academiccontent-github-cxa), which lets you submit videos for indexing programmatically and access the results using a REST API. In [Exercise 4](#exercise-4-build-an-app-that-uses-video-indexer), you will build an app that uses this API to expose content in the videos you indexed in [Exercise 1](#exercise-1-index-a-collection-of-videos). But to call the API, you must first subscribe to it and obtain an API key that is transmitted in each request. In this exercise, you will create a Video Indexer API subscription and retrieve the API key created for it.
 
-1. Open the [Video Indexer API portal](https://api-portal.videoindexer.ai/) in your browser and select **SIGN IN** in the top-right corner. Sign in with your Microsoft account — the same one you used to sign in to the Video Indexer portal. Answer **Yes** if prompted to let this app access your info.
+1. Open the [Video Indexer API portal](https://api-portal.videoindexer.ai/?WT.mc_id=academiccontent-github-cxa) in your browser and select **SIGN IN** in the top-right corner. Sign in with your Microsoft account — the same one you used to sign in to the Video Indexer portal. Answer **Yes** if prompted to let this app access your info.
 
 1. Select **Products**, and then select **Authorization**.
 
@@ -166,7 +166,7 @@ Now that you have an API key, you can write apps that call the Video Indexer API
 
 ## Exercise 4: Build an app that uses Video Indexer
 
-[Visual Studio Code](http://code.visualstudio.com) is a free, lightweight, and powerful source-code editor available for Windows, macOS, and Linux. It supports a variety of popular programming languages including JavaScript, and it features built-in support for Git. In this exercise, you will use Visual Studio Code to run an app named Video Explorer that surfaces content from the videos you indexed in [Exercise 1](#exercise-1-index-a-collection-of-videos). Because the app is written with [Node.js](https://nodejs.org/) and [Electron](https://electronjs.org/), it, too, can run on Windows, macOS, and Linux. The source code is provided for you. All you have to do is insert the API key that you retrieved in the previous exercise.
+[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academiccontent-github-cxa) is a free, lightweight, and powerful source-code editor available for Windows, macOS, and Linux. It supports a variety of popular programming languages including JavaScript, and it features built-in support for Git. In this exercise, you will use Visual Studio Code to run an app named Video Explorer that surfaces content from the videos you indexed in [Exercise 1](#exercise-1-index-a-collection-of-videos). Because the app is written with [Node.js](https://nodejs.org/) and [Electron](https://electronjs.org/), it, too, can run on Windows, macOS, and Linux. The source code is provided for you. All you have to do is insert the API key that you retrieved in the previous exercise.
 
 1. If Node.js isn't installed on your PC, go to [nodejs.org](https://nodejs.org/) and install the latest LTS version. You can determine whether Node is installed by opening a Command Prompt or terminal window and typing the following command:
 
@@ -176,7 +176,7 @@ Now that you have an API key, you can write apps that call the Video Indexer API
 
     If Node is installed, the version number will be displayed.
 
-1. If Visual Studio Code isn't installed on your PC, go to [code.visualstudio.com](https://code.visualstudio.com/) and install it now.
+1. If Visual Studio Code isn't installed on your PC, go to [code.visualstudio.com](https://code.visualstudio.com/?WT.mc_id=academiccontent-github-cxa) and install it now.
 
 1. Create a folder named "Video Explorer" on your hard disk. Then download the [zip file containing Video Explorer's source code](https://github.com/Microsoft/AcademicContent/raw/labs/Labs/AI%20and%20Machine%20Learning/Video%20Indexer/Resources/VideoExplorer.zip ) and copy its contents into the "Video Explorer" folder.
 
@@ -222,6 +222,6 @@ Try other search terms such as "AI," "awesome," and "Microsoft." The results wil
 
 ## Summary
 
-The [Video Indexer API](https://api-portal.videoindexer.ai/docs/services/) is a rich one that includes methods for uploading videos for indexing, searching indexed videos, retrieving and modifying transcripts, monitoring the processing state as a video is being indexed, and more. One of the more powerful methods is [Get Video Index](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Index?), which returns the indexed content of a video containing the same kind of detailed information found in the Video Indexer portal after a video is indexed.
+The [Video Indexer API](https://api-portal.videoindexer.ai/docs/services/?WT.mc_id=academiccontent-github-cxa) is a rich one that includes methods for uploading videos for indexing, searching indexed videos, retrieving and modifying transcripts, monitoring the processing state as a video is being indexed, and more. One of the more powerful methods is [Get Video Index](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Index?WT.mc_id=academiccontent-github-cxa), which returns the indexed content of a video containing the same kind of detailed information found in the Video Indexer portal after a video is indexed.
 
-Video Explorer uses the [Search Videos](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?) method, which is just one of more than 30 methods featured in the Video Indexer API. You could leverage additional APIs to make Video Explorer richer and more interactive. For example, you could allow users to search for people that appear in a video, or search specifically for text that is extracted via OCR. You could even use the [Get Video Player Widget URL](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Player-Widget?) method to embed a video player in the app. Feel free to use these APIs to expand Video Explorer and customize it to fit your needs, and learn more about Video Indexer in the process.
+Video Explorer uses the [Search Videos](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?WT.mc_id=academiccontent-github-cxa) method, which is just one of more than 30 methods featured in the Video Indexer API. You could leverage additional APIs to make Video Explorer richer and more interactive. For example, you could allow users to search for people that appear in a video, or search specifically for text that is extracted via OCR. You could even use the [Get Video Player Widget URL](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Player-Widget?WT.mc_id=academiccontent-github-cxa) method to embed a video player in the app. Feel free to use these APIs to expand Video Explorer and customize it to fit your needs, and learn more about Video Indexer in the process.
