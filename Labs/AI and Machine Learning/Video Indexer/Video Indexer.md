@@ -142,7 +142,7 @@ Video Indexer provides a wealth of information regarding each video that it inde
 
 ## Exercise 3: Create a Video Indexer API subscription
 
-The Video Indexer portal provides a window into the videos that you index and lets you see the information extracted from them. But the real power of Video Indexer lies in the [Video Indexer API](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis), which lets you submit videos for indexing programmatically and access the results using a REST API. In [Exercise 4](#Exercise4), you will build an app that uses this API to expose content in the videos you indexed in [Exercise 1](#Exercise1). But to call the API, you must first subscribe to it and obtain an API key that is transmitted in each request. In this exercise, you will create a Video Indexer API subscription and retrieve the API key created for it.
+The Video Indexer portal provides a window into the videos that you index and lets you see the information extracted from them. But the real power of Video Indexer lies in the [Video Indexer API](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis), which lets you submit videos for indexing programmatically and access the results using a REST API. In [Exercise 4](#exercise-4-build-an-app-that-uses-video-indexer), you will build an app that uses this API to expose content in the videos you indexed in [Exercise 1](#exercise-1-index-a-collection-of-videos). But to call the API, you must first subscribe to it and obtain an API key that is transmitted in each request. In this exercise, you will create a Video Indexer API subscription and retrieve the API key created for it.
 
 1. Open the [Video Indexer API portal](https://api-portal.videoindexer.ai/) in your browser and select **SIGN IN** in the top-right corner. Sign in with your Microsoft account — the same one you used to sign in to the Video Indexer portal. Answer **Yes** if prompted to let this app access your info.
 
@@ -178,7 +178,7 @@ Now that you have an API key, you can write apps that call the Video Indexer API
 
 1. If Visual Studio Code isn't installed on your PC, go to [code.visualstudio.com](https://code.visualstudio.com/) and install it now.
 
-1. Create a folder named "Video Explorer" on your hard disk. Then download the [zip file containing Video Explorer's source code](https://topcs.blob.core.windows.net/public/video-explorer.zip) and copy its contents into the "Video Explorer" folder.
+1. Create a folder named "Video Explorer" on your hard disk. Then download the [zip file containing Video Explorer's source code](https://github.com/Microsoft/AcademicContent/raw/labs/Labs/AI%20and%20Machine%20Learning/Video%20Indexer/Resources/VideoExplorer.zip ) and copy its contents into the "Video Explorer" folder.
 
 1. Start Visual Studio Code and use the **File** > **Open Folder...** command to open the "Video Explorer" folder.
 
