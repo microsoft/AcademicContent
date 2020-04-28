@@ -1,38 +1,62 @@
-Purpose: Demonstrate how Azure Subscriptions work and how to change default and current subscription 
-Description: Shows how to work with changing accounts, and subscriptions in Azure using PowerShell 
+# Azure subscriptions commands
 
-#Limitations/Prerequisite:  
- 
-* Must Run PowerShell
-* Requires PowerShell Azure Module https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure 
+These examples show how to work with changing accounts, and subscriptions in Azure using PowerShell.
 
-#listing current Azure user
+## Limitations/Prerequisites
+
+* Must Run PowerShell
+* Requires PowerShell Azure Module which can be installed from [here](https://docs.microsoft.com/powershell/azure/install-az-ps)
+
+## List current Azure user
+
 This will bring back user ID, Type, Subscriptions, Tenants
 
+```ps
 Get-AzureAccount
+```
 
-# Remove All Powershell Cached Credentials:  
-this is especially helpful to get rid of old accounts that have expired! 
+## Remove All Powershell Cached Credentials
+
+This is especially helpful to get rid of old accounts that have expired!
+
+```ps
 Get-AzureAccount | ForEach-Object { Remove-AzureAccount $_.ID -Force }  
- 
-# List Azure Subscriptions 
-get-AzureSubscription | Format-table SubscriptionName, isDefault, isCurrent, DefaultAccount, subscriptionid 
+```
 
-#Add Cached creditional for AAD or MSA 
-Add-AzureAccount   
- 
-# List Azure Subscriptions in a table
-get-AzureSubscription | Format-table SubscriptionName, isDefault, isCurrent, DefaultAccount, subscriptionid 
- 
-#Setting An Azure Subscription
-Set Subscription 
+## List Azure Subscriptions
 
-Set-AzureSubscription -SubscriptionId "090fa8f2-cc0e-4d36-8cc7-22223321993796"               
+```ps
+get-AzureSubscription | Format-table SubscriptionName, isDefault, isCurrent, DefaultAccount, subscriptionid
+```
 
-Set As Default 
-Select-AzureSubscription -Default -SubscriptionId "090fa8f2-cc0e-4d36-8cc7-1111f21993796"   
+## Add Cached credentials for AAD or MSA
 
-Set as Current 
+```ps
+Add-AzureAccount
+```
+
+## List Azure Subscriptions in a table
+
+```ps
+get-AzureSubscription | Format-table SubscriptionName, isDefault, isCurrent, DefaultAccount, subscriptionid
+```
+
+## Set An Azure Subscription
+
+### Set Subscription
+
+```ps
+Set-AzureSubscription -SubscriptionId "090fa8f2-cc0e-4d36-8cc7-22223321993796"
+```
+
+### Set As Default
+
+```ps
+Select-AzureSubscription -Default -SubscriptionId "090fa8f2-cc0e-4d36-8cc7-1111f21993796"
+```
+
+### Set as Current
+
+```ps
 Select-AzureSubscription -SubscriptionId "090fa8f2-cc0e-4d36-8cc7-122221993796" -Current  
-
- 
+```
