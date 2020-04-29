@@ -21,7 +21,9 @@ In this hands-on lab, you will learn how to:
 
 ## Prerequisites
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription.
+  - If you are a student, sign up for a free [Azure for students account](https://azure.microsoft.com/free/students/?WT.mc_id=academiccontent-github-cxa)
+  - If you are not a student, sign up for a [free Azure trial account](https://azure.microsoft.com/free/?WT.mc_id=academiccontent-github-cxa)
 - [Visual Studio Code](http://code.visualstudio.com/?WT.mc_id=academiccontent-github-cxa)
 - [Node.js](https://nodejs.org)
 
@@ -35,11 +37,11 @@ The cost of this lab is **moderate**. For an overview of cost ratings, refer to 
 
 This hands-on lab includes the following exercises:
 
-- [Exercise 1: Create a blockchain on Azure](#Exercise1)
-- [Exercise 2: Unlock the coinbase account](#Exercise2)
-- [Exercise 3: Deploy a smart contract](#Exercise3)
-- [Exercise 4: Invoke the contract from a Web app](#Exercise4)
-- [Exercise 5: Delete the blockchain network](#Exercise5)
+- [Exercise 1: Create a blockchain on Azure](#exercise-1-create-a-blockchain-on-azure)
+- [Exercise 2: Unlock the coinbase account](#exercise-2-unlock-the-account)
+- [Exercise 3: Deploy a smart contract](#exercise-3-deploy-a-smart-contract)
+- [Exercise 4: Invoke the contract from a Web app](#exercise-4-invoke-the-contract-from-a-web-app)
+- [Exercise 5: Delete the blockchain network](#exercise-5-delete-the-blockchain-service)
 
 Estimated time to complete this lab: **60** minutes.
 
@@ -269,7 +271,7 @@ The contract is now present in the blockchain and waiting to be invoked. All you
 
 Smart contracts are designed to be used by applications that use the blockchain for secure transactions. In this exercise, you will run a Web app written in Node.js that uses the "profrates" contract. The app allows users to rate professors from one to five stars and enter comments to go with the ratings. The data is stored in the blockchain. The app uses a library named [web3.js](https://github.com/ethereum/web3.js/), which wraps the [Ethereum RPC API](https://ethereumbuilders.gitbooks.io/guide/content/en/ethereum_json_rpc.html) and dramatically simplifies code for interacting with smart contracts. Note that there are also web3 libraries available for other languages, including .NET, Java and Python.
 
-1. Create a directory named "Profrates" to serve as the project directory for the Web site. Download the zip file containing the [source code for the Web site](https://topcs.blob.core.windows.net/public/profrates-resources.zip) and copy its contents into the "Profrates" directory.
+1. Create a directory named "Profrates" to serve as the project directory for the Web site. Download the zip file containing the [source code for the Web site](https://github.com/Microsoft/AcademicContent/raw/labs-2/Labs/Azure%20Services/Azure%20Blockchain%20Service/Resources/truffle.zip) and copy its contents into the "Profrates" directory.
 
 1. Return to Visual Studio Code and use the **File > Open Folder...** command to open the "Profrates" directory. Then execute the following command in Visual Studio Code's integrated terminal to install the packages listed in the **package.json** file:
 
@@ -361,7 +363,7 @@ The Web site is currently running locally. As an optional exercise, consider dep
 
 ### Exercise 5: Delete the Blockchain Service
 
-In this exercise, you will delete the resource group created in [Exercise 1](#Exercise1) when you created the Blockchain Service. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it.
+In this exercise, you will delete the resource group created in [Exercise 1](#exercise-1-create-a-blockchain-on-azure) when you created the Blockchain Service. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it.
 
 1. Click **Resource groups** in the menu on the left side of the portal. Open the "blockchain-lab-rg" resource group. Then click **Delete resource group** at the top of the blade.
 
