@@ -41,7 +41,7 @@ The following are required to complete this hands-on lab:
 
 ## Resources
 
-[Click here](https://a4r.blob.core.windows.net/public/vm-scaling-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+[Click here](https://github.com/Microsoft/AcademicContent/raw/labs-3/Labs/Azure%20Services/VM%20Scaling/resources/vm-scaling-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
 
 ## Cost
 
@@ -51,15 +51,15 @@ The cost of this lab is **high**. For an overview of cost ratings, refer to [Exp
 
 ## Exercises
 
-- [Exercise 1: Create a storage account and configure Python scripts](#Exercise1)
-- [Exercise 2: Deploy an HPC cluster](#Exercise2)
-- [Exercise 3 (macOS and Linux): Connect to and configure the cluster](#Exercise3)
-- [Exercise 4 (Windows): Connect to and configure the cluster](#Exercise4)
-- [Exercise 5: Run a job and view the results](#Exercise5)
-- [Exercise 6: Delete the cluster](#Exercise6)
-- [Exercise 7: Test with a cluster containing one worker nodes with eight cores](#Exercise7)
-- [Exercise 8: Test with a cluster containing eight worker nodes with one core each](#Exercise8)
-- [Exercise 9: Delete the storage account](#Exercise9)
+- [Exercise 1: Create a storage account and configure Python scripts](#exercise-1-create-a-storage-account-and-configure-python-scripts)
+- [Exercise 2: Deploy an HPC cluster](#exercise-2-deploy-an-hpc-cluster)
+- [Exercise 3 (macOS and Linux): Connect to and configure the cluster](#exercise-3-macos-and-linux-connect-to-and-configure-the-cluster)
+- [Exercise 4 (Windows): Connect to and configure the cluster](#exercise-4-windows-connect-to-and-configure-the-cluster)
+- [Exercise 5: Run a job and view the results](#exercise-5-run-a-job-and-view-the-results)
+- [Exercise 6: Delete the cluster](#exercise-6-delete-the-cluster)
+- [Exercise 7: Test with a cluster containing one worker nodes with eight cores](#exercise-7-test-with-a-cluster-containing-one-worker-node-with-eight-cores)
+- [Exercise 8: Test with a cluster containing eight worker nodes with one core each](#exercise-8-test-with-a-cluster-containing-eight-worker-nodes-with-one-core-each)
+- [Exercise 9: Delete the storage account](#exercise-9-delete-the-storage-account)
 
 Estimated time to complete this lab: **90 minutes**.
 
@@ -103,7 +103,7 @@ In this exercise, you will use the [Azure Portal](https://portal.azure.com?WT.mc
 
     _Copying the access key_
 
-1. Open the file named **controller.py**, which is included in the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/vm-scaling-resources.zip), in the text or program editor of your choice.
+1. Open the file named **controller.py**, which is included in the [resources that accompany this lab](https://github.com/Microsoft/AcademicContent/raw/labs-3/Labs/Azure%20Services/VM%20Scaling/resources/vm-scaling-resources.zip), in the text or program editor of your choice.
 
 1. In **controller.py**, replace *storage_account_name* on line 14 with the name of the storage account you created in Step 3, and replace *storage_account_key* on line 15 with the access key that is on the clipboard. Then save your changes and close the file.
 
@@ -161,7 +161,7 @@ Let's get started!
 
     _Successful deployment_
 
-With the cluster deployed, the next step is to connect to the cluster and configure it to run the scripts you prepared in Exercise 1. If you are running macOS or Linux, proceed to [Exercise 3](#Exercise3). If you are running Windows, skip to [Exercise 4](#Exercise4).
+With the cluster deployed, the next step is to connect to the cluster and configure it to run the scripts you prepared in Exercise 1. If you are running macOS or Linux, proceed to [Exercise 3](#exercise-3-macos-and-linux-connect-to-and-configure-the-cluster). If you are running Windows, skip to [Exercise 4](#exercise-4-windows-connect-to-and-configure-the-cluster).
 
 ### Exercise 3 (macOS and Linux): Connect to and configure the cluster
 
@@ -179,7 +179,7 @@ In this exercise, you will upload the Python scripts that you modified in Exerci
 
     _Copying the DNS name_
 
-1. Open a terminal window and navigate to the directory containing the Python scripts you modified in [Exercise 1](#Exercise1).
+1. Open a terminal window and navigate to the directory containing the Python scripts you modified in [Exercise 1](#exercise-1-create-a-storage-account-and-configure-python-scripts).
 
 1. Execute the following command in the terminal window, replacing `<masterDNS>` with the DNS name on the clipboard. When prompted, enter the admin password for the cluster (`Azure4Research!`).
 
@@ -208,7 +208,7 @@ In this exercise, you will upload the Python scripts that you modified in Exerci
     sh setup.sh
     ```
 
-The next task is to run a job on the cluster that you just configured. Since Exercise 4 is for Windows users only, proceed directly to [Exercise 5](#Exercise5).
+The next task is to run a job on the cluster that you just configured. Since Exercise 4 is for Windows users only, proceed directly to [Exercise 5](#exercise-5-run-a-job-and-view-the-results).
 
 ### Exercise 4 (Windows): Connect to and configure the cluster
 
@@ -226,7 +226,7 @@ In this exercise, you will upload the Python scripts that you modified in Exerci
 
     _Copying the DNS name_
 
-1. To copy files to the master node, you will use PuTTY's Secure Copy utility, pscp.exe. Open a Command Prompt window and navigate to the directory containing the Python scripts you modified in [Exercise 1](#Exercise1).
+1. To copy files to the master node, you will use PuTTY's Secure Copy utility, pscp.exe. Open a Command Prompt window and navigate to the directory containing the Python scripts you modified in [Exercise 1](#exercise-1-create-a-storage-account-and-configure-python-scripts).
 
 1. Execute the following command, replacing `<masterDNS>` with the DNS name on the clipboard. When prompted, enter the admin password for the cluster (`Azure4Research!`).
 
@@ -242,7 +242,7 @@ In this exercise, you will upload the Python scripts that you modified in Exerci
 
     _Connecting with PuTTY_
 
-1. A PuTTY terminal window will appear and you will be prompted to **login as**. Log in with the user name (`azureuser`) and password (`Azure4Research!`) you entered into the deployment template in [Exercise 2](#Exercise2).
+1. A PuTTY terminal window will appear and you will be prompted to **login as**. Log in with the user name (`azureuser`) and password (`Azure4Research!`) you entered into the deployment template in [Exercise 2](#exercise-2-deploy-an-hpc-cluster).
 
 1. To be certain that the script files you uploaded to the cluster contain Linux-style line endings ("/r" rather than "/r/n"), execute the following commands in the PuTTY terminal window to install and run the dos2unix conversion program:
 
@@ -269,7 +269,7 @@ In this exercise, you will run **controller.py** on the cluster's master node. *
     python3 controller.py 1
     ```
 
-1. Return to the Azure Portal. Click **Resource groups** in the ribbon on the left, and then click the "ScalingLabResourceGroup" resource group containing the storage account you created in [Exercise 1](#Exercise1).
+1. Return to the Azure Portal. Click **Resource groups** in the ribbon on the left, and then click the "ScalingLabResourceGroup" resource group containing the storage account you created in [Exercise 1](#exercise-1-create-a-storage-account-and-configure-python-scripts).
 
     ![Opening the resource group](Images/open-resource-group.png)
 
@@ -426,9 +426,9 @@ How long did it take for the job to run this time? How does it compare to the re
 
 ### Exercise 9: Delete the storage account
 
-In this exercise, you will clean up the last of the lab's resources by deleting the resource group containing the storage account that you created in [Exercise1](#Exercise1).
+In this exercise, you will clean up the last of the lab's resources by deleting the resource group containing the storage account that you created in [Exercise1](#exercise-1-create-a-storage-account-and-configure-python-scripts).
 
-1. In the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa), click **Resource groups** in the ribbon on the left. Then click the resource group that you created in [Exercise1](#Exercise1).
+1. In the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa), click **Resource groups** in the ribbon on the left. Then click the resource group that you created in [Exercise1](#exercise-1-create-a-storage-account-and-configure-python-scripts).
 
     ![Opening the resource group](Images/open-resource-group.png)
 
