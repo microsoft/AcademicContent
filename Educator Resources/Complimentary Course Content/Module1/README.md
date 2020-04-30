@@ -4,13 +4,13 @@ This module introduces what cloud computing is, why it has become so popular, an
 
 To use Azure resources for free, students and lecturers have a range of options, including:
 
-## Azure For Research
+## Azure For Students
 
-Submit a proposal for free Azure credits if you are working on a research project. Proposals are reviewed every two months. Faculty, research staff members, graduate students, and postdocs are qualified to submit proposals.
+Students can register for $100 Azure credit and 12 months of free services (no credit card required). 
 
 ## Azure 30-day Free Trial
 
-Offers $200 in Azure credits for 30-days for anyone with just an e-mail address. You can use the $200 credits towards any of the several Azure Services such as Virtual Machines, SQL Databases, Storage and Machine Learning. A credit card and phone number are required for identity verification during sign up.
+Offers $200 in Azure credits for 30-days for anyone with just an e-mail address including faculty members and graduate students. You can use the $200 credits towards any of the several Azure Services such as Virtual Machines, SQL Databases, Storage and Machine Learning. A credit card and phone number are required for identity verification during sign up.
 
 ## Visual Studio Dev Essentials
 
