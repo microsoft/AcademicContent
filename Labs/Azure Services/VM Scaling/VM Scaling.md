@@ -41,7 +41,7 @@ The following are required to complete this hands-on lab:
 
 ## Resources
 
-[Click here](https://github.com/Microsoft/AcademicContent/raw/labs-3/Labs/Azure%20Services/VM%20Scaling/resources/vm-scaling-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+[Select here](https://github.com/Microsoft/AcademicContent/raw/labs-3/Labs/Azure%20Services/VM%20Scaling/resources/vm-scaling-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
 
 ## Cost
 
@@ -69,35 +69,35 @@ In this exercise, you will use the [Azure Portal](https://portal.azure.com?WT.mc
 
 1. Open the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If you are asked to log in, do so using your Microsoft account.
 
-1. Click **+ Create a resource** in the ribbon on the left. Then click **Storage**, followed by **Storage account**.
+1. Select **+ Create a resource** in the ribbon on the left. Then select **Storage**, followed by **Storage account**.
 
     ![Creating a storage account](Images/new-storage-account.png)
 
     _Creating a storage account_
 
-1. In the ensuing "Create storage account" blade, enter a name for the new storage account in **Name** field. The name is important, because it forms one part of the URL through which blobs created under this account are accessed.
+1. In the ensuing *Create storage account* blade, enter a name for the new storage account in **Name** field. The name is important, because it forms one part of the URL through which blobs created under this account are accessed.
 
     > Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure. If someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the **Name** field.
 
-    Once you have a name that Azure will accept (as indicated by the green check mark in the **Name** field), make sure **Resource manager** is selected as the **Deployment model** and **General purpose** is selected as the **Account kind**. Then select **Create new** under **Resource group** and type "ScalingLabResourceGroup" (without quotation marks) into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the **Location** box, and clicking the **Create** button at the bottom of the blade to create the new storage account.
+    Once you have a name that Azure will accept (as indicated by the green check mark in the **Name** field), make sure **Resource manager** is selected as the **Deployment model** and **General purpose** is selected as the **Account kind**. Then select **Create new** under **Resource group** and type `ScalingLabResourceGroup` into the box below to name the new resource group that will be created for the storage account. Finish up by selecting the location nearest you in the **Location** box, and selecting the **Review + Create** button at the bottom of the blade, followed by the **Create** button to create the new storage account.
 
     ![Specifying parameters for a new storage account](Images/create-storage-account.png)
 
     _Specifying parameters for a new storage account_
 
-1. After the account is created (it generally takes 30 seconds or so), click **Resource groups** in the ribbon on the left side of the portal, and then click the "ScalingLabResourceGroup" resource group that was created along with the storage account.
+1. After the account is created (it generally takes 30 seconds or so), select **Resource groups** in the ribbon on the left side of the portal, and then select the `ScalingLabResourceGroup` resource group that was created along with the storage account.
 
     ![Opening the resource group](Images/open-resource-group.png)
 
     _Opening the resource group_
 
-1. Click the storage account that you created in Step 3.
+1. Select the storage account that you created in Step 3.
 
     ![Opening the storage account](Images/open-storage-account.png)
 
     _Opening the storage account_
 
-1. Click **Access keys** to display the storage account's access keys, and then click the **Copy** button to the right of the primary key to copy it to the clipboard.
+1. Select **Access keys** to display the storage account's access keys, and then select the **Copy** button to the right of the primary key to copy it to the clipboard.
 
     ![Copying the access key](Images/copy-access-key.png)
 
@@ -123,7 +123,7 @@ The Azure Resource Manager allows you to provision applications using declarativ
 
 In this exercise, you will use a deployment template built by the Azure team. This template creates a collection of virtual machines and all the resources required to form a SLURM HPC cluster from them. It is one of many useful templates on the [Azure Quickstart Templates](http://azure.microsoft.com/documentation/templates/?WT.mc_id=academiccontent-github-cxa) page and in the Quickstart templates [GitHub repository](https://github.com/Azure/azure-quickstart-templates).
 
-The template you will use, which you can [view here](https://github.com/Azure/azure-quickstart-templates/tree/master/slurm) on GitHub, is titled "Deploy a slurm cluster." It performs the following steps:
+The template you will use, which you can [view here](https://github.com/Azure/azure-quickstart-templates/tree/master/slurm) on GitHub, is titled **Deploy a slurm cluster**. It performs the following steps:
 
 - Deploys a master VM plus a specified number of worker VMs
 - Creates a private network for the VMs (nodes) in the cluster
@@ -133,15 +133,15 @@ The template you will use, which you can [view here](https://github.com/Azure/az
 
 Let's get started!
 
-1. In your browser, navigate to [github.com/Azure/azure-quickstart-templates/tree/master/slurm](https://github.com/Azure/azure-quickstart-templates/tree/master/slurm). In the middle of the page, click the **Deploy to Azure** button. This will load the template into a new instance of the Azure Portal. You may be asked to sign in again. If you are, sign in using your Microsoft account.
+1. In your browser, navigate to [github.com/Azure/azure-quickstart-templates/tree/master/slurm](https://github.com/Azure/azure-quickstart-templates/tree/master/slurm). In the middle of the page, select the **Deploy to Azure** button. This will load the template into a new instance of the Azure Portal. You may be asked to sign in again. If you are, sign in using your Microsoft account.
 
     ![Deploying from GitHub](Images/deploy-to-azure.png)
 
     _Deploying from GitHub_
 
-1. Select **Create new** under **Resource group** and enter the resource-group name "ClusterResourceGroup" (without quotation marks). It is important NOT to use the same resource group you used for the storage account in Exercise 1, because when you delete the cluster in Exercise 6, you don't want the storage account to be deleted, too.
+1. Select **Create new** under **Resource group** and enter the resource-group name `ClusterResourceGroup`. It is important NOT to use the same resource group you used for the storage account in Exercise 1, because when you delete the cluster in Exercise 6, you don't want the storage account to be deleted, too.
 
-    Select the location nearest you — the same one you selected for the storage account in Exercise 1 — under **Location**. Specify `azureuser` as the **Admin User Name** and `Azure4Research!` as the **Admin Password**. Leave **Vm Size** set to **Standard_D1_v2** and set **Scale Number** to **1** to create a cluster containing one worker node with a single core. Then check the **I agree to the terms and conditions stated above** box and click the **Purchase** button at the bottom of the blade.
+    Select the location nearest you — the same one you selected for the storage account in Exercise 1 — under **Location**. Specify `azureuser` as the **Admin User Name** and `Azure4Research!` as the **Admin Password**. Leave **Vm Size** set to **Standard_D1_v2** and set **Scale Number** to **1** to create a cluster containing one worker node with a single core. Then check the **I agree to the terms and conditions stated above** box and select the **Purchase** button at the bottom of the blade.
 
     > It is very important to specify `azureuser` as the admin user name, because the scripts that you will use to configure the cluster use that user name.
 
@@ -149,13 +149,13 @@ Let's get started!
 
     _Deploying the cluster_
 
-1. Click **Resource groups** in the ribbon on the left. Then click the resource group created for the cluster.
+1. Select **Resource groups** in the ribbon on the left. Then select the resource group created for the cluster.
 
     ![Opening the resource group](Images/open-cluster-resource-group.png)
 
     _Opening the resource group_
 
-1. Wait until "Deploying" changes to "Succeeded," indicating that the cluster has been successfully deployed. (You can click the **Refresh** button at the top of the blade to refresh the deployment status.) It generally takes about five minutes for the deployment to complete for a cluster with a single worker node, and more for clusters containing more nodes.
+1. Wait until *Deploying* changes to *Succeeded*, indicating that the cluster has been successfully deployed. (You can select the **Refresh** button at the top of the blade to refresh the deployment status.) It generally takes about five minutes for the deployment to complete for a cluster with a single worker node, and more for clusters containing more nodes.
 
     ![Successful deployment](Images/deployment-succeeded.png)
 
@@ -167,13 +167,13 @@ With the cluster deployed, the next step is to connect to the cluster and config
 
 In this exercise, you will upload the Python scripts that you modified in Exercise 1 and a pair of shell scripts to the master node of the cluster and use the shell scripts to configure the cluster.
 
-1. In the list of resources that comprise the cluster in the cluster's resource-group blade, click **publicip**.
+1. In the list of resources that comprise the cluster in the cluster's resource-group blade, select **publicip**.
 
     ![Opening the publicip resource](Images/open-public-ip.png)
 
     _Opening the publicip resource_
 
-1. Click the **Copy** button to the right of the DNS name to copy the master node's DNS name to the clipboard.
+1. Select the **Copy** button to the right of the DNS name to copy the master node's DNS name to the clipboard.
 
     ![Copying the DNS name](Images/copy-dns-name.png)
 
@@ -214,13 +214,13 @@ The next task is to run a job on the cluster that you just configured. Since Exe
 
 In this exercise, you will upload the Python scripts that you modified in Exercise 1 and a pair of shell scripts to the master node of the cluster and use the shell scripts to configure the cluster. To remote into the cluster, you'll use a popular Windows SSH client named PuTTY. If you haven't already installed PuTTY, [download the MSI](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and install it now.
 
-1. In the list of resources that comprise the cluster in the cluster's resource-group blade, click **publicip**.
+1. In the list of resources that comprise the cluster in the cluster's resource-group blade, select **publicip**.
 
     ![Opening the publicip resource](Images/open-public-ip.png)
 
     _Opening the publicip resource_
 
-1. Click the **Copy** button to the right of the DNS name to copy the master node's DNS name to the clipboard.
+1. Select the **Copy** button to the right of the DNS name to copy the master node's DNS name to the clipboard.
 
     ![Copying the DNS name](Images/copy-dns-name.png)
 
@@ -236,7 +236,7 @@ In this exercise, you will upload the Python scripts that you modified in Exerci
     pscp * azureuser@<masterDNS>:.
     ```
 
-1. Start PuTTY (putty.exe) and paste the DNS name into the **Host Name (or IP address)** field. Then click the **Open** button to initiate a Secure Shell (SSH) connection.
+1. Start PuTTY (putty.exe) and paste the DNS name into the **Host Name (or IP address)** field. Then select the **Open** button to initiate a Secure Shell (SSH) connection.
 
     ![Connecting with PuTTY](Images/connect-with-putty.png)
 
@@ -261,7 +261,7 @@ The next task is to run a job on the cluster that you just configured.
 
 ### Exercise 5: Run a job and view the results
 
-In this exercise, you will run **controller.py** on the cluster's master node. **controller.py** performs the compute-intensive task of computing the distances over a sphere between more than 7,300 airports, yielding more than 53 million distances in total. Rather than do the work on the master node, **controller.py** uses SLURM to delegate calculations to the worker nodes and divides the work into the number of "slices" specified in a command-line parameter. You generally want one "slice" for each core in the cluster.
+In this exercise, you will run **controller.py** on the cluster's master node. **controller.py** performs the compute-intensive task of computing the distances over a sphere between more than 7,300 airports, yielding more than 53 million distances in total. Rather than do the work on the master node, **controller.py** uses SLURM to delegate calculations to the worker nodes and divides the work into the number of *slices* specified in a command-line parameter. You generally want one *slice* for each core in the cluster.
 
 1. In the terminal window (macOS and Linux) or the PuTTY terminal window (Windows), execute the following command:
 
@@ -269,37 +269,37 @@ In this exercise, you will run **controller.py** on the cluster's master node. *
     python3 controller.py 1
     ```
 
-1. Return to the Azure Portal. Click **Resource groups** in the ribbon on the left, and then click the "ScalingLabResourceGroup" resource group containing the storage account you created in [Exercise 1](#exercise-1-create-a-storage-account-and-configure-python-scripts).
+1. Return to the Azure Portal. Select **Resource groups** in the ribbon on the left, and then select the `ScalingLabResourceGroup` resource group containing the storage account you created in [Exercise 1](#exercise-1-create-a-storage-account-and-configure-python-scripts).
 
     ![Opening the resource group](Images/open-resource-group.png)
 
     _Opening the resource group_
 
-1. Click the resource group's storage account.
+1. Select the resource group's storage account.
 
     ![Opening the storage account](Images/open-storage-account.png)
 
     _Opening the storage account_
 
-1. Click **Blobs** to view a list of blob containers in the storage account.
+1. Select **Containers** to view a list of blob containers in the storage account.
 
     ![Viewing blob containers](Images/view-blob-containers.png)
 
     _Viewing blob containers_
 
-1. Click **distances** to open the container named "distances." This container was created by the Python code you ran on the cluster.
+1. Select **distances** to open the container named *distances*. This container was created by the Python code you ran on the cluster.
 
     ![Opening the blob container](Images/view-blobs.png)
 
     _Opening the blob container_
 
-1. Click **log.txt** to open the blob containing the output from the job you ran on the cluster.
+1. Select **log.txt** to open the blob containing the output from the job you ran on the cluster.
 
     ![Opening the blob](Images/view-blob.png)
 
     _Opening the blob_
 
-1. Click **Download** to download the blob and view its contents.
+1. Select **Download** to download the blob and view its contents.
 
     ![Downloading the blob](Images/download-blob.png)
 
@@ -313,7 +313,7 @@ In this exercise, you will run **controller.py** on the cluster's master node. *
     Finishing 0-7377:2016-12-16 13:19:55
     ```
 
-    The first line indicates when the job was started (when **controller.py** was executed). The succeeding lines indicate when each "slice" of the job was started and completed. In this case, because you passed 1 as a command-line parameter to **controller.py**, there is one Starting/Finishing pair.
+    The first line indicates when the job was started (when **controller.py** was executed). The succeeding lines indicate when each *slice* of the job was started and completed. In this case, because you passed 1 as a command-line parameter to **controller.py**, there is one Starting/Finishing pair.
 
     Download **log.txt** repeatedly until it contains three lines of output similar to the ones above.
 
@@ -325,21 +325,21 @@ You now have a baseline for a performance comparison: the time the job required 
 
 When virtual machines are running, you are being charged — even if the VMs are idle. Therefore, it is advisable to delete virtual machines when they're not longer needed. In this exercise, you'll delete the cluster by deleting the resource group containing the cluster. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it.
 
-1. In the [Azure Portal](https://portal.azure.com), click **Resource groups** in the ribbon on the left. Then click the resource group created for the cluster.
+1. In the [Azure Portal](https://portal.azure.com), select **Resource groups** in the ribbon on the left. Then select the resource group created for the cluster.
 
     ![Opening the resource group](Images/open-cluster-resource-group.png)
 
     _Opening the resource group_
 
-1. Click the **Delete** button at the top of the blade.
+1. Select the **Delete** button at the top of the blade.
 
     ![Deleting the resource group](Images/delete-resource-group-1.png)
 
     _Deleting the resource group_
 
-1. For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group. Then click the **Delete** button to delete all of the resources that comprise the cluster.
+1. For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group. Then select the **Delete** button to delete all of the resources that comprise the cluster.
 
-After a few minutes, the cluster and all of its resources will be deleted. Billing stops when you click the **Delete** button, so you're not charged for the time required to delete the cluster. Similarly, bulling doesn't start until a cluster is fully and successfully deployed.
+After a few minutes, the cluster and all of its resources will be deleted. Billing stops when you select the **Delete** button, so you're not charged for the time required to delete the cluster. Similarly, bulling doesn't start until a cluster is fully and successfully deployed.
 
 ### Exercise 7: Test with a cluster containing one worker node with eight cores
 
@@ -347,7 +347,7 @@ In this exercise, you will deploy a new cluster containing a single worker node 
 
 1. Repeat Exercises 2-5, but this time, in Exercise 2, Step 2, set **Vm Size** to **Standard_D4_v2** and **Scale Number** to **1**.
 
-    > Feel free to use a different resource-group name if you would like (for example, "ClusterResourceGroup2") in case the previous resource group is still being deleted.
+    > Feel free to use a different resource-group name if you would like (for example, `ClusterResourceGroup2`) in case the previous resource group is still being deleted.
 
     ![Creating a cluster containing one worker node with eight cores](Images/vm-parameters-1.png)
 
@@ -388,7 +388,7 @@ In this exercise, you will deploy a new cluster containing eight worker nodes wi
 
 1. Repeat Exercises 2-5, but this time, in Exercise 2, Step 2, set **Vm Size** to **Standard_D1_v2** and **Scale Number** to **8**.
 
-    > Feel free to use a different resource-group name if you would like (for example, "ClusterResourceGroup3") in case the previous resource group is still being deleted.
+    > Feel free to use a different resource-group name if you would like (for example, `ClusterResourceGroup3`) in case the previous resource group is still being deleted.
 
     ![Creating a cluster containing eight worker nodes with one core each](Images/vm-parameters-2.png)
 
@@ -428,19 +428,19 @@ How long did it take for the job to run this time? How does it compare to the re
 
 In this exercise, you will clean up the last of the lab's resources by deleting the resource group containing the storage account that you created in [Exercise1](#exercise-1-create-a-storage-account-and-configure-python-scripts).
 
-1. In the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa), click **Resource groups** in the ribbon on the left. Then click the resource group that you created in [Exercise1](#exercise-1-create-a-storage-account-and-configure-python-scripts).
+1. In the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa), select **Resource groups** in the ribbon on the left. Then select the resource group that you created in [Exercise1](#exercise-1-create-a-storage-account-and-configure-python-scripts).
 
     ![Opening the resource group](Images/open-resource-group.png)
 
     _Opening the resource group_
 
-1. Click the **Delete** button at the top of the blade.
+1. Select the **Delete** button at the top of the blade.
 
     ![Deleting the resource group](Images/delete-resource-group-2.png)
 
     _Deleting the resource group_
 
-1. For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group. Then click the **Delete** button to delete the resource group and the storage account that it contains.
+1. For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group. Then select the **Delete** button to delete the resource group and the storage account that it contains.
 
 After a few minutes, the resource group and all of its resources will be deleted.
 
