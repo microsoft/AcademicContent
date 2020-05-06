@@ -26,9 +26,9 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- A Microsoft account. If you don't have one, [sign up for Microsoft for free](https://account.microsoft.com/account).
-- An active Microsoft Azure subscription. If you don't have one [sign up for Azure for free](https://azure.microsoft.com/free).
-- Microsoft [Visual Studio Code](http://code.visualstudio.com)
+- A Microsoft account. If you don't have one, [sign up for Microsoft for free](https://account.microsoft.com/account?WT.mc_id=academiccontent-github-cxa).
+- An active Microsoft Azure subscription. If you don't have one [sign up for Azure for free](https://azure.microsoft.com/free?WT.mc_id=academiccontent-github-cxa).
+- Microsoft [Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academiccontent-github-cxa)
 - [Node.js](https://nodejs.org)
 
 <a name="Resources"></a>

@@ -34,9 +34,9 @@ Tool / framework / engine of your choice
   
 # Resources
 
-- https://msdn.microsoft.com/en-us/windows/uwp/xbox-apps/index
+- https://msdn.microsoft.com/windows/uwp/xbox-apps/index
 - http://www.xbox.com/id
 - http://imagine.Microsoft.com
-- https://developer.microsoft.com/en-us/windows/games
+- https://developer.microsoft.com/windows/games
 
 

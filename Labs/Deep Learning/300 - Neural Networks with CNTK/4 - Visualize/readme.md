@@ -1,6 +1,6 @@
 ![](Images/header.png)
 
-In the [previous lab](../3%20-%20Predict), you used Azure Machine Learning Workbench and the [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), also known as CNTK, to train three neural networks to recognize hand-written digits using data from the [MNIST database](http://yann.lecun.com/exdb/mnist/). You also scored the neural networks for accuracy using test data from the same database. The "compiled" networks were written to Azure blob storage.
+In the [previous lab](../3%20-%20Predict), you used Azure Machine Learning Workbench and the [Microsoft Cognitive Toolkit](https://www.microsoft.com/research/product/cognitive-toolkit/?WT.mc_id=academiccontent-github-cxa), also known as CNTK, to train three neural networks to recognize hand-written digits using data from the [MNIST database](http://yann.lecun.com/exdb/mnist/). You also scored the neural networks for accuracy using test data from the same database. The "compiled" networks were written to Azure blob storage.
 
 In this lab, the fourth of four in a series, you will build a Docker image containing one of the compiled networks. The container will also include a rudimentary Web server written in [Node.js](https://nodejs.org/en/) that serves up a Web page in which users can sketch digits. A button click submits a digit to the neural network, which "predicts" which digit was drawn, providing a tangible demonstration of machine learning in action.
 
@@ -20,7 +20,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
 - [Docker](https://www.docker.com/)
 
 If you haven't completed the [previous lab in this series](../3%20-%20Predict), you must do so before starting this lab.
@@ -41,7 +41,7 @@ Estimated time to complete this lab: **30** minutes.
 
 In this exercise, you will download the files created for the "One Convolution" network in the previous lab from blob storage and wrap them in a Docker container image. You will also write a Node.js app that listens for HTTP requests, serves up an HTML page for drawing digits, and implements a REST endpoint that the page can call to use the neural network to identify digits drawn by the user. The app, too, will be included in the container image.
 
-1. Open the [Azure Portal](https://portal.azure.com) and return to the storage account that you created in the first lab. Open the container named "models" and confirm that among the many blobs there are ones named **02_OneConv.***.
+1. Open the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) and return to the storage account that you created in the first lab. Open the container named "models" and confirm that among the many blobs there are ones named **02_OneConv.***.
 
 	![Blobs representing the "One Convolution" network](Images/one-conv-blobs.png)
 
@@ -362,7 +362,7 @@ Wait for the build process to complete. The container image is ready. Now let's 
 <a name="Exercise2"></a>
 ## Exercise 2: Run the image in a local container ##
 
-In this exercise, you will operationalize the "One Convolution" network by running the image that you built in the previous exercise in a Docker container. You will run the container locally, but note that the same container could also be hosted in the cloud using the [Azure Container Service](https://azure.microsoft.com/services/container-service/) or [Azure Container Instances](https://azure.microsoft.com/services/container-instances/).
+In this exercise, you will operationalize the "One Convolution" network by running the image that you built in the previous exercise in a Docker container. You will run the container locally, but note that the same container could also be hosted in the cloud using the [Azure Container Service](https://azure.microsoft.com/services/container-service/?WT.mc_id=academiccontent-github-cxa) or [Azure Container Instances](https://azure.microsoft.com/services/container-instances/?WT.mc_id=academiccontent-github-cxa).
 
 1. Return to the Command Prompt or terminal window in which you executed the ```docker build``` command in the previous exercise. Then execute the following command to run a container that uses the Docker image that you built:
 
@@ -406,7 +406,7 @@ It's a pretty impressive feat for an app to perform basic OCR in this manner. An
 <a name="Summary"></a>
 ## Summary ##
 
-Machine learning provides a foundation for building intelligent apps. Azure Machine Learning Workbench simplifies the task of building and operationalizing machine-learning models, and it works on macOS as well as Windows. Moreover, it works with a wide variety of machine-learning libraries, including Microsoft's CNTK, which excels at building neural networks. The series of labs that you just completed demonstrates one way to leverage Azure Machine Learning Workbench to build apps that incorporate machine learning. For further insights into Workbench and an additional tutorial, see https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-1.
+Machine learning provides a foundation for building intelligent apps. Azure Machine Learning Workbench simplifies the task of building and operationalizing machine-learning models, and it works on macOS as well as Windows. Moreover, it works with a wide variety of machine-learning libraries, including Microsoft's CNTK, which excels at building neural networks. The series of labs that you just completed demonstrates one way to leverage Azure Machine Learning Workbench to build apps that incorporate machine learning. For further insights into Workbench and an additional tutorial, see https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-1.
 
 ---
 

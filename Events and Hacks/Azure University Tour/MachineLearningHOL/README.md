@@ -32,10 +32,10 @@ In this HOL, you will learn how to:
 
 The following are required to complete this HOL:
 
-- An Azure subscription, which will be used to create the VM and query Data Lake. Students can get access through [Azure for Students](http://aka.ms/azure4students).
+- An Azure subscription, which will be used to create the VM and query Data Lake. Students can get access through [Azure for Students](https://aka.ms/azure4students).
 - [X2Go](https://wiki.x2go.org/doku.php/download:start), an [Xfce](https://xfce.org/) remote-desktop client. [Installation instructions](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
 
-**Note:** To quickly verify your student status, use your school-issued email address like "your_name@your_school.edu" or equivalent. This will become your Microsoft Account that you can use to login to the [Azure Portal](http://portal.azure.com).
+**Note:** To quickly verify your student status, use your school-issued email address like "your_name@your_school.edu" or equivalent. This will become your Microsoft Account that you can use to login to the [Azure Portal](http://portal.azure.com?WT.mc_id=academiccontent-github-cxa).
 
 <a name="Resources"></a>
 
@@ -58,11 +58,11 @@ This HOL includes the following exercises:
 
 ## Exercise 1: Create a DSVM ##
 
-In this exercise, you will create an instance of the DSVM for Linux in Azure. The DSVM for Linux is a VM image in Azure that includes many preinstalled and configured data-science and development tools. You can read a longer description about the many tools and features available in the DSVM [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+In this exercise, you will create an instance of the DSVM for Linux in Azure. The DSVM for Linux is a VM image in Azure that includes many preinstalled and configured data-science and development tools. You can read a longer description about the many tools and features available in the DSVM [here](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu?WT.mc_id=academiccontent-github-cxa).
 
 ### Step 1: Creating the DSVM in Azure ###
 
-1. In a web browser, open the [Azure portal](https://portal.azure.com/) at https://portal.azure.com, and then sign in with your Microsoft account (use the account your Azure subscription is associated with).
+1. In a web browser, open the [Azure portal](https://portal.azure.com/?WT.mc_id=academiccontent-github-cxa) at https://portal.azure.com, and then sign in with your Microsoft account (use the account your Azure subscription is associated with).
 1. From the left-side menu, click the **+** sign to add a new resource.
 
     ![CreateResource](images/CreateResource.jpg)
@@ -99,7 +99,7 @@ In this exercise, you will create an instance of the DSVM for Linux in Azure. Th
 
 1. In the **Resource Group** section, leave **Create New** selected, and then enter a name of your choice for the resource group in the field below; for example, **DataScienceGroup1**.
 
-    A [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in Azure is a container for the resources used to run an application. Resource groups help administrators organize monitoring, access control, provisioning, and billing. Generally, items in one resource group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
+    A [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview?WT.mc_id=academiccontent-github-cxa) in Azure is a container for the resources used to run an application. Resource groups help administrators organize monitoring, access control, provisioning, and billing. Generally, items in one resource group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
 
 1. In the **Location** drop-down menu, ensure that a geographically close location is chosen.
 
@@ -113,7 +113,7 @@ At this stage, the Choose a Size page appears. Proceed to the next step.
 
     ![ChooseSize](images/ChooseSize.jpg)
 
-1. In the list of available VM types, select **DS1_V2 Standard**. Notice the wide range of VM choices available. Azure provides these according to the growing needs of your workload or application - for example, you might need the high memory allocation (G-series) or additional GPUs (N-series) that maximize the performance of deep-learning experiments (like image classification). Some VMs are most cost-effective for early experiementation (A-series, Dv2 series. A D-series is a good starting point for this lab. You can learn more [here](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-sizes-specs) or [here](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/09/12/choosing-the-most-appropiate-azure-virtual-machine-specification/).
+1. In the list of available VM types, select **DS1_V2 Standard**. Notice the wide range of VM choices available. Azure provides these according to the growing needs of your workload or application - for example, you might need the high memory allocation (G-series) or additional GPUs (N-series) that maximize the performance of deep-learning experiments (like image classification). Some VMs are most cost-effective for early experiementation (A-series, Dv2 series. A D-series is a good starting point for this lab. You can learn more [here](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs?WT.mc_id=academiccontent-github-cxa) or [here](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/09/12/choosing-the-most-appropiate-azure-virtual-machine-specification/?WT.mc_id=academiccontent-github-cxa).
 
     ![ONE-002a](images/ONE-002a.jpg "DSVM")
 
@@ -136,7 +136,7 @@ In this exercise, you will use a local X2Go client to connect to your new VM in 
 
 1. If you have not already done so, download and install X2Go on your local device. You can download it [here](https://wiki.x2go.org/doku.php/download:start). Instructions [here](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
 
-    *Check [these docs](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/linux-dsvm-intro#installing-and-configuring-x2go-client) for more information on using X2Go on the Linux Data Science Virtual Machine.*
+    *Check [these docs](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/linux-dsvm-intro#installing-and-configuring-x2go-client?WT.mc_id=academiccontent-github-cxa) for more information on using X2Go on the Linux Data Science Virtual Machine.*
 
 1. Open X2Go. If you see any security alerts related to firewalls, now or later during these exercises, click **Allow Access**.
 
@@ -308,7 +308,7 @@ In this exercise, you will import data from the listings.csv file, clean the dat
 ### Stopping the DSVM ###
 Before completing the lab, make sure you shut down the virtual machine you created in Microsoft Azure.
 
-1. In a web browser, open the Azure Web Portal (<http://portal.azure.com).>
+1. In a web browser, open the Azure Web Portal (<http://portal.azure.com?WT.mc_id=academiccontent-github-cxa).>
 2. Close the X2Go window and then use the controls in the Azure Web Portal to stop the Data Science Virtual Machine. 
 3. Close all open windows.
 

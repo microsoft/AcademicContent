@@ -1,10 +1,10 @@
 ![](Images/header.png)
 
-[Image classification](https://en.wikipedia.org/wiki/Contextual_image_classification) is a common application for [machine learning](https://en.wikipedia.org/wiki/Machine_learning). The classic use case involves training a computer to recognize cat images — or, if you're fan of the TV show [Silicon Valley](https://www.hbo.com/silicon-valley), hot-dog images. In real life, image classification serves a variety of purposes ranging from analyzing images for adult content to identifying defective parts produced by manufacturing processes. It was recently used to [help search-and-rescue drones](https://blogs.technet.microsoft.com/canitpro/2017/05/10/teaching-drones-to-aid-search-and-rescue-efforts-via-cognitive-services/) identify objects such as boats and life vests in large bodies of water and recognize potential emergency situations in order to notify a rescue squad without waiting for human intervention.
+[Image classification](https://en.wikipedia.org/wiki/Contextual_image_classification) is a common application for [machine learning](https://en.wikipedia.org/wiki/Machine_learning). The classic use case involves training a computer to recognize cat images — or, if you're fan of the TV show [Silicon Valley](https://www.hbo.com/silicon-valley), hot-dog images. In real life, image classification serves a variety of purposes ranging from analyzing images for adult content to identifying defective parts produced by manufacturing processes. It was recently used to [help search-and-rescue drones](https://blogs.technet.microsoft.com/canitpro/2017/05/10/teaching-drones-to-aid-search-and-rescue-efforts-via-cognitive-services/?WT.mc_id=academiccontent-github-cxa) identify objects such as boats and life vests in large bodies of water and recognize potential emergency situations in order to notify a rescue squad without waiting for human intervention.
 
-Image-classification models are typically built around [convolutional neural networks](https://en.wikipedia.org/wiki/Convolutional_neural_network) that "learn" from the thousands (or tens or hundreds of thousands) of labeled images they are trained with. Such networks are frequently built using [Apache Spark](https://spark.apache.org/) and [Spark ML](http://spark.apache.org/docs/latest/ml-guide.html). The [Microsoft Machine Learning Library for Apache Spark](https://github.com/Azure/mmlspark), also known as MMLSpark, is an open-source library that simplifies machine learning in Spark by abstracting many of Spark ML's lower-level APIs and providing near-seamless integration between Spark ML pipelines and popular Deep Neural Network (DNN) libraries such as the [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), also known as the Computational Network Toolkit, or simply CNTK.
+Image-classification models are typically built around [convolutional neural networks](https://en.wikipedia.org/wiki/Convolutional_neural_network) that "learn" from the thousands (or tens or hundreds of thousands) of labeled images they are trained with. Such networks are frequently built using [Apache Spark](https://spark.apache.org/) and [Spark ML](http://spark.apache.org/docs/latest/ml-guide.html). The [Microsoft Machine Learning Library for Apache Spark](https://github.com/Azure/mmlspark), also known as MMLSpark, is an open-source library that simplifies machine learning in Spark by abstracting many of Spark ML's lower-level APIs and providing near-seamless integration between Spark ML pipelines and popular Deep Neural Network (DNN) libraries such as the [Microsoft Cognitive Toolkit](https://www.microsoft.com/research/product/cognitive-toolkit/?WT.mc_id=academiccontent-github-cxa), also known as the Computational Network Toolkit, or simply CNTK.
 
-In this lab, the first of four in a series, you will use the Azure CLI to create an Azure SQL database in the cloud. Then you will use [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/quickstart-installation) to run a Python script that uses the [Bing Image Search API](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) to search the Web for images of paintings by famous artists and write the results to the Azure SQL database. In [Lab 2](../2%20-%20Process), you will clean the data, and in [Lab 3](../3%20-%20Predict), you will use MMLSpark to build an image-classification model that can identify the artists of famous paintings. Finally, in [Lab 4](../4%20-%20Visualize), you will operationalize the model and build an app that uses it.
+In this lab, the first of four in a series, you will use the Azure CLI to create an Azure SQL database in the cloud. Then you will use [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/quickstart-installation?WT.mc_id=academiccontent-github-cxa) to run a Python script that uses the [Bing Image Search API](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/?WT.mc_id=academiccontent-github-cxa) to search the Web for images of paintings by famous artists and write the results to the Azure SQL database. In [Lab 2](../2%20-%20Process), you will clean the data, and in [Lab 3](../3%20-%20Predict), you will use MMLSpark to build an image-classification model that can identify the artists of famous paintings. Finally, in [Lab 4](../4%20-%20Visualize), you will operationalize the model and build an app that uses it.
 
 ![](Images/road-map-1.png)
 
@@ -22,10 +22,10 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
 - A computer running Windows 10, Windows Server 2016, macOS Sierra, or macOS High Sierra
-- [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/quickstart-installation)
-- The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/quickstart-installation?WT.mc_id=academiccontent-github-cxa)
+- The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=academiccontent-github-cxa)
 - [Docker](https://www.docker.com/)
 
 <a name="Cost"></a>
@@ -51,7 +51,7 @@ Estimated time to complete this lab: **40** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Create an Azure SQL database ##
 
-In this exercise, you will use the Azure CLI to create an Azure SQL database in the cloud. This database will ultimately serve as a source of data for a machine-learning model that performs image classification. Note that you can also create Azure SQL databases using the [Azure Portal](https://portal.azure.com). Whether to use the CLI or the portal is often a matter of personal preference.
+In this exercise, you will use the Azure CLI to create an Azure SQL database in the cloud. This database will ultimately serve as a source of data for a machine-learning model that performs image classification. Note that you can also create Azure SQL databases using the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa). Whether to use the CLI or the portal is often a matter of personal preference.
 
 1. If the Azure CLI 2.0 isn't installed on your computer, go to https://docs.microsoft.com/cli/azure/install-azure-cli and install it now. You can determine whether the CLI is installed — and what version is installed — by opening a Command Prompt or terminal window and typing the following command:
 
@@ -61,7 +61,7 @@ In this exercise, you will use the Azure CLI to create an Azure SQL database in 
 
 	If the CLI is installed, the version number will be displayed. If the version number is less than 2.0.19, download and install the latest version.
 
-	> As an alternative to installing the Azure CLI, you can use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) available in the [Azure Portal](https://portal.azure.com). Simply open the portal in your browser and click the **Cloud Shell** button in the toolbar at the top of the page. One of the benefits of using the Cloud Shell is that you're *always* running an up-to-date version. Note that you can use **Shift+Insert** to paste commands into the Cloud Shell, and **Ctrl+Insert** to copy text from the Cloud Shell to the clipboard.
+	> As an alternative to installing the Azure CLI, you can use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/?WT.mc_id=academiccontent-github-cxa) available in the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa). Simply open the portal in your browser and click the **Cloud Shell** button in the toolbar at the top of the page. One of the benefits of using the Cloud Shell is that you're *always* running an up-to-date version. Note that you can use **Shift+Insert** to paste commands into the Cloud Shell, and **Ctrl+Insert** to copy text from the Cloud Shell to the clipboard.
 
 	![Opening the Azure Cloud Shell](Images/cloud-shell.png)
 
@@ -91,13 +91,13 @@ In this exercise, you will use the Azure CLI to create an Azure SQL database in 
 
 	> In practice, you would limit access to your own IP address or a narrow range of IP addresses. To avoid issues with dynamic IP addresses, however, here you are allowing access from any IP address.
 
-1. Use the following command to create a database assigned the [S0 service tier](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers). Replace DATABASE_NAME with the name you wish to assign the database, and SERVER_NAME with the server name you specified in Step 3.
+1. Use the following command to create a database assigned the [S0 service tier](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers?WT.mc_id=academiccontent-github-cxa). Replace DATABASE_NAME with the name you wish to assign the database, and SERVER_NAME with the server name you specified in Step 3.
 
 	```
 	az sql db create --resource-group mmlsparklab-rg --server SERVER_NAME --name DATABASE_NAME --service-objective S0
 	```
 
-You now have a resource group that contains a database and a database server. If you would like to verify that they were created, open the [Azure Portal](https://portal.azure.com) in your browser, click **Resource groups** in the ribbon on the left side of the portal, and then click the resource group named "mmlsparklab-rg." The resource group should contain two resources, as pictured below. The resource names will differ depending on how you named the database and database server.
+You now have a resource group that contains a database and a database server. If you would like to verify that they were created, open the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser, click **Resource groups** in the ribbon on the left side of the portal, and then click the resource group named "mmlsparklab-rg." The resource group should contain two resources, as pictured below. The resource names will differ depending on how you named the database and database server.
 
 ![Contents of the "mmlsparklab-rg" resource group](Images/resource-group.png)
 
@@ -106,9 +106,9 @@ _Contents of the "mmlsparklab-rg" resource group_
 <a name="Exercise2"></a>
 ## Exercise 2: Get a Bing Search API key ##
 
-The [Bing Image Search API](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) is part of the [Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) suite of services and APIs for building intelligent applications. In [Exercise 4](#Exercise4), you will use the Bing Image Search API from a Python script to search the Web for images of paintings by famous artists. But in order to invoke the Bing Image Search API, you need an API key. In this exercise, you will use the Azure Portal to acquire an API key.
+The [Bing Image Search API](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/?WT.mc_id=academiccontent-github-cxa) is part of the [Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=academiccontent-github-cxa) suite of services and APIs for building intelligent applications. In [Exercise 4](#Exercise4), you will use the Bing Image Search API from a Python script to search the Web for images of paintings by famous artists. But in order to invoke the Bing Image Search API, you need an API key. In this exercise, you will use the Azure Portal to acquire an API key.
 
-1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
+1. Open the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If asked to log in, do so using your Microsoft account.
 
 1. In the Azure Portal, click **+ Create a resource**. Type "bing search" (without quotation marks) into the search box and select **Bing Search v7 APIs** from the drop-down list. Then click the **Create** button at the bottom of the ensuing blade.
 
@@ -139,7 +139,7 @@ Finish up by pasting the key that is on the clipboard into your favorite text ed
 <a name="Exercise3"></a>
 ## Exercise 3: Create a Docker container image ##
 
-In [Exercise 4](#Exercise4), you will use a Python script to search the Web for images of paintings by famous artists and write the results to the database you created in [Exercise 1](#Exercise1). The script will run in a Docker container and use a popular Python package named [pyodbc](https://github.com/mkleehammer/pyodbc) to connect to the database. That package only works, however, if the [Microsoft ODBC Driver for SQL Server](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server) is installed as well. In this exercise, you will create a Docker container image that includes the Microsoft ODBC Driver for SQL Server.
+In [Exercise 4](#Exercise4), you will use a Python script to search the Web for images of paintings by famous artists and write the results to the database you created in [Exercise 1](#Exercise1). The script will run in a Docker container and use a popular Python package named [pyodbc](https://github.com/mkleehammer/pyodbc) to connect to the database. That package only works, however, if the [Microsoft ODBC Driver for SQL Server](https://docs.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?WT.mc_id=academiccontent-github-cxa) is installed as well. In this exercise, you will create a Docker container image that includes the Microsoft ODBC Driver for SQL Server.
 
 1. If Docker isn't installed on your computer, go to https://www.docker.com/ and download and install [Docker for Windows](https://www.docker.com/docker-windows) or [Docker for Mac](https://www.docker.com/docker-mac). If you are not sure whether Docker is installed on your computer, open a Command Prompt or terminal window and type the following command:
 
@@ -275,7 +275,7 @@ In this exercise, you will use Azure Machine Learning Workbench to execute a Pyt
 	    - https://azuremldownloads.blob.core.windows.net/wheels/latest/azureml.assets-1.0.0-py3-none-any.whl?sv=2016-05-31&si=ro-2017&sr=c&sig=xnUdTm0B%2F%2FfknhTaRInBXyu2QTTt8wA3OsXwGVgU%2BJk%3D
 	```
 
-	When you run this project, Azure Machine Learning Workbench builds a Docker image containing the packages listed in the ```dependencies``` section of **conda_dependencies.yml**. The packages you added include the database libraries [pyodbc](https://github.com/mkleehammer/pyodbc) and [SQLAlchemy](http://docs.sqlalchemy.org/en/latest/core/engines.html), imaging libraries named [Pillow](https://pypi.python.org/pypi/Pillow) and [Scikit-image](http://scikit-image.org/), libraries for interacting with Azure Storage, and a version of the [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/) that doesn't require a GPU, among others.
+	When you run this project, Azure Machine Learning Workbench builds a Docker image containing the packages listed in the ```dependencies``` section of **conda_dependencies.yml**. The packages you added include the database libraries [pyodbc](https://github.com/mkleehammer/pyodbc) and [SQLAlchemy](http://docs.sqlalchemy.org/en/latest/core/engines.html), imaging libraries named [Pillow](https://pypi.python.org/pypi/Pillow) and [Scikit-image](http://scikit-image.org/), libraries for interacting with Azure Storage, and a version of the [Microsoft Cognitive Toolkit](https://www.microsoft.com/research/product/cognitive-toolkit/?WT.mc_id=academiccontent-github-cxa) that doesn't require a GPU, among others.
 
 1. Use the **File** > **Save** command to save the modified **conda_dependencies.yml** file.
 
@@ -417,7 +417,7 @@ After the run, the Azure SQL database that you created in [Exercise 1](#Exercise
 
 In this exercise, you will use the Azure Portal to view the information regarding paintings by famous artists that was written to the Azure SQL database by the Python script in the previous exercise.
 
-1. Return to the [Azure Portal](https://portal.azure.com) in your browser and open the "mmlsparklab-rg" resource group that you created in [Exercise 1](#Exercise1). Then click the database that you created in the same exercise.
+1. Return to the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser and open the "mmlsparklab-rg" resource group that you created in [Exercise 1](#Exercise1). Then click the database that you created in the same exercise.
 
 	![Opening the database](Images/open-database.png)
 

@@ -2,7 +2,7 @@
 
 In the [previous lab](../1%20-%20Ingest), you uploaded four files comprising the [MNIST database](http://yann.lecun.com/exdb/mnist/) to Azure blob storage. MNIST is a popular dataset for training and evaluating machine-learning models that perform handwriting recognition. It contains 60,000 scanned and normalized images of the digits 0 through 9 drawn by high school students. It also includes a set of 10,000 test images for evaluating a model's accuracy.
 
-In this lab, you will prepare the data to be used in a machine-learning model by converting it into a format supported by the [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), also known as CNTK. And you will use Microsoft's Azure Machine Learning Workbench, a free cross-platform tool for wrangling data and building machine-learning models, to do the conversion.
+In this lab, you will prepare the data to be used in a machine-learning model by converting it into a format supported by the [Microsoft Cognitive Toolkit](https://www.microsoft.com/research/product/cognitive-toolkit/?WT.mc_id=academiccontent-github-cxa), also known as CNTK. And you will use Microsoft's Azure Machine Learning Workbench, a free cross-platform tool for wrangling data and building machine-learning models, to do the conversion.
 
 ![](Images/road-map-2.png)
 
@@ -20,9 +20,9 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
 - A computer running Windows 10, Windows Server 2016, macOS Sierra, or macOS High Sierra
-- [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/quickstart-installation)
+- [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/quickstart-installation?WT.mc_id=academiccontent-github-cxa)
 - [Docker](https://www.docker.com/)
 
 If you haven't completed the [previous lab in this series](../1%20-%20Ingest), you must do so before starting this lab.
@@ -76,7 +76,7 @@ The files in the project directory are merely starter files that will need to be
 <a name="Exercise2"></a>
 ## Exercise 2: Customize the project ##
 
-One of the tasks at which Machine Learning Workbench excels is helping you prepare data for training machine-learning models. For example, its [Derive Column by Example](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-derive-column-by-example) feature lets you create new feature columns with information derived from data in other columns, and it uses AI to learn by example. You do the first few transformations, and it does the rest. It also includes features for replacing missing values, trimming strings, and performing other common data-cleaning operations.
+One of the tasks at which Machine Learning Workbench excels is helping you prepare data for training machine-learning models. For example, its [Derive Column by Example](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-derive-column-by-example?WT.mc_id=academiccontent-github-cxa) feature lets you create new feature columns with information derived from data in other columns, and it uses AI to learn by example. You do the first few transformations, and it does the rest. It also includes features for replacing missing values, trimming strings, and performing other common data-cleaning operations.
 
 The MNIST data that you uploaded to blob storage in the previous lab doesn't require cleaning in the conventional sense, but it does need to be converted into a format that is compatible with CNTK. In this exercise, you will write Python scripts to perform the conversion, and configure the project to execute them.
 
@@ -103,7 +103,7 @@ The MNIST data that you uploaded to blob storage in the previous lab doesn't req
 	Framework: "Python"
 	```
 
-1. Open the [Azure Portal](https://portal.azure.com) in your browser and open the storage account that you created in the [previous lab](../1%20-%20Ingest).
+1. Open the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser and open the storage account that you created in the [previous lab](../1%20-%20Ingest).
 
 	![Opening the storage account](Images/open-storage-account.png)
 
@@ -133,7 +133,7 @@ The MNIST data that you uploaded to blob storage in the previous lab doesn't req
 	baseDockerImage: "blaize/mlspark-brainscript"
 	```
 
-	This changes the base Docker image used for the Docker container to a custom image that adds support for BrainScript to the Docker image that Machine Learning Workbench uses by default. [BrainScript](https://docs.microsoft.com/cognitive-toolkit/brainscript-basic-concepts) is the language used by CNTK to define neural networks.
+	This changes the base Docker image used for the Docker container to a custom image that adds support for BrainScript to the Docker image that Machine Learning Workbench uses by default. [BrainScript](https://docs.microsoft.com/cognitive-toolkit/brainscript-basic-concepts?WT.mc_id=academiccontent-github-cxa) is the language used by CNTK to define neural networks.
 
 	> You won't be using BrainScript in this lab, but you *will* use it in the next lab when you use CNTK to build a neural network.
 
@@ -310,7 +310,7 @@ In this exercise, you will run the **convert.py** script that you created in the
 
 	_Successful run_
 
-1. Return to the storage account that you created in the previous lab in the [Azure Portal](https://portal.azure.com). Confirm that the storage account now contains *two* containers: the "mnist-data" container you created in the previous lab, and a container named "cntk-data" that holds the output from **convert.py**.
+1. Return to the storage account that you created in the previous lab in the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa). Confirm that the storage account now contains *two* containers: the "mnist-data" container you created in the previous lab, and a container named "cntk-data" that holds the output from **convert.py**.
 
 	![Containers for converted and unconverted data](Images/two-containers.png)
 

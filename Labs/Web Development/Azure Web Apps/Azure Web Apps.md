@@ -1,11 +1,11 @@
 <a name="HOLTitle"></a>
 # Azure Web Apps #
 
-[Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/app-service-value-prop-what-is/) is a set of services provided by Microsoft Azure to enable developers to easily build and deploy Web apps and mobile apps for various platforms and devices. Included in the App Service family are [Azure Web Apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-overview/), which allow you to quickly and easily deploy Web sites built with tools and languages you’re already familiar with; [Azure Mobile Apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/), which provide data services, syncing services, notification services, and other back-end services for popular mobile operating systems; [Azure API Apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-api-apps-why-best-platform/), which simplify the writing, publishing, and consuming of cloud APIs; and [Azure Logic Apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-what-are-logic-apps/), which are great for automating business processes.
+[Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/?WT.mc_id=academiccontent-github-cxa) is a set of services provided by Microsoft Azure to enable developers to easily build and deploy Web apps and mobile apps for various platforms and devices. Included in the App Service family are [Azure Web Apps](https://azure.microsoft.com/documentation/articles/app-service-web-overview/?WT.mc_id=academiccontent-github-cxa), which allow you to quickly and easily deploy Web sites built with tools and languages you’re already familiar with; [Azure Mobile Apps](https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/?WT.mc_id=academiccontent-github-cxa), which provide data services, syncing services, notification services, and other back-end services for popular mobile operating systems; [Azure API Apps](https://azure.microsoft.com/documentation/articles/app-service-api-apps-why-best-platform/?WT.mc_id=academiccontent-github-cxa), which simplify the writing, publishing, and consuming of cloud APIs; and [Azure Logic Apps](https://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/?WT.mc_id=academiccontent-github-cxa), which are great for automating business processes.
 
 Azure Web Apps makes deploying Web sites extraordinarily easy – and not just Web sites built using the Microsoft stack. You can deploy PHP apps that use MySQL just as easily as ASP.NET apps that use SQL Server. You can select from a wide variety of Web App templates or build templates of your own. You can configure Web Apps to auto-scale as traffic increases to ensure that your customers aren’t left waiting during periods of peak demand. You can publish apps to staging locations and test them in the cloud before taking them live, and then swap staging deployments for production deployments with the click of a button. You can even create WebJobs – programs or scripts that run continuously or on a schedule to handle billing and other time-critical tasks. In short, Azure Web Apps takes the pain out of publishing and maintaining Web apps and are just as suitable for a personal photo-sharing site as they are for enterprise-grade sites serving millions of customers.
 
-In this lab, you will use the cross-platform [Visual Studio Code](https://code.visualstudio.com/)  editor to build a Web site that uses [PHP](http://php.net/) server-side scripting. The site will allow you to upload, browse, and display photos, and it will store photos in a [MySQL](http://www.mysql.com/) database. You will then provision a new Azure Web App to host the site. Finally, you will upload the site's content to the newly provisioned Web App and view it in your browser.
+In this lab, you will use the cross-platform [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=academiccontent-github-cxa)  editor to build a Web site that uses [PHP](http://php.net/) server-side scripting. The site will allow you to upload, browse, and display photos, and it will store photos in a [MySQL](http://www.mysql.com/) database. You will then provision a new Azure Web App to host the site. Finally, you will upload the site's content to the newly provisioned Web App and view it in your browser.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -21,8 +21,8 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
-- [Visual Studio Code](https://code.visualstudio.com/download)
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
+- [Visual Studio Code](https://code.visualstudio.com/download?WT.mc_id=academiccontent-github-cxa)
 - [PHP for Windows](http://windows.php.net/download/)
 
 <a name="Cost"></a>
@@ -46,7 +46,7 @@ Estimated time to complete this lab: **45** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Build a Web site with Visual Studio Code
 
-In this exercise, you will use [Visual Studio Code](https://code.visualstudio.com/) to build a Web site. Visual Studio Code is a free, cross-platform code editor available for Windows, macOS, and Linux that supports a variety of programming languages, both natively and via extensions. It features built-in Git support as well as syntax highlighting and code completion via [IntelliSense](https://code.visualstudio.com/#meet-intellisense).
+In this exercise, you will use [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=academiccontent-github-cxa) to build a Web site. Visual Studio Code is a free, cross-platform code editor available for Windows, macOS, and Linux that supports a variety of programming languages, both natively and via extensions. It features built-in Git support as well as syntax highlighting and code completion via [IntelliSense](https://code.visualstudio.com/#meet-intellisense).
 
 1. Create a project directory named "WebAppIntro" in the location of your choice — for example, "C:\DXLabs\WebAppIntro."
 
@@ -484,7 +484,7 @@ That's it! Your photo-sharing Web site is built. The next step is to provision a
 
 There are several ways to provision an Azure Web App. In this exercise, you will use the Azure Portal to do it. Provisioning is quick and easy and involves little more than answering a few questions and clicking a few buttons. Once the Web App is provisioned, you can view it in your browser just as you would any other Web site.
 
-1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
+1. Open the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If you are asked to log in, do so using your Microsoft account.
 
 1. Click **+ Create a resource**. Type "web app mysql" into the search box and press **Enter**. Then select **Web App + MySQL** from the search results.
 

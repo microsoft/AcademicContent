@@ -1,7 +1,7 @@
 <a name="HOLTitle"></a>
 # Using Microsoft Power BI to Explore and Visualize Data #
 
-[Microsoft Power BI](https://powerbi.microsoft.com/en-us/mobile/) was created to address the data explosion in commercial and academic organizations, the need to analyze that data, and the need for rich, interactive visuals to represent the data and reveal key insights. It contains a suite of tools that assist in the full life cycle of data analysis, from data discovery and collection to data transformation, aggregation, visualization, sharing, and collaboration. Moreover, it allows you to create rich visualizations without writing any code and present them in interactive dashboards.
+[Microsoft Power BI](https://powerbi.microsoft.com/mobile/?WT.mc_id=academiccontent-github-cxa) was created to address the data explosion in commercial and academic organizations, the need to analyze that data, and the need for rich, interactive visuals to represent the data and reveal key insights. It contains a suite of tools that assist in the full life cycle of data analysis, from data discovery and collection to data transformation, aggregation, visualization, sharing, and collaboration. Moreover, it allows you to create rich visualizations without writing any code and present them in interactive dashboards.
 
 Power BI can organize and unify all of your organization’s data to provide a clear, real-time view of your world. Its features include data connectors for a wide range of services and applications, support for popular file formats and databases, a full-featured expression engine, a WYSIWYG editor for creating sophisticated visualizations, support for visualizing data on the Web or on mobile devices running iOS, Android, or Windows, and support for embedding visualizations in your own Web or mobile apps.
 
@@ -412,9 +412,9 @@ It's that simple to publish and share your Power BI content. If you are working 
 <a name="Exercise6"></a>
 ## Exercise 6: Do more with Power BI Desktop ##
 
-The Power BI Services Portal is both flexible and robust, and since it runs in a browser, it can be accessed from any computer. But if you're a Windows user, you have an even more powerful tool at your disposal: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/). It includes advanced features the portal does not, especially when it comes to query management, visualizations, and modeling. In this exercise, you will use Power BI Desktop to connect to a database, create a table visualization, and add a computed column to the visualization.
+The Power BI Services Portal is both flexible and robust, and since it runs in a browser, it can be accessed from any computer. But if you're a Windows user, you have an even more powerful tool at your disposal: [Power BI Desktop](https://powerbi.microsoft.com/desktop/?WT.mc_id=academiccontent-github-cxa). It includes advanced features the portal does not, especially when it comes to query management, visualizations, and modeling. In this exercise, you will use Power BI Desktop to connect to a database, create a table visualization, and add a computed column to the visualization.
 
-1. In the Power BI Services Portal, click the **Download** icon in the top-right corner and select **Power BI Desktop**. (Alternatively, you can point your browser to https://powerbi.microsoft.com/en-us/desktop/ and click the **Download** button there to download and install Power BI Desktop.) Follow the onscreen instructions to install Power BI Desktop on your computer.
+1. In the Power BI Services Portal, click the **Download** icon in the top-right corner and select **Power BI Desktop**. (Alternatively, you can point your browser to https://powerbi.microsoft.com/desktop/ and click the **Download** button there to download and install Power BI Desktop.) Follow the onscreen instructions to install Power BI Desktop on your computer.
 
 	![Downloading Power BI Desktop](Images/portal-click-download-desktop.png)
 	

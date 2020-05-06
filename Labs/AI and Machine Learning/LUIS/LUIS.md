@@ -5,7 +5,7 @@ One of the key challenges in the world of human-computer interactions is trainin
 
 ![Human-computer interaction](Images/luis-lab-header.png)
  
-Microsoft's [Language Understanding Intelligent Service](https://www.microsoft.com/cognitive-services/en-us/language-understanding-intelligent-service-luis), or LUIS for short, is designed to fill this need, offering a fast and effective way to add language understanding to applications. LUIS lets you create models that take sentences or *utterances* and interpret them by discerning *intents* such as "find news" and extracting *entities* such as "Microsoft". LUIS utilizes interactive machine-learning techniques and benefits from extensive research on language understanding performed by researchers at Microsoft Research and other institutions. And once a LUIS model is built and trained, it is easily deployed as a Web service so bots and other applications can call it to convert commands entered by users into actions.
+Microsoft's [Language Understanding Intelligent Service](https://www.microsoft.com/cognitive-services/language-understanding-intelligent-service-luis?WT.mc_id=academiccontent-github-cxa), or LUIS for short, is designed to fill this need, offering a fast and effective way to add language understanding to applications. LUIS lets you create models that take sentences or *utterances* and interpret them by discerning *intents* such as "find news" and extracting *entities* such as "Microsoft". LUIS utilizes interactive machine-learning techniques and benefits from extensive research on language understanding performed by researchers at Microsoft Research and other institutions. And once a LUIS model is built and trained, it is easily deployed as a Web service so bots and other applications can call it to convert commands entered by users into actions.
 
 In this lab, you will create a LUIS application, configure a language-understanding model using both pre-built and custom entities, and define intents. Then you will build a bot that uses the model to respond to natural-language commands such as "find news about Microsoft" or "get the latest soccer news."
 
@@ -25,8 +25,8 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- A Microsoft account. If you don't have one, [sign up for free](https://account.microsoft.com/account).
-- [Visual Studio Code](http://code.visualstudio.com)
+- A Microsoft account. If you don't have one, [sign up for free](https://account.microsoft.com/account?WT.mc_id=academiccontent-github-cxa).
+- [Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academiccontent-github-cxa)
 
 <a name="Cost"></a>
 ### Cost ###
@@ -150,7 +150,7 @@ Your LUIS application is now configured to understand phrases such as "get socce
 <a name="Exercise3"></a>
 ## Exercise 3: Add prebuilt entities and entity lists ##
 
-Now that LUIS understands some basic intents and phrases, it's time to make the model even more intelligent by leveraging prebuilt entities and entity lists. Prebuilt entities allow a model to know, for example, that words such as "tomorrow" and "September 30" represent dates and times, or that "20 years old" represents an age. A complete list of the prebuilt entities that LUIS supports can be found at https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/pre-builtentities. In this exercise, you will add the prebuilt *encyclopedia* entity to your model, and add an entity list for searching for news by category.
+Now that LUIS understands some basic intents and phrases, it's time to make the model even more intelligent by leveraging prebuilt entities and entity lists. Prebuilt entities allow a model to know, for example, that words such as "tomorrow" and "September 30" represent dates and times, or that "20 years old" represents an age. A complete list of the prebuilt entities that LUIS supports can be found at https://docs.microsoft.com/azure/cognitive-services/LUIS/pre-builtentities. In this exercise, you will add the prebuilt *encyclopedia* entity to your model, and add an entity list for searching for news by category.
 
 1. Click **Entities** in the menu on the left to display the Entities page. Then click **Add prebuilt entity**.
 
@@ -312,7 +312,7 @@ Now that the model is available over HTTP, you can incorporate its intelligence 
 <a name="Exercise5"></a>
 ## Exercise 5: Create a bot and connect it to the model ##
 
-In this exercise, you will use the Microsoft Bot Framework to build a bot and connect it to the LUIS model you deployed in the previous exercise so the bot can respond to commands such as "Find health news." You will use Visual Studio Code to write the bot. If you haven't installed Visual Studio Code, [please do so](http://code.visualstudio.com) before continuing with this exercise. It's free, and it runs on Windows, Linux, and macOS.
+In this exercise, you will use the Microsoft Bot Framework to build a bot and connect it to the LUIS model you deployed in the previous exercise so the bot can respond to commands such as "Find health news." You will use Visual Studio Code to write the bot. If you haven't installed Visual Studio Code, [please do so](http://code.visualstudio.com?WT.mc_id=academiccontent-github-cxa) before continuing with this exercise. It's free, and it runs on Windows, Linux, and macOS.
 
 1. Create a project directory named "Newsy" in the location of your choice — for example, C:\Labs\Newsy.
 
@@ -545,7 +545,7 @@ Feel free to try other commands such as "Show me the latest health news" and con
 <a name="Summary"></a>
 ## Summary ##
 
-There is much more that you can do to leverage the power of the Microsoft Language Understanding Intelligent Services in your code. For starters, try experimenting with other LUIS features such as [intent dialogs](https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent) and adding more prebuilt entities to your model. For additional background on LUIS and examples of how to use it, refer to https://docs.microsoft.com/en-us/bot-framework/cognitive-services-bot-intelligence-overview#language-understanding.
+There is much more that you can do to leverage the power of the Microsoft Language Understanding Intelligent Services in your code. For starters, try experimenting with other LUIS features such as [intent dialogs](https://docs.microsoft.com/bot-framework/nodejs/bot-builder-nodejs-recognize-intent?WT.mc_id=academiccontent-github-cxa) and adding more prebuilt entities to your model. For additional background on LUIS and examples of how to use it, refer to https://docs.microsoft.com/bot-framework/cognitive-services-bot-intelligence-overview#language-understanding.
 
 ----
 

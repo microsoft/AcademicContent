@@ -6,9 +6,9 @@
 
 ## Overview ##
 
-We find ourselves at a fascinating moment in the history of technology. Through our mobile devices, data is abundant, readily available, and easy to share. We have nearly unlimited processing power and it's available to anyone who needs it. Add to that mix the public availability of new, powerful artificial-intelligence (AI) algorithms, and suddenly developers have a mind-boggling degree of programming power, right at their fingertips. With AI, we can tap into huge amounts of data and make it work for us by giving us insights about whatever we care about. [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provides a rich source for AI algorithms, enabling your apps to see, hear, speak, understand, and interpret your users' needs.
+We find ourselves at a fascinating moment in the history of technology. Through our mobile devices, data is abundant, readily available, and easy to share. We have nearly unlimited processing power and it's available to anyone who needs it. Add to that mix the public availability of new, powerful artificial-intelligence (AI) algorithms, and suddenly developers have a mind-boggling degree of programming power, right at their fingertips. With AI, we can tap into huge amounts of data and make it work for us by giving us insights about whatever we care about. [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=academiccontent-github-cxa) provides a rich source for AI algorithms, enabling your apps to see, hear, speak, understand, and interpret your users' needs.
 
-In this lab, you will experience the benefits of using AI first-hand. You will begin the lab by downloading a short-term vacation-rental web app called [ContosoBNB](https://contosobnb.azurewebsites.net/). Then you will incorporate the [Local Insights API](https://labs.cognitive.microsoft.com/en-us/project-local-insights), an experimental project in the Azure Cognitive Services family. Project Local Insights provides a custom score for the attractiveness of a location according to a user's select preferences. After incorporating the API, the ContosoBNB application renders a [Bing Maps](https://www.microsoft.com/maps/choose-your-bing-maps-api) image of several cities within the United States where the project is supported. Circles appear on the rendered map to represent neighborhoods, and each circle displays a number that corresponds to the number of available properties within that neighborhood. Neighborhoods are also rated according to preference settings that the user can adjust. Finally, using the API, you will alter the neighborhood criteria (categories) displayed in the user interface. This step enables you to customize the attractiveness score of a neighborhood so that the score is determined by its proximity to amenities you prioritize (such as restaurants or parks) within the defined area.
+In this lab, you will experience the benefits of using AI first-hand. You will begin the lab by downloading a short-term vacation-rental web app called [ContosoBNB](https://contosobnb.azurewebsites.net/). Then you will incorporate the [Local Insights API](https://labs.cognitive.microsoft.com/project-local-insights?WT.mc_id=academiccontent-github-cxa), an experimental project in the Azure Cognitive Services family. Project Local Insights provides a custom score for the attractiveness of a location according to a user's select preferences. After incorporating the API, the ContosoBNB application renders a [Bing Maps](https://www.microsoft.com/maps/choose-your-bing-maps-api?WT.mc_id=academiccontent-github-cxa) image of several cities within the United States where the project is supported. Circles appear on the rendered map to represent neighborhoods, and each circle displays a number that corresponds to the number of available properties within that neighborhood. Neighborhoods are also rated according to preference settings that the user can adjust. Finally, using the API, you will alter the neighborhood criteria (categories) displayed in the user interface. This step enables you to customize the attractiveness score of a neighborhood so that the score is determined by its proximity to amenities you prioritize (such as restaurants or parks) within the defined area.
 
 <a name="Objectives"></a>
 
@@ -28,8 +28,8 @@ In this hands-on lab, you will learn how to build your own AI-powered ContosoBNB
 
 The following are required to complete this hands-on lab:
 
-- An API key from Cognitive Services Local Insights. If you haven't already, [subscribe to Project Local Insights](https://labs.cognitive.microsoft.com/en-us/project-local-insights).
-- Visual Studio Code, with [downloads for Windows, Linux, and Mac available here](https://code.visualstudio.com/download).
+- An API key from Cognitive Services Local Insights. If you haven't already, [subscribe to Project Local Insights](https://labs.cognitive.microsoft.com/project-local-insights?WT.mc_id=academiccontent-github-cxa).
+- Visual Studio Code, with [downloads for Windows, Linux, and Mac available here](https://code.visualstudio.com/download?WT.mc_id=academiccontent-github-cxa).
 
 <a name="Resources"></a>
 
@@ -60,7 +60,7 @@ Estimated time to complete this lab: **60** minutes
 In this exercise, you will install (if necessary) and open a local development environment, download the lab's source files, and finally configure the application to use the API key provided after subscribing to Project Local Insights.
 
 1. You will need an editor to view and make changes to the application as part of this lab. If you would like to use Visual Studio Code and your computer is running Windows, proceed to step 2. Otherwise skip to step 4.
-1. Download and install Microsoft Visual Studio Code [here](https://code.visualstudio.com/download). Accept the License Agreement and make note of the installation location.
+1. Download and install Microsoft Visual Studio Code [here](https://code.visualstudio.com/download?WT.mc_id=academiccontent-github-cxa). Accept the License Agreement and make note of the installation location.
 
     ![Accept the License Agreement](img/LicenseAgreement.png)
     ![Visual Studio Code Installation Locaiton](img/InstallationLocation.png)
@@ -71,7 +71,7 @@ In this exercise, you will install (if necessary) and open a local development e
 
 1. Download the .ZIP file containing the resources used in this lab [here](https://redshirttour.blob.core.windows.net/challenges/WebAppHOL.zip).
 1. Extract the downloaded .zip file.
-1. If you haven't done so already, go to <https://labs.cognitive.microsoft.com/en-us/project-local-insights> and subscribe to Project Local Insights to get your key.
+1. If you haven't done so already, go to <https://labs.cognitive.microsoft.com/project-local-insights> and subscribe to Project Local Insights to get your key.
 
     ![Subscribe to Project Local Insights](img/Subscribe.png)
 
@@ -93,7 +93,7 @@ In this exercise, you will run the core web application locally to get familiar 
 
     ![Web Application Select Location](img/WebApp_Location.png)
 
-1. Select the **Seattle** location. The application renders a map of the city using the Bing Maps API. For more information visit: <https://www.microsoft.com/en-us/maps/choose-your-bing-maps-api.>
+1. Select the **Seattle** location. The application renders a map of the city using the Bing Maps API. For more information visit: <https://www.microsoft.com/maps/choose-your-bing-maps-api.>
 
     ![Web Application Map](img/WebApp_Map.png)
 

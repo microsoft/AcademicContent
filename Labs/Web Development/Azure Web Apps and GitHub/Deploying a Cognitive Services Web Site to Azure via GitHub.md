@@ -1,7 +1,7 @@
 <a name="HOLTitle"></a>
 # Deploying a Cognitive Services Web Site to Azure via GitHub #
 
-How easy is it to build a Web site, store it in GitHub, and deploy it to Azure? What if it's not just a static Web site, but a dynamic, data-driven Web site that runs on Node.js and uses Artificial Intelligence (AI) to process user input? It's easier than you might think, thanks to [Azure Web Apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-overview/), which provides a robust platform for Web apps of all types and features built-in [GitHub](https://github.com/) support; [Visual Studio Code](https://code.visualstudio.com/), a free and cross-platform source-code editor that includes GitHub support of its own; and Azure Cognitive Services' [Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/), which exposes [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) methods backed by AI and machine learning for extracting insights from text.
+How easy is it to build a Web site, store it in GitHub, and deploy it to Azure? What if it's not just a static Web site, but a dynamic, data-driven Web site that runs on Node.js and uses Artificial Intelligence (AI) to process user input? It's easier than you might think, thanks to [Azure Web Apps](https://azure.microsoft.com/documentation/articles/app-service-web-overview/?WT.mc_id=academiccontent-github-cxa), which provides a robust platform for Web apps of all types and features built-in [GitHub](https://github.com/) support; [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=academiccontent-github-cxa), a free and cross-platform source-code editor that includes GitHub support of its own; and Azure Cognitive Services' [Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/?WT.mc_id=academiccontent-github-cxa), which exposes [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) methods backed by AI and machine learning for extracting insights from text.
 
 In this lab, you will create an Azure Web App and use Visual Studio Code to deploy to it the "Classrates" site pictured below for rating college classes. Rather than enter ratings directly, you will enter comments, and the site will use the Text Analytics API to analyze comments for sentiment and rate the classes accordingly. You will also leverage the GitHub support in Azure and Visual Studio Code to enact source control and publish to Azure directly from GitHub. And you will accomplish all of this in under 30 minutes.
 
@@ -14,10 +14,10 @@ Sound like fun? Then let's get started!
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
 - An active [GitHub](https://github.com/) account. If you don't have one, [sign up for free](https://github.com/join).
 - [Git](https://git-scm.com) for Windows, macOS, or Linux
-- [Visual Studio Code](http://code.visualstudio.com)
+- [Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academiccontent-github-cxa)
 - [Node.js](https://nodejs.org)
 
 <a name="Cost"></a>
@@ -43,11 +43,11 @@ Estimated time to complete this lab: **30** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Get a Text Analytics API key ##
 
-The Classrates site that you are going to build uses Cognitive Services' [Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to analyze sentiment in the comments that students enter. The Text Analytics API takes text as input and returns a value from 0 to 1 quantifying the sentiment expressed in that text. The higher the score, the more favorable the sentiment. A comment such as "The most awesome class I've ever taken!" will score very high, while "Wouldn't wish this class on my worst enemy" will score low.
+The Classrates site that you are going to build uses Cognitive Services' [Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/?WT.mc_id=academiccontent-github-cxa) to analyze sentiment in the comments that students enter. The Text Analytics API takes text as input and returns a value from 0 to 1 quantifying the sentiment expressed in that text. The higher the score, the more favorable the sentiment. A comment such as "The most awesome class I've ever taken!" will score very high, while "Wouldn't wish this class on my worst enemy" will score low.
 
 In order to call the Text Analytics API, you need an endpoint URL and an API key. In this exercise, you will create a Text Analytics resource in the Azure Portal and then retrieve an endpoint URL and API key.
 
-1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to sign in, do so using your Microsoft account.
+1. Open the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If you are asked to sign in, do so using your Microsoft account.
 
 1. In the Azure Portal, click **+ Create a resource**, followed by **AI + Machine Learning** and **Text Analytics**.
 
@@ -90,7 +90,7 @@ The endpoint URL is the base URL to which calls to the Text Analytics API are pl
 <a name="Exercise2"></a>
 ## Exercise 2: Fork the repo and run Classrates locally ##
 
-[Visual Studio Code](http://code.visualstudio.com) is a free, lightweight, and powerful source-code editor available for Windows, macOS, and Linux. In this exercise, you will fork a GitHub repository containing the source code for Classrates into a repo of your own. Then you will clone the repo to create a copy on your PC, open it in Visual Studio Code, add the endpoint and API key you retrieved in the previous exercise, and test the Classrates Web site locally.
+[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academiccontent-github-cxa) is a free, lightweight, and powerful source-code editor available for Windows, macOS, and Linux. In this exercise, you will fork a GitHub repository containing the source code for Classrates into a repo of your own. Then you will clone the repo to create a copy on your PC, open it in Visual Studio Code, add the endpoint and API key you retrieved in the previous exercise, and test the Classrates Web site locally.
 
 1. If [Git](https://git-scm.com/) isn't installed on your PC, go to https://git-scm.com/downloads and install the Git client for your operating system. Git is a free and open-source distributed version-control system, and it integrates seamlessly into Visual Studio Code. If you aren't sure whether Git is installed, open a Command Prompt or terminal window and execute the following command:
 
@@ -173,7 +173,7 @@ Play around with the Web site and familiarize yourself with how it works. Feel f
 <a name="Exercise3"></a>
 ## Exercise 3: Create an Azure Web App ##
 
-In this exercise, you will use the [Azure Portal](https://portal.azure.com) to create an Azure Web App and connect it to the Classrates repo that was created for you in GitHub when you forked the master repo. With this connection established, pushing changes from the local repo to the GitHub repo will automatically publish those changes to Azure — a process known as [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration).
+In this exercise, you will use the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) to create an Azure Web App and connect it to the Classrates repo that was created for you in GitHub when you forked the master repo. With this connection established, pushing changes from the local repo to the GitHub repo will automatically publish those changes to Azure — a process known as [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration).
 
 1. In the portal, click **+ Create a resource**, followed by **Web** and **Web App**. Be careful not to click on the _Quickstart tutorial_ link as this will navigate you to the docs to work through a tutorial.
 
@@ -249,7 +249,7 @@ In this exercise, you will use Visual Studio Code to push the modified version o
 
 1. Click around the site and enter a few comments, ensuring that the site works the same in Azure as it did when you ran it ran locally. In particular, make sure that the comments you enter are converted into ratings, which is proof that the version of **functions.js** that you modified with an endpoint URL and an API key was successfully published to GitHub and subsequently to Azure.
 
-Now that you have continuous integration set up, you can make changes to the Web site by making the changes locally, checking them in, and rerunning the **Publish Branch** command. Of course, you can still test your changes locally before publishing them to Azure. You also enjoy the many benefits of source control, including the ability to isolate the work that you do in branches, view the changes that have been committed, and easily revert to previous versions of the code. To learn more about source control in Visual Studio Code, see [Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol).
+Now that you have continuous integration set up, you can make changes to the Web site by making the changes locally, checking them in, and rerunning the **Publish Branch** command. Of course, you can still test your changes locally before publishing them to Azure. You also enjoy the many benefits of source control, including the ability to isolate the work that you do in branches, view the changes that have been committed, and easily revert to previous versions of the code. To learn more about source control in Visual Studio Code, see [Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol?WT.mc_id=academiccontent-github-cxa).
 
 <a name="Exercise5"></a>
 ## Exercise 5: Delete the resource group ##
@@ -275,7 +275,7 @@ After a few minutes, the resource group and all of its resources will be deleted
 <a name="Summary"></a>
 ## Summary ##
 
-Want to do more to make Classrates a first-rate Web app? One suggestion is to add support for editing and deleting comments. Another idea is to add a MySQL database to persist the comments that are entered. Currently, the comments are stored only in memory, and they go away if the Web App is recycled. It's easy to create a MySQL database in Azure and connect it to an Azure Web App. For guidance, see [Connect an existing Azure App Service to Azure Database for MySQL server](https://docs.microsoft.com/en-us/azure/mysql/howto-connect-webapp). Now that you have a solid foundation to work from, the only limit is your imagination.
+Want to do more to make Classrates a first-rate Web app? One suggestion is to add support for editing and deleting comments. Another idea is to add a MySQL database to persist the comments that are entered. Currently, the comments are stored only in memory, and they go away if the Web App is recycled. It's easy to create a MySQL database in Azure and connect it to an Azure Web App. For guidance, see [Connect an existing Azure App Service to Azure Database for MySQL server](https://docs.microsoft.com/azure/mysql/howto-connect-webapp?WT.mc_id=academiccontent-github-cxa). Now that you have a solid foundation to work from, the only limit is your imagination.
 
 ---
 

@@ -22,7 +22,7 @@ In this hands-on lab, you will learn how to:
 
 The following is required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
 - [Node.js](https://nodejs.org)
 
 <a name="Resources"></a>
@@ -58,7 +58,7 @@ Azure Stream Analytics supports several types of input, including input from Azu
 
 In this exercise, you'll create an Azure event hub to provide input to Azure Stream Analytics and configure it to so that it can be accessed safely and securely by IoT devices and gateways. 
 
-1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). If you are asked to sign in, do so using your Microsoft account.
+1. In your browser, navigate to the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa). If you are asked to sign in, do so using your Microsoft account.
 
 1. In the portal, click **+ Create a resource**, followed by **Internet of Things** and **Event Hubs**.
 
@@ -131,7 +131,7 @@ You have created an event hub that can ingest events and be used as the source o
 <a name="Exercise2"></a>
 ## Exercise 2: Create a shared-access signature token ##
 
-Applications, devices, or gateways can send events to event hubs using the [Azure Event Hubs REST API](https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx). Each request transmitted via this API must include a valid [shared-access signature (SAS)](https://azure.microsoft.com/en-us/documentation/articles/service-bus-shared-access-signature-authentication/) token in the HTTP Authorization header. SAS tokens are generated from the event hub's URL and the primary key for the policy used to communicate with the event hub — in this case, the policy named "SendPolicy" that you created in the previous exercise.
+Applications, devices, or gateways can send events to event hubs using the [Azure Event Hubs REST API](https://msdn.microsoft.com/library/azure/Dn790674.aspx?WT.mc_id=academiccontent-github-cxa). Each request transmitted via this API must include a valid [shared-access signature (SAS)](https://azure.microsoft.com/documentation/articles/service-bus-shared-access-signature-authentication/?WT.mc_id=academiccontent-github-cxa) token in the HTTP Authorization header. SAS tokens are generated from the event hub's URL and the primary key for the policy used to communicate with the event hub — in this case, the policy named "SendPolicy" that you created in the previous exercise.
 
 In this exercise, you will generate a shared-access signature token for the event hub created in [Exercise 1](#Exercise1) and copy it, along with the event hub URL, into a Node.js application that will be used to send events to the event hub in Exercise 3. The Azure Portal doesn't provide an interface for generating SAS tokens, so you will generate a token using a Node.js app named sas.js provided with this lab.
 
@@ -198,7 +198,7 @@ Now that you've modified eventgen.js with information specific to your event hub
 <a name="Exercise3"></a>
 ## Exercise 3: Send events to the event hub ##
 
-In this exercise, you will send events to the event hub you created in [Exercise 1](#Exercise1). To do that, you'll use Node.js to run eventgen.js, which in turn transmits secure requests to the event hub using the [Azure Event Hubs REST API](https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx). eventgen.js generates events representing withdrawals from simulated ATM machines. Each event contains relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.
+In this exercise, you will send events to the event hub you created in [Exercise 1](#Exercise1). To do that, you'll use Node.js to run eventgen.js, which in turn transmits secure requests to the event hub using the [Azure Event Hubs REST API](https://msdn.microsoft.com/library/azure/Dn790674.aspx?WT.mc_id=academiccontent-github-cxa). eventgen.js generates events representing withdrawals from simulated ATM machines. Each event contains relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.
 
 1. At the command prompt or in a terminal window, navigate to the directory containing the lab resources. Then execute the following command:
 
@@ -230,7 +230,7 @@ Now that events are flowing to your event hub, the next step is to create a Stre
 
 In this exercise, you will use the Azure Portal to create a Stream Analytics job and connect it to the event hub you created in [Exercise 1](#Exercise1). You will also capture the raw data being passed to the Stream Analytics job from the event hub and examine its structure.
 
-1. Return to the [Azure Portal](https://portal.azure.com) and click **+ Create a resource**, followed by **Internet of Things** and **Stream Analytics job**.
+1. Return to the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) and click **+ Create a resource**, followed by **Internet of Things** and **Stream Analytics job**.
 
     ![Creating a Stream Analytics job](Images/new-stream-analytics-job.png)
 
@@ -319,7 +319,7 @@ You have connected a Stream Analytics job to an event hub and demonstrated that 
 <a name="Exercise5"></a>
 ## Exercise 5: Prepare queries and test with sample data ##
 
-Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query real-time data streams. In this exercise, you will use the [Stream Analytics Query Language](https://msdn.microsoft.com/en-us/library/azure/Dn834998.aspx) to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.
+Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query real-time data streams. In this exercise, you will use the [Stream Analytics Query Language](https://msdn.microsoft.com/library/azure/Dn834998.aspx?WT.mc_id=academiccontent-github-cxa) to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.
 
 To flag potentially fraudulent withdrawals from ATMs, you will query for transactions performed with the same ATM card at different ATM machines within a specified time window (60 seconds). In real life, you would probably use a larger time window and perhaps even factor in the distance between ATM machines. However, a narrower time window is useful in a lab environment because it allows you to perform meaningful experiments in minutes rather than hours.
 
@@ -551,7 +551,7 @@ In this exercise, you will create a storage account and configure the Stream Ana
 
 Currently, the output from your Stream Analytics job is stored in blobs. In real life, you might prefer to view the output in a more convenient form, such as in a chart that's updated in real time. You could accomplish that by writing an application that monitors the blob and charts the data, or, better yet, by directing the output to an event hub and writing an application that subscribes to events from the event hub.
 
-Microsoft recognizes that not everyone wants to write applications, and has provided an alternative in the form of [Microsoft Power BI](https://powerbi.microsoft.com/). With Power BI, you can create dashboards that render output from Stream Analytics jobs without writing any code. For more information, refer to [Stream Analytics & Power BI: A real-time analytics dashboard for streaming data](https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-power-bi-dashboard/).
+Microsoft recognizes that not everyone wants to write applications, and has provided an alternative in the form of [Microsoft Power BI](https://powerbi.microsoft.com/?WT.mc_id=academiccontent-github-cxa). With Power BI, you can create dashboards that render output from Stream Analytics jobs without writing any code. For more information, refer to [Stream Analytics & Power BI: A real-time analytics dashboard for streaming data](https://azure.microsoft.com/documentation/articles/stream-analytics-power-bi-dashboard/?WT.mc_id=academiccontent-github-cxa).
 
 <a name="Summary"></a>
 ## Summary ##

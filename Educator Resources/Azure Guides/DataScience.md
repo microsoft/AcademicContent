@@ -29,8 +29,8 @@ additional capabilities not provided by HDFS including: data encryption
 as rest, role based security, and integration with a full-fledged key
 vault.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview)  
-[Get Started](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal)
+[Learn More](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal?WT.mc_id=academiccontent-github-cxa)
 
 ## Big Data Jobs: Azure Data Lake Analytics
 
@@ -44,8 +44,8 @@ unifies the benefits of SQL with the expressive power of user code to
 analyze data in the store and across SQL Servers in Azure, Azure SQL
 Database, and Azure SQL Data Warehouse.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-overview)  
-[Get Started](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-portal)
+[Learn More](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-overview?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal?WT.mc_id=academiccontent-github-cxa)
 
 ## Machine Learning: Azure Machine Learning
 
@@ -56,8 +56,8 @@ drop interface for building predictive analytics solutions. Azure
 Machine Learning also provides a fully managed service you can use to
 deploy your predictive models as ready-to-consume web services.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-what-is-machine-learning)  
-[Get Started](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-create-experiment)
+[Learn More](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/machine-learning/machine-learning-create-experiment?WT.mc_id=academiccontent-github-cxa)
 
 ## Spark/Hadoop: HDInsight
 
@@ -69,8 +69,8 @@ and use of the Hadoop clusters straightforward. With HDInsight, your
 data is stored in Azure Storage, so you can safely delete a cluster when
 it is not in use.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-introduction)  
-[Get Started](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started)
+[Learn More](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started?WT.mc_id=academiccontent-github-cxa)
 
 ## Event/Data Distribution: Event Hub
 
@@ -81,8 +81,8 @@ multiple systems. Azure Event Hubs is a highly scalable data streaming
 platform and event ingestion service capable of receiving and processing
 millions of events per second.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-what-is-event-hubs)  
-[Get Started](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)
+[Learn More](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/event-hubs/event-hubs-create?WT.mc_id=academiccontent-github-cxa)
 
 ## Stream Processing: Stream Analytics/Event data processing/IoT
 
@@ -92,8 +92,8 @@ from various devices. The Azure stream processing functionality provides
 several pre-packaged input sources and sinks and allows data
 transformation using a SQL like expression language.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-what-is-azure-iot)  
-[Get Started](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-get-started)
+[Learn More](https://docs.microsoft.com/azure/iot-hub/iot-hub-what-is-azure-iot?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/iot-hub/iot-hub-get-started?WT.mc_id=academiccontent-github-cxa)
 
 ## Data Movement: Azure Data Factory
 
@@ -105,8 +105,8 @@ Factory can be used to produce reference data on a regular time frame
 for use in streaming or batch processing jobs on HDInsight for data
 enrichment.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-introduction)  
-[Get Started](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database)
+[Learn More](https://docs.microsoft.com/azure/data-factory/data-factory-introduction?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database?WT.mc_id=academiccontent-github-cxa)
 
 ## Data Discovery: Azure Data Catalog
 
@@ -119,5 +119,5 @@ annotations. It is a single, central place for all of an organization's
 users to contribute their knowledge and build a community and culture of
 data.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/data-catalog/data-catalog-what-is-data-catalog)  
-[Get Started](https://docs.microsoft.com/en-us/azure/data-catalog/data-catalog-get-started)
+[Learn More](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/data-catalog/data-catalog-get-started?WT.mc_id=academiccontent-github-cxa)

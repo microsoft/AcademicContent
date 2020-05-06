@@ -14,11 +14,11 @@ In the Machine Learning Challenge, you will use Azure Machine Learning Studio to
 
 The following are required to complete the challenge:
 
-- A Microsoft account. If you don't have one, [click here](https://account.microsoft.com/account) to create one.
+- A Microsoft account. If you don't have one, [click here](https://account.microsoft.com/account?WT.mc_id=academiccontent-github-cxa) to create one.
 - An active Azure subscription — for example, an Azure Pass (recommended but not required)
 - A modern browser such as Microsoft Edge or Google Chrome
 
-If you don't have an Azure subscription, you can [sign up for a free trial](http://aka.ms/WATK-FreeTrial). Or, if you are a college student, you may qualify for a free subscription through the [Microsoft Imagine](https://imagine.microsoft.com) program. To enroll in the program and claim your Azure subscription, go to https://imagine.microsoft.com/Catalog/Product/99.
+If you don't have an Azure subscription, you can [sign up for a free trial](https://aka.ms/WATK-FreeTrial). Or, if you are a college student, you may qualify for a free subscription through the [Microsoft Imagine](https://imagine.microsoft.com?WT.mc_id=academiccontent-github-cxa) program. To enroll in the program and claim your Azure subscription, go to https://imagine.microsoft.com/Catalog/Product/99.
 
 ---
 
@@ -41,7 +41,7 @@ The first step in employing Azure Machine Learning Studio is to create a machine
 
 1. If you have an Azure Pass but haven't yet activated it, go to https://www.microsoftazurepass.com/ and activate it now.
 
-1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
+1. Open the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If asked to log in, do so using your Microsoft account.
 
 1. Click **+ Create a resource**. Then type "machine learning" (without quotation marks) into the search box and select **Machine Learning Studio Workspace** from the search results.
 
@@ -259,7 +259,7 @@ There are several types of machine-learning models. One of the most common is th
 
     _Adding a Split Data module_
 
-1. Add a [Train Model](https://msdn.microsoft.com/en-us/library/azure/dn906044.aspx) module to the model and connect the output from Split Data to the right input of Train Model. Then add a [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) module and connect its output to Train Model's left input.
+1. Add a [Train Model](https://msdn.microsoft.com/library/azure/dn906044.aspx?WT.mc_id=academiccontent-github-cxa) module to the model and connect the output from Split Data to the right input of Train Model. Then add a [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx?WT.mc_id=academiccontent-github-cxa) module and connect its output to Train Model's left input.
 
 	> [Logistic regression](http://machinelearningmastery.com/logistic-regression-for-machine-learning/) is a well-known method in statistics that is used to predict the probability of an outcome, and is especially popular for classification tasks. By connecting Two-Class Logistic Regression to Train Model, you are specifying the learning algorithm that the model will use. This does not prevent you from experimenting with other algorithms later on.
 

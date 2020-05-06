@@ -18,10 +18,10 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
 - A computer running Windows 10, Windows Server 2016, macOS Sierra, or macOS High Sierra
-- [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/quickstart-installation)
-- The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/quickstart-installation?WT.mc_id=academiccontent-github-cxa)
+- The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=academiccontent-github-cxa)
 - [Docker](https://www.docker.com/)
 
 If you haven't completed the [previous lab in this series](../1%20-%20Ingest), you must do so before starting this lab.
@@ -75,7 +75,7 @@ In this exercise, you will connect to the Azure SQL database you created in the 
 
 	Scroll to the right and observe that the table includes fields named "DHashHex8," "DHashHex7," and so on, all the way down to "DHashHex1." The **load.py** script that you ran in the previous lab used Bing Image Search to find images of paintings by famous artists. Then it downloaded each image and generated a series of [dHashes](https://pypi.python.org/pypi/dhash) with bit sizes from 8 to 1. A dHash is a [perceptual image hash](https://www.pyimagesearch.com/2017/11/27/image-hashing-opencv-python/); its purpose is to quantify the similarity between images. Higher bit sizes produce finer-grained results, meaning images have to be more alike to produce the same dHash. Image hashing is an important part of a strategy to clean the data because you don't want to train a machine-learning model that recognizes Van Gogh paintings with 50 images of the same Van Gogh. Perceptual hashes wouldn't be needed if training images were picked by hand. They are extraordinarily useful when picking images algorithmically.
 
-1. Return to the [Azure Portal](https://portal.azure.com) and open the database that you created in the previous lab. Then use the query editor to execute the following query, which uses common table expressions (CTEs) to tabulate the number of unique images for each artist:
+1. Return to the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) and open the database that you created in the previous lab. Then use the query editor to execute the following query, which uses common table expressions (CTEs) to tabulate the number of unique images for each artist:
 
 	``` SQL
 	WITH RowTagging
@@ -188,7 +188,7 @@ In this exercise, you will run some Python code in Azure Machine Learning Workbe
 	    server + '.database.windows.net:1433/' + database + '?driver=ODBC+Driver+13+for+SQL+Server')
 	
 	# Custom SQL Query to remove duplicates
-	# Solution uses T-SQL window functions https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql
+	# Solution uses T-SQL window functions https://docs.microsoft.com/sql/t-sql/queries/select-over-clause-transact-sql
 	# Result set keeps the largest width image (then largest height) if the hash is equivalent
 	sql = 'WITH RowTagging \
 	    AS (SELECT [Artist], \
@@ -227,7 +227,7 @@ In this exercise, you will run some Python code in Azure Machine Learning Workbe
 	df.to_sql('UniquePaintings', engine, if_exists='replace', index=False)
 	```
 
-	This code queries the database's "Paintings" table and loads the results into a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). In cases in which multiple images have the same dHash, the query uses T-SQL's [ROW_NUMBER](https://docs.microsoft.com/en-us/sql/t-sql/functions/row-number-transact-sql) function to exclude all but the largest of those images. The script then writes the resulting DataFrame to a database table named "UniquePaintings."
+	This code queries the database's "Paintings" table and loads the results into a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). In cases in which multiple images have the same dHash, the query uses T-SQL's [ROW_NUMBER](https://docs.microsoft.com/sql/t-sql/functions/row-number-transact-sql?WT.mc_id=academiccontent-github-cxa) function to exclude all but the largest of those images. The script then writes the resulting DataFrame to a database table named "UniquePaintings."
 
 1. Replace the following values in **dedupe.py**. Then save the file.
 
@@ -251,9 +251,9 @@ How do the row counts compare? How many images were eliminated by using the "DHa
 <a name="Exercise3"></a>
 ## Exercise 3: Create a storage account ##
 
-In this exercise, you will use the Azure CLI to create an Azure storage account to store the images listed in the database's "UniquePaintings" table. In the next lab, these images will be used to train a machine-learning model on an [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) cluster. Blob storage is a convenient medium for storing these images because HDInsight clusters can [access blobs seamlessly](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage) using the [WASB](https://blogs.msdn.microsoft.com/cindygross/2015/02/04/understanding-wasb-and-hadoop-storage-in-azure/) extension to the Hadoop Distributed File System (HDFS).
+In this exercise, you will use the Azure CLI to create an Azure storage account to store the images listed in the database's "UniquePaintings" table. In the next lab, these images will be used to train a machine-learning model on an [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/?WT.mc_id=academiccontent-github-cxa) cluster. Blob storage is a convenient medium for storing these images because HDInsight clusters can [access blobs seamlessly](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage?WT.mc_id=academiccontent-github-cxa) using the [WASB](https://blogs.msdn.microsoft.com/cindygross/2015/02/04/understanding-wasb-and-hadoop-storage-in-azure/?WT.mc_id=academiccontent-github-cxa) extension to the Hadoop Distributed File System (HDFS).
 
-1. Open a command Prompt or terminal window (or the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)) and use the following command to create a general-purpose storage account in the "mmlsparklab-rg" resource group. Replace ACCOUNT_NAME with the name you wish to assign the storage account. The account name must be unique within Azure, so if the command fails because the storage-account name is already in use, change the name and try again. In addition, storage-account names must be from 3 to 24 characters in length and can contain only numbers and lowercase letters.
+1. Open a command Prompt or terminal window (or the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/?WT.mc_id=academiccontent-github-cxa)) and use the following command to create a general-purpose storage account in the "mmlsparklab-rg" resource group. Replace ACCOUNT_NAME with the name you wish to assign the storage account. The account name must be unique within Azure, so if the command fails because the storage-account name is already in use, change the name and try again. In addition, storage-account names must be from 3 to 24 characters in length and can contain only numbers and lowercase letters.
 
 	```
 	az storage account create --name ACCOUNT_NAME --resource-group mmlsparklab-rg --location southcentralus --kind Storage --sku Standard_LRS
@@ -279,7 +279,7 @@ In this exercise, you will run a Python script in Machine Learning Workbench tha
 	```python
 	from azure.storage.blob import BlockBlobService
 	
-	# Transfer objects to/from Azure Blob storage using Python: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python
+	# Transfer objects to/from Azure Blob storage using Python: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python
 	from azure.storage.blob import ContentSettings
 	
 	# Allow appending to blob
@@ -311,8 +311,8 @@ In this exercise, you will run a Python script in Machine Learning Workbench tha
 	from io import StringIO
 	
 	# Access your blob storage
-	# Help on using Azure Blob in Python:  https://docs.microsoft.com/en-us/azure/storage/blobs/storage-python-how-to-use-blob-storage
-	# Azure Storage Services REST API Reference: https://docs.microsoft.com/en-us/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference
+	# Help on using Azure Blob in Python:  https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage
+	# Azure Storage Services REST API Reference: https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference
 	myaccount = 'ACCOUNT_NAME'
 	mykey = 'ACCOUNT_KEY'
 	block_blob_service = BlockBlobService(account_name=myaccount, account_key=mykey)
@@ -354,7 +354,7 @@ In this exercise, you will run a Python script in Machine Learning Workbench tha
 	        # Assign to test or train (80/20 split) based on the random number value
 	        # Because the random number is stored, you may modify to a different split value
 	        # Also, build a map.txt file in the appropriate directory
-	        # How to use Azure Blob Storage: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-python-how-to-use-blob-storage
+	        # How to use Azure Blob Storage: https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage
 	        if row['Random'] < .80:
 	            image_group = "Train/" + row['Artist'] + "/" 
 	        else:
@@ -415,7 +415,7 @@ In this exercise, you will run a Python script in Machine Learning Workbench tha
 
 	_Blobs containing images of Monet paintings_
 
-If you're curious to see what some of the images look like, simply select a blob and click the **Download** button at the top of the ensuing blade. Browsing a large collection of blobs is tedious in the Azure Portal, but there are numerous external tools available for managing blob storage. One of them is the [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), which is free and runs on Windows, macOS, and Linux.
+If you're curious to see what some of the images look like, simply select a blob and click the **Download** button at the top of the ensuing blade. Browsing a large collection of blobs is tedious in the Azure Portal, but there are numerous external tools available for managing blob storage. One of them is the [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/?WT.mc_id=academiccontent-github-cxa), which is free and runs on Windows, macOS, and Linux.
 
 <a name="Summary"></a>
 ## Summary ##

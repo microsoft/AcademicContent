@@ -23,7 +23,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
 - [Node.js](https://nodejs.org/)
 
 <a name="Resources"></a>
@@ -55,7 +55,7 @@ Estimated time to complete this lab: **30** minutes.
 
 In this exercise, you will use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) to create an Azure storage account in the cloud. The storage account will store as blobs photographs taken by the simulated cameras that you deploy. The Cloud Shell provides a browser-based command line for executing Azure commands and is an alternative to the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), which allows you to execute the same commands on your local workstation. Whether to use the CLI or the Cloud Shell is often a matter of personal preference. One of the advantages of the Cloud Shell is that it doesn't require you to install any software on your PC. Another is that you don't have to update it periodically as you do the CLI.
 
-1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
+1. Open the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If asked to log in, do so using your Microsoft account.
 
 1. Click the **Cloud Shell** button in the toolbar at the top of the portal to open the Cloud Shell.
 

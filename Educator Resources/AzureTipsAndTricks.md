@@ -4,10 +4,10 @@
 Signing up for Azure for Students is a fairly straightforward process for 4-Year-University and Community College students who 
 have .edu email addresses. You do not need a credit card to sign up, and get $100 free credit to use with Azure for 1 year!
 Just follow these steps to get started:
-1. [Create a new Microsoft account here](https://account.microsoft.com/account?lang=en-us). You should use your .edu email
+1. [Create a new Microsoft account here](https://account.microsoft.com/account?WT.mc_id=academiccontent-github-cxa). You should use your .edu email
 address for this:  
 ![Create Microsoft Account](createMSA.png)
-2. Click Activate Now on the [Azure for Students Sign Up Page](https://azure.microsoft.com/en-us/free/students/). Make sure 
+2. Click Activate Now on the [Azure for Students Sign Up Page](https://azure.microsoft.com/free/students/?WT.mc_id=academiccontent-github-cxa). Make sure 
 you login with your .edu email address that you used in Step 1. 
 3. Complete the Student Verification process, which will include putting in your name, school email address, and verifying your
 idenity through a phone number. 

@@ -68,7 +68,7 @@ We focus on developing high-quality content for all Cloud, Data Science, Machine
 |[Microsoft Learn](https://docs.microsoft.com/en-us/learn/)|Hundrends of free online training by world-class experts to help you build your technical skills on the latest Microsoft technologies. |
 | [Technical Community Content](https://github.com/Microsoft/TechnicalCommunityContent) | Workshops from the community team. |
 | [Research case studies](https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/) | Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too! |
-| [Microsoft Research Data Sets](http://aka.ms/datascience) | Data sets shared by Microsoft Research for academic use. |
+| [Microsoft Research Data Sets](https://aka.ms/datascience) | Data sets shared by Microsoft Research for academic use. |
 | [Machine Learning Data Sets](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-use-sample-datasets) | Data sets shared by Azure Machine Learning team to help explore machine learning. |
 | [MS MARCO](http://www.msmarco.org) | Microsoft MAchine Reading COmprehension Dataset generated from real Bing user queries and search results. |
 | [IOT School](https://iotschool.microsoft.com/) | Resources for learning about Azure IoT solutions, platform services and industry-leading edge technologies. |
