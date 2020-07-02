@@ -1,8 +1,8 @@
-# Tech Resources for Computer Science and Academic Communities
+# Tech Resources for Academic Communities
 
 *The content and the code in this repo are intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
 
-**Source:** https://github.com/microsoft/computerscience
+**Source:** https://github.com/microsoft/AcademicContent
 
 This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and DevOps. It also includes interesting tech talks and engaging, fun tech challenges that Microsoft leads at student hackathons and [Imagine Cup](http://www.imaginecup.com).
 
@@ -10,9 +10,9 @@ This repo provides technical resources to help students and faculty learn about 
 
 Students can get free Azure credits to explore these resources here:
 
-* [Azure for Students](https://azure.microsoft.com/en-us/free/students/) | $100 in Azure for 12 months with free tier of services - no credit card required with academic verification
-* [Azure for Students Starter](https://azure.microsoft.com/en-us/free/students-starter-faq/) | use select Azure products like App Services for free - no credit card required with academic verification
-* [Azure Free Account](https://azure.microsoft.com/en-us/free/) | $200 in Azure for one month with free tier of services - requires a credit card and probably the best fit for faculty evaluating Azure for course instruction unless your organization has a grant or enterprise agreement.
+* [Azure for Students](https://azure.microsoft.com/free/students/?WT.mc_id=academiccontent-github-cxa) | $100 in Azure for 12 months with free tier of services - no credit card required with academic verification
+* [Azure for Students Starter](https://azure.microsoft.com/free/students-starter-faq/?WT.mc_id=academiccontent-github-cxa) | use select Azure products like App Services for free - no credit card required with academic verification
+* [Azure Free Account](https://azure.microsoft.com/free/?WT.mc_id=academiccontent-github-cxa) | $200 in Azure for one month with free tier of services - requires a credit card and probably the best fit for faculty evaluating Azure for course instruction unless your organization has a grant or enterprise agreement.
 
 Your feedback is appreciated - please fork this repo and contribute!
 
@@ -57,20 +57,44 @@ We focus on developing high-quality content for all Cloud, Data Science, Machine
 | Resource | |
 | - | - |
 | [Reactor Workshops](https://github.com/microsoft/reactors) | Content for our First Party Reactor Workshops can be found here. |
-| [Reactor Locations](https://developer.microsoft.com/en-us/reactor/) | Find out schedules, learn more about each space, and see where we are opening a Reactor near you! | 
+| [Reactor Locations](https://developer.microsoft.com/reactor/?WT.mc_id=academiccontent-github-cxa) | Find out schedules, learn more about each space, and see where we are opening a Reactor near you! | 
 
 ## Content from other sources
 
 | Resource | |
 | - | - |
-|[Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)|Cloud architecture guides, reference architectures, and example workloads for how to put the pieces of the cloud together |
-|[Microsoft AI School](https://aischool.microsoft.com)|Content for students, developers and data scientists to get started and dive deep into the Microsoft AI platform and deep learning. |
-|[Microsoft Learn](https://docs.microsoft.com/en-us/learn/)|Hundrends of free online training by world-class experts to help you build your technical skills on the latest Microsoft technologies. |
+|[Azure Architecture Center](https://docs.microsoft.com/azure/architecture/?WT.mc_id=academiccontent-github-cxa)|Cloud architecture guides, reference architectures, and example workloads for how to put the pieces of the cloud together |
+|[Microsoft AI School](https://aischool.microsoft.com?WT.mc_id=academiccontent-github-cxa)|Content for students, developers and data scientists to get started and dive deep into the Microsoft AI platform and deep learning. |
+|[Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=academiccontent-github-cxa)|Hundrends of free online training by world-class experts to help you build your technical skills on the latest Microsoft technologies. |
 | [Technical Community Content](https://github.com/Microsoft/TechnicalCommunityContent) | Workshops from the community team. |
-| [Research case studies](https://www.microsoft.com/en-us/research/academic-program/microsoft-azure-for-research/) | Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too! |
-| [Microsoft Research Data Sets](http://aka.ms/datascience) | Data sets shared by Microsoft Research for academic use. |
-| [Machine Learning Data Sets](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-use-sample-datasets) | Data sets shared by Azure Machine Learning team to help explore machine learning. |
+| [Research case studies](https://www.microsoft.com/research/academic-program/microsoft-azure-for-research/?WT.mc_id=academiccontent-github-cxa) | Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too! |
+| [Microsoft Research Data Sets](https://aka.ms/datascience) | Data sets shared by Microsoft Research for academic use. |
+| [Machine Learning Data Sets](https://docs.microsoft.com/azure/machine-learning/machine-learning-use-sample-datasets?WT.mc_id=academiccontent-github-cxa) | Data sets shared by Azure Machine Learning team to help explore machine learning. |
 | [MS MARCO](http://www.msmarco.org) | Microsoft MAchine Reading COmprehension Dataset generated from real Bing user queries and search results. |
-| [IOT School](https://iotschool.microsoft.com/) | Resources for learning about Azure IoT solutions, platform services and industry-leading edge technologies. |
-| [AI Labs](https://www.ailab.microsoft.com/) | Experience, learn and code the latest breakthrough AI innovations by Microsoft. |
-| [Channel9](https://channel9.msdn.com/) | Videos for developers from people building Microsoft products and services. | 
+| [IOT School](https://iotschool.microsoft.com/?WT.mc_id=academiccontent-github-cxa) | Resources for learning about Azure IoT solutions, platform services and industry-leading edge technologies. |
+| [AI Labs](https://www.ailab.microsoft.com/?WT.mc_id=academiccontent-github-cxa) | Experience, learn and code the latest breakthrough AI innovations by Microsoft. |
+| [Channel9](https://channel9.msdn.com/?WT.mc_id=academiccontent-github-cxa) | Videos for developers from people building Microsoft products and services. | 
+
+## Structure of the docs part of this repository
+
+This repository is designed to build a [VuePress](https://vuepress.vuejs.org) site that is hosted using GitHub Pages.
+
+The content of this site lives in the [docs](./docs) folder. The main page is constructed from the [README.md](./docs/README.md) in that folder, and the side bar is made of the contents of the [content](./docs/content) folder.
+
+### Building the docs
+
+To build these docs, you will need [npm](https://www.npmjs.com/get-npm) installed. Once you have this installed, install VuePress:
+
+```sh
+npm install vuepress
+```
+
+To build the docs, use the [`deploy.sh`](./deploy.sh) script. This script will build the docs, then push them to the `gh-pages` branch of a given fork of this project. You pass the GitHub user/org name to the script. This way you can test the build offline, then push to the parent as part of an automated script.
+
+```sh
+deploy.sh <org>
+```
+
+## Contributing
+
+We 💖**love**💖 contributions. In fact, we want students, faculty, researchers and life-long learners to contribute to this repo, either by adding links to existing content, or building content. Please read the [contributing guide](./CONTRIBUTING.md) to learn more.
