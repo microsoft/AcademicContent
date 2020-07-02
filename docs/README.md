@@ -17,7 +17,7 @@ We love contributions! Please read the [contribution guide](./CONTRIBUTING.md) b
 
 ## Key
 
--   🇬🇧 - English Language content
+-   🇺🇸 - English Language content
 -   🇷🇺 - Russian Language content
 -   🖥 - Programming languages and frameworks
 -   🧠 - AI/ML

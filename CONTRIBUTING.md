@@ -47,7 +47,7 @@ When you add a link please add the following:
   
   The following key is in use:
   
-  * 🇬🇧 - English Language content
+  * 🇺🇸 - English Language content
   * 🇷🇺 - Russian Language content
   * 🖥 - Programming languages and frameworks
   * 🧠 - AI/ML
