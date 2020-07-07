@@ -6,7 +6,7 @@
     "start": "electron ."
   },
   "dependencies": {
-    "electron": "^1.4.13",
+    "electron": "^9.1.0",
     "underscore": "~1.8.3"
   }
 }
