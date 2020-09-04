@@ -2,7 +2,7 @@
   "name": "node-example",
   "version": "1.0.1",
   "dependencies": {
-	  "mongodb": "2.0.35",
+	  "mongodb": "3.6.1",
 	  "url": ""
   },
   "engines": {
