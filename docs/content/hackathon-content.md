@@ -43,3 +43,7 @@ How to connect a Domain.com domain name to an Azure web app when at an MLH hacka
 ## 🇺🇸🧠🕸 [Hack with Azure](https://github.com/microsoft/hackwithazure)
 
 Resources for students at hackathons
+
+## 🇺🇸 [Hackathon To-Dos 101](https://blog.usejournal.com/hackathon-to-dos-101-272485ba4a8c?source=friends_link&sk=6a6060d91b47c669d9ed6ee09d4e5881)
+
+A curated list on hackathon to-dos for folks who are new to hackathons
