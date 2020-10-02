@@ -1,6 +1,6 @@
 # Machine Learning Challenge
 
-The purpose of the Machine Learning Challenge is to acquaint students with [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/) and [Machine Learning Studio](https://studio.azureml.net/), teach them how to build a basic machine-learning model, and put their data-science skills to work improving the model. The "challenge" is to get the model's accuracy to 75% or greater, up from the 58% accuracy it exhibits initially. Students are challenged to make the improvements themselves, but are provided with helpful hints to guide their way.
+The purpose of the Machine Learning Challenge is to acquaint students with [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/?WT.mc_id=academiccontent-github-cxa) and [Machine Learning Studio](https://studio.azureml.net/), teach them how to build a basic machine-learning model, and put their data-science skills to work improving the model. The "challenge" is to get the model's accuracy to 75% or greater, up from the 58% accuracy it exhibits initially. Students are challenged to make the improvements themselves, but are provided with helpful hints to guide their way.
 
 ## Leading an Event
 

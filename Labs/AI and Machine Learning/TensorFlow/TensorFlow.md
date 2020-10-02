@@ -1,8 +1,8 @@
 # Building Neural Networks with TensorFlow and the Azure Data Science Virtual Machine #
 
-Data scientists use a variety of tools to ply their trade. One of the challenges they face is building an environment with the right software installed and configuring all the pieces to work in harmony. The Azure [Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) (DSVM) is a customized virtual-machine image hosted in Azure that is built specifically for data science workloads. It comes with a number of popular open-source tools preinstalled, and it runs on Windows Server as well as Linux. The Linux edition is available in both Ubuntu and CentOS versions.
+Data scientists use a variety of tools to ply their trade. One of the challenges they face is building an environment with the right software installed and configuring all the pieces to work in harmony. The Azure [Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview?WT.mc_id=academiccontent-github-cxa) (DSVM) is a customized virtual-machine image hosted in Azure that is built specifically for data science workloads. It comes with a number of popular open-source tools preinstalled, and it runs on Windows Server as well as Linux. The Linux edition is available in both Ubuntu and CentOS versions.
 
-With a DSVM providing the environment, you can get up and running quickly with popular tools such as [Jupyter](http://jupyter.org/), [R Studio](https://www.rstudio.com/), the [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), and many others. You can also build neural networks with [TensorFlow](https://www.tensorflow.org/), the open-source machine-learning framework from Google that specializes in [deep learning](https://en.wikipedia.org/wiki/Deep_learning) applications. For a complete list of tools installed in the DSVM, see [What's included in the Data Science VM](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview#whats-included-in-the-data-science-vm).
+With a DSVM providing the environment, you can get up and running quickly with popular tools such as [Jupyter](http://jupyter.org/), [R Studio](https://www.rstudio.com/), the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/?WT.mc_id=academiccontent-github-cxa), and many others. You can also build neural networks with [TensorFlow](https://www.tensorflow.org/), the open-source machine-learning framework from Google that specializes in [deep learning](https://en.wikipedia.org/wiki/Deep_learning) applications. For a complete list of tools installed in the DSVM, see [What's included in the Data Science VM](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview?WT.mc_id=academiccontent-github-cxa#whats-included-in-the-data-science-vm).
 
 In this lab, you will create a Linux Data Science Virtual Machine in Azure, connect to it via remote desktop, and train a [deep neural network](https://en.wikipedia.org/wiki/Artificial_neural_network) built with TensorFlow to recognize images that contain hot dogs. Then you will write a Python app that tells you whether images input to it contain hot dogs — your own variation of the [NotHotDog app](https://www.youtube.com/watch?v=ACmydtFDTGs) made famous on the TV show [Silicon Valley](https://www.hbo.com/silicon-valley).
 
@@ -25,7 +25,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
 - An [Xfce](https://xfce.org/) remote-desktop client such as [X2Go](https://wiki.x2go.org/doku.php/download:start)
 
 <a name="Cost"></a>
@@ -55,7 +55,7 @@ Estimated time to complete this lab: **45** minutes.
 
 The Data Science Virtual Machine for Linux is a virtual-machine image that simplifies getting started with data science. Multiple tools are already built, installed, and configured in order to get you up and running quickly. The NVIDIA GPU driver, [NVIDIA CUDA](https://developer.nvidia.com/cuda-downloads), and [NVIDIA CUDA Deep Neural Network](https://developer.nvidia.com/cudnn) (cuDNN) library are also included, as are [Jupyter](http://jupyter.org/), several sample Jupyter notebooks, and [TensorFlow](https://www.tensorflow.org/). All pre-installed frameworks are GPU-enabled but work on CPUs as well. In this exercise, you will create an instance of the Data Science Virtual Machine for Linux on Azure.
 
-1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
+1. Open the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If asked to log in, do so using your Microsoft account.
 
 1. Click **+ Create a resource** in the menu on the left side of the portal, and then type "data science" into the search box. Select **Data Science Virtual Machine for Linux (Ubuntu)** from the results list.
 
@@ -78,8 +78,7 @@ Wait until the deployment is complete. It typically takes 5 minutes or less. Obs
 <a name="Exercise2"></a>
 ## Exercise 2: Connect to the Data Science VM ##
 
-In this exercise, you will connect remotely to the Ubuntu desktop in the VM that you created in the previous exercise. To do so, you need a client that supports [Xfce](https://xfce.org/), which is a lightweight desktop environment for Linux. For background, and for an overview of the various ways you can connect to a DSVM, see [How to access the Data Science Virtual Machine for Linux
-](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#how-to-access-the-data-science-virtual-machine-for-linux).
+In this exercise, you will connect remotely to the Ubuntu desktop in the VM that you created in the previous exercise. To do so, you need a client that supports [Xfce](https://xfce.org/), which is a lightweight desktop environment for Linux. For background, and for an overview of the various ways you can connect to a DSVM, see [How to access the Data Science Virtual Machine for Linux](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#how-to-access-the-data-science-virtual-machine-for-linux?WT.mc_id=academiccontent-github-cxa).
 
 1. If you don't already have an Xfce client installed, download the [X2Go client](https://wiki.x2go.org/doku.php/download:start) and install it before continuing with this exercise. X2Go is a free and open-source Xfce solution that works on a variety of operating systems, including Windows and OS X. The instructions in this exercise assume you are using X2Go, but you may use any client that supports Xfce.
 
@@ -121,7 +120,7 @@ In this exercise, you will connect remotely to the Ubuntu desktop in the VM that
 
     _Connected!_
 
-Now that you are connected, take a moment to explore the shortcuts on the desktop. These are shortcuts to the numerous data-science tools preinstalled in the VM, which include [Jupyter](http://jupyter.org/), [R Studio](https://www.rstudio.com/), and the [Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), among others.
+Now that you are connected, take a moment to explore the shortcuts on the desktop. These are shortcuts to the numerous data-science tools preinstalled in the VM, which include [Jupyter](http://jupyter.org/), [R Studio](https://www.rstudio.com/), and the [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/?WT.mc_id=academiccontent-github-cxa), among others.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Train a TensorFlow model ##
@@ -250,7 +249,7 @@ The script that you executed in Step 10 specified 500 training steps, which stri
 <a name="Exercise4"></a>
 ## Exercise 4: Create a NotHotDog app ##
 
-In this exercise, you will use [Visual Studio Code](https://code.visualstudio.com/), Microsoft's free, cross-platform source-code editor which is preinstalled in the Data Science VM, to write a NotHotDog app in Python. The app will use [Tkinter](https://wiki.python.org/moin/TkInter), which is a popular GUI framework for Python, to implement its user interface, and it will allow you to select images from your local file system. Then it will pass those images to the model you trained in the previous exercise and tell you whether they contain a hot dog.
+In this exercise, you will use [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=academiccontent-github-cxa), Microsoft's free, cross-platform source-code editor which is preinstalled in the Data Science VM, to write a NotHotDog app in Python. The app will use [Tkinter](https://wiki.python.org/moin/TkInter), which is a popular GUI framework for Python, to implement its user interface, and it will allow you to select images from your local file system. Then it will pass those images to the model you trained in the previous exercise and tell you whether they contain a hot dog.
 
 1. Click **Applications** in the upper-left corner of the desktop and select **Accessories > Visual Studio Code** to start Visual Studio Code. Use Visual Studio Code's **File > Open Folder...** command to open the "notebooks/tensorflow-for-poets-2/tf_files" folder containing the **retrained_graph_hotdog.pb** file created when you trained the model.
 

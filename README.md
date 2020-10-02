@@ -63,9 +63,9 @@ We focus on developing high-quality content for all Cloud, Data Science, Machine
 
 | Resource | |
 | - | - |
-|[Azure Architecture Center](https://docs.microsoft.com/azure/architecture/?WT.mc_id=academiccontent-github-cxa)|Cloud architecture guides, reference architectures, and example workloads for how to put the pieces of the cloud together |
-|[Microsoft AI School](https://aischool.microsoft.com?WT.mc_id=academiccontent-github-cxa)|Content for students, developers and data scientists to get started and dive deep into the Microsoft AI platform and deep learning. |
-|[Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=academiccontent-github-cxa)|Hundrends of free online training by world-class experts to help you build your technical skills on the latest Microsoft technologies. |
+| [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/?WT.mc_id=academiccontent-github-cxa) | Cloud architecture guides, reference architectures, and example workloads for how to put the pieces of the cloud together |
+| [Microsoft AI School](https://aischool.microsoft.com?WT.mc_id=academiccontent-github-cxa) | Content for students, developers and data scientists to get started and dive deep into the Microsoft AI platform and deep learning. |
+| [Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=academiccontent-github-cxa) | Hundreds of free online training by world-class experts to help you build your technical skills on the latest Microsoft technologies. |
 | [Technical Community Content](https://github.com/Microsoft/TechnicalCommunityContent) | Workshops from the community team. |
 | [Research case studies](https://www.microsoft.com/research/academic-program/microsoft-azure-for-research/?WT.mc_id=academiccontent-github-cxa) | Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too! |
 | [Microsoft Research Data Sets](https://aka.ms/datascience) | Data sets shared by Microsoft Research for academic use. |
@@ -73,7 +73,7 @@ We focus on developing high-quality content for all Cloud, Data Science, Machine
 | [MS MARCO](http://www.msmarco.org) | Microsoft MAchine Reading COmprehension Dataset generated from real Bing user queries and search results. |
 | [IOT School](https://iotschool.microsoft.com/?WT.mc_id=academiccontent-github-cxa) | Resources for learning about Azure IoT solutions, platform services and industry-leading edge technologies. |
 | [AI Labs](https://www.ailab.microsoft.com/?WT.mc_id=academiccontent-github-cxa) | Experience, learn and code the latest breakthrough AI innovations by Microsoft. |
-| [Channel9](https://channel9.msdn.com/?WT.mc_id=academiccontent-github-cxa) | Videos for developers from people building Microsoft products and services. | 
+| [Channel9](https://channel9.msdn.com/?WT.mc_id=academiccontent-github-cxa) | Videos for developers from people building Microsoft products and services. |
 
 ## Structure of the docs part of this repository
 

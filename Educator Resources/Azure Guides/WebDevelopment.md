@@ -41,8 +41,8 @@ development tooling provided by Azure App Services including continuous
 integration, Visual Studio IDE, in-browser editor and live-site
 debugging.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/app-service-web/)  
-[Get Started](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app)
+[Learn More](https://docs.microsoft.com/azure/app-service-web/?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app?WT.mc_id=academiccontent-github-cxa)
 
 ## Working with Databases
 
@@ -63,8 +63,8 @@ capabilities while reaping the low latency benefits of a schema-less
 data. Other API interfaces and models supported by Cosmos DB are Table
 API, MongoDB and Graph.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)  
-[Get Started](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-introduction)
+[Learn More](https://docs.microsoft.com/azure/cosmos-db/introduction?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction?WT.mc_id=academiccontent-github-cxa)
 
 ### Azure SQL
 
@@ -75,20 +75,20 @@ Azure also offers a database-migration service, which moves data from
 traditional relational on-premises SQL Server and Oracle databases to
 the Azure SQL database.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/sql-database)  
-[Get Started](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-portal)
+[Learn More](https://docs.microsoft.com/azure/sql-database?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal?WT.mc_id=academiccontent-github-cxa)
 
 ### Azure Storage
 
 Azure Storage consists of four services:
 
-1.  Blob or Object Storage: Stores unstructured object data which could be text, or binary, e.g., files, movies, archives.
+1. Blob or Object Storage: Stores unstructured object data which could be text, or binary, e.g., files, movies, archives.
 
-2.  Table Storage: Offers NoSQL key-value database with fast access to unstructured data.
+2. Table Storage: Offers NoSQL key-value database with fast access to unstructured data.
 
-3.  Queue Storage: Provides a reliable queue messaging for asynchronous and event-driven communications between cloud services
+3. Queue Storage: Provides a reliable queue messaging for asynchronous and event-driven communications between cloud services
 
-4.  File Storage: Offers a cloud-based [Server Message Block (SMB)](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365233.aspx)
+4. File Storage: Offers a cloud-based [Server Message Block (SMB)](https://docs.microsoft.com/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview?WT.mc_id=academiccontent-github-cxa)
     file shares
 
 All Azure Storage services are accessible by the REST HTTP API. Azure
@@ -97,8 +97,8 @@ do not require REST HTTP calls, developers can simply invoke methods on
 objects in the programming environment of their choice such as Java,
 Node​.js, PHP, Ruby, Python, C++, iOS or Android.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/storage/storage-introduction)  
-[Get Started](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account)
+[Learn More](https://docs.microsoft.com/azure/storage/storage-introduction?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/storage/storage-create-storage-account?WT.mc_id=academiccontent-github-cxa)
 
 ## Web Content Delivery
 
@@ -116,8 +116,8 @@ Verizon with the latter being the richest in features. All products
 offer integration with other Azure services such as Storage, Cloud
 Services, App Service, and Media Services.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/cdn/cdn-overview)  
-[Get Started](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-new-endpoint)
+[Learn More](https://docs.microsoft.com/azure/cdn/cdn-overview?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/cdn/cdn-create-new-endpoint?WT.mc_id=academiccontent-github-cxa)
 
 ## Building Resilient Web Apps
 
@@ -135,6 +135,6 @@ traffic:
 
 Developers can use them in isolation or in combination.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)  
-[Get Started](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-internet-overview)
+[Learn More](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview?WT.mc_id=academiccontent-github-cxa)
 ![](media/image2.png)

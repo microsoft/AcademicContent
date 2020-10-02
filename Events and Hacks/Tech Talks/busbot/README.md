@@ -3,7 +3,7 @@ A bot that checks bus times in London
 
 If you don't know how to work with the bot framework, I highly recommend you go through this beginners course first: 
 
-https://mva.microsoft.com/en-US/training-courses/getting-started-with-bots-16759?l=2zTAb2HyC_3504668937
+[https://mva.microsoft.com/training-courses/getting-started-with-bots-16759](https://mva.microsoft.com/training-courses/getting-started-with-bots-16759?l=2zTAb2HyC_3504668937&WT.mc_id=academiccontent-github-cxa)
 
 ## What you need
 
@@ -32,7 +32,7 @@ You'll need to copy over the stoppoint.js and index.js code manually from the do
 
 If you haven't used LUIS before, read through the documentation first: 
 
-https://www.microsoft.com/cognitive-services/en-us/luis-api/documentation/home
+[https://www.microsoft.com/cognitive-services/luis-api/documentation/home](https://www.microsoft.com/cognitive-services/luis-api/documentation/home?WT.mc_id=academiccontent-github-cxa)
 
 * Go to luis.ai
 * Register or sign in to your account

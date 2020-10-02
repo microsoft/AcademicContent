@@ -46,7 +46,7 @@ To run a code cell use `Shift-Enter` or press the **<img src="Graphics/run_cell.
 ### Resources
 - [Microsoft Azure Notebooks](https://notebooks.azure.com/)
 - [Python Programming Language](https://www.python.org/)
-- [Introduction to Python](https://docs.microsoft.com/en-us/learn/modules/intro-to-python/)
-- [Introduction to machine learning with Python and Azure Notebooks](https://docs.microsoft.com/en-us/learn/paths/intro-to-ml-with-python/)
+- [Introduction to Python](https://docs.microsoft.com/learn/modules/intro-to-python/?WT.mc_id=academiccontent-github-cxa)
+- [Introduction to machine learning with Python and Azure Notebooks](https://docs.microsoft.com/learn/paths/intro-to-ml-with-python/?WT.mc_id=academiccontent-github-cxa)
 - [GitHub Introduction](https://guides.github.com/activities/hello-world/)
 

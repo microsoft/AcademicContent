@@ -28,7 +28,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
 - [Minecraft for Windows 10](https://www.microsoft.com/p/minecraft-for-windows-10/9nblggh2jhxj?activetab=pivot%3aoverviewtab), [Minecraft for iOS](https://itunes.apple.com/us/app/minecraft/id479516143?mt=8), or [Minecraft for Android](https://play.google.com/store/apps/details?id=com.mojang.minecraftpe)
 
 <a name="Cost"></a>
@@ -58,7 +58,7 @@ An AKS development pipeline requires three components: a machine on which to bui
 
 Note that a virtual machine is *not* required for building Docker images. You could install Docker on your laptop and build images there. However, for very large images such as ones that contain a Minecraft server, it is typically much faster to push the images to the Azure Container Registry from a virtual machine hosted in Azure.
 
-1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
+1. Open the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If asked to log in, do so using your Microsoft account.
 
 1. Click **+ Create a resource** in the menu on the left. Then select **Containers**, followed by **Kubernetes Service**.
 
@@ -284,7 +284,7 @@ In this exercise, you will use the Docker image that you built in the Ubuntu VM 
 	kubectl create -f minecraft.yaml
 	```
 
-	This command might take several minutes to complete. Behind the scenes, a lot is happening. Kubernetes loads the container image from the container registry and creates a container from the image, creates a [pod](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) to host the container, connects the pod to the internal Kubernetes network, and creates a [kube proxy](https://kubernetes.io/docs/concepts/cluster-administration/proxies/) to serve as an interface to the network. AKS then creates a virtual IP address in Azure, connects an [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer/) to the IP address, and connects the load balancer to the kube proxy through an [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview), or VNet. The resultant architecture is pictured below.
+	This command might take several minutes to complete. Behind the scenes, a lot is happening. Kubernetes loads the container image from the container registry and creates a container from the image, creates a [pod](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) to host the container, connects the pod to the internal Kubernetes network, and creates a [kube proxy](https://kubernetes.io/docs/concepts/cluster-administration/proxies/) to serve as an interface to the network. AKS then creates a virtual IP address in Azure, connects an [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer/?WT.mc_id=academiccontent-github-cxa) to the IP address, and connects the load balancer to the kube proxy through an [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview?WT.mc_id=academiccontent-github-cxa), or VNet. The resultant architecture is pictured below.
 
 	![AKS architecture](Images/aks.png)
 	
@@ -309,7 +309,7 @@ Your Minecraft server is now up and running in AKS and ready to use. In the next
 <a name="Exercise4"></a>
 ## Exercise 4: Connect the Minecraft client to the Minecraft server ##
 
-Now comes the fun part: connecting a Minecraft client to the Minecraft server running in a container in an AKS cluster hosted in Azure. The instructions in this exercise assume you are running [Minecraft for Windows 10](https://www.microsoft.com/p/minecraft-for-windows-10/9nblggh2jhxj?activetab=pivot%3aoverviewtab). If you are running Minecraft on iOS or Android instead, you will need to adjust accordingly. The goal is to connect to the Minecraft server whose IP address is on the clipboard using port 19132.
+Now comes the fun part: connecting a Minecraft client to the Minecraft server running in a container in an AKS cluster hosted in Azure. The instructions in this exercise assume you are running [Minecraft for Windows 10](https://www.microsoft.com/p/minecraft-for-windows-10/?WT.mc_id=academiccontent-github-cxa). If you are running Minecraft on iOS or Android instead, you will need to adjust accordingly. The goal is to connect to the Minecraft server whose IP address is on the clipboard using port 19132.
 
 1. Launch Minecraft. Then click the **Play** button on the home screen.
 

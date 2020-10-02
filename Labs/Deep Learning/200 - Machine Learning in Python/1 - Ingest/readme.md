@@ -22,7 +22,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft account. If you don't have one, [get one for free](https://account.microsoft.com/account).
+- An active Microsoft account. If you don't have one, [get one for free](https://account.microsoft.com/account?WT.mc_id=academiccontent-github-cxa).
 
 <a name="Cost"></a>
 ### Cost ###

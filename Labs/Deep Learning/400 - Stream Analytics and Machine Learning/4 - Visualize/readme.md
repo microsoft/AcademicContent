@@ -24,7 +24,7 @@ The following are required to complete this hands-on lab:
 
 - An active Microsoft work/school or organizational account
 - An active Microsoft Power BI subscription. If you don't have one, [sign up for a free trial](https://app.powerbi.com/signupredirect?pbi_source=web).
-- [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) (Requires Windows)
+- [Power BI Desktop](https://powerbi.microsoft.com/desktop/?WT.mc_id=academiccontent-github-cxa) (Requires Windows)
 
 If you haven't completed the [previous lab in this series](../3%20-%20Predict), you must do so before starting this lab.
 
@@ -42,9 +42,9 @@ Estimated time to complete this lab: **30** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Connect Power BI to Azure SQL ##
 
-In the previous lab, you used the [Custom Vision Service](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to train an image-classification model to differentiate between different types of Arctic wildlife, and modified the Azure Function you wrote to output the results to an Azure SQL database. The first step in using Microsoft Power BI to explore and visualize this data is connecting it to Power BI as a data source. In this exercise, you will create a report in [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) and connect to the Azure SQL database.
+In the previous lab, you used the [Custom Vision Service](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/?WT.mc_id=academiccontent-github-cxa) to train an image-classification model to differentiate between different types of Arctic wildlife, and modified the Azure Function you wrote to output the results to an Azure SQL database. The first step in using Microsoft Power BI to explore and visualize this data is connecting it to Power BI as a data source. In this exercise, you will create a report in [Power BI Desktop](https://powerbi.microsoft.com/desktop/?WT.mc_id=academiccontent-github-cxa) and connect to the Azure SQL database.
 
-1. If Power BI Desktop isn't already installed on your computer, go to https://powerbi.microsoft.com/en-us/desktop/ and install it now.
+1. If Power BI Desktop isn't already installed on your computer, go to https://powerbi.microsoft.com/desktop/ and install it now.
 
 1. Start Power BI Desktop. If you are asked to sign in, do so using your work/school or organizational account.
 
@@ -204,7 +204,7 @@ _The formatted report_
 
 Now that the report is prepared in Power BI, your final task is to run the end-to-end solution that you built in this series of hands-on labs and check for polar bears!
 
-1. Open the database that you created in [Part 3](../3%20-%20Predict) in the [Azure Portal](https://portal.azure.com) and use the query editor to execute the following query and delete all rows from the "PolarBears" table:
+1. Open the database that you created in [Part 3](../3%20-%20Predict) in the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) and use the query editor to execute the following query and delete all rows from the "PolarBears" table:
 
 	```sql
 	DELETE FROM dbo.PolarBears
@@ -232,12 +232,12 @@ Now that the report is prepared in Power BI, your final task is to run the end-t
 
 1. When you're satisfied that the solution is working as intended, stop the cameras and stop the Stream Analytics job.
 
-You now have a report that shows, in near real-time, polar-bear activity on the island. If you have a [Power BI Pro or Power BI Premium](https://powerbi.microsoft.com/blog/power-bi-pro-power-bi-premium-flexibility-to-choose-the-licensing-best-for-you-and-your-organization/) account, you can share the report with other Power BI users so they, too, can monitor polar-bear activity. For more information about sharing your work, see [Share Power BI Dashboards and Reports](https://docs.microsoft.com/en-us/power-bi/service-how-to-collaborate-distribute-dashboards-reports "Share Power BI Dashboards and Reports"). Reports can also be viewed in the [Power BI mobile apps](https://docs.microsoft.com/power-bi/mobile-apps-for-mobile-devices) so you can keep track of polar bears on your Windows, Android, or iOS device — even on an Apple watch!
+You now have a report that shows, in near real-time, polar-bear activity on the island. If you have a [Power BI Pro or Power BI Premium](https://powerbi.microsoft.com/blog/power-bi-pro-power-bi-premium-flexibility-to-choose-the-licensing-best-for-you-and-your-organization/?WT.mc_id=academiccontent-github-cxa) account, you can share the report with other Power BI users so they, too, can monitor polar-bear activity. For more information about sharing your work, see [Share Power BI Dashboards and Reports](https://docs.microsoft.com/power-bi/service-how-to-collaborate-distribute-dashboards-reports?WT.mc_id=academiccontent-github-cxa "Share Power BI Dashboards and Reports"). Reports can also be viewed in the [Power BI mobile apps](https://docs.microsoft.com/power-bi/mobile-apps-for-mobile-devices?WT.mc_id=academiccontent-github-cxa) so you can keep track of polar bears on your Windows, Android, or iOS device — even on an Apple watch!
 
 <a name="Summary"></a>
 ## Summary ##
 
-In a series of four hands-on labs, you built a solution that feeds data from a simulated array of cameras into an [Azure IoT hub](https://azure.microsoft.com/services/iot-hub/), uploads photographs to [Azure Storage](https://azure.microsoft.com/services/storage/?v=16.50), processes the data using [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), analyzes the photographs using the [Custom Vision Service](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/), and visualizes the output using [Microsoft Power BI](https://powerbi.microsoft.com/). You also got first-hand experience using [Azure Functions](https://azure.microsoft.com/services/functions/) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). It's a sophisticated solution, and one that has applications in the real world.
+In a series of four hands-on labs, you built a solution that feeds data from a simulated array of cameras into an [Azure IoT hub](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=academiccontent-github-cxa), uploads photographs to [Azure Storage](https://azure.microsoft.com/services/storage/?WT.mc_id=academiccontent-github-cxa), processes the data using [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/?WT.mc_id=academiccontent-github-cxa), analyzes the photographs using the [Custom Vision Service](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/?WT.mc_id=academiccontent-github-cxa), and visualizes the output using [Microsoft Power BI](https://powerbi.microsoft.com/?WT.mc_id=academiccontent-github-cxa). You also got first-hand experience using [Azure Functions](https://azure.microsoft.com/services/functions/?WT.mc_id=academiccontent-github-cxa) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?WT.mc_id=academiccontent-github-cxa). It's a sophisticated solution, and one that has applications in the real world.
 
 Once you're finished using the solution, you should delete all the Azure services you deployed so they no longer charge to your subscription. To delete them, simply go to the Azure Portal and delete the "streaminglab-rg" resource group. That's one of the many benefits of using resource groups: one simple action deletes the resource group and everything inside it. Once deleted, a resource group cannot be recovered, so make sure you're finished with it before deleting it.
 

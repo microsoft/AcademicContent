@@ -32,9 +32,9 @@ Portal, as well as command-line tools: Azure CLI and Azure PowerShell or
 Bash. VMs can be managed by the RESTful HTTP API or in the programming
 language of your choice, e.g., .NET, Java, Node.js or Python.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/virtual-machines/)  
-[Get Started: Azure Windows Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows)  
-[Get Started: Azure Linux Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/linux)  
+[Learn More](https://docs.microsoft.com/azure/virtual-machines/?WT.mc_id=academiccontent-github-cxa)  
+[Get Started: Azure Windows Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows?WT.mc_id=academiccontent-github-cxa)  
+[Get Started: Azure Linux Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux?WT.mc_id=academiccontent-github-cxa)  
 
 ## Working with VMs at Scale: Virtual Machine Scale Sets
 
@@ -50,8 +50,8 @@ The Scale Sets service has the ability to auto-scale the VM up or down.
 This is helpful when working with big-compute tasks, big data and
 high-load systems.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)  
-[Get Started](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create)
+[Learn More](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create?WT.mc_id=academiccontent-github-cxa)
 
 ## Working with VMs at Scale: Azure Batch
 
@@ -67,8 +67,8 @@ Azure Batch works well with intrinsically parallel applications and
 workloads—those which are straightforward to split and perform on
 different machines.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create)  
-[Get Started](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal)  
+[Learn More](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/batch/batch-account-create-portal?WT.mc_id=academiccontent-github-cxa)  
 
 ## Reducing Errors with Automation: Azure Resource Manager
 
@@ -96,8 +96,8 @@ Developers don't have to create templates from scratch every time. There
 is a template export feature which will generate a template and a wide
 variety of ready-to-use templates.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)  
-[Get Started](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template)
+[Learn More](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template?WT.mc_id=academiccontent-github-cxa)
 
 ## Virtual Networks
 
@@ -124,8 +124,8 @@ To connect a virtual network (VNet) with on-premises networks, other
 Azure VNets, or Microsoft networks, Azure offers VPN Gateway which sends
 *encrypted* traffic across via the public connection.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template)  
-[Get Started](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-vnet-arm-pportal)   
+[Learn More](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-vnet-arm-pportal?WT.mc_id=academiccontent-github-cxa)
 
 ## Increasing Portability: Azure Container Service
 
@@ -141,8 +141,8 @@ developers today including DC/OS, Docker Swarm and Kubernetes. This
 allows developers to use familiar tools including DCOS CLI, Docker CLI
 and kubectl.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/container-service/container-service-intro)  
-[Get Started](https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough)  
+[Learn More](https://docs.microsoft.com/azure/container-service/container-service-intro?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/container-service/container-service-kubernetes-walkthrough?WT.mc_id=academiccontent-github-cxa)  
 
 ## Increasing Portability: Azure Container Registry
 
@@ -152,8 +152,8 @@ App Service), not just across Container Service deployments. Azure
 Container Registry is managed via portal, CLI or REST API interfaces,
 and is based on the open-sourced Docker Registry 2.0.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough)  
-[Get Started](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)
+[Learn More](https://docs.microsoft.com/azure/container-service/container-service-kubernetes-walkthrough?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal?WT.mc_id=academiccontent-github-cxa)
 
 ## Increasing Portability: Azure Service Fabric
 
@@ -168,5 +168,5 @@ Intune, Azure Event Hubs, Azure IoT Hub, Skype for Business, and others.
 Service Fabric can deploy any executables and runtimes and make them
 reliable. There's no direct equivalents to Azure Service Fabric in AWS.
 
-[Learn More](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747)  
-[Get Started](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747)
+[Learn More](https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?WT.mc_id=academiccontent-github-cxa)

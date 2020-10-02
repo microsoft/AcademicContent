@@ -1,9 +1,9 @@
 <a name="HOLTitle"></a>
 # Handling Big Data with Azure Data Lake #
 
-[Azure Data Lake](https://azure.microsoft.com/en-us/solutions/data-lake/) enables you to collect data of any size, type, and velocity in one place in order to explore, analyze, and process the data using tools and languages such as U-SQL, Apache Spark, Hive, HBase, and Storm. It works with existing IT investments for identity, management, and security for simplified handling and governance. It also integrates easily with operational stores and data warehouses.
+[Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/?WT.mc_id=academiccontent-github-cxa) enables you to collect data of any size, type, and velocity in one place in order to explore, analyze, and process the data using tools and languages such as U-SQL, Apache Spark, Hive, HBase, and Storm. It works with existing IT investments for identity, management, and security for simplified handling and governance. It also integrates easily with operational stores and data warehouses.
 
-Data Lake consists of two primary elements: [Azure Data Lake Storage Gen1](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/) and [Azure Data Lake Analytics](https://azure.microsoft.com/en-us/services/data-lake-analytics/). Data Lake Storage Gen1 is an enterprise-wide hyper-scale repository for big-data analytical workloads. It was built from the ground up to support massive throughput and integrates with Apache Hadoop by acting as an HDFS distributed file system. It also supports [Azure Active Directory](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory) for access control independent of Hadoop. Data Lake Analytics is an easy-to-learn query and analytics engine that features a new query language called U-SQL, which combines elements of traditional SQL syntax with powerful expression support and extensibility. It integrates seamlessly with Data Lake Storage Gen1 so you can execute queries against multiple disparate data sources as if they were one. This lab will introduce Data Lake Storage Gen1 and Data Lake Analytics and walk you through typical usage scenarios for each.
+Data Lake consists of two primary elements: [Azure Data Lake Storage Gen1](https://azure.microsoft.com/services/storage/data-lake-storage/?WT.mc_id=academiccontent-github-cxa) and [Azure Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics/?WT.mc_id=academiccontent-github-cxa). Data Lake Storage Gen1 is an enterprise-wide hyper-scale repository for big-data analytical workloads. It was built from the ground up to support massive throughput and integrates with Apache Hadoop by acting as an HDFS distributed file system. It also supports [Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory?WT.mc_id=academiccontent-github-cxa) for access control independent of Hadoop. Data Lake Analytics is an easy-to-learn query and analytics engine that features a new query language called U-SQL, which combines elements of traditional SQL syntax with powerful expression support and extensibility. It integrates seamlessly with Data Lake Storage Gen1 so you can execute queries against multiple disparate data sources as if they were one. This lab will introduce Data Lake Storage Gen1 and Data Lake Analytics and walk you through typical usage scenarios for each.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -21,8 +21,8 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
-- [Azure Command-Line Interface (CLI)](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/)
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
+- [Azure Command-Line Interface (CLI)](https://azure.microsoft.com/documentation/articles/xplat-cli-install/?WT.mc_id=academiccontent-github-cxa)
 
 <a name="Resources"></a>
 ### Resources ###
@@ -55,7 +55,7 @@ Estimated time to complete this lab: **60** minutes.
 
 The starting point for using Azure Data Lake is setting up an Azure Data Lake Storage Gen1 to serve as a repository for various data sources. In this exercise, you will create a new Azure Data Lake Storage Gen1 in your Azure subscription. Later, you will import data into the Data Lake Storage Gen1 and query it with U-SQL. 
 
-1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). If you are asked to sign in, do so using your Microsoft account.
+1. In your browser, navigate to the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa). If you are asked to sign in, do so using your Microsoft account.
 
 2. In the portal, click **+ Create a resource**, followed by **Storage** and **Data Lake Storage Gen1**.
 
@@ -345,13 +345,13 @@ Let's get started!
 	CREATE DATABASE UserIntegration;
 	```
 
-1. If you haven't installed the [Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/), take a moment to install it now. Then open a command shell (Bash, Terminal, Command Prompt, etc.) and execute the following command:
+1. If you haven't installed the [Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/?WT.mc_id=academiccontent-github-cxa), take a moment to install it now. Then open a command shell (Bash, Terminal, Command Prompt, etc.) and execute the following command:
 
 	```
 	az login
 	```
 
-	> As an alternative to installing the Azure CLI, you can use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) available in the [Azure Portal](https://portal.azure.com). Simply open the portal in your browser and click the **Cloud Shell** button in the toolbar at the top of the page. One of the benefits of using the Cloud Shell is that you're *always* running an up-to-date version. Note that you can use **Shift+Insert** to paste commands into the Cloud Shell, and **Ctrl+Insert** to copy text from the Cloud Shell to the clipboard.
+	> As an alternative to installing the Azure CLI, you can use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/?WT.mc_id=academiccontent-github-cxa) available in the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa). Simply open the portal in your browser and click the **Cloud Shell** button in the toolbar at the top of the page. One of the benefits of using the Cloud Shell is that you're *always* running an up-to-date version. Note that you can use **Shift+Insert** to paste commands into the Cloud Shell, and **Ctrl+Insert** to copy text from the Cloud Shell to the clipboard.
 
 	![Opening the Azure Cloud Shell](Images/cloud-shell.png)
 
@@ -479,9 +479,9 @@ You just demonstrated that U-SQL can be used to query multiple data sources of d
 
 ## Summary ##
 
-Azure Data Lake provides a hyperscale, enterprise-wide repository in which different types of data can be collected without regard to size, structure, or velocity. Once aggregated in a Data Lake Storage Gen1, data can be analyzed with Azure Data Lake Analytics, or processed with popular open-source tools such as Apache Hadoop and Apache Spark hosted in [Azure HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/). In this lab, you learned how to import various types of data into a Data Lake Storage Gen1 and use Azure Data Lake Analytics to query the combined data with U-SQL. 
+Azure Data Lake provides a hyperscale, enterprise-wide repository in which different types of data can be collected without regard to size, structure, or velocity. Once aggregated in a Data Lake Storage Gen1, data can be analyzed with Azure Data Lake Analytics, or processed with popular open-source tools such as Apache Hadoop and Apache Spark hosted in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/?WT.mc_id=academiccontent-github-cxa). In this lab, you learned how to import various types of data into a Data Lake Storage Gen1 and use Azure Data Lake Analytics to query the combined data with U-SQL. 
 
-Azure Data Lake does not itself provide tools for visualizing query results, but other components of Azure and the Azure ecosystem do. For example, [Microsoft Power BI](https://powerbi.microsoft.com/en-us/) can be used to visualize query results and can even be connected directly to a Data Lake Storage Gen1. For more information about combining Azure Data Lake with Power BI and a tutorial to help guide the way, see [Analyze data in Data Lake Storage Gen1 by using Power BI](https://azure.microsoft.com/en-us/documentation/articles/data-lake-store-power-bi/).
+Azure Data Lake does not itself provide tools for visualizing query results, but other components of Azure and the Azure ecosystem do. For example, [Microsoft Power BI](https://powerbi.microsoft.com/?WT.mc_id=academiccontent-github-cxa) can be used to visualize query results and can even be connected directly to a Data Lake Storage Gen1. For more information about combining Azure Data Lake with Power BI and a tutorial to help guide the way, see [Analyze data in Data Lake Storage Gen1 by using Power BI](https://azure.microsoft.com/documentation/articles/data-lake-store-power-bi/?WT.mc_id=academiccontent-github-cxa).
 
 ---
 

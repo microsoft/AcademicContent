@@ -52,8 +52,8 @@ context such as a city, a plate of bread, or a train station. Tags
 denote the notable aspects of the image, the most prominent or
 identifiable images that help determine what the image is “about”.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home)  
-[Get Started](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/tutorials/pythontutorial)
+[Learn More](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/cognitive-services/computer-vision/tutorials/pythontutorial?WT.mc_id=academiccontent-github-cxa)
 
 ### Face Detection
 
@@ -63,8 +63,8 @@ faces and reports on how well they match up. This is accomplished using
 proportions of the head, hair color, and facial landmarks such as eyes,
 eyebrows, nose, and lips.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/cognitive-services/face/overview)  
-[Get Started](https://docs.microsoft.com/en-us/azure/cognitive-services/face/tutorials/faceapiinjavaforandroidtutorial)
+[Learn More](https://docs.microsoft.com/azure/cognitive-services/face/overview?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/cognitive-services/face/tutorials/faceapiinjavaforandroidtutorial?WT.mc_id=academiccontent-github-cxa)
 
 ### Emotion Detection
 
@@ -75,8 +75,8 @@ or more faces. Cognitive Services processes the image and returns
 emotion indices for each face such as anger, contempt, fear, happiness,
 and surprise.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/cognitive-services/emotion/home)  
-[Get Started](https://docs.microsoft.com/en-us/azure/cognitive-services/emotion/tutorials/pythontutorial)
+[Learn More](https://docs.microsoft.com/azure/cognitive-services/emotion/home?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/cognitive-services/emotion/tutorials/pythontutorial?WT.mc_id=academiccontent-github-cxa)
 
 ### Speech Recognition
 
@@ -85,8 +85,8 @@ exposing acoustic models and language models for customization.
 Identifying and verifying a particular speaker is a next step in speech
 cognition and is provided by the Speaker Recognition API.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home)  
-[Get Started](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-get-started)
+[Learn More](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-get-started?WT.mc_id=academiccontent-github-cxa)
 
 ### Language
 
@@ -98,8 +98,8 @@ map human utterances in natural language to entities and intents to know
 what object or person someone is talking about, how they feel about it,
 and what they would like to see happen with it.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/home)  
-[Get Started](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample)
+[Learn More](https://docs.microsoft.com/azure/cognitive-services/luis/home?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample?WT.mc_id=academiccontent-github-cxa)
 
 ### Knowledge
 
@@ -111,8 +111,8 @@ your query engine as a service online. Employ natural language
 understanding to evaluate queries, offer intelligent recommendations,
 query auto-completion, and semantic search.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/cognitive-services/kes/overview)  
-[Get Started](https://docs.microsoft.com/en-us/azure/cognitive-services/kes/gettingstarted)
+[Learn More](https://docs.microsoft.com/azure/cognitive-services/kes/overview?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/cognitive-services/kes/gettingstarted?WT.mc_id=academiccontent-github-cxa)
 
 ### Search
 
@@ -121,8 +121,8 @@ images, news, and video is often a necessary part of cognitive projects.
 The Bing Web Search API provides a search engine which consumes search
 query terms and produces JSON search responses.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/search-the-web)  
-[Get Started](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/csharp-ranking-tutorial)
+[Learn More](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/search-the-web?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/csharp-ranking-tutorial?WT.mc_id=academiccontent-github-cxa)
 
 ## Building Bots
 
@@ -141,8 +141,8 @@ cards that contain text, images, and action buttons. Manage and deploy
 your bot with the Bot Framework portal. The portal provides a central
 repository for your bots and a way to deploy your bots to a web page.
 
-[Learn More](https://docs.microsoft.com/en-us/bot-framework/azure/azure-bot-service-overview)   
-[Get Started](https://docs.microsoft.com/en-us/bot-framework/bot-builder-overview-getstarted)
+[Learn More](https://docs.microsoft.com/bot-framework/azure/azure-bot-service-overview?WT.mc_id=academiccontent-github-cxa)
+[Get Started](https://docs.microsoft.com/bot-framework/bot-builder-overview-getstarted?WT.mc_id=academiccontent-github-cxa)
 
 ### Azure Bot Service
 
@@ -165,7 +165,7 @@ Azure Bot Service is an implementation of the Bot Framework using Azure
 Functions, which allows your bot to run in serverless, scalable
 containers.
 
-[Learn More](https://docs.microsoft.com/en-us/bot-framework/azure/azure-bot-service-overview)  
-[Get Started](https://docs.microsoft.com/en-us/bot-framework/azure/azure-bot-service-template-basic)  
+[Learn More](https://docs.microsoft.com/bot-framework/azure/azure-bot-service-overview?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/bot-framework/azure/azure-bot-service-template-basic?WT.mc_id=academiccontent-github-cxa)  
 
 ![](media/image2.png)

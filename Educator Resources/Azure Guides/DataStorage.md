@@ -25,8 +25,8 @@ operations per table. You can develop document, key/value, or graph
 databases with Cosmos DB using a series of popular APIs and programming
 models like MongoDB, DocumentDB SQL and Azure Tables.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)  
-[Get Started](https://docs.microsoft.com/en-us/azure/cosmos-db/create-documentdb-dotnet)
+[Learn More](https://docs.microsoft.com/azure/cosmos-db/introduction?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/cosmos-db/create-documentdb-dotnet?WT.mc_id=academiccontent-github-cxa)
 
 ## File/Blob Storage: Azure Storage
 
@@ -38,8 +38,8 @@ Virtual Machines, a further testament to its robustness. Azure Storage
 provides auto partitioning and load balancing and access to a global
 audience by using multiple language API’s.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/storage/storage-introduction)  
-[Get Started](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account)
+[Learn More](https://docs.microsoft.com/azure/storage/storage-introduction?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/storage/storage-create-storage-account?WT.mc_id=academiccontent-github-cxa)
 
 ## Structured Storage: Azure SQL Database
 
@@ -49,8 +49,8 @@ database that supports structures such as relational data, JSON,
 spatial, and XML. Azure SQL Database provides SQL data access as a
 service based on the Microsoft SQL Server database engine.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-technical-overview)  
-[Get Started](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-portal)  
+[Learn More](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal?WT.mc_id=academiccontent-github-cxa)
 
 ## Structured Storage: PostgreSQL
 
@@ -59,16 +59,16 @@ service offering based on open source database PostgreSQL. This version
 of the PostgreSQL as a service is built on the community edition of
 PostgreSQL.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/postgresql/overview)  
-[Get Started](https://docs.microsoft.com/en-us/azure/postgresql/quickstart-create-server-database-portal)
+[Learn More](https://docs.microsoft.com/azure/postgresql/overview?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal?WT.mc_id=academiccontent-github-cxa)
 
 ## Structured Storage: MySQL
 
 The Azure Database for MySQL is a service offering based on the
 community edition of MySQL.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/mysql/overview)  
-[Get Started](https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
+[Learn More](https://docs.microsoft.com/azure/mysql/overview?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal?WT.mc_id=academiccontent-github-cxa)
 
 ## OLAP: Azure SQL Data Warehouse
 
@@ -77,8 +77,8 @@ platform based on standard SQL (T-SQL). The Azure SQL Data Warehouse
 solution provides the capability to scale storage and compute
 independently of one another.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)  
-[Get Started](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial)
+[Learn More](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial?WT.mc_id=academiccontent-github-cxa)
 
 ## Redis Cache: Azure Redis Cache
 
@@ -87,8 +87,8 @@ provides low latency data access using the Redis key-value data store.
 Scale data access independent from data storage to provide lightning
 fast data access for application services.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/redis-cache/)  
-[Get Started](https://docs.microsoft.com/en-us/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)  
+[Learn More](https://docs.microsoft.com/azure/redis-cache/?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache?WT.mc_id=academiccontent-github-cxa)  
 
 ## Big Data Storage: Azure Data Lake Store
 
@@ -100,6 +100,6 @@ Source HDFS. Azure Data Lake offers additional capabilities not provided
 by HDFS including: data encryption at rest, role based security, and
 integration with a full-fledged key vault.
 
-[Learn More](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview)  
-[Get Started](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal)  
+[Learn More](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview?WT.mc_id=academiccontent-github-cxa)  
+[Get Started](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal?WT.mc_id=academiccontent-github-cxa)  
 ![](media/image2.png)

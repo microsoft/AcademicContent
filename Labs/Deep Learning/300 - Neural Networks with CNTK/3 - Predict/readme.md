@@ -1,6 +1,6 @@
 ![](Images/header.png)
 
-In the [previous lab](../2%20-%20Process), you used Azure Machine Learning Workbench to execute a Python script that converts raw data from the [MNIST database](http://yann.lecun.com/exdb/mnist/), which contains 60,000 scanned and normalized images of the hand-written digits 0 through 9, into data that can be used to train neural networks built with the [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), also known as CNTK. The script ran in a Docker container, received input from Azure blob storage, and wrote its output to Azure blob storage.
+In the [previous lab](../2%20-%20Process), you used Azure Machine Learning Workbench to execute a Python script that converts raw data from the [MNIST database](http://yann.lecun.com/exdb/mnist/), which contains 60,000 scanned and normalized images of the hand-written digits 0 through 9, into data that can be used to train neural networks built with the [Microsoft Cognitive Toolkit](https://www.microsoft.com/research/product/cognitive-toolkit/?WT.mc_id=academiccontent-github-cxa), also known as CNTK. The script ran in a Docker container, received input from Azure blob storage, and wrote its output to Azure blob storage.
 
 In this lab, the third of four in a series, you will return to Machine Learning Workbench and train three machine-learning models that rely on CNTK neural networks. The goal: to find the best model for recognizing hand-written digits, with an eye toward operationalizing the model and building a client app that uses it in the fourth and final lab.
 
@@ -20,9 +20,9 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
 - A computer running Windows 10, Windows Server 2016, macOS Sierra, or macOS High Sierra
-- [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/quickstart-installation)
+- [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/quickstart-installation?WT.mc_id=academiccontent-github-cxa)
 - [Docker](https://www.docker.com/)
 
 If you haven't completed the [previous lab in this series](../2%20-%20Process), you must do so before starting this lab.
@@ -46,7 +46,7 @@ Estimated time to complete this lab: **30** minutes.
 <a name="Exercise1"></a>
 ## Exercise 1: Train a neural network and score it for accuracy ##
 
-It's time to leverage the work you performed in the first two labs by using the CNTK-formatted data that you generated to train and test a machine-learning model that utilizes a CNTK neural network. The Microsoft Cognitive Toolkit comes with several [BrainScript](https://docs.microsoft.com/cognitive-toolkit/brainscript-basic-concepts) files enabling various types of neural networks to be trained and tested with a single command. BrainScript provides a simple way to define a network in code-like fashion using expressions, variables, functions, and other constructs. CNTK networks can also be defined in pure Python, but BrainScript files are shorter, more concise, and generally more readable.
+It's time to leverage the work you performed in the first two labs by using the CNTK-formatted data that you generated to train and test a machine-learning model that utilizes a CNTK neural network. The Microsoft Cognitive Toolkit comes with several [BrainScript](https://docs.microsoft.com/cognitive-toolkit/brainscript-basic-concepts?WT.mc_id=academiccontent-github-cxa) files enabling various types of neural networks to be trained and tested with a single command. BrainScript provides a simple way to define a network in code-like fashion using expressions, variables, functions, and other constructs. CNTK networks can also be defined in pure Python, but BrainScript files are shorter, more concise, and generally more readable.
 
 One of the simplest network types is the "One Hidden Layer" network, which is not a deep neural network, but rather one that contains a single layer of hidden nodes. In this exercise, you will write a Python script that uses BrainScript to train and score a "One Hidden Layer" network that recognizes hand-written digits, and execute the script in a Docker container from Azure Machine Learning Workbench.
 
@@ -198,7 +198,7 @@ One of the simplest network types is the "One Hidden Layer" network, which is no
 	}
 	```
 
-	This file contains [BrainScript](https://docs.microsoft.com/cognitive-toolkit/brainscript-basic-concepts) code that defines a neural network. It is a slightly modified version of a file of the same name that comes with CNTK. The first section — TRAINING CONFIG — defines a network with one hidden layer and identifies the shape and source of the training data. The TEST CONFIG section identifies the file containing testing data. The files containing the training and testing data are local versions of the files that you created in the previous lab and downloaded from blob storage.
+	This file contains [BrainScript](https://docs.microsoft.com/cognitive-toolkit/brainscript-basic-concepts?WT.mc_id=academiccontent-github-cxa) code that defines a neural network. It is a slightly modified version of a file of the same name that comes with CNTK. The first section — TRAINING CONFIG — defines a network with one hidden layer and identifies the shape and source of the training data. The TEST CONFIG section identifies the file containing testing data. The files containing the training and testing data are local versions of the files that you created in the previous lab and downloaded from blob storage.
 
 1. Select **Docker** from the Run Configuration drop-down and **train.py** from the Script drop-down to configure Workbench to run **train.py** in a Docker container. Then click **Run**.
 

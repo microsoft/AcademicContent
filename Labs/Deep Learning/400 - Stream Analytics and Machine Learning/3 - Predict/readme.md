@@ -22,7 +22,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
 
 If you haven't completed the [previous lab in this series](../2%20-%20Process), you must do so before starting this lab.
 
@@ -158,7 +158,7 @@ In this exercise, you will use the Azure Cloud Shell to create an Azure SQL data
 	az sql db create --resource-group streaminglab-rg --server SERVER_NAME --name DATABASE_NAME --service-objective S0
 	```
 
-1. Go to the database server in the [Azure Portal](https://portal.azure.com) and click **Firewalls and virtual networks** in the menu on the left. Turn on **Allow access to Azure services** to allow other Azure services to connect to the server, and click **+ Add client IP** so you can connect to the database from Power BI Desktop in the next lab. Then click **Save** at the top of the blade to save these changes.
+1. Go to the database server in the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) and click **Firewalls and virtual networks** in the menu on the left. Turn on **Allow access to Azure services** to allow other Azure services to connect to the server, and click **+ Add client IP** so you can connect to the database from Power BI Desktop in the next lab. Then click **Save** at the top of the blade to save these changes.
 
 	![Allowing Azure to access the database server](Images/configure-database-server.png)
 
@@ -354,7 +354,7 @@ In this exercise, you will modify the Azure Function that you created in the pre
 	var isPolarBear = probability > 0.8; // 80% threshhold
 	```
 
-	Another notable aspect of this code is its use of a [shared-access signature](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1), or SAS. The "photos" container that you created in Lab 1 is private. To access the blobs stored there, you must have access to the storage account or have the storage account's access key. Shared-access signatures allow anonymous users to access individual blobs, but only for a specified length of time and optionally with read-only access.
+	Another notable aspect of this code is its use of a [shared-access signature](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1?WT.mc_id=academiccontent-github-cxa), or SAS. The "photos" container that you created in Lab 1 is private. To access the blobs stored there, you must have access to the storage account or have the storage account's access key. Shared-access signatures allow anonymous users to access individual blobs, but only for a specified length of time and optionally with read-only access.
 
 	The code that you just added uses the Azure Storage SDK for Node.js ([azure-storage](https://www.npmjs.com/package/azure-storage)) to generate a read-only SAS for the blob that is passed to the Custom Vision Service, and appends it to the blob URL as a query string. The SAS is valid for 3 minutes and allows read access only. This allows your code to submit private blobs to the Custom Vision Service for analysis without putting the blobs in a public container where anyone could download them.
 

@@ -23,7 +23,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
 - [Node.js](https://nodejs.org/)
 
 If you haven't completed the [previous lab in this series](../1%20-%20Ingest), you must do so before starting this lab.
@@ -50,7 +50,7 @@ Estimated time to complete this lab: **30** minutes.
 
 In this exercise, you will use the Azure Portal to create a Stream Analytics job and connect it to the IoT hub you created in the previous lab.
 
-1. Open the [Azure Portal](https://portal.azure.com) in your browser. If asked to log in, do so using your Microsoft account.
+1. Open the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If asked to log in, do so using your Microsoft account.
 
 1. Click **+ Create a resource**, followed by **Internet of Things** and **Stream Analytics job**.
 
@@ -113,7 +113,7 @@ The heart of a Stream Analytics job is the query that extracts information from 
 
 	_Query result_
 
-1. One of the key features of the Stream Analytics Query Language is its ability to group results using windows of time whose length you specify. Windowing is enacted using the keywords [TumblingWindow](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [HoppingWindow](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [SlidingWindow](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics), and [SessionWindow](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/session-window-azure-stream-analytics) in a GROUP BY clause. To demonstrate, execute the following query to count the number of times the cameras were triggered each minute:
+1. One of the key features of the Stream Analytics Query Language is its ability to group results using windows of time whose length you specify. Windowing is enacted using the keywords [TumblingWindow](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics?WT.mc_id=academiccontent-github-cxa), [HoppingWindow](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics?WT.mc_id=academiccontent-github-cxa), [SlidingWindow](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics?WT.mc_id=academiccontent-github-cxa), and [SessionWindow](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics?WT.mc_id=academiccontent-github-cxa) in a GROUP BY clause. To demonstrate, execute the following query to count the number of times the cameras were triggered each minute:
 
 	```sql
 	SELECT System.Timestamp as [Time Ending],
@@ -121,7 +121,7 @@ The heart of a Stream Analytics job is the query that extracts information from 
 	FROM CameraInput TIMESTAMP BY timestamp
 	GROUP BY TumblingWindow(n, 1)
 	```
-	> [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/mt573293.aspx) is an important element of the Stream Analytics Query Language. If it was omitted from the query above, you would be querying for the number of events that arrived *at the event hub* each minute rather than the number of events that occurred at the camera locations. TIMESTAMP BY allows you to specify a field in the input stream as the event time.
+	> [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/mt573293.aspx?WT.mc_id=academiccontent-github-cxa) is an important element of the Stream Analytics Query Language. If it was omitted from the query above, you would be querying for the number of events that arrived *at the event hub* each minute rather than the number of events that occurred at the camera locations. TIMESTAMP BY allows you to specify a field in the input stream as the event time.
 
 1. Confirm that you see the output below:
 
@@ -157,7 +157,7 @@ Finish up by clicking the **Save** button at the top of the blade to save the qu
 
 The query that you tested in the previous exercise employs simple logic: if the same camera snaps two pictures within 10 seconds, there *might* be a polar bear. But the ultimate goal is to determine with a great deal of confidence whether there really *is* a polar bear. That means supplementing Stream Analytics with machine learning.
 
-One way to connect a Stream Analytics job to a machine-learning model running in the cloud is to use an [Azure Function](https://azure.microsoft.com/services/functions/) as a Stream Analytics output. The function, which is invoked each time Stream Analytics produces an output, can then call out to the machine-learning model. In this exercise, you will write an Azure Function, connect it to Stream Analytics, and stub it out so you can verify that it's being called.
+One way to connect a Stream Analytics job to a machine-learning model running in the cloud is to use an [Azure Function](https://azure.microsoft.com/services/functions/?WT.mc_id=academiccontent-github-cxa) as a Stream Analytics output. The function, which is invoked each time Stream Analytics produces an output, can then call out to the machine-learning model. In this exercise, you will write an Azure Function, connect it to Stream Analytics, and stub it out so you can verify that it's being called.
 
 1. In the Azure Portal, click **+ Create a resource**, followed by **Compute** and **Function App**.
 

@@ -20,10 +20,10 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
 - A computer running Windows 10, Windows Server 2016, macOS Sierra, or macOS High Sierra
-- [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/quickstart-installation)
-- The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/quickstart-installation?WT.mc_id=academiccontent-github-cxa)
+- The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=academiccontent-github-cxa)
 - [Docker](https://www.docker.com/)
 
 If you haven't completed the [previous lab in this series](../2%20-%20Process), you must do so before starting this lab.
@@ -75,7 +75,7 @@ The notebook is now configured and ready to go. Let's use it to train a machine-
 <a name="Exercise2"></a>
 ## Exercise 2: Use the notebook to train a model ##
 
-In this exercise, you will use the Jupyter notebook you created in the previous exercise to train an image-classification model. Rather than build the model from scratch, you will use [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning) to refine a model that has already been trained to work with images. The pretrained model you will use is a [convolutional Deep Neural Network](https://en.wikipedia.org/wiki/Convolutional_neural_network) (DNN) named [ResNet18](https://docs.microsoft.com/en-us/cognitive-toolkit/build-your-own-image-classifier-using-transfer-learning) that is provided with the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/), also known as CNTK.
+In this exercise, you will use the Jupyter notebook you created in the previous exercise to train an image-classification model. Rather than build the model from scratch, you will use [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning) to refine a model that has already been trained to work with images. The pretrained model you will use is a [convolutional Deep Neural Network](https://en.wikipedia.org/wiki/Convolutional_neural_network) (DNN) named [ResNet18](https://docs.microsoft.com/cognitive-toolkit/build-your-own-image-classifier-using-transfer-learning?WT.mc_id=academiccontent-github-cxa) that is provided with the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/?WT.mc_id=academiccontent-github-cxa), also known as CNTK.
 
 Building on a model that is already trained to understand an application domain — in this case, images — allows you to achieve higher accuracy with less training. Training an image classifier from scratch typically requires tens of thousands of images at a minimum. Refining a pretrained model to differentiate between images can require as few as a few dozen images
 
@@ -459,7 +459,7 @@ Building on a model that is already trained to understand an application domain 
 
 	Note that the accuracy could be different if you started over again with Lab 1 because the image search would probably yield a slightly different batch of images. Due to the nature of convolutional neural networks and the random seeds used to train them, the accuracy might even vary slightly from run to run with the same training and testing images. Generally speaking, for a model like this one, you would like to see an accuracy of 90% or higher. In your judgment, is the accuracy achieved here sufficient to put the trained model into production?
 
-In this exercise, you used a set of images to train a pretrained model to differentiate between images representing paintings by famous artists. You did the training in a Docker container on your own PC. If you were building a model from scratch and training it with tens or hundreds of thousands of images on a single computer, training could take hours, days, or even weeks. The solution would be to run the training code on an [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) cluster containing multiple virtual machines equipped with GPUs. Fortunately, projects run from Azure Machine Learning Workbench can easily be run on HDInsight clusters. For more information, see https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-2.
+In this exercise, you used a set of images to train a pretrained model to differentiate between images representing paintings by famous artists. You did the training in a Docker container on your own PC. If you were building a model from scratch and training it with tens or hundreds of thousands of images on a single computer, training could take hours, days, or even weeks. The solution would be to run the training code on an [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/?WT.mc_id=academiccontent-github-cxa) cluster containing multiple virtual machines equipped with GPUs. Fortunately, projects run from Azure Machine Learning Workbench can easily be run on HDInsight clusters. For more information, see https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-2.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Download the model file ##

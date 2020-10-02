@@ -22,8 +22,8 @@ In this hands-on lab, you will learn how to:
 
 The following is required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](http://aka.ms/WATK-FreeTrial).
-- [Visual Studio 2017 Community edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) or higher 
+- An active Microsoft Azure subscription. If you don't have one, [sign up for a free trial](https://aka.ms/WATK-FreeTrial).
+- [Visual Studio 2017 Community edition](https://www.visualstudio.com/products/visual-studio-community-vs.aspx?WT.mc_id=academiccontent-github-cxa) or higher 
 
 <a name="Resources"></a>
 ### Resources ###
@@ -59,7 +59,7 @@ Azure Stream Analytics supports several types of input, including input from Azu
 
 In this exercise, you'll create an Azure event hub to provide input to Azure Stream Analytics and configure it to so that it can be accessed safely and securely by IoT devices and gateways. 
 
-1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). If you are asked to sign in, do so using your Microsoft account.
+1. In your browser, navigate to the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa). If you are asked to sign in, do so using your Microsoft account.
 
 1. In the portal, click **+ Create a resource**, followed by **Internet of Things** and **Event Hubs**.
 
@@ -132,7 +132,7 @@ You have created an event hub that can ingest events and be used as the source o
 <a name="Exercise2"></a>
 ## Exercise 2: Send events to the event hub ##
 
-Applications, devices, and gateways can send events to Azure event hubs using the [Azure Event Hubs REST API](https://msdn.microsoft.com/en-us/library/azure/Dn790674.aspx) or the [Advanced Message Queuing Protocol](https://www.amqp.org/), or AMQP for short. In this exercise, you will write a Windows console app that uses AMQP to send events to the event hub you created in [Exercise 1](#Exercise1). Each event will represent a withdrawal from an ATM machine, and will contain relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.
+Applications, devices, and gateways can send events to Azure event hubs using the [Azure Event Hubs REST API](https://msdn.microsoft.com/library/azure/Dn790674.aspx?WT.mc_id=academiccontent-github-cxa) or the [Advanced Message Queuing Protocol](https://www.amqp.org/), or AMQP for short. In this exercise, you will write a Windows console app that uses AMQP to send events to the event hub you created in [Exercise 1](#Exercise1). Each event will represent a withdrawal from an ATM machine, and will contain relevant information such as the card number used for the withdrawal, the time and amount of the withdrawal, and a unique identifier for the ATM machine used.
 
 1. Start Visual Studio and use the **File -> New -> Project** command to create a new Windows Console App named "ATMEventGenerator."
 
@@ -228,7 +228,7 @@ In real life, there would be real ATM machines sending events to the event hub. 
 
 In this exercise, you will use the Azure Portal to create a Stream Analytics job and connect it to the event hub you created in [Exercise 1](#Exercise1). You will also capture the raw data being passed to the Stream Analytics job from the event hub and examine its structure.
 
-1. Return to the [Azure Portal](https://portal.azure.com) and click **+ Create a resource**, followed by **Internet of Things** and **Stream Analytics job**.
+1. Return to the [Azure Portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) and click **+ Create a resource**, followed by **Internet of Things** and **Stream Analytics job**.
 
     ![Creating a Stream Analytics job](Images/new-stream-analytics-job.png)
 
@@ -313,7 +313,7 @@ You have connected a Stream Analytics job to an event hub and demonstrated that 
 <a name="Exercise4"></a>
 ## Exercise 4: Prepare queries and test with sample data ##
 
-Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query real-time data streams. In this exercise, you will use the [Stream Analytics Query Language](https://msdn.microsoft.com/en-us/library/azure/Dn834998.aspx) to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.
+Now that your job is set up, there's much more you can do with Stream Analytics than simply view the raw data presented to it. The whole point of Stream Analytics is being able to query real-time data streams. In this exercise, you will use the [Stream Analytics Query Language](https://msdn.microsoft.com/library/azure/Dn834998.aspx?WT.mc_id=academiccontent-github-cxa) to query a sample data set for potentially fraudulent ATM transactions. It is always a good idea to test your queries against sample data before deploying them against live data streams, because with sample data, you can verify that a known set of inputs produces the expected outputs.
 
 To flag potentially fraudulent withdrawals from ATMs, you will query for transactions performed with the same ATM card at different ATM machines within a specified time window (60 seconds). In real life, you would probably use a larger time window and perhaps even factor in the distance between ATM machines. However, a narrower time window is useful in a lab environment because it allows you to perform meaningful experiments in minutes rather than hours.
 
@@ -806,7 +806,7 @@ Almost there! Now it's time to run the Stream Analytics job and see the output i
 
 1. Return to the console window in which ATMEventGenerator is running and press **Ctrl+C** to terminate it.
 
-You now have a Web app that displays output from a Stream Analytics job in near real-time. There are other ways to build such dashboards, including [Microsoft Power BI](https://powerbi.microsoft.com/). With Power BI, you can create dashboards that render output from Stream Analytics jobs without writing any code. For more information, refer to [Stream Analytics & Power BI: A real-time analytics dashboard for streaming data](https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-power-bi-dashboard/).
+You now have a Web app that displays output from a Stream Analytics job in near real-time. There are other ways to build such dashboards, including [Microsoft Power BI](https://powerbi.microsoft.com/). With Power BI, you can create dashboards that render output from Stream Analytics jobs without writing any code. For more information, refer to [Stream Analytics & Power BI: A real-time analytics dashboard for streaming data](https://azure.microsoft.com/documentation/articles/stream-analytics-power-bi-dashboard/?WT.mc_id=academiccontent-github-cxa).
 
 <a name="Summary"></a>
 ## Summary ##

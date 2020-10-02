@@ -1,7 +1,7 @@
 <a name="HOLTitle"></a>
 # Building Jupyter Notebooks with Azure Notebooks #
 
-[Azure Notebooks](https://notebooks.azure.com/) is a cloud-based platform for building and running [Jupyter](http://jupyter.org/) notebooks. Jupyter is an environment based on [IPython](https://ipython.org/) that facilitates interactive programming and data analysis using a variety of programming languages, including Python. Jupyter notebooks enjoy widespread use in research and academia for mathematical modeling, machine learning, statistical analysis, and for teaching and learning how to code.
+[Azure Notebooks](https://notebooks.azure.com/?WT.mc_id=academiccontent-github-cxa) is a cloud-based platform for building and running [Jupyter](http://jupyter.org/) notebooks. Jupyter is an environment based on [IPython](https://ipython.org/) that facilitates interactive programming and data analysis using a variety of programming languages, including Python. Jupyter notebooks enjoy widespread use in research and academia for mathematical modeling, machine learning, statistical analysis, and for teaching and learning how to code.
 
 Azure Notebooks provide Jupyter as a service for free. It's a convenient way to build notebooks and share them with others without having to install and manage a Jupyter server. And it's completely Web-based, making it an ideal solution for collaborating online. In this lab, you will create an Azure Notebook and use three popular Python libraries — [scikit-learn](http://scikit-learn.org/stable/index.html), [NumPy](http://www.numpy.org/), and [Seaborn](https://seaborn.pydata.org/) — to analyze climate data collected by NASA. Then you will create a slide show from the notebook and share the notebook so others can experiment with it, too.
 
@@ -22,7 +22,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft personal account. If you don't have one, [sign up for free](https://account.microsoft.com/account).
+- An active Microsoft personal account. If you don't have one, [sign up for free](https://account.microsoft.com/account?WT.mc_id=academiccontent-github-cxa).
 - A modern Web browser
 
 <a name="Resources"></a>
@@ -324,7 +324,7 @@ Another way to share a notebook is to download it as a .ipynb file and send the 
 <a name="Summary"></a>
 ## Summary ##
 
-The [Azure Notebooks Web site](https://notebooks.azure.com/) contains several sample notebooks that you can experiment with and learn from. [Discover Sentiments in Tweets](https://notebooks.azure.com/Microsoft/libraries/samples/html/Discover%20Sentiments%20in%20Tweets.ipynb) performs sentiment analysis on 160,000 tweets, and uses the [word_cloud](https://github.com/amueller/word_cloud) package to generate word clouds from the tweets. [Introduction to Cognitive Toolkit](https://notebooks.azure.com/cntk/libraries/tutorials) is a library of notebooks that demonstrate how to use the [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/) to build sophisticated machine-learning models. Check out the Azure Notebooks home page for additional sample notebooks, and use them to deepen your understanding of Jupyter and sharpen your data-science skills.
+The [Azure Notebooks Web site](https://notebooks.azure.com/?WT.mc_id=academiccontent-github-cxa) contains several sample notebooks that you can experiment with and learn from. [Discover Sentiments in Tweets](https://notebooks.azure.com/Microsoft/libraries/samples/html/Discover%20Sentiments%20in%20Tweets.ipynb?WT.mc_id=academiccontent-github-cxa) performs sentiment analysis on 160,000 tweets, and uses the [word_cloud](https://github.com/amueller/word_cloud) package to generate word clouds from the tweets. [Introduction to Cognitive Toolkit](https://notebooks.azure.com/cntk/libraries/tutorials?WT.mc_id=academiccontent-github-cxa) is a library of notebooks that demonstrate how to use the [Microsoft Cognitive Toolkit](https://www.microsoft.com/research/product/cognitive-toolkit/?WT.mc_id=academiccontent-github-cxa) to build sophisticated machine-learning models. Check out the Azure Notebooks home page for additional sample notebooks, and use them to deepen your understanding of Jupyter and sharpen your data-science skills.
 
 ---
 

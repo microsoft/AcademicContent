@@ -9,8 +9,8 @@ In this hands-on lab, you are acting as a new developer for a startup creating a
 To develop this feature, your team has recently obtained public data about rental properties in four cities in the United States, each in a distinct [comma-separated value (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) file. You have been tasked with finding the most recent rental data in these large files and also with finding a way to search for all rental properties that match any given criteria within a specific area.
 
 You devise the following plan:
-Because your startup does not have the capital to build and maintain a big-data processing workstation, you decide first to create a powerful [Data Science Virtual Machine (DSVM)](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) in Azure that you can use to perform your work while paying only for the time spent using the VM (Exercise 1).
-Next, as a way to complete the specific task that has been assigned to you, you know that you can use [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) and [U-SQL](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started) to directly query data within CSV files without having to load the data into a database. You also want to perform these U-SQL queries quickly - without having to rely on remote storage - so you install the Data Lake local-run service on the VM hosted in Azure (Exercise 2).
+Because your startup does not have the capital to build and maintain a big-data processing workstation, you decide first to create a powerful [Data Science Virtual Machine (DSVM)](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/?WT.mc_id=academiccontent-github-cxa) in Azure that you can use to perform your work while paying only for the time spent using the VM (Exercise 1).
+Next, as a way to complete the specific task that has been assigned to you, you know that you can use [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/?WT.mc_id=academiccontent-github-cxa) and [U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started?WT.mc_id=academiccontent-github-cxa) to directly query data within CSV files without having to load the data into a database. You also want to perform these U-SQL queries quickly - without having to rely on remote storage - so you install the Data Lake local-run service on the VM hosted in Azure (Exercise 2).
 You will create and perform U-SQL queries on the VM to compile a list of the most recent rental listings from all four CSV files (Exercise 3).
 Finally you will debug a U-SQL query statement devised to find listings within a specific neighborhood (Exercise 4).
 
@@ -26,9 +26,9 @@ In this HOL, you will:
 
 The following are required to complete this HOL:
 
-* An Azure subscription, which will be used to create the VM and query Data Lake. Students can get access through [Azure for Students](http://aka.ms/azure4students).
+* An Azure subscription, which will be used to create the VM and query Data Lake. Students can get access through [Azure for Students](https://aka.ms/azure4students).
 
-**Note:** To quickly verify your student status, use your school-issued email address like "your_name@your_school.edu" or equivalent. This will become your Microsoft Account that you can use to login to the [Azure Portal](http://portal.azure.com).
+**Note:** To quickly verify your student status, use your school-issued email address like "your_name@your_school.edu" or equivalent. This will become your Microsoft Account that you can use to login to the [Azure Portal](http://portal.azure.com?WT.mc_id=academiccontent-github-cxa).
 
 ### Resources ###
 
@@ -47,11 +47,11 @@ This HOL includes the following exercises:
 
 ## Exercise 1: Create a DSVM ##
 
-In this exercise, you will create an instance of the Data Science Virtual Machine (DSVM) for Windows in Azure. The DSVM for Windows is a VM image in Azure that includes many preinstalled and configured data-science and development tools, and you will be using this VM as your development workstation. (You can read a longer description about the many tools and features available in the DSVM [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.standard-data-science-vm?tab=Overview).)
+In this exercise, you will create an instance of the Data Science Virtual Machine (DSVM) for Windows in Azure. The DSVM for Windows is a VM image in Azure that includes many preinstalled and configured data-science and development tools, and you will be using this VM as your development workstation. (You can read a longer description about the many tools and features available in the DSVM [here](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm?tab=Overview&WT.mc_id=academiccontent-github-cxa).)
 
 ### Step 1: Creating a DSVM in Azure ###
 
-1. In a web browser, open the [Azure Portal](https://portal.azure.com/), and then sign in with your Microsoft Account (use the account your Azure subscription is associated with).
+1. In a web browser, open the [Azure Portal](https://portal.azure.com/?WT.mc_id=academiccontent-github-cxa), and then sign in with your Microsoft Account (use the account your Azure subscription is associated with).
 
 1. From the left-side menu, click the **+** sign to add a new resource.
 
@@ -85,7 +85,7 @@ In this exercise, you will create an instance of the Data Science Virtual Machin
 
 1. In the **Resource group** section, leave **Create new** selected, and then enter a name of your choice for the resource group in the field below; for example, **DataScienceGroup1**.
 
-    A [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in Azure is a container used to run an application. Resource Groups help developers organize and control their solutions such as monitoring, access control, provisioning, active development vs stable production channels, and billing. Generally, items in one Resource Group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
+    A [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview?WT.mc_id=academiccontent-github-cxa) in Azure is a container used to run an application. Resource Groups help developers organize and control their solutions such as monitoring, access control, provisioning, active development vs stable production channels, and billing. Generally, items in one Resource Group are intended to have the same lifecycle, so you can easily deploy, update, and delete them as a group.
 
 1. In the **Location** drop-down menu, ensure that a geographically close location is chosen.
 1. Click **OK**.
@@ -98,7 +98,7 @@ At this stage, the Choose a size page appears. Proceed to the next step.
 
     ![ChooseSize](img/ChooseSize.jpg)
 
-1. In the list of available VM types, select **DS4_V2 Standard**. Notice the wide range of VM choices available. Azure provides these according to the growing needs of your workload or application - for example, you might need the high memory allocation (G-series) or additional GPUs (N-series) that maximize the performance of deep-learning experiments (like image classification). Some VMs are most cost-effective for early experiementation (A-series, Dv2 series). But a D-series is a good starting point for this lab. You can learn more [here](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-sizes-specs) or [here](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/09/12/choosing-the-most-appropiate-azure-virtual-machine-specification/).
+1. In the list of available VM types, select **DS4_V2 Standard**. Notice the wide range of VM choices available. Azure provides these according to the growing needs of your workload or application - for example, you might need the high memory allocation (G-series) or additional GPUs (N-series) that maximize the performance of deep-learning experiments (like image classification). Some VMs are most cost-effective for early experiementation (A-series, Dv2 series). But a D-series is a good starting point for this lab. You can learn more [here](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs?WT.mc_id=academiccontent-github-cxa) or [here](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/09/12/choosing-the-most-appropiate-azure-virtual-machine-specification/?WT.mc_id=academiccontent-github-cxa).
 
     ![ChooseSize2](img/ChooseSize2.jpg)
 
@@ -109,7 +109,7 @@ At this stage, the Choose a size page appears. Proceed to the next step.
 
 1. Click **Create**.
 
-    **Important**: Make sure you return to the Azure Portal and shut down this VM after you complete this lab. If you do not do this, your VM will continue to consume your available Azure credit. Azure now has [automatic start/stop features for VMs](https://docs.microsoft.com/azure/automation/automation-solution-vm-management) but you must configure them accordingly.
+    **Important**: Make sure you return to the Azure Portal and shut down this VM after you complete this lab. If you do not do this, your VM will continue to consume your available Azure credit. Azure now has [automatic start/stop features for VMs](https://docs.microsoft.com/azure/automation/automation-solution-vm-management?WT.mc_id=academiccontent-github-cxa) but you must configure them accordingly.
 
 1. Wait a few minutes while the DSVM deploys. After it deploys, you will see a dashboard for your new VM. At the top of the dashboard, you will see controls.
 
@@ -158,7 +158,7 @@ If you are on an Apple Mac device, download and install [Microsoft Remote Deskto
 
 ## Exercise 2: Set up the U-SQL local run environment ##
 
-We are going to run U-SQL queries on the DSVM but the default configuration is missing some components that we need for our lab. Before you can run U-SQL queries locally in the source code editor like [Visual Studio Code](https://code.visualstudio.com/), you will need to download and install an extension called Azure Data Lake Tools plus some additional script dependencies. Then you will need to start the Data Lake local-run service.
+We are going to run U-SQL queries on the DSVM but the default configuration is missing some components that we need for our lab. Before you can run U-SQL queries locally in the source code editor like [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=academiccontent-github-cxa), you will need to download and install an extension called Azure Data Lake Tools plus some additional script dependencies. Then you will need to start the Data Lake local-run service.
 
 ### Step 1: Installing the Visual Studio component ###
 
@@ -193,7 +193,7 @@ We are going to run U-SQL queries on the DSVM but the default configuration is m
 
 ### Step 2: Installing Azure Data Lake Tools in Visual Studio Code ###
 
-We will be using Visual Studio Code as our source-code editor of choice which has already been pre-installed on the DSVM. If you like using it, you can also [install it](https://code.visualstudio.com/) on your Mac, Windows, or Linux device in the future. To make Visual Studio Code compatible with U-SQL, we need to install the Data Lake Tools extension.
+We will be using Visual Studio Code as our source-code editor of choice which has already been pre-installed on the DSVM. If you like using it, you can also [install it](https://code.visualstudio.com/?WT.mc_id=academiccontent-github-cxa) on your Mac, Windows, or Linux device in the future. To make Visual Studio Code compatible with U-SQL, we need to install the Data Lake Tools extension.
 
 1. On the desktop of the DSVM, locate and double-click the Visual Studio Code icon to open the application.
 
@@ -376,7 +376,7 @@ In the following exercise, you will use two separate scripts to compile data fro
     Note also the following about the use of asterisks in U-SQL EXTRACT statements:
 
     * All data files *must* have the same column order and data types.
-    * More complex pattern matching can be used. (You can find one such example [here](https://msdn.microsoft.com/en-us/azure/data-lake-analytics/u-sql/extract-expression-u-sql))
+    * More complex pattern matching can be used. (You can find one such example [here](https://docs.microsoft.com/u-sql/statements-and-expressions/extract-expression?WT.mc_id=academiccontent-github-cxa))
 
 1. Now, we will run the query through the Data Lake local run service. Open the command palette by clicking **View** > **Command Palette** (or Ctrl+Shift+P). From the prompt, type and run the command **ADL: Submit Job**.
 
@@ -557,7 +557,7 @@ Because you want to be able to search listings by various criteria, you need to 
     , bedrooms  int
     ```
 
-    Simply adding a “**?**” character to the end of the type will allow for NULL values. Not all types support this feature, but INT does. You can learn more about ["nullable types" in U-SQL here](https://msdn.microsoft.com/en-us/azure/data-lake-analytics/u-sql/built-in-u-sql-types).
+    Simply adding a “**?**” character to the end of the type will allow for NULL values. Not all types support this feature, but INT does. You can learn more about ["nullable types" in U-SQL here](hhttps://docs.microsoft.com/u-sql/data-types/built-in-u-sql-types?WT.mc_id=academiccontent-github-cxa).  
 
 1. Change line 21 to read as below:
 
@@ -582,7 +582,7 @@ Because you want to be able to search listings by various criteria, you need to 
 
 1. Close all open windows in your DSVM, and then disconnect from your remote session to the DSVM by closing the remote desktop session.
 
-1. Return to the [Azure portal](https://portal.azure.com). Locate and open the settings for the new DSVM that you created as part of this HOL.
+1. Return to the [Azure portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa). Locate and open the settings for the new DSVM that you created as part of this HOL.
 
 1. In the controls, click **Stop** to stop the DSVM.
 

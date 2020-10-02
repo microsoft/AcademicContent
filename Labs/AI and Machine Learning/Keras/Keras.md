@@ -1,10 +1,10 @@
 # Building Neural Networks with Keras #
 
-Building neural networks isn't easy. Even with popular libraries such as the [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) and [TensorFlow](https://www.tensorflow.org/) to help out, it often requires several hundred lines of code to get a neural network up and running. That's one reason [Keras](https://keras.io/) has become popular in the deep-learning community. Keras is an open-source Python library that dramatically simplifies the building of neural networks. Under the hood, it uses the Microsoft Cognitive Toolkit, TensorFlow, or [Theano](https://github.com/Theano) to do the heavy lifting. With Keras, you can build sophisticated neural networks with just a few dozen lines of code and train them to classify images, analyze text for sentiment, do natural-language processing, and perform other tasks at which deep learning excels.
+Building neural networks isn't easy. Even with popular libraries such as the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/?WT.mc_id=academiccontent-github-cxa) and [TensorFlow](https://www.tensorflow.org/) to help out, it often requires several hundred lines of code to get a neural network up and running. That's one reason [Keras](https://keras.io/) has become popular in the deep-learning community. Keras is an open-source Python library that dramatically simplifies the building of neural networks. Under the hood, it uses the Microsoft Cognitive Toolkit, TensorFlow, or [Theano](https://github.com/Theano) to do the heavy lifting. With Keras, you can build sophisticated neural networks with just a few dozen lines of code and train them to classify images, analyze text for sentiment, do natural-language processing, and perform other tasks at which deep learning excels.
 
 ![](Images/keras.png)
 
-In this lab, you will use Keras to build a neural network that scores text for sentiment. An input such as "Great service, and some of the best sushi I've ever tasted" will score close to 1.0 indicating the sentiment is very positive, while an input such as "The food was bland and the service was terrible" will score closer to 0.0. Such systems are widely used today to monitor Twitter, Yelp, and other social-media services for sentiment regarding businesses and political candidates. To minimize setup and configuration, you will use Keras in a [Jupyter notebook](http://jupyter.org/) hosted in [Azure Notebooks](https://notebooks.azure.com/), where Keras, TensorFlow, and other libraries that you need are preinstalled.
+In this lab, you will use Keras to build a neural network that scores text for sentiment. An input such as "Great service, and some of the best sushi I've ever tasted" will score close to 1.0 indicating the sentiment is very positive, while an input such as "The food was bland and the service was terrible" will score closer to 0.0. Such systems are widely used today to monitor Twitter, Yelp, and other social-media services for sentiment regarding businesses and political candidates. To minimize setup and configuration, you will use Keras in a [Jupyter notebook](http://jupyter.org/) hosted in [Azure Notebooks](https://notebooks.azure.com/?WT.mc_id=academiccontent-github-cxa), where Keras, TensorFlow, and other libraries that you need are preinstalled.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -20,7 +20,7 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft account. If you don't have one, [get one for free](https://account.microsoft.com/account).
+- An active Microsoft account. If you don't have one, [get one for free](https://account.microsoft.com/account?WT.mc_id=academiccontent-github-cxa).
 
 <a name="Cost"></a>
 ### Cost ###
