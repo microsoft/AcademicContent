@@ -8,6 +8,10 @@ train the trainer materials and workshop materials for hands on hacks
 
 a set of GitHub template repositories that you can clone into a new repo to create a boilerplate image recognition hack
 
+## 🇺🇸🧠🕸 [Hackathon Azure app starter templates and Tutorials](https://gist.github.com/anushkrishnav/a77b217530fb2f0fc86df5e44acb3e27)
+
+a set of minimal app boilerplates and Tutorials on how they can be deployed to Azure App Service.
+
 ## 🇺🇸🧠🕸 [Happy Sad Angry](https://github.com/jimbobbennett/HappySadAngryWorkshop)
 
 a hands on workshop creating an AI based game
