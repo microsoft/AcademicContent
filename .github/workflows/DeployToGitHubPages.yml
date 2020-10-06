@@ -23,7 +23,7 @@ jobs:
       run: npm install
     - name: 'Deploy to GitHub pages'
       run: |
-        ./deploy.sh microsoft
+        ./deploy.sh
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
