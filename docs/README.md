@@ -13,7 +13,7 @@ This repository lists content suitable for students/faculty to learn Azure and o
 
 We love contributions! Please read the [contribution guide](./CONTRIBUTING.md) before making a contribution.
 
-**Note** - this repo contains links to external content. Although we try our best to ensure the content is available, up to date, relevant, and appropriate, we have no control on what could have been changed in this content. If you find content that should be removed, or needs to be updated, please raise an [issue](https://github.com/jimbobbennett/MicrosoftAcademicContent/issues).
+**Note** - this repo contains links to external content. Although we try our best to ensure the content is available, up to date, relevant, and appropriate, we have no control on what could have been changed in this content. If you find content that should be removed, or needs to be updated, please raise an [issue](https://github.com/Microsoft/AcademicContent/issues).
 
 ## Key
 
