@@ -22,9 +22,8 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
     - name: 'npm install'
       run: npm install
-    - name: 'Deploy to GitHub pages'
-      run: |
-        ./deploy.sh
+    - name: 'Build the docs with VuePress'
+      run: ./build_docs.sh
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
