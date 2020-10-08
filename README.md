@@ -6,7 +6,7 @@
 
 This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and DevOps. It also includes interesting tech talks and engaging, fun tech challenges that Microsoft leads at student hackathons and [Imagine Cup](http://www.imaginecup.com).
 
-**Important:** We are migrating to [Microsoft Learn](https://docs.microsoft.com/learn/) | If you can't find what you're looking for in this repo, check out the 60+ labs on Microsoft Learn too. Many of these labs have their own built-in Azure sandbox making it easier for faculty and students to learn without requiring an Azure Subscription.
+**Important:** We are migrating to [Microsoft Learn](https://docs.microsoft.com/learn/) | If you can't find what you're looking for in this repo, check out the labs on Microsoft Learn too. Many of these labs have their own built-in Azure sandbox making it easier for faculty and students to learn without requiring an Azure Subscription.
 
 Students can get free Azure credits to explore these resources here:
 
@@ -57,7 +57,7 @@ We focus on developing high-quality content for all Cloud, Data Science, Machine
 | Resource | |
 | - | - |
 | [Reactor Workshops](https://github.com/microsoft/reactors) | Content for our First Party Reactor Workshops can be found here. |
-| [Reactor Locations](https://developer.microsoft.com/reactor/?WT.mc_id=academiccontent-github-cxa) | Find out schedules, learn more about each space, and see where we are opening a Reactor near you! | 
+| [Reactor Locations](https://developer.microsoft.com/reactor/?WT.mc_id=academiccontent-github-cxa) | Find out schedules, learn more about each space, and see where we are opening a Reactor near you! |
 
 ## Content from other sources
 
@@ -71,7 +71,8 @@ We focus on developing high-quality content for all Cloud, Data Science, Machine
 | [Microsoft Research Data Sets](https://aka.ms/datascience) | Data sets shared by Microsoft Research for academic use. |
 | [Machine Learning Data Sets](https://docs.microsoft.com/azure/machine-learning/machine-learning-use-sample-datasets?WT.mc_id=academiccontent-github-cxa) | Data sets shared by Azure Machine Learning team to help explore machine learning. |
 | [MS MARCO](http://www.msmarco.org) | Microsoft MAchine Reading COmprehension Dataset generated from real Bing user queries and search results. |
-| [IOT School](https://iotschool.microsoft.com/?WT.mc_id=academiccontent-github-cxa) | Resources for learning about Azure IoT solutions, platform services and industry-leading edge technologies. |
+| [IoT School](https://iotschool.microsoft.com/?WT.mc_id=academiccontent-github-cxa) | Resources for learning about Azure IoT solutions, platform services and industry-leading edge technologies. |
+| [Azure IoT curriculum resources](https://github.com/microsoft/iot-curriculum) | Hands on labs and content for students and educators to learn and teach the Internet of Things at schools, universities, coding clubs, community colleges and bootcamps |
 | [AI Labs](https://www.ailab.microsoft.com/?WT.mc_id=academiccontent-github-cxa) | Experience, learn and code the latest breakthrough AI innovations by Microsoft. |
 | [Channel9](https://channel9.msdn.com/?WT.mc_id=academiccontent-github-cxa) | Videos for developers from people building Microsoft products and services. |
 
