@@ -2,9 +2,13 @@
 
 ## 🇺🇸🕸📱🤖 [Cloud-Powered Mobile App Development Syllabus](https://github.com/toolboc/Cloud-Powered-Mobile-App-Development-Curriculum)
 
-A five day hands-on course for teaching cloud development concepts in college institutions
+A five day hands-on course for teaching cloud development concepts in college institutions.
 
-## 🇺🇸🤖 [Introduction to Azure IoT Hub](https://docs.microsoft.com/en-us/learn/modules/introduction-to-iot-hub/?WT.mc_id=educationcontent-general-jabenn)
+## 🇺🇸🤖 [Azure IoT curriculum resources](https://github.com/microsoft/iot-curriculum)
+
+Hands on labs and content for students and educators to learn and teach the Internet of Things at schools, universities, coding clubs, community colleges and bootcamps.
+
+## 🇺🇸🤖 [Introduction to Azure IoT Hub](https://docs.microsoft.com/learn/modules/introduction-to-iot-hub/?WT.mc_id=educationcontent-general-jabenn)
 
 A hands-on learning course created in conjunction with Oxford University.
 
