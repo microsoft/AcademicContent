@@ -2,7 +2,7 @@
 
 ## 🇺🇸🧠🕸 [Student hack workshops](https://github.com/microsoft/computerscience/tree/master/Events%20and%20Hacks/Student%20Hacks)
 
-train the trainer materials and workshop materials for hands on hacks
+Train the trainer materials and workshop materials for hands on hacks
 
 ## 🇺🇸🧠🕸 [Hackathon starter templates](https://gist.github.com/jimbobbennett/5fba488e0722f089b306f83695b2e365)
 
@@ -51,3 +51,15 @@ Resources for students at hackathons
 ## 🇺🇸 [Hackathon To-Dos 101](https://blog.usejournal.com/hackathon-to-dos-101-272485ba4a8c?source=friends_link&sk=6a6060d91b47c669d9ed6ee09d4e5881)
 
 A curated list on hackathon to-dos for folks who are new to hackathons
+
+## 🇺🇸🖥 [How to win a hackathon with Azure](https://youtu.be/gnieqi89Ejw)
+
+Winning a hackathon requires focus on creating working prototype of your project very fast. Azure Platform Services can help you to achieve that, providing easy to use building blocks that can be put together quickly. During this talk, I demonstrate the use of three most useful services for hackathon scenarios: bot framework, cognitive services and azure functions. During the demo, I create a bot that is trained to recognize photographs of Triumphal Arches in different cities.
+
+## 🇺🇸🧠 [Cognitive Services and Science Art](https://youtu.be/gpQwzu0tyQM)
+
+Microsoft Cognitive Services are pre-trained AI models for things related to computer vision, text analytics, speech and more. They can be used as REST services from the cloud, or on the edge. While there are many business uses of Cognitive Services, in this talk we focus on rather unusual direction – Science Art, and creating Cognitive Portraits from photographs using Face API, affine transformations and a bit of creativity.
+
+## 🇺🇸🖥 [Azure for Hackathons Sizzle Reel](https://www.youtube.com/playlist?list=PLGi0uFHAUvEG7zFXGiMcsM9QYuvyWoffq)
+
+A sizzle reel of short videos describing what you can do with Azure

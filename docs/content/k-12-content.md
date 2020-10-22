@@ -1,6 +1,6 @@
 # K-12 Content
 
-## 🇺🇸 [Hacking STEM](https://www.microsoft.com/en-us/education/education-workshop/activity-library.aspx?WT.mc_id=educationcontent-general-jabenn)
+## 🇺🇸 [Hacking STEM](https://www.microsoft.com/en-us/education/education-workshop/activity-library.aspx?WT.mc_id=academic-10265-jabenn)
 
 Downloadable, hands-on, teacher-tested projects and activities that use everyday materials to make STEM affordable, accessible, and fun for everyone.
 
@@ -12,11 +12,11 @@ Resources and lesson plans using Minecraft education edition
 
 Introduction to computer science lessons using a BBC micro:bit and MakeCode
 
-## 🇺🇸 [Microsoft Educator Center](https://education.microsoft.com/en-us)
+## 🇺🇸 [Microsoft Educator Center](https://education.microsoft.com/en-us?WT.mc_id=academic-10265-jabenn)
 
 A personalized hub for educators
 
-## 🇺🇸 [Microsoft Imagine Academy](https://www.microsoft.com/en-us/education/imagine-academy/default.aspx)
+## 🇺🇸 [Microsoft Imagine Academy](https://www.microsoft.com/en-us/education/imagine-academy/default.aspx?WT.mc_id=academic-10265-jabenn)
 
 Microsoft Imagine Academy gives students and educators the curricula and certifications they need to succeed in a tech-driven economy
 
