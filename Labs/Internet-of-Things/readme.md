@@ -1,7 +1,5 @@
 # Azure IoT
 
-This folder contains hands-on labs introducing core Azure IoT services. Learn how to use [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) to extract information from fast-moving data streams and [Azure event hubs](https://azure.microsoft.com/services/iot-hub/) to collect IoT data securely and in real time.
+The labs in this folder have been deprecated and replaced by labs on [Microsoft Learn](https://docs.microsoft.com/learn?WT.mc_id=academic-9938-jabenn), our hands on, self-guided learning platform:
 
-Lab | Scenario | Technology/Language | Cost
---- | -------- | ------------------- | -
-[Azure Stream Analytics](./Azure%20Stream%20Analytics) | Use Azure Stream Analytics to monitor simulated ATM withdrawals in real-time and identify potentially fraudulent transactions. Then build a real-time dashboard using C# and ASP.NET MVC or JavaScript and Node.js. | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)<br>JavaScript or C# | [$](../Costs.md)
+* [Identify anomalies by routing data via IoT Hub to a built-in ML model in Azure Stream Analytics](https://docs.microsoft.com/learn/modules/data-anomaly-detection-using-azure-iot-hub/?WT.mc_id=academic-9938-jabenn)
