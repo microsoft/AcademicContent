@@ -30,6 +30,7 @@ Check out our hands-on labs that can be used on your own or in the classroom. Th
 | [Deep Learning](Labs/Deep%20Learning) | These labs build on each other to introduce tools and libraries for AI. They're labeled 200-400 level to indicate level of technical detail. |
 | [Internet-of-Things](Labs/Internet-of-Things) | Use Azure to collect and stream IoT data securely and in real time. |
 | [Web Development](Labs/Web%20Development) | Quickly create scalable web apps using Node, PHP, MySQL on easy-to-use tools like Visual Studio Code and GitHub. |
+| [Web Development for Beginners, 24 lessons](https://github.com/microsoft/Web-Dev-For-Beginners) | A curriculum with 24 lessons, assignments and four major projects to build. Covers HTML, CSS and JavaScript. Also includes Pre and Post Quiz. Made with teachers in mind, or as self paced learning |
 
 ## Host great [events and hacks](Events%20and%20Hacks)
 
