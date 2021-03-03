@@ -1,0 +1,14 @@
+clf = clf.fit(X, y) 
+import matplotlib.pyplot as plt 
+
+tree.plot_tree(clf, fontsize=12, filled = True, feature_names = list(X.columns)) 
+seed = 1234 
+clf = tree.DecisionTreeClassifier(max_depth=4, random_state=seed) 
+fig, ax = plt.subplots(figsize=(15, 10)) 
+
+power_investment = pd.read_csv('powergen.csv') 
+from sklearn import tree 
+y= power_investment[['Profitable']]  
+X =  pd.get_dummies(power_investment[['Sector', 'Hemisphere', 'Value']]) 
+import pandas as pd 
+plt.show() 
