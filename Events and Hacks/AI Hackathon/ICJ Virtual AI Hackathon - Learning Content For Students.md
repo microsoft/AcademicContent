@@ -1,6 +1,7 @@
 # Imagine Cup Junior 
 # Virtual AI Hackathon
 
+![Our Biosphere](Assets/f1_biosphere.jpg)
 Figure 1. Our Biosphere. Image source, Shutterstock
 Learning Content 
 
@@ -112,6 +113,7 @@ The theme of this hackathon is “AI for Earth”. The examples that we’ll use
 
 Activities in this hackathon are linked to the relevant United Nations’ Sustainable Development Goals (SDGs). These are an urgent call to action by all countries - developed and developing - in a global partnership. They recognize that ending poverty and other deprivations must go hand-in-hand with strategies that improve health and education, reduce inequality, and spur economic growth – all while tackling climate change and working to preserve our oceans and forests.
 
+![UN's Sustainable Development Goals](Assets/f2_UNSDG.jpg)
 Figure 2. UN's Sustainable Development Goals
 
 #### Learning About AI
@@ -181,7 +183,8 @@ In the last session of the hackathon will have team presentations, and whilst ot
 *Structure*
 
 The hackathon lasts for 2 days. You will participate in a combination of lectures and teamwork, and on the afternoon of day 2 you will work on a practical team assignment.  
- 
+
+![Hackathon timeline](Assets/f3_hackathontimeline.jpg) 
 Figure 3. Hackathon timeline
 
 Throughout, you will be working in a team of 5 people and your team will have a mentor who will help you work through the tasks. 
@@ -288,27 +291,18 @@ You will be given a unique username and password to access this hackathon.
 
 It’s important to note that will be working as part of a team as well. Each team has been named after a significant contributor to AI and Computer Science. 
 
-|  |  |  |  | 
-| ----------- | ----------- |----------- | ----------- |
-|  | **Day 2 PM** |  |  |
-| 13.00 | Lunch | - | - | 60 |
-| 13.00 | Lunch | - | - | 60 |
-| 13.00 | Lunch | - | - | 60 |
-| 13.00 | Lunch | - | - | 60 |
-
-All Members Team Name	General						
-							
-Tutors	Mike Lloyd & John Curry
-							
-Team Names	Ada Lovelace	Alan Turing	Demis Hassabis	Fei-Fei Li	Geoffrey Hinton	Grace Hopper	Sofya Kovalevskaya
-							
-Members	scarlets 	bigideas 	snowman 	buddha 	princess 	bananasplit 	chickenbeans
-	oatmeal 	poppins 	joe 	king 	entrepreneur 	chocolate 	heyyou
-	hoosier 	explorer 	exotic 	queen 	scientist 	fury 	crazycat
-	fastncurious 	fedora 	unsplash 	unfinishe 	mathematician 	athelete 	banana
-	karma	yellow 	tropical 	Prince	tinfoil	coach	fluffycookie
-Teacher/mentor	teacher1 	teacher2 	teacher3 	teacher4 	teacher5 	teacher6 	teacher7
-
+| *All Members Team Name* | **General** |  |  |  |  |  |  |
+| ----------- | ----------- |----------- | ----------- |----------- | ----------- |----------- | ----------- |
+|  |  |  |  |  |  |  |  |
+| *Tutors* | Mike Lloyd & John Curry |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |  |
+| *Team names* | **Ada Lovelace** | **Alan Turing** | **Demis Hassabis** | **Fei-Fei Li** | **Geoffrey Hinton** | **Grace Hopper** | **Sofya Kovalevskaya** |
+| *Members* | scarlets | bigideas | snowman | buddha | princess | bananasplit | chickenbeans |
+|  | oatmeal | poppins | joe | king | entrepreneur | chocolate | heyyou |
+|  | hoosier | explorer | exotic | queen | scientist | fury | crazycat |
+|  | fastncurious | fedora | unsplash | unfinishe | mathematician | athelete | banana |
+|  | karma | yellow | tropical | Prince | tinfoil | coach | fluffycookie |
+| *Teacher/mentor* | teacher1 | teacher2 | teacher3 | teacher4 | teacher5 | teacher6 | teacher7 |
 
 Table 2. Teams and members
 
@@ -317,6 +311,7 @@ You will need a PC – laptop or desktop - running Windows or MacOS and a browse
 
 Tablets and phones are not suitable for this hackathon because the screen sizes are too small; you will need a keyboard; and a downloaded piece of software that you will need use will be incompatible with other types of devices. 
 
+![Hardware reqs](Assets/f4_os.jpg) 
 Figure 4. You will need a Windows 10 or Mac PC
 
 You will be given three pieces of information. Make sure you keep make a note of these and keep this note safe. 
@@ -333,6 +328,7 @@ There are 4 modes of working in the hackathon. You will use -
 3. Microsoft Remote Desktop application on your PC to connect with a Virtual Machine Running in the Cloud in order to run Python experiments 
 4. PowerPoint Online to build a presentation with your team during the design challenge task 
 
+![The 4 modes of working in the hackathon](Assets/f5_modesofworking.jpg) 
 Figure 5. The 4 modes of working in the hackathon
 
 The first hour of the hackathon – 9.00 - 10.00AM is dedicated to technical setup. Please make sure that you arrive on time and carefully follow the instructions. 
@@ -341,6 +337,7 @@ This short video will help you prepare for the use of the platform - https://vim
 
 ### Pathways to an AI Career
 
+![AI roles in a modern organisation](Assets/f6_airoles.jpg) 
 Figure 6. AI roles in a modern organisation
 
 Modern organisations need people to lead AI in the organisation, people to manage AI projects, people who will use AI tools in their everyday work. Organisations also need to have savvy consumers for their products and services. 
@@ -358,7 +355,7 @@ So let’s explore different kinds of requirements related to these different ro
 - **Consumers** – those who use AI-based services provided by the organisation.  
 - `Each of these different roles requires different types and different levels of knowledge and skills. 
 
-
+![Who should learn what?](Assets/f7_whoshouldlearnwhat.jpg) 
 Figure 7. Who should learn what?
 
 So let’s look at the kinds of skills and knowledge required for different roles  
@@ -393,12 +390,14 @@ They will also need to understand their own digital exhaust and how it feeds int
 
 **Data Science Specialists**
 
+![What data science specialists need to know](Assets/f8_whatdatascience.jpg) 
 Figure 8. What data science specialists need to know
 
 At the top of the ‘subject specialism tree’, data science specialists and software engineers need data engineering data science and system engineering skills to build and deploy machine learning services.
  
 The mindset that's required here is the application of new thinking from the world of computing to the more established world of mathematical methods and concepts. The intersect of these two disciplines is machine learning.
 
+![A potential career route into data science](Assets/f9_careerroute.jpg) 
 Figure 9. A potential career route into data science
 
 One career path uncovered in a recent LinkedIn report is to upskill people already working closely with data towards becoming data scientists. 
@@ -423,13 +422,16 @@ Earth’s temperature doesn’t infinitely rise because the surface and the atmo
 
 When the flow of incoming solar energy is balanced by an equal flow of heat back out into space, Earth’s temperature is stable. Anything that increases or decreases the amount of incoming or outgoing energy causes a rise or fall in temperature.
 
+![Greenhouse gasses such as CO2 trap heat in the atmosphere](Assets/f10_greenhousegasses.jpg) 
 Figure 10. Greenhouse gasses such as CO2 trap heat in the atmosphere
 
 The amount of energy that radiates from Earth back into space is affected by two things:
 1.	**Emissivity** - the ability of the Earth to release energy back into space. As Emissivity goes down, temperature goes up.
 2.	**Albedo** - the ability of the Earth to reflect energy back into space – mainly from snow and ice. As Albedo goes down, temperature goes up. 
 
+![Earth's Energy Balance](Assets/f11_earthenergybalance.jpg) 
 Figure 11. Earth's Energy Balance
+
 As temperatures rise, ice and snow melts and the Albedo effect goes down. This in turn drives increased temperature. 
 
 ‘Ice-albedo feedback’ is a key aspect of global climate change. In the polar region, a decrease of snow and ice results in a decrease of surface albedo, and the intensified solar heating further decreases the snow and ice area .
@@ -437,10 +439,10 @@ As temperatures rise, ice and snow melts and the Albedo effect goes down. This i
 The Earth’s Energy Budget can be expressed as 
 Equation 1. Earth’s Energy Budget
 …where the left-hand side represents the incoming energy from the Sun, and the right-hand side represents the outgoing energy from the Earth, and
-•	**a** is the reflection of solar radiation at the surface, the Earths ‘albedo’, 0.3
-•	**S** is the incoming energy from the sun per unit area, 1367 Wm2
-•	**e** is the Earth’s effectiveness in emitting energy as thermal radiation, ‘emissivity’, which is a function of the composition of the atmosphere, 0.612
-•	**o** is the ‘Stefan-Boltzmann Constant’ for increases in radiation as the temperature increases, 5.670367 × 10-8 kg s-3 K-4
+- **a** is the reflection of solar radiation at the surface, the Earths ‘albedo’, 0.3
+- **S** is the incoming energy from the sun per unit area, 1367 Wm2
+- **e** is the Earth’s effectiveness in emitting energy as thermal radiation, ‘emissivity’, which is a function of the composition of the atmosphere, 0.612
+- **o** is the ‘Stefan-Boltzmann Constant’ for increases in radiation as the temperature increases, 5.670367 × 10-8 kg s-3 K-4
 
 Solving for temperature,
 
@@ -464,7 +466,7 @@ Paste it into https://paiza.io/en/projects/new?language=python3
 
 Run it. 
 
-
+![You can model the Earth's energy equation in paiza.io](Assets/f12_modelearthenergy.jpg) 
 Figure 12. You can model the Earth's energy equation in paiza.io
 
 The answer should come out as: 14.9995996747. 
@@ -498,6 +500,7 @@ if x % y == 0:
 #### Method 
 1. Create a flow chart of how you think the program should work 
 
+![Flow chart](Assets/f13_flowchart.jpg) 
 Figure 13. Flow chart
 
 2. Produce “pseudocode” – code that can be used to sketch-out working code 
@@ -524,9 +527,10 @@ Copy, paste and run this code in https://paiza.io/en/projects/new?language=pytho
 
 When the code is run, it should look like this: 
 
+![Testing for divisibility with Python using Paiza.io](Assets/f14_testingdivisibility.jpg) 
 Figure 14. Testing for divisibility with Python using Paiza.io
 
-###Coding a 'Decision Tree' Algorithm 
+### Coding a 'Decision Tree' Algorithm 
 
 A decision tree is a commonly used algorithm used in classification – an important Machine Learning topic. Example uses include: 
 - Investment modelling
@@ -616,6 +620,7 @@ score = clf.score(X, labels_test)
 labels_test=([0, 1])
 ```
 
+![Decision tree logic in Python](Assets/f15_decisiontree.jpg)
 Figure 15. Decision tree logic in Python
 
 Next, use https://paiza.io/en/projects/new?language=python3 to 
@@ -649,6 +654,7 @@ It’s essential, therefore, that those managing forests are able to predict tre
 
 SilviaTerra , a forest management organisation, partners with Microsoft in the AI for Earth program to use AI to analyse high-resolution satellite imagery of forests and predict future scenarios. SilviaTerra’s forestry management expertise combined with remote sensing, satellite imaging, big data and AI helps ensure the forests they manage are fully understood and valued correctly.
 
+![Using Satellite imagery for forest management](Assets/f16_satelliteforestmanagement.jpg)
 Figure 16. Using Satellite imagery for forest management
 
 Watch SilviaTerra’s video here: https://youtu.be/stNlw_CFklc 
@@ -657,12 +663,14 @@ Watch SilviaTerra’s video here: https://youtu.be/stNlw_CFklc
 
 According to the University of British Columbia , “countries drastically under report the number of fish caught worldwide”. The 2016 report in Nature Communications , estimates that 32 million metric tons of fish goes unreported every year – “more than the weight of the entire population of the United States”.
 
- Figure 17. AI can be used for protecting fish stocks
+![AI can be used for protecting fish stocks](Assets/f17_fishstock.jpg)
+Figure 17. AI can be used for protecting fish stocks
 
 Not surprisingly, overfishing leads to declines in fish stocks , which in turn threatens food security and the livelihoods of those working in the world’s fishing industries. Pollutants, such as plastic waste, and global warming are also adding pressure to fish stocks . 
 
 However, improved fisheries management can help make fishing sustainable. One organisation that is helping make fishing sustainable is OceanMind . Using satellites and artificial intelligence, OceanMind empowers fisheries authorities and seafood buyers to understand the compliance of fishing around the world. 
 
+![Tracking legal and illegal fishing using AI](Assets/f18_illegalfishing.jpg)
 Figure 18. Tracking legal and illegal fishing using AI
 
 OceanMind partners with Microsoft and government agencies to protect fishing stock, help preserve biodiversity, and protect livelihoods in the seafood industry. It does this by tracking fishing vessel’s positions at sea in real-time. They use sophisticated AI to analyse fishing vessel’s movements and identify suspicious behaviour. This could include, for example, staying in one place for too long; venturing into an area of water where fishing is not permitted; or deviating from an established route. 
@@ -677,16 +685,19 @@ Part of the answer to this problem is use of more data to give farmers better in
 
 One example is from Ag-Analytics® which partnered with Microsoft to collect data from tractor sensors, satellites, and remote sensors to give farmers an accurate, actionable picture of their land. Ag-Analytics® enables farmers to access detailed data and precise information about their land, enabling them to farm the land more sustainably.
 
+![Using AI to make farming more sustainable](Assets/f19_aisustainablefarming.jpg)
 Figure 19. Using AI to make farming more sustainable
 
 Another Microsoft AI for Earth partner, Agrimetrics, takes a similar approach. It operates a global ‘Data Marketplace’ that connects data and food and farming organisations to help create a more productive and sustainable global food system.
 
 Global food businesses share data from sensors, satellite imagery, and historical datasets on the Data Marketplace. AI helps link sets of data. With the data all in one place, farmers can find insights from across the world to address their challenges.
 
+![Using AI to make farming more sustainable](Assets/f20_aistainablefarming.jpg)
 Figure 20. Using AI to make farming more sustainable
 
 Cloud Agronomics uses AI to provide growers with insights from high resolution images into their crops and soil. Their ‘carbon index services’ enables ‘carbon farming’ – the financially incentivised removal of carbon from the atmosphere and its storage in the soil, to aid plant growth. 
 
+![Using AI to make farming more sustainable](Assets/f21_aisustainablefarming.jpg)
 Figure 21. Using AI to make farming more sustainable
 
 #### AI And Climate Change 
@@ -787,7 +798,6 @@ Password
 URL for Teams site 
 Quantum encryption codes
 
-
 10. When you log into Teams is important that you use the Teams
 
 Remote Desktop
@@ -865,7 +875,6 @@ Cools the Earth
 Significantly increases the temperature of the Earth
 Enables more energy to flow into space
 Has no effect on the Earth’s temperature
-
 
 19. A key method for securing transactions electronically is to test for 
 
@@ -1066,6 +1075,7 @@ You can also follow the written instructions below if you prefer.
 
 Click on the link to the hackathon Teams site that you received in your invite mail.  
 
+![You will receive an invitation email similar to this one](Assets/f22_Teamsinvite.jpg)
 Figure 22. You will receive an invitation email similar to this one 
 
 containing the details you need to join the hackthon using Teams
@@ -1082,18 +1092,22 @@ If the Teams app is already installed, do not use it.
 
 Select “Use the web app instead”. 
 
+![Whether the Teams App is installed or not, you must use the Teams web app](Assets/f23_Teamsinstalled.jpg)
 Figure 23. Whether the Teams App is installed or not, you must use the Teams web app
 
 Sign in with your given username, for example –
 
+![Sign-in part 1 - your username](Assets/f24_username.jpg)
 Figure 24. Sign-in part 1 - your username
 
 Then enter the password And enter the password ‘H4ck1!0n’
 
+![Sign-in part 2 - your password](Assets/f25_password.jpg)
 Figure 25. Sign-in part 2 - your password
 
 If you see this, you are IN! 
 
+![The 'General' channel and’ Posts’ function is where the entire hackathon group will meet](Assets/f26_Teamschannels.jpg)
 Figure 26. The 'General' channel and’ Posts’ function is where the entire hackathon group will meet
 
 You can dismiss desktop notifications
@@ -1119,6 +1133,7 @@ When it’s time for everyone to meet, you will see the notice show in Figure 6 
 
 Your tutors will meet everyone here in line with the timetable. 
 
+![Notice to meet in the General channel](Assets/f27_generalchannel.jpg)
 Figure 27. Notice to meet in the General channel
 
 #### Class Notebook
@@ -1127,20 +1142,25 @@ Everything you need to know to complete the hackathon is in the Class Notebook i
 
 Start by clicking on the “Class Notebook” menu item in the General channel. 
 
+![Click on the Class Notebook to get all the information you need](Assets/f28_classnotebook.jpg)
 Figure 28. Click on the Class Notebook to get all the information you need
 
 Then click on the chevron 
 
+![Clicking on this chevron takes you inside the notebook](Assets/f29_notebook.jpg)
 Figure 29. Clicking on this chevron takes you inside the notebook
 
 Open Content Library. Note – this may take a few minutes to open fully because there is a lot of content in the notebook. 
 
+![Clicking on the Hackathon Guide will take you to the information you need](Assets/f30_hackathonguide.jpg)
 Figure 30. Clicking on the Hackathon Guide will take you to the information you need
 
 Click the Hackathon Guide, and follow the hackathon steps using the notebook section headings
 
+![Work your way through the hackathon by clicking the titles in the middle column](Assets/f31_hackathonnavigation.jpg)
 Figure 31. Work your way through the hackathon by clicking the titles in the middle column
 
+![Notebook section headings](Assets/f32_sectionheadings.jpg)
 Figure 32. Notebook section headings
 
 #### Assignments 
@@ -1149,12 +1169,14 @@ Assignments will either be a quiz or a design challenge.
 
 When you need to do an assignment, a notice like the one in figure 12 below will appear in the General, Posts area. 
 
+![Assignment notification](Assets/f33_assigmentnotification.jpg)
 Figure 33. Assignment notification
 
 When a notification appears, click on it to start work on the assignment. 
 
 In the case of a quiz, for example, this will take you to a window like the one shown in figure 14 below. 
 
+![An example quiz assignment](Assets/f34_examplequizassignment.jpg)
 Figure 34. An example quiz assignment
 
 #### Working With Your Team
@@ -1163,43 +1185,49 @@ Table 3 above, in the Identities And Groups section, will tell you which team yo
 
 Click on your team channel and use the tools to communicate and collaborate. 
 
+![Click on your team's challenge to communicate and collaborate](Assets/f35_teamchallenge.jpg)
 Figure 35. Click on your team's challenge to communicate and collaborate 
 
 To **send a message** to all participants in a channel, first click on your channel and hit the New conversation button at the bottom of the screen.
 
 Use the text box to draft your message. You can also attach files, emojis, GIFs, and more to the message before you hit send.
 
+![Messaging tools](Assets/f36_messagingtool.jpg)
 Figure 36. Messaging tools
 
 To host a meeting -  
 
 1. Go to your team channel and click on the Meet option in the top right. 
 
+![Connect with your teammates using the 'Meet' function](Assets/f37_meetfunction.jpg)
 Figure 37. Connect with your teammates using the 'Meet' function
 
 2. Invite others in your team to the call. 
 
 3. Once you are in a call, you have the option to Screen share in the ribbon that appears on middle-bottom of the screen along with the Mute and Camera toggle options.
 
+![Screen sharing and other options are available at the bottom or the screen](Assets/f38_screensharing.jpg)
 Figure 38. Screen sharing and other options are available at the bottom or the screen
 
 #### 2. Practical Work - Excel Experiments
 Some of the practical tasks will be in Excel. You will work with your teammates on 4 Excel files in your team channel. 
 
+![The Excel files you need to work on will be in your team’s channel in the ‘Files’ section](Assets/f39_teamsfiles.jpg)
 Figure 39. The Excel files you need to work on will be in your team’s channel in the ‘Files’ section. 
 
 Test Excel Online by clicking on one of the files to open it in Teams
 
+![Work on the Excel files on your PC](Assets/f40_excelpc.jpg)
 Figure 40. Work on the Excel files on your PC
 
-Press ‘Close” to move on. 
+Press 'Close' to move on. 
 
 #### 3. Python Practical Work
 #### Introduction To Virtual Machines
 
 Follow this video to understand how the virtual machine desktop and Visual Studio Code works - https://vimeo.com 
 
-Working with Python involves using a ‘virtual machine’ that operates in the Cloud. Whilst you will see the machine on your computer, all the computation will take place far away from it. 
+Working with Python involves using a 'virtual machine' that operates in the Cloud. Whilst you will see the machine on your computer, all the computation will take place far away from it. 
 
 We need to do this because we need to use specialist libraries with Python which are easier to set up for all hackathon users on a virtual machine, than on everyone’s individual PCs. 
 
@@ -1207,6 +1235,7 @@ The virtual machine in the cloud is hosted in Azure Lab Services. The virtual ma
 
 Microsoft Remote Desktop on your computer enables you to connect your PC with the virtual machine in the cloud. 
 
+![Your virtual machine will run in the cloud, but you will see and control it on your desktop](Assets/f41_vmdesktop.jpg)
 Figure 41. Your virtual machine will run in the cloud, but you will see and control it on your desktop
 
 #### Azure Lab Services  
@@ -1215,14 +1244,17 @@ To access the virtual machine, you will need to navigate to General, Azure Lab S
 
 Note that this may take 5 minutes to start.
 
+![Start your virtual machine before connecting to it](Assets/f42_vmstart.jpg)
 Figure 42. Start your virtual machine before connecting to it
 
 When the virtual machine is running, download the RDP file. 
 
+![When the virtual machine is running you can connect to it](Assets/f43_vmconnect.jpg)
 Figure 43. When the virtual machine is running you can connect to it
 
 Clicking on ‘Download RDP file’ will deliver an executable file onto your computer. 
 
+![An RDP file will download onto your computer](Assets/f44_RDPfile.jpg)
 Figure 44. An RDP file will download onto your computer
 
 Press ‘escape’, go to the top of your screen, or press control-alt-break, and select 
@@ -1230,23 +1262,27 @@ Press ‘escape’, go to the top of your screen, or press control-alt-break, an
 - ‘Fit to Window’ 
 
 If it’s working correctly, you will see this, or an equivalent for Windows computers. 
- 
+
+![Warning message that confirms that a connection to your virtual machine is happening](Assets/f45_confirmconnection.jpg)
 Figure 45. Warning message that confirms that a connection to your virtual machine is happening
 
 Click ‘Continue’, and you will be prompted to enter your password. 
 
+![Password challenge](Assets/f46_passwordchallenge.jpg)
 Figure 46. Password challenge
 
 Enter this password when prompted - **H4ck1!0n** 
 
 When you have successfully connected, a virtual machine desktop will fill your screen. 
 
+![Your virtual machine desktop](Assets/f47_virtualmachinedesktop.jpg)
 Figure 47. Your virtual machine desktop
 
 Press ‘escape’, and select 
 1.	‘Fit to Window’, and 
 2.	‘Exit Full Screen’. 
 
+![Exit Full Screen and Fit to Window](Assets/f48_fittowindow.jpg)
 Figure 48. Exit Full Screen and Fit to Window
 
 Wait for all of the icons at the bottom of the screen to appear. 
@@ -1256,34 +1292,39 @@ Because this computer is in the Cloud, it will take time for commands run, so pl
 #### Visual Studio Code
 
 When the virtual machine is running, double click on the Visual Studio Code icon. 
- 
+
+![Visual Studio Code icon](Assets/f49_VSC.jpg)
 Figure 49. Visual Studio Code icon
 
 Wait for the full screens to fill with detail. 
 
+![Visual Code Studio in a working state](Assets/f50_VSCworking.jpg)
 Figure 50. Visual Code Studio in a working state
 
 You will need to wait for the Python extensions to load. The status is in the bottom left of the Visual Studio Code screen. 
 
+![Python extensions status](Assets/f51_pythonextension.jpg)
 Figure 51. Python extensions status
 
 When Visual Studio Code is running fully, you will be able to work with it. 
 
 To run code, click on the green chevron here - 
 
-
+![The green chevron here runs the code in the open window](Assets/f52_greenchevron.jpg)
 Figure 52. The green chevron here runs the code in the open window
 
 The terminal at the bottom of the Visual Studio Code window shows the outputs from executing an algorithm, so watch this carefully when you run the code
 
 You will need to wait until the text in figure 33 below appears in the Terminal window. This could take up to 2 minutes. 
 
+![The text that you'll see in the terminal that shows that the code has executed correctly](Assets/f53_terminal.jpg)
 Figure 53. The text that you'll see in the terminal that shows that the code has executed correctly 
 
 Ignore any popups about updates available. Just close using X.
 
 This code also produces a graph. Note that graphs will appear behind the Visual Studio Code window so move the window to the side to reveal it.
 
+![The Visual Studio Code window with the output graph](Assets/f54_outputgraph.jpg)
 Figure 54. The Visual Studio Code window with the output graph
 
 #### 4. Build A PowerPoint Presentation 
@@ -1291,6 +1332,7 @@ Figure 54. The Visual Studio Code window with the output graph
 The last part of the hackathon is a design challenge. For this you will need to build a pitch supported with a PowerPoint presentation.  
 In your team area, click on ‘files’. 
 
+![Build a PowerPoint presentation in your team area, in the 'Files' section](Assets/f55_filessection.jpg)
 Figure 55. Build a PowerPoint presentation in your team area, in the 'Files' section
 
 ## What Is AI?
@@ -1300,10 +1342,12 @@ AI is marching into our lives, affecting how we live, work and entertain ourselv
 
 There are many examples of artificial intelligence in use today, including:
 
+![Examples of AI applications](Assets/f56_examplesaiapps.jpg)
 Figure 56. Examples of AI applications
 
 These capabilities have a vast range of application areas, some good, some not so good, including: 
- 
+
+![Examples of AI application areas](Assets/f57_aiappareas.jpg)
 Figure 57. Examples of AI application areas
 
 ### Machine Learning
@@ -1320,6 +1364,7 @@ Then it analyses the size of the grains, and clusters them into groups – somet
 
 Finally, it can forecast ahead. It can use regression analysis to predict the grain sizes and the overall yield.
 
+![A combine harvester as an analogy for AI and machine learning](Assets/f58_combineharvester.jpg)
 Figure 58. A combine harvester as an analogy for AI and machine learning
 
 Driving the Combine Harvester is a diesel engine which in turn drives an electrical generator, which powers its sensors, computing and communication capabilities.
@@ -1332,6 +1377,7 @@ In the case of a combine harvester the outcomes could be a fully automated machi
 
 To understand what AI is, we first need to understand how it is positioned against other related domains.
 
+![Where is AI?](Assets/f59_whereisai.jpg)
 Figure 59. Where is AI?
 
 Artificial Intelligence (AI) is a computer system able to perform tasks normally requiring human intelligence. Machine learning is a method for achieving AI.
@@ -1346,6 +1392,7 @@ Deep Learning is a form of machine learning based on neural networks that use ma
 
 In this hackathon we are going to focus on the ‘engine’ that drives AI – machine learning - which can be defined as a field in Computer Science that is focussed on enabling computers to learn.
 
+![We will be focussing on AI on this part of the course](Assets/f60_AI.jpg)
 Figure 60. We will be focussing on AI on this part of the course
 
 ### When Should Machine Learning be Used?
@@ -1355,7 +1402,8 @@ Presently, Machine Learning is complex and requires considerable resource to dep
 Its most useful when we need to extract insights and make predictions from big data, multi-dimensional data, or data models with enormous numbers of permutations. 
 
 It can also be useful when large volumes of constantly changing data needs to be analysed. 
- 
+
+![When to use machine learning](Assets/f61_machinelearning.jpg)
 Figure 61. When to use machine learning
 
 ### How Does Machine Learning Work? 
@@ -1374,6 +1422,7 @@ The learned model will then give us a prediction for what that unknown data repr
 
 In essence all machine learning does is provide us with a prediction. By combining machine learning with other technologies we can build extremely sophisticated artificial intelligence solutions. For example in healthcare artificial intelligence can predict the probability of somebody having a specific disease; in driverless cars machine learning predicts the probability of collisions and informs robotic decision's to avoid them. 
 
+![How machine learning works](Assets/f62_howmlworks.jpg)
 Figure 62. How machine learning works
 
 ## Regression
@@ -1398,6 +1447,7 @@ In the exercise that follows, we will run the simplest possible form of machine 
 
 In your team channel, go to ‘Files’ and open ‘Linear regression.xlsx’ 
 
+![Open Linear regression.xlsx](Assets/f63_linearregression.jpg)
 Figure 63. Open Linear regression.xlsx
 
 This is a ‘time series’ chart with a regression line. 
@@ -1406,6 +1456,7 @@ The end of the line predicts what value y will be at x = 6.
 
 Change the numbers between B3:B7 to see how the line changes.
 
+![Making a prediction from data using a ‘time series’ plot](Assets/f64_plot.jpg)
 Figure 64. Making a prediction from data using a ‘time series’ plot
 
 Here, we are using data to infer a trend, and make a prediction from it. To do this, we draw a line that fits the data we have. The goal of the algorithm is to draw a line as close as possible to all of the data points. 
@@ -1416,6 +1467,7 @@ Excel has a quick and easy way for filling in the missing value.
 
 Just highlight the data that you want to make the prediction from, then pull down the handle in the bottom right corner into the next cell. 
 
+![Making a prediction by extending a column of data](Assets/f65_prediction.jpg)
 Figure 65. Making a prediction by extending a column of data
 
 Try this for yourself. 
@@ -1456,6 +1508,7 @@ Let’s now see how we can do this in Python.
 
 Start your Azure Lab Services virtual machine as explained in “Technical Setup” section above.  
 
+![Start your virtual machine](Assets/f66_vm.jpg)
 Figure 66. Start your virtual machine
 
 ### Explore the Algorithm 
@@ -1464,10 +1517,12 @@ Now follow this video to understand how to work with the linear regression algor
 
 Now open Visual Studio Code (VSC) and select Simple_predict.py 
 
+![Open 'simple_predict.py' in Visual Studio Code](Assets/f67_openpy.jpg)
 Figure 67. Open 'simple_predict.py' in Visual Studio Code 
 
 Click on the start button (green chevron) to run the code, and give it about a minute. Bear in mind that the plot may appear behind the VSC window. You should eventually get this 
 
+![Note both the detail in the Terminal and the plot](Assets/f68_plot.jpg)
 Figure 68. Note both the detail in the Terminal and the plot
 
 Let’s look at the code in more detail 
@@ -1505,6 +1560,7 @@ ylabel('y')
 
 show()
 ```
+<!--- ![]() -->
 Figure 69. Polyfit linear regression algorithm code analysis
 
 This may look complicated at first glance, but we can see how it works by breaking it down line by line. 
@@ -1554,12 +1610,14 @@ The rest of the code handles plotting, laying out the graph, labelling the grid,
 
 The red dot in top right-hand shows predicted water consumption at year 12 at 71k km3.   
 
+![Linear regression prediction output](Assets/f70_lgpredictionoutput.jpg)
 Figure 70. Linear regression prediction output
 
 ## TEAM PRACTICAL TASK 2
 1. Close the current plot to terminate the program 
 2. Change some of the ‘y’ values 
 
+![Change some of the 'y' values](Assets/f71_changeyvalues.jpg)
 Figure 71. Change some of the 'y' values
 
 3. Save the file 
@@ -1601,6 +1659,7 @@ But how does NLP work. Take the following example text from which we want the co
 “London is the capital and most populous city of England and the United Kingdom. Standing on the River Thames in the south east of the island of Great Britain, London has been a major settlement for two millennia. It was founded by the Romans, who named it Londinium”.
 
 <!--- numbering is off from here on -->
+![Natural language, text, on the left, and the code used to process it on the right](Assets/f71_nlp.jpg)
 Figure 71. Natural language, text, on the left, and the code used to process it on the right
 
 Running the code on the right-hand side of Figure 62 above, the output would be: 
@@ -1623,9 +1682,9 @@ Since each user is bound to have different likes or dislikes about a product, th
 **Collaborative**: Based on profiles of other users, who like the same products  
 
 A collaborative based recommender is shown below: 
- 
-Figure 72. Simplified collaborative recommendation engine
-Robots and RPA
+
+![Simplified collaborative recommendation engine Robots and RPA](Assets/f72_recengine.jpg)
+Figure 72. Simplified collaborative recommendation engine Robots and RPA
 
 AI, robots and automation technologies often get conflated because they are all linked with disruption of the jobs market. 
 
@@ -1649,6 +1708,7 @@ RPA works for scenarios with the following features:
 - Rely on multiple systems
 - Where poor quality results in high risk or cost
  
+![Robots versus Robotic Process Automation](Assets/f73_robotsvsRPA.jpg)
 Figure 73. Robots versus Robotic Process Automation
 
 #### Autonomous Vehicles
@@ -1666,10 +1726,12 @@ Machine learning is used in image processing in a wide range of scenarios – e.
 
 Images are data in the form of 2-dimensional matrices. If you feed enough labelled images into a classification algorithm, the learned model will be able to identify images with similar patterns in the matrix. 
 
+![Learning from images](Assets/f74_learningfromimages.jpg)
 Figure 74. Learning from images
 
 ## The AI Development Process 
  
+![Stages in developing AI solutions](Assets/f75_developmentstages.jpg)
 Figure 75. Stages in developing AI solutions
 
 ### Define The Problem 
@@ -1686,10 +1748,12 @@ Often, preparing data for modelling takes the longest amount of time on a machin
 
 Data for machine learning can come from a wide range of different sources and types. 
 
+![Data for machine learning systems comes in a variety of types and from a range of sources](Assets/f76_datasources.jpg)
 Figure 76. Data for machine learning systems comes in a variety of types and from a range of sources
 
 The main goal is to put the data into matrices So patterns can be discovered using models. 
  
+![Data needs to be put into matrices to be processed](Assets/f77_dataprocessing.jpg)
 Figure 77. Data needs to be put into matrices to be processed
 
 ### Model Data
@@ -1698,6 +1762,7 @@ Whilst preparing data is perhaps the most time-consuming aspect of a machine lea
 
 To select the right model to work on the data you first need to define the kind of outcome that you want. 
 
+![A simplified model 'family tree'](Assets/f78_familytree.jpg)
 Figure 78. A simplified model 'family tree'
 
 This stage of the process involves taking training data, and learning from to produce a “learned model”. That learned model can then be embedded into an online service.  
@@ -1706,10 +1771,12 @@ This stage of the process involves taking training data, and learning from to pr
 
 The final stage in the process is to deploy the model so that it can be used and constantly updated. If you use a service such as Uber, you are actually using an interface to Deployed AI model. All of the computing required to deliver the service happens in the Cloud, and your mobile phone act as a user interface into that service. 
  
+![Stages in AI solution deployment](Assets/f79_deploystages.jpg)
 Figure 79. Stages in AI solution deployment
 
 Deployed AI solutions can take on a vast range of forms. 
 
+![An example of a deployed machine learning service - identifying animals in video streams](Assets/f80_identifyinganimals.jpg)
 Figure 80. An example of a deployed machine learning service - identifying animals in video streams
 
 ## Classification - The KNN Model 
@@ -1722,6 +1789,7 @@ The method can be applied to an incredibly wide range of data – e.g. images, s
 
 Let’s dive right in with a machine learning classifier for different species of flower called the ‘Iris’. 
 
+![Using Excel to run a KNN classification model](Assets/f82_classificationmodel.jpg)
 Figure 82. Using Excel to run a KNN classification model
 
 1. In your team area, click on “Files”, and open “KNN in Excel.xlsx”
@@ -1791,12 +1859,14 @@ Try these interactive AI demos - https://aidemos.microsoft.com
 
 In the Text Analytics service, analyse a variety of your own texts.
 
+![Microsoft's interactive AI demos](Assets/f83_aidemos.jpg)
 Figure 83. Microsoft's interactive AI demos
 
 ### UN SDGs + AI 
 
 Explore each of these sustainable development goals and think about how AI can be used to achieve them. 
  
+![United Nations Sustainable Development Goals](Assets/f84_SDG.jpg)
 Figure 84. United Nations Sustainable Development Goals
 https://www.undp.org/content/undp/en/home/sustainable-development-goals.html 
 
@@ -1805,17 +1875,20 @@ https://www.undp.org/content/undp/en/home/sustainable-development-goals.html
  
 We've already explored decision trees in the preparation for this hackathon, and we can now dive deeper into this area. 
  
+![A Decision tree](Assets/f85_decisiontree.jpg)
 Figure 85. A Decision tree
 We can use machine learning to help us make decisions, and a key way of doing this is a decision tree.  
 
 Decision tree models are the opposite of real trees because the root is at the top. Below the root are ‘decision nodes’ which branch out. Decision nodes contain pieces of data which the algorithm decides whether to select or not. Those decision nodes that contain the data that we are looking for are called ‘terminal nodes’. These terminal nodes contain - either a classification or a predicted number. 
 
+![In a decision tree, each layer reduces variance in data](Assets/f86_reducesvariance.jpg)
 Figure 86. In a decision tree, each layer reduces variance in data
 
 The goal of a decision tree is to continually reduce variance in data to the point at which a subset of the data can either provide a classification or a predicted number. 
 
 So what do we mean by variance in data? 
 
+![High (left) and Low (right) data](Assets/f87_highandlowdata.jpg)
 Figure 87. High (left) and Low (right) data
 
 Variance is a measure of how spread out numbers are. 
@@ -1830,6 +1903,7 @@ There are several different ways in which variance in data can be measured, but 
 
 Decision trees work by dividing data into subsets that have increasingly lower Standard Deviation.
  
+![A tree of subsets with falling levels of Standard Deviation](Assets/f88_treeofsubsets.jpg)
 Figure 88. A tree of subsets with falling levels of Standard Deviation
 
 Let’s now illustrate this with a practical example in Excel. 
@@ -1851,18 +1925,21 @@ To answer this, you can apply a decision tree algorithm to find the most profita
 
 Figure 73 below shows how the layers of the tree can be structured to give us the prediction we need. 
 
+![The decision tree structure](Assets/f89_decisiontreestruc.jpg)
 Figure 89. The decision tree structure
 
 Figure 74 below Shows a possible route through the data that gives us an answer.
 
 Here, for example, the tree is telling us that we should invest in solar in the northern hemisphere, and in projects that are valued at greater than $10,000,000 . 
 
+![A route through the data that takes us to a prediction](Assets/f90_predictionroute.jpg)
 Figure 90. A route through the data that takes us to a prediction
 
 Let’s use Excel to show how this can be worked out. 
 
 In your team area, go to ‘Files’ and open ‘Decision Tree.xlsx’ 
 
+![Open Decision Tree.xlsx](Assets/f91_opendecisiontree.jpg)
 Figure 91. Open Decision Tree.xlsx
 
 First, we need to be clear that we are using this decision tree as a classifier. Trees can also be used to provide regression analysis. 
@@ -1883,11 +1960,14 @@ The goal is to find a category of investment that is, or is closest to, 100% pro
 
 In Excel, we can build the decision tree as a series of pivot tables. Click on each pivot table to see how they are built. 
 
+![The decision tree in Excel pivot tables](Assets/f92_excelpivottables.jpg)
 Figure 92. The decision tree in Excel pivot tables
+
 Note that the “Profitability” columns are added-on to the side of the pivot tables. 
 
 This model tells us that the most profitable investment would be Northern Hemisphere, Wind, above $10m 
  
+![The 'terminal node' that gives us the category prediction we need is highlighted in red](Assets/f93_nodehighlight.jpg)
 Figure 93. The 'terminal node' that gives us the category prediction we need is highlighted in red
 
 ## Decision Trees in Python	
@@ -1906,28 +1986,34 @@ Go to Azure Lab Services, open your virtual machine and run Visual Studio Code.
 
 First, look at the ‘powergen.csv’ data file to see what data is being used in the program. 
 
+![Powergen.csv data file shown in VSC](Assets/f94_datafileVSC.jpg)
 Figure 94. Powergen.csv data file shown in VSC
 
 Next, close the powergen.csv tab. 
  
+![Close the data file tab by pressing 'X'](Assets/f95_closedatafile.jpg)
 Figure 95. Close the data file tab by pressing 'X'
 
 Open, explore and run 2_decision_tree.py
 
+![decision-tree.py Python code](Assets/f96_pythoncode.jpg)
 Figure 96. decision-tree.py Python code
 
 Running the code gives us a plot. Maximise the window to see it more clearly:
 
+![Decision tree plot](Assets/f97_dtplot.jpg)
 Figure 97. Decision tree plot
 
 Here, we can consider “gini” as a proxy for Standard Deviation. 
 
 Let’s test for accuracy using random samples from the bottom set of nodes. For example, node 2 (2nd from the left on the bottom row) has 7 samples with values of 4 (non-profitable), and 3 (profitable). 
  
+![Node 2](Assets/f98_node2.jpg)
 Figure 98. Node 2  
 
 This matches the following pivot table on the spreadsheet – Wind, South, Above $10m. 
    
+![Same data, same prediction in Excel](Assets/f99_excel.jpg)
 Figure 99. Same data, same prediction in Excel
 
 Tracing this back to the root on the Python plot, figure 81 above, we see that it too is Above $10m (Below $10m, false), it’s in the South (South, true) and Wind (Wind, true).   
@@ -1936,7 +2022,7 @@ Our goal was to find the most profitable type of project. This is identified in 
 
 Note that it has a Gini number of 0, which shows that the variance in the data is at its lowest point. This is because of 9 sample, 0 were non-profitable, and 9 were profitable. But note also that the terminal node on the far right also has a Gini number of 0. This is because all 6 of its samples are non-profitable. In both cases variance is at the lowest possible state, but it’s clear which one is profitable. 
 
-  
+![The node on the left shows 9/9 samples were 'profitable'](Assets/f100_nodeprofitable.jpg)
 Figure 100. The node on the left shows 9/9 samples were 'profitable'
 
 So, if we trace terminal node 3 (3rd from the left) in Figure 81 to the root node we should be able to confirm that Above $10m (Above $10m = True), it’s in the North (South = False) and Wind (Wind = True).   
@@ -2007,6 +2093,7 @@ Let’s explore a use case for Random Forest by thinking about real forests.
 
 Every 6 seconds an area of forest the size of a football field is destroyed, and fire is a main cause. 
 
+![Tree loss](Assets/f101_treeloss.jpg)
 Figure 101. Tree loss
 
 Let’s say that we wanted to be able to predict if an area of rainforest is likely to succumb to wildfire so we can prevent it happening. 
@@ -2029,7 +2116,9 @@ We’ve collected this data in a CSV file called ‘forestation.csv’.
 
 This is our data - 
 
+![Risk factors versus fires occurring in observed forestry over 1 year](Assets/f102_riskfactors.jpg)
 Figure 102. Risk factors versus fires occurring in observed forestry over 1 year
+
 From this data we want to know two things – 
 
 1.	Which of these risk factors have the biggest influence on wildfires happening? 
@@ -2037,6 +2126,7 @@ From this data we want to know two things –
 
 Random Forest allows us to make both these predictions. We can use the same data in two separate Random Forest algorithms - 
 
+![The same data can be used by different random forest algorithms to make different types of predictions](Assets/f103_randomforestalgorithms.jpg)
 Figure 103. The same data can be used by different random forest algorithms to make different types of predictions
 
 ## TEAM PRACTICAL TASK 5
@@ -2049,6 +2139,7 @@ Wait!
 
 After a short while you will get an output which ranks the fire risk factors in order of significance -
 
+![Plot output ranking influential factors](Assets/f104_rankingfactors.jpg)
 Figure 104. Plot output ranking influential factors
 Close the plot. 
 
@@ -2190,10 +2281,12 @@ As plants and trees grow, they take carbon dioxide from the atmosphere and turn 
 
 The Intergovernmental Panel on Climate Change (IPCC) said that if the world wanted to limit the rise to 1.5C by 2050, an extra 1bn hectares (2.4bn acres) of trees would be needed. 
 
+![A space the size of USA needs to be planted with trees to capture 2/3 of CO2 emissions. The space is available though.](Assets/f105_space.jpg)
 Figure 105. A space the size of USA needs to be planted with trees to capture 2/3 of CO2 emissions. The space is available though.
 
 Recent research from Crowther Lab  suggests that there is room for an extra 0.9 billion hectares of additional tree cover, excluding existing trees and agricultural and urban areas. 
  
+![Global analysis of tree cover showing potential for increasing cover in areas that are already wooded.](Assets/f106_analysisoftree.jpg)
 Figure 106. Global analysis of tree cover showing potential for increasing cover in areas that are already wooded.
 
 The researchers built a model for analysing existing tree cover, and categorised land use scenarios by the numbers of existing trees per hectare. The model was then used to predict how many more trees could be planted across the world and concluded that the main opportunities were in Russia, USA, Canada, Australia, Brazil and China . 
@@ -2371,6 +2464,7 @@ Used to predict where wildfires will occur
  
 Machine learning is used to classify images across a wide range of scenarios – e.g. facial recognition at passport control, handwriting recognition, driverless vehicles, and recognition of living things. 
 
+![Image categorisation algorithms extract features to make predictions](Assets/f107_imagecategorisation.jpg)
 Figure 107. Image categorisation algorithms extract features to make predictions
 
 An analysis of the principles of machine learning that are applied to image processing can reveal more general machine learning principles that can be applied in other scenarios such as voice recognition, for example.
@@ -2381,13 +2475,16 @@ Let’s now turn to a practical application of image classification.
 
 Imagine that you are a data scientist working in an organisation that has been commissioned to find the best places on Earth to plant more trees. You have access to satellite imaging and can search through millions of images of aerial views of land. 
 
+![A satellite observing the Earth. Image source NASA.](Assets/f108_satellite.jpg)
 Figure 108. A satellite observing the Earth. Image source NASA.
+
 Your goal as a data scientist is to find the right data, prepare that data, and build an experiment that identifies land that can be used for planting trees.  
 
 From the satellite data we have a series of images that can be categorised and ranked by their tree growing potential. 
 
 Our goal is to be able to classify a test image of area and get its tree growing potential rank. 
  
+![Our goal is to categorise tree growing potential of a piece of land](Assets/f109_treegrowingpotential.jpg)
 Figure 109. Our goal is to categorise tree growing potential of a piece of land
 
 The image recognition problem we are working on here is very similar to KNN task that we worked through. The goal is the same – a classification. The method is the same – we categorise a piece of test data in terms of how well it fits categories labelled in the training data. The main difference is that the KNN model worked with just sets of two numbers representing x and y values stored in a CSV file. Here the numbers are patterns stored in the images. 
@@ -2398,20 +2495,21 @@ This is enough for us to demonstrate the principle, but clearly if we were doing
 
 Each image is labelled 0-9 in rank order of its additional tree growing potential. 
 
- 
+![The training data](Assets/f110_trainingdatal.jpg)
 Figure 110. The training data
 
 Here, 0.png – 9.png are the 10 **training** data images that we’ll use. 
 
 We have another set of images that we need to rank. 
 
- 
+![The test data](Assets/f111_testdata.jpg)
 Figure 111. The test data
 
 Here t0.png – t9.png are the **test** data images, and we’ll use these one at a time.  
 
 Our goal is to match the test data images to a training data image. To do this we rename one of the test images to 10.png. 
 
+![Rename one image from the test images](Assets/f112_renameimage.jpg)
 Figure 112. Rename one image from the test images
 
 We could have picked any of the test images here, but we chose ‘t0.png’. 
@@ -2431,6 +2529,7 @@ Click on ‘data’, and ‘images_part1’
 
 This is how the data looks in VSC – 
 
+![How the data looks in Visual Studio Code](Assets/f113_dataVSC.jpg)
 Figure 113. How the data looks in Visual Studio Code
 
 0.png – 9.png are the training images
@@ -2443,19 +2542,24 @@ Now we have our data organised, we can next run the code.
  
 Run ‘5_image_recogniser.py’ 
 
+![‘5_image_recogniser.py’ code](Assets/f114_pycode.jpg)
 Figure 114. ‘5_image_recogniser.py’ code
  
+![‘5_image_recogniser.py’ code running](Assets/f115_pycoderunning.jpg)
 Figure 115. ‘5_image_recogniser.py’ code running
 
 Note that it shows a greyscale version of the test image ‘0.png’. 
 
 This means that it has found a match for our test file.
 
+![The algorithm matches the test image file to a training image file](Assets/f116_algomatch.jpg)
 Figure 116. The algorithm matches the test image file to a training image file
+
 The test file 10.png matches the training file 0.png. 
 
 Once we have a match, we can assign a classification. Here, we find that the piece of land in our test file has only 10% additional tree growing capacity. 
  
+![Types of land classified and ranked according to their additional tree growing capacity](Assets/f117_landclassified.jpg)
 Figure 117. Types of land classified and ranked according to their additional tree growing capacity
 
 To find a test file that shows land with higher levels of tree growing capacity, we follow these steps: 
@@ -2466,6 +2570,7 @@ To find a test file that shows land with higher levels of tree growing capacity,
 
 Here we see that the new test image 10.png matches the training image file 8.png which has been classified as having 90% extra tree growing capacity. 
 
+![Our test file has been matched to a training file which in turn has been classified, so we can now classify our test file](Assets/f118_classifytestfile.jpg)
 Figure 118. Our test file has been matched to a training file which in turn has been classified, so we can now classify our test file
 
 **Try this for yourself** - 
@@ -2491,7 +2596,8 @@ A = misc.imread('1.png')
 print(A)
 ```
 
-Figure 119. arrays describing images’ colours and composition
+![arrays describing images’ colours and composition](Assets/f119_arrays.jpg)
+Figure 119. Arrays describing images’ colours and composition
 
 Once we have this data, we can reverse the process and create an image from the numbers. 
 
@@ -2506,6 +2612,7 @@ print(A)
 ```
 Output - 
 
+![Arrays for images after ‘flattening’ to greyscale](Assets/f120_arraysflattening.jpg)
 Figure 120. Arrays for images after ‘flattening’ to greyscale
 
 Once we have the image described in numbers, we can find best numerical matches – classification. 
@@ -2514,14 +2621,17 @@ To do this the code follows a three-step process –
 
 First, it reads and converts both the training images and the test image to greyscale
  
+![Flattening training data images](Assets/f121_flatteningtrainingdata.jpg)
 Figure 121. Flattening training data images
 
 Next it applies a method called “Singular Value Decomposition (SVD)” to each image. This extracts patterns from the greyscale arrays. 
  
+![Extracting patterns with SVD](Assets/f122_extractingpatterns.jpg)
 Figure 122. Extracting patterns with SVD
 
 Next, the algorithm searches through the SVD values for the training data to find the best match between the training images’ SVDs and the test image’s SVD. 
 
+![How the classifier algorithm matches the test data to its closest fit training data image](Assets/f123_classifier.jpg)
 Figure 123. How the classifier algorithm matches the test data to its closest fit training data image
 
 Let’s now look at 5_image_recogniser.py in full -  
@@ -2560,6 +2670,7 @@ Follow this video to understand the task - https://vimeo.com
 
 Your objective: Identify where best to plant trees in populated areas. 
 
+<!--- ![]() -->
 Figure 124. Finding the best places to plant trees in a populated area using image analysis
 
 You will have 5 resources to work with
@@ -2570,6 +2681,7 @@ You will have 5 resources to work with
 4. Jumbled-up code 
 5. ‘Starter’ spreadsheet  
 
+![The assets that you will need for the task](Assets/f125_assets.jpg)
 Figure 125. The assets that you will need for the task
 
 #### 1. Explore the Data and Algorithm  
@@ -2603,6 +2715,7 @@ Your next task is to rank each category of land-use by how many additional trees
 
 Look carefully at the images in the ‘images_part2’ folder and use the table below to match the images to the labels.  
 
+![Training images category labels](Assets/t4_categorylabels.jpg)
 Table 4. Training images category labels
 
 In your team’s File area, use the Excel file called ‘Test table.xlsx’ to rank each category of land use in terms of how many additional trees you think could be planted. 
@@ -2611,6 +2724,7 @@ Think carefully how about the criteria. For example, is it safe to plant trees n
 
 Below are two example rankings – try and put your own ranking in here. Don’t spend longer than 10 minutes on this part of the task. 
 
+![In Excel, rank each category of land by its tree growing potential](Assets/f126_rankpotential.jpg)
 Figure 126. In Excel, rank each category of land by its tree growing potential
 
 #### 2. Write the Code 
@@ -2663,12 +2777,14 @@ To do this, we’ll follow the same steps as we did in the video - https://vimeo
 
 For example, take the image named t10.tif. Rename this to 10.tif and run the algorithm. You should get an output showing a greyscale representation of one of the training images – in this case, 10.tif. 
  
+![Matching training image to the test image](Assets/f127_matchingtrainingtest.jpg)
 Figure 127. Matching training image to the test image 
 
 Look up 10.tif in your table, and state its corresponding name (Harbor) and tree growing potential, say 0%, into a new column.  
 
 Repeat this so you have at least 5 images analysed. 
 
+![Complete the table with test results to find the test image with the most tree growing potential](Assets/f128_tabletestresults.jpg)
 Figure 128. Complete the table with test results to find the test image with the most tree growing potential
 
 Data source acknowledgement - Yi Yang and Shawn Newsam, "Bag-Of-Visual-Words and Spatial Extensions for Land-Use Classification," ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems (ACM GIS), 2010.
@@ -2679,7 +2795,9 @@ Neural networks are modelled on how the brain works at its most basic level. Thi
 
 Whilst electronic computers can perform individual calculations faster, the human brain is many times more powerful than even the fastest computers because it processes more information in parallel. The vast numbers of potential connections between neurons in the brain means that we are capable of more thoughts than the number of atoms in the universe. 
  
+![Neural networks are modelled on how the brain works](Assets/f129_neuralnetworks.jpg)
 Figure 129. Neural networks are modelled on how the brain works
+
 So how does this relate to AI? 
 
 Cutting edge AI uses neural networks which attempt to mimic how cognitive processes work. 
@@ -2692,6 +2810,7 @@ If we treat an output from a synaptic process in the in the same way as we treat
 
 The basic building block of a neural network is the perceptron, which mimics a synaptic process.
 
+![A Perceptron](Assets/f130_perceptrons.jpg)
 Figure 130. A Perceptron
 
 We can mimic the synapse with software using a model that places ‘weights’ in ‘nodes’, and using the outputs of nodes - ‘bias’ - as a signal to another node. Together the use of weights in nodes and biases mimic neural networks in the brain, hence the use of the term “neural networks” in machine learning. 
@@ -2711,7 +2830,9 @@ Let’s look at how a neural network could be used to classify food ingredients 
 
 Here we are using labelled data, so it’s a supervised learning scenario. 
  
+![Binary classification problem for a neural network](Assets/f131_binaryclassification.jpg)
 Figure 131. Binary classification problem for a neural network
+
 Can you work out the rule, algorithm and how Ingredient ‘x’ should be categorised? 
 
 Ans – The rule is that any ingredient with fat or salt is given a vector of 0
@@ -2728,6 +2849,7 @@ The rule that the neural network has learned from the training data is that to b
 
 These rules are expressed as 4 simple equations, which are called the weights. The weights are contained in a ‘node’. 
 
+![Structure of the basic neural network](Assets/f132_basicneuralnetwork.jpg)
 Figure 132. Structure of the basic neural network
 
 ##Expanding a Neural Network’s Layers and Nodes 
@@ -2750,6 +2872,7 @@ Each category has a corresponding node in Layer 2 where the scores from the inpu
 
 The nodes in Layer 2 send a ‘bias’ to Layer 3 which adds the sum of the bias’. It then takes this sum and applies logic to it – if the sum is greater than ‘x’ then the output will say “ZEP” or “non-ZEP”. 
 
+![Layers in the neural network](Assets/f133_layersneuralnetwork.jpg)
 Figure 133. Layers in the neural network
 
 ## Build a Neural Network in Excel
@@ -2766,8 +2889,10 @@ The diagram below is the implementation of the diagram above, with the following
 - Add-in a “Threshold”. 
 - Apply conditional formatting to Output Layer cell – 
 
+![Conditional formatting](Assets/f134_conditionalformatting.jpg)
 Figure 134. Conditional formatting
  
+![The neural network in Excel](Assets/f135_neuralnetworkexcel.jpg)
 Figure 135. The neural network in Excel
 
 That’s it! A working neural network in Excel. 
@@ -2776,6 +2901,7 @@ Your task now is to ‘reverse engineer’ the Neural Network in Excel file ‘E
 
 Next, open the “Experiment” tab to build your own neural network. 
 
+![Build your own neural network](Assets/f136_buildyourown.jpg)
 Figure 136. Build your own neural network
 
 First, think of a UN SDG goal, and then think of a scenario within that goal. Set up your criterial for that scenario in the same way as we did in the “ZEP” illustration. 
@@ -2789,6 +2915,7 @@ You can also reduce the number of categories if it makes sense to do so.
 
 According to a United Nations report issued earlier this year to policymakers, one million species, out of the 8.7 million species on the planet, are at risk of extinction: Human actions threaten more plants and animals than ever before.
 
+![AI can help track endangered species](Assets/f137_aiendangeredspecies.jpg)
 Figure 137. AI can help track endangered species
 
 A key problem for conservationists is that it’s difficult to track and monitor populations of endangered species. However, collecting better data and analysing it more effectively with machine learning and AI allows conservationists to make more targeted and timely interventions.  
@@ -2801,6 +2928,7 @@ When you have explored this article, think carefully about how AI can be applied
 # DAY 2, PM
 ## TEAM PRACTICAL TASK 10 
 ### Design Challenge Brief
+
 The design challenge is where you get to put all that you have learned into action by building a pitch. 
 
 A pitch is essentially a plan that one presents to potential investors in a product, project or business. 
@@ -2855,6 +2983,7 @@ Design and build a pitch for an AI-based service that protects an endangered spe
 ### Present, And Participate In The Critique  
 Don’t forget that during the critique of the other team’s pitches, your team can earn 5% points up to a maximum of 20% for each good question that you put to another team during the critique.
 
+![Your team can earn extra points if you participate fully in the critique](Assets/f138_critique.jpg)
 Figure 138. Your team can earn extra points if you participate fully in the critique
 
 ### References
