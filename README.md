@@ -1,6 +1,6 @@
-# Tech Resources for Academic Communities
+# Technical Resources for Academic Communities
 
-*The content and the code in this repo are intended for computer science instruction as a collaboration with Microsoft developer advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
+*The content and the code in this repo are intended for computer science instruction as a collaboration with Microsoft Developer Advocates and Faculty / Students under the [MIT license](LICENSE.md). Please check back regularly for updated versions.*
 
 **Source:** https://github.com/microsoft/AcademicContent
 
@@ -18,7 +18,7 @@ Your feedback is appreciated - please fork this repo and contribute!
 
 To report any issues, please log a GitHub issue. Include the content section, module number, and title, along with any error messages and screenshots.
 
-## Learn by doing with our [curricula](curricula)
+## Learn by doing with our curricula
 
 Check out our hands-on labs that can be used on your own or in the classroom. They also make for fun, easy-to-run workshops!
 
