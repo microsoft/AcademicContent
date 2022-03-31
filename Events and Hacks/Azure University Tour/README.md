@@ -2,8 +2,6 @@
 
 Welcome to the [Azure University Tour](https://www.microsoftevents.com/profile/web/index.cfm?PKwebID=0x765986abcd)! In this series of challenges, you'll build a few of the features from the [ContosoBNB](https://contosobnb.azurewebsites.net/) web app, the one that was demo'ed during the keynote.
 
-![ContosoBNB](https://github.com/MSFTImagine/computerscience/blob/master/_layouts/ContosoBNB.png)
-
 Take your pick of 3 labs. Each one takes 45 minutes - 1 hour to complete so select the one with the tech you're most interested in learning about:
 
 * [Big Data](https://github.com/MSFTImagine/computerscience/tree/master/Azure%20University%20Tour/BigDataHOL): Your team has recently obtained public data about rental properties in four cities in the United States, each in a distinct comma-separated value (CSV) file. You have been tasked with finding the most recent rental data in these large files and also with finding a way to search for all rental properties that match any given criteria within a specific area. Includes Azure Data Science Virtual Machine running Windows Server, Azure Data Lake Store and Azure Data Lake, and U-SQL.

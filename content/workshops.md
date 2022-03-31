@@ -1,12 +1,6 @@
-# Event Content
+# Workshops
 
-## [Microsoft Ignite | The Tour learning paths](https://github.com/microsoft/ignite-learning-paths-training)
-
-Train the trainer content for the learning paths taught at Microsoft Ignite | The Tour
-
-## [How do I even?](https://www.howdoieven.dev)
-
-A selection of workshops to run at events
+A selection of workshops
 
 ## [A Workshop to host a students resume live on an Azure App Service](https://www.linkedin.com/pulse/hosting-your-resume-microsoft-azure-code-deployment-github-saifee/)
 

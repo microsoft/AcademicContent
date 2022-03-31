@@ -1,10 +1,6 @@
 # Tech Talks
 
-Source: [https://github.com/Microsoft/computerscience/tree/master/Events%20and%20Hacks/Tech%20Talks](.)
-
 Tech Talks seek to inspire and educate students on topics that are emerging in the tech industry or are developer career-focused. We want them to complement a computer science education in a more informal forum like a pre-hackathon talk, within student groups, or other visiting campus speaking or meetups. Each contains a presentation as well as speaker notes and coding demos. They are generally designed to be about 1 hour with Q&A - feel free edit them down to fit desired length. New contributions are welcome.
-
-If you want to report any issues we need to fix. Please log an [issue](https://github.com/Microsoft/computerscience/issues). Include the content section (Tech Talk, Workshop, Course Content), module number and title, along with any error messages and screenshots.
 
 ## Available Tech Talks
 

@@ -1,5 +1,4 @@
-# Imagine Cup Junior 
-# Virtual AI Hackathon
+# Imagine Cup Junior Virtual AI Hackathon
 
 ![Our Biosphere](Assets/f1_biosphere.jpg)
 Figure 1. Our Biosphere. Image source, Shutterstock
