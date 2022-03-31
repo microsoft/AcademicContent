@@ -18,8 +18,8 @@ Microsoft’s most comprehensive free developer program includes developer tools
 
 ## Microsoft Imagine
 
-Azure Student Developer Program Build cross-platform apps and connect them to the cloud with Microsoft Azure, at no cost and with no credit card required
-Azure, at no cost and with no credit card required. The following Azure Services are included for free with no limit: Mobile Apps, Notification Hubs, SQL Database, MySQL with ClearDB, Visual Studio App Insights, Web Apps and Visual Studio Team Services.
+Build cross-platform apps and connect them to the cloud with Microsoft Azure, at no cost and with no credit card required.
+
 
 | Lesson | Title | Lab | Objectives |
 | ------ | ----- | --- | ---------- |

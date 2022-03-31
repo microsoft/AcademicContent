@@ -22,15 +22,15 @@ Hands on labs and content for students and educators to learn and teach the Inte
 
 A hands-on learning course created in conjunction with Oxford University.
 
-## 🇺🇸🧠 [Deep Learning for Time Series Forecasting](https://github.com/Azure/DeepLearningForTimeSeriesForecasting)
+## [Deep Learning for Time Series Forecasting](https://github.com/Azure/DeepLearningForTimeSeriesForecasting)
 
 A tutorial demonstrating how to implement deep learning models for time series forecasting.
 
-## 🇺🇸🧠 [Machine Learning notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
+## [Machine Learning notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 
 A set of Machine Learning notebooks showing how to use a number of AI/ML concepts.
 
-## 🇺🇸🧠 [Microsoft's Open Source AI based repositories](https://github.com/microsoft/ai)
+## [Microsoft's Open Source AI based repositories](https://github.com/microsoft/ai)
 
 A set of samples, reference architectures and best practices for AI.
 
@@ -38,7 +38,7 @@ A set of samples, reference architectures and best practices for AI.
 
 Open Sourced Mixed Reality Course Curriculum
 
-## 🇺🇸🖥 [C# 101](https://channel9.msdn.com/Series/CSharp-101/?WT.mc_id=academic-10265-cxa)
+## [C# 101](https://channel9.msdn.com/Series/CSharp-101/?WT.mc_id=academic-10265-cxa)
 
 Video series introducing programming using C#
 
@@ -50,15 +50,15 @@ Video series introducing programming using C# in Russian
 
 Video series introducing programming using F# in Russian
 
-## 🇺🇸🖥 [Python for beginners](https://channel9.msdn.com/Series/Intro-to-Python-Development?WT.mc_id=academic-10265-cxa)
+## [Python for beginners](https://channel9.msdn.com/Series/Intro-to-Python-Development?WT.mc_id=academic-10265-cxa)
 
 Video series introducing programming using Python
 
-## 🇺🇸🖥 [More Python for beginners](https://channel9.msdn.com/Series/More-Python-for-Beginners?WT.mc_id=academic-10265-cxa)
+## [More Python for beginners](https://channel9.msdn.com/Series/More-Python-for-Beginners?WT.mc_id=academic-10265-cxa)
 
 Video series introducing more programming using Python
 
-## 🇺🇸🖥 [Student Developers Intro to Data Science Video Series on Channel9](https://channel9.msdn.com/Series/Dev-Intro-to-Data-Science?WT.mc_id=academic-10265-cxa)
+## [Student Developers Intro to Data Science Video Series on Channel9](https://channel9.msdn.com/Series/Dev-Intro-to-Data-Science?WT.mc_id=academic-10265-cxa)
 
 In this 28-video series, you will learn important concepts and technologies to build your end-to-end machine learning applications on Azure
 
@@ -94,23 +94,23 @@ Shows how to set a connection string on an MXChip in code, useful in a computing
 
 A hands on lab to build an Agrotech solution using a Raspberry Pi and Azure IoT Central
 
-## 🇺🇸🕸 [Computer science repo](https://github.com/microsoft/computerscience)
+## [Computer science repo](https://github.com/microsoft/computerscience)
 
 The Microsoft computer science repo with a wide range of content
 
-## 🇺🇸🕸 [React book](https://softchris.github.io/books/react/)
+## [React book](https://softchris.github.io/books/react/)
 
 An eBook on learning React
 
-## 🇺🇸🕸 [Building Web APIs with Flask](https://www.youtube.com/watch?v=WdY7tZY2jcs&list=PLG8WGLcszzgUATIteQTzPBPYJbiBbaymY) -
+## [Building Web APIs with Flask](https://www.youtube.com/watch?v=WdY7tZY2jcs&list=PLG8WGLcszzgUATIteQTzPBPYJbiBbaymY) -
 
 Video series showing how to build Web APIs with Flask
 
-## 🇺🇸🧠 [Machine Learning for Sales Forecasting: A Capstone Project with Columbia University](https://techcommunity.microsoft.com/t5/educator-developer-blog/machine-learning-for-sales-forecasting-a-capstone-project-with/ba-p/1091578?WT.mc_id=academic-10265-cxa)
+## [Machine Learning for Sales Forecasting: A Capstone Project with Columbia University](https://techcommunity.microsoft.com/t5/educator-developer-blog/machine-learning-for-sales-forecasting-a-capstone-project-with/ba-p/1091578?WT.mc_id=academic-10265-cxa)
 
 A review of a capstone project using ML for sales forecasting
 
-## 🇺🇸🖥 [Let's Get this Bread! Using Azure Functions to Make Sourdough](https://dev.to/azure/let-s-get-this-bread-using-azure-functions-to-make-sourdough-if2)
+## [Let's Get this Bread! Using Azure Functions to Make Sourdough](https://dev.to/azure/let-s-get-this-bread-using-azure-functions-to-make-sourdough-if2)
 
 This post will walk you through how to use Azure Functions, VSCode, and Twilio to create a text thread between you and your sourdough baby to make sure you feed it in a timely manner.
 
@@ -118,6 +118,6 @@ This post will walk you through how to use Azure Functions, VSCode, and Twilio t
 
 Ever wanted to track things happening in your garden, neighborhood or school using smart garden ornaments? Now you can using BBC micro:bits and a cloud-based IoT service.
 
-## 🇺🇸🕸 [Saving Halloween 2020 with Azure Maps and Candy Caches](https://dev.to/azure/saving-halloween-2020-with-azure-maps-and-candy-caches-22f)
+## [Saving Halloween 2020 with Azure Maps and Candy Caches](https://dev.to/azure/saving-halloween-2020-with-azure-maps-and-candy-caches-22f)
 
 Halloween Candy Caches, mapped on an Azure Static Web App using an Azure Map.
