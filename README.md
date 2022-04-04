@@ -6,9 +6,9 @@ This repo provides technical resources to help students and faculty learn about 
 
 Students can get free Azure credits to explore these resources here:
 
-* [Azure for Students](https://azure.microsoft.com/free/students/?WT.mc_id=academiccontent-github-cxa) | $100 in Azure for 12 months with free tier of services - no credit card required with academic verification
-* [Azure for Students Starter](https://azure.microsoft.com/free/students-starter-faq/?WT.mc_id=academiccontent-github-cxa) | use select Azure products like App Services for free - no credit card required with academic verification
-* [Azure Free Account](https://azure.microsoft.com/free/?WT.mc_id=academiccontent-github-cxa) | $200 in Azure for one month with free tier of services - requires a credit card and probably the best fit for faculty evaluating Azure for course instruction unless your organization has a grant or enterprise agreement.
+* [Azure for Students](https://azure.microsoft.com/free/students/?WT.mc_id=academic-9938-cxa) | $100 in Azure for 12 months with free tier of services - no credit card required with academic verification
+* [Azure for Students Starter](https://azure.microsoft.com/free/students-starter-faq/?WT.mc_id=academic-9938-cxa) | use select Azure products like App Services for free - no credit card required with academic verification
+* [Azure Free Account](https://azure.microsoft.com/free/?WT.mc_id=academic-9938-cxa) | $200 in Azure for one month with free tier of services - requires a credit card and probably the best fit for faculty evaluating Azure for course instruction unless your organization has a grant or enterprise agreement.
 
 Your feedback is appreciated - please fork this repo and contribute!
 
@@ -27,9 +27,7 @@ Check out our full curricula that can be used on your own or in the classroom. T
 
 ## Teach with our workshops
 
-Visit our [Workshop Library](https://aka.ms/workshopomatic) for a full list
-
----
+Visit the [Workshop Library](https://aka.ms/workshopomatic) for a list of workshops based primarily on Microsoft Learn modules.
                                                       |
 ## Attend our [Reactor Workshops](https://github.com/microsoft/reactors)
 
@@ -38,24 +36,22 @@ We focus on developing high-quality content for all Cloud, Data Science, Machine
 | Resource                                                                                          |                                                                                                   |
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | [Reactor Workshops](https://github.com/microsoft/reactors)                                        | Content for our First Party Reactor Workshops can be found here.                                  |
-| [Reactor Locations](https://developer.microsoft.com/reactor/?WT.mc_id=academiccontent-github-cxa) | Find out schedules, learn more about each space, and see where we are opening a Reactor near you! |
+| [Reactor Locations](https://developer.microsoft.com/reactor/?WT.mc_id=academic-9938-cxa) | Find out schedules, learn more about each space, and see where we are opening a Reactor near you! |
 
 ## Content from other sources
 
 | Resource                                                                                                                                                 |                                                                                                                                                                         |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/?WT.mc_id=academiccontent-github-cxa)                                          | Cloud architecture guides, reference architectures, and example workloads for how to put the pieces of the cloud together                                               |
-| [Microsoft AI School](https://aischool.microsoft.com?WT.mc_id=academiccontent-github-cxa)                                                                | Content for students, developers and data scientists to get started and dive deep into the Microsoft AI platform and deep learning.                                     |
-| [Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=academiccontent-github-cxa)                                                                 | Hundreds of free online training by world-class experts to help you build your technical skills on the latest Microsoft technologies.                                   |
-| [Technical Community Content](https://github.com/Microsoft/TechnicalCommunityContent)                                                                    | Workshops from the community team.                                                                                                                                      |
-| [Research case studies](https://www.microsoft.com/research/academic-program/microsoft-azure-for-research/?WT.mc_id=academiccontent-github-cxa)           | Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too!                                      |
+| [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/?WT.mc_id=academic-9938-cxa)                                          | Cloud architecture guides, reference architectures, and example workloads for how to put the pieces of the cloud together                                               |
+| [Microsoft AI School](https://aischool.microsoft.com?WT.mc_id=academic-9938-cxa)                                                                | Content for students, developers and data scientists to get started and dive deep into the Microsoft AI platform and deep learning.                                     |
+| [Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=academic-9938-cxa)                                                                 | Hundreds of free online training by world-class experts to help you build your technical skills on the latest Microsoft technologies.                                   |
+| [Research case studies](https://www.microsoft.com/research/academic-program/microsoft-azure-for-research/?WT.mc_id=academic-9938-cxa)           | Case studies of faculty using Azure for Research collected by Microsoft Research. Submit your own Azure research stories here too!                                      |
 | [Microsoft Research Data Sets](https://aka.ms/datascience)                                                                                               | Data sets shared by Microsoft Research for academic use.                                                                                                                |
-| [Machine Learning Data Sets](https://docs.microsoft.com/azure/machine-learning/machine-learning-use-sample-datasets?WT.mc_id=academiccontent-github-cxa) | Data sets shared by Azure Machine Learning team to help explore machine learning.                                                                                       |
+| [Machine Learning Data Sets](https://docs.microsoft.com/azure/machine-learning/machine-learning-use-sample-datasets?WT.mc_id=academic-9938-cxa) | Data sets shared by Azure Machine Learning team to help explore machine learning.                                                                                       |
 | [MS MARCO](http://www.msmarco.org)                                                                                                                       | Microsoft MAchine Reading COmprehension Dataset generated from real Bing user queries and search results.                                                               |
-| [IoT School](https://iotschool.microsoft.com/?WT.mc_id=academiccontent-github-cxa)                                                                       | Resources for learning about Azure IoT solutions, platform services and industry-leading edge technologies.                                                             |
+| [IoT School](https://iotschool.microsoft.com/?WT.mc_id=academic-9938-cxa)                                                                       | Resources on Microsoft Learn for learning about Azure IoT solutions, platform services and industry-leading edge technologies.                                                             |
 | [Azure IoT curriculum resources](https://github.com/microsoft/iot-curriculum)                                                                            | Hands on labs and content for students and educators to learn and teach the Internet of Things at schools, universities, coding clubs, community colleges and bootcamps |
-| [AI Labs](https://www.ailab.microsoft.com/?WT.mc_id=academiccontent-github-cxa)                                                                          | Experience, learn and code the latest breakthrough AI innovations by Microsoft.                                                                                         |
-| [Channel9](https://channel9.msdn.com/?WT.mc_id=academiccontent-github-cxa)                                                                               | Videos for developers from people building Microsoft products and services.                                                                                             |
+| [Videos](https://docs.microsoft.com/en-us/shows/?WT.mc_id=academic-9938-cxa)                                                                               | Videos for developers from people building Microsoft products and services.                                                                                             |
 
 
 ## Contributing

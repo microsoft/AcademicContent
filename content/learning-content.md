@@ -18,7 +18,7 @@ A five day hands-on course for teaching cloud development concepts in college in
 
 Hands on labs and content for students and educators to learn and teach the Internet of Things at schools, universities, coding clubs, community colleges and bootcamps.
 
-## [Introduction to Azure IoT Hub](https://docs.microsoft.com/learn/modules/introduction-to-iot-hub/?WT.mc_id=academic-10265-cxa)
+## [Introduction to Azure IoT Hub](https://docs.microsoft.com/learn/modules/introduction-to-iot-hub/?WT.mc_id=academic-9938-cxa)
 
 A hands-on learning course created in conjunction with Oxford University.
 
@@ -38,7 +38,7 @@ A set of samples, reference architectures and best practices for AI.
 
 Open Sourced Mixed Reality Course Curriculum
 
-## [C# 101](https://channel9.msdn.com/Series/CSharp-101/?WT.mc_id=academic-10265-cxa)
+## [C# 101](https://channel9.msdn.com/Series/CSharp-101/?WT.mc_id=academic-9938-cxa)
 
 Video series introducing programming using C#
 
@@ -50,15 +50,15 @@ Video series introducing programming using C# in Russian
 
 Video series introducing programming using F# in Russian
 
-## [Python for beginners](https://channel9.msdn.com/Series/Intro-to-Python-Development?WT.mc_id=academic-10265-cxa)
+## [Python for beginners](https://channel9.msdn.com/Series/Intro-to-Python-Development?WT.mc_id=academic-9938-cxa)
 
 Video series introducing programming using Python
 
-## [More Python for beginners](https://channel9.msdn.com/Series/More-Python-for-Beginners?WT.mc_id=academic-10265-cxa)
+## [More Python for beginners](https://channel9.msdn.com/Series/More-Python-for-Beginners?WT.mc_id=academic-9938-cxa)
 
 Video series introducing more programming using Python
 
-## [Student Developers Intro to Data Science Video Series on Channel9](https://channel9.msdn.com/Series/Dev-Intro-to-Data-Science?WT.mc_id=academic-10265-cxa)
+## [Student Developers Intro to Data Science Video Series on Channel9](https://channel9.msdn.com/Series/Dev-Intro-to-Data-Science?WT.mc_id=academic-9938-cxa)
 
 In this 28-video series, you will learn important concepts and technologies to build your end-to-end machine learning applications on Azure
 
@@ -106,7 +106,7 @@ An eBook on learning React
 
 Video series showing how to build Web APIs with Flask
 
-## [Machine Learning for Sales Forecasting: A Capstone Project with Columbia University](https://techcommunity.microsoft.com/t5/educator-developer-blog/machine-learning-for-sales-forecasting-a-capstone-project-with/ba-p/1091578?WT.mc_id=academic-10265-cxa)
+## [Machine Learning for Sales Forecasting: A Capstone Project with Columbia University](https://techcommunity.microsoft.com/t5/educator-developer-blog/machine-learning-for-sales-forecasting-a-capstone-project-with/ba-p/1091578?WT.mc_id=academic-9938-cxa)
 
 A review of a capstone project using ML for sales forecasting
 

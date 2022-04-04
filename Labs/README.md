@@ -6,9 +6,9 @@ These resources include hands-on coding labs designed to help Computer Science f
 
 Before you start, make sure you have access to a Microsoft Azure subscription. Students can get a free Azure subscription and credits here:
 
-* [Azure For Students ($100 in Azure - no credit card required)](https://azure.microsoft.com/free/students/?WT.mc_id=academiccontent-github-cxa)
-* [Azure For Students Starter FAQ](https://azure.microsoft.com/free/students-starter-faq/?WT.mc_id=academiccontent-github-cxa)
-* [Azure Free Account - 30 days with $200 credit](https://azure.microsoft.com/free/?WT.mc_id=academiccontent-github-cxa)
+* [Azure For Students ($100 in Azure - no credit card required)](https://azure.microsoft.com/free/students/?WT.mc_id=academic-9938-cxa)
+* [Azure For Students Starter FAQ](https://azure.microsoft.com/free/students-starter-faq/?WT.mc_id=academic-9938-cxa)
+* [Azure Free Account - 30 days with $200 credit](https://azure.microsoft.com/free/?WT.mc_id=academic-9938-cxa)
 
 The labs fall into six general categories:
 
