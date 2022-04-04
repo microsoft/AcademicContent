@@ -25,23 +25,19 @@ Check out our full curricula that can be used on your own or in the classroom. T
 | Curriculum | [IoT for Beginners, 24 lessons](https://github.com/microsoft/IoT-For-Beginners)                 | A curriculum with 24 lessons with assignments all about the Internet of Things. The projects cover the journey of food from farm to table. This includes farming, logistics, manufacturing, retail and consumer - all popular industry areas for IoT devices. Also includes Pre- and Post- Quizzes. Made with teachers in mind, or as self paced learning |
 | Curriculum | [Data Science for Beginners, 20 lessons](https://github.com/microsoft/Data-Science-For-Beginners)                 | A curriculum with 20 lessons with assignments all about Data Science. Lessons cover the data science lifecycle from definition to deployment. Also includes Pre- and Post- Quizzes. Made with teachers in mind, or as self paced learning |
 
-## Teach with our workshops
+## Teach with our Learn-based workshops
 
 Visit the [Workshop Library](https://aka.ms/workshopomatic) for a list of workshops based primarily on Microsoft Learn modules.
                                                       |
 ## Attend our [Reactor Workshops](https://github.com/microsoft/reactors)
 
-We focus on developing high-quality content for all Cloud, Data Science, Machine Learning, and AI learners. Through workshops, tech talks, and hackathons hosted around the world, come learn and apply new skills to what you're interested in!
-
-| Resource                                                                                          |                                                                                                   |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| [Reactor Workshops](https://github.com/microsoft/reactors)                                        | Content for our First Party Reactor Workshops can be found here.                                  |
-| [Reactor Locations](https://developer.microsoft.com/reactor/?WT.mc_id=academic-9938-cxa) | Find out schedules, learn more about each space, and see where we are opening a Reactor near you! |
+We focus on developing high-quality content for all Cloud, Data Science, Machine Learning, Web Development, and AI learners. Through workshops, tech talks, and hackathons hosted around the world, come learn and apply new skills!
 
 ## Content from other sources
 
 | Resource                                                                                                                                                 |                                                                                                                                                                         |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Reactor Workshops](https://github.com/microsoft/reactors)                                        | Content for our First Party Reactor Workshops can be found here.                                  |
 | [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/?WT.mc_id=academic-9938-cxa)                                          | Cloud architecture guides, reference architectures, and example workloads for how to put the pieces of the cloud together                                               |
 | [Microsoft AI School](https://aischool.microsoft.com?WT.mc_id=academic-9938-cxa)                                                                | Content for students, developers and data scientists to get started and dive deep into the Microsoft AI platform and deep learning.                                     |
 | [Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=academic-9938-cxa)                                                                 | Hundreds of free online training by world-class experts to help you build your technical skills on the latest Microsoft technologies.                                   |
