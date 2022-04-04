@@ -1,5 +1,7 @@
 # Workshops
 
+Workshops built for Student Ambassadors primarily based on Microsoft Learn modules can be found [here](https://aka.ms/workshopomatic).
+
 A selection of workshops
 
 ## [A Workshop to host a students resume live on an Azure App Service](https://www.linkedin.com/pulse/hosting-your-resume-microsoft-azure-code-deployment-github-saifee/)
