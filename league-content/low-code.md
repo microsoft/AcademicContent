@@ -1,6 +1,6 @@
 # Low-Code Content
 
-Description TODO
+Resources of interest to students and faculty all about low code and no-code tools such as PowerApps and Power BI.
 
 ## Talks
 

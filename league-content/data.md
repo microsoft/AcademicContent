@@ -1,6 +1,6 @@
 # Data Content
 
-Description TODO
+Resources of interest to students and faculty all about the various types of data, including Data Science, databases, data management, and more.
 
 ## Talks
 

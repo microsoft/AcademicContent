@@ -25,6 +25,12 @@ Here you'll discover content all around Green tech, such as tools and strategies
 
 [Measuring the carbon impact of web browsing](https://devblogs.microsoft.com/sustainable-software/measuring-the-carbon-impact-of-web-browsing/)
 
+[Visual Green Tech Challenge Retrospective](https://sketchthedocs.github.io/visual-green-tech/post/challenge-retro/)
+- featuring work from Student Ambassador Locksley Kolakowski
+
+[Visual Guide to Sustainability City](https://sketchthedocs.github.io/visual-green-tech/post/sustainability-city/)
+ - featuring resources from Minecraft Student edition
+
 ## Initiatives
 
 [Green Software Foundation](https://greensoftware.foundation/)

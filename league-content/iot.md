@@ -1,6 +1,6 @@
 # IoT Content
 
-Description TODO
+Resources of interest to students and faculty all about the Internet of Things.
 
 ## Talks
 
