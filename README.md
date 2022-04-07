@@ -2,7 +2,7 @@
 
 This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and DevOps. It also includes interesting tech talks and engaging, fun tech challenges that Microsoft leads at student hackathons and [Imagine Cup](http://www.imaginecup.com).
 
-**Important:** Most technical content for learning at Microsoft can be found on [Microsoft Learn](https://docs.microsoft.com/learn/) | If you can't find what you're looking for in this repo, check out the labs on Microsoft Learn too. Many of these labs have their own built-in Azure sandbox making it easier for faculty and students to learn without requiring an Azure Subscription.
+**Important:** Most technical content for learning at Microsoft can be found on [Microsoft Learn](https://docs.microsoft.com/learn/). Many Learn modules have their own built-in Azure sandbox making it easier for faculty and students to learn without requiring an Azure subscription.
 
 Students can get free Azure credits to explore these resources here:
 
