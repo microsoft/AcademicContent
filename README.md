@@ -28,7 +28,7 @@ Check out our full curricula that can be used on your own or in the classroom. T
 ## Teach with our Learn-based workshops
 
 Visit the [Workshop Library](https://aka.ms/workshopomatic) for a list of workshops based primarily on Microsoft Learn modules.
-                                                      |
+                                                      
 ## Attend our [Reactor Workshops](https://github.com/microsoft/reactors)
 
 We focus on developing high-quality content for all Cloud, Data Science, Machine Learning, Web Development, and AI learners. Through workshops, tech talks, and hackathons hosted around the world, come learn and apply new skills!
