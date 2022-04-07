@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Green Tech Content
 
 Here you'll discover content all around Green tech, such as tools and strategies to combat climate change, IoT sensor work around animals, browser extensions tracking CO2 emissions, and more.
@@ -34,6 +33,4 @@ Here you'll discover content all around Green tech, such as tools and strategies
 ## Events
 
 [GreenConf by Microsoft Developers](https://www.youtube.com/watch?v=D-spTjqAswA&ab_channel=MicrosoftDeveloper)
-=======
-# Green Tech Content
->>>>>>> Refactor
+
