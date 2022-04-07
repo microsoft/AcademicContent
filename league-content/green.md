@@ -2,6 +2,9 @@
 
 Here you'll discover content all around Green tech, such as tools and strategies to combat climate change, IoT sensor work around animals, browser extensions tracking CO2 emissions, and more.
 
+![Love your mother!](images/green.png)
+> Image by [Jen Looper](https://twitter.com/jenlooper)
+
 ## Talks
 
 ## Code Samples
