@@ -34,41 +34,10 @@ Currently all the content lives in external repositories, this repo just contain
 
 Raise a PR! If you have links you would like to add, please raise a PR adding them to the relevant section.
 
-The content is divided into a number of sections:
-
-* [Learning content](./docs/content/learning-content.md) - add content here that is designed for learning, such as curriculum, content for educators, or for student groups to learn from
-* [Hackathon content](h./docs/content/hackathon-content.md) - add content here designed for student hackathons, such as workshops and templates to help get started quickly.
-* [Event content](./docs/content/event-content.md) - add content here designed for events such as on-campus meetups or computer society events
-* [K-12](./docs/content/k-12-content.md) - add content here designed for students at K-12 level (ages 4-18), or folks completely new to coding
-
-When you add a link please add the following:
-
-* Emojis to indicate the topic and language
-  
-  The following key is in use:
-  
-  * 🇺🇸 - English Language content
-  * 🇷🇺 - Russian Language content
-  * 🖥 - Programming languages and frameworks
-  * 🧠 - AI/ML
-  * 🕸 - Web
-  * 📱 - Mobile
-  * 🤖 - IoT
-  * 🥽 - Spatial
-  
-  If you are adding a language that is not listed above, add the flag for the originating country for the language, and add it to the key. If you are adding a technology area that is not listed above, please pick an appropriate emoji and add it to the key as well.
-  
-* Link to the content
-* Description of the content
-
-## Do you also take requests?
-
-Yes! We'd love to know what content you would like, so we can create it for you.  Raise an issue using the label [content wanted](https://github.com/jimbobbennett/MicrosoftAcademicContent/labels/content%20wanted) and we will work on locating existing content or creating new content.
-
 ## What if the links are broken or the content is outdated or inappropriate?
 
-Please raise an [issue](https://github.com/jimbobbennett/MicrosoftAcademicContent/issues). We have a number of labels to use when raising issues like this:
+Please raise an issue. We have a number of labels to use when raising issues like this:
 
-* [inappropriate content](https://github.com/jimbobbennett/MicrosoftAcademicContent/labels/inappropriate%20content) - use this label to flag links to content that does not adhere to our [code of conduct](./CODE_OF_CONDUCT.md)
-* [broken link](https://github.com/jimbobbennett/MicrosoftAcademicContent/labels/broken%20link) - use this for links that no longer work
-* [outdated content](https://github.com/jimbobbennett/MicrosoftAcademicContent/labels/outdated%20content) - use this for content that is outdated and needs to be updated to the latest version of the relevant tools or technologies. We will then work with the author to get the content updated
+* Inappropriate content - use this label to flag links to content that does not adhere to our [code of conduct](./CODE_OF_CONDUCT.md)
+* Broken link - use this for links that no longer work
+* Outdated content - use this for content that is outdated and needs to be updated to the latest version of the relevant tools or technologies. We will then work with the author to get the content updated

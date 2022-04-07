@@ -1,0 +1,50 @@
+//  Output all listings between 2 dates:
+
+// Read the data file Listings.csv into @AllListings variable:
+@AllListings =
+EXTRACT
+  id string
+, neighbourhood  string
+, city  string
+, state  string
+, zipcode  string
+, property_type  string
+, room_type  string
+, bedrooms  string
+, price  string
+, last_review string
+, review_scores_rating  string
+, review_scores_value  string
+, reviews_per_month string
+, availability_30 string
+, availability_365  string
+FROM "Listings.csv"
+USING Extractors.Csv(skipFirstNRows: 1, silent:true) ;
+
+// Put Listing records, found between 2 dates, into @ListingsBetweenDates variable:
+@ListingsBetweenDates =
+SELECT
+id 
+, neighbourhood  
+, city  
+, state  
+, zipcode  
+, property_type  
+, room_type  
+, bedrooms  
+, price  
+, last_review
+, review_scores_rating  
+, review_scores_value  
+, reviews_per_month 
+, availability_30 
+, availability_365  
+FROM @AllListings
+WHERE last_review BETWEEN
+    DateTime.Parse("6/1/2017") AND
+    DateTime.Parse("12/31/2017") ;
+
+// Save results to data file:
+OUTPUT @ListingsBetweenDates
+    TO "Listings-MyDates.csv"
+    USING Outputters.Csv(outputHeader:true) ;

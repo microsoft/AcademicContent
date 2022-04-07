@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Profrates ratings page">
+<title>ProfRates</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    var professors = [
+        "Professor Prosise",
+        "Professor Richter",
+        "Professor Robbins",
+        "Professor Fine",
+        "Professor Stewart",
+        "Professor Matthews"
+    ];
+
+    var webServerURL = "http://localhost:8080";
+    var id;
+
+    $(function () {
+        // Show the professor name
+        id = getParam("id");
+
+        if (id === null || (id < 0 || id > 5)) {
+            window.location.href = "/";
+            return;
+        }
+
+        $("#professor").text(professors[id]);
+		
+        // Show existing comments and ratings for this professor
+        callXHR("GET", webServerURL + "/count", null, function(err, count) {
+			if (err) {
+				console.log(err);
+            }
+            else {
+				for (var i = 0; i < count; i++) {
+					callXHR("GET", webServerURL + "/rating/" + i, null, function(err, comment) {
+						if (err) {
+							console.log(err);
+                        }
+                        else if (comment.professorID == id) {
+							showRating(comment.stars, comment.comment);
+						}
+					})
+				}				
+			}
+		});	
+
+        // Make the star ratings interactive
+        $("#stars img").click(function(e) {
+            var index = parseInt(e.target.id[4] - 1);
+
+            $("#stars img").each(function(i, el) {
+                el.src = (i <= index) ? "/img/star-filled.png" : "/img/star-empty.png";
+            });
+
+            $("#submit-button").removeAttr("disabled");
+        });
+
+        // Process clicks of the Submit button
+        $("#submit-button").click(function (e) {
+            var comment = $("#comment").val();
+
+            var stars = 0;
+            $("#stars img").each(function(i, el) {
+                if (el.src.endsWith("filled.png")) {
+                    stars++;
+                }
+            });
+
+            addRating(id, comment, stars);
+            showRating(stars, comment);
+
+            $("#comment").val("");
+            $("#star1").attr("src", "/img/star-empty.png");
+            $("#star2").attr("src", "/img/star-empty.png");
+            $("#star3").attr("src", "/img/star-empty.png");
+            $("#star4").attr("src", "/img/star-empty.png");
+            $("#star5").attr("src", "/img/star-empty.png");
+            $("#submit-button").attr("disabled", true);
+
+            e.preventDefault();
+        });
+    });
+
+    function showRating(stars, comment) {
+        var el = $(".rating" + stars).clone(false);
+        el.removeAttr("class");
+        el.find("p").text(comment);
+        $("#ratings").append(el);
+    }
+
+    function getParam(name) {
+        var results = new RegExp("[\?&]" + name + "=([^]*)").exec(window.location.href);
+        if (results === null)
+            return null;
+        return results[1] || 0;
+    }
+
+    function callXHR(method, URL, formData, callback) {
+        var request = new XMLHttpRequest();
+        request.open(method, URL);
+
+        if (method == "POST") {
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            request.send(formData);
+        }
+        else {
+            request.send();
+        }
+        
+        request.onreadystatechange = function() {
+            if (request.readyState == 4 && request.status < 300) {
+                callback(null, JSON.parse(request.responseText));
+            }
+            else if (request.readyState == 4 && request.status >= 300) {
+                callback(request.responseText, null);
+            }
+        };    
+    }
+
+    function addRating(professorId, comment, stars) {
+        var formData = "professorId=" + encodeURIComponent(professorId);
+        formData += "&comment=" + encodeURIComponent(comment);
+        formData += "&stars=" + encodeURIComponent(stars);
+
+        callXHR("POST", webServerURL + "/add", formData, function(err, ratingId) {
+            if (err) {
+				console.log(err);
+            }
+        });
+    }
+</script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">
+                        <img style="margin-bottom:-100px" src="/img/header.png"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ratings" style="margin-top: 100px">
+        <div class="row">
+            <div class="comment col-md-6">
+                <div class="form-group">
+                    <label for="comment">Tell us about <span id="professor"></span></label>
+                    <textarea id="comment" class="form-control" rows="4"></textarea>
+                    <br />
+                    <label for="comment">Enter a rating from one to five stars</label>
+                    <div id="stars">
+                        <img id="star1" src="/img/star-empty.png">
+                        <img id="star2" src="/img/star-empty.png">
+                        <img id="star3" src="/img/star-empty.png">
+                        <img id="star4" src="/img/star-empty.png">
+                        <img id="star5" src="/img/star-empty.png">
+                    </div>
+                    <br />
+                    <button id="submit-button" class="btn btn-primary" disabled>Submit</button>
+                </div>	
+            </div>
+            <div class="col-md-6"></div>	
+        </div>
+
+        <hr />
+
+        <div id="ratings">
+        </div>
+
+        <div id="templates" style="display: none">
+            <div class="rating1" style="margin-top: 12px">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="/img/star-filled.png">
+                        <img src="/img/star-empty.png">
+                        <img src="/img/star-empty.png">
+                        <img src="/img/star-empty.png">
+                        <img src="/img/star-empty.png">
+                    </div>
+                    <div class="col-md-9">
+                        <p style="margin-top: 8px"></p>                        
+                    </div>
+                </div>
+            </div>
+            <div class="rating2" style="margin-top: 12px">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="/img/star-filled.png">
+                        <img src="/img/star-filled.png">
+                        <img src="/img/star-empty.png">
+                        <img src="/img/star-empty.png">
+                        <img src="/img/star-empty.png">
+                    </div>
+                    <div class="col-md-9">
+                        <p style="margin-top: 8px"></p>                        
+                    </div>
+                </div>
+            </div>
+            <div class="rating3" style="margin-top: 12px">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="/img/star-filled.png">
+                        <img src="/img/star-filled.png">
+                        <img src="/img/star-filled.png">
+                        <img src="/img/star-empty.png">
+                        <img src="/img/star-empty.png">
+                    </div>
+                    <div class="col-md-9">
+                        <p style="margin-top: 8px"></p>                        
+                    </div>
+                </div>
+            </div>
+            <div class="rating4" style="margin-top: 12px">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="/img/star-filled.png">
+                        <img src="/img/star-filled.png">
+                        <img src="/img/star-filled.png">
+                        <img src="/img/star-filled.png">
+                        <img src="/img/star-empty.png">
+                    </div>
+                    <div class="col-md-9">
+                        <p style="margin-top: 8px"></p>                        
+                    </div>
+                </div>
+            </div>
+            <div class="rating5" style="margin-top: 12px">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="/img/star-filled.png">
+                        <img src="/img/star-filled.png">
+                        <img src="/img/star-filled.png">
+                        <img src="/img/star-filled.png">
+                        <img src="/img/star-filled.png">
+                    </div>
+                    <div class="col-md-9">
+                        <p style="margin-top: 8px"></p>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>

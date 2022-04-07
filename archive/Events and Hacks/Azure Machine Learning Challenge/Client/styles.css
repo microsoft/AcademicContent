@@ -1,0 +1,50 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: azure;
+}
+
+form {
+    width: 300px;
+    margin: 20px auto;
+}
+
+input, select {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 300px;
+    min-height: 30px;
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    outline: none;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+}
+
+input:invalid { 
+    border-color: #e88;
+    -webkit-box-shadow: 0 0 5px rgba(255, 0, 0, .8);
+    -moz-box-shadow: 0 0 5px rgba(255, 0, 0, .8);
+    -o-box-shadow: 0 0 5px rgba(255, 0, 0, .8);
+    -ms-box-shadow: 0 0 5px rgba(255, 0, 0, .8);
+    box-shadow:0 0 5px rgba(255, 0, 0, .8);
+}
+
+input:required {
+    border-color: #88a;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+    -o-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+    -ms-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+    box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+}
+
+input[type=button] {
+    height: 48px;
+    margin-top: 28px;
+}
