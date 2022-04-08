@@ -5,7 +5,8 @@ Resources of interest to students and faculty all about web and mobile developme
 ## Talks
 
 ## Code Samples
-[A simple clone of the game Wordle using React and tailwind CSS]()
+[A simple clone of the game Wordle using React and tailwind CSS](https://github.com/MahmoudFettal/wordle)
+
 ## Tools
 
 ## Courseware
