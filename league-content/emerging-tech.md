@@ -4,7 +4,7 @@ Resources of interest to students and faculty all about Emerging Tech, including
 
 ## Talks
 
-[Building Fun Experiments with WebXR & Babylon.js}( https://portal.gitnation.org/contents/building-fun-experiments-with-webxr-and-babylonjs)
+[Building Fun Experiments with WebXR & Babylon.js]( https://portal.gitnation.org/contents/building-fun-experiments-with-webxr-and-babylonjs)
 >A talk on XR and Babylon.js by David Rousset
 
 ## Code Samples
