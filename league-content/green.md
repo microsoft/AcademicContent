@@ -20,6 +20,9 @@ Here you'll discover content all around Green tech, such as tools and strategies
 [Purple Penguins](https://devpost.com/software/purple-penguins)
 > Intelligent Data Exploration Platform for laws and policies doing similarity matching based on entity recognition and topic extraction powering a graph based interface. [GitHub](https://github.com/Zuehlke/hack-the-climate)
 
+[Plant Watch](https://github.com/MahmoudFettal/Plants-Watch)
+> Using Custom Vision, Student Ambassador Mahmoud Fettal and team created a way to detect plant diseases
+
 ## Tools
 
 [Principles of Sustainable Software Development](https://principles.green/)
