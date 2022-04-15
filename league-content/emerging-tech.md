@@ -16,5 +16,7 @@ Resources of interest to students and faculty all about Emerging Tech, including
 ## Blogs
 
 ## Initiatives
+[Microsoft Mesh](https://www.microsoft.com/en-us/mesh)
+> Microsoft Mesh enables presence and shared experiences from anywhere – on any device – through mixed reality applications.
 
 ## Events
