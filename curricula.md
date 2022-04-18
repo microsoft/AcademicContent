@@ -1,6 +1,6 @@
 # Curricula
 
-A curated semester-long experience for students and educators who would like to use this MIT-licensed content in their classroom.
+Here you will find curated, semester-long experiences for students and educators who would like to use this MIT-licensed content in their classrooms.
 
 | Category        |  Title       | Description |
 | -------------- | ----------- | ---- |                                                                              
