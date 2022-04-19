@@ -15,7 +15,7 @@ Microsoft Learn Educators: https://aka.ms/MSLELearn
 
 Internship Learning Path on Learn: https://aka.ms/starttechintern
 
-Learn for Students: http://aka.ms/learnstudents
+Learn for Students: https://docs.microsoft.com/learn/browse/?roles=student
 
 Microsoft Learn Educator Center: https://aka.ms/educenter
 
@@ -27,6 +27,6 @@ Educator Developer Blog: https://aka.ms/faculty
 
 Azure Lab Services: https://aka.ms/azurelabservices
 
-GitHub Classroom: https://aka.ms/GHclassroom
+GitHub Classroom: https://classroom.github.com/
 
-GitHub Codespaces: https://aka.ms/GHCodepaces
+GitHub Codespaces: https://github.com/features/codespaces
