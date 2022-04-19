@@ -20,7 +20,7 @@ Attending a hackathon? Here are some helpful [guides and resources](./hackathon-
 
 ## Certification
 
-Looking to get certified? [Take practice exams](https://docs.microsoft.com/en-us/learn/certifications/student-training-and-certification) to get ready for the certification.
+Looking to get certified? [Take practice exams](https://docs.microsoft.com/learn/certifications/student-training-and-certification) to get ready for the certification.
 
 ## Teach with our Learn-based workshops
 
