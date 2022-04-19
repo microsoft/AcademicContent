@@ -9,7 +9,7 @@ Azure for Students: http://aka.ms/azure4students
 
 Azure Dev Tools for Teaching: http://aka.ms/azuredevtoolsforteaching
 
-Microsoft Learn Student Ambassadors: http://aka.ms/studentsambassadors
+Microsoft Learn Student Ambassadors: http://aka.ms/studentambassadors
 
 Microsoft Learn Educators: https://aka.ms/MSLELearn
 
