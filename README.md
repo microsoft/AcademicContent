@@ -32,7 +32,7 @@ More courseware can be discovered [here](./courseware.md).
 
 ## Offers and Programs
 
-If you are looking for useful links and a deck about programs of interest to schools, faculty and students, visit our [offers and programs area](./README.md) for more information.
+If you are looking for useful links and a deck about programs of interest to schools, faculty and students, visit our [offers and programs area](./offers-programs/README.md) for more information.
                                                       
 ## Attend our [Reactor Sessions](https://github.com/microsoft/reactors)
 
