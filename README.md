@@ -30,9 +30,9 @@ Other workshops can be found [here](./workshops.md).
 
 More courseware can be discovered [here](./courseware.md).
 
-## Presentations
+## Offers and Programs
 
-If you're speaking at a conference or giving an educational presentation, we've built a [presentation library](./presentations.md) to help you find the right slides.
+If you are looking for useful links and a deck about programs of interest to schools, faculty and students, visit our [offers and programs area](./README.md) for more information.
                                                       
 ## Attend our [Reactor Sessions](https://github.com/microsoft/reactors)
 
