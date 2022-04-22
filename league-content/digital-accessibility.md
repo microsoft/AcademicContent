@@ -31,5 +31,9 @@ Resources of interest to students and faculty all about Digital Accessibility, i
 ## Blogs
 
 ## Initiatives
+[The XRAccessibility Project](https://xraccessibility.github.io/)
+>The XRAccessibility Project is an initiative driven by the XR Association and XR Access to provide a central place for developers to find solutions for creating accessible code across various XR platforms.
 
 ## Events
+[Microsoft Ability Summit 2022](https://abilitysummit2022.eventcore.com/)
+>Microsoft Ability Summit is a free, community event that brings together people with disabilities, allies, and industry professionals to Imagine, Build, and Include the future of disability inclusion and accessibility.
