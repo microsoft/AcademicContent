@@ -6,8 +6,14 @@
 Resources of interest to students and faculty all about Digital Accessibility, including all the ways that we make our apps usable for everyone.
 
 ## Talks
-[Testing Web Accessibility by Adrián Bolonio](https://speakerdeck.com/bolonio/testing-web-accessibility)
->How to find accessibility vulnerabilities in your website
+[Testing Web Accessibility by Adrián Bolonio](https://techa11y.dev/main-track/testing-web-accessibility/)
+>How to find accessibility vulnerabilities in your website ~ Tech A11y Summit 2021 ([Slide Deck](https://speakerdeck.com/bolonio/testing-web-accessibility))
+
+[Inclusive Design, more than you hear by Marie van Driessche](https://techa11y.dev/main-track/inclusive-design-more-than-you-hear/)
+>Marie van Driessche gives inclusive design tips on improving the usability and readability of your website. She will sign about how sign language is an intrinsically different way of communicating and how to make your website accessible for Deaf people, but actually for everyone. ~ Tech A11y Summit 2021
+
+[FronteND and BackeND (Accommodate NeuroDiversity in your products) by Anna Korinna Németh-Szabó](https://techa11y.dev/main-track/frontend-and-backend-accommodate-neurodiversity-in-your-products/)
+>In this session, Anna Korinna Németh-Szabó brings you challenges that neurodiverse users face every day, pinpoint struggles they encounter when using less-than-inclusive products, and offer best practices about how you can make your products accessible, inclusive, and user-friendly for a neurodiverse audience, too. ~ Tech A11y Summit 2021
 
 ## Code Samples
 
