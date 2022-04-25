@@ -9,6 +9,7 @@ Resources of interest to students and faculty all about web and mobile developme
 > This sample was submitted by Student Ambassador Mahmoud Fettal
 
 [A Simple Library Mangement using HTML, Bootstrap and JS](https://github.com/samipak458/Simple-Library-Managment)
+> This sample was submitted by Student Ambassador Muhammad Samiullah
 
 ## Tools
 
