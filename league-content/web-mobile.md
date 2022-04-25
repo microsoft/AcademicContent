@@ -8,6 +8,8 @@ Resources of interest to students and faculty all about web and mobile developme
 [A simple clone of the game Wordle using React and tailwind CSS](https://github.com/MahmoudFettal/wordle)
 > This sample was submitted by Student Ambassador Mahmoud Fettal
 
+[A Simple Library Mangement using HTML, Bootstrap and JS](https://github.com/samipak458/Simple-Library-Managment)
+
 ## Tools
 
 ## Courseware
