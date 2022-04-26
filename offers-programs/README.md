@@ -39,5 +39,3 @@ In this folder you'll find information pertinent to academic engagements
 
 [Microsoft Research Academic Programs](https://www.microsoft.com/research/academic-programs/faculty/?facet%5Btax%5D%5Bmsr-program-audience%5D%5B0%5D=243727&WT.mc_id=academic-9938-cxa)
 
-
-
