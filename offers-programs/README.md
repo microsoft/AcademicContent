@@ -1,6 +1,13 @@
 # Offers and Programs
 
-In this folder you'll find information pertinent to academic engagements
+In this folder you'll find information pertinent to academic engagements. 
+
+Students can get free Azure credits to explore these resources here:
+
+* [Azure for Students](https://azure.microsoft.com/free/students/?WT.mc_id=academic-9938-cxa) | $100 in Azure for 12 months with free tier of services - no credit card required with academic verification
+* [Azure for Students Starter](https://azure.microsoft.com/free/students-starter-faq/?WT.mc_id=academic-9938-cxa) | use select Azure products like App Services for free - no credit card required with academic verification
+* [Azure Free Account](https://azure.microsoft.com/free/?WT.mc_id=academic-9938-cxa) | $200 in Azure for one month with free tier of services - requires a credit card and probably the best fit for faculty evaluating Azure for course instruction unless your organization has a grant or enterprise agreement.
+
 
 ## Offers Overview
 
