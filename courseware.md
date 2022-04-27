@@ -1,5 +1,7 @@
 # Learning Content
 
+**Important:** Most technical content for learning at Microsoft can be found on [Microsoft Learn](https://docs.microsoft.com/learn/). Many Learn modules have their own built-in Azure sandbox making it easier for faculty and students to learn without requiring an Azure subscription.
+
 ## [Cloud-Powered Mobile App Development Syllabus](https://github.com/toolboc/Cloud-Powered-Mobile-App-Development-Curriculum)
 
 A five day hands-on course for teaching cloud development concepts in college institutions.
