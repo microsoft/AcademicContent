@@ -1,14 +1,6 @@
 # Technical Resources for Academic Communities
 
-This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and DevOps. It also includes interesting tech talks and engaging, fun tech challenges that Microsoft leads at student hackathons and [Imagine Cup](http://www.imaginecup.com).
-
-**Important:** Most technical content for learning at Microsoft can be found on [Microsoft Learn](https://docs.microsoft.com/learn/). Many Learn modules have their own built-in Azure sandbox making it easier for faculty and students to learn without requiring an Azure subscription.
-
-Students can get free Azure credits to explore these resources here:
-
-* [Azure for Students](https://azure.microsoft.com/free/students/?WT.mc_id=academic-9938-cxa) | $100 in Azure for 12 months with free tier of services - no credit card required with academic verification
-* [Azure for Students Starter](https://azure.microsoft.com/free/students-starter-faq/?WT.mc_id=academic-9938-cxa) | use select Azure products like App Services for free - no credit card required with academic verification
-* [Azure Free Account](https://azure.microsoft.com/free/?WT.mc_id=academic-9938-cxa) | $200 in Azure for one month with free tier of services - requires a credit card and probably the best fit for faculty evaluating Azure for course instruction unless your organization has a grant or enterprise agreement.
+This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in AI and machine learning, data science, web development, mobile app dev, internet of things, and DevOps. It also includes interesting tech talks and engaging, fun tech challenges.
 
 ## Learn by Doing with our Curricula
 
