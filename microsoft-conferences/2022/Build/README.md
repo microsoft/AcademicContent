@@ -2,7 +2,7 @@
 This README contains resources related to sessions at Tech Skills from Microsoft Build 2022!
 
 ## How can I find the resources mentioned in Tech Skills sessions?
-Below we have a table of each session, speaker, and resources. It also includes links to the live session or video recordings, each of which is 45 minutes long. If you want to take a look at all of the sessions, you can check them out on the [Microsoft Build Schedule Builder here](https://mybuild.microsoft.com/en-US/sessions?q=CTS&f=%255B%257B%2522name%2522%253A%2522Intro%2520to%2520Tech%2520Skills%2522%252C%2522facetName%2522%253A%2522communityTopic%2522%257D%255D&s=%257B%2522name%2522%253A%2522translate.refine.label.sort.relevance%2522%252C%2522type%2522%253A0%257D&t=%257B%2522from%2522%253A%25222022-05-24T00%253A00%253A00-04%253A00%2522%252C%2522to%2522%253A%25222022-05-26T23%253A59%253A00-04%253A00%2522%257D).
+Below we have a table of each session, speaker, and resources. It also includes links to the live session or video recordings, each of which is 45 minutes long. If you want to take a look at all of the sessions, you can check them out on the [Microsoft Build Schedule Builder here](https://aka.ms/IntrotoTechSkillsatBuild/Sessions).
 
 We have also created a convenient [Microsoft Learn Collection](https://aka.ms/IntroToTechSkillsAtBuild2022/Learn) that contains all of the Microsoft Learn modules and learning paths that are listed below for you to browse and continue your learning journey!
 
