@@ -4,7 +4,7 @@ Resources of interest to students and faculty all about the various types of dat
 
 ## Video Series
 
-Python for beginners, https://www.youtube.com/watch?v=jFCNu1-Xdsw&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6
+[Python for beginners](https://www.youtube.com/watch?v=jFCNu1-Xdsw&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6)
 
 ## Talks
 
