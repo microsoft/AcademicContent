@@ -1,3 +1,4 @@
+
 # Welcome to Tech Skills at Microsoft Build 2022!
 This README contains resources related to sessions at Tech Skills from Microsoft Build 2022!
 
@@ -13,7 +14,7 @@ Below is the session schedule for Intro to Tech Skills, hosted by  [Gwyneth Peñ
 
 | Time (PT) | Title and Link to Watch | Description | Speaker(s) | Resources |
 |---------------|-------|------------|---------|-----------|
-|Tuesday, May 24th 11:30 AM  | “Intro to Tech Skills”?  Tell me more!  | Kick things off here with us as we preview resources, programs, and sessions that have been specially curated for students, career changers, and beginners alike. Plus, you’ll hear from amazing developers around the world who have begun making an impact in their local communities - get inspired for your own journey! |  [Gwyneth Peña-Siguenza](https://twitter.com/madebygps), [Salman Chishti](https://twitter.com/salmanmkc), [Konstantinos Boutsioulis](https://twitter.com/BoutsioulisKon) |  |
+|Tuesday, May 24th 11:30 AM  | [“Intro to Tech Skills”?  Tell me more!](https://mybuild.microsoft.com/en-US/sessions/f877f5f8-dbe5-4ae1-9329-3fa655ff9406?source=sessions)  | Kick things off here with us as we preview resources, programs, and sessions that have been specially curated for students, career changers, and beginners alike. Plus, you’ll hear from amazing developers around the world who have begun making an impact in their local communities - get inspired for your own journey! |  [Gwyneth Peña-Siguenza](https://twitter.com/madebygps), [Salman Chishti](https://twitter.com/salmanmkc), [Konstantinos Boutsioulis](https://twitter.com/BoutsioulisKon) |  |
 | Tuesday, May 24th 12:30 PM | A peek inside the developer's toolkit | This is an overview of the common tools developers use to write and share their code. Join us and get acquainted with the tools you’ll be seeing throughout Build. | [Burke Holland]() & [Sana Ajani]() |  | 
 |Tuesday, May 24th 1:30 PM | So many programming languages, so little time--which should I learn? | How should you choose what to learn next? A panel of experts discusses a variety of popular programming languages--you just might find the perfect language for your next project here. | [Jasmine Greenaway](), [Anders Hejlsberg](), [Francesca Lazzeri](), [David Fowler](), [April Dunnam]() |
 |Tuesday, May 24th 2:30 PM | "Hello, World!" in 3 programming languages | Hello, World! Are you new to coding? In just one session, you’ll get a taste for a few popular programming languages and even see them in action!  | [Christopher Harrison](https://twitter.com/geektrainer) |
