@@ -39,6 +39,9 @@ Learn new concepts at your speed and on your schedule with this curated collecti
 ## Azure For Students 
 By simply verifying your student status through your school email address, you'll be ready to go on Azure with $100 in credit. Build your skills in trending tech including data science, artificial intelligence (AI), machine learning, and other areas with access to professional developer tools. Learn more about [Azure for Students](https://aka.ms/azureforstudents).
 
+## Get Certified
+Students, kick-start your tech career for Free with Microsoft Certification: aka.ms/StudentCertification
+
 ## Learn to Code with Minecraft
 If you have an Office 365 Education account, you can also use that to log in to the full version of [Minecraft: Education Edition](https://education.minecraft.net/) to access hundreds of cool worlds, challenges, and more. Available for Mac, iPad, Windows and Chromebook.
 
@@ -53,5 +56,5 @@ If you have an Office 365 Education account, you can also use that to log in to 
 ## Learn TV
 [Learn TV](https://docs.microsoft.com/learn/tv) is a 24/7 video channel where you can learn how to build solutions and use Microsoft products from the experts that built them! Learn TV is the place to find the latest digital content so you can always keep updated on the latest announcements, features, and products from Microsoft. Let us know what you think with the hashtag LearnTV.
 
-# Thank you from the Student Zone! 
-Thank you for attending the Student Zone at Microsoft Build. If you would like to suggest ideas for next year, create an issue on this repository [with this link](https://github.com/microsoft/AcademicContent/issues/new) and we'll be sure to look into your suggestions! 😊
+# Thank you for attending Intro to Tech Skills! 
+Thank you for attending! If you would like to suggest ideas for next year, create an issue on this repository [with this link](https://github.com/microsoft/AcademicContent/issues/new) and we'll be sure to look into your suggestions! 😊
