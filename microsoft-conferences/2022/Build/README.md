@@ -1,8 +1,8 @@
 
-# Welcome to Tech Skills at Microsoft Build 2022!
-This README contains resources related to sessions at Tech Skills from Microsoft Build 2022!
+# Welcome to Intro to Tech Skills at Microsoft Build 2022!
+This README contains resources related to sessions at Intro to Tech Skills from Microsoft Build 2022!
 
-## How can I find the resources mentioned in Tech Skills sessions?
+## How can I find the resources mentioned in Intro to Tech Skills sessions?
 Below we have a table of each session, speaker, and resources. It also includes links to the live session or video recordings, each of which is 45 minutes long. If you want to take a look at all of the sessions, you can check them out on the [Microsoft Build Schedule Builder here](https://aka.ms/IntrotoTechSkillsatBuild/Sessions).
 
 We have also created a convenient [Microsoft Learn Collection](https://aka.ms/IntroToTechSkillsAtBuild2022/Learn) that contains all of the Microsoft Learn modules and learning paths that are listed below for you to browse and continue your learning journey!
