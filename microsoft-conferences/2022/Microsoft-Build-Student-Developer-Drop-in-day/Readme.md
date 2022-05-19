@@ -26,7 +26,7 @@ Agenda
 
 | Time (BST) | Title | Description | Speaker(s) | Resources |
 |-------------------|-------|------------|---------|-----------|
-| 10 - 10:30 | Welcome to the event!| Let’s connect! Icebreaker. | Salman Chishti and Someleze Diko | https://aka.ms/studentambassadors |
+| 10 - 10:30 | Welcome to the event!| Let’s connect! Icebreaker. | Salman Chishti and Someleze Diko | https://aka.ms/learnstudent |
 | 10:30 - 10:40 | Getting Started with Azure for Student | This lightning session will introduce how to activate and get started on using Azure with Azure for Students and the different capabilities + solutions you can build with the services available on Azure for Students. | Bethany Jepchumba | [http://aka.ms/azure4student](http://aka.ms/azure4student) |
 | 10:40 - 10:50 | Getting Started with Microsoft Learn and free student certifications | A quick look at the Microsoft Learn landscape and how students can leverage the content to kickstart their learning journey. | Gemma Robson | [http://aka.ms/studentcertifications](http://aka.ms/studentcertifications) |
 | 11:00 - 12:00 |  AI Gaming Challenge | We are going to be using the A.I. power of Azure Cognitive Services to play a popular card game. AI will analyse the images on each tile and to determine what subject matter each image contains. | Stephen Graham |  |
@@ -40,13 +40,13 @@ Agenda
 | 15:00 - 15:20 | Ambassadors showcase - Ambassadors in the community – how to work with your dev community | Do you want to get your hands on cutting edge technologies? Keep up to date with what is coming next with Microsoft. Hear from the people who have helped powered Microsoft Teams and Windows. | Salman Chishti and Susie Yang  | https://insider.windows.com https://aka.ms/studentambassadors |
 | 15:20 - 15:50 | Gaming and Azure - Introduction to ID@Azure a new program to help you learn and make successful games using cloud services | Learn how to develop amazing gaming experiences and learn from examples solution, architectures use cases and case studies. | Bruno Capuano  |  |
 | 15:50 - 16:20 | MVP Showcase - Home Automation with the Azure  | In this demo heavy talk, we run through using the Azure Percept Audio Module to control common appliances around our home. | Peter Gallagher  |  |
-| 16:30 - 17:00 | Getting Started with Azure Static Web Apps to Host your Resume | Want to make your application stand out to recruiters and learn a few new skills in the process? This workshop will walk you through how to code a resume website. | Bruno Capuano  |  |
+| 16:30 - 17:00 | Getting Started with Azure Static Web Apps to Host your Resume | Want to make your application stand out to recruiters and learn a few new skills in the process? This workshop will walk you through how to code a resume website. | Bruno Capuano  | https://aka.ms/idazure & https://www.xbox.com/developers/creators-program/|
 | 17:00 - 18:00 | BUILD AI Gaming Challenge Final | The Grand final of the Microsoft Build Match Game – Match the tiles using the Microsoft Cognitive API to identify the subject of each image Use template code to get started with Computer Vision and OCR A.I. functions and become the world wide wider of the challenge. | Stephen Graham, Bruno Capuano and Someleze Diko  |  |
-| 18:00 - 18:30 | Close and Celebration| Celebrating YOU! Congratulations on the past year of university. How you can learn about future events and get in contact with our speakers. | Salman Chishti and Someleze Diko | https://aka.ms/studentambassadors |
+| 18:00 - 18:30 | Close and Celebration| Celebrating YOU! Congratulations on the past year of university. How you can learn about future events and get in contact with our speakers. | Salman Chishti and Someleze Diko | https://aka.ms/learnstudent |
 
 
-#  Resources 
-Copied from [Microsoft Build Intro To Tech Skills](https://github.com/microsoft/AcademicContent/tree/main/microsoft-conferences/2022/Build)
+#  Microsoft Build Resources for Student
+[Microsoft Build Intro To Tech Skills](https://github.com/microsoft/AcademicContent/tree/main/microsoft-conferences/2022/Build)
 
 
 ## Microsoft Learn Student Ambassadors
