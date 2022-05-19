@@ -48,6 +48,13 @@ Agenda
 #  Microsoft Build Resources for Student
 [Microsoft Build Intro To Tech Skills](https://github.com/microsoft/AcademicContent/tree/main/microsoft-conferences/2022/Build)
 
+# Learn more about the following offer and meet the team 
+
+## Microsoft Windows Insiders
+[The Windows Insider Program](https://insider.windows.com)is a community of millions of Windows' biggest fans who get to be the first to see what's next. Windows Insiders run previews of the platform, called Windows Insider Preview Builds, then give feedback and engage directly with our engineers to help shape the future of Windows.
+ 
+[Announcing our Partnership with Microsoft Learn Student Ambassadors program!](https://insider.windows.com/studentambassadors)
+If you are a Microsoft Learn Student Ambassador, register for Windows Insider Program to enjoy many more program benefits that’s exclusively designed for you! 
 
 ## Microsoft Learn Student Ambassadors
 The [Microsoft Learn Student Ambassador](https://studentambassadors.microsoft.com/) community is for students—like you--who want to use tech to solve real-world problems with like-minded peers, establish themselves as mentors and leaders in their community, and amplify their impact. Student Ambassadors get the opportunity to connect with other students around the world (from 102 countries and counting!), foster their own online communities, get training and earn certifications, and tackle practical challenges, all while building key technical and soft skills to help them succeed. 
@@ -67,7 +74,6 @@ If you have an Office 365 Education account, you can also use that to log in to 
 
 - Explore fun [lessons and challenges](https://education.minecraft.net/class-resources/lessons) in history, art, STEM, social justice, and more
 - Download a [free trial here](https://education.minecraft.net/get-started/)
-
 
 ## Learn TV
 [Learn TV](https://docs.microsoft.com/learn/tv) is a 24/7 video channel where you can learn how to build solutions and use Microsoft products from the experts that built them! Learn TV is the place to find the latest digital content so you can always keep updated on the latest announcements, features, and products from Microsoft. Let us know what you think with the hashtag LearnTV.
