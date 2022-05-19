@@ -12,7 +12,7 @@ This Open House is a drop-in event - come along to the bits which are most relev
 
 Meet with fellow students, Microsoft Learn Student Ambassadors, Microsoft Interns, Microsoft MVPs, the Microsoft University Recruiting team but most importantly relax and have fun.
 
-Find out more about what happened at Microsoft Build and discover Microsoft Learn. Meet local data scientists, web devs and cybersecuriyt engineers for hands-on talks about their recent experience and careers. We’ll introduce you to the Student Ambassador program and Imagine Cup by sharing moments of innovation from the past 20 years. And we’ll talk Microsoft internships.
+Find out more about what happened at Microsoft Build and discover Microsoft Learn. Meet local data scientists, web devs and cybersecurity engineers for hands-on talks about their recent experience and careers. We’ll introduce you to the Student Ambassador program and Imagine Cup by sharing moments of innovation from the past 20 years. And we’ll talk Microsoft internships.
 
 You’ll also be able to take part in a special AI Gaming Challenge!
 
