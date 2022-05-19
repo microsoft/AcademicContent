@@ -19,7 +19,7 @@ You’ll also be able to take part in a special AI Gaming Challenge!
 This is your chance to celebrate, grab a bite to eat, swag some swag, learn something new and meet someone fresh in the Microsoft community.
 
 
-Below is the schedule for Microsoft Build Student Developer Drop In Day at the Microsoft Reactor in London, hosted by  [Salman Chishti](https://twitter.com/salmanmkc) & [Someleze Diko]()
+Below is the schedule for Microsoft Build Student Developer Drop In Day at the Microsoft Reactor in London, hosted by  [Salman Chishti](https://twitter.com/salmanmkc) & [Someleze Diko](https://developer.microsoft.com/en-us/advocates/someleze-diko)
 
 
 Agenda
