@@ -28,7 +28,7 @@ If you are looking for useful links and a deck about programs of interest to sch
                                                       
 ## Attend our [Reactor Sessions](https://github.com/microsoft/reactors)
 
-We focus on developing high-quality content for all Cloud, Data Science, Machine Learning, Web Development, and AI learners. Through workshops, tech talks, and hackathons hosted around the world, come learn and apply new skills!
+We focus on developing high-quality content for all cloud, data Science, machine Learning, web development, and artificial intelligence learners. Through workshops, tech talks, and hackathons hosted around the world, come learn and apply new skills!
 
 ## K-12 Content
 
