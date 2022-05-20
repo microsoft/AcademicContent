@@ -25,8 +25,9 @@ Below is the session schedule for Intro to Tech Skills, hosted by  [Gwyneth Peñ
 |Wednesday, May 25th 1:00 PM | [Build your own resume website and stand out to recruiters](https://mybuild.microsoft.com/en-US/sessions/6129f573-d126-480c-8d3b-16a9c71c9bae?source=sessions) | Want to take your resume presentation to the next level?  Want to learn how to create a website?  Learn about the building blocks of web development while building your own resume website.  You'll publish it to the cloud so at the end of the session, you'll be able to point potential employers to your brand new website!  | [Jen Looper](https://twitter.com/jenlooper) and [Kristin Straube]() | [Resume Workshop Repository](https://github.com/jlooper/build-resume-workshop/)
 | Wednesday, May 25th 2:00 PM | [The New Developer's Guide to the Cloud](https://mybuild.microsoft.com/en-US/sessions/04b837c9-3cab-4d80-9908-d72c145512b0?source=sessions) | Kickstart your cloud learning journey with this session that looks at cloud fundamentals. From .Net to Java to Node.js to Python, we will explore all the core concepts you’ll need to step up and start building on the cloud. So if you’re ready to get started with the cloud and use it in your next project, this is the session for you!| [Chris Noring](https://twitter.com/chris_noring), [Someleze Diko](), [Nitya Narasimhan](https://twitter.com/nitya) | [Session Resources](https://aka.ms/new-developers-guide)|
 
-## AI Gaming 
-Take part in this special Microsoft Build 2022 challenge to play the AI Gaming Microsoft Match Game. Learn more about the event in this video [📺](https://www.youtube.com/watch?v=Z0oWM6RiFx8) 
+## Take part in this special Microsoft Build 2022 challenge to play the AI Gaming Microsoft Match Game!
+
+Learn more about the event in this video [📺](https://www.youtube.com/watch?v=Z0oWM6RiFx8) 
 
 Start with our template code and instruction videos to use Microsoft's AI image and text recognition cognitive services. Score the most points in the game and regional winners will progress to the Microsoft Build final to compete to become the Champion of Champions.
 
