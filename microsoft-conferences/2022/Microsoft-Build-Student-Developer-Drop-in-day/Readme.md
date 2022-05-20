@@ -65,6 +65,8 @@ For nearly two decades, students from around the world have participated in Micr
 ## Microsoft Learn for Students
 Learn new concepts at your speed and on your schedule with this curated collection of Microsoft Learn modules created just for students. Start here to develop practical skills through fun, interactive modules and paths. Plus, educators can get access to Microsoft classroom materials and curriculum. Check out all of the Microsoft Learn [paths and resources](http://aka.ms/learnstudent).
 
+## AI Gaming 
+Write code to play the Microsoft Match Game. Our version of the popular card game where you have to find two cards with the same image to make a match. But in our Game, no two tiles are the same. You have to match up the tiles that contain the same subject matter using the A.I. power of Azure Cognitive Services to analyse the images on each tile and to determine what subject of each image is. You start with a set of tiles face down and you get to turn over two tiles at a time in order to match tiles in pairs, but, unlike the usual version of the matching game, you are not looking for two identical images. You have to use Microsoft’s Cognitive Services to understand exactly what the content of each tile image is. Then you need to find another tile with the same content.
 
 ## Azure For Students 
 By simply verifying your student status through your school email address, you'll be ready to go on Azure with $100 in credit. Build your skills in trending tech including data science, artificial intelligence (AI), machine learning, and other areas with access to professional developer tools. Learn more about [Azure for Students](https://aka.ms/azure4student).
