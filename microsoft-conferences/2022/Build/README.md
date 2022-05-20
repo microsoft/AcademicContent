@@ -28,13 +28,13 @@ Below is the session schedule for Intro to Tech Skills, hosted by  [Gwyneth Peñ
 ## AI Gaming 
 Take part in this special Microsoft Build 2022 challenge to play the AI Gaming Microsoft Match Game. Start with our template code and instruction videos to use Microsoft's AI image and text recognition cognitive services. Score the most points in the game and regional winners will progress to the Microsoft Build final to compete to become the Champion of Champions.
 
-Write code to play the Microsoft Match Game. Our version of the popular card game where you have to find two cards with the same image to make a match. But in our Game, no two tiles are the same. You have to match up the tiles that contain the same subject matter using the A.I. power of Azure Cognitive Services to analyse the images on each tile and to determine what subject of each image is. You start with a set of tiles face down and you get to turn over two tiles at a time in order to match tiles in pairs, but, unlike the usual version of the matching game, you are not looking for two identical images. You have to use Microsoft’s Cognitive Services to understand exactly what the content of each tile image is. Then you need to find another tile with the same content. Interested in taking part watch he following introduction [Video](https://youtu.be/Z0oWM6RiFx8) read the game [instructions](aigaming-matchgame.md) and join select your reagional team below:
+Write code to play the Microsoft Match Game. Our version of the popular card game where you have to find two cards with the same image to make a match. But in our Game, no two tiles are the same. You have to match up the tiles that contain the same subject matter using the A.I. power of Azure Cognitive Services to analyse the images on each tile and to determine what subject of each image is. You start with a set of tiles face down and you get to turn over two tiles at a time in order to match tiles in pairs, but, unlike the usual version of the matching game, you are not looking for two identical images. You have to use Microsoft’s Cognitive Services to understand exactly what the content of each tile image is. Then you need to find another tile with the same content. Interested in taking part watch he following introduction [Video](https://youtu.be/Z0oWM6RiFx8) read the game [instructions](aigaming-matchgame.md) and join select your regional team below:
 
 ### Compete in your region
--[Compete in Americas AI Gaming Challenge](https://www.aigaming.com/event?code=251-011-215)
--[Compete in Europe, the Middle East and Africa AI Gaming Challenge](https://www.aigaming.com/event?code=798-079-163)
--[Compete in Asia-Pacific AI Gaming Challenge](https://www.aigaming.com/event?code=916-401-954)
--[Compete in Other regions for the AI Gaming Challenge](https://www.aigaming.com/event?code=475-040-699)
+- [Compete in Americas AI Gaming Challenge](https://www.aigaming.com/event?code=251-011-215)
+- [Compete in Europe, the Middle East and Africa AI Gaming Challenge](https://www.aigaming.com/event?code=798-079-163)
+- [Compete in Asia-Pacific AI Gaming Challenge](https://www.aigaming.com/event?code=916-401-954)
+- [Compete in Other regions for the AI Gaming Challenge](https://www.aigaming.com/event?code=475-040-699)
 
 
 ## Microsoft Learn Student Ambassadors
