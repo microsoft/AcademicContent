@@ -51,7 +51,7 @@ Agenda
 # Learn more about the following offer and meet the team 
 
 ## Microsoft Windows Insiders
-[The Windows Insider Program](https://insider.windows.com)is a community of millions of Windows' biggest fans who get to be the first to see what's next. Windows Insiders run previews of the platform, called Windows Insider Preview Builds, then give feedback and engage directly with our engineers to help shape the future of Windows.
+[The Windows Insider Program](https://insider.windows.com) is a community of millions of Windows' biggest fans who get to be the first to see what's next. Windows Insiders run previews of the platform, called Windows Insider Preview Builds, then give feedback and engage directly with our engineers to help shape the future of Windows.
  
 [Announcing our Partnership with Microsoft Learn Student Ambassadors program!](https://insider.windows.com/studentambassadors)
 If you are a Microsoft Learn Student Ambassador, register for Windows Insider Program to enjoy many more program benefits that’s exclusively designed for you! 
