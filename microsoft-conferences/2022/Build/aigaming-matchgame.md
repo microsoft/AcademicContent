@@ -5,7 +5,9 @@ These instructions are displayed in a more easily readable form on the aigaming 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://help.aigaming.com/microsoft-events-1/microsoft-match-game-events-info
 
-Go to the loink abnove for the most readable format of these instructions. The copy below can be used if you have issues following the above link.
+Go to the link abnove for the most readable format of these instructions. The copy below can be used if you have issues following the above link.
+
+Be sure to join the Discord! https://discord.gg/x2UtkRhy
 
 ## Microsoft Match Game Event Introduction
 Our short welcome video will introduce you to the event and how to get started.
