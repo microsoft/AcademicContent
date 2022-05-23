@@ -5,7 +5,13 @@ These instructions are displayed in a more easily readable form on the aigaming 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://help.aigaming.com/microsoft-events-1/microsoft-match-game-events-info
 
-Go to the loink abnove for the most readable format of these instructions. The copy below can be used if you have issues following the above link.
+## Join the Discord Channel 
+Discord: https://discord.gg/x2UtkRhy
+
+## Register to join the challenge 
+The Reactor London Student Developer day 
+ Microsoft London Reactor 28th May Game Registration: https://www.aigaming.com/event?code=232-619-896
+Go to the link above for the most readable format of these instructions. The copy below can be used if you have issues following the above link.
 
 ## Microsoft Match Game Event Introduction
 Our short welcome video will introduce you to the event and how to get started.
@@ -128,4 +134,5 @@ We recommend tackling the following steps in order as the best approach to impro
   1. Read the tile backs to match tiles from the same category
   1. Check if you can match tiles in the bonus category
   1. Wait before matching any tiles to match tiles in consecutive Bonus Categories.
+
 
