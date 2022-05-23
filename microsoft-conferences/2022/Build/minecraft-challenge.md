@@ -42,8 +42,8 @@ Use Minecraft's CodeBuilder to build your re-imagined space.  You can choose Mak
 
 Use the structure block and mixed reality viewer to photograph your creation next to the real location.  
 
-### Submit Your Entry and Win Digital Swag! 
+### Submit Your Entry! 
 
-Now that you've completed your build, you can tell us about it and be eligible for some digital swag! Describe how you designed and built your re-imagined space, explain your solution, and submit it [here](https://forms.microsoft.com/r/yUY3eJMwic). The first 200 entrants will be eligible to win a limited-edition Azure Hero badge.
+Now that you've completed your build, you can tell us about it and be eligible for some digital swag! Describe how you designed and built your re-imagined space and submit it [using this form](https://forms.microsoft.com/r/yUY3eJMwic). The first 200 entrants will be eligible to win a limited-edition Azure Hero badge.
 
 If you are under 18, you will need a parent, guardian, or educator to submit your entry.
