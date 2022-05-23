@@ -7,8 +7,10 @@ Below we have a table of each session, speaker, and resources. It also includes 
 
 We have also created a convenient [Microsoft Learn Collection](https://aka.ms/IntroToTechSkillsAtBuild2022/Learn) that contains all of the Microsoft Learn modules and learning paths that are listed below for you to browse and continue your learning journey!
 
+## Stamp your Passport 📘
 
- ## Session Schedule
+
+## Session Schedule
 
 Below is the session schedule for Intro to Tech Skills, hosted by  [Gwyneth Peña-Siguenza](https://twitter.com/madebygps) & [Salman Chishti](https://twitter.com/salmanmkc)
 
@@ -43,6 +45,8 @@ Start with our template code and instruction videos to use Microsoft's AI image 
 
 ## Minecraft Challenge: Build a Time Machine
 Build a time machine with Minecraft and be eligible to get an Azure Hero limited edition badge! Join the fun [at this link](minecraft-challenge.md) to build a vision of your school or town in the future to be eligible for special digital swag.
+
+## Cloud Skills Challenge
 
 ---
 
