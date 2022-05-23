@@ -42,7 +42,7 @@ Start with our template code and instruction videos to use Microsoft's AI image 
 - [Other regions](https://www.aigaming.com/event?code=475-040-699)
 
 ## Minecraft Challenge: Build a Time Machine
-Build a time machine with Minecraft and be eligible to get an Azure Hero limited edition badge! Join the fun [at this link](minecraft.md) to build a vision of your school or town in the future to be eligible for special digital swag.
+Build a time machine with Minecraft and be eligible to get an Azure Hero limited edition badge! Join the fun [at this link](minecraft-challenge.md) to build a vision of your school or town in the future to be eligible for special digital swag.
 
 ---
 
