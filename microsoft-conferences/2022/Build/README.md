@@ -22,23 +22,29 @@ Below is the session schedule for Intro to Tech Skills, hosted by  [Gwyneth Peñ
 | Wednesday, May 25th 10:00 AM | [Driving inclusion and accessibility with dev tooling and AI services](https://mybuild.microsoft.com/en-US/sessions/57cd0f1e-38fa-452a-88ee-512a4a5a7459?source=sessions) |AI can be a game changer for people with disabilities; advances have enormous potential to enable people with vision, hearing, cognitive, learning, mobility disabilities and mental health conditions to do more in many areas of life. At Microsoft we've been putting stronger solutions to work. Join us and learn how you can help build the future of inclusion and accessibility with five actions you can take TODAY to incorporate inclusivity into your product from day 1. | [Henk Boelman](https://twitter.com/hboelman) & [Rory Preddy](https://twitter.com/rorypreddy)  |[Accessibility on Learn](https://docs.microsoft.com/en-us/learn/browse/?terms=Accessibility&resource_type=learning%20path&wt.mc_id=build22_github_website_devrel)<br><br>[Accessibility fundamentals](https://docs.microsoft.com/en-gb/learn/paths/accessibility-fundamentals/?WT.mc_id=accessibility-35940-cxa&wt.mc_id=build22_github_website_devrel)|
 | Wednesday, May 25th 11:00 AM | [Tackling the technical interview](https://mybuild.microsoft.com/en-US/sessions/1d49ea34-d441-4dfb-ba11-4b56217006f6?source=sessions) |Most people dread technical interviews, as they are no doubt one of the most challenging steps in gaining a role as a developer, but don't worry--we're here to help!  Two developers will demystify the process by walking through some of the common interview questions you'll encounter. | [Safia Abdalla](https://twitter.com/captainsafia) & [Orko Momin]() |
 | Wednesday, May 25th 12:00 PM | [Microsoft technologies and the dev community: Who's building what?  Get inspired!](https://mybuild.microsoft.com/en-US/sessions/c3fd6c8b-4c1f-4fb4-bca5-56dfe35e40bb?source=sessions) | Check out real-life scenarios created by students, MVPs, and Cloud Advocates. This is a great opportunity to learn about end-to-end solutions built with Microsoft Azure, Power Platform, and Microsoft 365.  Hopefully they spark inspiration for your next amazing project! |  [Ayca Bas](https://twitter.com/aycabs/), [Dan Wahlin](https://twitter.com/DanWahlin), [Frank Boucher](https://twitter.com/fboucheros), [Jason Hand](https://twitter.com/jasonhand), [Thomas Goelles](https://twitter.com/thomyg), [Stephan Bisser](https://twitter.com/stephanbisser), [Hans Brender](https://twitter.com/HansBrender),[Someleze Diko](), [Ansh Mishra]()|[Microsoft Graph Fundamentals](https://docs.microsoft.com/en-us/learn/paths/m365-msgraph-fundamentals/?WT.mc_id=m365-16105-cxa&wt.mc_id=build22_github_website_devrel)<br><br>[Create conversational AI solutions](https://docs.microsoft.com/en-us/learn/paths/create-conversational-ai-solutions/?wt.mc_id=build22_github_website_devrel)<br><br>[Develop apps for Microsoft Teams – Associate](https://docs.microsoft.com/en-us/learn/paths/m365-msteams-associate/?wt.mc_id=build22_github_website_devrel)<br><br>[Get started with Power Automate](https://docs.microsoft.com/en-us/learn/modules/get-started-flows?wt.mc_id=build22_github_website_devrel)<br><br>[Create bots with Power Virtual Agents](https://docs.microsoft.com/en-us/learn/paths/work-power-virtual-agents/?wt.mc_id=build22_github_website_devrel)<br><br>[Can we build an entire solution with no code? Let’s find out!](https://techcommunity.microsoft.com/t5/educator-developer-blog/can-we-build-an-entire-solution-with-no-code-let-s-find-out/ba-p/2930703/?wt.mc_id=build22_github_website_devrel)
-|Wednesday, May 25th 1:00 PM | [Build your own resume website and stand out to recruiters](https://mybuild.microsoft.com/en-US/sessions/6129f573-d126-480c-8d3b-16a9c71c9bae?source=sessions) | Want to take your resume presentation to the next level?  Want to learn how to create a website?  Learn about the building blocks of web development while building your own resume website.  You'll publish it to the cloud so at the end of the session, you'll be able to point potential employers to your brand new website!  | [Jen Looper](https://twitter.com/jenlooper) and [Kristin Straube]() | [Resume Workshop Repository](https://github.com/jlooper/build-resume-workshop/)
-| Wednesday, May 25th 2:00 PM | [The New Developer's Guide to the Cloud](https://mybuild.microsoft.com/en-US/sessions/04b837c9-3cab-4d80-9908-d72c145512b0?source=sessions) | Kickstart your cloud learning journey with this session that looks at cloud fundamentals. From .Net to Java to Node.js to Python, we will explore all the core concepts you’ll need to step up and start building on the cloud. So if you’re ready to get started with the cloud and use it in your next project, this is the session for you!| [Chris Noring](https://twitter.com/chris_noring), [Someleze Diko](), [Nitya Narasimhan](https://twitter.com/nitya) | [Session Resources](https://aka.ms/new-developers-guide)|
+|Wednesday, May 25th 1:00 PM | [Build your own resume website and stand out to recruiters](https://mybuild.microsoft.com/en-US/sessions/6129f573-d126-480c-8d3b-16a9c71c9bae?source=sessions) | Want to take your resume presentation to the next level?  Want to learn how to create a website?  Learn about the building blocks of web development while building your own resume website.  You'll publish it to the cloud so at the end of the session, you'll be able to point potential employers to your brand new website!  | [Jen Looper](https://twitter.com/jenlooper) & [Kristin Straube]() | [Resume Workshop Repository](https://github.com/jlooper/build-resume-workshop/)
+| Wednesday, May 25th 2:00 PM | [The New Developer's Guide to the Cloud](https://mybuild.microsoft.com/en-US/sessions/04b837c9-3cab-4d80-9908-d72c145512b0?source=sessions) | Kickstart your cloud learning journey with this session that looks at cloud fundamentals. From .Net to Java to Node.js to Python, we will explore all the core concepts you’ll need to step up and start building on the cloud. So if you’re ready to get started with the cloud and use it in your next project, this is the session for you!| [Chris Noring](https://twitter.com/chris_noring), [Someleze Diko](https://twitter.com/dikosomeleze), [Nitya Narasimhan](https://twitter.com/nitya) | [Session Resources](https://aka.ms/new-developers-guide)|
 
-## Take part in this special Microsoft Build 2022 challenge to play the AI Gaming Microsoft Match Game!
+---
+
+## Special Events for Build 2022
+
+## AI Gaming Challenge: Play a Matching Game using AI
 
 Learn more about the event in this video [📺](https://www.youtube.com/watch?v=Z0oWM6RiFx8) 
 
-Start with our template code and instruction videos to use Microsoft's AI image and text recognition cognitive services. Score the most points in the game and regional winners will progress to the Microsoft Build final to compete to become the Champion of Champions.
-
-Write code to play the Microsoft Match Game. Our version of the popular card game where you have to find two cards with the same image to make a match. But in our Game, no two tiles are the same. You have to match up the tiles that contain the same subject matter using the A.I. power of Azure Cognitive Services to analyse the images on each tile and to determine what subject of each image is. You start with a set of tiles face down and you get to turn over two tiles at a time in order to match tiles in pairs, but, unlike the usual version of the matching game, you are not looking for two identical images. You have to use Microsoft’s Cognitive Services to understand exactly what the content of each tile image is. Then you need to find another tile with the same content. Interested in taking part watch he following introduction [Video](https://youtu.be/Z0oWM6RiFx8) read the game [instructions](aigaming-matchgame.md) and join select your regional team below:
+Start with our template code and instruction videos to use Microsoft's AI image and text recognition cognitive services. Compete in your region to advance to the Microsoft Build finals to become the Champion of Champions. Read the game [instructions](aigaming-matchgame.md) and select your regional team below to partipate:
 
 ### Compete in your region
-- [Compete in Americas AI Gaming Challenge](https://www.aigaming.com/event?code=251-011-215)
-- [Compete in Europe, the Middle East and Africa AI Gaming Challenge](https://www.aigaming.com/event?code=798-079-163)
-- [Compete in Asia-Pacific AI Gaming Challenge](https://www.aigaming.com/event?code=916-401-954)
-- [Compete in Other regions for the AI Gaming Challenge](https://www.aigaming.com/event?code=475-040-699)
+- [Americas](https://www.aigaming.com/event?code=251-011-215)
+- [Europe, the Middle East and Africa](https://www.aigaming.com/event?code=798-079-163)
+- [Asia-Pacific](https://www.aigaming.com/event?code=916-401-954)
+- [Other regions](https://www.aigaming.com/event?code=475-040-699)
 
+## Minecraft Challenge: Build a Time Machine
+Build a time machine with Minecraft and be eligible to get an Azure Hero limited edition badge! Join the fun [at this link](minecraft.md) to build a vision of your school or town in the future to be eligible for special digital swag.
+
+---
 
 ## Microsoft Learn Student Ambassadors
 The [Microsoft Learn Student Ambassador](https://studentambassadors.microsoft.com/) community is for students—like you--who want to use tech to solve real-world problems with like-minded peers, establish themselves as mentors and leaders in their community, and amplify their impact. Student Ambassadors get the opportunity to connect with other students around the world (from 102 countries and counting!), foster their own online communities, get training and earn certifications, and tackle practical challenges, all while building key technical and soft skills to help them succeed. 
@@ -49,23 +55,11 @@ For two decades, students from around the world have participated in Microsoft�
 ## Microsoft Learn for Students
 Learn new concepts at your speed and on your schedule with this curated collection of Microsoft Learn modules created just for students. Start here to develop practical skills through fun, interactive modules and paths. Plus, educators can get access to Microsoft classroom materials and curriculum. Check out all of the Microsoft Learn [paths and resources](http://aka.ms/learnforstudents).
 
-
 ## Azure For Students 
 By simply verifying your student status through your school email address, you'll be ready to go on Azure with $100 in credit. Build your skills in trending tech including data science, artificial intelligence (AI), machine learning, and other areas with access to professional developer tools. Learn more about [Azure for Students](https://aka.ms/azureforstudents).
 
 ## Get Certified
 Students, kick-start your tech career for [**free** with Microsoft Certification](https://aka.ms/StudentCertification)
-
-## Learn to Code with Minecraft
-If you have an Office 365 Education account, you can also use that to log in to the full version of [Minecraft: Education Edition](https://education.minecraft.net/) to access hundreds of cool worlds, challenges, and more. Available for Mac, iPad, Windows and Chromebook.
-
-- Explore fun [lessons and challenges](https://education.minecraft.net/class-resources/lessons) in history, art, STEM, social justice, and more
-- Download a [free trial here](https://education.minecraft.net/get-started/)
-
-###  More Amazing Minecraft Worlds
-    
-- Check out these [resources for remote learning](https://education.minecraft.net/distance-learning) with Minecraft, including a Minecraft 101 guide for parents and at-home learning activities.
-- Explore the [Education Collection](https://www.minecraft.net/marketplace/education) in the Minecraft Marketplace for awesome new worlds.
 
 ## Learn TV
 [Learn TV](https://docs.microsoft.com/learn/tv) is a 24/7 video channel where you can learn how to build solutions and use Microsoft products from the experts that built them! Learn TV is the place to find the latest digital content so you can always keep updated on the latest announcements, features, and products from Microsoft. Let us know what you think with the hashtag LearnTV.
