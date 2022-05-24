@@ -15,9 +15,14 @@ We have also created a convenient [Microsoft Learn Collection](https://aka.ms/In
 2. Claim your free Azure credits through the [Azure for Students offer](https://aka.ms/azureforstudents) or the [free $200 Azure credit offer](https://aka.ms/azure/free).
 3. Complete a Learn module - check out our [Microsoft Learn Collection](https://aka.ms/IntroToTechSkillsAtBuild2022/Learn) to continue your learning journey!
 
+Claim your stamped passport [using this form](https://forms.office.com/r/SuK9rxusP8) after completing the above steps.
+
 ## Session Schedule
 
-Below is the session schedule for Intro to Tech Skills, hosted by  [Gwyneth Peña-Siguenza](https://twitter.com/madebygps) & [Salman Chishti](https://twitter.com/salmanmkc)
+Below is the session schedule and map for Intro to Tech Skills, hosted by  [Gwyneth Peña-Siguenza](https://twitter.com/madebygps) & [Salman Chishti](https://twitter.com/salmanmkc)
+
+![Intro to Tech Skills Map](https://user-images.githubusercontent.com/67168176/170099365-36c197e1-ebb6-4f3d-86e0-07c1be02e103.png)
+
 
 | Time (PT) | Title and Link to Watch | Description | Speaker(s) | Resources |
 |---------------|-------|------------|---------|-----------|
@@ -51,9 +56,13 @@ Start with our template code and instruction videos to use Microsoft's AI image 
 ## Minecraft Challenge: Build a Time Machine
 Build a time machine with Minecraft and be eligible to get an Azure Hero limited edition badge! Join the fun [at this link](minecraft-challenge.md) to build a vision of your school or town in the future to be eligible for special digital swag.
 
-## Cloud Skills Challenge
+## Build Cloud Skills Challenge
+Earn a free Microsoft Certification exam while learning new skills! There are eight Cloud Skills Challenges to choose from; [select one that's right for you and join the challenge](https://aka.ms/buildcsc). Challenges include topics such as Microsoft 365, Azure, Power Platform, and Microsoft Security.
+
+The challenge ends on June 21, 2022 at 4:00 PM UTC (16:00). Make sure all modules in your challenge are complete before time runs out. If you complete your challenge before it ends, one Microsoft Certification exam will be associated with your Learn profile on June 30, 2022. You will be notified via email when it becomes available.
 
 ---
+## Additional Skilling Opportunities
 
 ## Microsoft Learn Student Ambassadors
 The [Microsoft Learn Student Ambassador](https://studentambassadors.microsoft.com/) community is for students—like you--who want to use tech to solve real-world problems with like-minded peers, establish themselves as mentors and leaders in their community, and amplify their impact. Student Ambassadors get the opportunity to connect with other students around the world (from 102 countries and counting!), foster their own online communities, get training and earn certifications, and tackle practical challenges, all while building key technical and soft skills to help them succeed. 
@@ -68,7 +77,7 @@ Learn new concepts at your speed and on your schedule with this curated collecti
 By simply verifying your student status through your school email address, you'll be ready to go on Azure with $100 in credit. Build your skills in trending tech including data science, artificial intelligence (AI), machine learning, and other areas with access to professional developer tools. Learn more about [Azure for Students](https://aka.ms/azureforstudents).
 
 ## Get Certified
-Students, kick-start your tech career for [**free** with Microsoft Certification](https://aka.ms/StudentCertification)
+Students, kick-start your tech career for [**free** with Microsoft Certification](https://aka.ms/StudentCertification).
 
 ## Learn TV
 [Learn TV](https://docs.microsoft.com/learn/tv) is a 24/7 video channel where you can learn how to build solutions and use Microsoft products from the experts that built them! Learn TV is the place to find the latest digital content so you can always keep updated on the latest announcements, features, and products from Microsoft. Let us know what you think with the hashtag LearnTV.
