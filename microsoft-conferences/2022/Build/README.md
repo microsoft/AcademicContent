@@ -17,7 +17,10 @@ We have also created a convenient [Microsoft Learn Collection](https://aka.ms/In
 
 ## Session Schedule
 
-Below is the session schedule for Intro to Tech Skills, hosted by  [Gwyneth Peña-Siguenza](https://twitter.com/madebygps) & [Salman Chishti](https://twitter.com/salmanmkc)
+Below is the session schedule and map for Intro to Tech Skills, hosted by  [Gwyneth Peña-Siguenza](https://twitter.com/madebygps) & [Salman Chishti](https://twitter.com/salmanmkc)
+
+![Intro to Tech Skills Map](https://user-images.githubusercontent.com/67168176/170099365-36c197e1-ebb6-4f3d-86e0-07c1be02e103.png)
+
 
 | Time (PT) | Title and Link to Watch | Description | Speaker(s) | Resources |
 |---------------|-------|------------|---------|-----------|
