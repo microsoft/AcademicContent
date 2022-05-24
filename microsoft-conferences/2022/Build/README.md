@@ -14,6 +14,7 @@ We have also created a convenient [Microsoft Learn Collection](https://aka.ms/In
 1. Create a GitHub account (you'll especially need this for [A peek inside the developer's toolkit](https://mybuild.microsoft.com/sessions/98edb03f-bb84-4668-a281-baa0197d801c?source=sessions) and [Build your own resume website and stand out to recruiters](https://mybuild.microsoft.com/sessions/6129f573-d126-480c-8d3b-16a9c71c9bae?source=sessions))!
 2. Claim your free Azure credits through the [Azure for Students offer](https://aka.ms/azureforstudents) or the [free $200 Azure credit offer](https://aka.ms/azure/free).
 3. Complete a Learn module - check out our [Microsoft Learn Collection](https://aka.ms/IntroToTechSkillsAtBuild2022/Learn) to continue your learning journey!
+4. Submit your accomplishments [using this form](https://forms.office.com/r/SuK9rxusP8)to claim your stamped passport.
 
 ## Session Schedule
 
