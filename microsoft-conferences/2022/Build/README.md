@@ -64,6 +64,11 @@ The challenge ends on June 21, 2022 at 4:00 PM UTC (16:00). Make sure all module
 ---
 ## Additional Skilling Opportunities
 
+## Microsoft Reactors
+[Unpack the tech of Microsoft Build with Microsoft MVPs and Cloud Advocates at Reactors!](https://aka.ms/unpackingtech) At Microsoft Build, we announce so many new products and opportunities, it can be difficult to decide what really matters to you. Where should you begin? What will make a real difference in your day-to-day work? Let’s unpack the tech of Microsoft Build together and discuss!
+
+[Continue your learning journey live with Microsoft after Build through Build Skills](https://docs.microsoft.com/events/learntv/reactor-build-skills/), the new Microsoft Reactor series to help you learn valuable tech skills and discover new career paths. This series of livestream workshops (and available on-demand after) covers foundational skills in coding, data science, web development, devops, and so much more. Taught by Microsoft engineers, students, and community leaders, this is the place to learn by doing, follow at your own pace in a fun and relaxed atmosphere, and get your questions answered. Join us today and get the skills you need today for the job roles of tomorrow! 
+
 ## Microsoft Learn Student Ambassadors
 The [Microsoft Learn Student Ambassador](https://studentambassadors.microsoft.com/) community is for students—like you--who want to use tech to solve real-world problems with like-minded peers, establish themselves as mentors and leaders in their community, and amplify their impact. Student Ambassadors get the opportunity to connect with other students around the world (from 102 countries and counting!), foster their own online communities, get training and earn certifications, and tackle practical challenges, all while building key technical and soft skills to help them succeed. 
 
@@ -77,7 +82,7 @@ Learn new concepts at your speed and on your schedule with this curated collecti
 By simply verifying your student status through your school email address, you'll be ready to go on Azure with $100 in credit. Build your skills in trending tech including data science, artificial intelligence (AI), machine learning, and other areas with access to professional developer tools. Learn more about [Azure for Students](https://aka.ms/azureforstudents).
 
 ## Get Certified
-Students, kick-start your tech career for [**free** with Microsoft Certification](https://aka.ms/StudentCertification).
+Students, kick-start your tech career for [**free** with Microsoft Certification](https://aka.ms/StudentCertification). All learners are eligible to participate in the [Microsoft Build Cloud Skills Challenge](https://aka.ms/buildcsc), where you will earn a free Microsoft Certification exam voucher if you complete at least one challenge June 21, 2022 at 4:00 PM UTC (16:00).
 
 ## Learn TV
 [Learn TV](https://docs.microsoft.com/learn/tv) is a 24/7 video channel where you can learn how to build solutions and use Microsoft products from the experts that built them! Learn TV is the place to find the latest digital content so you can always keep updated on the latest announcements, features, and products from Microsoft. Let us know what you think with the hashtag LearnTV.
