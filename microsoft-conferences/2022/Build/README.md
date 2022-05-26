@@ -7,6 +7,25 @@ Below we have a table of each session, speaker, and resources. It also includes 
 
 We have also created a convenient [Microsoft Learn Collection](https://aka.ms/IntroToTechSkillsAtBuild2022/Learn) that contains all of the Microsoft Learn modules and learning paths that are listed below for you to browse and continue your learning journey!
 
+---
+
+## Special Events for Build 2022
+
+## AI Gaming Challenge: Play a Matching Game using AI
+
+Learn more about the event in this video [📺](https://www.youtube.com/watch?v=Z0oWM6RiFx8) 
+
+Start with our template code and instruction videos to use Microsoft's AI image and text recognition cognitive services. Compete in your region to advance to the Microsoft Build finals to become the Champion of Champions. Read the game [instructions](aigaming-matchgame.md) and select your regional team below to partipate:
+
+### Compete in your region
+- [Americas](https://www.aigaming.com/event?code=251-011-215)
+- [Europe, the Middle East and Africa](https://www.aigaming.com/event?code=798-079-163)
+- [Asia-Pacific](https://www.aigaming.com/event?code=916-401-954)
+- [Other regions](https://www.aigaming.com/event?code=475-040-699)
+
+## Minecraft Challenge: Build a Time Machine
+Build a time machine with Minecraft and be eligible to get an Azure Hero limited edition badge! Join the fun [at this link](minecraft-challenge.md) to build a vision of your school or town in the future to be eligible for special digital swag.
+
 ## Stamp your Passport 📘
 
 "Stamp your passport" to build your foundation as a technologist! Our passport challenge helps you get ready to build a cloud ready application.
@@ -16,6 +35,13 @@ We have also created a convenient [Microsoft Learn Collection](https://aka.ms/In
 3. Complete a Learn module - check out our [Microsoft Learn Collection](https://aka.ms/IntroToTechSkillsAtBuild2022/Learn) to continue your learning journey!
 
 Claim your stamped passport [using this form](https://forms.office.com/r/SuK9rxusP8) after completing the above steps.
+
+## Build Cloud Skills Challenge
+Earn a free Microsoft Certification exam while learning new skills! There are eight Cloud Skills Challenges to choose from; [select one that's right for you and join the challenge](https://aka.ms/buildcsc). Challenges include topics such as Microsoft 365, Azure, Power Platform, and Microsoft Security.
+
+The challenge ends on June 21, 2022 at 4:00 PM UTC (16:00). Make sure all modules in your challenge are complete before time runs out. If you complete your challenge before it ends, one Microsoft Certification exam will be associated with your Learn profile on June 30, 2022. You will be notified via email when it becomes available.
+
+---
 
 ## Session Schedule
 
@@ -36,30 +62,6 @@ Below is the session schedule and map for Intro to Tech Skills, hosted by  [Gwyn
 | Wednesday, May 25th 12:00 PM | [Microsoft technologies and the dev community: Who's building what?  Get inspired!](https://mybuild.microsoft.com/sessions/c3fd6c8b-4c1f-4fb4-bca5-56dfe35e40bb?source=sessions) | Check out real-life scenarios created by students, MVPs, and Cloud Advocates. This is a great opportunity to learn about end-to-end solutions built with Microsoft Azure, Power Platform, and Microsoft 365.  Hopefully they spark inspiration for your next amazing project! |  [Ayca Bas](https://twitter.com/aycabs/), [Dan Wahlin](https://twitter.com/DanWahlin), [Frank Boucher](https://twitter.com/fboucheros), [Jason Hand](https://twitter.com/jasonhand), [Thomas Goelles](https://twitter.com/thomyg), [Stephan Bisser](https://twitter.com/stephanbisser), [Hans Brender](https://twitter.com/HansBrender),[Someleze Diko](), [Ansh Mishra]()|[Microsoft Graph Fundamentals](https://docs.microsoft.com/learn/paths/m365-msgraph-fundamentals/?WT.mc_id=m365-16105-cxa&wt.mc_id=build22_github_website_devrel)<br><br>[Create conversational AI solutions](https://docs.microsoft.com/learn/paths/create-conversational-ai-solutions/?wt.mc_id=build22_github_website_devrel)<br><br>[Develop apps for Microsoft Teams – Associate](https://docs.microsoft.com/learn/paths/m365-msteams-associate/?wt.mc_id=build22_github_website_devrel)<br><br>[Get started with Power Automate](https://docs.microsoft.com/learn/modules/get-started-flows?wt.mc_id=build22_github_website_devrel)<br><br>[Create bots with Power Virtual Agents](https://docs.microsoft.com/learn/paths/work-power-virtual-agents/?wt.mc_id=build22_github_website_devrel)<br><br>[Can we build an entire solution with no code? Let’s find out!](https://techcommunity.microsoft.com/t5/educator-developer-blog/can-we-build-an-entire-solution-with-no-code-let-s-find-out/ba-p/2930703/?wt.mc_id=build22_github_website_devrel)
 |Wednesday, May 25th 1:00 PM | [Build your own resume website and stand out to recruiters](https://mybuild.microsoft.com/sessions/6129f573-d126-480c-8d3b-16a9c71c9bae?source=sessions) | Want to take your resume presentation to the next level?  Want to learn how to create a website?  Learn about the building blocks of web development while building your own resume website.  You'll publish it to the cloud so at the end of the session, you'll be able to point potential employers to your brand new website!  | [Jen Looper](https://twitter.com/jenlooper) & [Kristin Straube]() | [Resume Workshop Repository](https://github.com/jlooper/build-resume-workshop/)
 | Wednesday, May 25th 2:00 PM | [The New Developer's Guide to the Cloud](https://mybuild.microsoft.com/sessions/04b837c9-3cab-4d80-9908-d72c145512b0?source=sessions) | Kickstart your cloud learning journey with this session that looks at cloud fundamentals. From .Net to Java to Node.js to Python, we will explore all the core concepts you’ll need to step up and start building on the cloud. So if you’re ready to get started with the cloud and use it in your next project, this is the session for you!| [Chris Noring](https://twitter.com/chris_noring), [Someleze Diko](https://twitter.com/dikosomeleze), [Nitya Narasimhan](https://twitter.com/nitya) | [Build Skills Livestream Workshops](https://docs.microsoft.com/events/learntv/reactor-build-skills/):<br> Take Your First Steps with C# in [Arabic](https://www.meetup.com/Microsoft-Reactor-MEA/events/285099820) and [Spanish](https://www.meetup.com/Microsoft-Reactor-New-York/events/285092038), Take Your First Steps with Python in [English](https://www.meetup.com/Microsoft-Reactor-Redmond/events/285112160), [Spanish](https://www.meetup.com/Microsoft-Reactor-New-York/events/285092107), and [English](https://www.meetup.com/Microsoft-Reactor-Redmond/events/285112223)<br><br> [Dev Ramp Up Guide](https://aka.ms/devrampup)<br><br>  [Learn about C#](https://aka.ms/build2022-csharp)<br><br> [Get started with React](https://aka.ms/msbuild22-js-react)<br><br> [Host a web application with Azure App Service](https://aka.ms/build2022-csharp-azure)<br><br> [Build an AI web app by using Python and Flask](https://docs.microsoft.com/en-us/learn/modules/python-flask-build-ai-web-app/)|
-
----
-
-## Special Events for Build 2022
-
-## AI Gaming Challenge: Play a Matching Game using AI
-
-Learn more about the event in this video [📺](https://www.youtube.com/watch?v=Z0oWM6RiFx8) 
-
-Start with our template code and instruction videos to use Microsoft's AI image and text recognition cognitive services. Compete in your region to advance to the Microsoft Build finals to become the Champion of Champions. Read the game [instructions](aigaming-matchgame.md) and select your regional team below to partipate:
-
-### Compete in your region
-- [Americas](https://www.aigaming.com/event?code=251-011-215)
-- [Europe, the Middle East and Africa](https://www.aigaming.com/event?code=798-079-163)
-- [Asia-Pacific](https://www.aigaming.com/event?code=916-401-954)
-- [Other regions](https://www.aigaming.com/event?code=475-040-699)
-
-## Minecraft Challenge: Build a Time Machine
-Build a time machine with Minecraft and be eligible to get an Azure Hero limited edition badge! Join the fun [at this link](minecraft-challenge.md) to build a vision of your school or town in the future to be eligible for special digital swag.
-
-## Build Cloud Skills Challenge
-Earn a free Microsoft Certification exam while learning new skills! There are eight Cloud Skills Challenges to choose from; [select one that's right for you and join the challenge](https://aka.ms/buildcsc). Challenges include topics such as Microsoft 365, Azure, Power Platform, and Microsoft Security.
-
-The challenge ends on June 21, 2022 at 4:00 PM UTC (16:00). Make sure all modules in your challenge are complete before time runs out. If you complete your challenge before it ends, one Microsoft Certification exam will be associated with your Learn profile on June 30, 2022. You will be notified via email when it becomes available.
 
 ---
 ## Additional Skilling Opportunities
