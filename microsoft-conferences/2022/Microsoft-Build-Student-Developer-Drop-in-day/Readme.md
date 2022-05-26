@@ -19,7 +19,7 @@ You’ll also be able to take part in a special AI Gaming Challenge!
 This is your chance to celebrate, grab a bite to eat, swag some swag, learn something new and meet someone fresh in the Microsoft community.
 
 
-Below is the schedule for Microsoft Build Student Developer Drop In Day at the Microsoft Reactor in London, hosted by  [Salman Chishti](https://twitter.com/salmanmkc) & [Someleze Diko](https://developer.microsoft.com/en-us/advocates/someleze-diko)
+Below is the schedule for Microsoft Build Student Developer Drop In Day at the Microsoft Reactor in London, hosted by  [Salman Chishti](https://twitter.com/salmanmkc) & [Chris Noring](https://developer.microsoft.com/en-us/advocates/chris-noring)
 
 
 Agenda
@@ -41,8 +41,8 @@ Agenda
 | 15:20 - 15:50 | Gaming and Azure - Introduction to ID@Azure a new program to help you learn and make successful games using cloud services | Learn how to develop amazing gaming experiences and learn from examples solution, architectures use cases and case studies. | [Bruno Capuano](https://developer.microsoft.com/advocates/bruno-capuano) | https://aka.ms/idazure & https://www.xbox.com/developers/creators-program/  |
 | 15:50 - 16:20 | MVP Showcase - Home Automation with the Azure  | In this demo heavy talk, we run through using the Azure Percept Audio Module to control common appliances around our home. | [Peter Gallagher](https://www.linkedin.com/in/pjgcreations/) |http://aka.ms/learnstudent  |
 | 16:30 - 17:00 | Getting Started with Azure Static Web Apps to Host your Resume | Want to make your application stand out to recruiters and learn a few new skills in the process? This workshop will walk you through how to code a resume website. |[Bruno Capuano](https://developer.microsoft.com/advocates/bruno-capuano)   | https://aka.ms/learnstudent|
-| 17:00 - 18:00 | BUILD AI Gaming Challenge Final | The Grand final of the Microsoft Build Match Game – Match the tiles using the Microsoft Cognitive API to identify the subject of each image Use template code to get started with Computer Vision and OCR A.I. functions and become the world wide wider of the challenge. | [Stephen Graham](https://www.linkedin.com/in/stephenjgraham/), [Bruno Capuano](https://developer.microsoft.com/advocates/bruno-capuano) and [Someleze Diko](https://developer.microsoft.com/en-us/advocates/someleze-diko)  |  |
-| 18:00 - 18:30 | Close and Celebration| Celebrating YOU! Congratulations on the past year of university. How you can learn about future events and get in contact with our speakers. | [Salman Chishti](https://www.linkedin.com/in/salmanmkc/) and [Someleze Diko](https://developer.microsoft.com/en-us/advocates/someleze-diko) | https://aka.ms/learnstudent |
+| 17:00 - 18:00 | BUILD AI Gaming Challenge Final | The Grand final of the Microsoft Build Match Game – Match the tiles using the Microsoft Cognitive API to identify the subject of each image Use template code to get started with Computer Vision and OCR A.I. functions and become the world wide wider of the challenge. | [Stephen Graham](https://www.linkedin.com/in/stephenjgraham/), [Bruno Capuano](https://developer.microsoft.com/advocates/bruno-capuano) and [Chris Noring](https://developer.microsoft.com/en-us/advocates/chris-noring)  |  |
+| 18:00 - 18:30 | Close and Celebration| Celebrating YOU! Congratulations on the past year of university. How you can learn about future events and get in contact with our speakers. | [Salman Chishti](https://www.linkedin.com/in/salmanmkc/) and [Chris Noring](https://developer.microsoft.com/en-us/advocates/chris-noring) | https://aka.ms/learnstudent |
 
 
 #  Microsoft Build Resources for Student
