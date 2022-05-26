@@ -26,7 +26,7 @@ The following short list of items summarises the next actions you need to take t
 
   1. Sign up for an account on the [AIGaming.com](https://www.aigaming.com) site.
   1. Get an API Key for the Microsoft Computer Vision API.
-      1. Sign up for a Microsoft Azure account by following these instructions.
+      1. Sign up for a [Microsoft Azure for Student](http://aka.ms/azure4student) account by following these instructions.
       2. Follow the instructions here to Create a Computer Vision API key.
   1. Watch at least the next two videos below on this page
       1. [Introduction to coding your game playing bot](#Introduction-to-coding-your-game-playing-bot)
