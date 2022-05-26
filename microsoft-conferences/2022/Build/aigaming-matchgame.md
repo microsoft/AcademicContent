@@ -7,6 +7,7 @@ These instructions are displayed in a more easily readable form on the aigaming 
 
 Go to the link abnove for the most readable format of these instructions. The copy below can be used if you have issues following the above link.
 
+## Join the Support Discord Server
 Be sure to join the Discord! https://discord.gg/x2UtkRhy
 
 ## Microsoft Match Game Event Introduction
@@ -20,7 +21,7 @@ The following short list of items summarises the next actions you need to take t
 
   1. Sign up for an account on the [AIGaming.com](https://www.aigaming.com) site.
   1. Get an API Key for the Microsoft Computer Vision API.
-      1. Sign up for a Microsoft Azure account by following these instructions.
+      1. Sign up for a [Microsoft Azure for Student Account](http://aka.ms/azure4student) account by following these instructions.
       2. Follow the instructions here to Create a Computer Vision API key.
   1. Watch at least the next two videos below on this page
       1. [Introduction to coding your game playing bot](#Introduction-to-coding-your-game-playing-bot)
