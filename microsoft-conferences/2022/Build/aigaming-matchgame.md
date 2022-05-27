@@ -132,3 +132,6 @@ We recommend tackling the following steps in order as the best approach to impro
   1. Check if you can match tiles in the bonus category
   1. Wait before matching any tiles to match tiles in consecutive Bonus Categories.
 
+## Winner Announcement and finals 
+
+Monday 6th June we will invite the 4 winners in each region to submit code to the Champion of Champions tournament. The Champion of Champions tournament will be run Wednesday 8th June and the results of the top 4 players will be announced on this site and Microsoft Educator Developer TechCommunity(http://aka.ms/faculty) and winners contacted via email.
