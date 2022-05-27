@@ -1,8 +1,8 @@
-# Match Game Event Intro
-This is an overview of the steps required during our Microsoft Match Game Events.
+# AI Gaming Build Challenge Match 
 
-These instructions are displayed in a more easily readable form on the aigaming website at:
+## Game Event Intro Comeptition closes 1st June 2022
 
+This is an overview of the steps required during our Microsoft Match Game Events. These instructions are displayed in a more easily readable form on the aigaming website at:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://help.aigaming.com/microsoft-events-1/microsoft-match-game-events-info
 
 Go to the link abnove for the most readable format of these instructions. The copy below can be used if you have issues following the above link.
