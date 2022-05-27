@@ -6,7 +6,7 @@ These instructions are displayed in a more easily readable form on the aigaming 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://help.aigaming.com/microsoft-events-1/microsoft-match-game-events-info
 
 ## Join the Discord Channel 
-Discord: https://discord.gg/x2UtkRhy
+Discord:  https://discord.gg/nc2EuH9CYF
 
 ## Register to join the challenge Competition closes 28th May 2022 
 The Reactor London Student Developer day 
