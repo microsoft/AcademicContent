@@ -15,7 +15,7 @@ We have also created a convenient [Microsoft Learn Collection](https://aka.ms/In
 
 Learn more about the event in this video [📺](https://www.youtube.com/watch?v=Z0oWM6RiFx8) 
 
-Start with our template code and instruction videos to use Microsoft's AI image and text recognition cognitive services. Compete in your region to advance to the Microsoft Build finals to become the Champion of Champions. Read the game [instructions](aigaming-matchgame.md) and select your regional team below to partipate:
+Start with our template code and instruction videos to use Microsoft's AI image and text recognition cognitive services. Compete in your region to advance to the Microsoft Build finals to become the Champion of Champions. Read the game [instructions](aigaming-matchgame.md) and select your regional team below to participate:
 
 ### Compete in your region
 - [Americas](https://www.aigaming.com/event?code=251-011-215)
