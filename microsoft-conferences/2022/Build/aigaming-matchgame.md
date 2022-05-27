@@ -2,15 +2,14 @@
 
 ## Game Event Intro Comeptition closes 1st June 2022
 
-This is an overview of the steps required during our Microsoft Match Game Events. These instructions are displayed in a more easily readable form on the aigaming website at:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://help.aigaming.com/microsoft-events-1/microsoft-match-game-events-info
+This is an overview of the steps required during our Microsoft Match Game Events. These instructions are displayed in a more easily readable form on the aigaming website at: https://help.aigaming.com/microsoft-events-1/microsoft-match-game-events-info
 
-Go to the link abnove for the most readable format of these instructions. The copy below can be used if you have issues following the above link.
+Go to the link above for the most readable format of these instructions. The copy below can be used if you have issues following the above link.
 
 ## Join the Support Discord Server
-Be sure to join the Discord! https://discord.gg/nc2EuH9CYF
+Be sure to join the Discord! https://discord.gg/nc2EuH9CYF support is available for helping you with the challenge.
 
-## Microsoft Match Game Event Introduction
+# Microsoft Build AI Gaming Match Game Event Introduction
 Our short welcome video will introduce you to the event and how to get started.
 
 [![Match Game Intro](https://aigaming.blob.core.windows.net/help-matchgame-markdown-msbuild/youtube-intro-to-match-game.png)](https://youtu.be/sbTiWuqiyWg)
