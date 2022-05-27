@@ -8,7 +8,7 @@ This is an overview of the steps required during our Microsoft Match Game Events
 Go to the link abnove for the most readable format of these instructions. The copy below can be used if you have issues following the above link.
 
 ## Join the Support Discord Server
-Be sure to join the Discord! https://discord.gg/x2UtkRhy
+Be sure to join the Discord! https://discord.gg/nc2EuH9CYF
 
 ## Microsoft Match Game Event Introduction
 Our short welcome video will introduce you to the event and how to get started.
