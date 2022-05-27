@@ -11,7 +11,7 @@ We have also created a convenient [Microsoft Learn Collection](https://aka.ms/In
 
 ## Special Events for Build 2022
 
-## AI Gaming Challenge: Play a Matching Game using AI
+## AI Gaming Challenge: Play a Matching Game using AI Competition closes 1st June 2022
 
 Learn more about the event in this video [📺](https://www.youtube.com/watch?v=Z0oWM6RiFx8) 
 
