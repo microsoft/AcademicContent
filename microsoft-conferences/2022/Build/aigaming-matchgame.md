@@ -134,4 +134,8 @@ We recommend tackling the following steps in order as the best approach to impro
 
 ## Winner Announcement and finals 
 
-Monday 6th June we will invite the 4 winners in each region to submit code to the Champion of Champions tournament. The Champion of Champions tournament will be run Wednesday 8th June and the results of the top 4 players will be announced on this site and Microsoft Educator Developer TechCommunity(http://aka.ms/faculty) and winners contacted via email.
+Monday 6th June we will invite the 4 winners in each region to submit code to the Champion of Champions tournament. The Champion of Champions tournament will be run Wednesday 8th June and the results of the top 4 players will be announced in the winners section and [Microsoft Educator Developer TechCommunity](http://aka.ms/faculty) and winners contacted via email.
+
+## Build AI Gaming Challenge Winners 2022
+
+TBA 8th June 2022
