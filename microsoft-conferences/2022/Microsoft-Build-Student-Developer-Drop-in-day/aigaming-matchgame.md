@@ -8,7 +8,7 @@ These instructions are displayed in a more easily readable form on the aigaming 
 ## Join the Discord Channel 
 Discord: https://discord.gg/x2UtkRhy
 
-## Register to join the challenge 
+## Register to join the challenge Competition closes 28th May 2022 
 The Reactor London Student Developer day 
 
 Microsoft London Reactor 28th May Game Registration: https://www.aigaming.com/event?code=232-619-896
