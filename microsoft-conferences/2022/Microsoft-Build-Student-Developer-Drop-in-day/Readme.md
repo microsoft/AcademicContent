@@ -44,6 +44,8 @@ Agenda
 | 17:00 - 18:00 | AI Gaming Challenge Final | The final of the Microsoft Build Match Game – Match the tiles using the Microsoft Cognitive API to identify the subject of each image Use template code to get started with Computer Vision and OCR A.I. functions and become the world wide wider of the challenge. | [Stephen Graham](https://www.linkedin.com/in/stephenjgraham/), [Bruno Capuano](https://developer.microsoft.com/advocates/bruno-capuano) and [Chris Noring](https://developer.microsoft.com/en-us/advocates/chris-noring)  |  |
 | 18:00 - 18:30 | Close and Celebration| Celebrating YOU! Congratulations on the past year of university. How you can learn about future events and get in contact with our speakers. | [Salman Chishti](https://www.linkedin.com/in/salmanmkc/) and [Chris Noring](https://developer.microsoft.com/en-us/advocates/chris-noring) | https://aka.ms/learnstudent |
 
+# Presentation 
+We have made all the presentation slides from each [session available](https://github.com/microsoft/AcademicContent/tree/main/microsoft-conferences/2022/Microsoft-Build-Student-Developer-Drop-in-day/Presentation%20Slides)
 
 #  Microsoft Build Resources for Student
 [Microsoft Build Intro To Tech Skills](https://github.com/microsoft/AcademicContent/tree/main/microsoft-conferences/2022/Build)
