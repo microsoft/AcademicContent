@@ -27,6 +27,9 @@ Resources of interest to students and faculty all about web and mobile developme
 [A Simple Library Management using HTML, Bootstrap and JS](https://github.com/samipak458/Simple-Library-Managment)
 > This sample was submitted by Student Ambassador Muhammad Samiullah
 
+[Tracker Expense Calculator using HTML, CSS/Bootstrap & JavaScript](https://github.com/KiranAminPanjwani/Tracker-Expense-Calculator)
+> This sample was submitted by Student Ambassador Kiran Panjwani
+
 ## Tools
 
 ## Courseware
