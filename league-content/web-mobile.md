@@ -30,6 +30,9 @@ Resources of interest to students and faculty all about web and mobile developme
 [Tracker Expense Calculator using HTML, CSS/Bootstrap & JavaScript](https://github.com/KiranAminPanjwani/Tracker-Expense-Calculator)
 > This sample was submitted by Student Ambassador Kiran Panjwani
 
+[Take Online Notes using React JS](https://github.com/samipak458/Take-Online-Notes) (Focused on fundamental concepts of React JS)
+> This sample was submitted by Student Ambassador Muhammad Samiullah
+
 ## Tools
 
 ## Courseware
