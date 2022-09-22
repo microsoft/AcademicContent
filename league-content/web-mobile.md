@@ -33,7 +33,7 @@ Resources of interest to students and faculty all about web and mobile developme
 [Take Online Notes using React JS](https://github.com/samipak458/Take-Online-Notes) (Focused on fundamental concepts of React JS)
 > This sample was submitted by Student Ambassador Muhammad Samiullah
 
-[Randomized Color Lab using React JS](https://github.com/KiranAminPanjwani/Randomized-Color-Lab)
+[Randomized Color Lab using React JS](https://github.com/KiranAminPanjwani/Randomized-Color-Lab2)
 > This sample was submitted by Student Ambassador Kiran Panjwani
 ## Tools
 
