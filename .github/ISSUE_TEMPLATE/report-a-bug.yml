@@ -1,14 +1,12 @@
-name: "\U0001F41E Report a Bug!"
-description: Provide product feedback to help us improve
-title: ""
-labels: ["bug"]
-assignees: ''
+name: Project
+description: "Share with us your project to get a digital badge and win exciting prizes!"
+title: "Project: <short description>"
 body:
   - type: input
     id: name
     attributes:
-      label: Describe the bug
-      description: A clear and concise description of what the bug is.
+      label: Project name
+      description: Name of your project
     validations:
       required: true
   - type: textarea
