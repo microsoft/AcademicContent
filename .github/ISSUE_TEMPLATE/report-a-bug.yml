@@ -1,6 +1,6 @@
-name: Report a Bug
-description: "Provide product feedback to help us improve"
-title: " "
+name: Project
+description: "Share with us your project to get a digital badge and win exciting prizes!"
+title: "Project: <short description>"
 body:
   - type: input
     id: name
