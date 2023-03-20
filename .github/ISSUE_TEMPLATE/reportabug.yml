@@ -41,20 +41,20 @@ body:
   - type: dropdown
     id: type
     attributes:
-      label: Did this happen via Desktop or Smartphone?
+      label: Did this happen via Desktop and/or Smartphone?
       multiple: true
       options:
         - Desktop
         - Smartphone
     validations:
-      required: true
+      required: false
   - type: input
     id: operating-system
     attributes:
       label: Operating System
       placeholder: e.g., Windows 10, iOS
     validations:
-      required: true
+      required: false
   - type: dropdown
     id: browsers
     attributes:
@@ -71,7 +71,7 @@ body:
       label: Version
       placeholder: e.g., 22
     validations:
-      required: true 
+      required: false 
   - type: input
     id: device
     attributes:
