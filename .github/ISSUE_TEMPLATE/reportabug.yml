@@ -38,6 +38,15 @@ body:
       value:
     validations:
       required: true
+  - type: checkboxes
+    id: type
+    attributes:
+      label: Did this happen via Desktop or Smartphone?
+      options:
+        - Desktop
+        - Smartphone
+    validations:
+      required: true
   - type: input
     id: operating-system
     attributes:
@@ -62,6 +71,13 @@ body:
       placeholder: e.g., 22
     validations:
       required: true 
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      placeholder: e.g., iPhone 6
+    validations:
+      required: false 
   - type: textarea
     id: logs
     attributes:
