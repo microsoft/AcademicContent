@@ -38,10 +38,11 @@ body:
       value:
     validations:
       required: true
-  - type: checkboxes
+  - type: dropdown
     id: type
     attributes:
       label: Did this happen via Desktop or Smartphone?
+      multiple: true
       options:
         - Desktop
         - Smartphone
