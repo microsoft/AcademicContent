@@ -30,7 +30,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: what-happened
+    id: expected-behavior
     attributes:
       label: What happened?
       placeholder: Tell us what you see!
