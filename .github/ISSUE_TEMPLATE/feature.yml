@@ -10,76 +10,34 @@ body:
     id: description
     attributes:
       label: Is your feature requested related to a problem?
-      description: Please describe.
-      placeholder: A clear and concise description of what the problem is. e.g., "I'm always frusted when..."
-    validations:
-      required: true
-  - type: textarea
-    id: what-happened
-    attributes:
-      label: What happened?
-      placeholder: Tell us what you see! If applicable, add screenshots to help explain the issue.
-      value:
-    validations:
-      required: true
-  - type: textarea
-    id: expected-behavior
-    attributes:
-      label: What did you expect to happen?
-      placeholder: A clear and concise description of what you expected to happen.
-      value:
-    validations:
-      required: true
-  - type: textarea
-    id: reproduce
-    attributes:
-      label: How would you reproduce the bug?
-      description: Include steps to reproduce the behavior
-      placeholder: e.g., 1. Go to '...', 2. Click on '....',  3. Scroll down to '...', 4. See error. If applicable, add screenshots to explain the issue.
-      value:
-    validations:
-      required: true
-  - type: dropdown
-    id: type
-    attributes:
-      label: Did this happen via Desktop and/or Smartphone?
-      multiple: true
-      options:
-        - Desktop
-        - Smartphone
+      description: If so, please describe clearly and concisely what the problem is. 
+      placeholder: e.g., "I'm always frusted when..."
     validations:
       required: false
-  - type: input
-    id: operating-system
+  - type: textarea
+    id: solution
     attributes:
-      label: Operating System
-      placeholder: e.g., Windows 10, iOS
+      label: Describe the solution you'd like.
+      placeholder: A clear and concise description of what you want to happen.
+      value:
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What alternatives have you considered?
+      placeholder: A clear and concise description of any alternative solutions or features you've considered.
+      value:
     validations:
       required: false
-  - type: dropdown
-    id: browsers
+  - type: textarea
+    id: context
     attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Microsoft Edge
-        - Firefox
-        - Chrome
-        - Safari
-  - type: input
-    id: version
-    attributes:
-      label: Version
-      placeholder: e.g., 22
+      label: Additional context
+      placeholder: Add any other context or screenshots about the feature request here.
+      value:
     validations:
-      required: false 
-  - type: input
-    id: device
-    attributes:
-      label: Device
-      placeholder: e.g., iPhone 6
-    validations:
-      required: false 
+      required: true
   - type: dropdown
     id: role
     attributes:
