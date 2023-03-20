@@ -1,6 +1,6 @@
-name: \U0001F41E Report a Bug!
+name: "\U0001F41E Report a Bug!""
 description: "Provide product feedback to help us improve"
-title: ""
+title: " "
 body:
   - type: input
     id: name
