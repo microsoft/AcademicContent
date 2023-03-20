@@ -79,6 +79,26 @@ body:
       placeholder: e.g., iPhone 6
     validations:
       required: false 
+  - type: dropdown
+    id: role
+    attributes:
+      label: What is your current role?
+      multiple: false
+      options:
+        - Student
+        - Professional
+        - Educator
+  - type: dropdown
+    id: tech-topic
+    attributes:
+      label: What technical topic is this bug related to?
+      multiple: true
+      options:
+        - AI/Data Science/Machine Learning
+        - Application Development
+        - Developer Tools
+        - Low Code/Fusion Development
+        - Other
   - type: textarea
     id: logs
     attributes:
