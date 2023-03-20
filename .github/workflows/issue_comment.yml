@@ -1,0 +1,17 @@
+name: Comment on issues
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add-comment:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Add comment
+        uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Thank you for submitting this issue! The team will review your issue, tag with any additional tags as needed, and comment with any additional questions on information required to triage. Check out the [Microsoft Learn Student Hub](https://aka.ms/MSFTStudentHub) to learn more about Microsoft tools, programs, and developer communities. :sparkles:
