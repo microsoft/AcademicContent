@@ -1,0 +1,32 @@
+name: Project
+description: "Share with us your project to get a digital badge and win exciting prizes!"
+title: "Project: <short description>"
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Provide a short description of your project. What is it about? What type of app have you built? What is it doing? What problem is it solving?
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Repo URL
+      description: URL of the GitHub repo with your project
+    validations:
+      required: true
+  - type: input
+    id: teammembers
+    attributes:
+      label: Team members
+      description: Comma-separated list of GitHub users who worked on this project
+    validations:
+      required: true

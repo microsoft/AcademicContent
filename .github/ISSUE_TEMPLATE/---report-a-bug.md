@@ -1,12 +1,11 @@
 ---
-name: "\U0001F41E Report a Bug or Error!"
+name: "\U0001F41E Report a Bug!"
 about: Provide product feedback to help us improve
 title: ''
 labels: 'bug'
 assignees: ''
 
 ---
-
 ## Describe the bug
 A clear and concise description of what the bug is.
 
