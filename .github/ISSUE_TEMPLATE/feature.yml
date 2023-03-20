@@ -50,7 +50,7 @@ body:
   - type: dropdown
     id: tech-topic
     attributes:
-      label: What technical topic is this bug related to?
+      label: What technical topic is this feature related to?
       multiple: true
       options:
         - AI/Data Science/Machine Learning

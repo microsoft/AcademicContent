@@ -1,0 +1,78 @@
+---
+name: "✋ Ask a Question"
+about: 'Have a question on '
+title: ''
+labels: 'question'
+assignees: ''
+
+---
+
+## What Product(s) Are You Talking About? 
+(ex: Azure Functions)
+
+## What is the Question?
+(ex: Do you have plans to support X? How do I implement Y using this service?)
+
+## What is your Name / Role?
+(We will use Name to identify you if question is asked live. The Role helps provide context (e.g., Developer, Architect, Lead etc.) that can help our experts provide more relevant levels of detail.
+
+## (Optional) Anything else we should know?
+(ex: Links to posts, issues, blog posts etc. where you have had similar discussions)
+
+***
+
+#### 🎓 Add a tag to this issue for your current education role: **student**, **professional**, or **educator**.
+
+#### 💻 Add a tag to this issue for tech topic: **AI**, **Application Development**, **Data Science/ML**, **Developer Tools**, or **Low Code**.
+
+***
+name: ✋ Ask a Question
+description: Ask us a question
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to ask us a question!
+  - type: input
+    id: product
+    attributes:
+      label: What product(s) do you have a question about?
+      placeholder: e.g., Azure Functions
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: What is your question?
+      placeholder: e.g., Do you have plans to support X? How do I implement Y using this service?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add any other context, screenshots, or other things we should know.
+      placeholder: e.g., Links to posts, issues, blog posts etc. where you have had similar discussions
+    validations:
+      required: false
+  - type: dropdown
+    id: role
+    attributes:
+      label: What is your current role?
+      multiple: false
+      options:
+        - Student
+        - Professional
+        - Educator
+  - type: dropdown
+    id: tech-topic
+    attributes:
+      label: What technical topic is this question related to?
+      multiple: true
+      options:
+        - AI/Data Science/Machine Learning
+        - Application Development
+        - Developer Tools
+        - Low Code/Fusion Development
+        - Other
