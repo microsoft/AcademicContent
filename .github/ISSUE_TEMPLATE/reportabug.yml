@@ -11,11 +11,32 @@ body:
     attributes:
       label: Describe the bug
       placeholder: A clear and concise description of what the bug is.
+    validations:
+      required: true
   - type: textarea
     id: what-happened
     attributes:
       label: What happened?
-      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value:
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How would you reproduce the bug?
+      placeholder: Steps to reproduce the behavior
+      1. Go to '...'
+      2. Click on '....'
+      3. Scroll down to '....'
+      4. See error  
+      value:
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
       placeholder: Tell us what you see!
       value:
     validations:
