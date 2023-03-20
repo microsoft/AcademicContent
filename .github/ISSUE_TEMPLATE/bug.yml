@@ -1,4 +1,4 @@
-name: 🐞 Report a Bug!
+name: 🐞 Report a Bug
 description: Provide product feedback to help us improve
 labels: ["bug"]
 body:
