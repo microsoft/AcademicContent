@@ -1,6 +1,11 @@
-name: Project
-description: "Share with us your project to get a digital badge and win exciting prizes!"
-title: "Project: <short description>"
+---
+name: "\U0001F41E Report a Bug!"
+about: Provide product feedback to help us improve
+title: ''
+labels: 'bug'
+assignees: ''
+
+---
 body:
   - type: input
     id: name
