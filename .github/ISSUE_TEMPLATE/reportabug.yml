@@ -1,5 +1,5 @@
 name: 🐞 Report a Bug!
-description: File a bug report
+description: Provide product feedback to help us improve
 title: "[Bug]: "
 labels: ["bug"]
 body:
@@ -13,7 +13,7 @@ body:
       label: What happened?
       description: Also tell us, what did you expect to happen?
       placeholder: Tell us what you see!
-      value: "A bug happened!"
+      value:
     validations:
       required: true
   - type: dropdown
