@@ -17,7 +17,15 @@ body:
     id: what-happened
     attributes:
       label: What happened?
-      placeholder: Tell us what you see!
+      placeholder: Tell us what you see! If applicable, add screenshots to help explain the issue.
+      value:
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: What did you expect to happen?
+      placeholder: A clear and concise description of what you expected to happen.
       value:
     validations:
       required: true
@@ -25,26 +33,16 @@ body:
     id: reproduce
     attributes:
       label: How would you reproduce the bug?
-      placeholder: Steps to reproduce the behavior (e.g., 1. Go to '...', 2. Click on '....',  3. Scroll down to '...', 4. See error   3. Scroll down to '....'"
+      description: Include steps to reproduce the behavior
+      placeholder: e.g., 1. Go to '...', 2. Click on '....',  3. Scroll down to '...', 4. See error. If applicable, add screenshots to explain the issue.
       value:
     validations:
       required: true
-  - type: textarea
-    id: expected-behavior
+  - type: input
+    id: operating-system
     attributes:
-      label: What happened?
-      placeholder: Tell us what you see!
-      value:
-    validations:
-      required: true
-  - type: dropdown
-    id: version
-    attributes:
-      label: Version
-      description: What version of our software are you running?
-      options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+      label: Operating System
+      placeholder: e.g., Windows 10, iOS
     validations:
       required: true
   - type: dropdown
@@ -53,10 +51,17 @@ body:
       label: What browsers are you seeing the problem on?
       multiple: true
       options:
+        - Microsoft Edge
         - Firefox
         - Chrome
         - Safari
-        - Microsoft Edge
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: e.g., 22
+    validations:
+      required: true 
   - type: textarea
     id: logs
     attributes:
