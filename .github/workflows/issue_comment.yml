@@ -14,4 +14,4 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Thank you for submitting this issue! The team will review your issue, tag with any additional tags as needed, and comment with any additional questions on information required to triage. Check out the [Microsoft Learn Student Hub](https://aka.ms/MSFTStudentHub) to learn more about Microsoft tools, programs, and developer communities. :sparkles:
+            Thank you for submitting this issue! The team will review your issue, add any additional labels as needed, and comment with any additional questions on information required to triage. Check out the [Microsoft Learn Student Hub](https://aka.ms/MSFTStudentHub) to learn more about Microsoft tools, programs, and developer communities. :sparkles:
