@@ -16,7 +16,7 @@ Students can get free Azure credits to explore these resources here:
 
 ## For Students
 
-[Microsoft Learn Student Hub](https://learn.microsoft.com/training/student-hub/WT.mc_id=academic-9938-cxa)
+[Microsoft Learn Student Hub](https://learn.microsoft.com/training/student-hub/?WT.mc_id=academic-9938-cxa)
 
 [Azure for Students](https://azure.microsoft.com/free/students?WT.mc_id=academic-9938-cxa)
 
