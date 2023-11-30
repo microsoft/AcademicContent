@@ -12,7 +12,7 @@ Attending a hackathon? Here are some helpful [guides and resources](./hackathon-
 
 ## Certification
 
-Looking to get certified? [Take practice exams](https://docs.microsoft.com/learn/certifications/student-training-and-certification) to get ready for the certification.
+Looking to get certified? [Take practice exams](https://learn.microsoft.com/en-us/training/student-hub/certifications?WT.mc_id=academic-9938-cxa) to get ready for the certification.
 
 ## Teach with our Learn-based workshops
 
@@ -26,10 +26,10 @@ More courseware can be discovered [here](./courseware.md).
 
 If you are looking for useful links and a deck about programs of interest to schools, faculty and students, visit our [offers and programs area](./offers-programs/README.md) for more information.
                                                       
-## Attend our [Reactor Sessions](https://github.com/microsoft/reactors)
+## Attend our [Reactor Sessions] (https://developer.microsoft.com/reactor?WT.mc_id=academic-9938-cxa) 
 
 We focus on developing high-quality content for all cloud, data science, machine Learning, web development, and artificial intelligence learners. Through workshops, tech talks, and hackathons hosted around the world, come learn and apply new skills!
-
+Reactor GitHub Repos (https://github.com/microsoft/reactors?WT.mc_id=academic-9938-cxa)
 ## K-12 Content
 
 Most of the content here is for higher education, but we do have [links](./k-12-content.md) available for k-12 students and their teachers.
