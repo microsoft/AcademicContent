@@ -16,6 +16,8 @@ Students can get free Azure credits to explore these resources here:
 
 ## For Students
 
+[Microsoft Learn Student Hub] (https://learn.microsoft.com/training/student-hub/WT.mc_id=academic-9938-cxa)
+
 [Azure for Students](https://azure.microsoft.com/free/students?WT.mc_id=academic-9938-cxa)
 
 [GitHub Codespaces](https://github.com/features/codespaces)
@@ -45,4 +47,8 @@ Students can get free Azure credits to explore these resources here:
 [Microsoft Learn Educator Center](https://docs.microsoft.com/learn/educator-center?WT.mc_id=academic-9938-cxa)
 
 [Microsoft Research Academic Programs](https://www.microsoft.com/research/academic-programs/faculty/?facet%5Btax%5D%5Bmsr-program-audience%5D%5B0%5D=243727&WT.mc_id=academic-9938-cxa)
+
+## For Starups and Entrepreneurial Students
+
+[Microsoft Startups](https://startups.microsoft.com/?WT.mc_id=academic-9938-cxa)
 
