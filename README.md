@@ -41,4 +41,4 @@ Most of the content here is for higher education, but we do have [links](./k-12-
 
 We 💖**love**💖 contributions. In fact, we want students, faculty, researchers and life-long learners to contribute to this repo, either by adding links to existing content, or building content. Please read the [contributing guide](./CONTRIBUTING.md) to learn more.
 
-To report any issues, please log a GitHub issue. Include the content section, module number, and title, along with any error messages and screenshots.
+To report any issues or any arising difficulty, please log a GitHub issue. Include the content section, module number, and title, along with any error messages and screenshots.
