@@ -8,7 +8,7 @@ A selection of workshops
 
 A hands on workshop for students to create and host their resume on Azure App Service, created by a Microsoft Student Partner, [Mustafa Saifee](https://www.saifeemustafa.com).
 
-## [Build Your Own AI Chatbot using Azure OpenAI and Power Virtual Agents][full tutorial on YouTube](https://www.youtube.com/watch?v=4KJ4Vc3Qdok))
+## [Build Your Own AI Chatbot using Azure OpenAI and Power Virtual Agents](https://www.youtube.com/watch?v=4KJ4Vc3Qdok))
 
 An interactive workshop guiding students through creating a conversational AI chatbot using Azure OpenAI Service and Power Virtual Agents. Attendees will learn how to integrate intelligent responses into a chatbot, publish it as a web app, and explore responsible AI considerations in conversational design.
 
