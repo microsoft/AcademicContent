@@ -1,6 +1,6 @@
 # Workshops
 
-Workshops built for Student Ambassadors primarily based on Microsoft Learn modules can be found [here](https://aka.ms/workshopomatic).
+Workshops built for Student Ambassadors primarily based on Microsoft Learning modules can be found [here](https://aka.ms/workshopomatic).
 
 A selection of workshops
 
