@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "azure-storage": "^1.0.1",
-    "body-parser": "1.9.2",
+    "body-parser": "1.20.3",
     "express": ">=4.20.0",
     "morgan": "1.9.1"
   },
