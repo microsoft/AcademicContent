@@ -38,7 +38,7 @@ def hello():
         hostname=hostname,
         vote=vote,
     ))
-    resp.set_cookie('voter_id', voter_id)
+    resp.set_cookie('voter_id', voter_id, secure=True, httponly=True, samesite='Lax')
     return resp
 
 
