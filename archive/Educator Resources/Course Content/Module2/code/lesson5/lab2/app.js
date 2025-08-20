@@ -1,6 +1,7 @@
 var express = require('express'),
   bodyParser = require('body-parser'),
-  logger = require('morgan')
+  logger = require('morgan'),
+  escapeHtml = require('escape-html')
 
 let posts = require('./posts.json')
 
@@ -15,7 +16,17 @@ app.get('/', function(req, res, next) {
 })
 
 app.get('/api/posts', function(req, res, next) {
-  let results = posts
+  let results = posts.map(post => {
+    let escapedPost = {};
+    for (let key in post) {
+      if (typeof post[key] === 'string') {
+        escapedPost[key] = escapeHtml(post[key]);
+      } else {
+        escapedPost[key] = post[key];
+      }
+    }
+    return escapedPost;
+  });
   res.send(results)
 })
 
