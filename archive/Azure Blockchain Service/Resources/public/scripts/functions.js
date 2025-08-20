@@ -20,7 +20,7 @@ function submitComment(commentControl) {
 
         var currentItemId = JSON.parse(localStorage.getItem('currentItemId'));
 
-        window.location.href = '/comments?classId=' + currentItemId + '&rating=' + sentimentRating + '&comments=' + comments;
+        window.location.href = '/comments?classId=' + currentItemId + '&rating=' + sentimentRating + '&comments=' + encodeURIComponent(comments);
 
     }).fail(function (xhr, status, err) {
         alert(err);
