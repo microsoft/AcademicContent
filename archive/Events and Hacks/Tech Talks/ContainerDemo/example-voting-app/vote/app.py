@@ -19,8 +19,9 @@ def get_redis():
 @app.route("/", methods=['POST','GET'])
 def hello():
     voter_id = request.cookies.get('voter_id')
-    if not voter_id:
-        voter_id = hex(random.getrandbits(64))[2:-1]
+    # Validate voter_id: must be a hex string of length 16 (64 bits)
+    if not voter_id or not (isinstance(voter_id, str) and len(voter_id) == 16 and all(c in '0123456789abcdefABCDEF' for c in voter_id)):
+        voter_id = hex(random.getrandbits(64))[2:].zfill(16)
 
     vote = None
 
