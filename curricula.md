@@ -2,11 +2,18 @@
 
 Here you will find curated, semester-long experiences for students and educators who would like to use this MIT-licensed content in their classrooms.
 
-|  Title       | Description |
-| ----------- | ---- |                                                                              
-| [Web Development for Beginners, 24 lessons](https://github.com/microsoft/Web-Dev-For-Beginners) ![WebDevSktechNote](https://github.com/microsoft/Web-Dev-For-Beginners/blob/main/sketchnotes/webdev101-programming.png) | A curriculum with 24 lessons, assignments and five projects to build. Covers HTML, CSS and JavaScript. Also includes Pre- and Post- Quizzes. Made with teachers in mind, or as self paced learning |
-| [Machine Learning for Beginners, 25 lessons](https://github.com/microsoft/ML-For-Beginners)![MLSketchNote](https://github.com/microsoft/ML-For-Beginners/blob/main/sketchnotes/ml-realworld.png)| A curriculum with 25 lessons with assignments covering classic Machine Learning primarily using Scikit-learn. Covers Regression, Classification, Clustering, NLP, Time Series Forecasting, and Reinforcement Learning, with two Applied ML lessons. Also includes 52 Pre- and Post- Quizzes. Made with teachers in mind, or as self paced learning        |
-| [IoT for Beginners, 24 lessons](https://github.com/microsoft/IoT-For-Beginners) ![IoTSketchNote](https://github.com/microsoft/IoT-For-Beginners/blob/main/sketchnotes/Roadmap.jpg)                 | A curriculum with 24 lessons with assignments all about the Internet of Things. The projects cover the journey of food from farm to table. This includes farming, logistics, manufacturing, retail and consumer - all popular industry areas for IoT devices. Also includes Pre- and Post- Quizzes. Made with teachers in mind, or as self paced learning |
-| [Data Science for Beginners, 20 lessons](https://github.com/microsoft/Data-Science-For-Beginners) ![DSSketchNote](https://github.com/microsoft/Data-Science-For-Beginners/blob/main/sketchnotes/00-Roadmap.png)                | A curriculum with 20 lessons with assignments all about Data Science. Lessons cover the data science lifecycle from definition to deployment. Also includes Pre- and Post- Quizzes. Made with teachers in mind, or as self paced learning |
-| [AI for Beginners, 24 lessons](https://github.com/microsoft/AI-For-Beginners) ![AISketchNote](https://github.com/microsoft/AI-For-Beginners/blob/main/lessons/sketchnotes/ai-overview.png)                | A curriculum with 24 lessons with assignments all about Artificial Intelligence. Lessons cover AI topics such as neural networks using frameworks such as TensorFlow and PyTorch. Also includes Pre- and Post- Quizzes. Made with teachers and students in mind, or as self paced learning |
-| [Generative AI for Beginners, 12 lessons](https://github.com/microsoft/Generative-AI-For-Beginners) ![AISketchNote](https://github.com/microsoft/generative-ai-for-beginners/blob/main/images/logo.png)           | A curriculum with 12 lessons with assignments all about Generative AI. Each lesson covers a key aspect of Generative AI principles and application development. Throughout this course, we will be building our own Generative AI startup so you can get an understanding of what it takes to launch your ideas. |
+- [Model Context Protocol (MCP) For Beginners](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
+- [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst)
+- [Generative AI for Beginners using .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
+- [Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
+- [Generative AI for Beginners using Java](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
+- [ML for Beginners](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
+- [Data Science for Beginners](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
+- [AI for Beginners](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
+- [Cybersecurity for Beginners](https://github.com/microsoft/Security-101??WT.mc_id=academic-96948-sayoung)
+- [Web Dev for Beginners](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
+- [IoT for Beginners](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)
+- [XR Development for Beginners](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
+- [Mastering GitHub Copilot for AI Paired Programming](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+- [Mastering GitHub Copilot for C#/.NET Developers](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
+- [Choose Your Own Copilot Adventure](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)

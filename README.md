@@ -1,6 +1,9 @@
 # Technical Resources for Academic Communities
 
-This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in artificial intelligence and machine learning, data science, web development, mobile app dev, internet of things, and DevOps. It also includes interesting tech talks and engaging, fun tech challenges.
+This repo provides technical resources to help students and faculty learn about Azure and teach others. The content covers cross-platform scenarios in artificial intelligence and machine learning, data science, web development, mobile app dev, internet of things, and DevOps. It also includes interesting tech talks and engaging, fun tech challenges. For the latest academic and student content visit
+
+[Microsoft Learn Student Hub](https://learn.microsoft.com/training/student-hub/)
+[GitHub Education Hub](https://education.github.com)
 
 ## Learn by Doing with our Curricula
 
